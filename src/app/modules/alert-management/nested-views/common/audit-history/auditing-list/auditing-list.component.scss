@@ -1,0 +1,16 @@
+:host ::ng-deep .bst-audit__description {
+    padding: 8px 24px 8px 18px;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, .08);
+    margin-bottom: 8px
+}
+
+:host ::ng-deep .bst-audit__description .label {
+    color: rgba(255, 255, 255, .6);
+    word-break: break-all;
+    min-width: 55px
+}
+
+:host ::ng-deep .bst-audit__description .labelData {
+    word-break: break-all
+}

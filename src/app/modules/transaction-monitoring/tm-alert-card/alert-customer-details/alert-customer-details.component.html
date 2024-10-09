@@ -1,0 +1,25 @@
+<div class="card custom-card sm-cards">
+    <div class="card-header border-0">
+        <span class="f-14 lh-14 text-on-surface d-inline-flex align-items-center mr-4">{{ 'Customer Details' | translate }}</span>
+    </div>
+
+    <div class="d-flex mt-3">
+        <div class="details-column col-margin">
+
+            <span class="mr-2"> {{ 'Entity Type' | translate }}: </span>
+            <span> {{ alertCardData?.entityType || '-'}} </span>
+
+            <span class="mr-2"> {{ 'Entity ID' | translate }}: </span>
+            <span> {{ alertCardData?.entityId || '-'}} </span>
+        </div>
+
+        <div class="details-column col-margin">
+            
+            <span class="mr-2" translate> {{ 'Entity Name' | translate }}: </span>
+            <span> {{ alertCardData?.entityName || '-'}} </span>
+
+            <span class="mr-2" translate> {{ 'Country' | translate }}: </span>
+            <span> {{ alertCardData?.country || '-'}} </span>      
+        </div>
+    </div>
+</div>

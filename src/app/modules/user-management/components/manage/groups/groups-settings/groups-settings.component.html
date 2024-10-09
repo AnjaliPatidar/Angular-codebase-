@@ -1,0 +1,428 @@
+<section class="settings-tab mb-4">
+    <div class="container-fluid">
+        <div class="row mr-0">
+            <div class="col-md-8" [class.col-md-12]="(currentGroup == 'newgroup')">
+                <div class="fields-tab  dark-black-panels pad-25 light-theme-bg-white light-theme-no-radius">
+                    <div class="app-spinner" *ngIf="addGroupSpinner">
+                        <mat-spinner></mat-spinner>
+                    </div>
+                    <h4 class="text-capitalize f-24 mt-2 pt-2 text-dark-black title-text-on-surface">
+                        {{'Group Settings' | translate}}
+                    </h4>
+                    <h6 *ngIf="(currentGroup!='newgroup')" class="f-14 text-on-surface mb-5 text-dark-black">
+                        {{'Group Code' | translate}}: {{groupDetails.groupCode}}
+                    </h6>
+                    <h6 class="f-16 text-on-surface mb-1 text-dark-black">
+                        {{'General' | translate}}
+                    </h6>
+
+                    <div class="card-body pl-0">
+                        <form #groupForm='ngForm' autocomplete="off">
+                            <div class="roles-settings-form">
+                                <div *ngIf="(currentGroup=='newgroup')" class="mb-4 pb-1">
+                                    <mat-form-field class="rounded-top gotham-regular">
+                                        <input matInput required maxlength="72" placeholder="{{'Group Code' | translate}}" name="groupCode"
+                                            autocomplete="off" #groupCode="ngModel" [(ngModel)]="groupDetails.groupCode"
+                                            [disabled]="currentGroup != 'newgroup'" class="text-dark-black gotham-regular">
+                                    </mat-form-field>
+                                    <span *ngIf="groupCode.touched" class="d-block text-coral-red mt-2 gotham-regular">
+                                        <span *ngIf="groupCode.hasError('required')">
+                                            This field is required
+                                        </span>
+                                        <span *ngIf="groupCode.hasError('maxlength')">
+                                            maximum allowed characters are 72
+                                        </span>
+                                    </span>
+                                    <span class="d-block mt-2 gotham-regular text-right">
+                                        <span>
+                                            {{groupDetails.groupCode.length}}/72
+                                        </span>
+                                    </span>
+                                </div>
+
+                                <div class="mb-4 pb-1">
+                                    <!-- <mat-form-field class="rounded-top gotham-regular">
+                                        <input matInput required maxlength="60" placeholder="Group Name" name="groupName" autocomplete="off" #groupName="ngModel" [(ngModel)]="groupDetails.groupName" [disabled]="(currentGroup != 'newgroup' && !groupUpdateEnable) || groupDetails.groupName == 'Admin'"
+                                            class="text-dark-black gotham-regular"> -->
+                                    <mat-form-field class="rounded-top gotham-regular">
+                                        <input matInput required maxlength="60" placeholder="{{'Group Name' | translate}}" name="groupName" autocomplete="off" #groupName="ngModel" [(ngModel)]="groupDetails.groupName" [disabled]="(currentGroup != 'newgroup' && !groupUpdateEnable)" class="text-dark-black  gotham-regular">
+                                    </mat-form-field>
+                                    <span *ngIf="groupName.touched" class="d-block text-coral-red mt-2 gotham-regular">
+                                    <span *ngIf="groupName.hasError('required')"> This field is required</span>
+                                    <span *ngIf="groupName.hasError('maxlength')">maximum allowed characters are 60</span>
+                                    </span>
+                                </div>
+
+                                <div class="mb-4 pb-1">
+                                    <mat-form-field class="rounded-top gotham-regular">
+                                        <input matInput maxlength="512" placeholder="{{'Description' | translate}}"  name="description" autocomplete="off" #description="ngModel" [(ngModel)]="groupDetails.description" [disabled]="currentGroup != 'newgroup' && !groupUpdateEnable" class="text-dark-black gotham-regular">
+                                    </mat-form-field>
+                                    <span *ngIf="description.touched" class="d-block text-coral-red mt-2 gotham-regular">
+                                        <span *ngIf="groupName.hasError('maxlength')"> maximum allowed characters is 512</span>
+                                    </span>
+                                </div>
+
+                                <div class="row mb-4 pb-1">
+                                    <div class="col-md-6">
+                                        <mat-form-field class="icon-feild rounded-top gotham-regular">
+                                            <mat-select placeholder="{{'Select Icon' | translate}}"   name="icon" #icon="ngModel" [(ngModel)]="groupDetails.icon" [disabled]="currentGroup != 'newgroup' && !groupUpdateEnable" class="text-dark-black gotham-regular">
+                                                <ngx-mat-select-search name="search" placeholderLabel="search" ngModel (ngModelChange)="iconsFilter($event)" [clearSearchInput]="true">
+                                                </ngx-mat-select-search>
+                                                <mat-select-trigger>
+                                                    <mat-icon> {{groupDetails?.icon}}</mat-icon>
+                                                    &nbsp;{{groupDetails?.icon?.replace("_"," ")}}
+                                                </mat-select-trigger>
+                                                <mat-option value=""></mat-option>
+                                                <ng-container *ngFor="let icon of icons">
+                                                    <mat-option *ngIf="icon.length > 0" [value]="icon">
+                                                        <mat-icon> {{icon}}</mat-icon> {{icon.replace("_"," ")}}
+                                                    </mat-option>
+                                                </ng-container>
+
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-6 custom-input-wrapper">
+                                        <mat-form-field class="gotham-regular">
+                                            <input matInput type="color" placeholder="{{'Select Color' | translate}}"  name="color" autocomplete="off" class="custom-input-color rounded-circle c-pointer gotham-regular" #color="ngModel" [(ngModel)]="groupDetails.color" [disabled]="currentGroup != 'newgroup' && !groupUpdateEnable">
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <!-- Group Restrictions Component start -->
+                                <h6 class="f-16 text-on-surface mb-4 text-dark-black gotham-regular">{{'Group Restrictions' | translate}}</h6>
+                               <!-- case Type -->
+                               <div class="row">
+                                    <div class="col-md-12 alert-custom-select">
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>{{'Case Type' | translate}}</mat-label>
+                                            <mat-select disableOptionCentering #caseTypeId name="caseTypeId" [(ngModel)]="caseType" multiple panelClass="group-screen overflow-x-hidden custom-scroll-wrapper custom-grp-dd"
+                                            appBackdropClass="bst-group-bkdrop">
+                                                <ngx-mat-select-search name="search" ngModel
+                                                    (ngModelChange)="searchCaseType($event)"
+                                                    [clearSearchInput]="true">
+                                                </ngx-mat-select-search>
+
+                                                 <!-- select all -->
+                                                <mat-select-trigger *ngIf="caseTypeFilters.length < caseType.length"  class="mt-2">
+                                                    <span *ngFor="let topping of caseType | slice:0:1; let i=index;trackBy:trackByDisplayName">
+                                                        {{ topping.displayName ? topping.displayName : 'All' | translate }}
+                                                    </span>
+                                                </mat-select-trigger>
+
+                                                <!-- whith out select all -->
+                                                <mat-select-trigger *ngIf="caseType.length <= caseTypeFilters.length"  class="mt-2">
+                                                    <mat-chip-list>
+                                                    <mat-chip *ngFor="let topping of caseType | slice:0:3; let i=index;trackBy:trackByDisplayName"
+                                                        [removable]="true" (removed)="onToppingRemovedCaseType(topping)">
+                                                        {{ topping.displayName ? topping.displayName : 'All' | translate }}
+                                                        <mat-icon matChipRemove>cancel</mat-icon>
+                                                    </mat-chip>
+                                                    </mat-chip-list>
+                                                    <span class="additional-selection" *ngIf="caseType?.length > 3">
+                                                    (+{{caseType.length - 3}} {{caseType?.length === 2 ? 'other'
+                                                    : 'others'}})
+                                                    </span>
+                                                </mat-select-trigger>
+
+                                                <mat-option #allSelectedCT (click)="toggleAllSelectionCaseType()" [value]="0">All</mat-option>
+                                                <mat-option *ngFor="let filters of caseTypeFilters;trackBy:trackByDisplayName" [value]="filters" (click)="tosslePerOneCaseType(allSelectedCT.viewValue)">
+                                                    {{filters.displayName}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <!-- Tenants -->
+                                <div class="row mt-4">
+                                    <div class="col-md-12 alert-custom-select">
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>{{'Tenants' | translate}}</mat-label>
+                                            <mat-select disableOptionCentering #mySel name="mySel" [(ngModel)]="tenantType" multiple panelClass="group-screen overflow-x-hidden custom-scroll-wrapper custom-grp-dd"
+                                            appBackdropClass="bst-group-bkdrop">
+                                                <ngx-mat-select-search name="search" ngModel
+                                                    (ngModelChange)="searchTenant($event)"
+                                                    [clearSearchInput]="true">
+                                                </ngx-mat-select-search>
+
+                                                <!-- select all -->
+                                                <mat-select-trigger *ngIf="tenantTypeFilters.length < tenantType.length" class="mt-2">
+                                                    <span *ngFor="let topping of tenantType | slice:0:1; let i=index;trackBy:trackByDisplayName">
+                                                        {{ topping.displayName ? topping.displayName : 'All' | translate }}
+                                                    </span>
+                                                </mat-select-trigger>
+
+                                                <!-- whith out select all -->
+                                                <mat-select-trigger *ngIf="tenantType.length <= tenantTypeFilters.length" class="mt-2">
+                                                    <mat-chip-list>
+                                                      <mat-chip *ngFor="let topping of tenantType | slice:0:3; let i=index;trackBy:trackByDisplayName"
+                                                        [removable]="true" (removed)="onToppingRemovedTenant(topping)">
+                                                        {{ topping.displayName ? topping.displayName : 'All' | translate }}
+                                                        <mat-icon matChipRemove>cancel</mat-icon>
+                                                      </mat-chip>
+                                                    </mat-chip-list>
+
+                                                    <span class="additional-selection" *ngIf="tenantType?.length > 3">
+                                                    (+{{tenantType.length - 3}} {{tenantType?.length === 2 ? 'other'
+                                                    : 'others'}})
+                                                    </span>
+                                                  </mat-select-trigger>
+
+                                                <mat-option #allSelected (click)="toggleAllSelection()" [value]="0">All</mat-option>
+                                                <mat-option *ngFor="let filters of tenantTypeFilters;trackBy:trackByDisplayName" [value]="filters" (click)="tosslePerOneTenant(allSelected.viewValue)">
+                                                    {{filters.displayName}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <!-- Feed Classification -->
+                                <div class="row mt-4">
+                                    <div class="col-md-12 alert-custom-select">
+                                        <mat-form-field appearance="fill">
+                                            <mat-label>{{'Feed Classification' | translate}}</mat-label>
+                                            <mat-select disableOptionCentering #feedClassification name="feedClassification" [(ngModel)]="feedClassificationType" multiple panelClass="group-screen overflow-x-hidden custom-scroll-wrapper custom-grp-dd"
+                                            appBackdropClass="bst-group-bkdrop">
+                                                <ngx-mat-select-search name="search" ngModel
+                                                    (ngModelChange)="searchfeedClassification($event)"
+                                                    [clearSearchInput]="true">
+                                                </ngx-mat-select-search>
+
+                                                <!-- select all -->
+                                                <mat-select-trigger *ngIf="feedClassificationTypeFilters.length < feedClassificationType.length" class="mt-2">
+                                                    <span *ngFor="let topping of feedClassificationType | slice:0:1; let i=index;trackBy:trackByDisplayName">
+                                                    {{ topping.displayName ? topping.displayName : 'All' | translate }}
+                                                    </span>
+                                                </mat-select-trigger>
+
+                                                <!-- whith out select all -->
+                                                <mat-select-trigger *ngIf="feedClassificationType.length <= feedClassificationTypeFilters.length" class="mt-2">
+                                                    <mat-chip-list>
+                                                      <mat-chip *ngFor="let topping of feedClassificationType | slice:0:2; let i=index;trackBy:trackByDisplayName"
+                                                        [removable]="true" (removed)="onToppingRemovedFeedClassification(topping)">
+                                                        {{ topping.displayName ? topping.displayName : 'All' | translate }}
+                                                        <mat-icon matChipRemove>cancel</mat-icon>
+                                                      </mat-chip>
+                                                    </mat-chip-list>
+
+                                                    <span class="additional-selection" *ngIf="feedClassificationType?.length > 2">
+                                                    (+{{feedClassificationType.length - 2}} {{feedClassificationType?.length === 1 ? 'other'
+                                                    : 'others'}})
+                                                    </span>
+                                                  </mat-select-trigger>
+
+                                                <mat-option #allSelectedFC (click)="toggleAllSelectionFeedClassification()" [value]="0">All</mat-option>
+                                                <mat-option *ngFor="let filters of feedClassificationTypeFilters;trackBy:trackByDisplayName" [value]="filters" (click)="tosslePerOneFeedClassification(allSelectedFC.viewValue)">
+                                                    {{filters.displayName}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                <!-- Group Restrictions Component End -->
+                                <h6 class="f-16 text-on-surface mb-4 text-dark-black gotham-regular">{{'Alerts Management Settings' | translate}}</h6>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-12">
+                                        <core-multi-select
+                                            [label]="'Watchlists'"
+                                            [allItems]="allWatchlists"
+                                            [selectedItems]="selectedWatchlists"
+                                            (change)="onWatchlistsChange($event)"
+                                        >
+                                        </core-multi-select>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <div class="d-flex justify-content-between col-md-6 align-items-center">
+                                        <h6 class="f-14 text-on-surface text-dark-black gotham-regular">{{'Show alerts based On geographical location' | translate}}</h6>
+
+                                        <label class="group-settings-switch custom-switch-wrapper bst-switch-wrapper">
+                                        <input type="checkbox" (change)="alertsOnGeographicalLocation(showAlerts)"
+                                            [(ngModel)]="showAlerts" name="assignee" #name="ngModel"  />
+                                        <span class="slider round m-0" style="width:100% !important">
+                                        </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex custom-mat-list mb-4 pb-3">
+                                <mat-form-field class="custom-mat-field w-100">
+                                    <div class="d-flex">
+                                        <mat-chip-list #chipList>
+                                            <mat-chip *ngFor="let user of selectedJurisdictions;trackBy:trackByDisplayName" [selectable]="selectable" [removable]="removable" (removed)="removeJurisdiction(user)">
+                                                <i class="flag-icon w-25 pad-r3 flag-icon-squared flag-icon-{{user.code.toLowerCase()}}"></i>{{user.displayName}}
+                                                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                            </mat-chip>
+                                        </mat-chip-list>
+                                        <div class="d-flex align-items-center add-btn ml-3 light-theme-no-radius">
+                                            <span class="material-icons text-dark-black text-on-surface">
+                                                add_circle
+                                            </span>
+                                            <input type="button" value="{{'Add Jurisdiction' | translate}}" [disabled]="!showAlerts" [matAutocomplete]="auto" class="bg-transparent border-0 text-on-surface text-dark-black gotham-regular" (click)="showJurisdictions()">
+                                        </div>
+                                    </div>
+                                    <mat-autocomplete #auto="matAutocomplete" class="custom-scroll-wrapper position-relative custom-auto-complete"  >
+                                        <div [hidden]="showJurisdictionAutoComplete">
+                                            <div class="position-sticky search-container d-flex align-items-center t-0 pb-0 z-9 light-theme-bg-white" *ngIf="jurisdictionsList.length">
+                                                <i class="material-icons search-icon position-absolute  text-dark-black text-on-surface">
+                                                    search
+                                                </i>
+                                                <input type="text" #name="ngModel" name="filterargsName" [(ngModel)]="searchJurisdictionText" value="Search" class="form-control mt-0 mb-3 search-input border-0 text-on-surface pl-5 input-control light-theme-no-shadow light-theme-no-radius light-theme-border-bottom theme-f-15">
+                                            </div>
+                                            <mat-selection-list class="p-0 text" name="matJuris">
+                                                <mat-list-option [value]="0" [selected]="jurisdictionsList.length == selectedJurisdictions.length" (click)="selectAllJurisdiction(jurisdictionAllSelect)" #jurisdictionAllSelect checkboxPosition="after">Select all</mat-list-option>
+                                                <ng-container *ngFor="let user of jurisdictionsList| textFilter:searchJurisdictionText;let i =index;trackBy:trackByDisplayName">
+                                                <!-- <mat-list-option [id]="'multi-select-mat-list-option-'+ user.displayName.toLowerCase()" (click)="onJurisdictionSelectionChange(user,i)"  [selected]="isJurisdictionSelected(user)" *ngIf="user &&  user.displayName && user.displayName !== 'All'" -->
+
+                                                <mat-list-option [id]="'multi-select-mat-list-option-'+ user.displayName.toLowerCase()" (click)="onJurisdictionSelectionChange(user,i)"  *ngIf="user &&  user.displayName && user.displayName !== 'All'" [selected]="isJurisdictionSelected(user)"
+                                                    [value]="user.displayName">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="icon-size flag-icon  flag-icon-squared flag-icon-{{user.code.toLowerCase()}}"></i>
+                                                        <span class="text-dark-black">{{user.displayName}}</span>
+                                                    </div>
+                                                </mat-list-option>
+                                                <mat-option [style.display]="'none'"></mat-option>
+                                                </ng-container>
+
+                                            </mat-selection-list>
+                                            <div class="btn-group   w-100 position-sticky btn-container light-theme-bg-white ai-c d-flex jc-fe">
+                                                <button class=" bg-transparent f-14 light-theme-btn secondary-btn p-3 mr-3 gotham-medium fw-500 border-0" type="button" (click)="closeJurisdictions()">{{'Cancel' | translate}}</button>
+                                                <button class="user-btn border-0 bg-transparent mr-3 light-theme-btn primary-btn p-3 gotham-medium fw-500" type="button" (click)="addJurisdictionsList()">{{'Apply' | translate}}</button>
+                                            </div>
+                                        </div>
+                                    </mat-autocomplete>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="d-flex align-items-center mb-3 pb-1">
+                                <h6 class="text-on-surface f-16 m-0 text-dark-black">{{'Roles' | translate}}</h6>
+                                <p class="f-12 ml-4 text-dark-black text-on-surface">{{'Users who are assigned to this group will inherit these roles.' | translate}}</p>
+                            </div>
+
+                            <div class="mb-3 d-flex custom-mat-list">
+                                <mat-form-field class="custom-mat-field w-100">
+                                    <div class="d-flex">
+                                        <mat-chip-list #chipList>
+                                            <mat-chip *ngFor="let user of selectedRoles; trackBy:trackByRoleId" [selectable]="selectable" [removable]="removable" (removed)="removeRole(user)">
+                                                <i class="material-icons mr-2" [ngStyle]="{'color':user.color}">{{user.icon ? user.icon : "people"}}</i>
+
+                                                <span>{{user.roleName}}</span>
+                                                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                            </mat-chip>
+                                        </mat-chip-list>
+                                        <div class="d-flex align-items-center add-btn ml-3 light-theme-no-radius">
+                                            <span class="material-icons text-on-surface text-dark-black">
+                                                add_circle
+                                            </span>
+                                            <input type="button" value="{{'Add Role' | translate}}" [matAutocomplete]="autoRoles" (click)="getRoles();" name="Add Role" class="bg-transparent border-0 text-on-surface text-dark-black gotham-regular">
+                                        </div>
+                                    </div>
+                                    <mat-autocomplete #autoRoles="matAutocomplete" class="custom-scroll-wrapper position-relative custom-auto-complete">
+                                        <div [hidden]="showRolesAutoComplete">
+                                            <div class="position-sticky search-container t-0 pb-0 z-9 light-theme-bg-white" *ngIf="rolesData.length">
+                                                <span class="material-icons search-icon position-absolute  text-dark-black text-on-surface">
+                                                     search
+                                                </span>
+                                                <input type="text" #name="ngModel" name="filterargsName" [(ngModel)]="searchRoleText" placeholder="{{'Search' | translate}}" class="form-control mt-0 mb-3 search-input border-0 text-on-surface pl-5 input-control light-theme-no-shadow light-theme-no-radius light-theme-border-bottom theme-f-15">
+                                            </div>
+                                            <mat-selection-list class=" p-0" name="matRole" #name="ngModel" [(ngModel)]="matlRole">
+                                                <mat-list-option [id]="'multi-select-mat-list-option-'+ user.roleName.toLowerCase()" (click)="onRoleSelectionChange(user,i)" name="roleName" *ngFor="let user of rolesData| textFilter:searchRoleText;let i =index" [selected]="isRoleSelected(user)" [value]="user.roleName">
+                                                    <!-- <ng-container *ngIf=> -->
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="material-icons mr-3 text-dark-black" [ngStyle]="{'color':user.color}">{{user.icon ? user.icon : "people"}}</i>
+                                                        <span class="text-dark-black">{{user.roleName}}</span>
+                                                    </div>
+                                                    <!-- </ng-container> -->
+                                                </mat-list-option>
+                                                <mat-option [style.display]="'none'"></mat-option>
+
+                                            </mat-selection-list>
+                                            <div class="btn-group   w-100 position-sticky btn-container light-theme-bg-white ai-c d-flex jc-fe">
+                                                <button class=" bg-transparent f-14 light-theme-btn secondary-btn p-3 mr-3 gotham-medium fw-500 border-0" type="button" (click)="closeRoles()">{{'Cancel' | translate}}</button>
+                                                <button class="user-btn border-0 bg-transparent f-14 mr-3 light-theme-btn primary-btn p-3 gotham-medium fw-500" type="button" (click)="addRolesList()">{{'Apply' | translate}}</button>
+                                            </div>
+                                        </div>
+                                    </mat-autocomplete>
+                                </mat-form-field>
+                            </div>
+                        </form>
+                        <div *ngIf="currentGroup != 'newgroup' " class="button-section d-flex">
+                            <button class="btn btn-outline-primary d-flex align-items-center gotham-medium font-medium fw-500" [routerLink]="assignedUserRoute(groupDetails['groupName'])">
+                <i class="material-icons f-14 mr-3">assignment_ind</i>
+                <!-- /element/user-management/manage/groups/assigned-users/{{groupDetails['groupName']}} -->
+                <span> {{'Assign Users' | translate}}</span>
+              </button>
+                            <button class="btn btn-outline-primary d-flex align-items-center gotham-medium font-medium fw-500" routerLink="/element/user-management/manage/groups/settings/newgroup" [queryParams]="{'groupName' : groupDetails['groupName']}">
+                <!-- <i class="material-icons f-14 mr-3">file_copy</i> -->
+                <span>{{'Duplicate Group' | translate}}</span>
+              </button>
+                            <button class="btn btn-outline-primary d-flex align-items-center gotham-medium font-medium fw-500"  (click)="deleteGroup()">
+                <i class="material-icons f-14 mr-3"> delete</i><span>{{'Delete this Group' | translate}} </span>
+              </button>
+                            <button class="btn btn-outline-primary d-flex align-items-center gotham-medium font-medium fw-500" [disabled]="groupForm.invalid || !groupUpdateEnable || !groupForm.dirty" (click)="updateGroup()" [ngClass]="{'c-ban':groupForm.invalid}">
+                <!-- <mat-icon></mat-icon> -->
+                <span>{{'UPDATE GROUP' | translate}}</span>
+              </button>
+                        </div>
+                        <div *ngIf="currentGroup == 'newgroup' " class="button-section d-flex">
+                            <button class="btn btn-outline-primary" [disabled]="groupForm.invalid" (click)="addGroup()" [ngClass]="{'c-ban':groupForm.invalid}">
+                <!-- <mat-icon></mat-icon> -->
+
+                <span>{{'ADD GROUP' | translate}} </span>
+              </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 dark-black-panels Users-Activity light-theme-bg-white light-theme-no-radius"
+            *ngIf="(currentGroup != 'newgroup')">
+
+                <div class="pad-t25">
+                    <h5 class="f-16 text-capitalize text-dark-black pad-15px title-text-on-surface">{{'Users Activity' | translate}}</h5>
+                    <div class="row pad-15px pad-t0">
+                        <div class="col-sm-4">
+                            <div id="userStatusForGroups"></div>
+                        </div>
+                        <div class="col-sm-8">
+                            <ul class="status-icons p-0 mt-4">
+                                <ng-container *ngFor="let status of userStatus">
+                                    <li class="d-flex align-items-center" *ngIf="status.value != 0">
+                                        <span class="fa f-24 p-2 fa-{{status?.icon}} mx-2 align-sub"></span>
+                                        <p class="p-2 text-dark-black">{{status?.key}}</p>
+                                        <span class="p-2 theme-light-color">{{status?.value}}</span>
+                                    </li>
+                                </ng-container>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="pad-25">
+                    <h5 class="text-capitalize text-dark-black title-text-on-surface">{{'User Roles in the Group' | translate}}</h5>
+                    <div class="row ">
+                        <div class="col-sm-4">
+                            <div id="RoleUsersForGroups"></div>
+                        </div>
+                        <div class="col-sm-8">
+                            <ul class="status-icons p-0 mt-4">
+                                <ng-container *ngFor="let status of groupRoleUsers; trackBy:trackByKey">
+                                    <li class="d-flex align-items-center" *ngIf="status.value != 0">
+                                        <!-- <span class="fa f-24 p-2 fa-people mx-2 align-sub" [ngStyle]="{'color':status.color}"></span> -->
+                                        <i class="material-icons" [ngStyle]="{'color':status.color}">people</i>
+                                        <p class="p-2 text-dark-black">{{status?.key}}</p>
+                                        <span class="p-2 theme-light-color fw-500 font-medium">{{status?.value}}</span>
+                                    </li>
+                                </ng-container>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>

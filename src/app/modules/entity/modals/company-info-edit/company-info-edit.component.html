@@ -1,0 +1,233 @@
+<div class="modal-header pad-y10 d-flex ai-c mar-x25">
+  <h4 class="modal-title mar-autor"><span> {{title}} </span></h4>
+  <button type="button" class="f-24 bg-transparent border-0 mar-l10 text-cream " (click)="close()" data-dismiss="modal"
+    aria-hidden="true"><span>&#x2716;</span></button>
+</div>
+<div class="modal-body clearfix">
+
+  <div class="entity-overRiding-modal custom-scroll-wrapper">
+    <div class="col-xs-12 pad-x0 bst_custom_accordian company_details custom-scroll-wrapper overflow-auto"
+      style="max-height:500px">
+      <ngb-accordion #acc="ngbAccordion" (panelChange)="sourcePanelChange($event)" [activeIds]="[activePanelId]">
+        <ngb-panel id="primary-panel">
+          <ng-template ngbPanelTitle>
+            Primary <span class="text-dark-pastal-green mar-l5" [ngStyle]="myStyle2" style="cursor: pointer;">
+              <i class="fa f-10 fa-link"></i> {{primarySource.length || 0}}</span>
+            <i class=" fa mar-l10"
+              [ngClass]="{'fa-caret-down': accordian.primaryOpen, 'fa-caret-left': !accordian.primaryOpen}"></i>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <div class="" *ngIf="primarySource.length == 0">
+              <p style="word-break: break-word;white-space:pre-wrap">No Primary source available</p>
+            </div>
+            <ng-container *ngIf="primarySource && primarySource.length > 0">
+              <div class="sources-list-details " *ngFor="let primary of primarySource">
+                <p style="word-break: break-word;white-space:pre-wrap"
+                  [innerHTML]="(primary.sourceDisplayName || primary.source) "></p>
+                <span
+                  class="overflow-a custom-scroll-wrapper original-content-wrapper mxh-130">{{primary.value.toString()}}</span>
+                <label class="switch mar-l25 custom-switch-wrapper override-switch bst-switch-wrapper mar-r10">
+                  <input style="" type="radio" name="override" [value]="primary.source" [(ngModel)]="overrideValue"
+                    (click)="changeOverrideValue(primary.source, primary.value, primary.sourceUrl, primary.sourceDisplayName)" />
+                  <span class="slider round">
+                  </span>
+                </label>
+                <span class="align-top"> <a href="{{makeUrlSecureToWork(primary.sourceUrl)}}" target="_blank"
+                    [ngStyle]="primary.source.toLowerCase() === 'bst' ? {'visibility': 'hidden' } :   {'visibility': 'visible' }">
+                    <span class="fa fa-external-link"></span>
+                  </a></span>
+              </div>
+            </ng-container>
+          </ng-template>
+        </ngb-panel>
+        <ngb-panel id="secondary-panel">
+          <ng-template ngbPanelTitle>
+            Secondary <span class="text-dark-cream mar-l5" [ngStyle]="myStyle2" style="cursor: pointer;"><i
+                class="fa f-10 fa-link"></i>
+              {{secondarySource.length || 0}}</span>
+            <i class=" fa mar-l10"
+              [ngClass]="{'fa-caret-down': accordian.secondaryOpen, 'fa-caret-left': !accordian.secondaryOpen}"></i>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <div class="" *ngIf="secondarySource.length == 0">
+              <p style="word-break: break-word;white-space:pre-wrap">No Secondary source available</p>
+            </div>
+            <ng-container *ngIf="secondarySource && secondarySource.length > 0">
+              <div *ngFor="let secondary of secondarySource">
+                <div class="sources-list-details pad-y5 mb-2"
+                  *ngIf="schema !== 'bst:stock_info' && schema !== 'lei:legalForm'">
+                  <p style="word-break: break-word;white-space:pre-wrap" class="mb-2 mr-3"
+                    [innerHTML]="(secondary.sourceDisplayName || secondary.source) "></p>
+                  <span
+                    class="overflow-a custom-scroll-wrapper original-content-wrapper mxh-130">{{secondary.value.toString()}}</span>
+                  <label class="switch ml-3 custom-switch-wrapper override-switch bst-switch-wrapper mar-r10">
+                    <input style="" type="radio" name="override" [value]="secondary.source" [(ngModel)]="overrideValue"
+                      (click)="changeOverrideValue(secondary.source, secondary.value,secondary.sourceUrl, secondary.sourceDisplayName)" />
+                    <span class="slider round">
+                    </span>
+                  </label>
+                  <span class="align-top"><a href="{{makeUrlSecureToWork(secondary.sourceUrl)}}" target="_blank"
+                      [ngStyle]="secondary.source.toLowerCase() === 'bst' ? {'visibility': 'hidden' } :   {'visibility': 'visible' }">
+                      <span class="fa fa-external-link"></span>
+                    </a></span>
+                </div>
+                <div class="sources-list-details pad-y5" *ngIf="schema === 'bst:stock_info'">
+                  <p style="word-break: break-word;white-space:pre-wrap">
+                    {{(secondary.sourceDisplayName || secondary.source) }}</p>
+                  <div class="overflow-a custom-scroll-wrapper original-content-wrapper mxh-130"> <span
+                      class="word-wb">{{secondary.value.main_exchange}}</span></div>
+                  <label class="switch mar-l25 custom-switch-wrapper override-switch bst-switch-wrapper mar-r10">
+                    <input style="" type="radio" name="override" [value]="secondary.source" [(ngModel)]="overrideValue"
+                      (click)="changeOverrideValue(secondary.source, secondary.value.main_exchange,secondary.sourceUrl, secondary.sourceDisplayName)" />
+                    <span class="slider round">
+                    </span>
+                  </label>
+                  <span class="align-top"><a href="{{makeUrlSecureToWork(secondary.sourceUrl)}}" target="_blank"
+                      [ngStyle]="secondary.source.toLowerCase() === 'bst' ? {'visibility': 'hidden' } :   {'visibility': 'visible' }">
+                      <span class="fa fa-external-link"></span>
+                    </a></span>
+                </div>
+                <div class="sources-list-details pad-y5 " *ngIf="schema === 'lei:legalForm'">
+                  <p style="word-break: break-word;white-space:pre-wrap">
+                    {{(secondary.sourceDisplayName || secondary.source) }}</p>
+                  <div class="overflow-a custom-scroll-wrapper original-content-wrapper mxh-130"> <span
+                      class="word-wb">{{secondary.value.label}}</span></div>
+                  <label class="switch mar-l25 custom-switch-wrapper override-switch bst-switch-wrapper mar-r10">
+                    <input style="" type="radio" name="override" [value]="secondary.source" [(ngModel)]="overrideValue"
+                      (click)="changeOverrideValue(secondary.source, secondary.value.label,secondary.sourceUrl, secondary.sourceDisplayName)" />
+                    <span class="slider round">
+                    </span>
+                  </label>
+                  <span class="align-top"><a href="{{makeUrlSecureToWork(secondary.sourceUrl)}}" target="_blank"
+                      [ngStyle]="secondary.source.toLowerCase() === 'bst' ? {'visibility': 'hidden' } :   {'visibility': 'visible' }">
+                      <span class="fa fa-external-link"></span></a></span>
+                </div>
+              </div>
+            </ng-container>
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+      <div class="user-input-wrapper pad-y10">
+        <div class="top-heading border-thin-dark-cream-b d-flex ai-c pad-x15">
+          <h4 class="">User Input</h4>
+        </div>
+        <div class="bottom-content-wrapper">
+          <button *ngIf="!showAddbutton" type="button" class="btn ai-c btn-block btn-sm d-flex mar-t5 text-dark-cream"
+            (click)="enabledSouceInputs()"><span class="fa fa-plus text-cream mar-r10"></span> Add New</button>
+          <div *ngIf="userModifiedValue">
+            <div class="d-flex f-14 pad-y5 mar-y5 text-dark-cream  font-light">
+              <div class="width-25 d-flex pad-r10">
+                <i class="fa mar-r10 text-cream fa-user-o"></i><span style="flex: 1 0 0%;"
+                  class="text-overflow">{{userModifiedBy}}</span></div>
+              <div class=" width-75 ws-normal changed-content-wrapper overflow-a mxh-130"> <span class="word-wb"
+                  style="flex: 1 0 50%;">{{userModifiedValue.toString()}}</span></div>
+              <span style="flex:.3">
+                <label class="switch mar-l25 custom-switch-wrapper override-switch bst-switch-wrapper">
+                  <input type="radio" [value]="userModifiedValue" name="override" [(ngModel)]="overrideValue"
+                    (click)="changeOverrideValue('', userModifiedValue)" />
+                  <span class="slider round"></span>
+                </label></span>
+            </div>
+            <div class="d-flex f-14 pad-y5  text-dark-cream fomt-light" *ngIf="originalAns">
+              <div class="d-flex width-25 pad-r10"><i class="fa text-cream mar-r10  fa-history"></i><span
+                  style="flex: 1 0 0%;" class="pad-r10">Original Answer </span></div>
+              <div class="original-content-wrapper overflow-a mxh-130 custom-scroll-wrapper" style="flex: 1 0 75%;">
+                <span class="word-wb">{{originalAns}}</span></div>
+            </div>
+            <div class="d-flex f-14 pad-y5 text-dark-cream font-light">
+              <div class="d-flex width-25 pad-r10"><i class="fa text-cream mar-r10 fa-calendar"></i><span
+                  style="flex: 1 0 0%;" class="pad-r10">Changed Date </span></div><span
+                style="flex: 1 0 50%;">{{userModifiedOn}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form class="form jc-sb pad-x0" #sourceForm="ngForm" (ngSubmit)="applySourceEvidence(sourceForm.value)"
+        name="form" autocomplete="off">
+        <div class="d-flex pad-b20 mar-x25 mar-t10 pad-t10 d-none ai-c bst_border_t"
+          *ngIf="userModifiedValue || showAddbutton">
+          <div class="width-70 source-icon mar-r15 p-rel d-block"
+            ng-show="popOverEditDataForOwnership.entity_type !== 'person' || !popOverEditDataForOwnership.entity_type">
+            <div class="bst_input_group bst_input_group_r  height-a">
+              <input class="custom-input pad-r10 pad-l15 pad-t15 lh-18 height-a mar-r10" autocomplete="no-place"
+                placeholder="source"
+                (keyup)="sourceSearchInputOveride($event,dataPopObject.overideSearchedInputSourceEdit)"
+                [value]="dataPopObject.overideSearchedInputSourceEditVal" name="overideSearchedInputSourceEdit"
+                [(ngModel)]="dataPopObject.overideSearchedInputSourceEdit" [disabled]="disableInput" required />
+              <span class="label f-12 text-dark-cream">Source</span>
+              <ul class="custom-list searchSource z-99 mxh-140 l-0 pad-y10  item-1"
+                *ngIf="showfiteredSourceList && dataPopObject.overideSearchedInputSourceEdit && fiteredSourceList && sourceUrlList ">
+                <div class="width-95 mar-b0 mar-x10   p-rel d-block">
+                  <div class="bst_input_group bst_input_group_r  height-a">
+                    <input type="text" [disabled]="disableInput"
+                      pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/"
+                      placeholder="sourceURL" [value]="dataPopObject.overideSearchedInputURLEdit"
+                      [(ngModel)]="dataPopObject.overideSearchedInputURLEdit" name="sourceURL"
+                      class="custom-input text-cream mar-b0 pad-x15 pad-t15 f-12 height-100" required />
+                    <span class="label">Source URL </span>
+                  </div>
+                </div>
+              </ul>
+              <ul style="top:95px;" class="custom-list searchSource z-99 mxh-140 l-0 pad-y10  item-1"
+                *ngIf="showfiteredSourceList && dataPopObject.overideSearchedInputSourceEdit && (fiteredSourceList && fiteredSourceList.length > 0) && sourceUrlList">
+                <li class="pad-x10 f-14 h-30 d-flex ai-c"
+                  *ngFor="let sourceNameSearched of fiteredSourceList ;trackBy: sourceTracker"
+                  (click)="fillSourceSearchedInputOveride(sourceNameSearched)">
+                  <span>
+                    <i class="fa pad-r10 c-pointer fa-link" *ngIf="(sourceNameSearched.source_type == 'link')"></i>
+                    <i class="fa pad-r10 c-pointer fa-file-word-o"
+                      *ngIf="(sourceNameSearched.source_type == 'doc' || sourceNameSearched.source_type == 'docx')"></i>
+                    <i class="fa pad-r10 c-pointer fa-file-pdf-o" *ngIf="(sourceNameSearched.source_type == 'pdf')"></i>
+                    <i class="fa pad-r10 c-pointer fa-file-image-o"
+                      *ngIf="(sourceNameSearched.source_type == 'png')"></i>
+                  </span>
+                  {{sourceNameSearched.sourceName}}
+                </li>
+              </ul>
+              <ul class="custom-list searchSource z-99 mxh-140 l-0 pad-y10  item-1"
+                *ngIf="showfiteredSourceList && dataPopObject.overideSearchedInputSourceEdit && fiteredSourceList && sourceUrlList ">
+                <div class="pad-x10 d-flex ai-c">
+                  <button class="btn mar-autol sm-btns mar-r10 bordered-button"
+                    (click)="closeSourceListPopUp()">Cancel</button>
+                  <button type="submit" value="Submit" class="btn grad-button sm-btns ng-scope"
+                    [disabled]="!dataPopObject.overideSearchedInputSourceEdit || !dataPopObject.overideSearchedInputURLEdit">Apply</button>
+                </div>
+              </ul>
+            </div>
+          </div>
+          <div class="width-50 mar-b0  p-rel d-block">
+            <div class="bst_input_group bst_input_group_r  height-a">
+              <span class="input-group-prepend f-14 text-dark-cream fa fa-calendar" (click)="dob.toggle()"></span>
+              <input type="text" autocomplete="off" [disabled]="disableInput" placeholder="yyyy-mm-dd"
+                [value]="overideSearchedInputDateEdit" [(ngModel)]="dataPopObject.overideSearchedInputDateEdit"
+                pattern="^\d{4}(\-)(((0)[0-9])|((1)[0-2]))(\-)([0-2][0-9]|(3)[0-1])$" #dob="ngbDatepicker" 
+                ngbDatepicker  name="dateofbirth" (click) ="dob.toggle()"
+                class="custom-input text-cream f-12  pad-b10 pad-t15 " >
+              <span class="label l-3 pad-x0 f-12 text-dark-cream">Published Date</span></div>
+            <span class="error" *ngIf="dob.invalid">Invalid format (yyyy-MM-dd)</span>
+          </div>
+        </div>
+        <div *ngIf="userModifiedValue || showAddbutton"
+          class="d-flex pad-b20 mar-x25 mar-t10 pad-t10 d-none ai-c bst_border_t">
+          <div class="bst_input_group bst_input_group_r pad-x15 pad-t15 height-a">
+            <textarea type="text" [disabled]="disableInput" autocomplete="off" placeholder="Value"
+              [(ngModel)]="textArea.userModifiedValue" name="textValue" required  #textValue="ngModel"
+              class="custom-scroll-wrapper width-100 custom-input text-cream pad-x15 pad-t15 f-12 height-100"></textarea>
+            <span class="label">value</span>
+          </div>
+          <p class="text-red" *ngIf="textValue.invalid">{{ 'this field is mandatory' | translate }}</p>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+
+</div>
+<div class="modal-footer d-flex ai-c border-0">
+  <button class="btn mar-autol bordered-button" (click)="close()">Cancel</button>
+  <button class="btn grad-button" *ngIf="!showSavebtnwithclass" [disabled]="sourceUrlList"
+    (click)="overRide()">Save</button>
+  <button class="btn grad-button" *ngIf="showSavebtnwithclass" [disabled]="sourceUrlList"
+    (click)="overRide()">Save</button>
+</div>

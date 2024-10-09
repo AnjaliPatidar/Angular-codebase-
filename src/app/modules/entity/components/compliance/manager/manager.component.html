@@ -1,0 +1,28 @@
+<!-- <div class="manager"> -->
+<div class="pad-0 details-panel-wrapper panel custom-panel-wrapper bst_panel_wrapper  c-details-tabs-wrapper">
+    <!-- <div class="pad-10"> -->
+    <div class="d-flex panel-heading ai-c">
+        <h3 class="mar-b0 roboto-light f-18 lh-1_2 text-unset text-cream">Contact Person</h3>
+    </div>
+    <div class="mnh-125 panel-body pt-4  p-rel details-panel-wrapper" *ngIf="managerDetails !== undefined ">
+        <div class="row">
+            <div class="col-2 d-flex ai-c">
+                <div class="user-icon">
+                    <span>{{formatName(managerDetails?.name)}}</span>
+                </div>
+            </div>
+            <div class="col-10 p-4 white f-13">
+                <div class="f-11 pb-2">{{managerDetails?.officer_role}}</div>
+                <div class="pb-2">{{managerDetails?.name}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="mnh-125 panel-body pt-4  p-rel details-panel-wrapper" *ngIf="managerDetails === undefined ">
+        <div class="d-flex align-items-center justify-content-center h-100">
+            <div class="text-center text-coral-red">Data Not Found</div>
+        </div>
+    </div>
+
+    <!-- </div> -->
+</div>
+<!-- </div> -->

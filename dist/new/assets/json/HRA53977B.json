@@ -1,0 +1,224 @@
+	
+{
+	"internalId" : "ALL000003",
+	"clientName" : "Motel Plus Berlin",
+	"clientSince" : "2016-03-22",
+	"products":
+	[
+		{
+		"productName" : "Building Insurance",
+		"startDate" : "2020-03-22",
+		"expirationDate" : "2021-03-22",
+		"price" : "200€"
+		}
+	],
+	"potentialFurtherProducts" : ["Financial Loss Liability", "Cyber Insurance, Legal Protection, Business content insurance"],
+	"currentPremium" :"400€",
+	"additionalPremiumPotential" : "4000€",
+	"remainingContractTerm":"9 months",
+	"recentChanges":"recently renewed the hotel patio, recently added sauna",
+	"ownerPrivetelyInsured" : "Yes",
+	"numberOfClaims" : "2",
+	"Green Sustainability Score":"4/10",
+	"existingSimilarCompanies":
+	[
+	{
+	"internalId" : "AL0000025",
+	"companyName" : "Tingan GmbH",
+	"address" : "Columbiadamm 160 10965 Berlin",
+	"products": 
+	[
+		{
+		"productName" : "Building Insurance",
+		"startDate" : "2020-01-20",
+		"expirationDate" : "2021-01-20",
+		"price" : "200€"
+		},
+		{
+		"productName" : "Financial Loss Liability",
+		"startDate" : "2020-02-20",
+		"expirationDate" : "2021-02-20",
+		"price" : "100€"
+		}
+	]
+	},
+	{
+	"internalId" : "AL000092",
+	"companyName" : "KF Pension GmbH",
+	"address" : "Kaiser-Friedrich-Str. 76 12205 Berlin",
+	"products" : 
+	[
+		{
+		"productName" : "Building Insurance", 
+		"startDate" : "2020-04-28",
+		"expirationDate": "2021-04-28",
+		"price" : "150€"
+		}
+	]
+	},
+	{
+	"internalId" : "ALL000256",
+	"companyName" : "Motel Blue GmbH",
+	"address" : "Uhlandstr. 142 10719 Berlin",
+	"products" : 
+	[
+		{
+		"productName" : "Building Insurance",
+		"startDate" : "2019-12-20",
+		"expirationDate" : "2020-12-20",
+		"price" : "115€"
+		},
+		{
+		"productName" : "Cyber Insurance",
+		"startDate" : "2019-12-20",
+		"expirationDate" : "2020-12-20",
+		"price" : "50€"
+		},
+		{
+		"productName" : "Financial Loss Liability",
+		"startDate" : "2019-12-20",
+		"expirationDate" : "2020-12-20",
+		"price" : "50€"
+		}
+	]
+	},
+	{
+	"internalId" : "ALL000236",
+	"companyName" : "Berolina Hotels GmbH",
+	"address" : "Rankestr. 35 10789 Berlin",
+	"products" : 
+	[
+		{
+		"productName" : "Building Insurance",
+		"startDate" : "2020-02-26",
+		"expirationDate" : "2021-02-26",
+		"price" : "450€"
+		}
+	]
+	},
+	{
+	"internalId" : "ALL008903",
+	"companyName" : "Hotel Roseyard",
+	"address" : "Hardenstr. 12 10623 Berlin",
+	"products" : 
+	[
+		{
+		"productName" : "Building Insurance",
+		"startDate" : "2019-10-26",
+		"expirationDate" : "2020-10-26",
+		"price" : "130€"
+		},
+		{
+		"productName" : "Financial Loss Liability",
+		"startDate" : "2019-11-26",
+		"expirationDate" : "2020-11-26",
+		"price" : "130€"
+		},
+		{
+		"productName" : "Business content insurance",
+		"startDate" : "2019-10-26",
+		"expirationDate" : "2020-10-26",
+		"price" : "130€"
+		}
+	]
+	},
+	{
+	"internalId" : "ALL008904",
+	"companyName" : "Asta Pensionsbetriebs GmbH",
+	"address" : "Fasanenstr. 69 10719 Berlin",
+	"products" :
+	[
+		{
+		"productName" : "Building Insurance",
+		"startDate" : "2019-12-30",
+		"expirationDate" : "2020-12-30",
+		"price" : "210€"
+		},
+		{
+		"productName" : "Financial Loss Liability",
+		"startDate" : "2019-12-30",
+		"expirationDate" : "2020-12-30",
+		"price" : "110€"
+		}
+	]
+	},
+	{
+	"internalId" : "ALL008905",
+	"companyName" : "Hotel Quentin GmbH",
+	"address" : "Kalckreuthstr. 12 10777 Berlin",
+	"products" : 
+	[
+		{
+		"productName" : "Building Insurance",
+		"startDate" : "2020-03-30",
+		"expirationDate" : "2021-03-30",
+		"price" : "450€"
+		},
+		{
+		"productName" : "Business content insurance",
+		"startDate" : "2020-01-30",
+		"expirationDate" : "2021-01-30",
+		"price" : "150€"
+		}
+	]
+	},
+	{
+	"internalId" : "ALL008906",
+	"companyName" : "StayComfort GmbH",
+	"address" : "Kleiststr. 35 10787 Berlin",
+	"products":
+	[
+		{
+		"productName" : "Building Insurance",
+		"startDate" : "2020-01-30",
+		"expirationDate" : "2021-01-30",
+		"price" : "150€"
+		},
+		{
+		"productName" : "Financial Loss Liability",
+		"startDate" : "2020-01-30",
+		"expirationDate" : "2021-01-30",
+		"price" : "150€"
+		}
+	]
+	},
+	{
+	"internalId" : "ALL008907",
+	"companyName" : "Hotel Atrium Charlottenburg GmbH",
+	"address" : "Kaiser-Friedrich-Str. 53 10627 Berlin",
+	"products" :
+	[
+		{
+		"productName" : "Building Insurance",
+		"startDate" : "2020-05-20",
+		"expirationDate" : "2021-05-20",
+		"price" : "250€"
+		},
+		{
+		"productName" : "Financial Loss Liability",
+		"startDate" : "2020-05-20",
+		"expirationDate" : "2021-05-20",
+		"price" : "50€"
+		},
+		{
+		"productName" : "Cyber Insurance",
+		"startDate" : "2020-05-20",
+		"expirationDate" : "2021-05-20",
+		"price" : "50€"
+		},
+		{
+		"productName" : "Business content insurance",
+		"startDate" : "2020-05-20",
+		"expirationDate" : "2021-05-20",
+		"price" : "150€"
+		},
+		{
+		"productName" : "Legal Protection",
+		"startDate" : "2020-05-20",
+		"expirationDate" : "2021-05-20",
+		"price" : "50€"
+		}
+	]
+	}
+]
+	}		

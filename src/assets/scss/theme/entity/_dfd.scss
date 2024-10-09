@@ -1,0 +1,101 @@
+
+/*==============================================================================
+*********************  DFD Wrapper Styles For The Site  ************************
+==============================================================================*/
+/*--  DFD Styles  --*/
+.dfd-wrapper{
+  @include padding(10px 5px);
+  .search-button-wrpper {
+    @include padding(15px 0);
+    display: inline-block;
+    width: 340px;
+    position: absolute; 
+    h3{
+      @extend .text-uppercase;
+      @include margin(0 0 10px);
+      color: $light-slate-grey;
+      // font-family: $roboto-regular;
+      @include fontFamily($fonts) {
+        font-family: fonted(font-regular);
+      }
+      font-size: $font-size-large;
+      line-height: ($line-height-computed * 1.05);
+    }
+    strong, span{
+      @extend .text-center;
+      @extend .text-uppercase;
+      @include margin(0 5px 10px 0);
+      color: $bismark7;
+      // font-family: $roboto-regular;
+      @include fontFamily($fonts) {
+        font-family: fonted(font-regular);
+      }
+      font-size: $font-size-base;
+      font-weight: normal;
+      line-height: ($line-height-computed * .8);
+      display: block;
+      width: 155px;
+    }
+    strong{
+      color: $bismark6;
+      font-size: ($font-size-base + 21);
+      font-weight: bold;
+      line-height: ($line-height-computed * 1.75);
+    }
+  }
+}
+
+.error-message-wrpper{
+	 .error-message-wrpper{
+	  @extend .text-uppercase;
+	  @include padding(100px 10px);
+    // font-family: $roboto-regular;
+    @include fontFamily($fonts) {
+      font-family: fonted(font-regular);
+    }
+	  font-size: $font-size-base;
+	  font-weight: normal;
+	  line-height: ($line-height-computed * .8);
+	}	
+}
+.leaflet-container{
+  background-color: rgba(255, 0, 0, 0) !important;
+}
+.chart-row{
+  .chart-col{
+    @extend .pull-left;
+    @extend .text-center;
+  	@include transition(all 0.3s ease-in-out);
+    width: 50%;
+    opacity: 1;
+  }
+  &.inactive .chart-col{
+    &:first-of-type {
+      width: 100%;
+    }
+    &:last-of-type{
+      width: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+  }
+}
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+@media (min-width:$screen-lg){
+
+}
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
+
+}
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {
+ 
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {
+
+}

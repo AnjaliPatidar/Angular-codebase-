@@ -1,0 +1,739 @@
+<div class="popover-body case-details-panel-wrapper p-0">
+  <div class="case-data case-pannel-width body-padding bg-black-color overflow-visible custom-scroll-wrapper position-relative mxh-case-data mnh-230 radius-5 light-theme-surface light-theme-no-radius">
+    <div *ngIf="data.rowData" id="popoverDetailInfo" class="detail-info-popover content-wrapper">
+      <div class="bg-transparent p-0 pb-2">
+          <h1 (click)="loadAttachmentTable()" id="headingCaseName" class="d-flex align-items-center f-24 default-font-style line-height-header opct-87 justify-content-between pb-2 mb-0 title gotham-medium text-dark-black light-theme-border-bottom mt-0 f-20">
+            <div class="case-name-wrapper">
+              <span *ngIf="!isCaseNameEdit">{{'Case' | translate}} {{data.rowData.name}}</span>
+              <i class="material-icons edit-icon txt-on-surface-06 f-20 c-pointer badge" disableOptionCentering *ngIf="!isCaseNameEdit && editModeStatus" [matTooltip]="'Edit' | translate" (click)="onEditCaseName()">edit</i>
+              <div *ngIf="isCaseNameEdit" class="case-form-filed txt-on-surface-87">
+                <input class="case-input" [ngClass]="{'no-input-data': !caseName }" [(ngModel)]="caseName" [placeholder]="caseName ? caseName : 'Case Name'" maxlength="100" (keyup)="onKeyUp()">
+                <span class="icon-span">
+                  <i class="material-icons c-pointer f-20 txt-on-surface-06" [matTooltip]="'Save' | translate"
+                (click)="onSaveCaseName(data.rowData)">done</i>
+                  <i class="material-icons c-pointer f-20 txt-on-surface-06" [matTooltip]="'Cancel' | translate"
+                    (click)="onCancelCaseName()">close</i>
+                </span>
+              </div>
+              <!-- @commented becasue https://blackswantechnologies.atlassian.net/browse/AP-6653 -->
+              <!-- <span class="collapse-arrow mx-16">
+                <span class="material-icons icon">expand_less</span>
+              </span>
+              <span class="collapse-arrow">
+                <span class="material-icons icon">expand_more</span>
+              </span> -->
+            </div>
+            <div class="d-flex align-items-center">
+                <span id="iconCommentBox" permission [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId : 'comment Box'" [PemissionHide]="true" class="d-flex align-items-center">
+                  <i #caseComments class="material-icons-round c-pointer clr-icon-surface" [ngClass]="{'pe-none': !isLoggedUser}"
+                  (click)="openCommentsPopup()" [matTooltip]="'Comments' | translate" matTooltipPosition="above"
+                  [class.clr-light-green]="commentListItemsCount > 0">
+                  comment
+                  </i>
+                  <span class="count width-unset mr-16 f-14 default-font-style ml-2" matTooltipPosition="left"
+                  [ngStyle]="{'width': commentListItemsCount == 0 ? '20px' : ''}"
+                  [class.clr-light-green]="commentListItemsCount > 0">{{commentListItemsCount > 0 ? commentListItemsCount : '' }}
+                  </span>
+                  <div permission [IsHideRemoveBothEnabled]="true"
+                  [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId: 'caseCreation'" class="case-add"> <i class="material-icons-round txt-on-surface-06 c-pointer custom-scroll-wrapper"
+                    [matTooltip]="'Copy Case' | translate" matTooltipPosition="above" (click)="openCopiedCaseDetails()" > acontrol_point_duplicate </i>
+                  </div>
+                </span>
+              <i id="iconAuditLog" [matTooltip]="'Audit History' | translate" matTooltipPosition="above" class="material-icons-round txt-on-surface-06 c-pointer"
+              [class.text-white]="rightPanelLoadCom == 'detailInfo' && showRightPanel" (click)="openCaseAudit()" [ngClass]="{'pe-none': !editModeStatus}"> restore </i>
+            </div>
+            </h1>
+      </div>
+      <div class="case-details d-flex justify-content-between">
+          <div class="col-3 pr-0 pl-0">
+            <ul class="txt-on-surface pl-0 list-unstyled f-14 text-dark-black">
+              <li class="m-32 mt-4">
+                <div class="row">
+                    <div class="col-4">
+                        <span id="labelCaseID" class="txt-on-surface opct-60 mr-4 mnw-90 text-dark-black f-13">
+                            {{'Case_ID' | translate}}
+                        </span>
+                    </div>
+                    <div class="col-7  pr-0">
+                      <span id="valueCaseID" class="overflow span-h-15 opct-87"
+                      #tooltip="matTooltip"
+                      [matTooltip]="data.rowData.id"
+                      matTooltipPosition="above">
+                            {{data.rowData.id}}
+                        </span>
+                    </div>
+                </div>
+          </li>
+                <li class="m-32 mt-4 li-default">
+                  <div class="row">
+                      <div class="col-4">
+                          <span id="labelEntityId" class="txt-on-surface opct-60 mr-4 mnw-90 text-dark-black f-13">
+                              {{'Entity_ID' | translate}}:
+                          </span>
+                      </div>
+                      <div class="col-7  pr-0">
+                          <span id="valueEntityId" class="overflow span-h-15 opct-87"
+                          #tooltip="matTooltip"
+                          [matTooltip]="data?.rowData?.entity?.entity_info?.identifier"
+                          matTooltipPosition="above">
+                              {{data.rowData && data.rowData.entity && data.rowData.entity.entity_id}}
+                          </span>
+                      </div>
+                  </div>
+              </li>
+                <li class="m-32 mt-4 li-default">
+                    <div class="row">
+                        <div class="col-4">
+                            <span id="labelOriginator" class="txt-on-surface opct-60 mr-4 mnw-90 text-dark-black f-13">
+                                {{'Originator' | translate}}:
+                            </span>
+                        </div>
+                        <div class="col-7  pr-0" style="word-break: break-all;">
+                            <span id="valueOriginator" class="overflow span-h-15 opct-87 first-letter-capitalize"
+                            #tooltip="matTooltip"
+                            matTooltipClass="first-letter-capitalize"
+                            [matTooltip]="data.rowData.originator"
+                            matTooltipPosition="above">
+                                {{data.rowData.originator}}
+                            </span>
+                        </div>
+                    </div>
+                </li>
+                <li class="m-32 mt-4 li-default">
+                  <div class="row">
+                      <div class="col-4">
+                          <span id="labelEntityName" class="txt-on-surface opct-60 mr-4 mnw-90 text-dark-black f-13">
+                              {{'EntityName' | translate}}:
+                          </span>
+                      </div>
+                      <div class="col-7 pr-0 d-flex align-items-center">
+                        <span id="valueEntityName" class="overflow cursor-poiter span-h-15 opct-87 link-content first-letter-capitalize"
+                          [ngClass]="{'cursor-none' : !editModeStatus}" #tooltip="matTooltip"
+                          (click)="getEntityURL(data.rowData.entity.entity_url , data.rowData.entity.entity_name , data.rowData.entity.entity_type , data.rowData.jurisdiction_code , true)" matTooltipClass="first-letter-capitalize"
+                          [matTooltip]="data.rowData.entity.entity_name  ? data.rowData.entity.entity_name : ''" matTooltipPosition="above">
+                          {{data.rowData.entity.entity_name ? data.rowData.entity.entity_name : ''}}
+                        </span>
+                        <!-- // commented due to https://blackswantechnologies.atlassian.net/browse/RD-17845 can be removed once tested -->
+                        <!-- <span id="valueEntityName" class="overflow cursor-poiter span-h-15 opct-87 link-content first-letter-capitalize"
+                          [ngClass]="{'cursor-none' : !editModeStatus}" #tooltip="matTooltip"
+                          (click)="onEntityNameClick(data?.rowData?.entity)" matTooltipClass="first-letter-capitalize"
+                          [matTooltip]="data.rowData.entity.entity_name  ? data.rowData.entity.entity_name : ''" matTooltipPosition="above">
+                          {{data.rowData.entity.entity_name ? data.rowData.entity.entity_name : ''}}
+                        </span> -->
+                        <div class="spinner-border spinner-border-sm ml-2 clr-light-green" role="status" *ngIf="showEntityDataLoader">
+                          <span class="sr-only">{{ 'loading' | translate }}</span>
+                        </div>
+                      </div>
+                  </div>
+              </li>
+              <li class="m-32 mt-4 li-default">
+                <div class="row">
+                  <div class="col-4">
+                    <span id="labelCreated" class="txt-on-surface opct-60 mr-4 mnw-90 text-dark-black word-ba f-13">
+                      {{'Tenant' | translate}}:
+                    </span>
+                  </div>
+                  <div class="col-7 pr-0">
+                    <span id="valueCreated" *ngIf="data.rowData.tenant != null" class="word-ba opct-87 overflow span-h-15"
+                      #tooltip="matTooltip" [matTooltip]="data.rowData && data.rowData.tenant && data.rowData.tenant.display_name"
+                      matTooltipPosition="above">
+                      {{data.rowData && data.rowData.tenant && data.rowData.tenant.display_name}}
+                    </span>
+                    <span id="valueCreated" *ngIf="data.rowData.tenant == null" class="word-ba opct-87 overflow span-h-15">
+                      N/A
+                    </span>
+                  </div>
+                </div>
+              </li>
+              <li class="m-32 mt-4 li-default">
+                    <div class="row">
+                      <div class="col-4">
+                        <span id="labelCreated" class="txt-on-surface opct-60 mr-4 mnw-90 text-dark-black word-ba f-13">
+                          {{'Created' | translate}}:
+                        </span>
+                      </div>
+                      <div class="col-7 pr-0">
+                        <span id="valueCreated" class="word-ba opct-87 overflow span-h-15"
+                                #tooltip="matTooltip"
+                                [matTooltip]="getCreatedDate(data.rowData.created_on , 'case')"
+                                matTooltipPosition="above">
+                          {{ getCreatedDate(data.rowData.created_on) }}
+                        </span>
+                      </div>
+                    </div>
+              </li>
+              <!-- case type -->
+              <li class="mrg-5 mt-3 li-default" >
+                <div class="row">
+                  <div class="col-4 mr-0 pr-0 d-flex align-items-center">
+                    <span id="labelCaseType" class="txt-on-surface opct-60 mr-4 mnw-90 text-dark-black f-13">
+                      {{'Case_Type' | translate}}:
+                    </span>
+                  </div>
+                  <div *ngIf="selectedCaseType && selectedCaseType.displayName" class="col-8 d-flex align-items-center">
+                    <div class="info-dropdown case-common-dropdwon transform-y-2 w-100 h-40" [ngClass]="{'bg-006': !editModeStatus}">
+                      <mat-form-field class="w-100" [ngClass]="{'pe-none': !editModeStatus || hasViewPermission}">
+                        <mat-icon class="dropdown-icon selected-icon" [style.color]="getBgColor(selectedCaseType && selectedCaseType.colorCode)" [ngClass]="'fa fa-' + (selectedCaseType && selectedCaseType.icon)"></mat-icon>
+                        <mat-select id="dropdownRegionUplift" [(value)]="selectedCaseType.displayName" disableOptionCentering class="ml-4" [disabled]="!editModeStatus" disableOptionCentering #selectCaseType (focus)="onFieldFocus01()">
+                          <mat-option *ngFor="let item of caseTypeList; trackBy: trackByListItemId" [value]="item.displayName"
+                            (click)="caseTypeSelected(item, this)">
+                            <span class="w-100 text-overflow d-flex">
+                              <mat-icon class="dropdown-icon" [style.color]="getBgColor(item.colorCode)" [ngClass]="'fa fa-' + item.icon"></mat-icon>
+                              <span>{{item.displayName| translate}}</span>
+                            </span>
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <div class="loading-case-options z-99" *ngIf="caseFiledsLoader.caseType">
+                        <i class="fa fa-spinner txt-on-surface-06 fa-pulse f-25 spin-loader"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+          <div class="col-4 pr-0">
+            <ul class="text-white mt-3 list-unstyled f-14 text-dark-black">
+              <li class="mrg-5 case-common-dropdwon li-default" permission [IsHideRemoveBothEnabled]="true"
+              [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'caseAssignment'">
+                <div class="row">
+                  <div class="col-4 pl-0 mr-0 pr-0 d-flex align-items-center">
+                    <span id="labelRegionUplift" class="txt-on-surface opct-60 mr-0 pr-0 mnw-90 text-dark-black f-13">
+                      {{'User Group' | translate}}:
+                    </span>
+                  </div>
+                  <div class="col-8 pl-10 d-flex align-items-center">
+                    <div *ngIf="selectedUnit" class="info-dropdown arrow-left-2 transform-x-2 transform-y-1 case-common-dropdwon w-100 h-40 px-13">
+                        <mat-form-field class="w-100">
+                          <mat-select id="dropdownRegionUplift" [(value)]="selectedUnit.id" disableOptionCentering [class.c-ban]="hasViewPermission"
+                          [disabled]="hasViewPermission" permission [IsHideRemoveBothEnabled]="true"
+                          [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'caseAssignment'" #selectUserGrp (focus)="onFieldFocus02()">
+                            <mat-option *ngFor="let item of caseUnitType; trackBy:trackById" [value]="item.id"
+                              (click)="selectedUserGroup(item, data.rowData)">
+                              <span class="w-100 text-overflow d-block">
+                                <span>{{item.name | translate}}</span>
+                              </span>
+                              <i class="fa fa-check active-icon" style="float:right;position: relative;top: 9px;"
+                                aria-hidden="true"></i>
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <div class="loading-case-options z-99" *ngIf="caseFiledsLoader.userGroup">
+                          <i class="fa fa-spinner txt-on-surface-06 fa-pulse f-25 spin-loader"></i>
+                        </div>
+                      </div>
+                      <div *ngIf="!selectedUnit" class="pl-0 col-12 pl-10 d-flex align-items-center disabled">
+                        <div class="info-dropdown w-100 h-40 px-13 emty-dropdown">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </li>
+              <li class="mrg-5 li-default" permission [IsHideRemoveBothEnabled]="true"
+              [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'caseAssignment'">
+              <div class="row mx-0">
+                <div class="col-4 pl-0 mr-0 pr-0 d-flex align-items-center">
+                  <span id="labelAssignee" class="txt-on-surface opct-60 mr-0 pr-0 mnw-90 text-dark-black word-ba f-13">
+                    {{'Assignee' | translate}}:
+                  </span>
+                </div>
+                <div class="col-8 pl-10 d-flex align-items-center">
+                  <div class="info-dropdown arrow-left-2 transform-x-2 transform-y-1 case-common-dropdwon w-100 h-40 px-13">
+                      <mat-form-field class="w-100">
+                        <mat-select id="dropdownAssignee" disableOptionCentering  [(ngModel)]="selectedAssignee" [class.c-ban]="hasViewPermission"
+                          [disabled]="hasViewPermission" permission [IsHideRemoveBothEnabled]="true"
+                          [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'caseAssignment'" #selectAssignee (focus)="onFieldFocus03()">
+                          <mat-select-trigger>
+                            <mat-icon class="mt-3
+                              f-20"
+                              [ngClass]="'fa fa-user-circle'">
+                            </mat-icon>
+                            {{selectedAssignee | translate}}
+                          </mat-select-trigger>
+                          <mat-option>
+                            <ngx-mat-select-search [placeholderLabel]="'Search' | translate" ngModel name="search" (ngModelChange)="filterMyOptions($event)" clearSearchInput="true"></ngx-mat-select-search>
+                          </mat-option>
+                          <mat-option *ngFor="let item of assigneeList; trackBy:trackByScreenName" [value]="item.screenName" (click)="selectItem($event,this,item)" class="text-dark-black">
+                            <span class="w-100 text-overflow d-block">{{item.label}}</span>
+                            <i class="fa fa-check active-icon" style="float:right;position: relative;top: 9px;" aria-hidden="true"></i>
+                          </mat-option>
+                          <mat-option *ngIf='!assigneeList.length' disabled>
+                            <span>{{'no_results_found' | translate}}</span>
+                          </mat-option>
+
+                        </mat-select>
+                      </mat-form-field>
+                      <div class="loading-case-options z-99" *ngIf="caseFiledsLoader.assignee">
+                        <i class="fa fa-spinner txt-on-surface-06 fa-pulse f-25 spin-loader"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li class="mrg-5 li-default" permission
+                  [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'case Details'">
+                  <div class="row">
+                    <div class="col-4 mr-0 pr-0 d-flex align-items-center">
+                      <span id="labelRegionUplift" class="txt-on-surface opct-60 mr-0 pr-0 mnw-90 text-dark-black f-13">
+                        {{'Region_Uplift' | translate}}:
+                      </span>
+                    </div>
+                    <div class="col-8">
+                      <div class="info-dropdown transform-y-2 case-common-dropdwon w-100 h-40" [class.disabled]="hasViewPermission || !editModeStatus">
+                        <mat-form-field [class.c-ban]="hasViewPermission" class="w-100">
+                          <mat-select id="dropdownRegionUplift" disableOptionCentering [(ngModel)]="stateValue" #selectRegion (focus)="onFieldFocus04()">
+                            <mat-option>
+                              <ngx-mat-select-search [placeholderLabel]="'Search' | translate" ngModel (ngModelChange)="filterRegionStatesList($event)"
+                                clearSearchInput="true"></ngx-mat-select-search>
+                            </mat-option>
+                            <mat-option *ngFor="let item of filteredRegionStates; trackBy:trackByDisplayName" [value]="item.displayName"
+                              (click)="selectedRegion(item, this)">
+                              <span class="w-100 text-overflow d-block">{{item.displayName}}</span>
+                              <i class="fa fa-check active-icon" style="float:right;position: relative;top: 9px;"
+                                aria-hidden="true"></i>
+                            </mat-option>
+
+                            <mat-option *ngIf='!filteredRegionStates.length' disabled>
+                              <span>{{'no_results_found' | translate}}</span>
+                            </mat-option>
+
+                          </mat-select>
+                        </mat-form-field>
+                        <div class="loading-case-options z-99" *ngIf="caseFiledsLoader.regionUplift">
+                          <i class="fa fa-spinner txt-on-surface-06 fa-pulse f-25 spin-loader"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </li>
+              <li class="mrg-5 li-default">
+                <div class="row">
+                  <div class="col-4 d-flex align-items-center">
+                    <span id="labelProduct" class="txt-on-surface opct-60 mr-4 mnw-90 text-dark-black word-ba f-13">
+                      {{'Products' | translate}}:
+                    </span>
+                  </div>
+                  <div class="col-8 h-40">
+                    <div class="h-100">
+                      <div class="h-100">
+                        <div class="h-100 case-common-dropdwon transform-y-1 product-select-icon status-dropdown info-dropdown no-pink-form w-100 h-40" [ngClass]="{'bg-006': !editModeStatus}">
+                          <mat-form-field [ngClass]="{'pe-none': !editModeStatus}" [ngClass]="{'product-dropdown-fill ': casedetailUtilityObject.productSelected.length }" class="product-dropdown light-theme-light-black light-theme-no-radius w-100" [class.disabled]="hasViewPermission || !editModeStatus">
+                            <mat-select id="dropdownProducts" #selectProducts (focus)="onFieldFocus05()"
+                              [(ngModel)]="casedetailUtilityObject.productSelected" (ngModelChange)="updateProducts(data.rowData)" multiple [disabled]="!editModeStatus" disableOptionCentering>
+                              <mat-option *ngFor="let item of casedetailUtilityObject.products; trackBy:trackByDisplayName"
+                                [value]="item.displayName">
+                                {{item.displayName}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                          <div class="loading-case-options z-99" *ngIf="caseFiledsLoader.products">
+                            <i class="fa fa-spinner txt-on-surface-06 fa-pulse f-25 spin-loader"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="m-32 mt-12 li-default" permission
+              [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'case Details'" >
+                <div class="row">
+                  <div class="col-4 mr-0 pr-0 d-flex align-items-center">
+                    <span id="labelPriority" class="let-sp text-on-surface opct-60 mr-4 mnw-90 text-dark-black word-ba f-13 max-w-110">
+                      {{'Business Priority' | translate}}:
+                    </span>
+                  </div>
+                  <div class="col-8">
+                    <div class="info-dropdown transform-y-2 case-common-dropdwon w-100 h-40" [ngClass]="{'bg-006': !editModeStatus}">
+                      <mat-form-field class="w-100 h-32" [ngClass]="{'pe-none': !editModeStatus}">
+                        <mat-select id="dropdownPriority"  name="casePriority" [disabled]="hasViewPermission || !editModeStatus"
+                          [(value)]="selectedCaseBusinessPriority" #selectBusinessPriority (focus)="onFieldFocus06()">
+                          <ng-container *ngFor="let businessPriority of caseBusinessPriority; let i = index; trackBy:trackByDisplayName">
+                            <mat-option [value]="businessPriority && businessPriority.displayName"
+                              (click)="getSelectItemBusinessPriority($event,this,businessPriority)">
+                              {{businessPriority && businessPriority.displayName}}
+                            </mat-option>
+                          </ng-container>
+                        </mat-select>
+                      </mat-form-field>
+                      <div class="loading-case-options z-99" *ngIf="caseFiledsLoader.businessPriority">
+                        <i class="fa fa-spinner txt-on-surface-06 fa-pulse f-25 spin-loader"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="mrg-5 li-default">
+                <div class="row">
+                  <div class="col-4 mr-0 pr-0 d-flex align-items-center">
+                    <span id="labelCustomerInternalID" class="txt-on-surface opct-60 mr-0 pr-0 mnw-90 text-dark-black f-13">
+                      {{'Customer_Internal_ID' | translate}}:
+                    </span>
+                  </div>
+                  <div class="col-8 common-input-wrapper">
+                    <span class="w-100">
+                      <div class="no-pink-form custom-small-user-input position-relative drk-bg" [class.disabled]="!editModeStatus">
+                        <mat-form-field appearance="fill" floatLabel="never" class="c-pointer w-100 bst-bottom-radius">
+                          <input id="inputCustomerInternalID"
+                            [value]="data.rowData && data.rowData.customer_internal_id ? data.rowData.customer_internal_id : ''"
+                            (change)="updateCustomerID($event, data.rowData)"
+                            [readonly]="hasViewPermission || !editModeStatus"
+                            [disabled]="hasViewPermission || !editModeStatus"
+                            [class.c-ban]="hasViewPermission || !editModeStatus" matInput autocomplete="off"
+                            permission
+                            [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'case Details'"
+                            class="text-dark-black gotham-regular f-15 mt-1 placeholder-transparent cus-int-id"
+                            placeholder="N/A" maxlength="50" autocomplete="off" autofocus="off"
+                            #selectInternalID>
+                        </mat-form-field>
+                        <div class="loading-case-options z-99" *ngIf="caseFiledsLoader.customerInternalId">
+                          <i class="fa fa-spinner txt-on-surface-06 fa-pulse f-25 spin-loader"></i>
+                        </div>
+                      </div>
+                    </span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="col-4 pl-0 pr-0">
+            <ul class="text-white pl-0 list-unstyled f-14 text-dark-black">
+              <li class="mrg-5 pr-0 case-common-dropdwon li-default">
+                <div class="row mx-0">
+                  <div class="col-4 pl-0 mr-0 pr-0 d-flex align-items-center">
+                    <span id="labelRegionUplift" class="txt-on-surface opct-60 mr-0 pr-0 mnw-90 text-dark-black f-13">
+                      {{'Case Risk' | translate}}:
+                    </span>
+                  </div>
+                  <div class="col-8 pr-0 pl-5 d-flex align-items-center">
+                    <div class="info-dropdown transform-y-2 case-common-dropdwon no-pink-form w-100 h-40 position-relative" [ngClass]="{'mr-1x5rem': isOverride }"
+                    [style.backgroundColor]="getBgColor(selectedRisk?.colorCode , 0.3)">
+                      <mat-form-field #caseRiskDropdown class="w-100" [ngClass]="{'pe-none': !isLoggedUser || !checkIsOverrideRisk}" [class.disabled]="hasViewPermission || !isLoggedUser">
+                        <mat-icon class="dropdown-icon selected-icon" [style.color]="getBgColor(selectedRisk?.colorCode)" [ngClass]="'fa fa-' + selectedRisk?.icon"></mat-icon>
+                        <mat-select class="ml-4" id="dropdownRegionUplift" [(value)]="selectedRisk && selectedRisk.listItemId" [disabled]="!isLoggedUser || !checkIsOverrideRisk" disableOptionCentering #selectCaseRisk (focus)="onFieldFocus08()">
+                          <mat-option *ngFor="let item of caseRisks; trackBy:trackByListItemId" [value]="item.listItemId"
+                            (click)="selectedCaseRisk(item)">
+                            <span class="w-100 text-overflow d-flex">
+                              <mat-icon class="dropdown-icon" [style.color]="getBgColor(item.colorCode)" [ngClass]="'fa fa-' + item.icon"></mat-icon>
+                              <span>{{item.displayName}}</span>
+                            </span>
+                            <i class="fa fa-check active-icon" style="float:right;position: relative;top: 9px;"
+                              aria-hidden="true"></i>
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <div class="loading-case-options z-99" *ngIf="caseFiledsLoader.caseRisk">
+                        <i class="fa fa-spinner txt-on-surface-06 fa-pulse f-25 spin-loader"></i>
+                      </div>
+                    </div>
+                    <ng-container *ngIf="isOverride || riskFactors">
+                      <span #caseRiskIcon  class="material-icons-round info-icon c-pointer info-align"  (click)="isOverrideRisk ? caseRiskOverrideHistory() : caseRiskFactor()">info</span>
+                    </ng-container>
+                  </div>
+                </div>
+              </li>
+              <li class="mrg-5 pr-0 custom-case-dropdown case-common-dropdwon  li-default" permission
+                [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'case Details'">
+                <div class="row mx-0">
+                  <div class="col-4 mr-0 px-0">
+                    <span id="labelPriority" class="text-on-surface opct-60 mr-0 pr-0 pt-2 mnw-90 text-dark-black f-13">
+                      {{'Priority' | translate}}:
+                    </span>
+                  </div>
+                  <div class="col-8 d-flex transform-y-2 align-items-center pr-0 pl-5">
+                    <div class="info-dropdown w-100 h-40 case-override-dropdwon case-common-dropdwon position-relative" [ngClass]="{'bg-006': !editModeStatus}">
+                      <mat-form-field class="w-100" [ngClass]="{'pe-none': !editModeStatus}" [class.disabled]="hasViewPermission || !editModeStatus">
+                        <mat-icon class="dropdown-icon selected-icon" [ngStyle]="{'color':'#'+selectItemFromPriority?.colorCode}" [ngClass]="'fa fa-' + selectItemFromPriority?.icon"></mat-icon>
+                        <mat-select class="ml-4" id="dropdownPriority" [(value)]="priorityValue" [disabled]="!editModeStatus" disableOptionCentering #selectPriority (focus)="onFieldFocus09()">
+                          <mat-option *ngFor="let priority of listCasePriorities; let i = index;trackBy:trackByDisplayName" [value]="priority.displayName"
+                            (click)="getSelectedPriority($event,this,priority)">
+                            <span class="w-100 text-overflow d-flex">
+                              <mat-icon class="dropdown-icon" [ngStyle]="{'color':'#'+priority?.colorCode}" [ngClass]="'fa fa-' + priority.icon"></mat-icon>
+                              <span>{{priority.displayName}}</span>
+                            </span>
+                            <i class="fa fa-check active-icon" style="float:right;position: relative;top: 9px;"
+                              aria-hidden="true"></i>
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <div class="loading-case-options z-99" *ngIf="caseFiledsLoader.priority">
+                        <i class="fa fa-spinner txt-on-surface-06 fa-pulse f-25 spin-loader"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <!-- Next Remedation Date -->
+              <li class="mrg-5 pr-0 li-default" permission [IsHideRemoveBothEnabled]="true"
+                [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'caseStatus'">
+                <div class="row mx-0">
+                  <div class="col-4 mr-0 pr-0 d-flex align-items-center">
+                    <span id="labelStatus" class="txt-on-surface opct-60 mr-0 pr-0 max-w-110 mnw-90 text-dark-black word-ba f-13 full-content-width">
+                      {{'Next Remediation Date' | translate}}:
+                    </span>
+                  </div>
+                  <div class="col-8 pr-0 datepicker-wrapper">
+                    <div class="status-dropdown info-dropdown date-dropdown case-common-dropdwon no-pink-form w-100 h-40 position-relative" [ngClass]="{'bg-006': !editModeStatus}">
+                      <mat-form-field class="light-theme-light-black light-theme-no-radius w-100">
+                        <input name="remedationDate" matInput [matDatepicker]="remedationDate" (click)="remedationDate.open()" [formControl]="selectedRemedationDateController" [readonly]="hasViewPermission || !editModeStatus" [disabled]="hasViewPermission || !editModeStatus" [class.c-ban]="hasViewPermission || !editModeStatus" matInput [min]="todayDate" name="remedationDate"  autocomplete="off" permission [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'case Details'" (dateChange)="updateNextRemidiationDate($event, data.rowData)" #selectNextRmdznDate (focus)="onFieldFocus10()">
+                        <mat-datepicker-toggle matSuffix [for]="remedationDate"></mat-datepicker-toggle>
+                        <mat-datepicker #remedationDate (selectedChanged)="updateNextRemidiationDate($event)"></mat-datepicker>
+                      </mat-form-field>
+                      <div class="loading-case-options z-99" *ngIf="caseFiledsLoader.nextRemedationDate">
+                        <i class="fa fa-spinner txt-on-surface-06 fa-pulse f-25 spin-loader"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <!-- status -->
+              <li class="mrg-5 pr-0 li-default" permission [IsHideRemoveBothEnabled]="true"
+                  [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'caseStatus'">
+                  <div class="row mx-0">
+                    <div class="col-4 mr-0 pr-0 d-flex align-items-center">
+                      <span id="labelStatus" class="txt-on-surface opct-60 mr-0 pr-0 mnw-90 text-dark-black word-ba f-13">
+                        {{'Status' | translate}}:
+                      </span>
+                    </div>
+                    <div class="col-8 pr-0 d-flex align-items-center">
+                      <div class="transform-y-2 status-dropdown info-dropdown case-common-dropdwon no-pink-form w-100 h-40 position-relative" [class.disabled]="hasViewPermission || !editModeStatus">
+                        <mat-form-field class="light-theme-light-black light-theme-no-radius w-100"
+                          [class.c-ban]="hasViewPermission" (click)="getStatusList({ fromUI: true, caseId: this.data.rowData.id, statusKey: this.data.rowData && this.data.rowData.status && this.data.rowData.status.key })">
+                          <mat-label *ngIf="!casedetailUtilityObject.statusSelected">{{Select_status_reason}}
+                          </mat-label>
+                          <mat-select
+                          id="dropdownStatus"
+                          permission [IsHideRemoveBothEnabled]="true"
+                          [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'caseStatus'"
+                          disableOptionCentering [disabled]="hasViewPermission || !editModeStatus"
+                            [(ngModel)]="casedetailUtilityObject.statusSelected" #selectStatusdd (focus)="onFieldFocus11()">
+                            <mat-option *ngFor="let item of statusList;trackBy:trackByName" [value]="item.name"
+                              (click)="statusSelected(item)">
+                              {{item.name | translate}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <div class="loading-case-options z-99" *ngIf="caseFiledsLoader.status">
+                          <i class="fa fa-spinner txt-on-surface-06 fa-pulse f-25 spin-loader"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              <!-- Reason -->
+              <li class="mrg-5 pr-0 li-default">
+                <div class="row mx-0">
+                  <div class="col-4 mr-0 pr-0 d-flex align-items-center">
+                    <span id="labelProduct" class="txt-on-surface opct-60 mr-4 mnw-90 text-dark-black word-ba f-13">
+                      {{'Reasons' | translate}}:
+                    </span>
+                  </div>
+                  <div class="col-8 pr-0 d-flex align-items-center">
+                    <div class="transform-y-2 status-dropdown case-common-dropdwon info-dropdown no-pink-form w-100 h-40"
+                    [ngClass]="{'mr-1x5rem': data?.rowData?.status_reason_history?.length > 0, 'bg-006-reasondd': !editModeStatus}">
+                      <mat-form-field class="light-theme-light-black light-theme-no-radius w-100 position-relative">
+                        <mat-select id="dropdownReasons" [disabled]="hasViewPermission || !editModeStatus"
+                          [(ngModel)]="casedetailUtilityObject.reasonSelected" multiple
+                          (closed)="updateReason()" #selectReasons (focus)="onFieldFocus12()">
+                          <mat-option *ngFor="let item of casedetailUtilityObject.reasons; trackBy:trackByReason"
+                            [value]="item.reason">
+                            {{item.reason}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <div class="loading-case-options z-99" *ngIf="caseFiledsLoader.reasons">
+                        <i class="fa fa-spinner txt-on-surface-06 fa-pulse f-25 spin-loader"></i>
+                      </div>
+                    </div>
+                    <div *ngIf="data?.rowData?.status_reason_history?.length > 0">
+                      <div class="latest-reason">
+                        <span class="tooltip-reason material-icons-round info-icon c-pointer">info
+                          <div class="tooltiptext status-reason-history-tooltip">
+                            <div class="row reason-title-row opct-04">
+                              <div class="col-12">
+                                <span class="reason f-20 font-medium">{{'Last Reason for status' | translate}}</span>
+                              </div>
+                            </div>
+                            <div class="subtitle-outer-row">
+                              <div class="row reason-subtitle-row">
+                                <div class="col-5">
+                                  <span class="reason font-medium">{{'Last Reason for status' | translate}}</span>
+                                </div>
+                                <div class="col-4">
+                                  <span class="reason font-medium">{{'Updated date' | translate}} </span>
+                                </div>
+                                <div class="col-3">
+                                  <span class="reason font-medium">{{'Updated by' | translate}}</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="reason-data-row" *ngFor="let item of data.rowData.status_reason_history; let i=index">
+                              <div class="row data-outer-row">
+                                <div class="col-5">
+                                  <span class="last-update font-medium">
+                                    {{(item && item.reason_name) ? item.reason_name: ""}}
+                                  </span>
+                                </div>
+                                <div class="col-4">
+                                  <span class="last-update font-medium">
+                                    {{(item && item.date) ? (item.date | date:'dd-MMM-yyyy HH:mm') : ""}}
+                                  </span>
+                                </div>
+                                <div class="col-3">
+                                  <span class="last-update font-medium">
+                                    {{(item && item.user) ? item.user : ""}}
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <!-- Due Date -->
+              <li class="mrg-5 pr-0 li-default" permission [IsHideRemoveBothEnabled]="true"
+                [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'caseStatus'">
+                <div class="row mx-0">
+                  <div class="col-4 mr-0 pr-0 d-flex align-items-center">
+                    <span id="labelDueDate" class="txt-on-surface opct-60 mr-4 mnw-90 text-dark-black word-ba f-13">
+                      {{'Due_Date' | translate}}:
+                    </span>
+                  </div>
+                  <div class="col-8 pr-0 datepicker-wrapper">
+                    <div class="status-dropdown date-dropdown info-dropdown case-common-dropdwon no-pink-form w-100 h-40 position-relative" [ngClass]="{'bg-006': !editModeStatus}">
+                      <mat-form-field class="light-theme-light-black light-theme-no-radius w-100">
+                        <input (dateChange)="updateDueDate($event, data.rowData)" (click)="requestedDate.open()" matInput [formControl]="selectedDueDateController" [matDatepicker]="requestedDate" [readonly]="hasViewPermission || !editModeStatus" [disabled]="hasViewPermission || !editModeStatus" [class.c-ban]="hasViewPermission || !editModeStatus" matInput [min]="todayDate" name="dueDate"  autocomplete="off" permission [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'case Details'" #selectDueDate (focus)="onFieldFocus13()">
+                        <mat-datepicker-toggle matSuffix [for]="requestedDate"></mat-datepicker-toggle>
+                        <mat-datepicker #requestedDate></mat-datepicker>
+                      </mat-form-field>
+                      <div class="loading-case-options z-99" *ngIf="caseFiledsLoader.dueDate">
+                        <i class="fa fa-spinner txt-on-surface-06 fa-pulse f-25 spin-loader"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+          </ul>
+      </div>
+      </div>
+  </div>
+
+  <div class="main-case-view d-flex mt-3 justify-content-between">
+    <div class="main-panel fg-1 position-relative"  [class.overflow-hidden]="showDownloadLoader">
+      <ng-container id="tabAttachment" *ngIf="currentScreen == 'AttachmentView' || currentScreen == 'home' && !isHideAttachmentTab">
+           <div class="position-relative mxh-case-attch-wrapper mnh-100px  custom-scroll-wrapper">
+              <div class="main-panel-header mt-3 justify-content-between d-none">
+                  <div>
+                      <i class="material-icons-round c-pointer menu" mat-button [matMenuTriggerFor]="menu">more_vert</i>
+                      <mat-menu #menu="matMenu">
+                          <button mat-menu-item>
+                              <span class="material-icons-round align-middle mr-3">
+                                  view_module
+                                  </span>
+                                 {{'Grid_View' | translate}}</button>
+                          <button mat-menu-item [matMenuTriggerFor]="exportMenu">
+                              <span class="material-icons-round align-middle  mr-3">
+                                  cloud_download
+                                  </span>
+                                  Export as
+                          </button>
+                      </mat-menu>
+
+                      <mat-menu #exportMenu="matMenu" yPosition="below">
+                          <button mat-menu-item>
+                                  Option 1</button>
+                          <button mat-menu-item>
+                              Option 2
+                          </button>
+                      </mat-menu>
+                  </div>
+              </div>
+
+              <div class="no-data z-99 w-100 h-100 position-absolute" *ngIf="!isAttachmentLoaded || showDownloadLoader" [class.loader-bg]="showDownloadLoader">
+                  <i class="fa fa-spinner txt-on-surface-06 fa-pulse position-absolute f-25 mnh-auto no-data"></i>
+              </div>
+              <div
+              permission
+              [IsHideRemoveBothEnabled]="true"
+              [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId: 'case Attachments'"
+              class="ag-table-wrapper attachments-table data-table-wrapper" *ngIf="isAttachmentLoaded">
+                  <app-ag-grid-table  [attachmentsCount]="attachmentsCount ? attachmentsCount : 0" class="alertList-table mar-t10" [fromComponent]="caseDetailInfo" [tableData]="gridOptions"></app-ag-grid-table>
+              </div>
+
+                  <button class="btn btn-primary f-18 add-feed-btn" (click)="openUploadAttachementModal()" *ngIf="editModeStatus && isAttachmentLoaded" permission [IsHideRemoveBothEnabled]="true" [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'case Attachments'">
+                      <i class="fa fa-plus pad-t5" ></i>
+                  </button>
+              </div>
+          </ng-container>
+          <ng-container *ngIf="currentScreen == 'relatedEntries'">
+            <div class="no-data z-99" *ngIf="!relatedEntriesLoaded">
+              <i class="fa fa-spinner txt-on-surface-06 fa-pulse position-absolute b-0 f-25"></i>
+            </div>
+            <div class="ag-table-wrapper data-table-wrapper case-info-grid content-wrapper-ag-grid attachments-table related-entities-table"
+              *ngIf="relatedEntriesLoaded" permission
+              [IsHideRemoveBothEnabled]="true"
+              [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'relatedEntities'">
+              <app-ag-grid-table [fromComponent]="caseRelatedEntries" class="alertList-table mar-45"
+                [tableData]="relatedEntriesOptions"></app-ag-grid-table>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="currentScreen == 'associatedRecord'">
+            <div class="no-data z-99" *ngIf="!associatedRecordsLoaded">
+                <i class="fa fa-spinner txt-on-surface-06 fa-pulse position-absolute b-0 f-25"></i>
+            </div>
+            <div class="ag-table-wrapper data-table-wrapper bst-grid-table" *ngIf="associatedRecordsLoaded">
+                <app-ag-grid-table [fromComponent]="caseRelatedEntries" class="alertList-table mar-t10" [tableData]="associatedRecordOptions"
+                [attachmentsCount]="aeAttachmentsCount"></app-ag-grid-table>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="currentScreen == 'relatedCases'">
+          <div class="no-data z-99" *ngIf="!relatedCasesLoaded">
+              <i class="fa fa-spinner txt-on-surface-06 fa-pulse position-absolute b-0 f-25"></i>
+          </div>
+          <div class="ag-table-wrapper data-table-wrapper attachments-table" *ngIf="relatedCasesLoaded && !showRelatedCasesOverlay">
+              <app-ag-grid-table [fromComponent]="caseRelatedEntries" class="alertList-table mar-t10" [tableData]="relatedCasesOptions"
+              [attachmentsCount]="rcAttachmentsCount"></app-ag-grid-table>
+          </div>
+          <div class="overl-wr hy-no-ca" *ngIf="!relatedCasesLoaded || showRelatedCasesOverlay">
+            <div class="overl-c">
+              <div class="overl-ic-wr">
+                <img class="overl-ic" src="assets/images/icon/icon_file_attachment_24px_2.svg" *ngIf="themeService.getLightTheme()">
+                <img class="overl-ic" src="assets/images/icon/icon_file_attachment_24px.svg" *ngIf="!themeService.getLightTheme()">
+              </div>
+              <div class="overl-t">
+                {{ 'There are no related cases' | translate }}
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="currentScreen == 'caseContacts'">
+          <div class="ag-table-wrapper attachments-table data-table-wrapper" *ngIf="isCaseContactLoad">
+            <app-ag-grid-table  [attachmentsCount]="caseContactsCount ? caseContactsCount : 0" class="alertList-table mar-t10" [fromComponent]="caseDetailInfo" [tableData]="caseContactsOptions"></app-ag-grid-table>
+          </div>
+        </ng-container>
+        <app-case-details-events-lookup
+          *ngIf="currentScreen == 'eventsLookup'"
+          [caseId]="currentCaseId"
+          [caseName]="caseName"
+        >
+        </app-case-details-events-lookup>
+      </div>
+  </div>
+</div>
+</div>
+
+<div class="case-management-loader" *ngIf="showFullPageLoader">
+  <i class="fa fa-spinner fa-pulse loader-icon"></i>
+</div>
+
+<ng-container *ngIf="showRightPanel">
+<app-case-aduit></app-case-aduit>
+</ng-container>
+<div class="custom-tooltip" id="custom-tooltip" #customTooltip ></div>

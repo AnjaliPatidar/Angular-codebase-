@@ -1,0 +1,13 @@
+ <div class="modal-body pad-x15">
+     <div class="row">
+         <div class="col-sm-12 p-0">
+             <p id="mainData" class="text-left mb-2 f-14 text-cream">
+                {{title | translate}}
+             </p>
+         </div>
+         <div class="btn-group widtheight-100 text-right pull-right ml-auto">
+                 <button class="grad-button sm-btns mr-3" type="button" (click)="sendResponse(true)">{{'Yes' | translate}}</button>
+                 <button class="bordered-button sm-btns" type="button" (click)="sendResponse(false)">{{'No' | translate}}</button>
+         </div>	
+     </div>
+ </div>

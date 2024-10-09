@@ -1,0 +1,93 @@
+.company-details {
+  margin-top: 15px;
+  textarea {
+    background: transparent;
+    border: 0;
+    width: 100%;
+    resize: none;
+    color: rgb(204, 204, 204);
+  }
+}
+.prod {
+  font-size: 12px !important;
+  line-height: 16px !important;
+  font-family: "Roboto Light", sans-serif !important;
+  color: rgba(251, 251, 251, 0.6) !important;
+}
+::ng-deep {
+  .custom-popover {
+    max-width: 80%;
+    max-height: 100vh;
+    overflow: auto;
+    transition: all 0s ease-in-out !important;
+    z-index: 1000;
+    &.pb-0 {
+      .popover-header {
+        margin-bottom: 0px;
+      }
+      .popover-body {
+        padding: 0px;
+      }
+    }
+    padding-bottom: 10px;
+    .custom-list {
+      li {
+        margin-bottom: 5px;
+      }
+    }
+    .arrow {
+      display: none;
+    }
+    .popover-header {
+      min-height: auto;
+      font-size: 11px;
+      &:before {
+        display: none;
+      }
+    }
+    .popover-body {
+      color: #fff;
+      padding-bottom: 3px;
+    }
+  }
+  .sticky-popup {
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    .arrow {
+      &:before,
+      &:after {
+        display: none;
+      }
+    }
+  }
+  .caret {
+    .arrow {
+      &:before,
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+.customer-onfo1 {
+  padding-top: 15px;
+  padding-left: 15px;
+  .lite {
+    color: rgba(251, 251, 251, 0.6);
+  }
+  .column-name,
+  .custom-value {
+    color: white;
+    font-size: 12px;
+    font-family: "Roboto Light", sans-serif;
+    padding: 4px;
+  }
+}
+.not-found {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}

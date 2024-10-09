@@ -1,0 +1,21 @@
+@import '../../../../../../assets/scss/theme/common/_variable.scss';
+
+.bgr {
+  height: 40px;
+  padding: 6px 51px 6px 16px;
+  border-radius: $sm-comp-corner-radius;
+  background-color: $form-field-disabled-bg-color;
+  
+  .Subtitle-1 {
+  width: 81px;
+  height: 28px;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.75;
+  letter-spacing: 0.15px;
+  text-align: left;
+  color: $text-on-surface;
+}
+}

@@ -1,0 +1,20 @@
+<div class="modal-wrapper">
+  <div class="modal-title">
+    <p class="content-clr">{{dialogData?.title}}</p>
+    <i class="material-icons-round header-close-button" (click)="onClick(false)" [matTooltip]="'Close' | translate"
+      matTooltipPosition="above">close</i>
+  </div>
+  <div class="modal-body content-clr">
+    {{dialogData?.body}}
+  </div>
+  <div class="modal-actions">
+    <!-- <button class="secondary-btn" (click)="onClick(false)" [matTooltip]="'Cancel' | translate" matTooltipPosition="above">Cancel</button>
+    <button class="primary-btn" (click)="onClick(true)" [matTooltip]="'Confirm' | translate" matTooltipPosition="above">Confirm</button> -->
+    <button mat-button class="bst-mat-btn bst-mat-btn--secondary" (click)="onClick(false)" [matTooltip]="'Cancel' | translate" matTooltipPosition="above">
+      <span>Cancel</span>
+    </button>
+    <button mat-button class="bst-mat-btn bst-mat-btn--primary" (click)="onClick(true)" [matTooltip]="'Confirm' | translate" matTooltipPosition="above">
+      <span>Confirm</span>
+    </button>
+  </div>
+</div>

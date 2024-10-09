@@ -1,0 +1,61 @@
+/* Typo Styling */
+
+.fz-1 {
+  font-size: $base-font--x;
+}
+
+.fz-2 {
+  font-size: 1.2rem;
+}
+
+.fz-3 {
+  font-size: 1.4rem;
+}
+
+.fz-4 {
+  font-size: 1.6rem;
+}
+
+.fz-5 {
+  font-size: 1.8rem;
+}
+
+.fz-6 {
+  font-size: 2rem !important;
+}
+
+.fz-7 {
+  font-size: $base-font--x-large;
+}
+
+//Font size with colors
+
+.t1 {
+  @include typo-colors(24px, #42B7FF);
+}
+
+.t2 {
+  @include typo-colors(18px, #42B7FF);
+}
+
+.t3 {
+  @include typo-colors(16px, #42B7FF);
+}
+
+.t4 {
+  @include typo-colors(14px, #fff);
+}
+
+/*Text Styling*/
+
+.txt-upper-c {
+  text-transform: uppercase;
+}
+
+.txt-underline {
+  text-decoration: underline !important;
+}
+
+.txt-center {
+  text-align: center;
+}

@@ -1,0 +1,78 @@
+
+/*==============================================================================
+******************  Breadcrumb Wrapper Styles For The Site  ********************
+==============================================================================*/
+
+/*--  Breadcrumb Wrapper Styles  --*/
+.breadcrumb-wrapper{
+    @include margin(0 0 10px);    
+    @include padding(5px 0);
+    @include border-radius(0);
+    background-color: transparent;
+    border: 0;
+    li{
+        @extend .text-uppercase;
+        @include transition(all 0.3s ease-in-out);
+        color: $white;  
+        font-family: $roboto-regular;
+        font-size: $font-size-small;
+        + li{
+            &:before{
+                content: "\f105";
+                font-family: "fontawesome";
+            }
+        }
+        a{
+            @extend .text-uppercase;
+            @include transition(all 0.3s ease-in-out);
+            color: $white;  
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+            }
+            font-size: $font-size-small;
+        }
+        &:not(:last-of-type){  
+            a{
+                &:hover{
+                    color: $white;
+                }
+            }
+        }
+        &.active{
+            @extend .text-uppercase;
+            @include transition(all 0.3s ease-in-out);
+            color: $white;  
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+            }
+            font-size: $font-size-small;
+            opacity: 0.7;
+            a{
+                color: $white; 
+                font-size: $font-size-small;
+                cursor: no-drop;
+            }
+        }
+    }
+}
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+@media (min-width:$screen-lg){
+
+}
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
+
+}
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {
+
+}

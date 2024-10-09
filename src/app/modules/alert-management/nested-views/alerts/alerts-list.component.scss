@@ -1,0 +1,115 @@
+@import "../../../../../assets/scss/theme/common/variable";
+
+
+
+/* custom styles for confirm dialog box in alert management */
+
+::ng-deep {
+    .alerts-generated {
+        z-index: 9999999999;
+        max-width: 450px;
+        position: fixed;
+        width: 100%;
+        left: 80%;
+        transform: translateX(-51%);
+        color: #fff;
+        top:150px;
+        box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.4);
+        top:150px;
+        button {
+            color: #fff !important;
+            text-shadow: none;
+            opacity: 1;
+        }
+        &.alert-success {
+            background-color: $successAlert;
+            border-color: $successAlert;
+        }
+        &.alert-danger {
+            background-color: $errorAlert;
+            border-color: $errorAlert;
+            height: auto !important;
+        }
+    }
+    .alert-card-arrow {
+        .arrow:before {
+            left: -26px !important;
+            border-bottom-color: #545454 !important;
+            transform: rotate(270deg) !important;
+            top: -10px !important;
+            border-right-color: transparent;
+            border-left-color: transparent !important;
+        }
+    }
+   
+    .alert-list {
+        .ag-table-wrapper .ag-paging-panel {
+             top: -43px;
+            right: 30% !important;
+        }
+        .button-group {
+          position: absolute;
+          right: 60px;
+          top: 30px;
+        }
+        .export-button {
+            z-index: 9;
+            border-color: $primary-color;
+            line-height: 1.14;
+            letter-spacing: 1.25px;
+            border-radius: $sm-comp-corner-radius;
+            padding: 7px 11px;
+            border-style: groove;
+            color: $primary-color;
+        }
+      .alertList-table {
+        .ag-header-icon {
+          opacity: 1 !important;
+          .ag-icon-menu {
+            background: transparent url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEgMWgxMHYySDF6bTAgNGgxMHYySDF6bTAgNGgxMHYySDF6IiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=) center no-repeat;
+            display: none !important;
+        }
+        }
+
+        .ag-paging-button {
+          background-size: 30px 30px !important;
+          opacity: 2.54 !important;
+        }
+        .pagination-dropdown {
+            right: 10% !important;
+        }
+
+      }
+      .ag-header-cell-label {
+          .ag-icon-filter {
+              display: none;
+          }
+      }
+    }
+}
+
+.alert-data-container {
+margin-left: 72px;
+}
+
+.z-i-10000 {
+  z-index: 10000 !important;
+}
+
+.screening-alert-card-init {
+  position: fixed;
+  top: 115px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100% !important;
+  background-color: #424242;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-bg {
+  background: rgba(0, 0, 0, 0.4) !important;
+}

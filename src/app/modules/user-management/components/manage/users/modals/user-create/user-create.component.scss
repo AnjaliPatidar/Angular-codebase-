@@ -1,0 +1,364 @@
+@import "../../../../../../../../assets/theme-builder/theme_builder";
+::ng-deep {
+    .mat-input-element {
+        font-size: 1.6rem;
+    }
+
+    .profile-name {
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        background-color: var(--inputGroup);
+        i {
+            color: rgba(255, 255, 255, 0.54);
+            font-size: 3.8rem;
+        }
+        span {
+            background-color: var(--inputGroup);
+            bottom: 0;
+            left: 0;
+            padding: 6px 0;
+        }
+    }
+    .border-item {
+        &:after {
+            left: 13px;
+            position: absolute;
+            top: 1px;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.12);
+            content: "";
+            right: 13px;
+        }
+    }
+    /* custom styles for user create or edit popover */
+    .user-popover {
+        min-width: 1000px;
+        overflow: auto;
+        max-height: 700px;
+        box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2), 0 24px 38px 3px rgba(0, 0, 0, 0.14),
+            0 9px 46px 8px rgba(0, 0, 0, 0.12);
+        max-height: 90vh;
+        .mat-dialog-container {
+            overflow: unset;
+            box-shadow: none;
+            max-height: unset;
+        }
+        .blue-btn {
+            background: $primary-color;
+            letter-spacing: 1.25px;
+            height: 36px;
+            color:$text-on-primary;
+        }
+        .dynamic-list {
+            li {
+                background-color: $input-group;
+                padding: 2px 14px;
+                border-radius: $sm-comp-corner-radius;
+                line-height: 2;
+                letter-spacing: -0.5px;
+            }
+        }
+        ::ng-deep {
+            .mat-form-field-appearance-legacy {
+                .mat-form-field-label {
+                    top: 1.49125em;
+                }
+                .mat-form-field-infix {
+                    padding: 7px 2px;
+                }
+            }
+        }
+        ::ng-deep .add-role-btn {
+            button {
+                left: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .mat-select {
+                padding-left: 26px;
+                padding-right: 30px;
+            }
+            .mat-form-field-label-wrapper {
+                left: 25px;
+            }
+            .role-icon {
+                position: absolute;
+                left: 7px;
+                padding: 0;
+                top: 8px;
+            }
+        }
+        .mat-datepicker-toggle-default-icon {
+            font-size: 1.6rem;
+            // color: rgba(255, 255, 255, 0.7);
+            color:$text-on-surface;
+        }
+        .flex-one {
+            flex: 1;
+        }
+        .mat-dialog-container {
+            padding: 16px 24px;
+            background-color: $surface;
+            border-radius: $lg-comp-corner-radius;
+        }
+        .title {
+            // border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            font-size: 1.8rem;
+            i {
+                // color: rgba(255, 255, 255, 0.54);
+                color: $text-on-surface;
+            }
+        }
+        .file-uploader {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .content-title {
+            font-size: 2.4rem;
+            text-transform: capitalize;
+            i {
+                color: $text-on-surface;
+                opacity: 0.6;
+                margin-right: 8px;
+            }
+        }
+        .mat-form-field {
+            max-width: 100%;
+            width: 100%;
+        }
+        .mat-dialog-actions {
+            justify-content: flex-end;
+            margin: 10px;
+            button {
+                border-color: $primary-color;
+                border-radius: $sm-comp-corner-radius;
+                line-height: 1.43;
+                text-transform: uppercase;
+                font-size: 1.4rem;
+                letter-spacing: 1.25px;
+                height: 36px;
+                border-style: solid;
+                border-width: 2px;
+                color: $primary-color;
+                &:first-of-type {
+                    margin-right: 10px;
+                    background: transparent;
+                }
+                &:last-of-type {
+                    background-color: $primary-color;
+                    color: $text-on-primary;
+                }
+            }
+        }
+        &.upload-image-dialog {
+            max-width: 864px !important;
+            min-width: auto;
+            width: 100%;
+            min-height: 79vh;
+        }
+    }
+}
+
+/* custom styles for fileupload popover */
+
+::ng-deep .file-drop {
+    margin-top: 0 !important;
+    position: relative;
+    .file-drop-box {
+        min-height: 60vh;
+        flex-direction: column;
+        border: 2px dashed rgba(255, 255, 255, 0.2) !important;
+        border-radius: 10px !important;
+        margin-top: 30px;
+        position: relative;
+    }
+    .button-side-space {
+        display: none !important;
+    }
+    .file-input-button {
+        display: none;
+    }
+    .file-drop-box-text {
+        color: $title-text-on-surface !important;
+        font-size: 2.4rem !important;
+        text-transform: unset;
+        margin: 0;
+        // font-family: "Roboto", sans-serif;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+        }
+    }
+    .supported-file-format {
+        display: none;
+    }
+    .file-format {
+        position: absolute;
+        bottom: 20px;
+        color: $text-on-surface;
+        opacity: 0.6;
+    }
+    .upload-icon {
+        color: rgba(255, 255, 255, 0.12);
+        font-size: 6rem;
+        margin-bottom: 30px;
+        // -webkit-text-fill-color: rgba(0, 0, 0, 0.2) !important;
+    }
+    .divider-text {
+        font-size: 1.4rem;
+        line-height: 2;
+        margin: 10px 0;
+        color: $text-on-surface;
+        opacity: 0.6;
+    }
+    .upload-btn {
+        background: $primary-color;
+        border: 0;
+        color: $text-on-primary;
+        width: 132px;
+        font-size: 1.4rem;
+        height: 36px;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.14);
+        border-radius: $sm-comp-corner-radius;
+        text-transform: uppercase;
+        line-height: 1.14;
+        letter-spacing: 1.25px;
+    }
+}
+
+::ng-deep mat-datepicker-content {
+    width: 461px;
+    mat-calendar.user-datepicker {
+        width: 100% !important;
+        height: auto !important;
+        .mat-calendar-body-cell,
+        .mat-calendar-body-label {
+            padding: 20px 0 !important;
+        }
+        .mat-calendar-body-selected {
+            background-color: $primary-color !important;
+            color: $text-on-primary !important;
+        }
+    }
+}
+::ng-deep .status-dropdown {
+    width: 165px !important;
+    .mat-form-field-flex {
+        background-color: transparent;
+        border: 0 !important;
+        position: relative;
+        // top: -7px;
+    }
+    .mat-form-field-suffix {
+        border-left: 1px solid #fff;
+        top: -2px;
+    }
+    &.mat-focused {
+        .mat-form-field-suffix {
+            i {
+                transform: rotate(180deg);
+            }
+        }
+    }
+    .mat-select {
+        margin-top: 3px;
+    }
+}
+
+::ng-deep .list-group.selected-file-list {
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    font-size: 1.4rem;
+    transform: translateX(-50%);
+}
+
+::ng-deep .add-btns {
+    .mat-select-value-text {
+        width: 100%;
+        line-height: 1.5rem;
+        span {
+            max-width: 160px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+        }
+    }
+    .mat-form-field-label-wrapper {
+        top: -0.3rem;
+    }
+}
+
+::ng-deep .custom-user-input {
+    .mat-form-field {
+        max-width: 100%;
+        width: 100%;
+
+        .mat-form-field-wrapper {
+            padding-bottom: 0 !important;
+
+            .mat-form-field-flex {
+                // background: rgb(61, 61, 61);
+                background-color: $input-color-bg;
+                border-radius: $sm-comp-corner-radius;
+                height: 56px !important;
+                padding: 0 1.5rem;
+                align-items: center;
+                border-bottom: 2px solid rgba(255, 255, 255, 0.12);
+
+                .mat-form-field-infix {
+                    width: auto;
+
+                    .mat-input-element {
+                        font-size: 1.6rem;
+                        // color: rgba(255, 255, 255, 0.5);
+                        color:$text-on-surface;
+                    }
+
+                    mat-select-trigger {
+                        display: flex;
+                        // color: rgba(255, 255, 255, 0.6);
+                        color: $text-on-surface;
+                        font-size: 1.6rem;
+                    }
+
+                    .mat-form-field-label-wrapper {
+                        top: -0.7rem;
+
+                        label {
+                            // color: rgba(255, 255, 255, 0.6) !important;
+                            color: $text-on-surface !important;
+                            top: 1.28125em;
+                        }
+                    }
+                    .mat-select {
+                        // line-height: 1.8rem;
+                        .mat-select-value {
+                            position: relative;
+                            top: 3px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.btn {
+    &:focus {
+        border: 0;
+        box-shadow: none;
+    }
+}
+
+.profile-image {
+    width: 80px;
+    height: 80px;
+}
+::ng-deep .user-create {
+    min-width: 240px !important;
+    max-width: 240px !important;
+}
+
+.mat-icon {
+    // color: #fff !important;
+    color: $text-on-surface;
+}

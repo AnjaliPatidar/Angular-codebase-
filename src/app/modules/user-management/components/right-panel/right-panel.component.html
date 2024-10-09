@@ -1,0 +1,81 @@
+<div class="right-panel-charts-wrapper custom-scroll-wrapper h-100">
+  <div class="list-details-wrapper">
+    <div class="card custom-card  light-theme-no-radius light-theme-bg-white">
+      <div class="card-header border-0 light-theme-border-bottom">
+        <h3 class="d-flex ai-c text-dark-black" *ngIf="hideShowHeadersForBulk"><span
+            style="width: 221px;" class="font-medium  gotham-medium fw-500">{{'UserAuditing' | translate}}</span> <span class="mar-autol"
+            (click)="removeRightPanel()">
+            <i class="material-icons c-pointer">close</i>
+          </span></h3>
+        <h3 class="d-flex ai-c" *ngIf="!hideShowHeadersForBulk"><span
+            style="width: 221px;" class="font-medium fw-500">{{'BulkAuditing' | translate}}</span> <span class="mar-autol"
+            (click)="removeRightPanel()">
+            <i class="material-icons c-pointer">close</i>
+          </span>
+        </h3>
+      </div>
+    </div>
+    <div class="card custom-card card-details flex-row light-theme-no-radius" *ngIf="hideShowHeadersForBulk">
+      <div *ngIf="nameOfUser" class="header-dt">
+        <span *ngIf="!imagePath" class="initial-name-wrapper">{{profileIcon}}</span>
+        <img *ngIf="imagePath" src="{{imagePath}}" class="rounded-circle" height="50px;">
+      </div>
+      <div>
+        <p class="text-on-surface ml-4 theme-f-14 text-dark-black gotham-medium font-medium fw-500">{{auditId}}</p>
+        <p class="text-on-surface ml-4 theme-f-14 text-dark-black gotham-medium font-medium fw-500">{{auditName}}</p>
+      </div>
+    </div>
+    <div class="position-relative search-container" *ngIf="rightPanelData.length">
+      <i class="material-icons search-icon position-absolute  text-dark-black text-on-surface">
+        search
+      </i>
+      <input type="text" #name="ngModel" name="filterargsName" [(ngModel)]="searchAuditText" placeholder="{{'Search' | translate}}"
+        class="form-control mt-0 mb-3 input-control search-input  light-theme-no-radius text-dark-black light-theme-no-shadow">
+    </div>
+    <div class="custom-scroll-wrapper">
+      <ng-container
+        *ngFor="let alerts of rightPanelData | textFilter:searchAuditText | TimeStampSort: '-key';index as i;trackBy:trackByKey">
+        <div class="card custom-card pt-0 pb-0 light-theme-no-radius bg-transparent">
+          <div class="card-header text-dark-black" [class.border-0]="i === 0">
+            <h3>{{alerts.key}}</h3>
+          </div>
+        </div>
+        <ng-container
+          *ngFor="let alertval of alerts.values | textFilter:searchAuditText| TimeStampSort: '-key'  ; let x = index;trackBy:trackByKey">
+          <div class="card custom-card  c-pointer card-hover light-theme-bg-transparent light-theme-no-radius" (click)="alertInfo(alertval)" data-toggle="collapse"
+            [attr.href]="'#'+alerts.key+x" role="button" aria-expanded="false" [attr.aria-controls]="alerts.key+x">
+            <div class="date-wrapper text-dark-black">
+              <span class="fa " [ngClass]="{'fa-angle-right':!alertval.toggle, 'fa-angle-down':alertval.toggle}"></span>
+              {{alertval.key | date : dateFormat.ShortDateFormat}}
+            </div>
+            <ul class="list-unstyled user-details-wrapper mb-0">
+              <li class="media" *ngFor="let alertlst of alertval.values; ">
+                <div class="media-body audit-body f-14">
+                  <h5 class="mt-0 mb-0">
+                  </h5>
+                  <ng-container *ngFor="let data of alertlst.values  | TimeStampSort: '-timestamp'; trackBy:trackByTimestamp">
+                    <div class="collapse mt-3 position-relative" id="{{alerts.key}}{{x}}">
+                      <div class="d-flex pl-2">
+                        <h5 class="mt-0 mb-3 pr-2 d-flex">
+                          <img *ngIf="data.commentedBy && data.commentedBy.userImage" class="list-img" [src]="'data:image/gif;base64,' + data.commentedBy.userImage"
+                            alt="">
+                            <span *ngIf="data.commentedBy && !data.commentedBy.userImage" class="image-placeholder f-10">
+                              {{ data?.commentedBy?.firstName ?  data.commentedBy.firstName.charAt(0).toUpperCase() : ''  }}{{ data?.commentedBy?.lastName ? data.commentedBy.lastName.charAt(0).toUpperCase() : '' }}</span>
+                          <span
+                            class="ml-4 text-dark-black gotham-regular case-text-width-wrapper">{{data.description}}</span>
+                        </h5>
+                        <span class="time-list text-dark-black gotham-regular">{{data.timestamp | date :dateFormat.ShortTimeFormat}}</span>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div>
+
+<script src="../../../shared/charts/lineChart.js"></script>

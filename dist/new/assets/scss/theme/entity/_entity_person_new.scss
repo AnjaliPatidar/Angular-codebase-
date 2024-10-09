@@ -1,0 +1,3894 @@
+
+.entity-person-content-left {
+    border: 1px solid #2e424b;
+}
+
+/*==============================================================================
+************************  Person - TOP SECTION Starts  *************************
+===============================================================================*/
+.relative {
+    position: relative;
+}
+
+.entity-person-wrapper {
+    .entity-person-intro {
+        padding: 10px;
+    }
+
+    h2,
+    h3 {
+        font-size: 14px;
+        margin: 0 0 10px;
+        color: #337ab7;
+        // font-family: "Roboto Medium", sans-serif;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-medium);
+        }
+        line-height: 21px;
+    }
+
+    p {
+        color: #849fab;
+        // font-family: "Roboto Regular", sans-serif;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+        }
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .entity-person-intro.entity-person-new-intro {
+        position: relative;
+        padding-left: 160px !important;
+        max-height: 150px;
+        border-bottom: 0;
+
+        .entity-person-image {
+            padding: 10px;
+            width: 150px;
+            max-height: 150px;
+            display: block;
+            position: absolute;
+            left: 0;
+
+            &.static-logo-img {
+                top: 50%;
+                transform: translateY(-50%);
+                -o-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -webkit-transform: translateY(-50%);
+            }
+
+            >a {
+                height: 100px;
+                width: 100px;
+                border: 0;
+                border-radius: 50%;
+                background-color: transparent;
+                overflow: hidden;
+                margin: 0 auto;
+                display: block;
+
+                >img {
+                    position: static;
+                    top: auto;
+                    left: auto;
+                    transform: none;
+                }
+            }
+        }
+
+        .entity-person-description {
+            padding: 10px 0;
+            position: static;
+            min-height: auto;
+
+            h2 {
+                margin: 0 0 10px;
+                color: #337ab7;
+                // font-family: "Roboto Medium", sans-serif;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-medium);
+                }
+                line-height: 21px;
+                font-size: 30px;
+            }
+
+            .main-content-description {
+                .highlighting-info-wrapper {
+                    >ul {
+                        margin-bottom: 0;
+                    }
+
+                    .highlighting-list {
+                        margin: 0 18px 0 0;
+                        position: relative;
+                        float: left;
+                        width: 22%;
+
+                        /* &:first-child{
+                            width: 18%;
+                        }
+                        &:last-child{
+                            width: 20%;
+                        }
+                        &:nth-child(3){
+                            width: 20%;
+                        } */
+                        // &:not(:last-child) {
+                        //     &:after {
+                        //         content: "";
+                        //         display: inline-block;
+                        //         height: 70px;
+                        //         width: 1px;
+                        //         position: absolute;
+                        //         background-color: rgba(251, 251, 251, .6);
+                        //         right: -10px;
+                        //         top: 0;
+                        //     }
+                        // }
+
+                        .highlighting-info {
+                            margin: 0 0 15px;
+                            overflow: hidden;
+                            height: auto;
+                            width: auto;
+                            max-height: 100%;
+
+                            p {
+                                color: #6d858f;
+                                margin: 0;
+                                font-size: 10px;
+                                line-height: 14px;
+                                // font-family: "Roboto Regular", sans-serif;
+                                @include fontFamily($fonts) {
+                                    font-family: fonted(font-regular);
+                                }
+                                overflow: hidden;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                text-transform: uppercase;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .entity-contents-wrapper {
+        h3 {
+            color: #879fa9;
+            text-transform: uppercase;
+        }
+    }
+
+    .more-positions {
+        font-size: 10px;
+        float: right;
+        color: #6d858f;
+        // font-family: "Roboto Regular", sans-serif;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+        }
+    }
+
+    .entity-results-wrapper {
+        .entity-contents-wrapper {
+            .entity-item {
+
+                ul {
+                    &.insta-score {
+                        li {
+                            color: #98b6c3;
+                            font-size: 13px;
+                            min-width: 80px;
+                            // font-family: "Roboto Regular", sans-serif;
+                            @include fontFamily($fonts) {
+                                font-family: fonted(font-regular);
+                            }
+                            margin-bottom: 10px;
+
+                            i {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.innerSidebarToggle {
+    .entity-contents-wrapper {
+        >div {
+            >.row.custom-row {
+                margin: 0;
+            }
+        }
+    }
+}
+
+/*==============================================================================
+***********************  Person - TOP SECTION Ends  ************************
+===============================================================================*/
+
+/*==============================================================================
+****************  Person - left side navigation Tabs Starts  ***************
+===============================================================================*/
+.innerSidebarToggle {
+    position: relative;
+    padding-left: 0px;
+    /* @include margin-top(10px); */
+    // border-top: 1px solid #2E424B;
+}
+
+.entity-tabs-wrapper {
+    position: fixed;
+    left: 61px;
+    min-width: 60px;
+    padding-top: 293px;
+    top: 0;
+    height: 1200px;
+    bottom: 0;
+    /* height: 100%; */
+    z-index: 1000;
+    background-color: #2d2d2d;
+    transform: translate(-61px, -173px);
+}
+
+.entity-results-wrapper {
+    .entity-person-new-desc {
+        margin: 0 -10px;
+    }
+
+    .entity-tabs-wrapper.custom-col {
+        margin: 10px 0 0;
+        padding: 0;
+    }
+
+    .entity-tabs-wrapper {
+        .tabs-section {
+            ul {
+                padding: 0 25px;
+                //border-bottom: 1px solid #354851;
+                padding: 0;
+                border: 0;
+
+                li {
+                    float: none;
+
+                    a {
+                        padding: 0;
+                        text-align: center;
+                        -webkit-border-radius: 0;
+                        -moz-border-radius: 0;
+                        -ms-border-radius: 0;
+                        border-radius: 0;
+                        -webkit-transition: all .3s ease-in-out;
+                        -o-transition: all .3s ease-in-out;
+                        transition: all .3s ease-in-out;
+                        font-size: 11px;
+                        color: $text-color-default;
+                        background-color: transparent;
+                        // font-family: "Roboto Medium", sans-serif;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-medium);
+                        }
+                        font-weight: 400;
+                        text-transform: uppercase;
+                        margin-right: 0;
+                        border: 0;
+
+                        &:hover {
+                            border-color: transparent;
+                            color: #4294D9;
+                        }
+
+                        i {
+                            font-size: 21px;
+                            line-height: 21px;
+                            display: block;
+                            padding: 12px;
+                            background-color: #2d2d2d;
+                            //  background-color: rgba(251, 251, 251, 0.2);
+                            // border-bottom: 1px solid rgba(249, 249, 249, 0.2) !important;
+                        }
+
+                        span {
+                            position: absolute;
+                            text-align: left;
+                            left: -171px;
+                            transition: left 0.3s ease-in-out;
+                            //  background-color: rgba(251, 251, 251, 0.2);
+                            padding: 14px 10px 14px;
+                            bottom: 0;
+                            line-height: 17px;
+                            display: block;
+                            white-space: nowrap;
+                            width: 170px;
+                            height: 46px;
+                            font-size: 10px;
+                            z-index: -1;
+                            // font-family: "Roboto Regular";
+                            @include fontFamily($fonts) {
+                                font-family: fonted(font-regular);
+                            }
+                            //   border-bottom: 1px solid rgba(249, 249, 249, 0.2) !important;
+                        }
+                    }
+
+                    &:first-child {
+                        a {
+                            //  margin-top: -1px;
+                        }
+                    }
+                }
+
+                li.active {
+                    a {
+                        color: #4294D9;
+                        background-color: transparent;
+
+                        &:hover {
+                            border-color: #465B65;
+                        }
+                    }
+                }
+
+                &:hover {
+                    li {
+                        a {
+                            span {
+                                left: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/*==============================================================================
+****************  Person - left side navigation Tabs ENDS  *****************
+===============================================================================*/
+
+/*==============================================================================
+**********************  Person - Counters CSS Starts  **********************
+===============================================================================*/
+.entity-item-submmenu {
+    .submmenu-list {
+        h5 {
+            position: relative;
+            padding-right: 30px;
+            max-width: 100px;
+            font-size: 11px;
+            // font-family: "Roboto Medium";
+            @include fontFamily($fonts) {
+                font-family: fonted(font-medium);
+            }
+            font-weight: normal;
+            color: rgba($text-color-default, .8);
+            margin: 0;
+            line-height: 14px;
+            margin-right: 10px;
+
+            strong {
+                font-size: 24px;
+                color: rgba($text-color-default, .8);
+                top: 50%;
+                display: block;
+                right: 0;
+                font-weight: normal;
+                font-family: "Francois One Regular";
+                position: absolute;
+                transform: translateY(-50%);
+                -o-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -webkit-transform: translateY(-50%);
+            }
+        }
+    }
+}
+
+.associated-locations-wrapper {
+    position: relative;
+
+    .entity-item-submmenu {
+        position: absolute;
+        top: 8px;
+        right: 0;
+
+        .submmenu-list {
+            h5 {
+                // font-family: "Roboto Regular";
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                }
+            }
+        }
+    }
+}
+
+.social-media-wrapper {
+    .entity-item-submmenu {
+        .submmenu-list {
+            h5 {
+                max-width: 125px;
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.entity-results-wrapper {
+    .entity-contents-wrapper {
+        .entity-item.leadership-status-wrapper {
+            height: 70px;
+            min-height: auto;
+            max-height: none;
+            padding: 20px 10px;
+
+            .leader-top-list {
+                li {
+                    width: 18%;
+                }
+            }
+
+            h5 {
+                // font-family: "Roboto Regular";
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                }
+                color: rgba($text-color-default, .6);
+            }
+        }
+    }
+
+    .dual-office-location {
+        .listing-item {
+            @include margin(0 auto);
+            width: 120px;
+
+        }
+    }
+}
+
+/*==============================================================================
+***********************  Person - Counters CSS Ends  ***********************
+===============================================================================*/
+
+/*==============================================================================
+************************  Person - Overview Tab Starts  ************************
+===============================================================================*/
+.overview-tab-wrapper {
+    .career-details-wrapper {
+        .career-details-lists {
+            li {
+                .media-body {
+                    max-width: 420px !important;
+                    overflow: hidden;
+                    white-space: normal;
+
+                    h4 {
+                        white-space: normal !important;
+                        max-height: 42px;
+                    }
+
+                    p {
+                        white-space: normal !important;
+                        max-height: 42px;
+                    }
+                }
+            }
+        }
+    }
+
+    .academic-info {
+        .academic-info-lists {
+            li {
+                .media-body {
+                    max-width: 420px !important;
+                    overflow: hidden;
+                    white-space: normal;
+
+                    h4 {
+                        white-space: normal !important;
+                        max-height: 42px;
+                    }
+
+                    p {
+                        white-space: normal !important;
+                        max-height: 42px;
+                    }
+                }
+            }
+        }
+    }
+
+    .instagram-update-wrapper {
+        img {
+            width: 80%;
+            margin: 0 auto;
+            border: 3px solid #2e424b;
+            border-radius: $sm-comp-corner-radius;
+        }
+
+        .custom-instagram-update {
+            max-height: 250px;
+            overflow: hidden;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.entity-person-content-inner-wrapper.entityPersonNew-inner-wrapper {
+    display: block !important;
+    position: relative !important;
+    padding-right: 325px;
+
+    .entity-company-content-left {
+        width: calc(100%) !important;
+        display: block !important;
+    }
+
+    .entity-company-content-right {
+        width: 325px !important;
+        display: block !important;
+        background-color: #1E2F37 !important;
+        height: 100% !important;
+        overflow: hidden !important;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+}
+
+.entity-results-wrapper {
+    .entity-contents-wrapper {
+        .entity-item {
+            max-height: 400px;
+            overflow: hidden;
+            min-height: 360px;
+
+            &.who-am-i-wrapper {
+                height: 270px;
+                overflow: hidden;
+                min-height: auto;
+
+                .whoweare-result-item {
+                    p {
+                        height: 214px;
+                        overflow: hidden;
+                        color: #849fab;
+                    }
+                }
+
+                // .custom-result-item { 
+                //     height: 295px;
+                // }
+            }
+
+            &.career-details-wrapper {
+                height: 270px;
+                overflow: hidden;
+                min-height: auto;
+                max-height: 290px;
+
+                .entity-result-item {
+                    height: 220px !important;
+
+                    &.entity-result-item-lg {
+                        height: 250px !important;
+                    }
+                }
+
+                .media {
+                    margin-bottom: 15px;
+                    min-height: 58px;
+
+                    /*                    max-height: 58px;*/
+                    .media-left {
+                        a {
+                            height: 40px;
+                            width: 40px;
+                            padding: 0;
+                            position: relative;
+
+                            img {
+                                @include padding(5px);
+                                border-radius: 0;
+                                height: 100%;
+                                width: 100%;
+                                object-fit: cover;
+                                max-width: 100%;
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                -o-transform: translate(-50%, -50%);
+                                -moz-transform: translate(-50%, -50%);
+                                -webkit-transform: translate(-50%, -50%);
+                            }
+                        }
+                    }
+
+                    .media-body {
+                        .media-heading {
+                            display: block;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            margin: 0;
+                        }
+
+                        .progress-text {
+                            width: 100%;
+
+                            span {
+                                display: block;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+
+                                &:first-child {
+                                    @extend .text-capitalize;
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            &.academic-info {
+                height: 360px;
+                min-height: 360px;
+
+                .entity-result-item {
+                    height: 305px !important;
+                }
+            }
+
+            &.relationship-analysis {
+                height: 360px;
+                min-height: 320px;
+
+                .visual-link-overview:hover {
+                    cursor: pointer;
+                    color: #337ab7;
+                }
+            }
+        }
+    }
+}
+
+.instagram-update-wrapper {
+    .entity-item-submmenu {
+        .submmenu-list {
+            h5 {
+                max-width: 115px;
+            }
+        }
+    }
+
+    .entity-result-item {
+        .person-table-wrapper {
+            .table {
+                tbody {
+                    tr {
+                        border-bottom: 1px solid #354a53;
+
+                        td {
+                            font-size: 10px;
+                            // font-family: "Roboto Regular";
+                            @include fontFamily($fonts) {
+                                font-family: fonted(font-regular);
+                            }
+                            color: #8398a2;
+                            text-transform: uppercase;
+                            word-break: break-all;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .customEntities-result-item {
+        min-height: 250px;
+
+        .related-entries {
+            min-height: 250px;
+        }
+    }
+}
+
+.relationship-analysis {
+    #networkGraphOverview {
+        width: 100%;
+        height: 280px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+#networkGraphCareers {
+    width: 100%;
+    height: 280px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.entity-item.academic-info {
+    padding-left: 30px;
+}
+
+/*==============================================================================
+***********************  Person - Overview Tab ENDS  ***********************
+===============================================================================*/
+
+/*==============================================================================
+*******************  Person - Right Panel Overview Tab ENDS  *******************
+===============================================================================*/
+.entity-company-content-right.entity-person-new-right {
+    .risk-score-panel {
+        >div {
+            margin-bottom: 25px;
+        }
+
+        .contact-address-wrapper {
+            margin-bottom: 25px;
+
+            /* border: 1px solid #2e424b;
+            padding: 10px; */
+            h3 {
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba($text-color-default, 1);
+            }
+
+            .contact-address {
+                margin-bottom: 0;
+
+                h5 {
+                    font-size: 12px;
+                    color: rgba($text-color-default, .6);
+                    margin: 10px 0 2px;
+
+                    i {
+                        color: rgba($text-color-default, .6);
+                    }
+                }
+
+                p {
+                    font-size: 11px;
+                    // font-family: "Roboto Regular";
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-regular);
+                    }
+                    color: rgba($text-color-default, .6);
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        /*  .instagram-update-wrapper {
+             h3 {
+                 color: rgba($text-color-default, 1);
+                 font-size: 12px;
+                 text-transform: uppercase;
+             }
+         } */
+        .competitor-compensation {
+            /* min-height: 250px; */
+        }
+
+        .related-entities-wrapper {
+            .related-entries {
+                /* min-height: 250px; */
+            }
+
+            h3 {
+                color: rgba($text-color-default, 1);
+                font-size: 12px;
+                text-transform: uppercase;
+            }
+
+        }
+
+        .associated-locations-wrapper {
+            .WorldgraphBox {
+                background-color: transparent;
+            }
+
+            h3 {
+                color: rgba($text-color-default, 1);
+                font-size: 12px;
+                text-transform: uppercase;
+            }
+
+            .associated-locations {
+                min-height: 265px;
+            }
+        }
+
+        .social-media-followers {
+            >h3 {
+                color: rgba($text-color-default, 1);
+                font-size: 12px;
+                text-transform: uppercase;
+            }
+
+            .social-media-updates {
+                min-height: 250px;
+            }
+        }
+
+        .risk-rating-wrapper {
+            h3 {
+                color: rgba($text-color-default, 1);
+                font-size: 12px;
+                text-transform: uppercase;
+            }
+
+            /* .riskscoreprogress {
+                .inline {
+                    width: 25%;
+                    text-transform: uppercase;
+                    font-size: 10px;
+                    color: #5f7a86;
+                    margin-top: -1px;
+                }
+                .progress {
+                    background-color: #475b67;
+                    border-radius: 15px;
+                }
+            }
+            .progress {
+                .progressdr {
+                    background: #0cb299 !important;
+                }
+            } */
+            .riskscoreprogress {
+                .risk-progressbar-holder {
+                    .progress-wrapper {
+                        display: block;
+                        position: relative;
+                        @include padding(7px 30px 7px 70px);
+
+                        .inline {
+                            @include translateY(-50%);
+                            text-transform: uppercase;
+                            font-size: ($font-size-base - 4);
+                            line-height: ($font-size-base - 4);
+                            color: #5f7a86;
+                            left: 0;
+                            top: 50%;
+                            width: 60px;
+                            margin: 0;
+                            position: absolute;
+                            max-width: 60px;
+                            max-height: 20px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+
+                        .progress {
+                            background-color: rgba($text-color-default, .6);
+                            border-radius: 15px;
+                            width: 100%;
+                            margin: 0;
+
+                            .progressdr {
+                                background: #3d87c3 !important;
+                                border-radius: 20px;
+                            }
+                        }
+
+                        .progress-percent {
+                            @extend .text-right;
+                            position: absolute;
+                            right: 0px;
+                            top: 50%;
+                            max-width: 30px;
+                            @include translateY(-50%);
+                        }
+                    }
+                }
+            }
+        }
+
+        .general-info-wrapper {
+            border: 0;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+/*==============================================================================
+*****************  Person - Right Panel Overview Tab ENDS  *****************
+===============================================================================*/
+
+/*==============================================================================
+*************************  Person - Career Tab Starts  *************************
+===============================================================================*/
+.career-tab-wrapper {
+    .current-role {
+        .custom-result-item {
+            &.entity-result-item {
+                height: 305px !important;
+            }
+        }
+
+        .current-role-lists {
+            li {
+                .media-body {
+                    max-width: 300px !important;
+                    overflow: hidden;
+                    white-space: normal;
+
+                    h4 {
+                        white-space: normal !important;
+                        max-height: 42px;
+                    }
+
+                    p {
+                        white-space: normal !important;
+                        max-height: 39px;
+                    }
+                }
+            }
+        }
+    }
+
+    .previous-roles-wrapper {
+        .custom-result-item {
+            &.entity-result-item {
+                height: 305px !important;
+            }
+        }
+
+        .previous-roles {
+            li {
+                /*width: 46%;*/
+                /*min-height: 60px;*/
+                /*float: left;*/
+                margin: 0 10px 15px 0;
+
+                .media-body {
+                    max-width: 495px !important;
+                    overflow: hidden;
+                    white-space: normal;
+
+                    h4 {
+                        white-space: normal !important;
+                        max-height: 42px;
+                    }
+
+                    p {
+                        white-space: normal !important;
+                        max-height: 39px;
+                    }
+                }
+            }
+        }
+    }
+
+    .board-memberships,
+    .board-memberships-person {
+        .custom-result-item {
+            &.entity-result-item {
+                height: 265px !important;
+            }
+        }
+    }
+
+    .government-positions,
+    .other-memeberships {
+        .custom-result-item {
+            &.entity-result-item {
+                height: 305px !important;
+            }
+        }
+    }
+
+    .other-memeberships {
+        .entity-result-item {
+            .person-table-wrapper {
+                .associated-table {
+                    tbody {
+                        tr {
+                            td {
+                                p {
+                                    margin: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*  founding-wrapper  */
+.person-wrapper {
+    padding-right: 0;
+
+    .entity-item {
+        &:first-child {
+            border-left: 0;
+        }
+
+        /* h3{
+            margin-bottom: 15px; 
+        } */
+        &.family-wrapper {
+            .entity-result-item {
+                height: 265px !important;
+
+                .person-table-wrapper {
+                    .associated-table {
+                        tbody {
+                            tr {
+                                td {
+                                    &:first-child {
+                                        white-space: nowrap;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .entity-result-item {
+            padding: 0;
+            height: 350px !important;
+
+            .media-list {
+
+                .media {
+                    .media-left {
+                        a {
+                            height: 50px;
+                            width: 50px;
+                            position: relative;
+                            overflow: hidden;
+
+                            >* {
+                                font-size: 34px;
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                -o-transform: translate(-50%, -50%);
+                                -moz-transform: translate(-50%, -50%);
+                                -webkit-transform: translate(-50%, -50%);
+                            }
+                        }
+                    }
+
+                    .media-body {
+                        >h4 {
+                            // font-family: $roboto-regular;
+                            @include fontFamily($fonts) {
+                                font-family: fonted(font-regular);
+                            }
+                            font-size: ($font-size-base - 2);
+                            line-height: ($font-size-base);
+                            @include margin(0 0 5px 0);
+                            color: #98b6c3;
+                            display: block;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+
+                        >h5 {
+                            // font-family: $roboto-regular;
+                            @include fontFamily($fonts) {
+                                font-family: fonted(font-regular);
+                            }
+                            font-size: ($font-size-base - 3);
+                            line-height: ($font-size-base);
+                            @include margin(0 0 0 0);
+                            color: #909a9e;
+                            max-height: 28px;
+                            overflow: hidden;
+                        }
+
+                        >p {
+                            @extend .text-uppercase;
+                            // font-family: $roboto-regular;
+                            @include fontFamily($fonts) {
+                                font-family: fonted(font-regular);
+                            }
+                            font-size: ($font-size-base - 4);
+                            width: 100%;
+                            color: #849fab;
+                            display: block;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*==============================================================================
+**************************  Person - Careers Tab ENDS  *************************
+===============================================================================*/
+
+/*==============================================================================
+************************  Person - Career Tab Starts  **************************
+==============================================================================*/
+
+/*==============================================================================
+*************************  Person - Careers Tab Ends  **************************
+===============================================================================*/
+
+/*==============================================================================
+*******************  Person - Social Media Tab Starts  *********************
+===============================================================================*/
+.social-media-tab-wrapper.person-social {
+    .twitter-counter-wrapper {
+        max-height: 6rem !important;
+        min-height: auto !important;
+        overflow: hidden;
+
+        .entity-item-submmenu {
+            ul {
+                margin-bottom: 0;
+
+                li {
+                    h5 {
+                        max-width: 190px;
+                        padding-left: 50px;
+                        padding-right: 68px;
+
+                        i {
+                            color: rgba($text-color-default, .6);
+                            position: absolute;
+                            left: 0;
+                            font-size: 36px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            -o-transform: translateY(-50%);
+                            -moz-transform: translateY(-50%);
+                            -webkit-transform: translateY(-50%);
+                        }
+
+                        strong {}
+                    }
+                }
+            }
+        }
+    }
+
+    .activity-feed-wrapper {
+        height: 140px !important;
+        max-height: 140px !important;
+        min-height: auto !important;
+        overflow: hidden;
+
+        h3 {
+            margin-bottom: 15px;
+            position: relative;
+
+            select {
+                background-color: transparent;
+                border: 0;
+                border-radius: 0;
+                text-transform: uppercase;
+                color: #54717e;
+                font-size: 11px;
+            }
+
+            .custom-activity-feed {
+                position: absolute;
+                margin: 0;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                -o-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -webkit-transform: translateY(-50%);
+
+                a {
+                    // font-family: "Roboto Regular";
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-regular);
+                    }
+                    font-size: 10px;
+                    display: block;
+
+                    &.heart {
+                        color: #399034;
+                    }
+
+                    &.refresh {
+                        color: #a75dc2;
+                    }
+                }
+            }
+        }
+    }
+
+    .twitter-feed-wrapper {
+        max-height: 325px !important;
+        min-height: auto !important;
+        padding-right: 0;
+
+        .entity-item {
+            max-height: 325px !important;
+            min-height: auto !important;
+            height: 325px;
+
+            &:first-child {
+                border-left: 0;
+            }
+
+            h3 {
+                margin-bottom: 0;
+            }
+
+            .recent-linkedin-wrapper {
+                .media-list {
+                    li {
+                        .media-left {
+                            a {
+                                width: 40px;
+                                height: 40px;
+                                margin: 0;
+                                padding: 0;
+
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                    border-radius: 50%;
+                                    margin: 0;
+                                }
+                            }
+                        }
+
+                        .media-body {
+                            max-width: 240px;
+
+                            p {
+                                width: 100%;
+                                white-space: normal;
+                                max-height: 56px;
+                                word-break: break-all;
+                            }
+
+                            .progress-text {
+                                span {
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .entity-result-item {
+                padding: 0;
+                height: 275px;
+
+                .media-list {
+                    .media {
+                        .recent-tweet {
+                            .tweet-bio {
+                                position: relative;
+                                padding-left: 45px;
+                                margin-bottom: 0px;
+                                height: 40px;
+
+                                .tweet-bio-dp {
+                                    height: 40px;
+                                    width: 40px;
+                                    position: absolute;
+                                    left: 0;
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                    -o-transform: translateY(-50%);
+                                    -moz-transform: translateY(-50%);
+                                    -webkit-transform: translateY(-50%);
+                                    border-radius: 50%;
+                                    -o-border-radius: 50%;
+                                    -moz-border-radius: 50%;
+                                    -webkit-border-radius: 50%;
+                                    overflow: hidden;
+                                    border: 0;
+
+                                    img {
+                                        width: 100%;
+                                        border: 4px solid rgba($text-color-default, .6);
+                                        border-radius: 50%;
+                                        -o-border-radius: 50%;
+                                        -moz-border-radius: 50%;
+                                        -webkit-border-radius: 50%;
+                                    }
+                                }
+
+                                .tweet-bio-details {
+                                    min-height: 25px;
+
+                                    h5 {
+                                        font-size: 12px;
+                                        // font-family: "Roboto Regular";
+                                        @include fontFamily($fonts) {
+                                            font-family: fonted(font-regular);
+                                        }
+                                        color: #98b6c3;
+                                        text-transform: capitalize;
+                                        margin: 0 0 0px;
+                                        line-height: 20px;
+                                    }
+
+                                    p {
+                                        color: #849fab;
+                                        font-size: 10px;
+                                        // font-family: "Roboto Regular";
+                                        @include fontFamily($fonts) {
+                                            font-family: fonted(font-regular);
+                                        }
+                                        text-transform: unset;
+                                        margin: 0;
+                                        line-height: 13px;
+                                    }
+                                }
+                            }
+
+                            .tweet-content {
+                                span {}
+
+                                p {
+                                    font-size: 12px;
+                                    line-height: 13px;
+                                    // font-family: "Roboto Regular";
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-regular);
+                                    }
+                                    color: #98b6c3;
+                                    text-transform: capitalize;
+                                    margin: 0 0 5px;
+                                    height: 28px;
+                                    overflow: hidden;
+                                }
+                            }
+
+                            .tweet-count {
+                                ul {
+                                    margin-bottom: 0;
+
+                                    span {
+                                        font-size: 12px;
+                                        color: #98b6c3;
+
+                                        i {
+                                            color: #849fab;
+                                            margin-right: 5px;
+
+                                            &.fa-heart {}
+
+                                            &.fa-retweet {}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .linkedin-feed-wrapper {
+        &.traffic-by-country-wrapper {
+            .entity-item {
+                max-height: 250px !important;
+                min-height: auto !important;
+                height: 250px;
+
+                .entity-result-item {
+                    height: 190px;
+                }
+            }
+        }
+
+        padding: 0;
+
+        .entity-item {
+            max-height: 325px !important;
+            min-height: auto !important;
+            height: 325px;
+
+            h3 {
+                margin-bottom: 15px;
+            }
+
+            .recent-pep-wrapper {
+                .entity-result-item {
+                    .media-list {
+                        .media {
+                            .media-body {
+                                max-width: 260px;
+
+                                p {
+                                    width: 100%;
+                                    white-space: normal;
+                                    max-height: 56px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .entity-result-item {
+                padding: 0;
+                height: 275px;
+
+                .media-list {
+                    .media {
+                        .recent-pep {
+                            .pep-content {
+                                p {
+                                    font-size: 12px;
+                                    line-height: 16px;
+                                    // font-family: "Roboto Regular";
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-regular);
+                                    }
+                                    color: rgba($text-color-default, .8);
+                                    text-transform: capitalize;
+                                    margin: 0 0 5px;
+                                    max-height: 52px;
+                                    overflow: hidden;
+                                }
+
+                                span {
+                                    @extend .text-capitalize;
+                                    font-size: 12px;
+                                    color: rgba($text-color-default, .8);
+                                    // font-family: "Roboto Regular";
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-regular);
+                                    }
+                                }
+                            }
+
+                            .linkedin-count {
+                                margin-top: 5px;
+
+                                ul {
+                                    margin-bottom: 0;
+
+                                    span {
+                                        font-size: 12px;
+                                        color: rgba($text-color-default, .8);
+
+                                        i {
+                                            color: rgba($text-color-default, .6);
+                                            margin-right: 5px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .recent-linkedin-wrapper {
+                &.google-plus-post {
+                    ul {
+                        li {
+                            .media-left {
+                                a {
+                                    padding: 0;
+                                    height: 40px;
+                                    width: 40px;
+
+                                    img {
+                                        width: 100%;
+                                        overflow: hidden;
+                                        height: 100%;
+                                        border-radius: 50%;
+                                        -o-border-radius: 50%;
+                                        -moz-border-radius: 50%;
+                                        -webkit-border-radius: 50%;
+                                    }
+                                }
+                            }
+
+                            .media-body {
+                                .media-heading {
+                                    margin-bottom: 5px;
+                                    line-height: 14px;
+                                }
+
+                                p {
+                                    width: 100%;
+
+                                    span {
+                                        display: block;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .linkedIn-media-list {
+            li {
+                .media-left {
+                    a {
+                        width: 40px;
+                        height: 40px;
+                        margin: 0;
+                        padding: 0;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 50%;
+                            margin: 0;
+                        }
+                    }
+                }
+
+                .media-body {
+                    h3 {
+                        margin-bottom: 0;
+                    }
+
+                    p {
+                        span {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*==============================================================================
+********************  Person - Social Media Tab ENDS  **********************
+===============================================================================*/
+
+/*==============================================================================
+***************  Person - Social Media Right Panel Starts  *****************
+===============================================================================*/
+.entity-company-content-right.entity-person-new-right {
+    .right-socialmedia-wrapper {
+        .activity-location-wrapper {
+            margin-bottom: 25px;
+
+            >h3 {
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba($text-color-default, 1);
+                text-transform: uppercase;
+                // font-family: "Roboto Regular";
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                }
+            }
+
+            .activity-location-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+
+                .associated-locations {
+                    min-height: 200px;
+                }
+            }
+        }
+
+        .competitor-compensation-wrapper {
+            margin-bottom: 25px;
+
+            >h3 {
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba($text-color-default, 1);
+                text-transform: uppercase;
+                // font-family: "Roboto Regular";
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                }
+            }
+
+            .competitor-compensation-chart-wrapper {
+                height: 295px;
+                max-height: 300px;
+                overflow: hidden;
+
+                .competitor-compensation {
+                    min-height: 200px;
+                }
+            }
+        }
+
+        .career-pregression-wrapper {
+            margin-bottom: 25px;
+
+            >h3 {
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba($text-color-default, 1);
+                text-transform: uppercase;
+                // font-family: "Roboto Regular";
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                }
+            }
+
+            .career-progression {
+                min-height: 100px;
+            }
+
+            .activity-location-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+
+        .role-ratio-wrapper {
+            margin-bottom: 25px;
+
+            >h3 {
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba($text-color-default, 1);
+                text-transform: uppercase;
+                // font-family: "Roboto Regular";
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                }
+            }
+
+            .role-ration-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+
+                .role-ratio {
+                    min-height: 100%;
+                }
+
+                #role-based-pie-chart {
+                    max-height: 200px;
+                }
+            }
+
+            .twitter-tag-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+
+        .professional-connections-wrapper {
+            margin-bottom: 25px;
+
+            >h3 {
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba($text-color-default, 1);
+                // font-family: "Roboto Regular";
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                }
+                text-transform: uppercase;
+            }
+
+            .professional-connections-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+
+                .professional-connections {
+                    min-height: 100%;
+                }
+
+                #connection-role-based-pie-chart {
+                    max-height: 200px;
+                }
+            }
+        }
+
+        .top-contributors-wrapper {
+            margin-bottom: 25px;
+
+            >h3 {
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba($text-color-default, 1);
+                text-transform: uppercase;
+                // font-family: "Roboto Regular";
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                }
+            }
+
+            .entity-result-item {
+                max-height: 260px;
+                padding: 0;
+
+                .media-list {
+                    .media {
+                        .total-contributors {
+                            .contributors-bio {
+                                position: relative;
+                                padding-left: 50px;
+                                margin-bottom: 7px;
+
+                                .contributors-bio-dp {
+                                    height: 40px;
+                                    width: 40px;
+                                    position: absolute;
+                                    left: 0;
+                                    top: 0%;
+                                    border-radius: 50%;
+                                    -o-border-radius: 50%;
+                                    -moz-border-radius: 50%;
+                                    -webkit-border-radius: 50%;
+                                    overflow: hidden;
+                                    border: 0;
+
+                                    img {
+                                        width: 100%;
+                                        border: 4px solid #657f8b;
+                                        border-radius: 50%;
+                                        -o-border-radius: 50%;
+                                        -moz-border-radius: 50%;
+                                        -webkit-border-radius: 50%;
+
+                                    }
+                                }
+
+                                .contributors-bio-details {
+                                    h5 {
+                                        font-size: 13px;
+                                        // font-family: "Roboto Regular";
+                                        @include fontFamily($fonts) {
+                                            font-family: fonted(font-regular);
+                                        }
+                                        color: #98b6c3;
+                                        text-transform: uppercase;
+                                        margin: 0 0 5px;
+                                        line-height: 12px;
+                                    }
+
+                                    p {
+                                        margin-bottom: 0px;
+                                        font-size: 12px;
+                                    }
+
+                                    span {
+                                        font-size: 10px;
+                                        margin-right: 10px;
+
+                                        &.tweets-count {
+                                            color: #399034;
+                                        }
+
+                                        &.mentions-count {
+                                            color: rgba($text-color-default, 1);
+                                        }
+
+                                        &.retweets-count {
+                                            color: #a75dc2;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .sentiments-wrapper {
+            margin-bottom: 25px;
+
+            >h3 {
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba($text-color-default, 1);
+            }
+
+            .sentiments-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+/*==============================================================================
+****************  Person - Social Media Right Panel ENDS  ******************
+===============================================================================*/
+
+/*==============================================================================
+*******************  Person - Finance Person Tab Starts  ***********************
+===============================================================================*/
+.finance-person-tab-wrapper {
+    .open-payments-content {
+        min-height: auto !important;
+        max-height: 450px !important;
+
+        >h3 {}
+
+        .open-payments-maindetails {
+            margin-bottom: 15px;
+
+            p {
+                margin: 0;
+                text-transform: uppercase;
+                font-size: 12px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
+                .key {
+                    color: #748f9c;
+                }
+
+                .value {
+                    color: #596971;
+                }
+            }
+        }
+
+        .entity-result-item {
+            padding: 0;
+            margin: 0;
+            max-height: 310px;
+            height: auto;
+
+            .open-payments-table-wrapper {
+                &:not(:last-child) {
+                    margin-bottom: 20px;
+                }
+
+                >.primary-speciality {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    margin-bottom: 10px;
+                    line-height: 14px;
+
+                    .key {
+                        font-size: 11px;
+                        color: #748f9c;
+                        text-transform: uppercase;
+                    }
+
+                    .value {
+                        font-size: 11px;
+                        color: #596971;
+                        text-transform: uppercase;
+                    }
+                }
+
+                p {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    margin-bottom: 5px;
+                    line-height: 14px;
+
+                    .key {
+                        font-size: 10px;
+                        color: #748f9c;
+                        text-transform: uppercase;
+                    }
+
+                    .value {
+                        font-size: 10px;
+                        color: #596971;
+                        text-transform: uppercase;
+                    }
+                }
+
+                table {
+                    thead {
+                        tr {
+                            th {
+                                background-color: #1E2F37;
+                                white-space: normal;
+                                font-weight: normal;
+                                word-break: break-all;
+                                font-size: 11px;
+                                color: #596971;
+                            }
+                        }
+                    }
+
+                    tbody {
+                        tr {
+                            td {
+                                white-space: normal;
+                                font-weight: normal;
+                                word-break: break-all;
+                                font-size: 11px;
+                                color: #748f9c;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .bloomberg-line-chart-wrapper {
+        .bloomberg-stock-detail-wrapper {
+            p {
+                span {
+                    width: 100%;
+
+                    &.col-sm-4 {
+                        color: $nepal3;
+                        // font-family: $roboto-regular;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-regular);
+                        }
+                        font-size: ($font-size-base - 4);
+                    }
+
+                    &.col-sm-8 {
+                        @include margin(0 0 15px);
+                        color: $bali-hai23;
+                        // font-family: $roboto-regular;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-regular);
+                        }
+                        font-size: $font-size-large;
+                    }
+                }
+            }
+        }
+
+        .stock-prices-wrapper {
+            @include margin-top(10px);
+
+            .bloomberg-event-checkbox {
+                span {
+                    @include transition(all 0.3s ease-in-out);
+                    cursor: pointer;
+                    text-transform: uppercase;
+
+                    &:hover,
+                    &.active {
+                        color: $bali-hai23;
+                    }
+                }
+            }
+        }
+
+        .balance-data {
+            h5 {
+                small {
+                    // font-family: "Roboto Regular";
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-regular);
+                    }
+                }
+            }
+        }
+    }
+
+    .calculated-compentation {
+        h3 {
+            position: relative;
+
+            span {
+                max-width: 50%;
+            }
+
+            small {
+                display: block;
+                font-size: 12px;
+                margin-top: 20px;
+                color: #879fa9;
+            }
+
+            strong {
+                position: absolute;
+                font-size: 30px;
+                color: #337ab7;
+                right: 10px;
+                top: 25px;
+            }
+        }
+
+        .entity-result-item.custom-result-item {
+            height: 270px;
+            margin: 0;
+            padding: 15px;
+            border-bottom: 1px solid #2e424b;
+
+            p {
+                font-size: 14px;
+
+                span {
+                    min-height: 40px;
+                    font-size: 12px;
+                    color: #98b6c3;
+                    text-transform: uppercase;
+                }
+
+                strong {
+                    font-size: 20px;
+                    display: block;
+                    margin-top: 10px;
+                    font-weight: normal;
+                }
+            }
+
+            &:last-of-type {
+                border-bottom: none;
+            }
+        }
+    }
+
+    .stock-option-wrapper {
+        .custom-result-item {
+            &.entity-result-item {
+                height: 300px;
+                margin: 0;
+                padding: 15px 0;
+            }
+        }
+    }
+
+    .board-memberships-wrapper {
+        .entity-result-item {
+            max-height: 285px;
+            padding: 15px 0;
+        }
+    }
+
+    .holdings-wrapper {
+        .entity-result-item {
+            max-height: 322px;
+            padding: 15px 0;
+
+            .associated-table {}
+        }
+    }
+
+    .dividents-wrapper {
+        .entity-result-item {
+            padding: 0;
+            margin: 0;
+            height: 310px;
+
+            .recent-linkedin {
+                &:not(:last-child) {
+                    margin-bottom: 15px;
+                }
+
+                .media-heading {
+                    margin: 0;
+                    color: #8398a2;
+                    font-size: 12px;
+                }
+
+                .linkedin-content {
+                    p {
+                        margin-bottom: 0;
+                        font-size: 11px;
+                        white-space: nowrap;
+
+                        .key {
+                            color: #748f9c;
+                        }
+
+                        .value {
+                            color: #596971;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*==============================================================================
+******************  Person - Entities Risks Tab Starts  *********************
+===============================================================================*/
+.risks-tab-wrapper {
+    .risks-counter-wrapper {
+        max-height: 75px !important;
+        min-height: auto !important;
+        overflow: hidden;
+
+        .entity-item-submmenu {
+            ul {
+                margin-bottom: 0;
+
+                li {
+                    h5 {
+                        // font-family: "Roboto Regular";
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-regular);
+                        }
+                        color: rgba($text-color-default, 1);
+                        max-width: 110px;
+                        margin-right: 0;
+                        padding-right: 40px;
+                    }
+
+                    &:last-child {
+                        h5 {
+                            max-width: 125px;
+                        }
+                    }
+
+                    &:nth-child(1),
+                    &:nth-child(2) {
+                        h5 {
+                            max-width: 95px;
+                            padding-right: 60px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .overall-sentiment-wrapper {
+        height: 140px !important;
+        max-height: 140px !important;
+        min-height: auto !important;
+        overflow: hidden;
+
+        h3 {
+            margin-bottom: 15px;
+            position: relative;
+
+            select {
+                background-color: transparent;
+                border: 0;
+                border-radius: 0;
+                text-transform: uppercase;
+                color: #54717e;
+                font-size: 11px;
+            }
+
+            .custom-sentiment-feed {
+                position: absolute;
+                margin: 0;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                -o-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -webkit-transform: translateY(-50%);
+
+                a {
+                    // font-family: "Roboto Regular";
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-regular);
+                    }
+                    font-size: 10px;
+                    display: block;
+
+                    &.heart {
+                        color: #399034;
+                    }
+
+                    &.refresh {
+                        color: #a75dc2;
+                    }
+                }
+            }
+        }
+    }
+
+    .risks-pep-wrapper {
+        padding: 0;
+
+        .entity-item {
+            max-height: 325px !important;
+            min-height: auto !important;
+            height: 325px;
+
+            &:first-child {
+                border-left: 0;
+            }
+
+            h3 {
+                margin-bottom: 15px;
+            }
+
+            .entity-result-item {
+                padding: 0;
+                height: 265px;
+
+                .media-list {
+                    .media {
+                        .recent-pep {
+                            .pep-content {
+                                p {
+                                    font-size: 12px;
+                                    line-height: 16px;
+                                    // font-family: "Roboto Regular";
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-regular);
+                                    }
+                                    color: rgba($text-color-default, .8);
+                                    text-transform: capitalize;
+                                    margin: 0 0 5px;
+                                    max-height: 52px;
+                                    overflow: hidden;
+                                }
+
+                                span {
+                                    @extend .text-capitalize;
+                                    font-size: 12px;
+                                    color: rgba($text-color-default, .8);
+                                    // font-family: "Roboto Regular";
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-regular);
+                                    }
+                                }
+                            }
+
+                            .linkedin-count {
+                                margin-top: 5px;
+
+                                ul {
+                                    margin-bottom: 0;
+
+                                    span {
+                                        font-size: 12px;
+                                        color: rgba($text-color-default, .8);
+
+                                        i {
+                                            color: rgba($text-color-default, .6);
+                                            margin-right: 5px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .social-media-trending {
+        padding: 0;
+
+        .entity-item {
+            max-height: 325px !important;
+            min-height: auto !important;
+            height: 325px;
+
+            .recent-linkedin-wrapper {
+                .entity-result-item {
+                    .media-list {
+                        .media {
+                            .media-heading {
+                                margin-bottom: 0px;
+
+                                a,
+                                span {
+                                    font-size: 12px;
+                                    line-height: 16px;
+                                }
+                            }
+
+                            .media-body {
+                                max-width: 310px;
+
+                                p {
+                                    width: 100%;
+                                    white-space: normal;
+                                    max-height: 56px;
+
+                                    span {
+                                        white-space: normal;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .relationship-news-wrapper {
+                .entity-result-item {
+                    .media-list {
+                        .media {
+                            .media-body {
+                                max-width: 310px;
+
+                                p {
+                                    width: 100%;
+
+                                    span {
+                                        white-space: normal;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            h3 {
+                margin-bottom: 15px;
+            }
+
+            .entity-result-item {
+                padding: 0;
+                height: 275px;
+
+                .media-list {
+                    .media {
+                        .media-left {
+                            &.criminal-records-wrapper {
+                                +.media-body {
+                                    max-width: 275px;
+
+                                    h3 {
+                                        margin-bottom: 0;
+                                        font-size: 12px;
+                                        text-transform: uppercase;
+                                    }
+
+                                    p {
+                                        width: 100%;
+                                    }
+                                }
+
+                                a {
+                                    padding: 0;
+                                    overflow: hidden;
+
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                    }
+
+                                    i {
+                                        padding-top: 3px;
+                                    }
+                                }
+                            }
+                        }
+
+                        .recent-pep {
+                            .pep-content {
+                                p {
+                                    font-size: 12px;
+                                    line-height: 16px;
+                                    // font-family: "Roboto Regular";
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-regular);
+                                    }
+                                    color: rgba($text-color-default, .8);
+                                    text-transform: capitalize;
+                                    margin: 0 0 5px;
+                                    max-height: 52px;
+                                    overflow: hidden;
+                                }
+
+                                span {
+                                    @extend .text-capitalize;
+                                    font-size: 12px;
+                                    color: rgba($text-color-default, .8);
+                                    // font-family: "Roboto Regular";
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-regular);
+                                    }
+                                }
+                            }
+
+                            .linkedin-count {
+                                margin-top: 5px;
+
+                                ul {
+                                    margin-bottom: 0;
+
+                                    span {
+                                        font-size: 12px;
+                                        color: rgba($text-color-default, .8);
+
+                                        i {
+                                            color: rgba($text-color-default, .6);
+                                            margin-right: 5px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*==============================================================================
+*******************  Person - Entities news Tab ENDS  **********************
+===============================================================================*/
+
+/*==============================================================================
+**************  Person - Right Panel Latest News Tab Starts  ***************
+===============================================================================*/
+.entity-company-content-right.entity-person-new-right {
+    .right-latestnews-wrapper {
+        .general-sentiments-wrapper {
+            margin-bottom: 25px;
+
+            >h3 {
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba($text-color-default, 1);
+            }
+
+            .general-sentiments-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+
+        .popular-tags-wrapper {
+            margin-bottom: 25px;
+
+            >h3 {
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba($text-color-default, 1);
+            }
+
+            .popular-tags-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+
+        .news-locations-wrapper {
+            margin-bottom: 25px;
+
+            >h3 {
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba($text-color-default, 1);
+            }
+
+            .news-locations-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+/*==============================================================================
+***************  Person - Right Panel Latest News Tab Ends  ****************
+===============================================================================*/
+
+/*==============================================================================
+*******************  Person - Risky Alerts Tab Starts  *********************
+===============================================================================*/
+.risk-alerts-tab-wrapper {
+    .risky-alerts-counter-wrapper {
+        max-height: 75px !important;
+        min-height: auto !important;
+        overflow: hidden;
+
+        .entity-item-submmenu {
+            ul {
+                margin-bottom: 0;
+
+                li {
+                    h5 {
+                        // font-family: "Roboto Regular";
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-regular);
+                        }
+                        color: rgba($text-color-default, 1);
+                        margin-right: 35px;
+                        padding-right: 40px;
+                    }
+                }
+            }
+        }
+    }
+
+    .alert-timeline-wrapper {
+        height: 140px !important;
+        max-height: 140px !important;
+        min-height: auto !important;
+        overflow: hidden;
+
+        h3 {
+            margin-bottom: 15px;
+            position: relative;
+
+            select {
+                background-color: transparent;
+                border: 0;
+                border-radius: 0;
+                text-transform: uppercase;
+                color: #54717e;
+                font-size: 11px;
+            }
+
+            .custom-sentiment-feed {
+                position: absolute;
+                margin: 0;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                -o-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -webkit-transform: translateY(-50%);
+
+                a {
+                    // font-family: "Roboto Regular";
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-regular);
+                    }
+                    font-size: 10px;
+                    display: block;
+
+                    &.heart {
+                        color: #399034;
+                    }
+
+                    &.refresh {
+                        color: #a75dc2;
+                    }
+
+                    &.sanctions {
+                        color: #3790ce
+                    }
+
+                    &.cyber {
+                        color: #3778be;
+                    }
+                }
+            }
+        }
+    }
+
+    .pep-fraud-wrapper {
+        padding: 0;
+
+        .entity-item {
+            max-height: 325px !important;
+            min-height: auto !important;
+            height: 325px;
+
+            &:first-child {
+                border-left: 0;
+            }
+
+            h3 {
+                margin-bottom: 15px;
+            }
+
+            .entity-result-item {
+                padding: 0;
+                height: 275px;
+
+                .media-list {
+                    .media {
+                        .recent-pep {
+                            .pep-content {
+                                p {
+                                    font-size: 12px;
+                                    line-height: 16px;
+                                    // font-family: "Roboto Regular";
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-regular);
+                                    }
+                                    color: rgba($text-color-default, .8);
+                                    text-transform: capitalize;
+                                    margin: 0 0 5px;
+                                    max-height: 52px;
+                                    overflow: hidden;
+                                }
+
+                                span {
+                                    @extend .text-capitalize;
+                                    font-size: 12px;
+                                    color: rgba($text-color-default, .8);
+                                    // font-family: "Roboto Regular";
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-regular);
+                                    }
+                                }
+                            }
+
+                            .linkedin-count {
+                                margin-top: 5px;
+
+                                ul {
+                                    margin-bottom: 0;
+
+                                    span {
+                                        font-size: 12px;
+                                        color: rgba($text-color-default, .8);
+
+                                        i {
+                                            color: rgba($text-color-default, .6);
+                                            margin-right: 5px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .sanctioned-list-wrapper {
+        padding: 0;
+
+        .entity-item {
+            max-height: 325px !important;
+            min-height: auto !important;
+            height: 325px;
+
+            h3 {
+                margin-bottom: 15px;
+            }
+
+            .entity-result-item {
+                padding: 0;
+                height: 275px;
+
+                .media-list {
+                    .media {
+                        .recent-pep {
+                            .pep-content {
+                                p {
+                                    font-size: 12px;
+                                    line-height: 16px;
+                                    // font-family: "Roboto Regular";
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-regular);
+                                    }
+                                    color: rgba($text-color-default, .8);
+                                    text-transform: capitalize;
+                                    margin: 0 0 5px;
+                                    max-height: 52px;
+                                    overflow: hidden;
+                                }
+
+                                span {
+                                    @extend .text-capitalize;
+                                    font-size: 12px;
+                                    color: rgba($text-color-default, .8);
+                                    // font-family: "Roboto Regular";
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-regular);
+                                    }
+                                }
+                            }
+
+                            .linkedin-count {
+                                margin-top: 5px;
+
+                                ul {
+                                    margin-bottom: 0;
+
+                                    span {
+                                        font-size: 12px;
+                                        color: rgba($text-color-default, .8);
+
+                                        i {
+                                            color: rgba($text-color-default, .6);
+                                            margin-right: 5px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*==============================================================================
+********************  Person - Risky Alerts Tab ENDS  **********************
+===============================================================================*/
+
+/*==============================================================================
+**************  Person - Right Panel Risky Alerts Tab Starts  **************
+===============================================================================*/
+.entity-company-content-right.entity-person-new-right {
+    .right-risk-wrapper {
+        .political-donations-wrapper {
+            margin-bottom: 25px;
+
+            >h3 {
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba($text-color-default, 1);
+                text-transform: uppercase;
+            }
+
+            .political-donations-chart-wrapper {
+                height: 200px;
+                max-height: 300px;
+                overflow: hidden;
+
+                #political-donations {}
+            }
+        }
+
+        .donation-table {
+            margin-bottom: 25px;
+
+            >h3 {
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba($text-color-default, 1);
+                text-transform: uppercase;
+            }
+
+            .ratios-ratio-chart-wrapper {
+                max-height: 175px;
+            }
+        }
+
+        .ratios-ratio-wrapper {
+            margin-bottom: 25px;
+
+            >h3 {
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba($text-color-default, 1);
+                text-transform: uppercase;
+            }
+
+            .ratios-ratio-chart-wrapper {
+                max-height: 175px;
+            }
+        }
+    }
+}
+
+/*==============================================================================
+***************  Person - Right Panel Risky Alerts Tab Ends  ***************
+===============================================================================*/
+
+/*==============================================================================
+*******************  Person - Academics Tab Starts  *********************
+===============================================================================*/
+.academics-tab-wrapper {
+    .academics-counter-wrapper {
+        max-height: 75px !important;
+        min-height: auto !important;
+        overflow: hidden;
+
+        .entity-item-submmenu {
+            ul {
+                margin-bottom: 0;
+
+                li {
+                    float: left;
+
+                    h5 {
+                        // font-family: "Roboto Regular";
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-regular);
+                        }
+                        color: rgba($text-color-default, 1);
+                        padding-right: 100px;
+                        max-width: 175px;
+
+                        strong {
+                            white-space: nowrap;
+                            width: auto;
+                            overflow: hidden;
+                            line-height: 24px;
+                        }
+                    }
+
+                    /*&:nth-child(4){
+                                                padding: 7px 0px;
+                    }*/
+                }
+            }
+        }
+    }
+
+    .entity-item.college-degree-wrapper {
+        .media-list {
+            .media {
+                margin-top: 15px;
+                min-height: 56px;
+                max-height: 56px;
+
+                .media-body {
+                    h5 {
+                        white-space: nowrap;
+                        display: block;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .entity-item.college-degree-wrapper,
+    .entity-item.schooling-wrapper,
+    .entity-item.certificate-wrapper {
+        max-height: 300px;
+        overflow: hidden;
+        min-height: 300px;
+
+        .entity-result-item {
+            padding: 0;
+            height: 250px !important;
+
+            .media-list {
+                .media {
+                    width: 50%;
+                    float: left;
+
+                    .media-left {
+                        a {
+                            height: 50px;
+                            width: 50px;
+                            position: relative;
+                            overflow: hidden;
+
+                            >* {
+                                font-size: 34px;
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                -o-transform: translate(-50%, -50%);
+                                -moz-transform: translate(-50%, -50%);
+                                -webkit-transform: translate(-50%, -50%);
+                            }
+                        }
+                    }
+
+                    .media-body {
+                        >h4 {
+                            // font-family: $roboto-regular;
+                            @include fontFamily($fonts) {
+                                font-family: fonted(font-regular);
+                            }
+                            font-size: ($font-size-base - 2);
+                            line-height: ($font-size-base);
+                            @include margin(0 0 5px 0);
+                            color: #98b6c3;
+                            display: block;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+
+                        >h5 {
+                            // font-family: $roboto-regular;
+                            @include fontFamily($fonts) {
+                                font-family: fonted(font-regular);
+                            }
+                            font-size: ($font-size-base - 3);
+                            line-height: ($font-size-base);
+                            @include margin(0 0 5px 0);
+                            color: #849fab;
+                            max-height: 28px;
+                            overflow: hidden;
+                        }
+
+                        >p {
+                            @extend .text-uppercase;
+                            // font-family: $roboto-regular;
+                            @include fontFamily($fonts) {
+                                font-family: fonted(font-regular);
+                            }
+                            font-size: ($font-size-base - 4);
+                            width: 100%;
+                            color: #849fab;
+                            display: block;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .entity-item.certificate-wrapper {
+        min-height: 360px;
+
+        .entity-result-item {
+            height: 310px !important;
+
+            .media-list {
+                .media {
+                    width: 100%;
+                    float: none;
+
+                    .media-left {
+                        a {
+                            border-radius: 0;
+                            border: none;
+                            padding: 0;
+                            margin: 4px 10px 10px 10px;
+                        }
+                    }
+
+                    .media-body-certificates {
+                        >h4 {
+                            font-family: $roboto-regular;
+                            font-size: ($font-size-base - 2);
+                            line-height: ($font-size-base);
+                            @include margin(0 0 5px 0);
+                            color: #98b6c3;
+                            display: block;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+
+                        >p {
+                            @extend .text-uppercase;
+                            // font-family: $roboto-regular;
+                            @include fontFamily($fonts) {
+                                font-family: fonted(font-regular);
+                            }
+                            font-size: ($font-size-base - 4);
+                            width: 100%;
+                            color: #849fab;
+                            display: block;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .entity-item.schooling-wrapper {
+        min-height: 300px;
+        max-height: 300px;
+
+        .entity-result-item {
+            .media-list {
+                .media {
+                    width: 100%;
+                    float: none;
+                }
+            }
+        }
+    }
+
+    .sanctioned-list-wrapper {
+        padding: 0;
+
+        .entity-item {
+            max-height: 325px !important;
+            min-height: auto !important;
+            height: 325px;
+
+            h3 {
+                margin-bottom: 15px;
+            }
+
+            .entity-result-item {
+                padding: 0;
+                height: 275px;
+
+                .media-list {
+                    .media {
+                        .recent-pep {
+                            .pep-content {
+                                p {
+                                    font-size: 12px;
+                                    line-height: 16px;
+                                    // font-family: "Roboto Regular";
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-regular);
+                                    }
+                                    color: rgba($text-color-default, .8);
+                                    text-transform: capitalize;
+                                    margin: 0 0 5px;
+                                    max-height: 52px;
+                                    overflow: hidden;
+                                }
+
+                                span {
+                                    @extend .text-capitalize;
+                                    font-size: 12px;
+                                    color: rgba($text-color-default, .8);
+                                    // font-family: "Roboto Regular";
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-regular);
+                                    }
+                                }
+                            }
+
+                            .linkedin-count {
+                                margin-top: 5px;
+
+                                ul {
+                                    margin-bottom: 0;
+
+                                    span {
+                                        font-size: 12px;
+                                        color: rgba($text-color-default, .8);
+
+                                        i {
+                                            color: rgba($text-color-default, .6);
+                                            margin-right: 5px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                select {
+                    background-color: transparent;
+                    border: 0;
+                    border-bottom: 1px solid #276966;
+                    box-shadow: none;
+                    border-radius: 0;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}
+
+/*==============================================================================
+********************  Person - Academic Tab ENDS  ******************************
+===============================================================================*/
+
+/*==============================================================================
+**************  Person - Right Panel Finance Tab Starts  **************
+===============================================================================*/
+.entity-company-content-right.entity-company-new-right {
+    .right-financial-wrapper {
+        .earning-trends-wrapper {
+            margin-bottom: 25px;
+
+            >h3 {
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba($text-color-default, 1);
+            }
+
+            .earning-trends-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+
+        .investment-trends-wrapper {
+            margin-bottom: 25px;
+
+            >h3 {
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba($text-color-default, 1);
+            }
+
+            .investment-trends-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+
+        .investor-sentiments-wrapper {
+            margin-bottom: 25px;
+
+            >h3 {
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba($text-color-default, 1);
+            }
+
+            .investor-sentiments-chart-wrapper {
+                height: 300px;
+                max-height: 300px;
+                overflow: hidden;
+            }
+        }
+
+        .major-holders-wrapper {
+            margin-bottom: 25px;
+
+            >h3 {
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba($text-color-default, 1);
+            }
+
+            .major-holders-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+/*==============================================================================
+***************  Person - Right Panel Financial gr Tab Ends  *******************
+===============================================================================*/
+
+/*==============================================================================
+***************  Person - Right Panel Financial gr Tab Ends  *******************
+===============================================================================*/
+
+/*==============================================================================
+*****************  Person - Left Panel Transactions Tab Starts  *****************
+===============================================================================*/
+.transaction-tab-wrapper {
+
+    .table>tbody>tr>td,
+    .table>tbody>tr>th {
+        border-top: none;
+    }
+
+    .transaction-top-wrapper {
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        .tranx-search-list-wrapper {
+            form {
+                .period-search-wrapper {
+                    position: relative;
+                    padding-right: 175px;
+                    padding-left: 80px;
+
+                    .period-label {
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        -o-transform: translateY(-50%);
+                        -moz-transform: translateY(-50%);
+                        -webkit-transform: translateY(-50%);
+                    }
+
+                    .date-picker-group {
+                        width: 42%;
+
+                        .date-wrapper {
+                            position: relative;
+
+                            input.form-control {
+                                padding-right: 20px;
+                            }
+
+                            i {
+                                position: absolute;
+                                top: 50%;
+                                right: 5px;
+                                transform: translateY(-50%);
+                                -o-transform: translateY(-50%);
+                                -moz-transform: translateY(-50%);
+                                -webkit-transform: translateY(-50%);
+                            }
+                        }
+                    }
+
+                    .tranx-submit-buttons {
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        -o-transform: translateY(-50%);
+                        -moz-transform: translateY(-50%);
+                        -webkit-transform: translateY(-50%);
+
+                        button {
+                            &:active:focus {
+                                background-color: #337ab7;
+                                color: #fff;
+                                border-color: #337ab7;
+                            }
+                        }
+
+                        button[disabled]:hover {
+                            opacity: .3;
+                            background-color: #337ab7;
+                            color: #fff;
+                            border-color: #337ab7;
+                        }
+                    }
+                }
+            }
+        }
+
+        .form-group {
+            margin-bottom: 0;
+            vertical-align: middle;
+            margin: 0 10px;
+        }
+
+        input.form-control {
+            border: none;
+            border-bottom: 1px solid #337ab7;
+            width: 100% !important;
+            background: 0 0;
+            border-radius: 0;
+            box-shadow: none;
+            color: #657F8B;
+            padding: 1px;
+            text-align: center;
+
+            &:focus {
+                box-shadow: none;
+                border-color: #337ab7;
+            }
+
+            &::-webkit-input-placeholder {
+                /* Chrome/Opera/Safari */
+                color: #8b9fa8;
+            }
+
+            &::-moz-placeholder {
+                /* Firefox 19+ */
+                color: #8b9fa8;
+            }
+
+            &:-ms-input-placeholder {
+                /* IE 10+ */
+                color: #8b9fa8;
+            }
+
+            &:-moz-placeholder {
+                /* Firefox 18- */
+                color: #8b9fa8;
+            }
+        }
+
+        select.form-control {
+            background: transparent;
+            border-radius: 0;
+            border: none;
+            border-bottom: 1px solid #337ab7;
+            min-width: 100px;
+            box-shadow: none;
+            color: #657F8B;
+
+            &:focus {
+                box-shadow: none;
+                border-color: #337ab7;
+            }
+        }
+
+        .btn {
+            background-color: #337ab7;
+            color: #fff;
+            border-color: #337ab7;
+            padding: 6px 22px;
+            border-radius: 0;
+
+        }
+    }
+
+    .board-memberships {
+        .entity-result-item {
+            padding: 0;
+            margin: 0;
+            height: 310px;
+
+            .person-table-wrapper {
+                .associated-table {
+                    tbody {
+                        tr {
+                            td {
+                                p {
+                                    margin: 0;
+                                }
+
+                                &:nth-child(2) {
+                                    white-space: nowrap;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*==============================================================================
+*****************  Person - Left Panel Documents Tab Starts  *****************
+===============================================================================*/
+.document-tab-wrapper {
+    .entity-item.document-counter-wrapper {
+        max-height: 60px;
+        min-height: 40px;
+
+        .item-submmenu-list {
+            margin: 0;
+        }
+
+        li {
+            .submmenu-list {
+                h5 {
+                    max-width: 110px;
+                    padding-right: 50px;
+                    margin: 0 5px 0 0;
+                }
+            }
+
+            &:last-child {
+
+                /*input{   
+                    border: none;
+                    border-bottom: 1px solid #337ab7;
+                    min-width: 170px;
+                    background: 0 0;
+                    border-radius: 0;
+                    box-shadow: none;  
+                    margin-right: 10px;
+                    &:focus{
+                        box-shadow: none;
+                    }
+                }*/
+                form {
+                    .form-group {
+                        >label {
+                            max-width: 90px;
+                            text-transform: capitalize;
+                            margin: 0;
+                            vertical-align: top;
+                        }
+                    }
+                }
+
+                .custom-upload-wrapper {
+                    display: inline-block;
+                    margin: 0;
+
+                    .custom-file-upload {
+                        cursor: not-allowed;
+                        opacity: 0.5;
+
+                        input[type="file"] {
+                            display: none;
+                        }
+
+                        .file-inline {
+                            display: block;
+                            cursor: pointer;
+                            width: 300px;
+                            margin-bottom: 0;
+
+                            .custom-input {
+                                .uploaded-name {
+                                    width: 100%;
+                                    border-bottom: 1px solid #7FA1BD;
+                                    display: block;
+                                    height: 28px;
+                                    font-weight: normal;
+                                    @include padding(5px 2px 0px);
+                                    font-size: ($font-size-base - 2);
+                                    // font-family: "Roboto Medium";
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-medium);
+                                    }
+                                    color: #8b9fa8;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                    cursor: not-allowed;
+                                }
+
+                                small {
+                                    position: absolute;
+                                    right: 0;
+                                    top: 14px;
+                                    font-size: ($font-size-base - 2);
+                                    // font-family: "Roboto Medium";
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-medium);
+                                    }
+                                    text-align: center;
+                                    display: block;
+                                    background-color: #6B92B3;
+                                    color: #1E303E;
+                                    @include padding(8px 16px);
+                                    min-width: 90px;
+                                    max-width: 90px;
+                                    width: 90px;
+                                    transform: translateY(-50%);
+                                    -o-transform: translateY(-50%);
+                                    -moz-transform: translateY(-50%);
+                                    -webkit-transform: translateY(-50%);
+                                    cursor: not-allowed;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .btn-browse {
+                    background-color: #3e5762;
+                    width: 70px;
+                    height: 30px;
+                    color: rgba($text-color-default, 1);
+                    text-transform: uppercase;
+                    font-size: 11px;
+                    border-radius: 0;
+                    border-color: #3e5762;
+                }
+
+                .btn-upload {
+                    background-color: #5d96c8;
+                    width: 70px;
+                    height: 30px;
+                    color: #abdbf1;
+                    text-transform: uppercase;
+                    font-size: 11px;
+                    border-radius: 0;
+                    border-color: #5d96c8;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+
+    .recent-uploads-wrapper {
+        padding-right: 0;
+
+        .entity-item:first-child {
+            border-left: 0;
+        }
+
+        .recent-pep-wrapper {
+            .entity-result-item {
+                padding: 0;
+                margin: 0;
+                height: 310px;
+            }
+        }
+    }
+
+    .uploaded-content-wrapper,
+    .document-chart-wrapper {
+        padding: 0;
+    }
+
+    .all-documents-wrapper {
+        .entity-result-item {
+            padding: 0;
+            height: 300px;
+
+            .media-list {
+                .media {
+                    .media-left {
+                        a {
+                            padding: 0;
+                            height: 40px;
+                            width: 60px;
+                            border-radius: 0;
+                            border: 0;
+
+                            img {
+                                width: 100%;
+                                overflow: hidden;
+                                height: 100%;
+                            }
+                        }
+                    }
+
+                    .media-body {
+                        .media-heading {
+                            margin-bottom: 0px;
+                            line-height: 14px;
+                        }
+
+                        p {
+                            font-size: 12px;
+                            line-height: 13px;
+                            // font-family: "Roboto Regular";
+                             @include fontFamily($fonts) {
+		font-family: fonted(font-regular);
+	}
+                            color: rgba($text-color-default, .8);
+                            text-transform: capitalize;
+                            overflow: hidden;
+                            width: 100%;
+
+                            span {
+                                display: block;
+                                line-height: 16px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.assets-ratio,
+.popular-tags {
+    min-height: 100%;
+}
+
+/*==============================================================================
+*****************  Person - Left Panel Medias Tab Starts  *****************
+===============================================================================*/
+.medias-tab-wrapper {
+    .medias-wrapper {
+        padding-left: 0;
+        padding-right: 10px;
+        margin-bottom: 20px;
+
+        h3 {
+            color: #879fa9;
+            font-size: 18px;
+            margin-top: 10px;
+            border-bottom: 1px solid #879fa9;
+            padding-bottom: 6px;
+            margin-bottom: 15px;
+        }
+
+        ul {
+
+            li {
+                max-width: 230px;
+                padding: 0 6px;
+                vertical-align: top;
+
+                a {
+
+                    .thumb-wrapper {
+                        position: relative;
+                        border-radius: 2px;
+
+                        span {
+                            position: absolute;
+                            bottom: 5px;
+                            right: 5px;
+                        }
+                    }
+
+                    img {
+                        width: 100%;
+                        border-radius: 2px;
+                    }
+
+                    h6 {
+                        color: #cecece;
+                        display: block;
+                        font-size: 14px;
+                        font-weight: 500;
+                        line-height: 16px;
+                        margin-bottom: 5px;
+                        opacity: .8;
+
+                        small {
+                            color: rgba($text-color-default, 1);
+                            display: block;
+                            margin-top: 15px;
+                            font-size: 12px;
+                            opacity: .8;
+                        }
+
+                        span {
+                            display: block;
+                            min-height: 32px;
+                            overflow: hidden;
+                        }
+                    }
+
+                    p {
+                        color: rgba($text-color-default, 1);
+                        display: block;
+                        margin-top: 10px;
+                        font-size: 12px;
+                        max-height: 52px;
+                    }
+                }
+
+                &:hover {
+                    h6 {
+                        opacity: 1;
+
+                        small {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            &.pdf-list {
+                li {
+                    a {
+                        img {
+                            height: 130px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*==============================================================================
+*******************  Person - Right Panel Medias Tab Starts  *******************
+===============================================================================*/
+.entity-company-content-right.entity-company-new-right {
+    .right-medias-wrapper {
+        .earning-trends-wrapper {
+            margin-bottom: 25px;
+
+            >h3 {
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba($text-color-default, 1);
+            }
+
+            .earning-trends-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+
+        .investment-trends-wrapper {
+            margin-bottom: 25px;
+
+            >h3 {
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba($text-color-default, 1);
+            }
+
+            .investment-trends-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+
+        .investor-sentiments-wrapper {
+            margin-bottom: 25px;
+
+            >h3 {
+                font-size: 12px;
+                font-weight: 400;
+                color: rgba($text-color-default, 1);
+            }
+
+            .investor-sentiments-chart-wrapper {
+                height: 300px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+.employee-inbound-chart-wrapper,
+.employee-distribution-chart-wrapper {
+    .c100 {
+        >span {
+            transition: all .3s ease-in-out;
+            font-size: 27px;
+            line-height: 22px;
+            color: #337ab7;
+            text-align: center;
+            white-space: nowrap;
+            left: 50%;
+            top: 50%;
+            z-index: 1;
+            width: auto;
+            margin: 0 auto;
+            transform: translate(-50%, -50%);
+
+            .inner-text {
+                display: block;
+                font-size: 10px;
+            }
+        }
+    }
+
+    .radial:hover,
+    .radial:focus {
+        &.c100 {
+            >span {
+                font-size: 38px;
+                line-height: 28px;
+
+                .inner-text {
+                    display: block;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+#networkGraphLeadersips,
+#networkGraphFinancialGrowth,
+#networkGraphLatestNews,
+#networkGraphRiskAlerts,
+#networkGraphLeadersips,
+#networkGraphSocialMedia {
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.genderRatioChart-wrapper {
+    .inner-number {
+        font-size: 28px;
+        position: absolute;
+        text-align: center;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: #337ab7;
+    }
+
+    .radial:hover,
+    .radial:focus {
+        .inner-number {
+            font-size: 36px;
+            position: absolute;
+            text-align: center;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: #337ab7;
+            width: auto;
+            display: block;
+            text-align: center;
+        }
+    }
+}
+
+.gender-ratio-info {
+    li {
+        color: #566a71;
+        font-size: 14px;
+        margin: 5px 0;
+        padding-left: 160px;
+
+        &:first-child {
+            color: #337ab7;
+        }
+
+        &:last-child {
+            color: #98afb9;
+        }
+    }
+}
+
+.political-donations-chart-wrapper,
+.relationshipNews-chart-wrapper,
+.recent-pep-wrapper,
+.political-contributions-chart-wrapper,
+.alertTimeLineChart-wrapper,
+.recent-pep,
+.recent-pep,
+.office-location-wrapper,
+.entity-item,
+.ratios-ratio-chart-wrapper {
+    position: relative;
+}
+
+.center-abs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    color: #f15034;
+    font-size: 12px;
+}
+
+.associated-table-wrapper {
+    max-height: 330px;
+}
+
+.holders-table-wrapper {
+    max-height: 270px;
+}
+
+.table {
+    &.associated-table {
+        width: 100%;
+
+        tr {
+            border-bottom: 1px solid #2e424b;
+
+            th {
+                color: #98b6c3;
+            }
+
+            td {
+                padding: 10px 5px;
+                font-size: 11px;
+                color: #8b9fa8;
+                text-align: left;
+            }
+        }
+    }
+}
+
+.balance-data {
+    h5 {
+        color: $bali-hai23;
+        font-size: 15px;
+
+        small {
+            display: block;
+            color: $nepal3;
+            font-size: 9px;
+            margin: 5px 0;
+        }
+    }
+}
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+@media (min-width:$screen-lg) {}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {}
+
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {}

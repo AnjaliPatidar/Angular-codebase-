@@ -1,0 +1,90 @@
+<div class="user-managment-table">
+  <mat-form-field class="bst_mat_input btn-reset-select-filter select-filter-wrapper" (click)="changeScroll()">
+    <mat-label>{{'Select' | translate}}</mat-label>
+    <mat-select #mySel multiple [formControl]="myFormControl" [(ngModel)]="defaultSelectedOptions"
+      [panelClass]="isBstThemeUI ? 'overflow-unset mat-select-height multi-select-dropdown' : 'multi-select-dropdown'"
+      >
+
+      <ng-container *ngIf="!isBstThemeUI">
+        <ngx-mat-select-search *ngIf="!isBstThemeUI && this.actualSelectOptions.length > 5" [placeholderLabel]="placeholderLabel" ngModel
+          (ngModelChange)="filterMyOptions($event)" [clearSearchInput]="clearSearchInput"></ngx-mat-select-search>
+
+          <mat-option (click)="toggleAllSelection()" value="all" [ngClass]="{'multi-select-all-wrapper': isBstThemeUI}">{{'All' | translate}}</mat-option>
+
+
+        <ng-container *ngIf="rowModelType == 'infinite'">
+          <mat-option *ngFor="let item of selectOptions; trackBy:trackByLabel"  (onSelectionChange) = "adjustSelections()" [value]="item.listItemId"> <img *ngIf="item.src"
+              style="width:20px;height: 20px;margin-right: 2%;" src="{{item.src}}" /> <span class="d-inline-block text-overflow"> {{item.label}}</span>
+            <i class="fa fa-check active-icon text-overflow" style="float:right;position: relative;top: 12px;" aria-hidden="true"></i>
+          </mat-option>
+        </ng-container>
+
+
+
+        <ng-container *ngIf="rowModelType != 'infinite'">
+          <mat-option (onSelectionChange)="getValuesOnChange($event);adjustSelections()" *ngFor="let item of selectOptions; trackBy:trackByLabel"
+            [value]="item.label"><img *ngIf="item.src" style="width:20px;height: 20px;margin-right: 2%;"
+              src="{{item.src}}" />  <span class="d-inline-block text-overflow">{{item.label}}</span>
+            <i class="fa fa-check active-icon  text-overflow" style="float:right;position: relative;top: 12px;" aria-hidden="true"></i>
+          </mat-option>
+        </ng-container>
+      </ng-container>
+
+
+      <!-- new theme style implementions -->
+      <ng-container *ngIf="isBstThemeUI">
+        <div class="mulit-filter-search-wrapper">
+          <mat-icon class="input-search-icon">search</mat-icon>
+          <input type="text" (ngModelChange)="filterMyOptions($event)" ngModel [value]="getSelectedLabel()"
+          id="search" name="search" placeholder="Search" class="multi-select-search-wrapper">
+        </div>
+        <div class="multi-select-options-wrapper">
+          <div class="multi-select-all-options">
+            <mat-option (click)="toggleAllSelection(); applyFilters()" value="all" [ngClass]="{'multi-select-all-wrapper': isBstThemeUI}">{{'Select all' | translate}}</mat-option>
+          </div>
+          <div class="multi-select-other-options custom-scroll-wrapper">
+            <mat-option *ngFor="let item of selectOptions; trackBy:trackByLabel"  (onSelectionChange) = "adjustSelections()" (click)="applyFilters()" [value]="this.colId == 'status' ? item.code : item.listItemId"> <img *ngIf="item.src"
+              style="width:20px;height: 20px;margin-right: 2%;" src="{{item.src}}" /> <span class="d-inline-block text-overflow"> {{item.label}}</span>
+            <i class="fa fa-check active-icon text-overflow" style="float:right;position: relative;top: 12px;" aria-hidden="true"></i>
+          </mat-option>
+          </div>
+        </div>
+      </ng-container>
+
+
+      <div class="ag-theme-balham custom-filter-button light-theme-bg-white" *ngIf="!isBstThemeUI">
+        <div class="ag-filter">
+          <div class="ag-filter-apply-panel">
+            <div class="ag-filter-apply-panel" id="applyPanel">
+              <button (click)="cancelFilters()" type="button" class="light-theme-btn theme-f-12 secondary-btn gotham-medium theme-text-capitalize"
+                id="clearButton">{{'Cancel' | translate}}</button>
+              <button (click)="applyFilters();mySel.close();" class=" light-theme-btn theme-f-12 primary-btn gotham-medium theme-text-capitalize" type="button"
+                id="applyButton">{{'Apply' | translate}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button [ngClass]="{'bst-theme-close': isBstThemeUI}" [disableRipple]="true" *ngIf="defaultSelectedOptions.length" matSuffix mat-icon-button aria-label="Clear"
+     (click)="onRemoveFilter($event)"
+     class="btn-reset-filter input-wrapper__input-close-icon  material-icons-round pointer">
+     <mat-icon class="bst-icon-tool-tip">close
+         <div class="bst-icon-tool-tip__block tt-top-center">
+           <span class="bst-icon-tool-tip__text">{{'Reset Filter' | translate}}</span>
+         </div>
+     </mat-icon>
+   </button>
+    </mat-select>
+
+    <button [disableRipple]="true" *ngIf="defaultSelectedOptions.length" matSuffix mat-icon-button aria-label="Clear"
+    (click)="onRemoveFilter($event)"
+    class="btn-reset-filter input-wrapper__input-close-icon  material-icons-round pointer">
+    <mat-icon class="bst-icon-tool-tip">close
+        <div class="bst-icon-tool-tip__block tt-top-center">
+          <span class="bst-icon-tool-tip__text">{{'Reset Filter' | translate}}</span>
+        </div>
+    </mat-icon>
+  </button>
+
+
+  </mat-form-field>
+</div>

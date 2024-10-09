@@ -1,0 +1,152 @@
+@import "../../../../../../../assets/scss/theme/common/variable";
+.Users-Activity {
+  background: $surface;
+  height: 700px;
+  ul li {
+    list-style-type: none;
+
+    p {
+      width: 104px;
+    }
+    .status-icons{
+      span{
+          font-size: 20px;
+          font-weight: 500;
+      }
+    }
+  }
+}
+
+.icon-feild {
+  margin-bottom: 25px;
+  width: 100% !important;
+  background-color: rgba(255, 255, 255, 0.08);
+
+  .mat-icon {
+    // width: 1.6rem;
+    // height: 1.6rem;
+    width: 16px;
+    height: 16px;
+    font-size: 1.6rem;
+    margin-top: .2rem;
+  }
+}
+
+.fields-tab {
+  height: 700px;
+}
+
+.btn-outline-primary {
+  border-color: $primary-color;
+  color: $primary-color;
+  margin-right: 10px;
+
+  span {
+    vertical-align: middle;
+  }
+
+  .btn-outline-primary:hover,
+  .btn-outline-primary:active {
+    background-color: $primary-color;
+  }
+}
+
+::ng-deep .status-icons {
+  .fa-check-circle {
+    color: #3eb6ff;
+  }
+
+  .fa-hourglass {
+    color: #00796b;
+  }
+
+  .fa-ban {
+    color: #ef5350;
+  }
+
+  .fa-pause-circle {
+    color: #e6ae20;
+  }
+
+  .fa-times {
+    color: rgba(255, 255, 255, 0.54);
+  }
+}
+
+::ng-deep .roles-settings-form {
+  .mat-form-field {
+    max-width: 100%;
+    width: 100%;
+
+    .mat-form-field-wrapper {
+      padding-bottom: 0 !important;
+
+      .mat-form-field-flex {
+        // background: rgb(61, 61, 61);
+        background: $input-color-bg;
+        border-radius: $sm-comp-corner-radius;
+        height: 56px !important;
+        padding: 0 1.5rem;
+        align-items: center;
+        border-bottom: 2px solid transparent;
+        &:focus-within {
+        border-bottom: 2px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .mat-form-field-infix {
+          width: auto;
+
+          .mat-input-element {
+            font-size: 1.6rem;
+            // color: rgba(255, 255, 255, .5);
+            color: $text-on-surface;
+          }
+
+          mat-select-trigger {
+            display: flex;
+            // color: rgba(255, 255, 255, 0.6);
+            color: $text-on-surface;
+            font-size: 1.6rem;
+          }
+
+          .mat-form-field-label-wrapper {
+            top: -0.7rem;
+
+            label {
+              // color: rgba(255, 255, 255, 0.6) !important;
+              color: $text-on-surface !important;
+              top: 1.28125em;
+            }
+          }
+
+          .mat-select {
+            line-height: 1.8rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.custom-input-wrapper {
+  .custom-input-color {
+    // width: 2rem;
+    width: 20px;
+  }
+  ::ng-deep {
+    .mat-form-field-label-wrapper {
+      left: 2.5rem;
+      top: 1.1rem !important;
+      font-size: 1.4rem;
+    }
+  }
+}
+.btn {
+&:focus {
+  box-shadow: none;
+}
+}
+
+.btn {
+  border-radius: $sm-comp-corner-radius;
+}

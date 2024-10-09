@@ -1,0 +1,14 @@
+@import "../../../assets/scss/theme/common/variable";
+
+app-sm-list{
+    width: 100%;
+}
+app-tabular-view{
+    width: calc(100% - 280px);
+}
+
+.dashboard_wrapper{
+    background-color: $bg-color;
+    padding: 0;
+
+}

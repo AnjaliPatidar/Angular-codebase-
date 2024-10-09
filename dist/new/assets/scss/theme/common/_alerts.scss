@@ -1,0 +1,100 @@
+
+/*
+================================================================================
+**********************  Common Alert Styles For The Site  **********************
+================================================================================
+*/ 
+.alert{  
+    border-radius: $sm-comp-corner-radius;
+    .alert-danger{       
+        .fa-exclamation-triangle{ 
+            margin-top:!important;
+            position:relative  
+        }             
+    }      
+    .alert-success{          
+        .fa-info-circle{
+            margin-top:!important;
+            position:relative
+        }   
+    }
+}  
+.main-flash-wrapper{
+    background-color: rgb(66, 66, 66);
+    .alert-container {
+        border-radius: $sm-comp-corner-radius;
+        >.alert {              
+            margin: 0;
+            .alert {                 
+                border: 0;
+                background-color: transparent;
+                &.alert-danger {
+                    span {
+                        display: inline-flex;                           
+                    }
+                }
+            }
+            &.alert-danger {
+                background-color: rgba(239, 83, 80, .3);
+                border: 0;
+                &:after {
+                    content: "";
+                    width: 6px;
+                    height: 100%;
+                    background-image: linear-gradient(to top, #f44336, #e57373);
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    border-radius: 5px 0 0 5px;
+                }
+            }
+            &.alert-info {
+                background-color: rgba(62, 182, 255, .3);
+                border: 0;
+                &:after {
+                    content: "";
+                    width: 6px;
+                    height: 100%;
+                    background-image: linear-gradient(to bottom, #79c9ff, #009eff);
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    border-radius: 5px 0 0 5px;
+                }
+            }
+            &.alert-success {
+                background-color: rgba(93, 171, 96, .3);
+                border: 0;
+                &:after {
+                    content: "";
+                    width: 6px;
+                    height: 100%;
+                    background-image: linear-gradient(to bottom, #81c784, #388e3c);
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    border-radius: 5px 0 0 5px;
+                }
+            }
+        }
+    }
+}
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+@media (min-width:$screen-lg){
+
+}
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
+
+}
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {
+ 
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {
+
+}

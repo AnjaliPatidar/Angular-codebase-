@@ -1,0 +1,362 @@
+@import "../../../../../assets/scss/theme/common/variable.scss";
+.tag {
+    border-radius: 2px;
+    min-height: 20px;
+    padding: 5px;
+}
+
+::ng-deep #tagList {
+    width: 100% !important;
+    position: absolute !important;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 38px;
+    background-color: transparent !important;
+    background: transparent !important;
+    margin: 2px 0;
+    padding: 0 15px 0 9px;
+
+    .mat-form-field-infix {
+        width: 100% !important;
+        display: flex;
+        align-items: center;
+    }
+    .mat-form-field-wrapper {
+        background-color: transparent !important;
+        height: 38px;
+        border-radius: $sm-comp-corner-radius;
+        display: flex;
+        align-items: center;
+        padding: 0 !important;
+        width: 100%;
+    }
+
+    ::ng-deep .tag-input-wrapper {
+        width: 100%;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        padding: 0;
+        background: transparent;
+        transition: all 0.3s ease;
+        .mat-chip-list-wrapper {
+            flex-wrap: unset !important;
+            height: 38px;
+            width: 100%;
+        }
+    }
+    ::ng-deep .full-width {
+        width: 100% !important;
+    }
+    .selected-tags {
+        height: fit-content;
+        display: flex;
+        width: fit-content;
+        background: $input-grey;
+        border-radius: $sm-comp-corner-radius;
+        padding: 8px 16px;
+    }
+    .tag-container {
+        width: 100%;
+        overflow: hidden;
+    }
+    .mat-chip.mat-standard-chip {
+        background-color: transparent !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        height: unset;
+        min-height: fit-content;
+        margin: 2px;
+    }
+    .mat-chip-trailing-icon {
+        height: unset !important;
+        width: unset !important;
+    }
+    .tag-wrapper {
+        border-radius: $sm-comp-corner-radius;
+        display: flex;
+        align-items: center;
+        padding: 2px 6px;
+        height: 24px;
+    }
+    .tag-input {
+        width: 20px;
+        flex: 1 0 20px;
+        padding: 0 0 0 10px;
+        height: 38px;
+        overflow: visible;
+    }
+}
+
+.autocomplete-tag-wrapper {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    padding: 2px 8px;
+    border-radius: $sm-comp-corner-radius;
+    margin: 0.5px 0;
+}
+
+.input-active-background {
+    background-color: var(--inputGroup) !important;
+}
+
+.counter-btn {
+    height: 36px;
+    width: 36px;
+    background-color: var(--inputGroup);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $sm-comp-corner-radius;
+    outline: none;
+    border: none;
+    margin-left: 5px;
+}
+
+.selected-tag-wrapper {
+    width: 100%;
+    height: 38px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.count-button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+}
+
+::ng-deep .hidden-tag-wrapper {
+    overflow: hidden;
+
+    .selected-tag-wrapper {
+        padding: 16px;
+        height: fit-content;
+    }
+    .selected-tags {
+        display: flex;
+        flex-direction: column;
+
+        .mat-standard-chip {
+            background-color: transparent !important;
+            background: transparent !important;
+            padding: 0 !important;
+            border-radius: 0 !important;
+            min-height: 24px !important;
+            height: 24px;
+        }
+
+        .tag-wrapper {
+            display: flex;
+            align-items: center;
+            padding: 7px 8px;
+            border-radius: $sm-comp-corner-radius;
+            height: 100%;
+        }
+        .mat-chip-remove {
+            line-height: 20px;
+        }
+    }
+}
+
+::ng-deep .hidden-tag-menu {
+    min-width: 400px !important;
+    max-width: unset !important;
+
+    .mat-menu-content {
+        padding: 0 !important;
+    }
+    .menu-header {
+        color: #fff;
+        font-size: 20px;
+        font-weight: 500;
+        letter-spacing: 0.25px;
+        padding: 12.7px 16px 16px;
+        background-color: rgba(255, 255, 255, 0.08);
+        padding: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .header-close {
+            background: transparent;
+            border: none;
+            color: rgba(#fff, 0.5);
+        }
+    }
+}
+
+.count-and-element {
+    display: flex;
+    align-items: center;
+}
+.count-button {
+    width: 31px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border-radius: $sm-comp-corner-radius;
+    padding: 0;
+    overflow: hidden;
+    margin-left: 2px;
+
+    span {
+        padding: 2px 6px;
+        height: 24px;
+        width: 100%;
+        background: rgba($white, .09);
+        border-radius: $sm-comp-corner-radius;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.tag-placeholder {
+    position: absolute;
+    left: 17px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.6;
+    font-size: 13px;
+    pointer-events: none;
+}
+
+.no-background {
+    background: transparent !important;
+}
+
+.error-state {
+    top: 50% !important;
+    height: 100% !important;
+    display: flex;
+    align-items: flex-start;
+    padding: 4px 12px !important;
+}
+
+::ng-deep{
+    .create-new-option{
+        background-color: transparent;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid rgba(#fff, 0.5);
+
+        button{
+            margin-right: 1rem;
+            color: rgba(#fff, 0.5);
+            font-size: 1.2rem;
+            background: transparent;
+            border: none;
+            display: flex;
+            align-items: center;
+
+            span{
+                font-size: 16px;
+                margin-left: 10px;
+            }
+        }
+    }
+    .mat-wrapper{
+        padding: 0 1rem;
+        transform: translateX(-3px);
+    }
+    .full-width{
+        width: 100% !important;
+    }
+}
+
+.selcetd-tags-editing{
+    flex-wrap: wrap;
+}
+
+::ng-deep .auto-height{
+    height: auto !important;
+    margin-top: -18px;
+
+    .mat-form-field-wrapper , .tag-input-wrapper , .mat-chip-list-wrapper ,.selected-tag-wrapper{
+        height: auto !important;
+    }
+}
+
+.error-message {
+    font-size: 12px;
+    color: $mandy;
+    margin-top: 0;
+    display: block;
+    width: 100%; 
+}
+
+::ng-deep .tag-ag-grid{
+    .ag-row{
+        position: relative !important;
+        transform: unset !important;
+    }
+}
+
+.d-unset{
+    display: unset !important;
+}
+.t-m4{
+    margin-top: -4px !important;
+}
+
+::ng-deep .light-dark-theme{
+    .sub-tag-light-mode{
+        .light-selected-tag{
+            background-color: rgba($black , 0.15) !important;
+        }
+
+        .count-button{
+            span{
+                background: rgba($black, 0.12);
+                color: rgba($light-black1  , 0.8);
+                font-weight: 600;
+            }
+        }
+        .tag-wrapper, .autocomplete-tag-wrapperr{
+            color: $white;
+        }
+      }
+      .light-create{
+        border-bottom: 1px solid rgba($black, 0.15) !important;
+        color: rgba($black , .5) !important;
+
+        button{
+            color: rgba($black , .5) !important;
+        }
+      }
+      .hidden-tag-menu{
+          .menu-header{
+            background: rgba($black, .08);
+            color: $modal-header-text;
+            font-weight: 600;
+
+            i{
+                color: $modal-header-text;
+            }
+          }
+      }
+      .hidden-tag-wrapper .selected-tags .tag-wrapper{
+          span{
+              color: $white;
+          }
+      }
+}
+.close-button{
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+.remove-effect{
+    &:hover , &:focus , &:active{
+        background-color: transparent !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+}
+

@@ -1,0 +1,16 @@
+<button type="button" class="widget-collapsed-btn text-on-surface bg-act-dark" (click)="toggleWidgetShow()">
+  <ng-container *ngIf="!isLoading">
+    <span>{{ buttonLabelValue }}</span>
+    <span class="material-icons-round text-on-surface icon">
+      {{ isShowWidget ? 'expand_less' : 'expand_more' }}
+    </span>
+  </ng-container>
+
+  <div class="loading-comments z-99 txt-on-surface-87" *ngIf="isLoading">
+    <i class="fa fa-spinner txt-on-surface-06 fa-pulse f-13"></i>
+  </div>
+</button>
+
+<ng-container *ngIf="isShowWidget">
+  <ng-content></ng-content>
+</ng-container>

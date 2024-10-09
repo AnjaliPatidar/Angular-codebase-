@@ -1,0 +1,34 @@
+@import "../../../../../../assets/scss/theme/common/variable";
+
+.confidence-content {
+  padding-bottom: 26px;
+
+  h3,
+  span {
+    font-weight: 400;
+    font-size: 14px !important;
+    line-height: 28px;
+    text-transform: capitalize;
+    margin-bottom: 0;
+  }
+}
+
+.filter-menu-inner {
+  padding: 24px;
+
+  .outline-btn {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: $link-color !important;
+    padding: 10px 24px;
+    border: 1px solid $link-color;
+    background-color: transparent !important;
+    text-transform: uppercase;
+  }
+
+  .border-none {
+    border: none;
+  }
+
+}

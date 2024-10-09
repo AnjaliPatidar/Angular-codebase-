@@ -1,0 +1,13 @@
+<section class="container">
+    <div class="row w-100">
+        <div class="col-md-8 container-box">
+            <app-adverse-media-metadata [alertData]="alertView"></app-adverse-media-metadata>
+            <app-adverse-media-text-highlight [newsTextData]="adverseHitValue.news_text"
+                [filterText]="filterValue"></app-adverse-media-text-highlight>
+        </div>
+        <div class="col-md-4 p-0">
+            <app-adverse-media-filter [hitsKeywordData]="adverseHitValue.hits_keyword"
+                (selectedKeywords)="getSelectedData($event)"></app-adverse-media-filter>
+        </div>
+    </div>
+</section>

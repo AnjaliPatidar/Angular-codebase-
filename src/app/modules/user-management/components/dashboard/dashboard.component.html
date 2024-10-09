@@ -1,0 +1,271 @@
+<div class="user-mgt-wrapper um-bg-blur my-4 py-3">
+  <!-- top panel -->
+  <div class="top-user-panel">
+    
+      <div id="manageUsers" class="mb-4 c-pointer no-focus-effect" [routerLink]="['/element/user-management/manage/users']">
+        <div class="d-flex top-user-panel-item">
+        <div class="icon-wrapper icon-wrapper-yellow d-flex align-items-center justify-content-center light-theme-no-radius"><i
+            class="material-icons">person</i></div>
+        <div class=" content-wrapper content-wrapper-yellow light-theme-no-radius">
+          <p class="text-value d-flex justify-content-between d-flex align-items-start gotham-medium fw-500">
+
+            {{ 'ActiveUsers' | translate }}
+            <button id="manageUsersButton" (click)="openAddUserModal($event)" class="border-0 bg-transparent material-icons c-pointer add-icon"
+              [disabled]="!(systemSettings && systemSettings['Allow to create manually-Users'])"
+              [ngClass]="{'c-ban' : !(systemSettings && systemSettings['Allow to create manually-Users']) }">add_circle</button>
+          </p> 
+          <p class="number-value">{{kpiDataval['Active Users']}}</p>
+        </div>
+      </div>
+      </div>
+
+  <div class="mb-4 c-pointer no-focus-effect">
+    <div id="manageRoles" class="d-flex top-user-panel-item" [routerLink]="['/element/user-management/manage/roles']">
+      <div class="icon-wrapper icon-wrapper-purple d-flex align-items-center justify-content-center light-theme-no-radius"><i
+          class="material-icons">lock</i></div>
+      <div class=" content-wrapper content-wrapper-purple light-theme-no-radius">
+        <p class="text-value d-flex justify-content-between d-flex align-items-center gotham-medium fw-500">
+          <span class="text-white"> {{ 'Roles' | translate }}</span>
+
+          <button id="manageRolesButton" type="button" (click)="navigateTo($event,'/element/user-management/manage/roles/settings/newrole')"
+            class="border-0 bg-transparent"
+            [disabled]=" !(systemSettings && systemSettings['Allow to create manually-Roles'])"
+            [ngClass]="{'c-ban' : !(systemSettings && systemSettings['Allow to create manually-Roles']) }">
+            <i class="material-icons c-pointer add-icon">add_circle</i>
+          </button>
+
+        </p>
+        <p class="number-value">{{kpiDataval.Roles}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-4 c-pointer no-focus-effect">
+    <div id="manageGroups" class="d-flex top-user-panel-item" routerLink="/element/user-management/manage/groups">
+      <div class="icon-wrapper icon-wrapper-green d-flex align-items-center justify-content-center light-theme-no-radius"  ><i
+          class="material-icons">group</i></div>
+      <div class=" content-wrapper content-wrapper-green light-theme-no-radius">
+
+        <p class="text-value d-flex justify-content-between d-flex align-items-center gotham-medium fw-500">
+          <span class="text-white">{{ 'Groups' | translate }}</span>
+          <button id="manageGroupsButton" type="button" (click)="navigateTo($event,'/element/user-management/manage/groups/settings/newgroup')"
+            class="border-0 bg-transparent"
+            [disabled]=" !(systemSettings && systemSettings['Allow to create manually-Groups'])"
+            [ngClass]="{'c-ban' : !(systemSettings && systemSettings['Allow to create manually-Groups']) }">
+            <i class="material-icons c-pointer add-icon">add_circle</i>
+          </button>
+        </p>
+        <p class="number-value">{{kpiDataval.Groups}}</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="mb-4 c-pointer no-focus-effect">
+    <div id="managePolicies" class="d-flex top-user-panel-item custom-policy-wrapper" disabled="true">
+      <div class="icon-wrapper icon-wrapper-blue d-flex align-items-center justify-content-center light-theme-no-radius"><i
+          class="material-icons">featured_play_list</i></div>
+      <div class=" content-wrapper content-wrapper-blue light-theme-no-radius">
+        <p class="text-value d-flex justify-content-between d-flex align-items-center gotham-medium fw-500">
+          <a routerLink="/element/user-management/manage/policies" class="text-white">{{ 'Policies' | translate }} </a>
+          <i class="material-icons c-pointer add-icon">add_circle</i> </p>
+        <p class="number-value">{{kpiDataval.Policies}}</p>
+      </div>
+    </div>
+  </div>
+    
+    
+    
+
+  </div>
+  <!-- top panel -->
+
+
+  <div class="two-column-grid pt-3">
+    <!---- user status start-->
+    <div class="chart-wrapper light-theme-bg-white light-theme-no-radius">
+      <div class="chart-title d-flex justify-content-between align-items-center">
+        <h3 class="text-capitalize mb-0 mr-2 d-inline-block dots-text align-items-center gotham-medium text-dark-black">
+          <i class="material-icons align-middle">
+            person
+          </i>
+         <span class="title-text-on-surface"> {{ 'Users Status' | translate }}</span></h3>
+        <div class="custom-select-box mb-2">
+          <mat-form-field class="bst-bottom-radius">
+            <mat-select [(value)]="userChartPeriod" [(ngModel)]="userChartPeriod"
+              (ngModelChange)="userChartPeriodChange()">
+
+              <mat-option value="12" selected>
+                {{ 'last' | translate }} 12 {{ 'months' | translate }}
+              </mat-option>
+              <mat-option value="6">
+                {{ 'last' | translate }} 6 {{ 'months' | translate }}
+              </mat-option>
+              <mat-option value="3">
+                {{ 'last' | translate }} 3 {{ 'months' | translate }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="chart-container">
+        <div id="groupBarChart"></div>
+      </div>
+    </div>
+
+    <!-- user status end-->
+
+
+    <!-- logon users start-->
+    <div class="chart-wrapper light-theme-bg-white light-theme-no-radius">
+      <div class="chart-title d-flex justify-content-between align-items-center">
+        <h3 class="text-capitalize mb-0 mr-2 d-inline-block dots-text align-items-center gotham-medium text-dark-black">
+          <i class="material-icons align-middle">
+            exit_to_app
+          </i>
+          <span class="title-text-on-surface">{{ 'LogonUsersByHourOfDay' | translate }} </span></h3>
+        <div class="custom-select-box mb-2">
+          <mat-form-field class="bst-bottom-radius">
+            <mat-select [(ngModel)]="logonUsersDays" (ngModelChange)="logOnUsersByHourChartIntialize(logonUsersDays)">
+              <mat-option value="1" selected>
+                {{ 'today' | translate }} 
+              </mat-option>
+              <mat-option value="7">
+                {{ 'last' | translate }} 7 {{ 'days' | translate }}
+              </mat-option>
+              <mat-option value="14">
+                {{ 'last' | translate }} 14 {{ 'days' | translate }}
+              </mat-option>
+              <mat-option value="6">
+                {{ 'last' | translate }} 6 {{ 'months' | translate }}
+              </mat-option>
+              <mat-option value="12">
+                {{ 'last' | translate }} 12 {{ 'months' | translate }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="chart-container">
+        <div id="areaLineChart"></div>
+      </div>
+    </div>
+    <!-- logon users end-->
+  </div>
+
+  <div class="two-column-grid">
+    <!-- login failures start -->
+    <div class="chart-wrapper light-theme-bg-white light-theme-no-radius">
+      <div class="chart-title d-flex justify-content-between align-items-center">
+        <h3 class="text-capitalize mb-0 mr-2 d-inline-block dots-text align-items-center gotham-medium text-dark-black">
+          <i class="material-icons align-middle">
+            warning
+          </i>
+          <span class="title-text-on-surface">{{ 'Logon failures' | translate }}</span></h3>
+        <div class="custom-select-box mb-2">
+          <button type="button" [disabled]="true" class="btn btn-outline-primary detail-btn mr-3 light-theme-btn secondary-btn gotham-medium font-medium fw-500 theme-f-15"
+            (click)="logOnFailuresTable()">{{ 'See Details' | translate }}</button>
+
+          <mat-form-field class="bst-bottom-radius">
+            <mat-select [(ngModel)]="LogonFailuresPeriod"
+              (ngModelChange)="logOnFailuresChartIntialize(LogonFailuresPeriod)">
+              <mat-option value="1" selected>
+                {{ 'today' | translate }} 
+              </mat-option>
+              <mat-option value="7">
+                {{ 'last' | translate }} 7 {{ 'days' | translate }}
+              </mat-option>
+              <mat-option value="14">
+                {{ 'last' | translate }} 14 {{ 'days' | translate }}
+              </mat-option>
+              <mat-option value="6">
+                {{ 'last' | translate }} 6 {{ 'months' | translate }}
+              </mat-option>
+              <mat-option value="12">
+                {{ 'last' | translate }} 12 {{ 'months' | translate }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="chart-container">
+        <div id="logOnFailures"></div>
+      </div>
+    </div>
+
+
+    <!-- login failures end-->
+
+
+    <!-- top users logon failues -->
+    <div class="chart-wrapper light-theme-bg-white light-theme-no-radius">
+      <div class="chart-title d-flex justify-content-between align-items-center">
+        <h3 class="text-capitalize mb-0 mr-2 d-inline-block dots-text align-items-center gotham-medium text-dark-black">
+          <i class="material-icons align-middle">
+            warning
+          </i>
+          <span class="title-text-on-surface">{{ 'TopUserLogonFailures' | translate }}</span></h3>
+        <div class="custom-select-box mb-2">
+          <button type="button" [disabled]="true" class="btn btn-outline-primary detail-btn mr-3 light-theme-btn secondary-btn gotham-medium font-medium fw-500 theme-f-15">{{ 'See Details' | translate }}</button>
+
+          <mat-form-field class="bst-bottom-radius">
+            <mat-select [(ngModel)]="topLogonFailuresPeriod"
+              (ngModelChange)="TopUserLogOnFailuresChartIntialize(topLogonFailuresPeriod)">
+
+              <mat-option value="7" selected>
+                {{ 'last' | translate }} 7 {{ 'days' | translate }}
+              </mat-option>
+              <mat-option value="14">
+                {{ 'last' | translate }} 14 {{ 'days' | translate }}
+              </mat-option>
+              <mat-option value="6">
+                {{ 'last' | translate }} 6 {{ 'months' | translate }}
+              </mat-option>
+              <mat-option value="12">
+                {{ 'last' | translate }} 12 {{ 'months' | translate }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="chart-container">
+        <div id="TopUserLogOnFailures"></div>
+      </div>
+    </div>
+
+    <!-- top users logon failures end-->
+  </div>
+  <div class="two-column-grid">
+    <!--groups start -->
+    <div class="chart-wrapper light-theme-bg-white light-theme-no-radius">
+      <div class="chart-title">
+        <h3 class="text-capitalize mb-0 mr-2  dots-text gotham-medium text-dark-black">
+          <i class="material-icons align-middle">
+            folder
+          </i>
+          {{ 'Groups' | translate }}</h3>
+      </div>
+      <div class="chart-container">
+        <div id="groupsChart"></div>
+      </div>
+    </div>
+
+    <!-- groups end -->
+
+    <!-- roles start -->
+    <div class="chart-wrapper light-theme-bg-white light-theme-no-radius">
+      <div class="chart-title">
+        <h3 class="text-capitalize mb-0 mr-2 dots-text  gotham-medium text-dark-black">
+          <i class="material-icons align-middle">
+            people
+          </i>
+          {{ 'Roles' | translate }}</h3>
+      </div>
+      <div class="chart-container">
+        <div id="rolesChart"></div>
+
+      </div>
+    </div>
+
+    <!-- roles end-->
+  </div>
+</div>

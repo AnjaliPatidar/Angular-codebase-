@@ -1,0 +1,112 @@
+
+/*==============================================================================
+********************  Cusstom Scroll Styles For The Site  **********************
+==============================================================================*/
+
+// .custom-scroll{
+//     height: 700px;     
+// }  
+
+/** Custom Scrollbar **/
+.custom-scroll-wrapper::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.custom-scroll-wrapper::-webkit-scrollbar-track {
+  background: rgba(26, 39, 52, 0.2);
+}
+
+.custom-scroll-wrapper:hover::-webkit-scrollbar-track {
+  background: rgba(26, 39, 52, 0.8);
+}
+
+.custom-scroll-wrapper::-webkit-scrollbar-thumb {
+  @extend .radius-3;
+  background-color: rgba(169, 169, 169, 0.3);
+}
+
+.custom-scroll-wrapper:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(169, 169, 169, 0.8);
+}
+
+.custom-scroll-wrapper:hover::-webkit-scrollbar-corner {
+  background: rgba(26, 39, 52, 0.8);
+}
+
+.custom-scroll-wrapper::-webkit-scrollbar-corner {
+  background: rgba(26, 39, 52, 0.2);
+}
+
+.custom-scroll-wrapper {
+  @include transition(all 0.3s ease-in-out);
+
+  &:focus {
+    outline: none;
+  }
+}
+.bst_element {
+    .mCSB_dragger_bar {
+        // background-image: linear-gradient(to bottom, #79c9ff, #009eff);
+        background-color: $primary-color !important;
+    }
+} 
+
+/** Custom Scrollbar For  Material Selectbox**/
+.mat-select-search-panel::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  
+  .mat-option-text {
+    display: inline-flex !important;
+    align-items: center;
+  }
+  
+  .mat-select-search-panel::-webkit-scrollbar-track {
+    background: rgba(26, 39, 52, 0.2);
+  }
+  
+  .mat-select-search-panel:hover::-webkit-scrollbar-track {
+    background: rgba(26, 39, 52, 0.8);
+  }
+  
+  .mat-select-search-panel::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: rgba(169, 169, 169, 0.3);
+  }
+  
+  .mat-select-search-panel:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(169, 169, 169, 0.8);
+  }
+  
+  .mat-select-search-panel:hover::-webkit-scrollbar-corner {
+    background: rgba(26, 39, 52, 0.8);
+  }
+  
+  .mat-select-search-panel::-webkit-scrollbar-corner {
+    background: rgba(26, 39, 52, 0.2);
+  }
+
+  .alert-custom-select .mat-form-field-appearance-fill .mat-select-arrow-wrapper {
+    transform: inherit !important;
+  }
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+@media (min-width:$screen-lg){
+
+}
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
+
+}
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {
+
+}

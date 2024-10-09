@@ -1,0 +1,87 @@
+<div class="bst-comment-list-item-wrapper">
+    <div class="bst-comment-list-item-wrapper__header bst-body2 bst-color-ty">
+        <div class="bst-comment-list-item-wrapper__header--avatar">
+            <img *ngIf="comment?.user_image" class="bst-avatar-icon bst-avatar-icon--user-uploaded"
+                [src]="comment?.user_image" alt="">
+            <span class="bst-avatar-icon material-icons" *ngIf="!comment?.user_image">
+                person
+            </span>
+        </div>
+        <div class="bst-comment-list-item-wrapper__header--edit">
+            <div class="user-name">{{comment?.user_name}}</div>
+            <div class="float-right">
+                <div class="commented-date-time">
+                    {{comment?.last_updated_time | date:'shortDate' | date:'dd.MM.yyyy'}},
+                    {{comment?.last_updated_time | date:'shortTime'}}
+                </div>
+                <div class="update-comment">
+                    <button mat-icon-button class="bst-mat-icon-btn bst-mat-icon-btn--default edit-btn"
+                        (click)="editUserComment()">
+                        <mat-icon class="material-icons-round">edit</mat-icon>
+                    </button>
+                    <button mat-icon-button class="bst-mat-icon-btn bst-mat-icon-btn--warning"
+                        (click)="openDeleteModal()">
+                        <mat-icon class="material-icons-round">delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <span class="bst-comment-list-item-wrapper__body bst-body1 bst-color-ty" *ngIf="!showEditSection">
+        {{comment?.comment}}</span>
+
+    <form class="bst-comment-form-edit" [formGroup]="editCommentForm" *ngIf="showEditSection"
+        (keyup.enter)="onSaveUpdatedComment()">
+        <div class="bst-add-comment">
+            <mat-form-field class="bst-form-field bst-form-field--textarea" appearance="fill">
+                <div class="input-wrapper">
+                    <span class="expand-icon-wrapper">
+                        <span class="text-area-icon"></span>
+                    </span>
+                    <textarea class="input-wrapper__textarea" matInput formControlName="editedComment" #editCommentTxt
+                        (keydown.enter)="editCommentTxt.blur()"
+                        (keydown)="preventEnter($event)">{{comment?.comment}}</textarea>
+                </div>
+            </mat-form-field>
+
+            <div class="add-comment-actions float-right">
+                <button mat-button class="bst-mat-btn bst-mat-btn--normal u-mr-8" (click)="onCancelUpdatedComment()">
+                    <span>Cancel</span>
+                </button>
+                <button mat-button class="bst-mat-btn bst-mat-btn--primary" (click)="onSaveUpdatedComment()">
+                    <span>Save</span>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <ul class="bst-file-list" *ngIf="comment?.fileAttachments">
+        <li class="display-block" *ngFor="let attach of comment.fileAttachments">
+            <!-- For Attachments which are not images -->
+            <div class="bst-file-list__attachment"
+                *ngIf="!(attach?.type === 'image/jpeg' || attach?.type === 'image/png')"
+                (click)="downloadAttachedFile(attach, fileURL)">
+                <span class="material-icons-round bst-file-list__attachment--icon">
+                    insert_drive_file
+                </span>
+                <span class="bst-file-list__attachment--name bst-body2 bst-color-ty">{{attach?.name}}</span>
+                <button type="button" class="bst-file-list__attachment--close">
+                    <span class="material-icons-round close-icon"
+                        (click)="openRemoveAttachmentModal(attach); $event.stopPropagation()">close</span>
+                </button>
+            </div>
+            <!-- For Images -->
+            <div class="bst-file-list__img" *ngIf="(attach?.type === 'image/jpeg' || attach?.type === 'image/png')"
+                (click)="downloadAttachedFile(attach, imgURL)">
+                <img src={{imgURL}} class="pointer">
+                <button type="button" class="bst-file-list__img--close">
+                    <span class="material-icons-round close-icon"
+                        (click)="openRemoveImageModal(attach); $event.stopPropagation()">close</span>
+                </button>
+            </div>
+        </li>
+    </ul>
+
+    <div class="bst-list-underline" *ngIf="!isLast"></div>
+</div> 

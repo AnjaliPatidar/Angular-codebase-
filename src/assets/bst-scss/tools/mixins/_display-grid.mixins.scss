@@ -1,0 +1,13 @@
+/* Grid-d Mixins */
+
+@mixin grid-d($grid-type, $args, $row-gap, $column-gap: $row-gap) {
+  @supports (display: grid) {
+    display: grid;
+    #{$grid-type}: #{$args};
+    grid-gap: ($row-gap) ($column-gap);
+  }
+}
+
+/* Usage */
+//@include grid-d('grid-template-rows', '1fr 2fr', 10px, 20px);
+//@include grid-d('grid-template-columns', '1fr 1fr', 20px, null);

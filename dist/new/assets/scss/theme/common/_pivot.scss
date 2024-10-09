@@ -1,0 +1,3131 @@
+
+/*==============================================================================
+*************************  Pivot Styles For The Site  **************************
+==============================================================================*/
+.pvtUi{
+    color: $light-black;
+}
+
+/*--  PVT Table Styles  --*/
+table.pvtTable{
+    @extend .text-left;
+    font-size: ($font-size-small - 1);
+    border-collapse: collapse;
+    tbody tr th, thead tr th{
+    	@include padding(5px);
+        background-color: $zircon1;
+        font-size: ($font-size-small - 1);
+        border: 1px solid $lighter-grey7;
+    }
+    .pvtColLabel{
+        @extend .text-center;
+    }
+    .pvtTotalLabel{
+        @extend .text-right;
+    }
+    tbody tr td{
+        @extend .text-right;
+        @include padding(5px);
+        background-color: $white;
+        color: $dark-grey12;
+        vertical-align: top;
+        border: 1px solid $lighter-grey7;
+    }
+}
+.pvtGrandTotal, .pvtTotal{
+    font-weight: 700;
+}
+.pvtVals{
+    @extend .text-center;
+    white-space: nowrap;
+}
+.pvtColOrder, .pvtRowOrder{
+    margin-left: 5px;
+    cursor: pointer;
+    display: inline-block;
+    width: 15px;
+}
+.pvtAggregator{
+    margin-bottom: 5px;
+}
+.pvtAxisContainer, .pvtVals{
+    @include padding(5px);
+    background: $whisper2;
+    min-width: 20px;
+    min-height: 20px;
+    border: 1px solid gray;
+}
+
+/*--  PVT Axis Container Styles  --*/
+.pvtAxisContainer li{
+    @include padding(8px 6px);
+    list-style-type: none;
+    cursor: move;
+    &.pvtPlaceholder{
+        @include padding(3px 15px);
+        @include border-radius(5px);
+        border: 1px dashed $dark-grey13;
+    }
+    span.pvtAttr{
+        @include padding(2px 5px);
+        @include border-radius(5px);
+        background: $white-smoke1;
+        border: 1px solid $gains-boro1;
+        white-space: nowrap;
+        -webkit-text-size-adjust: 100%;
+    }
+}
+.pvtTriangle{
+    cursor: pointer;
+    color: grey;
+}
+.pvtHorizList li{
+    display: inline;
+}
+.pvtVertList{
+    vertical-align: top;
+}
+.pvtFilteredAttribute{
+    font-style: italic;
+}
+
+/*--  PVT Filter Box Styles  --*/
+.pvtFilterBox{
+    @extend .text-center;
+    background-color: $white;
+    width: 300px;
+    position: absolute;
+    border: 1px solid gray;
+    z-index: 100;
+    h4{
+        @include margin(15px);
+    }
+    p{
+        @include margin(10px auto);
+    }
+    label{
+        font-weight: 400;
+    }
+    input{
+        &[type=checkbox]{
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+        &[type=text]{
+            width: 230px;
+        }
+    }
+    .count{
+        color: gray;
+        font-weight: 400;
+        margin-left: 3px;
+    }
+}
+.pvtCheckContainer{
+    @extend .text-left;
+    font-size: $font-size-base;
+    white-space: nowrap;
+    overflow-y: scroll;
+    width: 100%;
+    max-height: 250px;
+    border-top: 1px solid $light-grey10;
+    border-bottom: 1px solid $light-grey10;
+    p{
+    	@include margin(5px);
+    }
+}
+.pvtRendererArea{
+    @include padding(5px);
+}
+
+/*==============================================================================
+**********************  Style For the EntityMIP UI Page  ************************
+===============================================================================*/
+.mipEntity-wrapper{
+    &.entity-results-wrapper .custom-col{
+        margin: 0 -10px;
+    }
+    .table thead{
+        background-color: $atomic12 !important;
+    }
+}
+.total-investors-details .table thead, 
+.mipEntity-wrapper .table thead tr th,
+.total-investors-details .table thead tr th{
+    background-color: $atomic12 !important;
+}
+.mipEntity-wrapper .table thead tr th,
+.total-investors-details .table thead tr th{
+    @extend .text-uppercase;
+    @include padding(7px 16px);
+    color: $botticelli1;
+    // font-family: $roboto-medium;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-medium);
+      }
+    font-size: ($font-size-base - 3);
+    font-weight: normal;
+    line-height: 11px;
+}
+.mipEntity-wrapper .table tbody tr:not(:last-child), 
+.total-investors-details .table tbody tr:not(:last-child){
+    border-bottom: 1px solid $atomic12;
+}
+.mipEntity-wrapper .table tbody tr td, 
+.total-investors-details .table tbody tr td{
+    @extend .text-uppercase;
+    @include padding(13px 16px);
+    color: $bali-hai12;
+    // font-family: $roboto-regular;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-regular);
+      }
+    font-size: ($font-size-base - 3);
+    font-weight: normal;
+    line-height: 11px;
+    vertical-align: middle;
+}
+.entity-completed, 
+.entity-processing, 
+.entity-started{
+    color: $chelsea-cucumber !important;
+}
+.mipEntity-wrapper .custom-border > h3{
+    margin: 12px 0 22px 0;
+    color: $nepal2;
+    font-size: 16px;
+    line-height: 16px;
+}
+
+/*--  Leadership Details Wrapper Styles  --*/
+.custom-border{
+    @include margin(0 -10px);
+    @include padding(10px 15px);
+    border-bottom: 1px solid $big-stone1;
+}
+.leader-wrapper{
+    position: relative;
+    padding-left: 75px;
+    .leader-dp{
+        @include border-radius(50%);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 65px;
+        height: 65px;
+        border: 4px solid $atomic13;
+    }
+    .leader-details{
+        display: block;
+        width: 100%;
+    }
+}
+.leadership-details-wrapper .leader-details{
+    h4{
+        color: $heather4 ;
+        // font-family: $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        font-size: $font-size-small;
+        margin: 0 0 10px 0;
+        line-height: 14px;
+    }
+    h5{
+        color: $bali-hai15;
+        // font-family: $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        font-size: ($font-size-base - 3);
+        margin: 0 0 9px 0;
+        line-height: 14px;
+    }
+    p{
+        @include margin(0 0 6px 0);
+        color: $bali-hai15;
+        // font-family: $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        font-size: ($font-size-base - 4);
+        line-height: 10px;
+        > a{
+            @extend .text-lowercase;
+            @include margin(0 0 6px 0);
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            font-size: ($font-size-base - 3);
+            line-height: 11px;
+            display: block;
+        }
+    }
+}
+
+/*--  Investment History Wrapper Styles  --*/
+.investment-history-wrapper{
+    .entity-amount{
+        font-size: 24px;
+        // font-family: $roboto-medium;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-medium);
+          }
+        display: block;
+    }
+    .entity-view{
+    	@include padding(6px 12px);
+        @include border-radius(15px);
+        font-size: ($font-size-base - 4);
+        background-color: $picton-blue2;
+        color: $whisper2;
+        display: inline-block;
+    }  
+}
+
+/*--  Lead Partners Wrapper Styles  --*/
+.lead-partners-wrapper .investors-wrapper{
+    @include margin(12px 0 22px);
+    >{
+        a{
+        	@include padding(6px 12px);
+            color: $picton-blue2;
+            border: 1px solid $picton-blue2;
+            margin-right: 20px;
+            display: inline-block;
+            font-size: $font-size-small;
+            // font-family: $roboto-medium;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-medium);
+              }
+        }
+        span{
+            display: inline-block;
+            color: $bismark;
+            font-size: $font-size-small;
+            // font-family: $roboto-medium;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-medium);
+              }
+        }
+    }
+}
+
+/*--  Mip News Details Wrapper Styles  --*/
+.mipnews-wrapper{
+    width: 295px;
+}
+.mipnews-details-wrapper .main-news-block{
+    margin-bottom: 30px;
+    h4{
+        @extend .text-capitalize;
+        color: $picton-blue2;
+        // font-family: $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        font-size: $font-size-base;
+        line-height: 16px;
+        margin-bottom: 16px;
+    }
+    p{
+        @extend .text-capitalize;
+        color: $bermuda-grey;
+        // font-family: $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        font-size: ($font-size-base - 3);
+        line-height: 14px;
+        &:not(:last-child){
+            margin-bottom: 16px;
+        }
+        &.mipnews-subheading{
+            @extend .text-lowercase;
+            &:first-letter{
+                @extend .text-uppercase;
+            }
+        }
+    }
+}
+
+/*--  Mip Right Panel Styles  --*/
+.mip-right-panel{
+    @include padding(15px);
+    h4.right-heading{
+        margin: 0 0 10px 0;
+        font-size: $font-size-large;
+        color: $picton-blue2;
+    }
+    .snapshot-wraper, .investment-trends{
+        margin-bottom: 30px;
+    }
+    .snapshot-wraper{
+        p{
+            color: $curious-blue9;
+            line-height: 21px;
+            strong{
+                color: $curious-blue9;
+                font-size: $font-size-large;
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+        a{
+            color: $picton-blue2;
+        }
+    }
+    .investment-trends{
+    	 .sub-heading{
+	        margin-bottom: 20px;
+	        color: $casper3;
+            // font-family: $roboto-medium;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-medium);
+              }
+	        font-size: $font-size-small;
+	    }
+    }
+}
+#investmentTrendChart{
+    height: 200px;
+    > strong{
+        font-weight: normal;
+        position: relative;
+        > span{
+            color: $pastel-green;
+            font-size: $font-size-small;
+            line-height: 22px;
+            position: absolute;
+            top: 0;
+            right: -15px;
+            display: inline-block;
+        }
+    }
+}
+.contact-information{
+    .contact-details-wrapper{
+        margin-bottom: 25px;
+    }
+    .contact-details{
+        h5{
+            color: $botticelli3;
+            font-size: $font-size-small;
+        }
+        span{
+            color: $lynch5;
+            display: block;
+            font-size: $font-size-small;
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            line-height: 16px;
+        }
+    }
+}
+
+/*--  Mip Modal Styles  --*/
+.entity-visualiser-modal.update-entities-modal.related-person-modal.mip-entity-modal-wrapper{
+    .modal-dialog{
+        height: 420px;
+    }
+    .modal-body{
+        height: 380px;
+    }
+}
+
+/*--  Deals Wrapper Styles  --*/
+.deals-wrapper{
+    ul{
+        @include margin(0);
+        border-bottom: 1px solid $bismark;
+    }
+    margin-bottom: 30px;
+    > ul > li{
+        float: left;
+        @include padding(0);
+        &.active a{
+            color: $whisper;
+        }
+        > a{
+        	@include padding(10px 16px);
+            @include border-radius(0);
+            color: $casper;
+            border: 0;
+            font-size: $font-size-small;
+            display: block;
+            position: relative;
+            &:hover, &:focus{
+                color: $whisper;
+                text-decoration: none;
+            }
+            &:after{
+                position: absolute;
+                right: -20px;
+                top: 0px;
+                content: "\f0da";
+                display: inline-block;
+                font: normal normal normal 14px/1 FontAwesome;
+                font-size: inherit;
+                font-size: 61px;
+                line-height: 35px;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                z-index: 1;
+            }
+            &.deal3{
+                padding-right: 10px;
+                background-color: $scooter;
+                &:after{
+                    color: $scooter;
+                }
+            }
+            &.deal2{
+                background-color: $san-juan15;
+                padding-left: 30px;
+                padding-right: 10px;
+                &:after{
+                    color: $san-juan15;
+                }
+            }
+            &.deal1{
+                background-color: $big-stone7;
+                padding-left: 30px;
+                &:after{
+                    color: $big-stone7;
+                }
+            }
+        }
+    }
+}
+
+/*--  Investor Details Wrapper Styles  --*/
+.investor-details-wrapper{
+    height: 128px;
+    background-color: $oxford-blue5;
+    .investor-details{
+        margin: 15px 0 15px 15px;
+        height: 98px;
+        border-right: 1px solid $big-stone10;
+        >{
+            h4{
+                color: $bali-hai17;
+                margin: 0 0 10px 0;
+                font-size: $font-size-small;
+                line-height: 12px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                font-weight: normal;
+            }
+            span{
+                color: $scooter;
+                font-size: 30px;
+                margin: 0 0 14px 0;
+                display: block;
+                line-height: 30px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            small{
+                color: $hoki4;
+                font-size: ($font-size-base - 4);
+                display: block;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+    }
+    .investments-details{
+    	@include padding(15px 0);
+        .investment-details-wrapper > div > span{
+            @extend .text-uppercase;
+            font-size: ($font-size-base - 3);
+            color: $bali-hai16;
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            line-height: 14px;
+        }
+    }
+}
+
+/*--  Investment Synopsis Wrapper Styles  --*/
+.investment-synopsis-wrapper{
+    margin-bottom: 30px;
+    .synopsis-heading{
+        color: $bali-hai17;
+        font-size: $font-size-base;
+        // font-family: $roboto-medium;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-medium);
+          }
+        font-weight: normal;
+    }
+    .synopsis-description{
+        color: $bali-hai18;
+        // font-family: $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        font-size: $font-size-small;
+    }
+}
+.total-investors-details .total-investors-title{
+    color: $bali-hai17;
+    font-size: $font-size-base;
+    // font-family: $roboto-medium;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-medium);
+      }
+    font-weight: normal;
+    margin: 0 0 15px 0;
+}
+.mip-entity-modal-wrapper .modal-body .mCSB_inside > .mCSB_container{
+    margin-right: 8px;
+}
+
+/*--  Mip Save Wrapper Styles  --*/
+.entity-visualiser-modal.update-entities-modal.related-person-modal.mip-save-wrapper .modal-dialog{
+    height: auto;
+    width: 400px;
+}
+.mip-save-wrapper .save-search-wrapper{
+	@include padding(10px 0 0);
+    position: relative;
+    .close-modal{
+        position: absolute;
+        top: 0;
+        right: 0;
+        .close{
+            text-shadow: none;
+            font-size: $font-size-large;
+        }
+    }
+    label{
+        font-weight: normal;
+        @extend .text-uppercase;
+    }
+    .writeName{
+        position: relative;
+        padding-right: 80px;
+        margin: 10px 0;
+        .saveMipbtn{
+		    @include translateY(-50%);
+            position: absolute;
+            right: 0;
+            top: 50%;
+        }
+        input{
+            border: 0;
+            border-bottom: 1px solid $lochmara3;
+            background-color: transparent;
+            display: block;
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            width: 100%;
+            height: 32px;
+            color: $bermuda-grey5;
+        }
+    }
+    .saveMipbtn{
+        @extend .text-uppercase;
+        @include border-radius(0);
+        color: $bali-hai19;
+        background-color: $fiord13;
+        border: 0;
+    }
+}
+
+/*--  Mip Search Heading Wrapper Styles  --*/
+.mip-search-heading-wrapper{
+    @include padding(10px 15px);
+    .heading-wrapper{
+        @include margin(0);
+        line-height: 34px;
+        position: relative;
+        padding-right: 20px;
+        display: inline-block;
+        // font-family: $roboto-light;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-light);
+          }
+        span{
+            @include translateY(-50%);
+            position: absolute;
+            right: 0;
+            top: 50%;
+            cursor: pointer;
+            font-size: $font-size-base;
+        }
+    }
+    .custom-heading-btn{
+        @extend .text-uppercase;
+        @include padding(7px 12px);
+        @include border-radius(0);
+        background-color: $picton-blue5;
+        color: $pattens-blue;
+        font-family: "Francois One Regular";
+        font-size: $font-size-base;
+        display: inline-block;
+        border: 0;
+    }
+}
+
+/*--  Legend Styles  --*/
+.pieLegendDiv{
+    position: relative;
+    padding-left: 15px;
+    .bar_legend_circles{
+        position: absolute;
+        left: 0;
+        top: 0px;
+    }
+    span{
+/*         margin: 0 !important; */
+        display: block !important;
+        padding: 0 0 8px !important;
+        overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap
+    }
+}
+
+/*==============================================================================
+**********************  Style For the Spinner UI Page  *************************
+===============================================================================*/
+.showMipLoader.custom-spinner, .showMarketPulseLoader.custom-spinner{
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    transform: none;
+}
+.showMipLoader.custom-spinner > .fa, 
+.showMarketPulseLoader.custom-spinner > .fa{
+	@include center-position();
+    position: fixed;
+}
+
+/*==============================================================================
+**********************  Style For the Landing Page  **************************
+===============================================================================*/
+.search-text-wrapper .search-company-form{}
+.search-company-form .search-icon-submit{
+    position: relative;
+    width: 50%;
+    margin: 70px auto;
+}
+.search-icon-submit > select{
+    @include padding(0 10px);
+    @include border-radius(0);
+    width: 204px;
+    height: 40px;
+    background-color: $lochmara4;
+    color: $very-light-grey;
+    border-color: $matisse3;
+    top: -11px;
+}
+.mipTypeHead{
+    position: absolute;
+    left: 204px;
+    top: 13px;
+    width: 68%;
+    display: block;
+}
+.search-icon-submit{
+    .twitter-typeahead{
+        width: 100%;
+        height: 27px;
+        display: block;
+    }
+    .tt-hint{
+        display: none;
+    }
+}
+#mipLandingTypeAHead{
+    @include border-radius(0);
+    background: transparent;
+    color: $lighter-grey4;
+    // font-family: $roboto-regular;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-regular);
+      }
+    font-size: $font-size-large;
+    width: 100%;
+    -webkit-appearance: none;
+    border: 0;
+    border-bottom: 1px solid $matisse3;
+}
+.search-icon-submit{
+    #mipLandingTypeAHead{
+        &::-webkit-input-placeholder{
+            /*--  Chrome/Opera/Safari   --*/
+            color: $san-juan16;
+            // font-family: $roboto-light;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-light);
+              }
+        }
+        &::-moz-placeholder{
+            /*--  Firefox 19+  --*/
+            color: $san-juan16;
+            // font-family: $roboto-light;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-light);
+              }
+        }
+        &:-ms-input-placeholder{
+            /*--  IE 10+  --*/
+            color: $san-juan16;
+            // font-family: $roboto-light;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-light);
+              }
+        }
+        &:-moz-placeholder{
+            /*--  Firefox 18-  --*/
+            color: $san-juan16;
+            // font-family: $roboto-light;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-light);
+              }
+        }
+    }
+    > button{
+    	@include box-shadow(none);
+        position: absolute;
+        left: 0;
+        top: -10px;
+        background-color: transparent;
+        border: 0;
+        > i{
+            transform: rotateY(180deg);
+            font-size: 30px;
+            color: $atomic18;
+        }
+    }
+}
+.search-sector-wrapper{
+    width: 85%;
+    @include margin(0 auto);
+    > h4{
+        // font-family: $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        color: $bermuda-grey6;
+        font-size: 21px;
+        margin-bottom: 56px;
+    }
+    .search-sector-form{
+        margin-top: 30px;
+        position: relative;
+    }
+}
+
+/*--  Search Sector Form Styles  --*/
+.search-sector-form{
+    .custom-sector-submit{
+ 		@include translateY(-50%);
+    	@include box-shadow(none);
+        position: absolute;
+        right: 0px;
+        top: 50%;
+        background-color: transparent;
+        border: 0;
+        > i{
+            font-size: 28px;
+            color: $casal3;
+        }
+    }
+    .search-arrow-submit{}
+    .searched-sectors-wrapper{
+        ul{
+            width: 400px;
+            margin: 0 auto 45px;
+        }
+        .tab-content{
+            width: 80%;
+            @include margin(0 auto);
+        }
+        ul > li{
+            a{
+                @extend .text-left;
+             	@include transition(all 0.3s ease-in-out);
+                @include border-radius(0);
+                color: $fiord16;
+                font-size: $font-size-base;
+            }
+            &.active a{
+                @include border-radius(0);
+                color: $lochmara4;
+                border: 0;
+                &:focus, &:hover{
+                    @include border-radius(0);
+                    color: $lochmara4;
+                    border: 0;
+                }
+            }
+            a{
+                &:focus, &:hover{
+                    @include border-radius(0);
+                    color: $lochmara4;
+                    border: 0;
+                }
+            }
+        }
+    }
+}
+.checkbox-wrapper .custom-checkbox, .searched-one-click{
+    @extend .text-left;
+    margin: 5px auto;
+    width: 200px;
+}
+.searched-sectors-wrapper > .tab-content ul > li > a, 
+.checkbox-wrapper label.checkbox-inline input[type="checkbox"] + small{
+	@include transition(all 0.3s ease-in-out);
+    color: $blue-bayoux6;
+    // font-family: $roboto-regular;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-regular);
+      }
+    font-size: $font-size-base;
+    display: block;
+}
+.searched-sectors-wrapper > .tab-content ul > li > a:hover{
+    color: $lochmara4;
+}
+.checkbox-wrapper label.checkbox-inline input[type="checkbox"]{
+    + small:hover, 
+    &:checked + small{
+        color: $lochmara4;
+    }
+}
+
+/*==============================================================================
+**********************  Style For the UI Toggle Page  **************************
+===============================================================================*/
+.collapse-menu{
+    margin-bottom: 0;
+    > li{
+        > h5{
+            @include margin(0);
+            @include padding(10px 10px 0);
+            display: block;
+            border-bottom: 1px solid $atomic15;
+            background-color: $tangaroa;
+            color: $lighter-grey4;
+            line-height: 14px;
+        }
+        &.filters > h5{
+            position: relative;
+            padding-right: 90px;
+            >{
+                a{
+                    @extend .text-uppercase;
+                    @include padding(8px 16px);
+      				@include translateY(-50%);
+                    @include border-radius(0);
+                    position: absolute;
+                    top: 50%;
+                    right: 20px;
+                    color: $whisper;
+                    text-shadow: none;
+                    background-color: $san-marino;
+                    border: 0;
+                    margin-left: 10px;
+                    font-size: $font-size-small;
+                }
+                span{
+                    @extend .text-uppercase;
+                    @include padding(5px 10px 5px 10px);
+                    @include transition(all 0.3s ease-in-out);
+                    @include border-radius(15px);
+                    // font-family: 'Roboto Medium';
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-medium);
+                      }
+                    font-size: $font-size-small;
+                    display: inline-block;
+                    color: $bali-hai11;
+                    margin-right: 20px;
+                    margin-bottom: 10px;
+                    background-color: $fiord11;
+                }
+            }
+        }
+    }
+}
+
+/*==============================================================================
+**********************  Style For the Expert User Page *************************
+===============================================================================*/
+/*--  Top Filter Navigation Styles  --*/
+.top-filters-wrapper{
+    height: 105px;
+    width: 100%;
+    @include margin(0 auto);
+    border-bottom: 1px solid $elephant1;
+    background-color: $black-pearl1;
+    .top-filter-navigation{
+        @include margin(0);
+    }
+}
+.top-filter-navigation > li{
+	@include padding(18px 24px);
+    height: 105px;
+    border-right: 1px solid $elephant1;
+    .top-filters{
+        width: 185px;
+        &.transactions{
+            width: 100px;
+        }
+        &.investments{
+            width: 120px;
+        }
+        .top-filter-heading{
+            margin: 0 0 12px 0;
+            font-size: $font-size-small;
+            // font-family: $roboto-medium;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-medium);
+              }
+            color: $heather5;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        > p{
+            font-size: ($font-size-base - 4);
+            // font-family: $roboto-medium;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-medium);
+              }
+            color: $hoki6;
+            overflow: hidden;
+            margin-bottom: 5px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            &.top-filter-news{
+                font-size: $font-size-small;
+                // font-family: $roboto-regular;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                  }
+                color: $hoki6;
+                white-space: normal;
+            }
+        }
+    }
+    > .top-filters > strong{
+        color: $lochmara1;
+        // font-family: $roboto-medium;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-medium);
+          }
+        font-size: 24px;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+        line-height: 24px;
+    }
+}
+.top-filter-list .filtered-list{
+    > li{
+        &.mTSThumbContainer{
+            float: none;
+        }
+        > span{
+            // font-family: $roboto-medium;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-medium);
+              }
+            font-size: ($font-size-base - 4);
+            font-weight: normal;
+            color: $hoki7;
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal;
+        }
+    }
+    &.blue-list > li > span{
+        color: $lochmara1;
+    }
+}
+
+/*--  Focused Sectors Content Styles  --*/
+.focused-sectors-content{
+    height: 190px;
+    width: 100%;
+    @include margin(0 auto);
+    background-color: $oxford-blue3;
+    border-bottom: 1px solid $elephant1;
+}
+.focused-sectors-navigation > li{
+	@include padding(15px 18px);
+    width: 20%;
+    float: left;
+    .focused-sector-list{
+        position: relative;
+        height: 162px;
+    }
+    &:not(:last-child) .focused-sector-list:after{
+		@include translateY(-50%);
+        content: "";
+        display: block;
+        height: 135px;
+        width: 1px;
+        position: absolute;
+        top: 50%;
+        right: -20px;
+        background-color: $elephant1;
+    }
+}
+.focused-sector-list > h4{
+    margin: 0 0 12px 0;
+    font-size: $font-size-base;
+    // font-family: $roboto-medium;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-medium);
+      }
+    color: $heather5;
+    + div{
+        width: 100%;
+        height: 135px;
+        overflow: hidden;
+        &.event-list-wrapper{
+            height: auto;
+        }
+    }
+    &.timelineDatepicker{
+        margin: 10px 0 5px;
+    }
+}
+.event-list-wrapper{
+    > select{
+    	@include padding(0 2px);
+        @include border-radius(0);
+        border: 0;
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid $matisse5;
+        background-color: transparent;
+    }
+    input.custom-date-input{
+    	@include box-shadow(none);
+        border: 0;
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid $matisse5;
+        background-color: transparent;
+        border-radius: 0;
+        padding-right: 15px;
+        color: $heather5;
+    }
+}
+.date-picker{
+    position: relative;
+    > span{
+	    @include translateY(-50%);
+        position: absolute;
+        right: 0;
+        top: 50%;
+        font-size: 9px;
+    }
+}
+.toggle-switch-timeline{
+	@include padding(14px 0 14px 30px);
+    position: relative;
+    span{
+        font-size: ($font-size-base - 4);
+        // font-family: $roboto-medium;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-medium);
+          }
+        color: $steel-blue2;
+    }
+    i{
+        @include translateY(-50%);
+        position: absolute;
+        cursor: pointer;
+        left: 0;
+        top: 50%;
+        font-size: 22px;
+        color: $steel-blue2;
+    }
+    &.toggle-on i:after{
+        content: "\f205";
+    }
+}
+
+/*--  Toggle Sectors Content Styles  --*/
+.toggle-sectors-content{
+    @include margin(0 auto);
+    height: 190px;
+    width: 100%;
+    background-color: $oxford-blue3;
+    border-bottom: 1px solid $elephant1;
+}
+.toggle-sectors-navigation > li{
+	@include padding(15px 18px);
+    width: 20%;
+    float: left;
+    .toggle-sector-list{
+        position: relative;
+        height: 162px;
+    }
+    &:not(:last-child) .toggle-sector-list:after{
+		@include translateY(-50%);
+        background-color: $elephant1;
+        display: block;
+        height: 135px;
+        width: 1px;
+        position: absolute;
+        content: "";
+        top: 50%;
+        right: -20px;
+    }
+}
+.toggle-sector-list > h4{
+    margin: 0 0 12px 0;
+    font-size: ($font-size-base - 3);
+    // font-family: $roboto-medium;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-medium);
+      }
+    color: $heather5;
+    + div{
+        width: 100%;
+        height: 135px;
+        overflow: hidden;
+    }
+}
+.toggle-switch-case{
+    position: relative;
+    .toggle-line-arrow{
+		@include translateX(-50%);
+        color: $lochmara7;
+        font-size: 28px;
+        position: absolute;
+        left: 50%;
+        top: -29px;
+        display: block;
+        &:after{
+	        @include translateX(-50%);
+            background-color: $lochmara7;
+            position: absolute;
+            content: "";
+            top: 9px;
+            left: 8px;
+            display: block;
+            width: 275px;
+            height: 2px;
+        }
+    }
+}
+.related-news .related-news-list{
+    margin-bottom: 10px;
+    // font-family: $roboto-regular;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-regular);
+      }
+    p{
+        color: $bali-hai20;
+        text-transform: none;
+        margin-bottom: 0;
+        font-size: $font-size-small;
+        height: 28px;
+        overflow: hidden;
+    }
+    > a{
+        display: inline-block;
+        font-size: ($font-size-base - 3);
+        overflow: hidden;
+    }
+}
+
+/*--  Mip Select View Type Styles  --*/
+#mipselect_view_type{
+	@include padding(3px 12px);
+    color: $pattens-blue3;
+    background-color: $lochmara1;
+    border: 0;
+    cursor: pointer;
+    // font-family: $roboto-regular;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-regular);
+      }
+    font-size: ($font-size-base - 4);
+}
+
+/*--  Main Content Wrapper Styles  --*/
+.main-content-wrapper .search-results-row{
+    position: relative;
+    padding-left: 0%;
+}
+
+/*--   Search Results Left Col Styles  --*/
+.search-results-row{
+    .search-results-left-col{
+        width: 100%;
+        display: block;
+        background-color: $oxford-blue3;      
+    }
+    .search-results-right-col{
+        width: 100%;
+        display: block;
+    }
+}
+.search-results-left-col > .search-wrapper{
+    h4{
+        @include margin(0);
+        @include padding(20px 10px);
+        color: $lynch6;
+        // font-family: $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        font-size: ($font-size-base - 1);
+        line-height: 14px;
+        background-color: $oxford-blue4;
+    }
+    .search-filter-wrapper{
+    	@include padding(20px 10px);
+    }
+}
+.search-filter-wrapper{
+    > h4{
+        @extend .text-center;
+        @include margin(0);
+        @include padding(10px 0);
+        color: $bali-hai2;
+        // font-family: $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        font-size: $font-size-small;
+        line-height: 14px;
+    }
+    h4 + div{
+        @extend .text-center;
+    }
+}
+.search-results-left-col > .custom-selection-wrapper{
+	@include padding(20px 10px);
+}
+.custom-selection-wrapper > .custom-selection{}
+.custom-selection{
+    h4{
+        @include margin(0);
+        @include padding(20px 0);
+        color: $heather6;
+        // font-family: $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        font-size: 15px;
+    }
+    select{
+        background: none;
+        border: 0;
+        border-bottom: 1px solid $matisse6;
+        border-radius: 0;
+        color: $polo-blue1;
+        // font-family: $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        width: 100%;
+        > option{
+            background-color: $matisse6;
+            color: $whisper1;
+            // font-family: $roboto-light;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-light);
+              }
+        }
+    }
+}
+
+/*--   Search Results Right Col Styles  --*/
+.search-results-right-col > .search-results-header{
+    @include margin(0);
+    @include padding(20px 30px);
+    color: $bali-hai2;
+    // font-family: $roboto-light;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-light);
+      }
+    font-size: $font-size-large;
+    line-height: 14px;
+}
+.search-results-header > a{
+    text-decoration: underline !important;
+    color: $persian-green6;
+}
+.search-results-right-col > .search-results-graph{
+    background-color: $oxford-blue3;
+}
+.search-results-graph{
+    .result-graph-filters{
+        padding-bottom: 10px;
+        > ul > li{
+            .filter-key{
+                // font-family: $roboto-regular;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                  }
+                font-size: $font-size-base;
+                color: $pale-sky4;
+            }
+            .filter-value{
+                @include border-radius(0);
+                // font-family: $roboto-regular;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                  }
+                font-size: $font-size-base;
+                color: $san-marino;
+                background: none;
+                border: 0;
+                > option{
+                    background-color: $pale-sky4;
+                    color: $whisper1;
+                    // font-family: $roboto-light;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-light);
+                      }
+                }
+            }
+        }
+    }
+}
+.tick > line{
+    stroke: $tarawera2;
+}
+.search-results-right-col .search-results-datatable{}
+.search-results-datatable .total-results{
+    @include padding(10px);
+    margin-bottom: -10px;
+}
+.showing-results-wrapper{
+    margin-bottom: 15px;
+    > div{
+        display: inline-block;
+    }
+}
+.showing-results{
+    span{
+        color: $curious-blue9;
+        // font-family: $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        font-size: $font-size-small;
+        margin-right: 20px;
+        line-height: 21px;
+        display: inline-block;
+        > a{
+            text-decoration: none !important;
+            color: $curious-blue9;
+        }
+    }
+    p{
+        @include margin(0);
+        display: inline-block;
+        color: $pale-sky5;
+        // font-family: $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        font-size: $font-size-small;
+        vertical-align: middle;
+        select{
+        	@include box-shadow(none);
+            background-color: transparent;
+            color: $pale-sky5;
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            font-size: ($font-size-base - 3);
+            border: 0;
+        }
+    }
+}
+.searching-wrapper{
+    *{
+        display: inline-block;
+    }
+    div{
+        position: relative;
+        margin-right: 20px;
+        >{
+            input{
+            	@include padding(2px 20px 2px 2px);
+                border: 0;
+                border-bottom: 1px solid $matisse3;
+                background-color: transparent;
+                color: $bali-hai2;
+            }
+            i{
+                position: absolute;
+                right: 0;
+                top: 0px;
+                font-size: $font-size-large;
+                color: $big-stone9;
+            }
+        }
+    }
+    button{
+        @extend .text-center;
+        @include padding(6px 12px);
+        position: relative;
+        background-color: $casal4;
+        // font-family: $roboto-medium;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-medium);
+          }
+        font-weight: normal;
+        font-size: $font-size-small;
+        color: $hoki5;
+        border: 0;
+    }
+}
+.saved-search-wrapper ul{
+    @include margin(0);
+    > li > a{
+    	@include padding(10px 10px 10px 40px);
+        position: relative;
+        color: $pale-sky3;
+        display: block;
+        // font-family: $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        font-size: $font-size-small;
+        > i{
+	      	@include translateY(-50%);
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            color: $san-juan14;
+            font-size: $font-size-large;
+        }
+    }
+}
+.search-datatable-wrapper{
+    @include padding(15px);
+}
+.search-results-datatable .search-datatable-wrapper table{
+    &.dataTable.no-footer{
+        border-bottom: 0;
+    }
+    thead tr{
+    	@include padding(10px 18px);
+        background-color: $tangaroa;
+        color: $pattens-blue2;
+        // font-family: $roboto-medium;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-medium);
+          }
+        font-weight: normal;
+        font-size: $font-size-small;
+        th{
+            border-bottom: 0;
+            // font-family: $roboto-medium;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-medium);
+              }
+            font-weight: normal;
+        }
+    }
+    tbody{
+        td{
+        	@include padding(9px 18px);
+            color: $aluminium;
+            // font-family: $roboto-medium;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-medium);
+              }
+            font-weight: normal;
+            font-size: $font-size-small;
+            border-top: 0;
+            vertical-align: middle;
+        }
+        tr{
+            &:nth-child(odd){
+                background-color: $tarawera2;
+            }
+            &:nth-child(even){
+                background-color: $big-stone7;
+            }
+        }
+    }
+}
+.expert-user-details{
+    position: relative;
+    padding-left: 50px;
+    img{
+        @include translateY(-50%);
+        @include border-radius(50%);
+        width: 45px;
+        border: 4px solid $dark-grey3;
+        position: absolute;
+        left: 0px;
+        top: 50%;
+    }
+}
+
+/*--  Tooltip Styles  --*/
+div.tooltip:before{
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+    border-bottom: 23px solid $matisse3;
+    border-left: 26px solid transparent;
+    left: -20px;
+}
+.tooltip{
+	@include padding(12px);
+	@include box-shadow(0 4px 8px -2px $black);
+    position: relative;
+    background-color: $matisse3 !important;
+    > a.active{
+        background-color: $air-force-blue !important;
+        color: $spindle1 !important;
+    }
+}
+.tooltip_header{
+    position: relative;
+    @extend .text-left;
+    > h3{
+        @include margin(0);
+        font-size: $font-size-large;
+        // font-family: $roboto-medium;
+                                   @include fontFamily($fonts) {
+            font-family: fonted(font-medium);
+          }
+        color: $pattens-blue4;
+        >{
+            span{
+                display: block;
+                font-size: ($font-size-base - 4);
+                color: $pattens-blue4;
+                margin: 0 0 10px;
+            }
+            small{
+        		@include translateY(-50%);
+                position: absolute;
+                color: $pattens-blue4;
+                font-size: 34px;
+                right: 0;
+                top: 50%;
+            }
+        }
+    }
+}
+
+/*--  Updated Styles  --*/
+.result-graph-wrapper-main{
+    @include padding(5px);
+    height: 200px;
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.search-results-graph, .search-results-graph-new{
+    border-bottom: 1px solid $dark-grey1;
+}
+.search-results-graph .small-filters, 
+.search-results-graph-new .small-filters{
+    @extend .text-center;
+    @include margin(0);
+    color: $bali-hai2;
+    // font-family: $roboto-regular;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-regular);
+      }
+    font-size: $font-size-base;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    line-height: 14px;
+}
+.total-results > ul{
+    &:not(:empty){
+        margin: 0px;
+    }
+    &.mipfiltersul > li > span.displaying-key{
+        font-size: $font-size-small;
+        // font-family: $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+    }
+    > li{
+        padding-bottom: 10px;
+        > a{
+            @extend .text-uppercase;
+            @include padding(5px 25px 5px 20px);
+            @include transition(all 0.3s ease-in-out);
+            @include border-radius(15px);
+            background-color: $fiord11;
+            color: $bali-hai11;
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            font-size: $font-size-small;
+            position: relative;
+            display: inline-block;
+        }
+        &.active a, a:hover{
+            color: $white;
+            background-color: $tangaroa;
+        }
+        > a > button{
+        	@include translateY(-50%);
+        	@include box-shadow(none);
+            background-color: transparent;
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            border: 0;
+        }
+    }
+}
+
+/*--  User Expert Data Table Styles  --*/
+.expertUsersInfodiv{
+    #viewPivot{
+    	@include padding(10px 0);
+        display: inline-block;
+        > button{
+            @extend .text-uppercase;
+            @include border-radius(0);
+            color: $whisper;
+            text-shadow: none;
+            @include padding(8px 16px);
+            background-color: $san-marino;
+            border: 0;
+            margin-left: 10px;
+            font-size: $font-size-small;
+        }
+    }
+    .dataTables_wrapper{
+        @include padding(0 30px 10px);
+    }
+    .dataTables_length, .dataTables_filter, .dataTables_info{
+        @include padding(10px 0);
+    }
+    .dataTables_wrapper{
+        .dataTables_length label,
+         .dataTables_filter label, 
+         .dataTables_info, 
+         .dataTables_wrapper 
+         .dataTables_paginate > .paginate_button{
+            background: transparent !important;
+            color: $lighter-grey4 !important;
+            // font-family: $roboto-medium;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-medium);
+              }
+            font-size: $font-size-base;
+            font-weight: 500 !important;
+            -webkit-box-shadow: none !important;
+            -moz-box-shadow: none !important;
+            box-shadow: none !important;
+            border: 1px solid transparent !important;
+        }
+        .dataTables_length label > *, 
+        .dataTables_filter label > *{
+            @include padding(5px 2px);
+        	@include box-shadow(none);
+            @include border-radius(0);
+            height: 30px;
+            background-color: transparent !important;
+            color: $lighter-grey4;
+            // font-family: $roboto-medium;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-medium);
+              }
+            font-size: $font-size-base;
+            line-height: 14px;
+            border: 0;
+            border-bottom: 1px solid $lighter-grey4;
+        }
+        .dataTables_length > label > select > option{
+            @include padding(3px 5px);
+            background-color: $tangaroa;
+            color: $lighter-grey4;
+        }
+        .dataTables_paginate .paginate_button{
+        	@include box-shadow(none);
+            background: transparent;
+            color: $white !important;
+            font-weight: normal;
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            opacity: 0.5;
+            border: 0;
+            &:active{
+            	@include box-shadow(none);
+                background: none;
+                border: 0;
+                font-weight: normal;
+                // font-family: $roboto-regular;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                  }
+            }
+            &.disabled{
+                opacity: 0.2;
+                color: $dark-grey13 !important;
+            }
+            &.current{
+                color: $white !important;
+                opacity: 1;
+                background: transparent;
+                border: 0;
+                &:hover{
+                    color: $white !important;
+                    opacity: 1;
+                    background: transparent;
+                    border: 0;
+                }
+            }
+            &:hover{
+                color: $white !important;
+                opacity: 0.5;
+                background: transparent;
+                border: 0;
+            }
+        }
+    }
+    table{
+        thead tr th{
+            @extend .text-uppercase;
+            @extend .text-left;
+            // font-family: $roboto-medium;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-medium);
+              }
+            vertical-align: middle;
+            background-color: $tangaroa;
+            font-weight: normal;
+            &:first-child, &:nth-child(2), &:nth-child(3), &:nth-child(4), &:last-child{
+                width: 20% !important;
+                max-width: 20% !important;
+            }
+        }
+        tbody tr td{
+            @extend .text-left;
+            display: table-cell;
+            white-space: normal;
+            // font-family: $roboto-medium;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-medium);
+              }
+            &:first-child, &:nth-child(2), &:nth-child(3), &:nth-child(4), &:last-child{
+                width: 20% !important;
+                max-width: 20% !important;
+            }
+        }
+    }
+}
+
+/*==============================================================================
+**********************  Style For the Pivot table Page *************************
+===============================================================================*/
+.pivotContainer{
+    overflow-x: auto;
+}
+.pvtAxisContainer, .pvtVals{
+    border: 1px solid $atomic15;
+    background-color: $big-stone7;
+    background: transparent;
+    color: $lighter-grey4;
+}
+.pvtAxisContainer.pvtHorizList, .pvtVals{
+    border-top: 0;
+}
+.pvtAxisContainer{
+    li{
+        margin-bottom: 5px;
+        @include padding(0);
+    }
+    &.pvtVertList{
+        border-left: 0;
+    }
+    li span.pvtAttr{
+        @extend .text-uppercase;
+        @include padding(8px 36px 8px 16px);
+        @include border-radius(0);
+        background-color: $tangaroa;
+        color: $lighter-grey4;
+        // font-family: $roboto-medium;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-medium);
+          }
+        font-size: $font-size-small;
+        text-shadow: none;
+        position: relative;
+        display: block;
+        border: 0;
+        > .pvtTriangle{
+            position: absolute;
+            right: 10px;
+        }
+    }
+    &.pvtHorizList li span.pvtAttr{
+        display: inline-block;
+        margin-right: 5px;
+    }
+}
+.pvtRenderer{
+    background-color: transparent;
+    color: $lighter-grey4;
+    // font-family: $roboto-medium;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-medium);
+      }
+    display: block;
+    width: 100%;
+    height: 56px;
+    @include padding(10px);
+    border: 0;
+}
+.pvtAggregator{
+    // font-family: $roboto-medium;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-medium);
+      }
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid $blue-stone;
+}
+.pvtAttrDropdown{
+    background-color: transparent;
+    // font-family: $roboto-medium;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-medium);
+      }
+    float: left;
+    width: 210px;
+    border: 0;
+    border-bottom: 1px solid $blue-stone;
+}
+select > option{
+    background-color: $atomic17;
+    color: $lighter-grey4;
+    border: 0;
+    // font-family: $roboto-regular;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-regular);
+      }
+}
+.pvtRendererArea{
+    display: inline-block;
+    width: calc(100vw - 499px);
+    height: calc(100vh - 240px);
+    overflow-x: auto;
+    overflow-y: auto;
+    table.pvtTable{
+        tbody tr th, thead tr th{
+            @extend .text-uppercase;
+            @include padding(5px);
+            background-color: $tangaroa;
+            border: 1px solid $atomic15;
+            font-size: ($font-size-base - 3);
+            color: $lighter-grey4;
+            font-weight: normal;
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+        }
+        tbody tr td{
+            @extend .text-uppercase;
+            @include padding(5px);
+            font-weight: normal;
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            color: $lighter-grey4;
+            background-color: $tarawera2;
+            border: 1px solid $atomic15;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+    }
+}
+.pvtFilterBox{
+    @include box-shadow(0 0 3px 3px rgba(0, 0, 0, 0.3));
+    background-color: $big-stone7;
+    border: 0;
+    // font-family: $roboto-regular;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-regular);
+      }
+    width: auto;
+    h4{
+        @extend .text-uppercase;
+        @extend .text-left;
+        @include margin(0);
+        @include padding(10px);
+        line-height: 14px;
+        font-size: 15px;
+        + p{
+            @extend .text-left;
+            >{
+                input{
+                    background-color: transparent;
+                    border: 0;
+                    border-bottom: 1px solid $blue-stone;
+                    // font-family: $roboto-medium;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-medium);
+                      }
+                    margin-bottom: 10px;
+                }
+                button{
+                    @extend .text-uppercase;
+		            @include border-radius(0);
+                    @include padding(6px 16px);
+                    color: $lighter-grey4;
+                    background-color: $matisse5;
+                    border: 0;
+                    font-size: $font-size-small;
+                    display: inline-block;
+                    // font-family: $roboto-regular;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-regular);
+                      }
+                    &:nth-child(1){
+                        background-color: $matisse5;
+                    }
+                    &:last-child{
+                        background-color: $bismark1;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+    .pvtCheckContainer{
+        border-color: $lighter-grey4;
+        height: auto;
+        width: auto;
+        overflow: auto;
+        min-height: 50px;
+    }
+    > p{
+        @include padding(0 10px);
+        > button{
+            @extend .text-uppercase;
+        	@include border-radius(0);
+            @include padding(6px 16px);
+            color: $lighter-grey4;
+            border: 0;
+            font-size: $font-size-small;
+            display: inline-block;
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            &:first-child{
+                background-color: $matisse5;
+                margin-right: 10px;
+            }
+            &:last-child{
+                background-color: $bismark1;
+            }
+        }
+    }
+}
+
+/*--  Results Tab Wrapper Styles  --*/
+.results-tab-wrapper{
+    @include padding(10px);
+    background-color: $big-stone8;
+    margin-bottom: 15px;
+    .results-header, .results-body{
+        margin-bottom: 5px;
+    }
+}
+.results-header{
+    position: relative;
+    > a{
+        position: absolute;
+        right: 0;
+        top: -3px;
+        display: inline-block;
+        > i{
+            font-size: 44px;
+            color: $casal3;
+        }
+    }
+    h3, p{
+        padding-right: 40px;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    h3{
+        @include margin(0);
+        color: $heather7;
+        font-size: $font-size-large;
+        // font-family: $roboto-medium;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-medium);
+          }
+    }
+    p{
+        @include margin(0);
+        color: $blue-bayoux5;
+        // font-family: $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        font-size: $font-size-small;
+    }
+}
+.results-body{
+    position: relative;
+    padding-right: 30px;
+    > strong{
+        @extend .text-uppercase;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        font-size: 22px;
+        line-height: 22px;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: $fiord14;
+    }
+    ul{
+        margin-bottom: 0;
+        margin-left: 0;
+        > li{
+            @include padding(0);
+            position: relative;
+            padding-left: 70px;
+            > span{
+                color: $blue-bayoux5;
+                // font-family: $roboto-regular;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                  }
+                font-size: $font-size-small;
+                display: inline-block;
+                &.result-key{
+                    position: absolute;
+                    left: 0px;
+                    top: 0;
+                }
+                &.result-value{
+                    display: block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }  
+}
+.results-footer a{
+    font-size: $font-size-small;
+    // font-family: $roboto-regular;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-regular);
+      }
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.pivot_tooltip_div{
+    background-color: $tangaroa;
+    overflow: auto;
+    position: absolute;
+    display: none;
+    width: 210px;
+    max-height: 200px;
+    max-width: 210px;
+    z-index: 1000;
+    li{
+        list-style-type: none;
+        a{
+            @include padding(5px 10px);
+            color: $lighter-grey4;
+            font-size: ($font-size-base - 3);
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            &:hover{
+                color: $lighter-grey4;
+            }
+        }
+        &:nth-child(odd) a{
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        &:nth-child(even) a{
+            background-color: rgba(0, 0, 0, 0.45);
+        }
+    }
+}
+#bargraphsSrcoller{
+    width: 100%;
+    height: 300px;
+    .bar-scroller-wrapper{
+        width: 350px;
+        display: inline-block;
+        justify-content: start;
+        align-items: center;
+    }
+}
+#pivotTable{
+    .pvtTotal, .pvtTotalLabel, .pvtGrandTotal{
+        display: none;
+    }
+}
+
+/*==============================================================================
+*************************** Market Pulse Style   *******************************
+===============================================================================*/
+
+.custom-chart-div{
+    position: absolute;
+    right: 0;
+    top: 3px;
+    height: 124px;
+    width: 100%;
+}
+.market-pulse-wrapper{
+    @include padding(12px 8px);
+    .pulse-analysis-header{
+        @include padding(0 15px);
+        margin-bottom: 8px;
+        background-color: $tangaroa;
+    }
+}
+.pulse-analysis-header{
+    .row .col-sm-3:not(:last-child){
+        border-right: 1px solid $midnight;
+    }
+    .analysis-header-space{
+        padding: 15px 20px;
+        height: 130px;
+        max-height: 130px;
+        overflow: hidden;
+    }
+}
+.analysis-header-space{
+    h4{
+        @include margin(0);
+        font-size: $font-size-base;
+        // font-family: $roboto-medium;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-medium);
+          }
+        display: inline-block;
+        color: $fiord15;
+    }
+    .set-period-select{
+        margin-top: 20px;
+    }
+}
+.risk-ratio-list, .entity-ratio-list{
+    margin: 40px 35px 20px;
+}
+.risk-ratio-list > ul{
+    @include margin(0);
+    > li{
+        @include margin(0);
+        > span{
+            font-size: ($font-size-base - 4);
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            padding: 4px 0;
+            display: block;
+        }
+    }
+}
+.entity-ratio-list > ul > li > span{
+    font-size: ($font-size-base - 4);
+    // font-family: $roboto-regular;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-regular);
+      }
+    padding: 4px 0;
+    display: block;
+}
+.risk-ratio-list > ul > li > span{
+    &.high-red{
+        color: $old-rose;
+    }
+    &.medium-blue{
+        color: $lochmara2;
+    }
+    &.low-green{
+        color: $eucalyptus1;
+    }
+}
+.entity-ratio-list > ul > li > span{
+    color: $lochmara5;
+}
+.set-period-select select{
+    @include padding(2px 20px 2px 2px);
+    background-color: transparent;
+    color: $bali-hai2;
+    // font-family: $roboto-light;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-light);
+      }
+    font-size: 24px;
+    border: 0;
+    border-bottom: 1px solid $matisse3;
+    > option{
+        font-size: $font-size-base;
+    }
+}
+.market-pulse-wrapper .pulse-analysis-body{}
+.pulse-analysis-body .pulse-analysis-content{
+    position: relative;
+    padding-left: 25%;
+}
+.pulse-analysis-content .pulse-analysis-left-col{
+    background-color: $oxford-blue3;
+    display: block;
+    width: 25%;
+    float: left;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+.pulse-analysis-left-col .analysis-total-wrapper{
+    @include padding(10px);
+    background-color: $casal2;
+    min-height: 170px;
+    margin-bottom: 12px;
+    border: 1px solid $atomic16;
+    &.block-two{
+        height: 220px;
+    }
+}
+.analysis-total-wrapper{
+    > div{
+        color: $regent-st-blue;
+    }
+    h4{
+        @include margin(0);
+        font-size: $font-size-base;
+        // font-family: $roboto-medium;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-medium);
+          }
+        display: inline-block;
+        width: 100%;
+        color: $regent-st-blue;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+}
+.start-analysis-wrapper{
+    a{
+     	@include border-radius(0);
+        display: block;
+        background-color: $lochmara2;
+        // font-family: $roboto-medium;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-medium);
+          }
+        font-size: $font-size-base;
+    }
+    btn:not(:first-child){
+        margin-top: 10px;
+    }
+}
+#uploadINfoDiv{
+    @include padding(10px);
+    @include transition(all 0.3s ease-in-out);
+}
+#startAnalysis{
+    margin-top: 10px;
+}
+.start-analysis-wrapper > a > span{
+    color: $spindle;
+}
+.custom-upload-wrapper{
+    margin-top: 10px;
+    .custom-file-upload label{
+        display: block;
+        .custom-input{
+            position: relative;
+            padding-right: 100px;
+            width: 100%;
+            .uploaded-name{
+                @include padding(15px 2px 0px);
+                width: 100%;
+                color: $lighter-grey4;
+                display: block;
+                height: 34px;
+                font-weight: normal;
+                font-size: $font-size-small;
+                // font-family: $roboto-medium;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-medium);
+                  }
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                border-bottom: 1px solid $polo-blue;
+            }
+            small{
+                @extend .text-center;
+                @include padding(8px 16px);
+      			@include translateY(-50%);
+                background-color: $shakespeare1;
+                color: $tangaroa2;
+                position: absolute;
+                right: 0;
+                top: 20px;
+                font-size: $font-size-small;
+                // font-family: $roboto-medium;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-medium);
+                  }
+                display: block;
+                min-width: 90px;
+                max-width: 90px;
+                width: 90px;
+            }
+        }
+    }
+}
+.table-high{
+    color: $cinnabar !important;
+}
+.table-medium{
+    color: $curious-blue11 !important;
+}
+.table-low{
+    color: $medium-sea-green !important;
+}
+.risk-total-wrapper{
+    margin-top: 20px;
+    .riskscoreprogress{
+        .inline{
+            min-width: 50px;
+            width: 50px;
+            margin-top: 0px;
+        }
+        .progress{
+            @include margin(0 10px 20px);
+            @include box-shadow(none);
+            @include border-radius(20px);
+            width: 100%;
+            background-color: transparent;
+            height: 13px;
+            > .progressdr{
+                @include border-radius(20px);
+            }
+        }
+        .progress-footer{
+            margin-top: 0px;
+            display: block;
+            overflow: hidden;
+            width: 100px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+}
+.risk-progressbar-holder{
+    &.risk-high{
+        .inline, .progress-footer{
+            color: $cinnabar;
+        }
+        .progressdr{
+            background: $cinnabar;
+        }
+    }
+    &.risk-medium{
+        .inline, .progress-footer{
+            color: rgb(57, 144, 207);
+        }
+        .progressdr{
+            background: rgb(57, 144, 207);
+        }
+    }
+    &.risk-low{
+        .inline, .progress-footer{
+            color: rgb(29, 191, 106);
+        }
+        .progressdr{
+            background: rgb(29, 191, 106);
+        }
+    }
+}
+.pulse-analysis-content .pulse-analysis-right-col{
+    width: 100%;
+    display: block;
+    float: left;
+    padding-left: 8px;
+}
+
+/*==============================================================================
+*************************** Market Pulse Modal   *******************************
+===============================================================================*/
+
+.closePulseModal{
+    @include translateY(-50%);
+    background-color: transparent;
+    color: $lighter-grey4;
+    position: absolute;
+    right: 9px;
+    top: 50%;
+    z-index: 99;
+    opacity: 1;
+    border: 0;
+    font-size: 30px;
+}
+.market-pulse-modal-wrapper{
+    .modal-dialog{
+        width: 1100px;
+        .modal-content{
+            @include border-radius(0);
+            background-color: $casal2;
+            border: 0;
+        }
+    }
+    .modal-header{
+        background-color: $blue-charcoal1;
+        position: relative;
+        @extend .text-uppercase;
+        .pulseRisk-name h4{
+            margin: 12px 2px;
+            color: $botticelli2;
+            // font-family: $roboto-medium;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-medium);
+              }
+            font-size: 20px;
+            line-height: 15px;
+            font-weight: normal;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+}
+.pulseRisk-name h4{
+    color: $botticelli2;
+    // font-family: $roboto-medium;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-medium);
+      }
+    font-size: 20px;
+    line-height: 15px;
+    font-weight: normal;
+    margin: 12px 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.market-pulse-modal-wrapper .modal-header span{
+    @include margin(0);
+    color: $botticelli2;
+    // font-family: $roboto-regular;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-regular);
+      }
+    font-size: ($font-size-base - 1);
+    line-height: 20px;
+}
+.pulse-risk-details.pulseRisk-amount{
+    position: relative;
+}
+.market-pulse-modal-wrapper{
+    .modal-header .pulseRisk-amount span{
+        &.value.money{
+        	@include translateY(-50%);
+            // font-family: $roboto-medium;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-medium);
+              }
+            font-size: 26px;
+            position: absolute;
+            left: 100px;
+            display: block;
+            overflow: hidden;
+            line-height: 26px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            top: 50%;
+        }
+        &.key.risk-color{
+            font-weight: bolder;
+            // font-family: $roboto-medium;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-medium);
+              }
+            color: $cinnabar;
+        }
+    }
+    .modal-body .marketPulseModalContent{
+        height: 460px;
+    }
+    .marketPulseModalContent h4.pulse-article-heading{
+        @include margin(0);
+        color: $gothic5;
+        // font-family: $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        font-size: $font-size-base;
+        margin-bottom: 10px;
+    }
+    .modal-body .marketPulseModalContent .pulseRiskDescription-wrapper{
+        @include padding(15px);
+        max-height: 460px;
+        display: block;
+        width: 100%;
+        background-color: $tarawera4;
+    }
+    .pulseRiskDescription-wrapper{
+        > h5{
+            @include margin(0);
+            color: $cinnabar;
+            font-size: $font-size-large;
+            font-weight: normal;
+        }
+        .pulse-entities ul, .pulse-risk-counts ul{
+            margin-left: 0;
+        }
+        .pulse-entities ul li{
+            display: table-cell;
+            width: 1%;
+            float: none;
+            color: $bermuda-grey4;
+        }
+    }
+}
+.pulse-entities ul li, .market-pulse-modal-wrapper .pulseRiskDescription-wrapper .pulse-risk-counts ul li, 
+.pulse-risk-counts ul li{
+    display: table-cell;
+    width: 1%;
+    float: none;
+    color: $bermuda-grey4;
+}
+.market-pulse-modal-wrapper .pulseRiskDescription-wrapper{
+    .pulse-entities ul li > span, .pulse-risk-counts ul li > span{
+        font-size: 26px;
+        line-height: 26px;
+    }
+}
+.pulse-risk-counts{
+    position: relative;
+    &:after{
+        position: absolute;
+        bottom: -12px;
+        content: "";
+        display: block;
+        height: 1px;
+        width: 100%;
+        background-color: $atomic14;
+    }
+}
+.pulse-relations.directRelationEntities{
+    margin-top: 25px;
+}
+.risk-connectivity{
+    margin: 20px 0;
+}
+.market-pulse-modal-wrapper{
+    .risk-connectivity p{
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 5px;
+        color: $bali-hai13;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        > span{
+           @include translateY(-50%);
+            position: absolute;
+            left: 0;
+            color: $tapestry;
+            font-size: 16px;
+            top: 50%;
+        }
+    }
+    .pulse-relations h5{
+        @extend .text-uppercase;
+        color: $light-blue5;
+        margin: 0 0 15px;
+        position: relative;
+        margin-bottom: 14px;
+        font-weight: normal;
+        // font-family: $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+    }
+}
+.pulse-relations{
+    h5{
+        color: $light-blue5;
+        margin: 0 0 15px;
+        position: relative;
+        margin-bottom: 14px;
+        font-weight: normal;
+        // font-family: $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        @extend .text-uppercase;
+        &:after{
+            position: absolute;
+            bottom: -6px;
+            content: "";
+            display: block;
+            height: 1px;
+            width: 100%;
+            background-color: $atomic14;
+        }
+    }
+    ul > li{
+        a, span{
+            @extend .text-uppercase;
+            color: $gothic4;
+            display: block;
+            padding: 5px 0px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: $font-size-small;
+            position: relative;
+            padding-left: 20px;
+        }
+        a > img, span > img{
+        	@include translateY(-50%);
+            position: absolute;
+            left: 0;
+            font-size: ($font-size-base - 4);
+            top: 50%;
+        }
+    }
+}
+
+/*--  Pulse Visualizer Styles  --*/
+.pulseVisualizerText-wrapper{
+   // max-height: 450px;
+}
+.marketModal-pulse-modal-wrapper{
+    .modal-content{
+        @include border-radius(0);
+        border: 0;
+        background-color: $casal2;
+    }
+    .modal-header{
+        background-color: $blue-charcoal1;
+        position: relative;
+    }
+}
+#marketPulseText{
+    line-height: 24px;
+    font-weight: normal;
+    padding-right: 10px;
+    // font-family: $roboto-regular;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-regular);
+      }
+}
+.marketModal-pulse-modal-wrapper{
+    .modal-header h4 > span{
+        @extend .text-uppercase;
+        color: $botticelli2;
+        // font-family: $roboto-medium;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-medium);
+          }
+        font-size: $font-size-large;
+        font-weight: normal;
+    }
+}
+.pulseVisualizerList-wrapper{
+    @include padding(10px);
+    max-height: 450px;
+    background-color: $tarawera4;
+    .toggleBarMenu{
+        margin-bottom: 0;
+        > li > .toggle{
+            @include padding(0);
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            cursor: pointer;
+            color: $light-blue5;
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            position: relative;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    }
+}
+.custom-check-text{
+    font-size: ($font-size-base - 1);
+    // font-family: $roboto-regular;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-regular);
+      }
+}
+.pulseVisualizerList-wrapper .toggleBarMenu > li{
+    .toggle{
+    	input{
+	        @include margin(0);
+	        @include translateY(-50%);
+	        position: absolute;
+	        left: 0px;
+	        top: 50%;
+	    }
+    }
+    .treeview-menu{
+        @include padding(5px);
+        display: none;
+        padding-left: 10px;
+        background-color: $casal2;
+        margin-bottom: 5px;
+        > li:not(:last-child) .custom-checkbox{
+            margin-bottom: 5px !important;
+        }
+    }
+}
+.treeview-menu{
+    > li > span{
+        position: relative;
+        display: block;
+        padding: 3px 3px 3px 20px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        > input{
+            @include margin(0);
+         	@include translateY(-50%);
+            position: absolute;
+            left: 0px;
+            top: 50%;
+        }
+    }
+    .check-text{
+        @extend .text-uppercase;
+    }
+    .checkbox-inline > span{
+        height: 15px !important;
+        width: 15px !important;
+        background-color: $blue-charcoal1 !important;
+        border-color: $blue-charcoal1 !important;
+        > i{
+            color: $lighter-grey4 !important;
+        }
+    }
+}
+.toggle > .custom-checkbox .checkbox-inline > span{
+    height: 16px !important;
+    width: 16px !important;
+    background-color: transparent;
+                border: 1px solid #a4b3bd;
+    > i{
+        color: $lighter-grey4 !important;
+    }
+}
+
+/*--  Table Wrapper  --*/
+.market-pulse-table{
+    table.dataTable.no-footer{
+        border-bottom: 0;
+    }
+    .dataTables_wrapper .dataTables_filter > label{
+        @extend .text-uppercase;
+        color: $bali-hai13;
+        font-weight: normal;
+        margin-bottom: 10px;
+        > input{
+            @include padding(5px 25px 5px 2px);
+       	    @include box-shadow(none);
+            @include border-radius(0);
+            border: 0;
+            border-bottom: 1px solid $matisse5;
+            min-width: 240px;
+            background: transparent;
+            color: $bali-hai13;
+            height: 30px;
+        }
+    }
+    table{
+        thead tr th{
+            @extend .text-uppercase;
+            @extend .text-left;
+            @include padding(10px 20px);
+            background-color: $tangaroa;
+            color: $bali-hai13;
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            font-size: $font-size-small;
+            white-space: nowrap;
+            vertical-align: middle;
+            border: 0;
+            font-weight: normal;
+            display: table-cell;
+            white-space: normal;
+            line-height: 14px;
+            &:first-child{
+                width: 35% !important;
+                max-width: 35% !important;
+            }
+        }
+        tbody tr td:first-child{
+            width: 35% !important;
+            max-width: 35% !important;
+        }
+        thead tr th:nth-child(2), tbody tr td:nth-child(2){
+            width: 20% !important;
+            max-width: 20% !important;
+        }
+        thead tr th:nth-child(3), tbody tr td:nth-child(3){
+            width: 15% !important;
+            max-width: 15% !important;
+        }
+        thead tr th:nth-child(4), tbody tr td:nth-child(4){
+            width: 20% !important;
+            max-width: 20% !important;
+        }
+        thead tr th:nth-child(5){
+            width: 10% !important;
+            max-width: 10% !important;
+        }
+        tbody{
+            tr{
+                td:nth-child(5){
+                    width: 10% !important;
+                    max-width: 10% !important;
+                }
+                &:nth-of-type(even){
+                    background-color: $oxford-blue2;
+                }
+            }
+            > tr > td{
+                @extend .text-left;
+                @extend .text-uppercase;
+                color: $gothic3;
+                display: table-cell;
+                // font-family: $roboto-regular;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                  }
+                white-space: normal;
+                word-break: break-all;
+                vertical-align: middle;
+                line-height: 16px;
+                border-top: 0;
+            }
+        }
+    }
+}
+.custom-market-modal{
+    cursor: pointer;
+}
+
+/*--  Axis Selector  --*/
+.axis-wrapper{
+    position: absolute;
+    left: 30px;
+    z-index: 9;
+    top: 0;
+    .axis-selector{
+        span{
+            color: $curious-blue9;
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            font-size: $font-size-small;
+        }
+        select{
+            @include padding(2px 10px);
+            @include border-radius(3px);
+            background-color: $big-stone6;
+            color: $curious-blue9;
+            border: 1px solid $casal1;
+            margin-left: 10px;
+            font-size: $font-size-small;
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+        }
+    }
+    .axis-list-wrapper{
+        width: 28px;
+        padding: 30px 0 0 0;
+    }
+}
+.axis-list-wrapper > ul{
+    position: relative;
+    height: 100%;
+    &:after{
+        @include translate(-50%, -5%);
+        background-color: $san-juan12;
+        display: inline-block;
+        width: 1px;
+        height: 108%;
+        position: absolute;
+        content: "";
+        left: 50%;
+        top: 0;
+        z-index: -1;
+    }
+}
+.axis-wrapper .axis-list-wrapper li{
+    > a{
+        color: $san-juan13;
+        margin-bottom: 5px;
+        display: block;
+    }
+    &.active > a{
+        color: $curious-blue10;
+    }
+}
+
+/*--  Country Statistics Wrapper Styles  --*/
+.country-statistics-wrapper{
+    position: absolute;
+    left: 100px;
+    z-index: 9;
+    top: 50px;
+    .country-name{
+        @include margin(0 0 6px 0);
+        font-size: $font-size-large;
+        font-family: $roboto-medium;
+        color: $lochmara1;
+    }
+    .country-fundings{
+        @include margin(0);
+        font-size: $font-size-base;
+        font-family: $roboto-medium;
+        color: $hoki3;
+    }
+}
+.network-graph-wrapper{
+    position: relative;
+}
+.networkGraphMipMain{
+    @include margin(0 auto);
+    width: 85%;
+    position: relative;
+}
+#networkGraphMip{
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+#timeline_new_bs_mip{
+    position: absolute;
+    top: 460px;
+    width: 100%;
+}
+.datamapsMip{
+    .datamap{
+        path{
+            stroke: $tarawera3 !important;
+        }
+        circle{
+            stroke: none !important;
+        }
+    }
+    .hoverinfo{
+        @include padding(5px 10px);
+    	@include box-shadow(none);
+        @include border-radius(10px);
+        background: rgb(27, 39, 53);
+        font-size: ($font-size-base - 4);
+        border: 0;
+    }
+}
+.map-graph-wrapper{
+    position: relative;
+}
+.country-statistics-wrapper-mip-map-chart{
+    position: absolute;
+    top: -50px;
+    left: 2%;
+}
+.tooltip_datamap_all_data{
+    @include padding(5px 10px);
+    background: rgb(27, 39, 53);
+    font-size: ($font-size-base - 4);
+    min-width: 200px;
+    max-width: 300px;
+}
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+@media (min-width:$screen-lg){
+
+}
+@media (min-width: $screen-md) and (max-width: $screen-md-max){
+
+}
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max){
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max){
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs){
+
+}
+

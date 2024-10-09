@@ -1,0 +1,354 @@
+/*--  Date Picker Styles  --*/
+.ng-star-inserted {
+    .md-drppicker {
+        min-width       : 16rem !important;
+        background-color: $surface !important;
+        padding         : 0;
+        display         : flex;
+        min-height      : 360px !important;
+        top             : 0px !important;
+
+        .buttons {
+            position     : absolute;
+            bottom       : 0;
+            right        : 1rem;
+            line-height  : 32px;
+            margin-bottom: 20px;
+            margin-right : 17px;
+
+            &_input {
+                button {
+                    background    : transparent;
+                    margin-left   : 10px;
+                    color         : $primary-color;
+                    box-shadow    : none;
+                    display       : inline-flex;
+                    align-items   : center;
+                    font-size     : 14px;
+                    font-weight   : 500;
+                    font-stretch  : normal;
+                    font-style    : normal;
+                    line-height   : 1.14;
+                    letter-spacing: 1.25px;
+
+                    &.btn-default {
+                        background: transparent !important;
+
+                        svg {
+                            display: none;
+                        }
+                    }
+
+                    &:not(.btn-default) {
+                        border       : 1px solid $primary-color;
+                        padding      : 10px 16px;
+                        border-radius: 4px;
+                    }
+                }
+            }
+        }
+
+        .calendar {
+            margin          : 0;
+            padding-bottom  : 5rem !important;
+            background-color: $color-gray-30 !important;
+
+            .calendar-table {
+                background-color: $color-gray-30 !important;
+                border          : 0;
+                padding         : 0;
+
+                table {
+                    margin: 0;
+                }
+
+                thead {
+                    tr {
+                        &:first-of-type {
+                            border-bottom: 15px solid transparent;
+                        }
+
+                        th {
+                            color        : $color-white-60;
+                            font-size    : 1.2rem;
+                            border       : 0;
+                            border-radius: 0;
+                            line-height  : 32px;
+                            font-weight  : normal;
+
+                            &.prev {
+                                background-image: none;
+                                background-color: unset !important;
+                                opacity         : 0.5;
+
+                                &:before {
+                                    font-family            : "Material Icons Round";
+                                    content                : "\e5e0";
+                                    font-weight            : normal;
+                                    font-style             : normal;
+                                    font-size              : 24px;
+                                    text-rendering         : auto;
+                                    -webkit-font-smoothing : antialiased;
+                                    -moz-osx-font-smoothing: grayscale;
+                                    transform              : translate(0, 0);
+                                    display                : inline-block;
+                                    vertical-align         : middle;
+                                    color                  : var(--textOnSurface);
+                                }
+
+                                &:hover {
+                                    opacity: 0.8 !important;
+                                }
+                            }
+
+                            &.next {
+                                background-image: none;
+                                background-color: unset !important;
+                                transform       : none !important;
+                                opacity         : 0.5;
+
+                                &:before {
+                                    font-family            : "Material Icons Round";
+                                    content                : "\e5e1";
+                                    font-weight            : normal;
+                                    font-style             : normal;
+                                    font-size              : 24px;
+                                    text-rendering         : auto;
+                                    -webkit-font-smoothing : antialiased;
+                                    -moz-osx-font-smoothing: grayscale;
+                                    transform              : translate(0, 0);
+                                    display                : inline-block;
+                                    vertical-align         : middle;
+                                    color                  : var(--textOnSurface);
+                                }
+
+                                &:hover {
+                                    opacity: 0.8 !important;
+                                }
+                            }
+                        }
+
+                        &:nth-of-type(1) {
+
+                            th {
+                                font-size  : 20px;
+                                font-weight: normal;
+                            }
+                        }
+                    }
+                }
+
+                tbody {
+                    tr {
+                        td {
+                            color      : $color-white-60;
+                            font-size  : 1.2rem;
+                            border     : 0 !important;
+                            margin     : 0 !important;
+                            line-height: 32px;
+
+                            &.available {
+                                &:hover {
+                                    &:not(.active) {
+                                        background-color: $color-gray-30;
+                                    }
+                                }
+                            }
+
+                            &.active {
+                                width           : 33px;
+                                height          : 33px;
+                                position        : relative;
+                                display         : flex;
+                                top             : 1px;
+                                align-items     : center;
+                                justify-content : center;
+                                background-color: transparent;
+
+                                span {
+                                    height       : 100%;
+                                    width        : 100%;
+                                    border-radius: 50%;
+                                }
+
+                                &.start-date {
+                                    span {
+                                        background: $primary-color;
+                                        left      : 2px;
+                                        position  : relative;
+                                    }
+                                }
+
+                                &.end-date {
+                                    span {
+                                        background: $primary-color;
+                                        right     : 2px;
+                                        position  : relative;
+                                        min-height: 100%;
+                                    }
+                                }
+                            }
+
+                            &.in-range {
+                                background-color: transparent;
+
+                                span {
+                                    background     : $primary-color;
+                                    width          : 100%;
+                                    height         : 14px;
+                                    position       : relative;
+                                    display        : flex;
+                                    top            : 1px;
+                                    align-items    : center;
+                                    justify-content: center;
+                                }
+                            }
+
+                            &.off {
+                                background-color: transparent;
+                                color           : rgba($color-white-60, 0.5);
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.left {
+                padding-right: 2rem;
+                padding-top  : 18px;
+                padding-left : 30px;
+            }
+
+            &.right {
+                padding-left : 2rem;
+                padding-right: 30px;
+                padding-top  : 18px;
+                display      : none !important;
+            }
+        }
+
+        .ranges {
+            width           : 180px;
+            background-color: $color-background;
+
+            ul {
+                padding: 16px 0;
+
+                li {
+                    margin     : 15px;
+                    line-height: 32px;
+
+                    button {
+                        position        : relative;
+                        display         : flex;
+                        border-bottom   : none;
+                        padding         : 4px 12px;
+                        align-items     : center;
+                        font-size       : 15px;
+                        padding-left    : 3rem;
+                        color           : $color-white-60;
+                        transition      : all 0.2s ease;
+                        background-color: transparent;
+                        font-weight     : normal;
+
+                        &:hover {
+                            color     : $primary-color;
+                            background: transparent !important;
+
+                            &:before {
+                                border-color: $primary-color;
+                            }
+                        }
+
+                        &:before {
+                            content      : "";
+                            height       : 16px;
+                            width        : 16px;
+                            border       : 2px solid $color-icon-enabled;
+                            z-index      : 999;
+                            margin-right : 0.5rem;
+                            position     : absolute;
+                            left         : 0px;
+                            border-radius: 50%;
+                            box-sizing   : border-box;
+                        }
+
+                        &.active {
+                            color     : $color-white;
+                            background: transparent;
+
+                            &:after {
+                                content      : "";
+                                height       : 8px;
+                                width        : 8px;
+                                position     : absolute;
+                                left         : 4px;
+                                background   : $primary-color;
+                                border-radius: 50%;
+                            }
+
+                            &:before {
+                                border-color: $primary-color;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+
+    .md-drppicker {
+        .btn {
+            background-color       : transparent !important;
+            box-shadow             : none;
+            -webkit-text-fill-color: $primary-color;
+            font-weight            : 550;
+            font-size              : 1.4rem;
+            letter-spacing         : 1.25px;
+            line-height            : 1.14;
+            margin-left            : 25px;
+
+            svg {
+                display       : none;
+                color         : $color-white;
+                vertical-align: top;
+            }
+        }
+    }
+
+    app-date-filter>div:before {
+        visibility: hidden;
+    }
+
+    app-date-filter>div {
+        border-radius: 0.5em;
+        height       : 40px;
+        padding-top  : 0.3rem;
+    }
+}
+
+
+// Date Time Picker 
+ngx-mat-datetime-content {
+    .actions {
+        button {
+            &.mat-stroked-button {
+                border-style : none;
+                padding      : 0px;
+                max-width    : 80px;
+                margin-right : 5px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+
+.mat-datepicker-actions {
+    float         : right;
+    padding-right : 16px !important;
+    padding-bottom: 16px !important;
+}

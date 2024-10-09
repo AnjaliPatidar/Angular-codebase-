@@ -1,0 +1,517 @@
+/*
+================================================================================
+**********************  Chat Panel Styles For The Site  ************************
+================================================================================
+*/
+
+.chat-panel-wrapper {
+    @extend .clearfix;
+    @include transition(all 0.3s ease-in-out);
+    position: fixed;
+    top: 61px; 
+    bottom: 0px;
+    right: 123px;  
+    max-width: 81.7%;
+    width: 100%;
+    height: 94%;
+    max-height: 91%;
+    z-index: 99999;
+    &.expand-chatbot {
+        @include size(100%, 94%);
+        min-width: 350px;
+        max-width: 100%;
+        height: 94%;
+        right: 0;
+        .chat-panel-content {
+            @include size(100%, 100%);
+        }
+        .chat-link {
+            right: 83px;
+        }
+    }
+    .loader {
+        @extend .text-center;
+        color: $chat-panel-title;
+    }
+    .error-message {
+        @include margin(0);
+        color: $light-red;
+        // font-family: $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+        }
+        font-size: $font-size-small;
+        line-height: ($line-height-computed *.75);
+        width: auto;
+        position: absolute;
+        left: 15px;
+        top: 12px;
+        z-index: 9;
+    }
+    /*--  Input Group Styles  --*/
+    .input-group {
+        width: 100%;
+        .form-control {
+            @extend .text-uppercase;
+            @include padding(10px 30px);
+            @include box-shadow(none);
+            @include size(100%, 40px);
+            background-color: transparent;
+            border: 0;
+            border-bottom: 1px solid $lochmara11;
+            resize: none;
+            color: $chat-panel-text !important;
+            &:focus {
+                @include box-shadow(none);
+                border: 0;
+                border-bottom: 1px solid $lochmara11;
+            }
+            &::-webkit-input-placeholder {
+                // font-family: $roboto-regular;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                }
+                color: $valhala3;
+                opacity: 1;
+            }
+            &:-moz-placeholder {
+                // font-family: $roboto-regular;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                }
+                color: $valhala3;
+                opacity: 1;
+            }
+            &::-moz-placeholder {
+                // font-family: $roboto-regular;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                }
+                font-size: $font-size-base;
+                color: $valhala3;
+                opacity: 1;
+            }
+            &::-ms-input-placeholder {
+                // font-family: $roboto-regular;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                }
+                color: $valhala3;
+                opacity: 1;
+            }
+        }
+        .input-group-addon {
+            @extend .border-0;
+            @include padding(0);
+            background-color: transparent;
+            font-size: ($font-size-base * 1.5);
+            width: 30px;
+            position: absolute;
+            top: 10px;
+            z-index: 9;
+            cursor: pointer;
+            &.btn[disabled] {
+                cursor: not-allowed;
+            }
+        }
+        &.input-group-header {
+            min-height: 40px;
+            .form-control {
+                @extend .border-0;
+                @include padding(10px 60px 10px 45px);
+                &:hover,
+                    &:focus {
+                    @extend .border-0;
+                }
+            }
+            .input-group-addon {
+                &.left-icon {
+                    left: 10px;
+                    right: auto;
+                    color: $paynes-grey2;
+                }
+                &.right-icon {
+                    left: auto;
+                    right: 10px;
+                    color: $paynes-grey1;
+                }
+                &.right-icon-minimize {
+                    left: auto;
+                    right: 40px;
+                    color: $paynes-grey1;
+                }
+            }
+        }
+        &.input-group-footer {
+            .input-group-addon {
+                &.left-icon {
+                    left: 0;
+                    right: auto;
+                    color: $gun-powder;
+                }
+                &.right-icon {
+                    left: auto;
+                    right: 0;
+                    color: $sham-rock;
+                }
+            }
+        }
+    }
+    /*--  Scrollbar Outer Styles  --*/
+    .scrollbar-outer {
+        >.scroll-element {
+            background-color: transparent;
+            width: 8px;
+            .scroll-element_outer {
+                width: 5px;
+            }
+            .scroll-element_track {
+                background-color: transparent;
+            }
+            .scroll-bar {
+                background-color: rgba(255, 255, 255, .2);
+            }
+        }
+    }
+    /*--  Btn List Styles  --*/
+    .btn-list {
+        @extend .clearfix;
+        @include margin(0 0 15px);
+        li {
+            @extend .pull-left;
+            @include padding(0 5px);
+            width: 33.33%;
+            a {
+                @extend .text-uppercase;
+                @include margin(0 0 10px);
+                @include padding(3px 10px);
+                @include transition(all 0.3s ease-in-out);
+                @include border-radius(15px);
+                font-size: ($font-size-base - 4);
+                display: block;
+                width: 100%;
+                &:hover,
+                    &:focus {
+                    background-color: $chat-panel-btn-blue-bg;
+                    color: $chat-panel-btn-blue-color;
+                    border: 1px solid $chat-panel-btn-blue-border;
+                }
+                &.btn-grey {
+                    background-color: $chat-panel-btn-grey-bg;
+                    color: $chat-panel-btn-grey-color;
+                    border: 1px solid $chat-panel-btn-grey-border;
+                    &:hover,
+                        &:focus {
+                        background-color: $chat-panel-btn-blue-bg;
+                        color: $chat-panel-btn-blue-color;
+                        border: 1px solid $chat-panel-btn-blue-border;
+                    }
+                }
+                &.btn-green {
+                    background-color: $chat-panel-btn-green-bg;
+                    color: $chat-panel-btn-green-color;
+                    border: 1px solid $chat-panel-btn-green-border;
+                }
+                &.btn-blue {
+                    background-color: $chat-panel-btn-blue-bg;
+                    color: $chat-panel-btn-blue-color;
+                    border: 1px solid $chat-panel-btn-blue-border;
+                }
+            }
+            &:nth-child(1),
+                &:nth-child(4) {
+                @include padding(0);
+            }
+            &:nth-child(3) {
+                @extend .text-right;
+                @include padding(0);
+            }
+            &.disabled {
+                >a {
+                    cursor: no-drop;
+                    opacity: 0.6;
+                    &:hover,
+                        &:focus {
+                        cursor: no-drop;
+                        opacity: 0.6;
+                    }
+                }
+            }
+        }
+    }
+    /*--  Info List Styles  --*/
+    .info-list {
+        @extend .clearfix;
+        li {
+            @extend .pull-left;
+            width: 50%;
+            a {
+                @extend .text-uppercase;
+                @extend .text-left;
+                @include margin(0 0 5px);
+                font-size: $font-size-small;
+                color: $lynch13;
+                display: inline-block;
+                .success-circle-icon {
+                    @include circle(15px);
+                    background-color: $lochmara;
+                    color: $chat-panel-bg;
+                    font-size: ($font-size-base - 4);
+                }
+                .default-circle-icon {
+                    @include circle(15px);
+                    background-color: $cello1;
+                    color: $chat-panel-bg;
+                    font-size: ($font-size-base - 4);
+                }
+                .remove-icon {
+                    color: $persian-red1;
+                    font-size: ($font-size-base - 1);
+                }
+            }
+        }
+        &.list-unstyled {
+            li {
+                width: 100%;
+                a {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .chat-panel-content {
+        @include padding(0 0 50px);
+        background-color: $chat-panel-bg;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        border: 1px solid $chat-panel-border;
+        /*--  Chat Panel Header Styles  --*/
+        .chat-panel-header {
+            .title {
+                @extend .text-uppercase;
+                @include margin(0 0 15px);
+                @include padding(15px 25px 15px 35px);
+                color: $chat-panel-text;
+                // font-family: $roboto-bold;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-bold);
+                }
+                font-size: $font-size-large;
+                line-height: ($line-height-computed * .9);
+                position: relative;
+                border-top: 1px solid $black-rock;
+                border-bottom: 1px solid $black-rock;
+                span {
+                    @include margin(5px 0 0);
+                    display: block;
+                    color: $chat-panel-text;
+                    // font-family: $roboto-regular;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-regular);
+                    }
+                    font-size: $font-size-small;
+                }
+                a {
+                    position: absolute;
+                    top: 8px;
+                    left: 18px;
+                    font-size: ($font-size-base + 2);
+                    color: $lochmara11;
+                    opacity: 1;
+                    text-shadow: none;
+                    &.minimize {
+                        top: 2px;
+                        right: 15px;
+                    }
+                }
+            }
+        }
+        /*--  Chat Panel Body Styles  --*/
+        .chat-panel-body {
+            @include padding(0 15px);
+            height: 100%;
+            .chat-bot-wrapper {
+                @include margin(0 0 15px);
+                @include padding(0 0 15px);
+                width: 100%;
+                height: 100% !important;
+                max-height: 85% !important;
+                overflow: hidden;
+                p {
+                    color: $chat-panel-text;
+                    font-size: $font-size-base;
+                    line-height: ($line-height-computed * .9);
+                    .btn-circle {
+                        @include circle(45px);
+                        background-color: $valhala2;
+                        color: $cello13;
+                        position: relative;
+                        vertical-align: middle;
+                        &:hover,
+                            &:focus {
+                            background-color: $valhala2;
+                            color: $cello13;
+                        }
+                        img,
+                        i {
+                            @include center-position();
+                            width: 21px;
+                            font-size: ($font-size-large * 1.39);
+                        }
+                        i {
+                            height: 28px;
+                        }
+                    }
+                    span {
+                        width: calc(100% - 60px);
+                        vertical-align: middle;
+                    }
+                    &.chat-bot-input {
+                        @extend .text-right;
+                        color: $matisse;
+                        .btn-circle {
+                            @include margin(0 0 0 5px);
+                        }
+                    }
+                    &.chat-bot-message {
+                        .btn-circle {
+                            @include margin(0 5px 0 0);
+                        }
+                    }
+                }
+            }
+            .message {
+                position: absolute;
+                top: 210px;
+            }
+        }
+        /*--  Chat Panel Footer Styles  --*/
+        .chat-panel-footer {
+            @include padding(0 15px 15px);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+        /*--  Profile Completion Wrapper Styles  --*/
+        .profile-completion-wrapper {
+            @include padding(0 15px);
+        }
+        /*--  Recent Conversions Wrapper Styles  --*/
+        .recent-conversions-wrapper {
+            @extend .clearfix;
+            @include padding(15px 15px 50px 15px);
+            border-top: 1px solid $black-rock;
+            h3 {
+                @include margin(10px 0);
+                color: $slate-grey;
+                +.custom-list {
+                    li {
+                        &:last-child {
+                            a {
+                                @extend .border-b0;
+                            }
+                        }
+                    }
+                }
+            }
+            .btn-add {
+                @extend .pull-right;
+                @include circle(30px);
+                background-color: $lochmara;
+                color: $white;
+                font-size: ($font-size-base + 2);
+                position: absolute;
+                display: inline-block;
+                right: 15px;
+                bottom: 15px;
+                .icon {
+                    @include center-position();
+                }
+            }
+            .custom-list {
+                li {
+                    a {
+                        @extend .text-left;
+                        @include margin(0 0 5px);
+                        @include padding(0 0 10px);
+                        font-size: $font-size-small;
+                        width: 100%;
+                        display: inline-block;
+                        color: $lynch12;
+                        line-height: ($line-height-computed * .9);
+                        position: relative;
+                        border-bottom: 1px solid $valhala;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        .help-block {
+                            @include margin(5px 0 0);
+                            display: block;
+                            color: $fiord36;
+                        }
+                        .badge {
+                            @include circle(20px);
+                            @include padding(0);
+                            position: absolute;
+                            right: 0;
+                            top: 1px;
+                            background-color: $lochmara;
+                            color: $corn-flower;
+                            line-height: $font-size-large;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.chat-link {
+    @extend .pull-right;
+    @include circle(45px);
+    @include margin(0 auto);
+    @include transition(all 0.3s ease-in-out);
+    background-color: $chat-link-bg;
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: 2px solid $chat-link-border;
+    img {
+        @include margin(0 auto);
+        @include center-position();
+        max-width: 50%;
+        position: absolute;
+    }   
+    .chat-notification {
+        @include circle(20px);
+        @include padding(0 0 0 1px);
+        background-color: $chat-notification-bg;
+        color: $chat-notification-color;
+        font-size: ($font-size-base - 4);
+        line-height: $line-height-computed;
+        display: inline-block;
+        position: absolute;
+        top: -12px;  
+        overflow: hidden;
+    }       
+}
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+
+@media (min-width:$screen-lg) {}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {}
+
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {}

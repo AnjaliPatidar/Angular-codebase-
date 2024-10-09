@@ -1,0 +1,65 @@
+<div id="dataAttributePopup">
+  <ng-template #rowPopOverContent>
+    <div class="width-100 pad-10px text-dark-black">
+      <div class="pop-header font-bold d-flex ai-c">
+        <p class="mxw-150 text-capitalize pad-r10 text-overflow mar-b0 f-16">{{popoverHeaderData.source}}</p>
+        <p class="mar-l5 mar-b0 f-16">| {{popoverHeaderData.headerName}}</p>
+        <p class="c-pointer mar-autol font-weight-bold text-dark-black" (click)="resetPopoverValuesToDefault()">Reset to
+          default</p>
+      </div>
+      <div class="d-flex ai-c custom-scroll-wrapper overflow-auto"
+        style="flex-wrap: wrap;max-height: 105px;max-width: 600px;flex:1 0 600px">
+        <div *ngFor="let item of dataAttributesForPopover;let index = index;trackBy:trackByIndex;" style="width:295px;"
+          class="d-flex ai-c jc-sb">
+          <p class="mar-b0 width-50 text-overflow mar-r10 f-14 text-dark-black">{{item.sourceAttributeName}} :</p>
+          <div class="d-flex ai-c fd-c pad-x10 dataAtribute-popup">
+            <p class="f-12 text-dark-black">{{credibility_text_map[dataAttributesSliderValues[index]]}}</p>
+            <input type="range" name="points" min="0" max="3" data-action-type="main-sliders"
+              [(ngModel)]="dataAttributesSliderValues[index]">
+          </div>
+        </div>
+      </div>
+      <div class="d-flex ai-c jc-fe">
+        <p class="font-bold text-dark-black c-pointer font-weight-bold" (click)="closePopup()">{{'Cancel' | translate}}
+        </p>
+        <p class="mar-l10 pad-r0 font-bold text-dark-black c-pointer font-weight-bold" (click)="saveSource($event)">
+          {{'Save' | translate}}</p>
+      </div>
+    </div>
+  </ng-template>
+
+  <div class="d-flex ai-c fd-c">
+    <span>{{sliderValue}}</span>
+    <input *ngIf="sliderValue" style="width:100px !important" type="range" name="points" min="0" max="3"
+      data-action-type="main-sliders" (change)="mainSliderValueChange($event)"
+      [(value)]="credibility_digit_map[sliderValue]" [(ngModel)]="changedSliderValue" 
+      [ngClass]="{ 'disable pe-none c-ban': isDisabled }">
+
+    <i *ngIf="dataAttributesForPopover && dataAttributesForPopover.length > 0" (click)="settingInitialSliderValues()"
+      class="fa fa-sliders p-abs r-50 t-10 c-pointer triggerPopover material-icons text-dark-black"
+      #popOver="ngbPopover" [ngbPopover]="rowPopOverContent" [autoClose]="'outside'" popoverClass="bst_popover"
+      placement="bottom" container="body" data-action-type="sliderpop"
+      [ngClass]="{ 'disable pe-none c-ban': isDisabled }"></i>
+  </div>
+</div>
+
+
+
+<!-- main slider -->
+<!-- <div class="d-flex width-100  ai-c" ng-class="{\'pe-none\' : row.entity.Visible == false}"
+  style="justify-content:center">
+  <div class="">
+    <div style="text-align: center" class="text-dark-cream f-12 text-dark-black">
+      {{sliderValue}}</div>
+    <input type="range" ng-model="row.entity[col.colDef.field]" ng-disabled="row.entity[col.field+ \'_isDisabled\' ]"
+      ng-class="{\'c-ban\' : row.entity[col.field+ \'_isDisabled\']}" name="range" min="0" max="3"
+      ng-change="grid.appScope.onRangeSliderChange(row.entity[col.colDef.field],row,col,col.colDef.field,rowRenderIndex)"
+      class="Sliderrange blue">
+  </div>
+  <button popover-placement="bottom" popover-class="pop_source-financial bottom-pop-wrapper"
+    class="c-pointer text-dark-cream f-18 left fade in" ng-show="grid.appScope.showHide(col.field);"
+    uib-popover-html="grid.appScope.htmlPopover(row,col,rowRenderIndex)"
+    popover-is-open="window[col.field+row.entity.sourceId + \'_isOpen\' ]" popover-trigger="\'outsideClick\'"
+    ng-disabled="!row.entity.Visible" style="background: transparent;border: transparent;"><i
+      ng-class="{ \'text-blue\' : row.entity[col.field + \'_isDisabled\' ]}"
+      class="fa fa-sliders mar-l10 mar-t10 text-dark-black"></i></button> -->

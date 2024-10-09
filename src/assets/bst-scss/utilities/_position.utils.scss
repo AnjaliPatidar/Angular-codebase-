@@ -1,0 +1,57 @@
+.align-right {
+    right   : 0;
+    position: absolute;
+}
+
+.float-right {
+    float: right !important;
+}
+
+.float-left {
+    float: left !important;
+}
+
+.pos-relative {
+    position: relative !important;
+}
+
+.pos-absolute {
+    position: absolute;
+}
+
+.pos-sticky {
+    position: sticky !important;
+}
+
+.pos-fixed {
+    position: fixed !important;
+}
+
+.vertically-centered {
+    display        : flex;
+    justify-content: center;
+    align-content  : center;
+    flex-direction : column;
+}
+
+.v-center {
+    display        : inline-flex;
+    align-items    : center;
+    justify-content: center;
+    padding-left   : 15px;
+}
+
+.fully-centered {
+    display        : -webkit-box;
+    display        : -moz-box;
+    display        : -ms-flexbox;
+    display        : -webkit-flex;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+}
+
+.pos-rel-t-10 {
+    position: relative;
+    top     : 10px;
+}

@@ -1,0 +1,5 @@
+<span *ngIf = "isNumber; else translated">{{ value }}</span>
+
+<ng-template #translated>
+  {{ value | translate }}
+</ng-template>

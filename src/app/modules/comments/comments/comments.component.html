@@ -1,0 +1,51 @@
+<div class="comment-wrapper">
+    <div class="loading-comments z-99 txt-on-surface-87" *ngIf="isLoading">
+        <i class="fa fa-spinner txt-on-surface-06 fa-pulse f-25"></i>
+    </div>
+    <header class="comment-header d-flex-center-between" [ngClass]="{ 'top-arrow': data.commentContainer === 'case card' }">
+        <p class="title">
+            {{'Comments' | translate}} {{commentListItems?.length>0 ? '(' + commentListItems?.length + ')' : ''}}
+        </p>
+        <span class="material-icons-round close-icon" [matTooltip]="'close' | translate" matTooltipPosition="above" (click)="close()">close</span>
+    </header>
+
+    <div class="comment-section">
+        <div class="comment-list custom-scroll-wrapper" [class.comment-content-height]="isEditMode">
+            <div  *ngIf="!commentListItems?.length && !isLoading || !isIDFound" class="no-comments">
+                <p>{{'There is no comments created.' | translate}} <span>{{'Add your comment.' | translate}}</span> </p>
+            </div>
+            <ng-container *ngFor="let comment of commentListItems;trackBy:trackByCreatedDate">
+                <div *ngIf="commentListItems?.length" class="comment-list-wrapper">
+                    <app-single-comment-section [comment] = "comment" [caseId]="caseId" [editModeStatus]="editModeStatus" [caseWorkBenchPermissionJSON]="caseWorkBenchPermissionJSON" (updated)="getCommentsData()"></app-single-comment-section>
+                </div>
+            </ng-container>
+        </div>
+        <div class="new-comment-input custom-scroll-wrapper" [class.comment-edit]="isEditMode" permission [ViewOnly]="true"
+        [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'commentBox'">
+            <ul class="list-group file-ul f-14 mb-3 mt-3" *ngIf="fileAttachments && isEditMode">
+              <li class="file-attachment" *ngFor="let attach of editedFile">
+                  <span class="c-pointer icon"><i class="fa fa-file" aria-hidden="true"></i></span>
+                  <span class="mar-l5 c-pointer dots-text doc-name" >{{attach?.name}}</span>
+                  <button type="button" class="close-btn">
+                    <span class="material-icons-round close-icon" (click)="removeAttach(attach)">close</span>
+                  </button>
+              </li>
+              <li class="file-attachment" *ngFor="let attach of repoDocumentList">
+                  <span class="c-pointer icon"><i class="fa fa-file" aria-hidden="true"></i></span>
+                  <span class="mar-l5 c-pointer dots-text doc-name" >{{attach?.title?.fileName}}</span>
+                  <button type="button" class="close-btn">
+                    <span class="material-icons-round close-icon" (click)="removeConnectedDocuments(attach)">close</span>
+                  </button>
+              </li>
+            </ul>
+            <mat-form-field class="comment-mat-filed" appearance="fill">
+                <textarea #input matInput [placeholder]="'Add Comment' | translate" [(ngModel)]="comment" (ngModelChange)="commentChanged($event)" maxlength="3072" (keyup)="onKeyUp()"></textarea>
+                <span id="filesUpload" class="material-icons-round icon-attach-hover" [matTooltip]="'Attachment(s)' | translate" matTooltipPosition="above" (click)="fileAttach()">attach_file</span>
+            </mat-form-field>
+            <div class="action-button-wrapper" *ngIf="isEditMode">
+                <button type="button" class="comment-action-btn cancel-btn secondary-btn mr-3"(click)="cancelEditComment()" [matTooltip]="'Cancel' | translate" matTooltipPosition="above" >{{'Cancel' | translate}}</button>
+                <button type="button" class="comment-action-btn send-btn primary-btn" (click)="createComments()" [matTooltip]="'Send' | translate" matTooltipPosition="above">{{'Send' | translate}}</button>
+            </div>
+        </div>
+    </div>
+</div>

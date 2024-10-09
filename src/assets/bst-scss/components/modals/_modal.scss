@@ -1,0 +1,80 @@
+/* Common modal */
+
+$backdrop-b1: $color-modal-backdrop;
+
+.mat-dialog-header {
+  @include flex-d(row, null, space-between, center);
+  border-bottom : 1px solid $color-white-12;
+  padding-bottom: 10px;
+
+  .mat-icon {
+    font-size: 2.4rem;
+    color    : $color-icon-enabled;
+    cursor   : pointer;
+  }
+}
+
+.mat-dialog-title {
+  margin: 0 0 0 !important;
+}
+
+.mat-dialog-container {
+  padding   : 16px 32px 32px !important;
+  background: $surface;
+}
+
+.mat-dialog-content {
+  margin    : 31px 0 0 !important;
+  padding   : 0 !important;
+  min-height: 50px;
+}
+
+.mat-dialog-actions {
+  min-height: 69px !important;
+
+  .mat-button-toggle-focus-overlay {
+    outline: none !important;
+  }
+}
+
+.cdk-overlay-pane {
+  &.sm {
+    width: 600px;
+
+    .mat-dialog-content {
+      min-height: 50px;
+    }
+  }
+
+  &.lg {
+    width: 864px;
+
+    .mat-dialog-content {
+      min-height: 377px;
+    }
+  }
+
+  &.x-lg {
+    width: 1140px;
+
+    .mat-dialog-content {
+      min-height: 68vh;
+    }
+  }
+
+  &.full {
+    width    : 95vw !important;
+    max-width: 95vw !important;
+
+    .mat-dialog-content {
+      min-height: 70vh;
+    }
+  }
+}
+
+
+.cdk-overlay-backdrop {
+  &.backdrop-b1 {
+    background-color: $backdrop-b1;
+  }
+}

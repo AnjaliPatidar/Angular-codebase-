@@ -1,0 +1,29 @@
+@import "../../../../../../assets/scss/theme/common/variable";
+::ng-deep .override-process.case-history-tooltip {
+  box-shadow: 0 2px 4px 0 rgba($black, 0.2), 0 1px 10px 0 rgba($black, 0.12), 0 4px 5px 0 rgba($black, 0.14);
+  border-radius: 10px;
+  position: relative;
+  opacity: 1;
+
+  &::after{
+    content: "";
+    height: 0;
+    width: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid $gull-grey4;
+    opacity: 1;
+    position: absolute;
+    right: 3rem;
+    bottom: -10px;
+  }
+  .mat-dialog-container{
+    overflow: visible !important;
+    padding: 16px 8px !important;
+    background-color: $gull-grey4 !important;
+    opacity: 1;
+  }
+  .content-detail{
+    line-height: 1.67 !important;
+  }
+}

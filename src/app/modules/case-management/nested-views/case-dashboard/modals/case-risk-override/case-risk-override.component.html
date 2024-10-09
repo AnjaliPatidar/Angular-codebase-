@@ -1,0 +1,53 @@
+<div class="dialog-header d-flex mb-4 align-items-center">
+    <span class="color-gray text-dark-black f-20">{{'Status' | translate}}: {{data.caseRiskOld}}</span>
+    <mat-icon class="mat-icon-rtl-mirror color-gray text-dark-black light-theme-bg-transparent mx-3">
+        chevron_right
+    </mat-icon>
+    <span class="color-gray text-dark-black f-20">{{data.caseRiskNew}}</span>
+
+    <i class="material-icons color-gray text-dark-black c-pointer close-icon" (click)="close()">close</i>
+</div>
+<ng-container>
+    <div class="dialog-body reason-dialog">
+        <label class="mt-3 mb-4 reason-lable">{{'Add a reason to change case risk' | translate}}</label>
+        <div class="bst_input_group p-abs pb-0 l-0 custom-input-in-card-body">
+            <mat-form-field class="reason-field">
+                <mat-label>{{'Reason' | translate}}</mat-label>
+                <textarea matInput
+                    class="custom-scroll-wrapper custom-input reason-input input-text border-0 pb-0 width-100 bg-transparent pt-3" type="text"
+                    maxlength="2048" name="reason" [(ngModel)]="reason" required
+                    autocomplete="off"></textarea>
+            </mat-form-field>
+            <div (click)="fileAttach($event)">
+                <span id="filesUpload" class="fa fa-paperclip c-pointer attach-icon papericon icon-right pull-right t-25 mt-2 pt-1">
+                </span>
+            </div>
+            <input class="d-none" type="file" id="fileAttachment" #fileupload (change)="fileUpload(fileupload.files)" multiple/>
+        </div>
+        <span class="text-counter text-right mt-1 d-block">{{reason?.length && reason?.length === 0 || reason?.length ==
+            null ? 0 : reason?.length}}/{{MAX_TEXT_LENGTH}}</span>
+        <ul *ngIf="files && files.length" class="list-group f-14">
+            <li *ngFor="let file of files; trackBy:trackByName" class="list-group-item file-attachment light theme px-2 mr-2 f-14 d-flex">
+                <span class="c-pointer"><i class="fa fa-file icon" aria-hidden="true"></i></span>
+                <span class="mar-l5 c-pointer dots-text doc-name">{{file.name}}</span>
+                <button type="button" class="close-btn" (click)="cancelFileUpload(file)">
+                  <span class="material-icons close-icon">close</span>
+                </button>
+            </li>
+        </ul>
+        <div mat-dialog-actions class="my-1 mt-3">
+            <div class="text-right w-100">
+                <button type="button"
+                    class="w-auto bg-transparent secondary-btn border-0 mr-3 text-uppercase light-theme-btn gotham-medium font-medium fw-500 text-dodger-blue"
+                    (click)="close()">
+                    {{ 'Cancel' | translate }}
+                </button>
+                <button type="button" [ngClass]="{'c-ban op-05 c-ban-color': !reason}"
+                    class="w-auto bg-transparent secondary-btn text-uppercase light-theme-btn gotham-medium font-medium fw-500 text-dodger-blue"
+                    cdkFocusInitial (click)="save()">
+                    {{ 'Save' | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+</ng-container>

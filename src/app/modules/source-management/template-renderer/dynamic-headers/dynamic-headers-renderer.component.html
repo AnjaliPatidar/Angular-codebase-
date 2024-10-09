@@ -1,0 +1,30 @@
+<div class="dynamic-main-sliders">
+  <ng-template #rowPopOverContent>
+    <div class="width-100 pad-10px">
+      <div class="pop-header font-bold f-18 text-cream d-flex ai-c">
+          <h4 style="color:#fff;font-size: 18px;" class="mxw-150 text-capitalize pad-r10 text-overflow mar-b0 f-16 font-bold">{{popoverHeaderData.company_name}}</h4>
+          <p style="color:#fff;font-size: 18px;" class="font-light mar-l5 f-16 mar-b0 text-cream">| {{popoverHeaderData.field_name}}</p>
+          <span class="text-cream f-12 c-pointer font-regular mar-autol" (click)="resetPopoverValuesToDefault($event)">Reset to default</span>
+      </div>
+      <div class="d-flex ai-c custom-scroll-wrapper overflow-auto" style="flex-wrap: wrap;max-height: 105px;max-width: 900px;flex:1 0 900px">
+        <div *ngFor="let item of dataAttributesForPopover;let index = index;trackBy:trackByIndex;" style="width:295px;" class="d-flex ai-c jc-sb">
+          <span style="color:#fff;font-size: 16px;" class="font-regular text-cream f-14 mar-b0 width-50 text-overflow mar-r10">{{item.sourceAttributeName}} :</span>
+          <div class="d-flex ai-c fd-c pad-x10">
+            <span class="change-slider-value">{{item.credibilityValue}}</span>
+            <input type="range" name="points" min="0" max="3" data-action-type="main-sliders" (change)="sliderValueChangeInPopover($event,item)" class="range_status {{item.credibilityValue}} " [(value)]="credibility_digit_map[item.credibilityValue]" [(ngModel)]="changedSliderValue[index]">
+          </div>
+        </div>
+      </div>
+      <div class="d-flex ai-c jc-fe">
+          <a class="btn bg-transparent text-uppercase text-dodger-blue border-0 f-14">{{'Cancel' | translate}}</a>
+          <a class="btn bg-transparent text-uppercase text-dodger-blue border-0 pad-r0 f-14" (click)="saveSource($event)">{{'Save' | translate}}</a>
+      </div>
+    </div>
+  </ng-template>
+
+  <div class="d-flex ai-c fd-c" [ngClass]="{'c-ban':addDisable}">
+    <span [ngClass]="{'pe-none':addDisable}">{{sliderValue}}</span>
+    <input [ngClass]="{'pe-none':addDisable}" style="width:150px !important" type="range" name="points" min="0" max="3" data-action-type="main-sliders" (change)="mainSliderValueChange($event)" class="range_status {{sliderValue}} " [(value)]="credibility_digit_map[sliderValue]" [(ngModel)]="mainChangedSliderValue">
+    <i *ngIf="dataAttributesForPopover.length > 0" [ngClass]="{'text-dark-cream': !addDisable,'text-blue':addDisable}" (click)="settingInitialSliderValues($event)" class="fa fa-sliders f-16 font-16 p-abs r-50 t-10 c-pointer triggerPopover" [ngbPopover]="rowPopOverContent" [autoClose]="'outside'" popoverClass="bst_popover" placement="bottom" container="body" data-action-type="sliderpop"></i>
+  </div>
+</div>

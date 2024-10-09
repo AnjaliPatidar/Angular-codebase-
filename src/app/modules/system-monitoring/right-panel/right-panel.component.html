@@ -1,0 +1,182 @@
+<div class="right-panel-charts-wrapper custom-scroll-wrapper system-monitoring-rightpanel">
+  <!-- Charts Details for the entiies -->
+  <div class="chart-details-wrapper">
+    <div class="card custom-card mt-3 ml-0">
+      <div class="card-header light-theme-border-bottom">
+        <h2 class="mb-0 text-dark-black font-medium text-on-surface">{{'SourcesStatus' |  translate}}</h2>
+      </div>
+      <div class="d-flex align-items-center position-relative">
+        <div class="d-flex align-items-center justify-content-center"
+          *ngIf="statusChartLoader">
+          <div class="text-center text-white custom-dropdown-menu">
+            <i class="fa fa-spinner txt-on-surface-06 fa-pulse center-loader-wrapper text-dark-black" style="font-size:2.5rem;"></i>
+          </div>                                    
+        </div>
+        <div style="width:150px;">
+          <div class="card-body" id="statusChart"  permission [domainPermission]="permissionIdsList | getPermissionId : 'sources Status Chart'">
+            <div *ngIf="!statusChartLoader && statusChartShowDataNotFound" class="text-dark-black">{{'DataNotFound' | translate}} </div>
+          </div>
+        </div>
+
+        <div *ngIf="!statusChartLoader" class=sources-chart-legend>
+          <div class="success-data mb-4">
+            <i class="material-icons align-middle d-inline-flex w-30">check_circle_outline</i>
+            <div class="d-inline-flex flex-column">
+              <div class="f-20 mb-2 text-white text-dark-black"> {{statusSuccessCount}}</div>
+              <div class="text-dark-black">{{'Running' | translate}}</div>
+            </div>
+
+          </div>
+          <div class="error-data">
+            <i class="material-icons align-middle d-inline-flex">error_outline</i>
+            <div class="d-inline-flex flex-column">
+              <div class="f-20 mb-2 text-white text-dark-black"> {{statusErrorCount}}</div>
+              <div class="text-dark-black"> {{'errors' | translate}}</div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="card custom-card">
+      <div class="card-header light-theme-border-bottom">
+        <h2 class="mb-0 text-unset text-dark-black font-medium text-on-surface">{{'NumberOfErrors' | translate}}</h2>
+      </div>
+      <div class="card-body" id="errorBubbleChart"  permission [domainPermission]="permissionIdsList | getPermissionId : 'sources Number Of Errors Chart'">
+        <div class=" d-flex align-items-center justify-content-center"
+          *ngIf="errorBubbleCharttLoader">
+          <div class="text-center position-wrapper-loader custom-dropdown-menu">
+            <i class="fa fa-spinner txt-on-surface-06 fa-pulse text-dark-black" style="font-size:2.5rem;"></i>
+          </div>
+        </div>
+        <div *ngIf="!errorBubbleCharttLoader && errorBubbleShowDataNotFound" class="text-dark-black">{{'DataNotFound' | translate}} </div>
+      </div>
+    </div>
+    <div class="card custom-card mt-4 mr-0">
+      <div class="card-header light-theme-border-bottom d-flex justify-content-between align-items-center">
+        <h2 class="mb-0 text-dark-black font-medium text-on-surface">{{'MapIndicator' | translate}}</h2>
+        <button type="button" class="ls-125 border-0 bg-transparent export-button" permission [domainPermission]="permissionIdsList | getPermissionId : 'sources Map Indicator Expand'" (click)="open(content)"
+          id="worldMapModal">{{'Expand' | translate}}</button>
+        <ng-template #content let-modal>
+          <div class="c-pointer py-2 text-right" (click)="ModalClose(modal,1)"><i class="material-icons text-dark-black">
+              clear
+            </i></div>
+          <div class="modal-body overflow-x-hide h-100 custom-scroll-wrapper d-flex">
+            <div class="card-body" id="mapChartModal">
+              <div class=" d-flex align-items-center justify-content-center"
+                *ngIf="worldMapLoader" >
+                <div class="text-center world-map-loader-wrapper custom-dropdown-menu">
+                  <i class="fa fa-spinner txt-on-surface-06 fa-pulse text-dark-black" style="font-size:4rem;"></i>
+                </div>
+              </div>
+              <div *ngIf="!worldMapLoader && worldMapShowDataNotFound" class="text-dark-black">{{'DataNotFound' | translate}}</div>
+            </div>
+            <div class="modal-wolrd-map-legends d-flex align-items-center" *ngIf="!worldMapLoader">
+              <ul class="list-unstyled pl-0 w-100 mr-5">
+                <li class="f-14 text-white d-flex justify-content-between mb-3">
+                  <span>
+                    <i class="fa fa-circle text-coral-red mr-2 pr-1"></i> <span class="text-dark-black text-on-surface"> {{'errors' | translate}}</span>
+                  </span>
+                  <span class="text-dark-black text-on-surface">
+                    {{totalErrorCount}}
+                  </span>
+
+                </li>
+                <li class="f-14 text-white d-flex justify-content-between mb-3">
+                  <span>
+                    <i class="fa fa-circle text-green mr-2 pr-1"></i> <span class="text-dark-black text-on-surface">{{'morethan100sources' | translate}}</span>
+                  </span>
+                  <span class="text-dark-black text-on-surface">
+                    {{totalSuccesCountsMoreThan100}}
+                  </span>
+                </li>
+                <li class="f-14 text-white d-flex justify-content-between mb-3">
+                  <span>
+                    <i class="fa fa-circle text-thin-green mr-2 pr-1"></i> <span class="text-dark-black text-on-surface">{{'50-100sources' | translate}}</span>
+                  </span>
+                  <span class="text-dark-black text-on-surface">
+                    {{totalSuccesCountsBetweeen50To100}}
+                  </span>
+
+                </li>
+                <li class="f-14 text-white d-flex justify-content-between mb-3">
+                  <span>
+                    <i class="fa fa-circle text-light-green mr-2 pr-1"></i><span class="text-dark-black text-on-surface">{{'lessthan50sources' | translate}}</span>
+                  </span>
+                  <span class="text-dark-black text-on-surface">
+                    {{totalSuccesCountsLessThan50}}
+                  </span>
+                </li>
+                <li class="f-14 text-white d-flex justify-content-between mb-3">
+                  <span>
+                    <i class="fa fa-circle text-gray mr-2 pr-1"></i> <span class="text-dark-black text-on-surface">{{'nosources' | translate}}</span>
+                  </span>
+                  <span class="text-dark-black text-on-surface">
+
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+      <div class="card-body" id="mapChart"  permission [domainPermission]="permissionIdsList | getPermissionId : 'sources Map Indicator Chart'">
+        <div class="d-flex align-items-center justify-content-center" *ngIf="worldMapLoader">
+          <div class="text-center position-wrapper-loader custom-dropdown-menu">
+            <i class="fa fa-spinner txt-on-surface-06 fa-pulse text-dark-black" style="font-size:2.5rem;"></i>
+          </div>
+        </div>
+        <div *ngIf="!worldMapLoader && worldMapShowDataNotFound" class="text-dark-black">{{'DataNotFound' | translate}}</div>
+      </div>
+      <div *ngIf="!worldMapLoader">
+        <ul class="list-unstyled pl-0">
+          <li class="f-14 text-white d-flex justify-content-between mb-3">
+            <span>
+              <i class="fa fa-circle text-coral-red mr-2 pr-1"></i> <span class="text-dark-black text-on-surface">{{'errors' | translate}}</span>
+            </span>
+            <span class="text-dark-black text-on-surface">
+              {{totalErrorCount}}
+            </span>
+
+          </li>
+          <li class="f-14 text-white d-flex justify-content-between mb-3">
+            <span>
+              <i class="fa fa-circle text-green mr-2 pr-1"></i>  <span class="text-dark-black text-on-surface">{{'morethan100sources' | translate}}</span>
+            </span>
+            <span class="text-dark-black text-on-surface">
+              {{totalSuccesCountsMoreThan100}}
+            </span>
+          </li>
+          <li class="f-14 text-white d-flex justify-content-between mb-3">
+            <span>
+              <i class="fa fa-circle text-thin-green mr-2 pr-1"></i>  <span class="text-dark-black text-on-surface">{{'50-100sources' | translate}}</span>
+            </span>
+            <span class="text-dark-black text-on-surface">
+              {{totalSuccesCountsBetweeen50To100}}
+            </span>
+
+          </li>
+          <li class="f-14 text-white d-flex justify-content-between mb-3">
+            <span>
+              <i class="fa fa-circle text-light-green mr-2 pr-1"></i>  <span class="text-dark-black text-on-surface">{{'lessthan50sources' | translate}}</span>
+            </span>
+            <span class="text-dark-black text-on-surface">
+              {{totalSuccesCountsLessThan50}}
+            </span>
+          </li>
+          <li class="f-14 text-white d-flex justify-content-between mb-3">
+            <span>
+              <i class="fa fa-circle text-gray mr-2 pr-1"></i>  <span class="text-dark-black text-on-surface"> {{'nosources' | translate}}</span>
+            </span>
+            <span>
+
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="../../../shared/charts/lineChart.js"></script>
+  <script src="../../../shared/charts/pieChart.js"></script>

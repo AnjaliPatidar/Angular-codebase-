@@ -1,0 +1,42 @@
+<div class="quick-search position-absolute d-inline-block" *ngIf="!addUsersTable">
+    <mat-form-field floatLabel="never">
+        <input  type="text" #element pattern="{{get_pattern(element)}}" name="search" #searchKey = "ngModel" placeholder="{{'Search' | translate}}" aria-label="Number" matInput [matAutocomplete]="auto" [(ngModel)]="quickSearchUser" class="f-16 text-on-surface text-dark-black gotham-regular" (ngModelChange)="search($event,searchKey)">
+        <button mat-button matPrefix mat-icon-button class="search-prefix-icon  bg-transparent border-0 text-on-surface pl-0 text-dark-black">
+        <i class="material-icons">search</i>
+      </button>
+        <mat-autocomplete  #auto="matAutocomplete" class="quick-search-data custom-scroll-wrapper light-theme-bg-white text-dark-black">
+          <ng-container *ngIf="searchKey.valid">
+            <mat-option *ngFor="let option of quickSearchOptions; trackBy: trackByValue" (click)="selectQuickSearchOption(option)" [value]="option.value">
+                <span *ngIf="option.icon" class="initial-name large mr-4"> {{option.icon}}</span>
+                <img *ngIf="option.img" class="initial-name large mr-4" src="{{option.img}}">{{option.value}}
+            </mat-option>
+          </ng-container>
+        </mat-autocomplete>
+        <!-- <mat-select name="name">
+        <ngx-mat-select-search name="search" [placeholderLabel]="placeholderLabel" ngModel
+          (ngModelChange)="search($event)" [clearSearchInput]="true">
+        </ngx-mat-select-search>
+        <mat-option></mat-option>
+        <mat-option *ngFor="let option of quickSearchOptions" class="height-50px" (click)="selectQuickSearchOption(option)"
+          [value]="option.key">
+          <span *ngIf="option.icon" class="initial-name"> {{option.icon}}</span>
+          <img *ngIf="option.img" class="initial-name" src="{{option.img}}" height="50px"
+            class="img-rounded initial-name">{{option.value}}
+        </mat-option>
+      </mat-select> -->
+    </mat-form-field>
+    <span *ngIf="searchKey.touched" class="d-block text-coral-red mt-2"
+            [class.error-msg]="searchKey.invalid">
+            <span *ngIf="searchKey.hasError('pattern')" class="mb-2">{{ get_pattern_error('text') }} </span>
+    </span>
+</div>
+<div class="alert-list position-relative">
+    <!-- <div class="d-flex justify-content-between position-absolute user-btns z-9"> -->
+        <button class="grad-button ws-nowrap mar-r10  light-theme-bg-transparent light-theme-no-radius gotham-medium text-dark-black font-medium fw-500 position-absolute left-add-btn z-9" (click)="addUsersToGroup()" *ngIf=" (assignedUsers == 'FromRoles' || assignedUsers == 'FromGroups' )">{{assignedUsers == 'FromRoles' ? ('add Users To Role' | translate)  : ('add Users To Group' | translate) }}</button>
+        <button class="grad-button ws-nowrap mar-r10  export-button  d-block light-theme-bg-transparent light-theme-no-radius gotham-medium text-dark-black font-medium fw-500 position-absolute z-9 right-export-btn" *ngIf="showExport && !addUsersTable" (click)="exportData()"> <i class="fa fa-download mar-r10"></i>{{ 'ExportTable' | translate }}</button>
+    <!-- </div> -->
+    <div class="ag-table-wrapper table-loader data-table-wrapper" *ngIf="showTable">
+        <app-ag-grid-table (onCompleteIntialize)="onCompleteIntialize($event)" (onGridReadyEvent)="onGridReadyEvent($event)" class="users-table user-management-table mar-t10" [tableData]="gridOptions"></app-ag-grid-table>
+    </div>
+</div>
+<app-right-panel  *ngIf="showPanel" [ngStyle]="{'right': showPanel ? '0' : '-40rem' }"></app-right-panel>

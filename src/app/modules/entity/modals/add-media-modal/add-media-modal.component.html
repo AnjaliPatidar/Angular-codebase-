@@ -1,0 +1,44 @@
+<!-- <flash-message class="main-flash-wrapper"></flash-message> -->
+<div class="upload-media-modal-wrapper">
+  <span *ngIf="addMediaPreloader" class="custom-spinner case-dairy-spinner">
+    <i class="fa fa-spinner txt-on-surface-06 fa-spin fa-2x"></i>
+  </span>
+  <div class="modal-header d-block">
+    <button type="button" class="close" aria-hidden="true"
+      (click)="closeUploadDocument()"><span>&#x2716;</span></button>
+    <h4 class="modal-title float-left mt-3 font-weight-bold">UPLOAD DOCUMENT</h4>
+  </div>
+  <div class="modal-body">
+    <form class="form" autocomplete="off">
+      <div class="form-group row">
+        <label class="control-label">File Title :</label>
+        <input type="text" class="form-control" id="upload-doc-file-title" name="uploadDocumentFileTitle"
+          [(ngModel)]="uploadDocumentFileTitle">
+      </div>
+      <!-- 			<div class="form-group row"> -->
+      <!-- 				<label class="control-label">Remarks :</label> -->
+      <!-- 				<textarea class="form-control" id="upload-doc-remarks" rows="3" [(ngModel)]="uploadDocumentRemarks"></textarea> -->
+      <!-- 			</div> -->
+    </form>
+    <br />
+    <br />
+    <div class="text-dark-grey2">{{ 'Supported file types' | translate }} : pdf, docx, xlsx, csv, txt, rtf, jpg,
+      jpeg, png, gif</div>
+    <!-- <div *ngIf="uploadDocTypeList && uploadDocTypeList?.length == 0  " class="text-dark-grey2">Files cant be uploaded -->
+    </div><br>
+    <span class="text-dark-grey2">File Size: up to 20MB</span>
+    <!-- <div *ngIf="uploadDocTypeList?.length > 0" class="text-dark-grey2">{{ 'Supported file types' | translate }} : <span
+        ng-repeat="uploadFileType in uploadDocTypeList track by $index">{{uploadFileType}}<span class="mar-r5"
+          *ngIf="!$last">,</span></span></div> -->
+          <br>
+    <!-- <span *ngIf="maxFile_size" class="text-dark-grey2">File Size: up to {{maxFile_size}}</span> -->
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary btn-update d-inline-block align-items-center">
+      <input type="file" id="upload-btn" class="d-none btn btn-primary btn-update" #fileupload
+        (change)="uploadDocumentOnSubmit(fileupload.files[0],$event)">
+      <i class="fa fa-upload"></i><label for="upload-btn" class="c-pointer m-0">{{ 'Upload' | translate }}</label>
+    </button>
+    <button type="button" class="btn btn-default btn-cancel" (click)="closeUploadDocument()">{{ 'Close' | translate }}</button>
+  </div>
+</div>

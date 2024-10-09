@@ -1,0 +1,78 @@
+$text-color         : $color-white-87;
+$icons-enabled-color: $color-icon-enabled;
+
+.ngx-mat-timepicker-table {
+    display        : -webkit-box;
+    display        : -moz-box;
+    display        : -ms-flexbox;
+    display        : -webkit-flex;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+
+    .ngx-mat-timepicker-tbody {
+        color         : $text-color;
+        padding       : 20px;
+        font-family   : Roboto;
+        font-size     : 24px;
+        font-weight   : normal;
+        font-stretch  : normal;
+        font-style    : normal;
+        line-height   : 1.17;
+        letter-spacing: normal;
+        text-align    : center;
+
+        tr td {
+            width: 15px;
+
+            .mat-form-field {
+                width    : 30px !important;
+                max-width: 30px !important;
+                position : relative;
+                top      : 4px;
+            }
+
+            &.ngx-mat-timepicker-spacer {
+                position: relative;
+                top     : 2px;
+            }
+
+            &.ngx-mat-timepicker-meridian {
+                .mat-button-base {
+                    position: relative;
+                    top     : 2px;
+                }
+            }
+
+            .mat-form-field-appearance-legacy .mat-form-field-infix {
+                margin-top : 0px;
+                padding-top: 0px;
+                border-top : 12px solid transparent;
+
+                .mat-input-element {
+                    caret-color: $color-accent;
+                }
+            }
+        }
+
+        .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+            padding-bottom: 0px !important;
+        }
+    }
+
+    .mat-stroked-button.mat-primary {
+        color: $text-color;
+    }
+
+    .mat-form-field-underline {
+        display: none !important;
+    }
+}
+
+.bst-time-picker-wrapper {
+    &__actions {
+        float         : right;
+        padding-right : 16px;
+        padding-bottom: 16px;
+    }
+}

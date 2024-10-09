@@ -1,0 +1,139 @@
+<mat-accordion class="alert-details">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title class="title-text-on-surface">
+                Entity Details
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="d-flex gap-45">
+            <div class="col-3 pr-0 pl-0">
+                <ul class="txt-on-surface pl-0 list-unstyled f-14 text-dark-black">
+                    <li>
+                        <div class="row">
+                            <div class="col-3">
+                                <span class="txt-on-surface-06 mr-4 mnw-90 text-dark-black f-13">
+                                    Entity ID:
+                                </span>
+                            </div>
+                            <div class="col-9  pr-0">
+                                <span class="text-on-surface-87 overflow span-h-15">
+                                    {{alertData.entity_id ? alertData.entity_id : 'N/A'}}
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-3">
+                                <span class="txt-on-surface-06 mr-4 mnw-90 text-dark-black f-13">
+                                    Entity Name:
+                                </span>
+                            </div>
+                            <div class="col-9  pr-0">
+                                <span class="text-on-surface-87 overflow span-h-15"
+                                    [ngClass]="(alertData.entity_attributes.main_entity_url ? 'rc-name-cell' : '')"
+                                    (click)="navigateToEntity(alertData.entity_attributes.main_entity_url)">
+                                    {{alertData.entity_name ? alertData.entity_name : 'N/A'}}
+                                </span>  
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-3">
+                                <span class="txt-on-surface-06 mr-4 mnw-90 text-dark-black f-13">
+                                    Entity type:
+                                </span>
+                            </div>
+                            <div class="col-9  pr-0">
+                                <span class="text-on-surface-87 overflow span-h-15">
+                                    {{alertData.entity_type ? alertData.entity_type : 'N/A'}}
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-3 pr-0">
+                <ul class="txt-on-surface pl-0 list-unstyled f-14 text-dark-black">
+                    <li>
+                        <div class="row">
+                            <div class="col-3">
+                                <span class="txt-on-surface-06 mr-4 mnw-90 text-dark-black f-13">
+                                    Country:
+                                </span>
+                            </div>
+                            <div class="col-9  pr-0">
+                                <span class="text-on-surface-87 overflow span-h-15">
+                                    {{alertData.entity_attributes.country ? alertData.entity_attributes.country : 'N/A'}}
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-3">
+                                <span class="txt-on-surface-06 mr-4 mnw-90 text-dark-black f-13">
+                                    Address:
+                                </span>
+                            </div>
+                            <div class="col-9  pr-0">
+                                <span class="text-on-surface-87 overflow span-h-15">
+                                    {{alertData.entity_attributes.address ? alertData.entity_attributes.address : 'N/A'}}
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-4 pr-0 pl-0">
+                <ul class="txt-on-surface pl-0 list-unstyled f-14 text-dark-black">
+                    <li>
+                        <div class="row">
+                            <div class="col-6">
+                                <span class="txt-on-surface-06 mr-4 mnw-90 text-dark-black f-13">
+                                    Primary entity ID:
+                                </span>
+                            </div>
+                            <div class="col-6 pr-0 pl-0">
+                                <span class="text-on-surface-87 overflow span-h-15">
+                                    {{alertData.entity_attributes.primary_entity_id ? alertData.entity_attributes.primary_entity_id : 'N/A'}}
+                                </span> 
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-6">
+                                <span class="txt-on-surface-06 mr-4 mnw-90 text-dark-black f-13">
+                                    Primary entity name:
+                                </span>
+                            </div>
+                            <div class="col-6 pr-0 pl-0">
+                                <span class="text-on-surface-87 overflow span-h-15" [ngClass]="(alertData.entity_attributes.primary_entity_url ? 'rc-name-cell' : '')"
+                                (click)="navigateToEntity(alertData.entity_attributes.primary_entity_url)">
+                                    {{alertData.entity_attributes.primary_entity_name ? alertData.entity_attributes.primary_entity_name : 'N/A'}}
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-6">
+                                <span class="txt-on-surface-06 mr-4 mnw-90 text-dark-black f-13">
+                                    Primary entity relationship:
+                                </span>
+                            </div>
+                            <div class="col-6 pr-0 pl-0">
+                                <span class="text-on-surface-87 overflow span-h-15">
+                                    {{alertData.entity_attributes.primary_entity_relationship ?
+                                    alertData.entity_attributes.primary_entity_relationship : 'N/A'}}
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>

@@ -1,0 +1,322 @@
+<style>
+    .nav ul li a i {
+        font-size: 21px;
+        line-height: 21px;
+        display: block;
+        padding: 12px;
+        background-color: #2d2d2d;
+    }
+
+    .pad-12 {
+        padding: 12px !important;
+    }
+</style>
+<div id="entity-company" class="entity-company-wrapper dashboard_wrapper d-block" *ngIf="pageLoader && !isDataFound">
+    <!--  Entity Company Content Starts  -->
+    <div id="entity-company-content" class="entity-page">
+        <div class="entity-company-content-inner-wrapper entityCompanyNew-inner-wrapper">
+            <!--  Entity Company Content Left Starts  -->
+            <div class="entity-company-content-left">
+                <!--  Entity Results Wrapper Starts  -->
+                <div class="container-fulid entity-results-wrapper">
+                    <div class="custom-row bst_row_wrapper mar-0">
+                        <!--  Entity Company Intro Starts  -->
+                        <div class="custom-col d-flex bst_panel_wrapper custom-panel-wrapper entity-company-intro entity-company-new-intro " *ngIf="entityType =='company'">
+                            <div class="entity-company-image pe-none op-1" [ngStyle]="{'background-color': entitySearchResult.comapnyLogo ?'transparent':'rgba(251, 251, 251, 0.08)'}">
+                                <a href="javascript:void(0);" target="_blank">
+                                    <img class="img-responsive" [src]="entitySearchResult.comapnyLogo" *ngIf="entitySearchResult.comapnyLogo " />
+                                    <i class="fa fa-building-o" *ngIf="!entitySearchResult.comapnyLogo"></i>
+                                </a>
+                            </div>
+                            <div class="entity-company-description p-rel clearfix">
+                                <div class="header">
+                                    <h2 class="company-title bottom-pop mxw-70-percent mb-2">
+                                        {{this.ceriSearchResultObject['vcard:organization-name']?.value || 'N/A'}}
+                                        <a href="javascript:void(0);" class="va-m h-1_8 mar-l5 mar-r25 f-15 align-top" popover-trigger="'mouseenter'" popover-placement="bottom" [ngClass]="(entitySearchResult.list.isSignificant) ?  'text-dark-blue' : 'text-white'  " (click)="makeSignificant(entitySearchResult.list.isSignificant)">
+                                            <i>
+                                                <img src="assets/images/check-circle.webp"></i>
+                                            <span class="status">(existing client)</span>
+                                        </a>
+
+                                    </h2>
+
+                                    <!-- shravani:16-05-20: Added new component for rating -->
+                                    <app-rating class="rating-header" [aggregateRating]="aggregateRating" [rating_summary]="rating_summary"></app-rating>
+                                </div>
+                                <div class="sub-header">
+                                    <span class="inline" title="{{ceriSearchResultObject['priceRange']?.value}}">{{ceriSearchResultObject['priceRange']?.value}}</span>
+                                    <span class="inline" title="{{businessClassifier}}">&nbsp;{{ businessClassifier ||'N/A'}}</span>
+                                </div>
+
+                                <div class="main-content-description main-information-content p-rel">
+                                    <div class="highlighting-info-wrapper">
+                                        <ul class="list-inline clearfix end-screen">
+                                            <li class="highlighting-list mar-r0">
+                                                <div class="highlighting-info header-width">
+                                                    <p ng-if="!hideTabs">
+                                                        <span class="key">Revenue </span>
+
+                                                    </p>
+                                                    <p ng-if="!hideTabs">
+                                                        <span class="pt-2 fs-b value text-overflow" title="{{revenue }}">
+                                                            {{revenue  || 'N/A'}}</span>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li class="highlighting-list mar-r0">
+                                                <div class="highlighting-info">
+                                                    <p ng-if="!hideTabs">
+                                                        <span class="key">Company size </span>
+                                                    </p>
+                                                    <p ng-if="!hideTabs">
+                                                        <span class="pt-2 fs-b value text-overflow" title="{{ceriSearchResultObject['size']?.value }}">
+                                                            {{ ceriSearchResultObject['size']?.value ||'N/A'}}</span>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li class="highlighting-list mar-r0">
+                                                <div class="highlighting-info">
+                                                    <p ng-if="!hideTabs">
+                                                        <span class="key">Location: </span>
+                                                    </p>
+                                                    <p ng-if="!hideTabs">
+                                                        <span class="pt-2 fs-b value text-overflow" title="{{this.ceriSearchResultObject['country']?.value}}">
+                                                            {{this.ceriSearchResultObject['city']?.value || 'N/A'}} ,
+                                                            {{ this.ceriSearchResultObject['country']?.value||'N/A'}}
+                                                        </span>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li class="highlighting-list mar-r0">
+                                                <div class="highlighting-info">
+                                                    <p ng-if="!hideTabs">
+                                                        <span class="key">HQ phone: </span>
+                                                    </p>
+                                                    <p ng-if="!hideTabs">
+
+                                                        <span class="pt-2 fs-b value text-overflow" title="{{this.ceriSearchResultObject['tr-org:hasRegisteredPhoneNumber']?.value }}">
+                                                            {{this.ceriSearchResultObject['tr-org:hasRegisteredPhoneNumber']?.value || 'N/A'}}</span>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                            <li class="highlighting-list mar-r0">
+                                                <div class="highlighting-info">
+                                                    <p ng-if="!hideTabs">
+                                                        <span class="key">Website: </span>
+                                                    </p>
+                                                    <p ng-if="!hideTabs">
+                                                        <span class="pt-2 fs-b value text-overflow" title="{{ceriSearchResultObject?.hasURL?.value }}">
+                                                            <a href="{{ceriSearchResultObject?.hasURL?.value}}"
+                                                                target="_blank">
+                                                                {{ceriSearchResultObject?.hasURL?.value || 'N/A'}}</a></span>
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- shravani:29-05-2020:Risk score implemented -->
+                            <div class="risk">
+                                <div class="c100 mar-t10 p{{cumulativeRisk| number: 0}} orange radial" [class.c-pointer]="cumulativeRisk" (click)="(cumulativeRisk) ? openRiskScoreModal(content) : '' ">
+                                    <span class="inner-number riskScoreTooltip">{{cumulativeRisk | number : 0}}%</span>
+                                    <span class="inner-text">Risk score</span>
+                                    <div class="slice">
+                                        <div class="bar"></div>
+                                        <div class="fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="person-container custom-col d-flex bst_panel_wrapper custom-panel-wrapper entity-company-intro entity-company-new-intro light-theme-bg-white" *ngIf="entityType =='person'">
+                            <div class="entity-company-image pe-none op-1" [ngStyle]="{'background-color': PersonEntityDetails['images']?.value[0] && !imageBroke ?'transparent':'rgba(251, 251, 251, 0.08)'}">
+                                <a href="javascript:void(0);" target="_blank">
+                                    <img class="img-responsive radius-circle" [src]="PersonEntityDetails['images']?.value[0]" (error)="imgError($event)" *ngIf="PersonEntityDetails['images']?.value[0]!=''&& PersonEntityDetails['images']?.value[0]!=null && !imageBroke" />
+                                    <i class="material-icons text-on-surface text-dark-black" *ngIf="PersonEntityDetails['images']?.value[0]=='' || PersonEntityDetails['images']?.value[0]==null || imageBroke">
+                                        person
+                                      </i>
+                                </a>
+                            </div>
+                            <div class="entity-company-description p-rel pr-1 clearfix">
+                                <div class="header">
+                                    <h2 class="person-title bottom-pop mxw-70-percent mb-2 f-24 text-dark-black text-capitalize gotham-medium">
+                                        {{PersonEntityDetails['name']?.value[0]}}
+
+                                    </h2>
+                                </div>
+
+                                <div class="main-content-description main-information-content p-rel">
+                                    <div class="highlighting-info-wrapper">
+                                        <div class="row" *ngIf="PersonGeneralInfoKeys && PersonGeneralInfoKeys.length>0">
+                                            <div class="col-md-4 highlighting-info header-width d-inline-flex ai-c " *ngFor="let general of PersonGeneralInfoKeys">
+                                                <span class="f-14 width-80 text-dark-black">
+                                                    <span>{{general.displayName}} </span> :
+
+                                                <span class="d-inline-flex align-items-center" tooltipClass="attribute_tooltip light-theme-tooltip" ngbTooltip="{{PersonEntityDetails[general.key]?.value[0]}}" *ngIf="general.subkey !=='country'">
+                                                        <span *ngIf="general.subkey !=='country'"
+                                                            [ngClass]="{elipseText :PersonEntityDetails[general.key]?.value[0].length >13}"
+                                                            class="text-capitalize">{{PersonEntityDetails[general.key]?.value[0] || 'N/A'}}</span>
+                                                </span>
+                                                <span class="d-inline-flex align-items-center" tooltipClass="attribute_tooltip light-theme-tooltip" ngbTooltip="{{PersonEntityDetails[general.key]?.value[0]}}" *ngIf="general.subkey =='country'">
+                                                        <span *ngIf="general.subkey =='country'"
+                                                            [ngClass]="{elipseText :PersonEntityDetails[general.key]?.value[0].length >13}"
+                                                            class="text-capitalize">
+                                                            <span class="fa fa-icon"></span>
+                                                <i class="mar-r5 flag-icon flag-icon-squared placeholder-icon f-16 flag-icon-{{PersonEntityDetails[general.key]?.value[0].toLowerCase()}}"></i> {{PersonEntityDetails[general.key]?.value[0] || 'N/A'}}</span>
+                                                </span>
+                                                </span>
+
+                                                <!-- modal on hover -->
+                                                <ng-template #popItem>
+                                                    <div [innerHTML]="getHoverModalTemplate(PersonEntityDetails[general.key])">
+                                                    </div>
+                                                </ng-template>
+
+                                                <!-- modal on click -->
+                                                <ng-template #content let-modal>
+                                                    <app-person-info-edit [modalInstance]='modal' [modalData]='PersonEntityDetails[general.key]' [statickeys]='PersonEntityDetails[general.key]'>
+                                                    </app-person-info-edit>
+                                                </ng-template>
+
+                                                <button class="source-button-wrapper border-0  mnw-80" [ngbPopover]="popItem" triggers="mouseenter:mouseleave" placement="left-top" (click)="open(content)" container="body" popoverClass="custom-popover custom-scroll-wrapper">
+
+                                                    <span class="text-dark-pastal-green mar-r5" [style]="myStyle2" style="cursor: pointer;">
+                                                        <i class="fa f-10 fa-link"></i>
+                                                        {{PersonEntityDetails[general.key]?.primiarySources.length || 0}}
+                                                    </span>
+                                                    <span class="text-dark-cream text-dark-black mar-r5 c-pointer">
+                                                        <i class="fa f-10 fa-link"></i>
+                                                        {{PersonEntityDetails[general.key]?.secondarySources.length || 0}}
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- shravani:29-05-2020:Risk score implemented -->
+                            <!-- <div class="risk">
+                                <div class="c100 mar-t10 p{{cumulativeRisk| number: 0}} orange radial"
+                                    [class.c-pointer]="cumulativeRisk"
+                                    (click)="(cumulativeRisk) ? openRiskScoreModal(content) : '' ">
+                                    <span class="inner-number riskScoreTooltip">{{cumulativeRisk | number : 0}}%</span>
+                                    <span class="inner-text">Risk score</span>
+                                    <div class="slice">
+                                        <div class="bar"></div>
+                                        <div class="fill"></div>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div class="highlighting-list custom-scroll-wrapper" style="max-height: 190px;overflow-y: scroll;padding-right:7px">
+                                <ul class="highlighting-info  list-inline custom-list item-1 pad-l0 pad-t10 screening-list">
+                                    <li class="d-flex  c-pointer mar-b15 ai-c border-0 ">
+                                        <i class="fa fa-street-view mar-r10  showTooltipforSummary f-21"
+                                            [ngClass]="(summaryCount.PEP > 0) ? 'text-light-orange c-pointer' : 'text-dark-green2 pe-none op-1'"></i>
+                                        <span class="text-on-surface mar-r10  text-dark-black gotham-medium">PEP</span>
+                                        <span class="mar-autol f-16 text-dark-black gotham-bold theme-f-bold">
+                                            <span *ngIf="isScreened">{{summaryCount.PEP || 0 }}</span>
+                                            <span *ngIf="!isScreened">NA</span>
+                                        </span>
+                                    </li>
+                                    <li class="d-flex  c-pointer mar-b15 ai-c border-0 ">
+                                        <i class="fa fa-users mar-r10  showTooltipforSummary f-21"
+                                            [ngClass]="(summaryCount.News > 0) ? 'text-light-orange c-pointer' : 'text-dark-green2 pe-none op-1'"></i>
+                                        <span class="text-on-surface mar-r10  text-dark-black gotham-medium">News</span>
+                                        <span class="mar-autol f-16 text-dark-black gotham-bold theme-f-bold">
+                                            <span *ngIf="isScreened">{{summaryCount.News || 0 }}</span>
+                                            <span *ngIf="!isScreened">NA</span>
+                                        </span>
+                                    </li>
+                                    <li class="d-flex  c-pointer mar-b15 ai-c border-0 ">
+                                        <i class="fa fa-building mar-r10  showTooltipforSummary f-21"
+                                            [ngClass]="(summaryCount.RCA > 0) ? 'text-light-orange c-pointer' : 'text-dark-green2 pe-none op-1'"></i>
+                                        <span class="text-on-surface mar-r10  text-dark-black gotham-medium">RCA</span>
+                                        <span class="mar-autol f-16 text-dark-black gotham-bold theme-f-bold">
+                                            <span *ngIf="isScreened">{{summaryCount.RCA || 0 }}</span>
+                                            <span *ngIf="!isScreened">NA</span>
+                                        </span>
+                                    </li>
+                                    <li class="d-flex  c-pointer mar-b15 ai-c border-0 ">
+                                        <i class="fa fa-street-view mar-r10  showTooltipforSummary f-21"
+                                            [ngClass]="(summaryCount.Sanctions > 0) ? 'text-light-orange c-pointer' : 'text-dark-green2 pe-none op-1'"></i>
+                                        <span class="text-on-surface mar-r10  text-dark-black gotham-medium">Sanctions</span>
+                                        <span class="mar-autol f-16 text-dark-black gotham-bold theme-f-bold">
+                                            <span *ngIf="isScreened">{{summaryCount.Sanctions || 0 }}</span>
+                                            <span *ngIf="!isScreened">NA</span>
+                                        </span>
+                                    </li>
+                                    <li class="d-flex  c-pointer mar-b15 ai-c border-0 ">
+                                        <i class="fa fa-newspaper-o mar-r10  showTooltipforSummary f-21"
+                                            [ngClass]="(summaryCount.SIP > 0) ? 'text-light-orange c-pointer' : 'text-dark-green2 pe-none op-1'"></i>
+                                        <span class="text-on-surface mar-r10  text-dark-black gotham-medium">SIP</span>
+                                        <span class="mar-autol f-16 text-dark-black gotham-bold theme-f-bold">
+                                            <span *ngIf="isScreened">{{summaryCount.SIP || 0 }}</span>
+                                            <span *ngIf="!isScreened">NA</span>
+                                        </span>
+                                    </li>
+                                    <li class="d-flex  c-pointer mar-b15 ai-c border-0 ">
+                                        <i class="fa fa-newspaper-o mar-r10  showTooltipforSummary f-21"
+                                            [ngClass]="(summaryCount.AME > 0) ? 'text-light-orange c-pointer' : 'text-dark-green2 pe-none op-1'"></i>
+                                        <span class="text-on-surface mar-r10  text-dark-black gotham-medium">AME</span>
+                                        <span class="mar-autol f-16 text-dark-black gotham-bold theme-f-bold">
+                                            <span *ngIf="isScreened">{{summaryCount.AME || 0 }}</span>
+                                            <span *ngIf="!isScreened">NA</span>
+                                        </span>
+                                    </li>
+                                    <li class="d-flex  c-pointer mar-b15 ai-c border-0">
+                                        <i class="fa fa-ban mar-r10 showTooltipforSummary  f-21 "
+                                            [ngClass]="summaryCount.SIE > 0 ? 'text-light-orange  c-pointer' : 'text-dark-green2 pe-none op-1'"></i>
+                                        <span
+                                            class="text-on-surface mar-r10 text-dark-black theme-f-14 gotham-medium">SIE</span>
+                                        <span class="mar-autol f-16 text-dark-black gotham-bold theme-f-bold">
+                                            <span *ngIf="isScreened">{{summaryCount.SIE || 0}}</span>
+                                            <span *ngIf="!isScreened">NA</span>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--  Entity Company Intro Ends  -->
+                        <!--  Entity Contents Wrapper Starts  -->
+                        <div class="custom-col  entity-company-new-desc">
+                            <div class="innerSidebarToggle">
+                                <!--  Custom TABS Section Wrapper Starts  -->
+                                <div class="entity-tabs-wrapper">
+                                    <div class="tabs-section">
+                                        <ul class=" nav nav-tabs d-block">
+                                            <li class="d-block" *ngFor="let tab of tabConfig;trackBy:trackByName">
+                                                <a [routerLink]="[tab.url]" [routerLinkActive]="['is-active']" (click)="catchRout(tab.name)" [queryParams]="queryParams" class="d-block pad-12">
+                                                    <i class="fa {{tab.icon}}"></i>
+                                                    <span class="main-nav-texts">{{tab.name}}</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!--  Custom TABS Section Wrapper Ends  -->
+                                <div class="entity-contents-wrapper due-tab-wrapper">
+                                    <router-outlet></router-outlet>
+                                </div>
+                            </div>
+                        </div>
+                        <!--   Entity Contents Wrapper Ends  -->
+                    </div>
+                </div>
+                <!--  Entity Results Wrapper Ends  -->
+            </div>
+            <!--  Entity Company Content Left Ends  -->
+            <!--  Entity Company Content Right Starts  -->
+        </div>
+        <!--  Entity Company Content Ends  -->
+    </div>
+</div>
+<div id="entity-company" class="entity-company-wrapper dashboard_wrapper d-block" *ngIf="!pageLoader && !isDataFound">
+    <span class="custom-spinner full-page-spinner" style="height: 100%;">
+        <i class="fa fa-spinner txt-on-surface-06 fa-spin fa-4x"></i>
+    </span>
+</div>
+
+<div class="data-not-found" *ngIf="isDataFound">
+  <h1>Data not found</h1>
+</div>

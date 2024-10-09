@@ -1,0 +1,4 @@
+<mat-slide-toggle class="bst-slide-toggle" [checked]="relevantStatus" (change)="updateRelevantState($event)"  *ngIf="!isContactUpdated" [disabled]="isContactHasPermission"></mat-slide-toggle>
+<div class="download-loader z-99" *ngIf="isContactUpdated">
+  <i class="fa fa-spinner txt-on-surface-06 fa-pulse f-25"></i>
+</div>

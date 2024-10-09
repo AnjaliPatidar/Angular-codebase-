@@ -1,0 +1,53 @@
+<div class="bst-add-comment" [ngClass]="(fileAttachments.length > 0)?'top-border':''">
+    <ul class="bst-file-list" *ngIf="fileAttachments && isEditable">
+        <li class="display-block" *ngFor="let attach of fileAttachments">
+            <!-- For Attachments which are not images -->
+            <div class="bst-file-list__attachment"
+                *ngIf="!(attach?.type == 'image/jpeg' || attach?.type == 'image/png')"
+                (click)="downloadAttachedFile(attach, fileURL)">
+                <span class="material-icons-round bst-file-list__attachment--icon">
+                    insert_drive_file
+                </span>
+                <span class="bst-file-list__attachment--name bst-body2 bst-color-ty">{{attach?.name}}</span>
+                <button type="button" class="bst-file-list__attachment--close">
+                    <span class="material-icons-round close-icon"
+                        (click)="onRemoveAttach(attach); $event.stopPropagation()">close</span>
+                </button>
+            </div>
+            <!-- For Images -->
+            <div class="bst-file-list__img"
+                *ngIf="(attach?.type == 'image/jpeg' || attach?.type == 'image/png')"
+                (click)="downloadAttachedFile(attach, imgURL)">
+                <img src={{imgURL}} class="uploaded-img pointer">
+                <button type="button" class="bst-file-list__img--close">
+                    <span class="material-icons-round close-icon"
+                        (click)="onRemoveAttach(attach); $event.stopPropagation()">close</span>
+                </button>
+            </div>
+        </li>
+    </ul>
+    <mat-form-field class="bst-form-field bst-form-field--textarea" appearance="fill">
+        <mat-label class="text-label">Add Comment</mat-label>
+        <div class="input-wrapper">
+            <span class="expand-icon-wrapper">
+                <span class="text-area-icon"></span>
+            </span>
+            <textarea class="input-wrapper__textarea" id="textareaRef" name="textareaRef" matInput
+                [(ngModel)]="newComment" [mentionConfig]="mentionConfig" contenteditable="true"
+                (focus)="onTextareaFocus()"></textarea>
+        </div>
+        <mat-icon class="bst-mat-icon material-icons-round text-area-suffix" matSuffix (click)="onFileAttach($event)">
+            attach_file
+        </mat-icon>
+        <input type="file" id="fileAttachment" #fileupload class="display-none"
+            (change)="onFileUpload(fileupload?.files)" name="myFile" multiple />
+    </mat-form-field>
+    <div class="add-comment-actions" *ngIf="isEditable">
+        <button mat-button class="bst-mat-btn bst-mat-btn--normal u-mr-8" (click)="onCancelNewComment()">
+            <span>Cancel</span>
+        </button>
+        <button mat-button class="bst-mat-btn bst-mat-btn--primary" (click)="onAddNewComment()">
+            <span>Send</span>
+        </button>
+    </div>
+</div>  

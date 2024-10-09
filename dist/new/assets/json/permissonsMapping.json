@@ -1,0 +1,2242 @@
+[
+  {
+    "alertManagement": {
+      "tabs": {
+        "alertsList": {
+          "risk": 2978,
+          "aml": 4000,
+          "market_intelligence": 4016,
+          "financial-crime": 4032,
+          "credit-cards": 4048,
+          "social-listening": 4064,
+          "insurance": 4080,
+          "level": 1
+        },
+        "feedList": {
+          "risk": 1552,
+          "aml": 4008,
+          "market_intelligence": 4024,
+          "financial-crime": 4040,
+          "credit-cards": 4056,
+          "social-listening": 4072,
+          "insurance": 4088,
+          "level": 1
+        }
+      },
+      "alertsList": [
+        {
+          "exportData": {
+            "risk": 4092,
+            "aml": 4001,
+            "market_intelligence": 4017,
+            "financial-crime": 4033,
+            "credit-cards": 4049,
+            "social-listening": 4065,
+            "insurance": 4081,
+            "level": 1
+          }
+        },
+        {
+          "groupLevel": {
+            "risk": 4093,
+            "aml": 4002,
+            "market_intelligence": 4018,
+            "financial-crime": 4034,
+            "credit-cards": 4050,
+            "social-listening": 4066,
+            "insurance": 4082,
+            "level": 2
+          }
+        },
+        {
+          "assignee": {
+            "risk": 4094,
+            "aml": 4003,
+            "market_intelligence": 4019,
+            "financial-crime": 4035,
+            "credit-cards": 4051,
+            "social-listening": 4067,
+            "insurance": 4083,
+            "level": 2
+          }
+        },
+        {
+          "status": {
+            "risk": 4095,
+            "aml": 4004,
+            "market_intelligence": 4020,
+            "financial-crime": 4036,
+            "credit-cards": 4052,
+            "social-listening": 4068,
+            "insurance": 4084,
+            "level": 2
+          }
+        },
+        {
+          "commentBox": {
+            "risk": 4096,
+            "aml": 4005,
+            "market_intelligence": 4021,
+            "financial-crime": 4037,
+            "credit-cards": 4053,
+            "social-listening": 4069,
+            "insurance": 4085,
+            "level": 1
+          }
+        },
+        {
+          "quickInfo": {
+            "risk": 4097,
+            "aml": 4006,
+            "market_intelligence": 4022,
+            "financial-crime": 4038,
+            "credit-cards": 4054,
+            "social-listening": 4070,
+            "insurance": 4086,
+            "level": 1
+          }
+        },
+        {
+          "alertAuditing": {
+            "risk": 4098,
+            "aml": 4007,
+            "market_intelligence": 4023,
+            "financial-crime": 4039,
+            "credit-cards": 4055,
+            "social-listening": 4071,
+            "insurance": 4087,
+            "level": 1
+          }
+        },
+        {
+          "alertIndicators": {
+            "risk": 4131,
+            "aml": 4132,
+            "market_intelligence": 4133,
+            "financial-crime": 4134,
+            "credit-cards": 4135,
+            "social-listening": 4136,
+            "insurance": 4137,
+            "level": 1
+          }
+        },
+        {
+          "bulkChangeLevel": {
+            "risk": 4138,
+            "aml": 4139,
+            "market_intelligence": 4140,
+            "financial-crime": 4141,
+            "credit-cards": 4142,
+            "social-listening": 4143,
+            "insurance": 4144,
+            "level": 1
+          }
+        },
+        {
+          "bulkAssignee": {
+            "risk": 4145,
+            "aml": 4146,
+            "market_intelligence": 4147,
+            "financial-crime": 4148,
+            "credit-cards": 4149,
+            "social-listening": 4150,
+            "insurance": 4151,
+            "level": 1
+          }
+        },
+        {
+          "bulkAssignToMe": {
+            "risk": 4152,
+            "aml": 4153,
+            "market_intelligence": 4154,
+            "financial-crime": 4155,
+            "credit-cards": 4156,
+            "social-listening": 4157,
+            "insurance": 4158,
+            "level": 1
+          }
+        },
+        {
+          "bulkAuditing": {
+            "risk": 4159,
+            "aml": 4160,
+            "market_intelligence": 4161,
+            "financial-crime": 4162,
+            "credit-cards": 4164,
+            "social-listening": 4165,
+            "insurance": 4166,
+            "level": 1
+          }
+        },
+        {
+          "bulkSetStatus": {
+            "risk": 4177,
+            "aml": 4178,
+            "market_intelligence": 4179,
+            "financial-crime": 4180,
+            "credit-cards": 4181,
+            "social-listening": 4182,
+            "insurance": 4183,
+            "level": 1
+          }
+        },
+        {
+          "View interactive VLA (bubbly page)": {
+            "risk": 9006,
+            "level": 1,
+            "aml": 9016,
+            "market-intelligence": 9026,
+            "financial-crime": 9036,
+            "credit-cards": 9046,
+            "social-listening": 9056,
+            "insurance": 9066
+          }
+        },
+        {
+          "entityInformation": {
+            "risk": 9011,
+            "level": 1,
+            "aml": 9027,
+            "market-intelligence": 9043,
+            "financial-crime": 9059,
+            "credit-cards": 9075,
+            "social-listening": 9091,
+            "insurance": 9107
+          }
+        },
+        {
+          "visualLinkAnalysis": {
+            "risk": 9012,
+            "level": 1,
+            "aml": 9028,
+            "market-intelligence": 9044,
+            "financial-crime": 9060,
+            "credit-cards": 9076,
+            "social-listening": 9092,
+            "insurance": 9108
+          }
+        },
+        {
+          "rejectAll": {
+            "risk": 9013,
+            "level": 1,
+            "aml": 9029,
+            "market-intelligence": 9045,
+            "financial-crime": 9061,
+            "credit-cards": 9077,
+            "social-listening": 9093,
+            "insurance": 9109
+          }
+        },
+        {
+          "approve": {
+            "risk": 9014,
+            "level": 1,
+            "aml": 9030,
+            "market-intelligence": 9046,
+            "financial-crime": 9062,
+            "credit-cards": 9078,
+            "social-listening": 9094,
+            "insurance": 9110
+          }
+        },
+        {
+          "confidenceLevelFilter": {
+            "risk": 9015,
+            "level": 1,
+            "aml": 9031,
+            "market-intelligence": 9047,
+            "financial-crime": 9063,
+            "credit-cards": 9079,
+            "social-listening": 9095,
+            "insurance": 9111
+          }
+        },
+        {
+          "entityIdentification": {
+            "risk": 9010,
+            "level": 1,
+            "aml": 9026,
+            "market-intelligence": 9042,
+            "financial-crime": 9058,
+            "credit-cards": 9074,
+            "social-listening": 9090,
+            "insurance": 9106
+          }
+        },
+        {
+          "configureAlertManagementUi": {
+            "risk": 9009,
+            "level": 2,
+            "aml": 9025,
+            "market-intelligence": 9041,
+            "financial-crime": 9057,
+            "credit-cards": 9073,
+            "social-listening": 9089,
+            "insurance": 9105
+          }
+        },
+        {
+          "assignAlertstoGroup": {
+            "risk": 9430,
+            "aml": 9431,
+            "market_intelligence": 9432,
+            "financial-crime": 9433,
+            "credit-cards": 9434,
+            "social-listening": 9435,
+            "insurance": 9436,
+            "level": 1
+          }
+        }
+      ],
+      "feedList": [
+        {
+          "exportData": {
+            "risk": 4099,
+            "aml": 4009,
+            "market_intelligence": 4025,
+            "financial-crime": 4041,
+            "credit-cards": 4057,
+            "social-listening": 4073,
+            "insurance": 4089,
+            "level": 1
+          }
+        },
+        {
+          "groupLevels": {
+            "risk": 4100,
+            "aml": 4010,
+            "market_intelligence": 4026,
+            "financial-crime": 4042,
+            "credit-cards": 4058,
+            "social-listening": 4074,
+            "insurance": 4090,
+            "level": 2
+          }
+        },
+        {
+          "assignee": {
+            "risk": 4101,
+            "aml": 4011,
+            "market_intelligence": 4027,
+            "financial-crime": 4043,
+            "credit-cards": 4059,
+            "social-listening": 4075,
+            "insurance": 4091,
+            "level": 2
+          }
+        },
+        {
+          "source": {
+            "risk": 4102,
+            "aml": 4012,
+            "market_intelligence": 4028,
+            "financial-crime": 4044,
+            "credit-cards": 4060,
+            "social-listening": 4076,
+            "insurance": 4106,
+            "level": 2
+          }
+        },
+        {
+          "color": {
+            "risk": 4103,
+            "aml": 4013,
+            "market_intelligence": 4029,
+            "financial-crime": 4045,
+            "credit-cards": 4061,
+            "social-listening": 4077,
+            "insurance": 4107,
+            "level": 2
+          }
+        },
+        {
+          "edit": {
+            "risk": 4104,
+            "aml": 4014,
+            "market_intelligence": 4030,
+            "financial-crime": 4046,
+            "credit-cards": 4062,
+            "social-listening": 4078,
+            "insurance": 4108,
+            "level": 1
+          }
+        },
+        {
+          "feedAuditing": {
+            "risk": 4105,
+            "aml": 4015,
+            "market_intelligence": 4031,
+            "financial-crime": 4047,
+            "credit-cards": 4063,
+            "social-listening": 4079,
+            "insurance": 4109,
+            "level": 1
+          }
+        },
+        {
+          "type": {
+            "risk": 4110,
+            "aml": 4111,
+            "market_intelligence": 4112,
+            "financial-crime": 4113,
+            "credit-cards": 4114,
+            "social-listening": 4115,
+            "insurance": 4116,
+            "level": 2
+          }
+        },
+        {
+          "delete": {
+            "risk": 4117,
+            "aml": 4118,
+            "market_intelligence": 4119,
+            "financial-crime": 4120,
+            "credit-cards": 4121,
+            "social-listening": 4122,
+            "insurance": 4123,
+            "level": 2
+          }
+        },
+        {
+          "addFeed": {
+            "risk": 4124,
+            "aml": 4125,
+            "market_intelligence": 4126,
+            "financial-crime": 4127,
+            "credit-cards": 4128,
+            "social-listening": 4129,
+            "insurance": 4130,
+            "level": 2
+          }
+        },
+        {
+          "isReviewRequired": {
+            "risk": 4184,
+            "aml": 4185,
+            "market_intelligence": 4186,
+            "financial-crime": 4187,
+            "credit-cards": 4188,
+            "social-listening": 4189,
+            "insurance": 4190,
+            "level": 2
+          }
+        }
+      ]
+    },
+    "newSourceManagement": [
+      {
+        "addSource": {
+          "risk": 7021,
+          "level": 1,
+          "aml": 7068,
+          "market-intelligence": 7115,
+          "financial-crime": 7162,
+          "credit-cards": 7209,
+          "social-listening": 7256,
+          "insurance": 7303
+        },
+        "domainSearch": {
+          "risk": 2917,
+          "aml": 2918,
+          "market-intelligence": 2919,
+          "financial-crime": 2920,
+          "credit-cards": 2921,
+          "social-listening": 2922,
+          "insurance": 2923,
+          "level": 1
+        },
+        "editSource": {
+          "risk": 2924,
+          "aml": 2925,
+          "market-intelligence": 2926,
+          "financial-crime": 2927,
+          "credit-cards": 2928,
+          "social-listening": 2929,
+          "insurance": 2930,
+          "level": 1
+        },
+        "changeCredibility": {
+          "risk": 2931,
+          "aml": 2932,
+          "market-intelligence": 2933,
+          "financial-crime": 2934,
+          "credit-cards": 2935,
+          "social-listening": 2936,
+          "insurance": 2937,
+          "level": 1
+        },
+        "changeVisibility": {
+          "risk": 2938,
+          "aml": 2939,
+          "market-intelligence": 2940,
+          "financial-crime": 2941,
+          "credit-cards": 2942,
+          "social-listening": 2943,
+          "insurance": 2944,
+          "level": 1
+        }
+      }
+    ],
+    "sourceManagement": [
+      {
+        "exportData": {
+          "risk": 8021,
+          "level": 1,
+          "aml": 8033,
+          "market-intelligence": 8045,
+          "financial-crime": 8057,
+          "credit-cards": 8069,
+          "social-listening": 8081,
+          "insurance": 8093
+        }
+      },
+      {
+        "status": {
+          "risk": 8022,
+          "level": 1,
+          "aml": 8034,
+          "market-intelligence": 8046,
+          "financial-crime": 8058,
+          "credit-cards": 8070,
+          "social-listening": 8082,
+          "insurance": 8094
+        }
+      },
+      {
+        "source": {
+          "risk": 8023,
+          "level": 1,
+          "aml": 8035,
+          "market-intelligence": 8047,
+          "financial-crime": 8059,
+          "credit-cards": 8071,
+          "social-listening": 8083,
+          "insurance": 8095
+        }
+      },
+      {
+        "sourceUrl": {
+          "risk": 8024,
+          "level": 1,
+          "aml": 8036,
+          "market-intelligence": 8048,
+          "financial-crime": 8060,
+          "credit-cards": 8072,
+          "social-listening": 8084,
+          "insurance": 8096
+        }
+      },
+      {
+        "Jurisdictions": {
+          "risk": 8025,
+          "level": 1,
+          "aml": 8037,
+          "market-intelligence": 8049,
+          "financial-crime": 8061,
+          "credit-cards": 8073,
+          "social-listening": 8085,
+          "insurance": 8097
+        }
+      },
+      {
+        "sourceDetailedInformation": {
+          "risk": 8026,
+          "level": 1,
+          "aml": 8038,
+          "market-intelligence": 8050,
+          "financial-crime": 8062,
+          "credit-cards": 8074,
+          "social-listening": 8086,
+          "insurance": 8098
+        }
+      },
+      {
+        "sourceActivityTrend": {
+          "risk": 8028,
+          "level": 1,
+          "aml": 8040,
+          "market-intelligence": 8052,
+          "financial-crime": 8064,
+          "credit-cards": 8076,
+          "social-listening": 8088,
+          "insurance": 8100
+        }
+      },
+      {
+        "responseTime": {
+          "risk": 8027,
+          "level": 1,
+          "aml": 8039,
+          "market-intelligence": 8051,
+          "financial-crime": 8063,
+          "credit-cards": 8075,
+          "social-listening": 8087,
+          "insurance": 8099
+        }
+      },
+      {
+        "sourcesStatusChart": {
+          "risk": 8029,
+          "level": 1,
+          "aml": 8041,
+          "market-intelligence": 8053,
+          "financial-crime": 8065,
+          "credit-cards": 8077,
+          "social-listening": 8089,
+          "insurance": 8101
+        }
+      },
+      {
+        "sourcesNumberOfErrorsChart": {
+          "risk": 8030,
+          "level": 1,
+          "aml": 8042,
+          "market-intelligence": 8054,
+          "financial-crime": 8066,
+          "credit-cards": 8078,
+          "social-listening": 8090,
+          "insurance": 8102
+        }
+      },
+      {
+        "sourcesMapIndicatorChart": {
+          "risk": 8031,
+          "level": 1,
+          "aml": 8043,
+          "market-intelligence": 8055,
+          "financial-crime": 8067,
+          "credit-cards": 8079,
+          "social-listening": 8091,
+          "insurance": 8103
+        }
+      },
+      {
+        "sourcesMapIndicatorExpand": {
+          "risk": 8032,
+          "level": 1,
+          "aml": 8044,
+          "market-intelligence": 8056,
+          "financial-crime": 8068,
+          "credit-cards": 8080,
+          "social-listening": 8092,
+          "insurance": 8104
+        }
+      }
+    ],
+    "groups": [
+      {
+        "Enrich": {
+          "risk": 2598,
+          "aml": 2599,
+          "market-intelligence": 2573,
+          "financial-crime": 2652,
+          "credit-cards": 2662,
+          "social-listening": 2675,
+          "insurance": 2990,
+          "level": 1
+        }
+      },
+      {
+        "Discover": {
+          "risk": 2553,
+          "aml": 2597,
+          "market-intelligence": 2797,
+          "financial-crime": 2707,
+          "credit-cards": 2007,
+          "social-listening": 2907,
+          "insurance": 2887,
+          "level": 1
+        }
+      },
+      {
+        "Predict": {
+          "risk": 2475,
+          "aml": 2470,
+          "market-intelligence": 2440,
+          "financial-crime": 2430,
+          "credit-cards": 2030,
+          "social-listening": 2730,
+          "insurance": 2444,
+          "level": 1
+        }
+      },
+      {
+        "Act": {
+          "risk": 3362,
+          "aml": 3360,
+          "market-intelligence": 3390,
+          "financial-crime": 3490,
+          "credit-cards": 3090,
+          "social-listening": 3190,
+          "insurance": 3920,
+          "level": 1
+        }
+      },
+      {
+        "Manage": {
+          "risk": 3813,
+          "aml": 3815,
+          "market-intelligence": 3819,
+          "financial-crime": 3809,
+          "credit-cards": 3803,
+          "social-listening": 3888,
+          "insurance": 3088,
+          "level": 1
+        }
+      }
+    ],
+    "modules": [
+      {
+        "Advanced Search": {
+          "risk": 2000,
+          "aml": 2001,
+          "market-intelligence": 2002,
+          "financial-crime": 2003,
+          "credit-cards": 2004,
+          "social-listening": 2005,
+          "insurance": 2006,
+          "level": 1
+        }
+      },
+      {
+        "Onboarding": {
+          "risk": 101,
+          "aml": 102,
+          "market-intelligence": 103,
+          "financial-crime": 104,
+          "credit-cards": 105,
+          "social-listening": 106,
+          "insurance": 107,
+          "level": 1
+        }
+      },
+      {
+        "Dashboard": {
+          "risk": 111,
+          "aml": 112,
+          "market-intelligence": 113,
+          "financial-crime": 114,
+          "credit-cards": 115,
+          "social-listening": 116,
+          "insurance": 9100,
+          "level": 1
+        }
+      },
+      {
+        "Workspace": {
+          "risk": 2913,
+          "aml": 121,
+          "market-intelligence": 122,
+          "financial-crime": 123,
+          "credit-cards": 124,
+          "social-listening": 125,
+          "insurance": 126,
+          "level": 1
+        }
+      },
+      {
+        "Investigation Console": {
+          "risk": 2914,
+          "aml": 131,
+          "market-intelligence": 132,
+          "financial-crime": 133,
+          "credit-cards": 134,
+          "social-listening": 135,
+          "insurance": 136,
+          "level": 1
+        }
+      },
+      {
+        "Transaction Monitoring": {
+          "risk": 309,
+          "aml": 141,
+          "market-intelligence": 142,
+          "financial-crime": 143,
+          "credit-cards": 144,
+          "social-listening": 145,
+          "insurance": 146,
+          "level": 1
+        }
+      },
+      {
+        "Market Intelligence": {
+          "risk": 310,
+          "aml": 151,
+          "market-intelligence": 152,
+          "financial-crime": 153,
+          "credit-cards": 154,
+          "social-listening": 155,
+          "insurance": 156,
+          "level": 1
+        }
+      },
+      {
+        "Adverse Transactions": {
+          "risk": 311,
+          "aml": 161,
+          "market-intelligence": 162,
+          "financial-crime": 163,
+          "credit-cards": 164,
+          "social-listening": 165,
+          "insurance": 166,
+          "level": 1
+        }
+      },
+      {
+        "Fraud": {
+          "risk": 312,
+          "aml": 171,
+          "market-intelligence": 172,
+          "financial-crime": 173,
+          "credit-cards": 174,
+          "social-listening": 175,
+          "insurance": 176,
+          "level": 1
+        }
+      },
+      {
+        "Transaction Intelligence": {
+          "risk": 313,
+          "aml": 181,
+          "market-intelligence": 182,
+          "financial-crime": 183,
+          "credit-cards": 184,
+          "social-listening": 185,
+          "insurance": 186,
+          "level": 1
+        }
+      },
+      {
+        "eDiscovery": {
+          "risk": 314,
+          "aml": 191,
+          "market-intelligence": 192,
+          "financial-crime": 193,
+          "credit-cards": 194,
+          "social-listening": 195,
+          "insurance": 196,
+          "level": 1
+        }
+      },
+      {
+        "Alert Management": {
+          "risk": 2486,
+          "aml": 117,
+          "market-intelligence": 127,
+          "financial-crime": 137,
+          "credit-cards": 147,
+          "social-listening": 157,
+          "insurance": 167,
+          "level": 1
+        }
+      },
+      {
+        "Personalization": {
+          "risk": 317,
+          "aml": 601,
+          "market-intelligence": 602,
+          "financial-crime": 603,
+          "credit-cards": 604,
+          "social-listening": 605,
+          "insurance": 606,
+          "level": 1
+        }
+      },
+      {
+        "Entity": {
+          "risk": 318,
+          "aml": 611,
+          "market-intelligence": 612,
+          "financial-crime": 613,
+          "credit-cards": 614,
+          "social-listening": 615,
+          "insurance": 616,
+          "level": 1
+        }
+      },
+      {
+        "Cases": {
+          "risk": 319,
+          "aml": 621,
+          "market-intelligence": 622,
+          "financial-crime": 623,
+          "credit-cards": 624,
+          "social-listening": 625,
+          "insurance": 626,
+          "level": 1
+        }
+      },
+      {
+        "Link Analysis": {
+          "risk": 320,
+          "aml": 631,
+          "market-intelligence": 632,
+          "financial-crime": 633,
+          "credit-cards": 634,
+          "social-listening": 635,
+          "insurance": 636,
+          "level": 1
+        }
+      },
+      {
+        "Underwriting": {
+          "risk": 321,
+          "aml": 641,
+          "market-intelligence": 642,
+          "financial-crime": 643,
+          "credit-cards": 644,
+          "social-listening": 645,
+          "insurance": 646,
+          "level": 1
+        }
+      },
+      {
+        "Audit Trail": {
+          "risk": 322,
+          "aml": 651,
+          "market-intelligence": 652,
+          "financial-crime": 653,
+          "credit-cards": 654,
+          "social-listening": 655,
+          "insurance": 656,
+          "level": 1
+        }
+      },
+      {
+        "Orchestration": {
+          "risk": 323,
+          "aml": 671,
+          "market-intelligence": 672,
+          "financial-crime": 673,
+          "credit-cards": 674,
+          "social-listening": 675,
+          "insurance": 676,
+          "level": 1
+        }
+      },
+      {
+        "App Manager": {
+          "risk": 324,
+          "aml": 681,
+          "market-intelligence": 682,
+          "financial-crime": 683,
+          "credit-cards": 684,
+          "social-listening": 685,
+          "insurance": 686,
+          "level": 1
+        }
+      },
+      {
+        "Data Management": {
+          "risk": 325,
+          "aml": 691,
+          "market-intelligence": 692,
+          "financial-crime": 693,
+          "credit-cards": 694,
+          "social-listening": 695,
+          "insurance": 696,
+          "level": 1
+        }
+      },
+      {
+        "System Monitoring": {
+          "risk": 326,
+          "aml": 711,
+          "market-intelligence": 712,
+          "financial-crime": 713,
+          "credit-cards": 714,
+          "social-listening": 715,
+          "insurance": 716,
+          "level": 1
+        }
+      },
+      {
+        "Big Data Science Platform": {
+          "risk": 327,
+          "aml": 721,
+          "market-intelligence": 722,
+          "financial-crime": 723,
+          "credit-cards": 724,
+          "social-listening": 725,
+          "insurance": 726,
+          "level": 1
+        }
+      },
+      {
+        "System Settings": {
+          "risk": 3033,
+          "aml": 661,
+          "market-intelligence": 662,
+          "financial-crime": 663,
+          "credit-cards": 664,
+          "social-listening": 665,
+          "insurance": 666,
+          "level": 1
+        }
+      },
+      {
+        "General Settings": {
+          "risk": 6021,
+          "aml": 6075,
+          "market-intelligence": 6129,
+          "financial-crime": 6183,
+          "credit-cards": 6237,
+          "social-listening": 6291,
+          "insurance": 6345,
+          "level": 1
+        }
+      },
+      {
+        "Allow checklist": {
+          "risk": 6022,
+          "aml": 6076,
+          "market-intelligence": 6130,
+          "financial-crime": 6184,
+          "credit-cards": 6238,
+          "social-listening": 6292,
+          "insurance": 6346,
+          "level": 1
+        }
+      },
+      {
+        "Open link in a new tab": {
+          "risk": 6023,
+          "aml": 6077,
+          "market-intelligence": 6131,
+          "financial-crime": 6185,
+          "credit-cards": 6239,
+          "social-listening": 6293,
+          "insurance": 6347,
+          "level": 1
+        }
+      },
+      {
+        "companyLogo": {
+          "risk": 6024,
+          "aml": 6078,
+          "market-intelligence": 6132,
+          "financial-crime": 6186,
+          "credit-cards": 6240,
+          "social-listening": 6294,
+          "insurance": 6348,
+          "level": 1
+        }
+      },
+      {
+        "Company View": {
+          "risk": 6025,
+          "aml": 6079,
+          "market-intelligence": 6133,
+          "financial-crime": 6187,
+          "credit-cards": 6241,
+          "social-listening": 6295,
+          "insurance": 6349,
+          "level": 1
+        }
+      },
+      {
+        "Case View": {
+          "risk": 6026,
+          "aml": 6080,
+          "market-intelligence": 6134,
+          "financial-crime": 6188,
+          "credit-cards": 6242,
+          "social-listening": 6296,
+          "insurance": 6350,
+          "level": 1
+        }
+      },
+      {
+        "Dashboard View": {
+          "risk": 6027,
+          "aml": 6081,
+          "market-intelligence": 6135,
+          "financial-crime": 6189,
+          "credit-cards": 6243,
+          "social-listening": 6297,
+          "insurance": 6351,
+          "level": 1
+        }
+      },
+      {
+        "Default Module": {
+          "risk": 6028,
+          "aml": 6082,
+          "market-intelligence": 6136,
+          "financial-crime": 6190,
+          "credit-cards": 6244,
+          "social-listening": 6298,
+          "insurance": 6352,
+          "level": 1
+        }
+      },
+      {
+        "Compliance Report": {
+          "risk": 6029,
+          "aml": 6083,
+          "market-intelligence": 6137,
+          "financial-crime": 6191,
+          "credit-cards": 6245,
+          "social-listening": 6299,
+          "insurance": 6353,
+          "level": 1
+        }
+      },
+      {
+        "Report Comments": {
+          "risk": 6030,
+          "aml": 6084,
+          "market-intelligence": 6138,
+          "financial-crime": 6192,
+          "credit-cards": 6246,
+          "social-listening": 6300,
+          "insurance": 6354,
+          "level": 1
+        }
+      },
+      {
+        "Report Comments": {
+          "risk": 6031,
+          "aml": 6085,
+          "market-intelligence": 6139,
+          "financial-crime": 6193,
+          "credit-cards": 6247,
+          "social-listening": 6301,
+          "insurance": 6355,
+          "level": 1
+        }
+      },
+      {
+        "Onboarding Questionnaire": {
+          "risk": 6032,
+          "aml": 6086,
+          "market-intelligence": 6140,
+          "financial-crime": 6194,
+          "credit-cards": 6248,
+          "social-listening": 6302,
+          "insurance": 6356,
+          "level": 1
+        }
+      },
+      {
+        "upload": {
+          "risk": 6033,
+          "aml": 6087,
+          "market-intelligence": 6141,
+          "financial-crime": 6195,
+          "credit-cards": 6249,
+          "social-listening": 6303,
+          "insurance": 6357,
+          "level": 1
+        }
+      },
+      {
+        "remove": {
+          "risk": 6034,
+          "aml": 6088,
+          "market-intelligence": 6142,
+          "financial-crime": 6196,
+          "credit-cards": 6250,
+          "social-listening": 6304,
+          "insurance": 6358,
+          "level": 1
+        }
+      },
+      {
+        "fileSettings": {
+          "risk": 6035,
+          "aml": 6089,
+          "market-intelligence": 6143,
+          "financial-crime": 6197,
+          "credit-cards": 6251,
+          "social-listening": 6305,
+          "insurance": 6359,
+          "level": 1
+        }
+      },
+      {
+        "Language": {
+          "risk": 6036,
+          "aml": 6090,
+          "market-intelligence": 6144,
+          "financial-crime": 6198,
+          "credit-cards": 6252,
+          "social-listening": 6306,
+          "insurance": 6360,
+          "level": 1
+        }
+      },
+      {
+        "download": {
+          "risk": 6037,
+          "aml": 6091,
+          "market-intelligence": 6145,
+          "financial-crime": 6199,
+          "credit-cards": 6253,
+          "social-listening": 6307,
+          "insurance": 6361,
+          "level": 1
+        }
+      },
+      {
+        "replace": {
+          "risk": 6038,
+          "aml": 6092,
+          "market-intelligence": 6146,
+          "financial-crime": 6200,
+          "credit-cards": 6254,
+          "social-listening": 6308,
+          "insurance": 6362,
+          "level": 1
+        }
+      },
+      {
+        "Dark Theme": {
+          "risk": 6039,
+          "aml": 6093,
+          "market-intelligence": 6147,
+          "financial-crime": 6201,
+          "credit-cards": 6255,
+          "social-listening": 6309,
+          "insurance": 6363,
+          "level": 1
+        }
+      },
+      {
+        "Light Theme": {
+          "risk": 6040,
+          "aml": 6094,
+          "market-intelligence": 6148,
+          "financial-crime": 6202,
+          "credit-cards": 6256,
+          "social-listening": 6310,
+          "insurance": 6364,
+          "level": 1
+        }
+      },
+      {
+        "Questionnaries": {
+          "risk": 6041,
+          "aml": 6095,
+          "market-intelligence": 6149,
+          "financial-crime": 6203,
+          "credit-cards": 6257,
+          "social-listening": 6311,
+          "insurance": 6365,
+          "level": 1
+        }
+      },
+      {
+        "Mail Settings": {
+          "risk": 6042,
+          "aml": 6096,
+          "market-intelligence": 6150,
+          "financial-crime": 6204,
+          "credit-cards": 6258,
+          "social-listening": 6312,
+          "insurance": 6366,
+          "level": 1
+        }
+      },
+      {
+        "SSL": {
+          "risk": 6043,
+          "aml": 6097,
+          "market-intelligence": 6151,
+          "financial-crime": 6205,
+          "credit-cards": 6259,
+          "social-listening": 6313,
+          "insurance": 6367,
+          "level": 1
+        }
+      },
+      {
+        "Enable Authentication": {
+          "risk": 6044,
+          "aml": 6098,
+          "market-intelligence": 6152,
+          "financial-crime": 6206,
+          "credit-cards": 6260,
+          "social-listening": 6314,
+          "insurance": 6368,
+          "level": 1
+        }
+      },
+      {
+        "Outbound SMTP Server": {
+          "risk": 6045,
+          "aml": 6099,
+          "market-intelligence": 6153,
+          "financial-crime": 6207,
+          "credit-cards": 6261,
+          "social-listening": 6315,
+          "insurance": 6369,
+          "level": 1
+        }
+      },
+      {
+        "Port": {
+          "risk": 6046,
+          "aml": 6100,
+          "market-intelligence": 6154,
+          "financial-crime": 6208,
+          "credit-cards": 6262,
+          "social-listening": 6316,
+          "insurance": 6370,
+          "level": 1
+        }
+      },
+      {
+        "Authentication": {
+          "risk": 6047,
+          "aml": 6101,
+          "market-intelligence": 6155,
+          "financial-crime": 6209,
+          "credit-cards": 6263,
+          "social-listening": 6317,
+          "insurance": 6371,
+          "level": 1
+        }
+      },
+      {
+        "General": {
+          "risk": 6048,
+          "aml": 6102,
+          "market-intelligence": 6156,
+          "financial-crime": 6210,
+          "credit-cards": 6264,
+          "social-listening": 6318,
+          "insurance": 6372,
+          "level": 1
+        }
+      },
+      {
+        "List Management Settings": {
+          "risk": 6049,
+          "aml": 6103,
+          "market-intelligence": 6157,
+          "financial-crime": 6211,
+          "credit-cards": 6265,
+          "social-listening": 6319,
+          "insurance": 6373,
+          "level": 2
+        }
+      },
+      {
+        "chooseIcon": {
+          "risk": 6050,
+          "aml": 6104,
+          "market-intelligence": 6158,
+          "financial-crime": 6212,
+          "credit-cards": 6266,
+          "social-listening": 6320,
+          "insurance": 6374,
+          "level": 1
+        }
+      },
+      {
+        "delete": {
+          "risk": 6051,
+          "aml": 6105,
+          "market-intelligence": 6159,
+          "financial-crime": 6213,
+          "credit-cards": 6267,
+          "social-listening": 6321,
+          "insurance": 6375,
+          "level": 1
+        }
+      },
+      {
+        "edit": {
+          "risk": 6052,
+          "aml": 6106,
+          "market-intelligence": 6160,
+          "financial-crime": 6214,
+          "credit-cards": 6268,
+          "social-listening": 6322,
+          "insurance": 6376,
+          "level": 1
+        }
+      },
+      {
+        "List Type": {
+          "risk": 6053,
+          "aml": 6107,
+          "market-intelligence": 6161,
+          "financial-crime": 6215,
+          "credit-cards": 6269,
+          "social-listening": 6323,
+          "insurance": 6377,
+          "level": 1
+        }
+      },
+      {
+        "Alert Management Settings": {
+          "risk": 6054,
+          "aml": 6108,
+          "market-intelligence": 6162,
+          "financial-crime": 6216,
+          "credit-cards": 6270,
+          "social-listening": 6324,
+          "insurance": 6378,
+          "level": 1
+        }
+      },
+      {
+        "PEP Risk Factor": {
+          "risk": 6055,
+          "aml": 6109,
+          "market-intelligence": 6163,
+          "financial-crime": 6217,
+          "credit-cards": 6271,
+          "social-listening": 6325,
+          "insurance": 6379,
+          "level": 1
+        }
+      },
+      {
+        "Sanction Risk Factor": {
+          "risk": 6056,
+          "aml": 6110,
+          "market-intelligence": 6164,
+          "financial-crime": 6218,
+          "credit-cards": 6272,
+          "social-listening": 6326,
+          "insurance": 6380,
+          "level": 1
+        }
+      },
+      {
+        "Time In Status": {
+          "risk": 6057,
+          "aml": 6111,
+          "market-intelligence": 6165,
+          "financial-crime": 6219,
+          "credit-cards": 6273,
+          "social-listening": 6327,
+          "insurance": 6381,
+          "level": 1
+        }
+      },
+      {
+        "Show consolidated hits": {
+          "risk": 6058,
+          "aml": 6112,
+          "market-intelligence": 6166,
+          "financial-crime": 6220,
+          "credit-cards": 6274,
+          "social-listening": 6328,
+          "insurance": 6382,
+          "level": 1
+        }
+      },
+      {
+        "Predefined answers for :": {
+          "risk": 6059,
+          "aml": 6113,
+          "market-intelligence": 6167,
+          "financial-crime": 6221,
+          "credit-cards": 6275,
+          "social-listening": 6329,
+          "insurance": 6383,
+          "level": 1
+        }
+      },
+      {
+        "addTitleAndCode": {
+          "risk": 6060,
+          "aml": 6114,
+          "market-intelligence": 6168,
+          "financial-crime": 6222,
+          "credit-cards": 6276,
+          "social-listening": 6330,
+          "insurance": 6384,
+          "level": 1
+        }
+      },
+      {
+        "accessToAnswerTable": {
+          "risk": 6061,
+          "aml": 6115,
+          "market-intelligence": 6169,
+          "financial-crime": 6223,
+          "credit-cards": 6277,
+          "social-listening": 6331,
+          "insurance": 6385,
+          "level": 1
+        }
+      },
+      {
+        "addAnswerDetails": {
+          "risk": 6062,
+          "aml": 6116,
+          "market-intelligence": 6170,
+          "financial-crime": 6224,
+          "credit-cards": 6278,
+          "social-listening": 6332,
+          "insurance": 6386,
+          "level": 1
+        }
+      },
+      {
+        "User Management Regulation": {
+          "risk": 6063,
+          "aml": 6117,
+          "market-intelligence": 6171,
+          "financial-crime": 6225,
+          "credit-cards": 6279,
+          "social-listening": 6333,
+          "insurance": 6387,
+          "level": 1
+        }
+      },
+      {
+        "Enable Authentication": {
+          "risk": 6064,
+          "aml": 6118,
+          "market-intelligence": 6172,
+          "financial-crime": 6226,
+          "credit-cards": 6280,
+          "social-listening": 6334,
+          "insurance": 6388,
+          "level": 1
+        }
+      },
+      {
+        "Allow to create manually-Users": {
+          "risk": 6065,
+          "aml": 6119,
+          "market-intelligence": 6173,
+          "financial-crime": 6227,
+          "credit-cards": 6281,
+          "social-listening": 6335,
+          "insurance": 6389,
+          "level": 2
+        }
+      },
+      {
+        "Allow to create manually-Roles": {
+          "risk": 6066,
+          "aml": 6120,
+          "market-intelligence": 6174,
+          "financial-crime": 6228,
+          "credit-cards": 6282,
+          "social-listening": 6336,
+          "insurance": 6390,
+          "level": 2
+        }
+      },
+      {
+        "Allow to create manually-Groups": {
+          "risk": 6067,
+          "aml": 6121,
+          "market-intelligence": 6175,
+          "financial-crime": 6229,
+          "credit-cards": 6283,
+          "social-listening": 6337,
+          "insurance": 6391,
+          "level": 2
+        }
+      },
+      {
+        "Allow 3rd Party synchronization-Users": {
+          "risk": 6068,
+          "aml": 6122,
+          "market-intelligence": 6176,
+          "financial-crime": 6230,
+          "credit-cards": 6284,
+          "social-listening": 6338,
+          "insurance": 6392,
+          "level": 1
+        }
+      },
+      {
+        "Allow 3rd Party synchronization-Roles": {
+          "risk": 6069,
+          "aml": 6123,
+          "market-intelligence": 6177,
+          "financial-crime": 6231,
+          "credit-cards": 6285,
+          "social-listening": 6339,
+          "insurance": 6393,
+          "level": 1
+        }
+      },
+      {
+        "Allow 3rd Party synchronization-Groups": {
+          "risk": 6080,
+          "aml": 6124,
+          "market-intelligence": 6178,
+          "financial-crime": 6232,
+          "credit-cards": 6286,
+          "social-listening": 6340,
+          "insurance": 6394,
+          "level": 1
+        }
+      },
+      {
+        "Allow update manually-Users": {
+          "risk": 6081,
+          "aml": 6125,
+          "market-intelligence": 6179,
+          "financial-crime": 6233,
+          "credit-cards": 6287,
+          "social-listening": 6341,
+          "insurance": 6395,
+          "level": 1
+        }
+      },
+      {
+        "Allow update manually-Roles": {
+          "risk": 6082,
+          "aml": 6126,
+          "market-intelligence": 6180,
+          "financial-crime": 6234,
+          "credit-cards": 6288,
+          "social-listening": 6342,
+          "insurance": 6396,
+          "level": 1
+        }
+      },
+      {
+        "Allow update manually-Groups": {
+          "risk": 6083,
+          "aml": 6127,
+          "market-intelligence": 6181,
+          "financial-crime": 6235,
+          "credit-cards": 6289,
+          "social-listening": 6343,
+          "insurance": 6397,
+          "level": 1
+        }
+      },
+      {
+        "Pending users deactivation after": {
+          "risk": 6084,
+          "aml": 6128,
+          "market-intelligence": 6182,
+          "financial-crime": 6236,
+          "credit-cards": 6290,
+          "social-listening": 6344,
+          "insurance": 6398,
+          "level": 1
+        }
+      },
+      {
+        "Policy Enforcement": {
+          "risk": 328,
+          "aml": 731,
+          "market-intelligence": 732,
+          "financial-crime": 733,
+          "credit-cards": 734,
+          "social-listening": 735,
+          "insurance": 736,
+          "level": 1
+        }
+      },
+      {
+        "Questionnaire Builder": {
+          "risk": 329,
+          "aml": 741,
+          "market-intelligence": 742,
+          "financial-crime": 743,
+          "credit-cards": 744,
+          "social-listening": 745,
+          "insurance": 746,
+          "level": 1
+        }
+      },
+      {
+        "Data Curation": {
+          "risk": 330,
+          "aml": 751,
+          "market-intelligence": 752,
+          "financial-crime": 753,
+          "credit-cards": 754,
+          "social-listening": 755,
+          "insurance": 756,
+          "level": 1
+        }
+      },
+      {
+        "Decision Scoring": {
+          "risk": 331,
+          "aml": 761,
+          "market-intelligence": 762,
+          "financial-crime": 763,
+          "credit-cards": 764,
+          "social-listening": 765,
+          "insurance": 766,
+          "level": 1
+        }
+      },
+      {
+        "Document Parsing": {
+          "risk": 332,
+          "aml": 771,
+          "market-intelligence": 772,
+          "financial-crime": 773,
+          "credit-cards": 774,
+          "social-listening": 775,
+          "insurance": 776,
+          "level": 1
+        }
+      },
+      {
+        "Source Management": {
+          "risk": 1874,
+          "aml": 781,
+          "market-intelligence": 782,
+          "financial-crime": 783,
+          "credit-cards": 784,
+          "social-listening": 785,
+          "insurance": 786,
+          "level": 1
+        }
+      },
+      {
+        "User Management": {
+          "risk": 333,
+          "aml": 791,
+          "market-intelligence": 792,
+          "financial-crime": 793,
+          "credit-cards": 794,
+          "social-listening": 795,
+          "insurance": 796,
+          "level": 1
+        }
+      },
+        {
+        "App Settings": {
+          "risk": 9458,
+          "aml": 9459,
+          "market-intelligence": 9460,
+          "financial-crime": 9461,
+          "credit-cards": 9462,
+          "social-listening": 9463,
+          "insurance": 9464,
+          "level": 1
+        }
+      },
+      {
+        "Elementry App ID": {
+          "risk": 9465,
+          "aml": 9466,
+          "market-intelligence": 9467,
+          "financial-crime": 9468,
+          "credit-cards": 9469,
+          "social-listening": 9470,
+          "insurance": 9471,
+          "level": 1
+        }
+      },
+      {
+        "Document Repository": {
+          "risk": 1501,
+          "aml": 1502,
+          "market-intelligence": 1503,
+          "financial-crime": 1504,
+          "credit-cards": 1505,
+          "social-listening": 1506,
+          "insurance": 1507,
+          "level": 2
+        }
+      },
+      {
+        "entityManagementSettings": {
+          "risk": 9979,
+          "aml": 9980,
+          "market-intelligence": 9981,
+          "financial-crime": 9982,
+          "credit-cards": 9983,
+          "social-listening": 9984,
+          "insurance": 9985,
+          "level": 2
+        }
+      },
+      {
+        "factualControlSettings": {
+          "risk": 9986,
+          "aml": 9987,
+          "market-intelligence": 9988,
+          "financial-crime": 9989,
+          "credit-cards": 9990,
+          "social-listening": 9991,
+          "insurance": 9992,
+          "level": 2
+        }
+      },
+      {
+        "Entity Settings": {
+          "risk": 9979,
+          "aml": 9980,
+          "market-intelligence": 9981,
+          "financial-crime": 9982,
+          "credit-cards": 9983,
+          "social-listening": 9984,
+          "insurance": 9985,
+          "level": 2
+        }
+      },
+      {
+        "UBO Percentage": {
+          "risk": 9986,
+          "aml": 9987,
+          "market-intelligence": 9988,
+          "financial-crime": 9989,
+          "credit-cards": 9990,
+          "social-listening": 9991,
+          "insurance": 9992,
+          "level": 2
+        }
+      },
+      {
+        "Level One": {
+          "risk": 9986,
+          "aml": 9987,
+          "market-intelligence": 9988,
+          "financial-crime": 9989,
+          "credit-cards": 9990,
+          "social-listening": 9991,
+          "insurance": 9992,
+          "level": 2
+        }
+      },
+      {
+        "Level Two and above": {
+          "risk": 9986,
+          "aml": 9987,
+          "market-intelligence": 9988,
+          "financial-crime": 9989,
+          "credit-cards": 9990,
+          "social-listening": 9991,
+          "insurance": 9992,
+          "level": 2
+        }
+      },
+      {
+        "Add Entities to ABS": {
+          "risk": 9993,
+          "aml": 9994,
+          "market-intelligence": 9995,
+          "financial-crime": 9996,
+          "credit-cards": 9997,
+          "social-listening": 9998,
+          "insurance": 9999,
+          "level": 2
+        }
+      }
+    ],
+    "alertsData": {
+      "Perform ODS": {
+        "risk": 9000,
+        "level": 2,
+        "aml": 9016,
+        "market-intelligence": 9032,
+        "financial-crime": 9048,
+        "credit-cards": 9064,
+        "social-listening": 9080,
+        "insurance": 9096
+      },
+      "Submit SSB": {
+        "risk": 9001,
+        "level": 2,
+        "aml": 9017,
+        "market-intelligence": 9033,
+        "financial-crime": 9049,
+        "credit-cards": 9065,
+        "social-listening": 9081,
+        "insurance": 9097
+      },
+      "Fetch alerts\t": {
+        "risk": 9002,
+        "level": 1,
+        "aml": 9018,
+        "market-intelligence": 9034,
+        "financial-crime": 9050,
+        "credit-cards": 9066,
+        "social-listening": 9082,
+        "insurance": 9098
+      },
+      "Change alert status": {
+        "risk": 9003,
+        "level": 1,
+        "aml": 9019,
+        "market-intelligence": 9035,
+        "financial-crime": 9051,
+        "credit-cards": 9067,
+        "social-listening": 9083,
+        "insurance": 9099
+      },
+      "Perform identification alert review": {
+        "risk": 9004,
+        "level": 1,
+        "aml": 9020,
+        "market-intelligence": 9036,
+        "financial-crime": 9052,
+        "credit-cards": 9068,
+        "social-listening": 9084,
+        "insurance": 1000
+      },
+      "View alerts in workbench": {
+        "risk": 9005,
+        "level": 1,
+        "aml": 9021,
+        "market-intelligence": 9037,
+        "financial-crime": 9053,
+        "credit-cards": 9069,
+        "social-listening": 9085,
+        "insurance": 9101
+      },
+      "View interactive VLA (bubbly page)": {
+        "risk": 9006,
+        "level": 1,
+        "aml": 9022,
+        "market-intelligence": 9038,
+        "financial-crime": 9054,
+        "credit-cards": 9070,
+        "social-listening": 9086,
+        "insurance": 9102
+      },
+      "Configure sources in source management": {
+        "risk": 9007,
+        "level": 1,
+        "aml": 9023,
+        "market-intelligence": 9039,
+        "financial-crime": 9055,
+        "credit-cards": 9071,
+        "social-listening": 9087,
+        "insurance": 9103
+      },
+      "Configure access rights & policy (ABAC)": {
+        "risk": 9008,
+        "level": 1,
+        "aml": 9024,
+        "market-intelligence": 9040,
+        "financial-crime": 9056,
+        "credit-cards": 9072,
+        "social-listening": 9088,
+        "insurance": 9104
+      },
+      "Configure alert management UI": {
+        "risk": 9009,
+        "level": 1,
+        "aml": 9025,
+        "market-intelligence": 9041,
+        "financial-crime": 9057,
+        "credit-cards": 9073,
+        "social-listening": 9089,
+        "insurance": 9105
+      },
+      "entityInformation": {
+        "risk": 9011,
+        "level": 1,
+        "aml": 9027,
+        "market-intelligence": 9043,
+        "financial-crime": 9059,
+        "credit-cards": 9075,
+        "social-listening": 9091,
+        "insurance": 9107
+      },
+      "visualLinkAnalysis": {
+        "risk": 9012,
+        "level": 1,
+        "aml": 9028,
+        "market-intelligence": 9044,
+        "financial-crime": 9060,
+        "credit-cards": 9076,
+        "social-listening": 9092,
+        "insurance": 9108
+      },
+      "rejectAll": {
+        "risk": 9013,
+        "level": 1,
+        "aml": 9029,
+        "market-intelligence": 9045,
+        "financial-crime": 9061,
+        "credit-cards": 9077,
+        "social-listening": 9093,
+        "insurance": 9109
+      },
+      "approve": {
+        "risk": 9014,
+        "level": 1,
+        "aml": 9030,
+        "market-intelligence": 9046,
+        "financial-crime": 9062,
+        "credit-cards": 9078,
+        "social-listening": 9094,
+        "insurance": 9110
+      },
+      "confidenceLevelFilter": {
+        "risk": 9015,
+        "level": 1,
+        "aml": 9031,
+        "market-intelligence": 9047,
+        "financial-crime": 9063,
+        "credit-cards": 9079,
+        "social-listening": 9095,
+        "insurance": 9111
+      },
+      "entityIdentification": {
+        "risk": 9010,
+        "level": 1,
+        "aml": 9026,
+        "market-intelligence": 9042,
+        "financial-crime": 9058,
+        "credit-cards": 9074,
+        "social-listening": 9090,
+        "insurance": 9106
+      }
+    }
+  },
+  {
+    "caseManagement": {
+      "caseWorkbench": [
+        {
+          "caseDashboard": {
+            "risk": 9296,
+            "aml": 9297,
+            "market-intelligence": 9298,
+            "financial-crime": 9299,
+            "credit-cards": 9300,
+            "social-listening": 9301,
+            "insurance": 9302,
+            "level": 1
+          }
+        },
+        {
+          "caseWorkbench": {
+            "risk": 9289,
+            "aml": 9290,
+            "market-intelligence": 9291,
+            "financial-crime": 9292,
+            "credit-cards": 9293,
+            "social-listening": 9294,
+            "insurance": 9295,
+            "level": 1
+          }
+        },
+        {
+          "caseCreation": {
+            "risk": 9303,
+            "aml": 9304,
+            "market-intelligence": 9305,
+            "financial-crime": 9306,
+            "credit-cards": 9307,
+            "social-listening": 9308,
+            "insurance": 9309,
+            "level": 1
+          }
+        },
+        {
+          "caseDetails": {
+            "risk": 9317,
+            "aml": 9318,
+            "market-intelligence": 9319,
+            "financial-crime": 9320,
+            "credit-cards": 9321,
+            "social-listening": 9322,
+            "insurance": 9323,
+            "level": 1
+          }
+        },
+        {
+          "commentBox": {
+            "risk": 9324,
+            "aml": 9325,
+            "market-intelligence": 9326,
+            "financial-crime": 9327,
+            "credit-cards": 9328,
+            "social-listening": 9329,
+            "insurance": 9330,
+            "level": 1
+          }
+        },
+        {
+          "caseAttachments": {
+            "risk": 9331,
+            "aml": 9332,
+            "market-intelligence": 9333,
+            "financial-crime": 9334,
+            "credit-cards": 9335,
+            "social-listening": 9336,
+            "insurance": 9337,
+            "level": 1
+          }
+        },
+        {
+          "relatedEntities": {
+            "risk": 9338,
+            "aml": 9339,
+            "market-intelligence": 9340,
+            "financial-crime": 9341,
+            "credit-cards": 9342,
+            "social-listening": 9343,
+            "insurance": 9344,
+            "level": 1
+          }
+        },
+        {
+          "associatedRecords": {
+            "risk": 9952,
+            "aml": 9953,
+            "market-intelligence": 9954,
+            "financial-crime": 9955,
+            "credit-cards": 9956,
+            "social-listening": 9957,
+            "insurance": 9958,
+            "level": 1
+          }
+        },
+        {
+          "caseAssignment": {
+            "risk": 9345,
+            "aml": 9346,
+            "market-intelligence": 9347,
+            "financial-crime": 9348,
+            "credit-cards": 9349,
+            "social-listening": 9350,
+            "insurance": 9351,
+            "level": 1
+          }
+        },
+        {
+          "caseStatus": {
+            "risk": 9352,
+            "aml": 9353,
+            "market-intelligence": 9354,
+            "financial-crime": 9355,
+            "credit-cards": 9356,
+            "social-listening": 9357,
+            "insurance": 9358,
+            "level": 1
+          }
+        },
+        {
+          "caseCreationSearch": {
+            "risk": 9429,
+            "aml": 9402,
+            "market-intelligence": 9403,
+            "financial-crime": 9404,
+            "credit-cards": 9405,
+            "social-listening": 9406,
+            "insurance": 9407,
+            "level": 1
+          }
+        },
+        {
+          "caseCreationBatch": {
+            "risk": 9415,
+            "aml": 9416,
+            "market-intelligence": 9417,
+            "financial-crime": 9418,
+            "credit-cards": 9419,
+            "social-listening": 9420,
+            "insurance": 9421,
+            "level": 1
+          }
+        },
+        {
+          "associatedRecords": {
+            "risk": 9952,
+            "aml": 9953,
+            "market-intelligence": 9954,
+            "financial-crime": 9955,
+            "credit-cards": 9956,
+            "social-listening": 9957,
+            "insurance": 9958,
+            "level": 1
+          }
+        },
+        {
+          "generateCaseReport": {
+            "risk": 9972,
+            "aml": 9973,
+            "market-intelligence": 9974,
+            "financial-crime": 9975,
+            "credit-cards": 9976,
+            "social-listening": 9977,
+            "insurance": 9978,
+            "level": 1
+          }
+        },
+        {
+          "caseContacts": {
+            "risk": 50008,
+            "aml": 50009,
+            "market-intelligence": 50010,
+            "financial-crime": 50011,
+            "credit-cards": 50012,
+            "social-listening": 50013,
+            "insurance": 50014,
+            "level": 2
+          }
+        }
+      ],
+      "caseDashboard": [
+        {
+          "caseDashboard": {
+            "risk": 9296,
+            "aml": 9297,
+            "market-intelligence": 9298,
+            "financial-crime": 9299,
+            "credit-cards": 9300,
+            "social-listening": 9301,
+            "insurance": 9302,
+            "level": 1
+          }
+        },
+        {
+          "widgetSettings": {
+            "risk": 9359,
+            "aml": 9360,
+            "market-intelligence": 9361,
+            "financial-crime": 9362,
+            "credit-cards": 9363,
+            "social-listening": 9364,
+            "insurance": 9365,
+            "level": 1
+          }
+        },
+        {
+          "widgetFiltering": {
+            "risk": 9366,
+            "aml": 9367,
+            "market-intelligence": 9368,
+            "financial-crime": 9369,
+            "credit-cards": 9370,
+            "social-listening": 9371,
+            "insurance": 9372,
+            "level": 1
+          }
+        },
+        {
+          "widgetExporting": {
+            "risk": 9373,
+            "aml": 9374,
+            "market-intelligence": 9375,
+            "financial-crime": 9376,
+            "credit-cards": 9377,
+            "social-listening": 9378,
+            "insurance": 9379,
+            "level": 1
+          }
+        },
+        {
+          "addNewWidget": {
+            "risk": 9380,
+            "aml": 9381,
+            "market-intelligence": 9382,
+            "financial-crime": 9383,
+            "credit-cards": 9384,
+            "social-listening": 9385,
+            "insurance": 9386,
+            "level": 1
+          }
+        }
+      ]
+    }
+  }
+]

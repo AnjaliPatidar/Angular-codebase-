@@ -1,0 +1,110 @@
+	{
+	"internalId" : "ALL000002",
+	"clientName" : "Sisters Beauty Care GmbH",
+	"clientSince" : "2020-02-22",
+		"products":[
+			{
+			"productName" : "Building Insurance",
+			"startDate" : "2020-02-22",
+			"expirationDate" : "2021-02-22",
+			"price" : "100€"
+			},
+			{
+			"productName": "Business content insurance",
+			"startDate" : "2020-02-22",
+			"expirationDate" : "2020-02-22",
+			"price" : "200€"
+			}
+			],
+	"potentialFurtherProducts" : ["Legal Protection", "Financial Loss Liability, Cyber Insurance"],
+	"currentPremium" :"100€",
+	"additionalPremiumPotential" : "3000€",
+	"remainingContractTerm":"9 months",
+	"recentChanges":"recently added retail sale of cosmetics and toilet atticles",
+	"ownerPrivetelyInsured" : "Yes",
+	"numberOfClaims" : "1",
+	"Green Sustainability Score":"4/10",
+	"existingSimilarCompanies":
+	[
+	{
+	"internalId" : "AL0000024",
+	"companyName" : "Sky Cosmetics Nails & More GmbH",
+	"address" : "Bernhard-Baestlein-Str. 3 10367 Berlin",
+	"products":
+	[
+		{
+		"productName" : "Financial Loss Liability",
+		"startDate" : "2020-01-10",
+		"expirationDate" : "2021-01-10",
+		"price" : "200€"
+		}
+	]
+	},
+	{
+	"internalId" : "AL000091",
+	"companyName" : "Beauty and Life UG(haftungsbeschränkt)",
+	"address" : "Carstennstr. 29 12205 Berlin",
+	"products" :
+	[
+		{
+		"productName" : "Building Insurance",
+		"startDate" : "2020-01-28",
+		"expirationDate": "2021-01-28",
+		"price" : "450€"
+		},
+		{
+		"productName" : "Business content insurance",
+		"startDate" : "2020-01-28",
+		"expirationDate": "2021-01-28",
+		"price" : "150€"
+		}
+	]
+	},
+	{
+	"internalId" : "ALL000235",
+	"companyName" : "S.C. Beauty Ventures GmbH",
+	"address" : "Bregenzer Str. 10 10707 Berlin",
+	"products" : 
+	[
+		{
+		"productName" : "Building Insurance",
+		"startDate" : "2020-02-26",
+		"expirationDate" : "2021-02-26",
+		"price" : "450€"
+		},
+		{
+		"productName" : "Business content insurance",
+		"startDate" : "2020-02-26",
+		"expirationDate" : "2021-02-26",
+		"price" : "150€"
+		},
+		{
+		"productName" : "Financial Loss Liability",
+		"startDate" : "2020-01-26",
+		"expirationDate" : "2021-01-26",
+		"price" : "150€"
+		}
+	]
+	},
+	{
+	"internalId" : "ALL008902",
+	"companyName" : "",
+	"address" : "Fregestr. 36 12161 Berlin",
+	"products" : 
+	[
+		{
+		"productName" : "Business content insurance",
+		"startDate" : "2019-10-26",
+		"expirationDate" : "2020-10-26",
+		"price" : "430€"
+		},
+		{
+		"productName" : "Financial Loss Liability",
+		"startDate" : "2019-10-26",
+		"expirationDate" : "2020-10-26",
+		"price" : "130€"
+		}
+	]
+	}
+]
+	}		

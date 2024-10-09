@@ -1,0 +1,1943 @@
+<div class="dashboard-wrapper settings-dashboard general-settings-wrapper bg-process-background d-flex">
+  <div class="cold-flex settings-wrapper px-0 side-defined theme-button-bg">
+    <!-- Segment Panel Starts -->
+    <div class="height-100" id="leftPanelScroll">
+      <ngb-accordion #leftsideaccordian="ngbAccordion" class="side-panel-accordion" [closeOthers]="true"
+        *ngFor="let item of keysPattern">
+        <ngb-panel id="{{ item }}">
+          <ng-template ngbPanelTitle>
+            <a class="ws-normal text-dark-black dropdown-toggle d-flex ai-c text-on-surface"
+              style="text-align: left !important">
+              <span class="fa mr-3 text-dark-black {{
+                  item.split(' ').join('_').toLowerCase()
+                }} t-0 left-icon f-18"></span>
+              <span class="f-18 font-light text-dark-black text-on-surface">{{
+                item.substr(0, item.indexOf(" ")) | translate
+                }}</span>
+              <span class="fa f-20 mar-autol t-0 right-icon f-18 text-dark-black"></span>
+            </a>
+          </ng-template>
+          <ng-template ngbPanelContent>
+            <ul class="custom-list pad-l30 item-1">
+              <li *ngFor="let val1 of systemsettingObject.settingsData[item]; trackBy: trackByKey" class="pad-y10 pad-l5 widtheight-100"
+                [ngClass]="{ 'pad-0': val1.key === 'Predefined Answers' }">
+                <ng-container *ngIf="
+                    val1.key !== 'null' && val1.key !== 'Predefined Answers'
+                  ">
+                  <a [routerLink]="" class="f-14 font-light text-on-surface text-dark-black" (click)="
+                      scrollPage(
+                        item.split(' ').join('_'),
+                        val1.key.split(' ').join('_')
+                      )
+                    ">{{ val1.key | translate }}</a>
+                </ng-container>
+              </li>
+            </ul>
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+    </div>
+  </div>
+
+  <!--  Custom Accordion Ends  -->
+  <div class="side-remain px-0 w-100">
+    <div class="panel mar-0 height-100 pad-15px light-theme-bg-white main-panel" id="scroller">
+      <div class="panel-body-wrapper panel-scroll">
+        <!-- dummy startes here -->
+        <div class="panel-body mnheight-100px  {{
+            item.split(' ').join('-').toLowerCase()
+          }}-wrapper" *ngFor="let item of keysPattern; let index = index" id="main_{{ index }}">
+          <!-- headings binding -->
+          <h3 class="main-heading mar-b0 setting-name-wrapper pad-x15 text-dark-black d-flex ai-b gotham-bold title title-text-on-surface">
+            <span class="fa mr-3 text-dark-black  {{
+                item.split(' ').join('_').toLowerCase()
+              }}"></span>
+            <span>{{ item | translate }}</span>
+          </h3>
+          <div class="widtheight-100 general-wrapper pad-x25 pad-y15">
+            <div *ngFor="let val1 of systemsettingObject.settingsData[item];trackBy: trackByKey" attr.id="{{ item.split(' ').join('_') }}{{
+                val1.key.split(' ').join('_')
+              }}" class="{{ val1.key.split(' ').join('_').toLowerCase() }}" [ngClass]="{
+                'd-flex fd-c user-mgt-section': val1.key === 'null'
+              }">
+              <!-- sub headings binding -->
+              <h4
+                class="sub-heading mar-t15 f-24 text-dark-cream font-light widtheight-100 mar-r5 text-dark-black gotham-medium title-text-on-surface">
+                <span *ngIf="
+                    val1.key != 'null' && val1.key !== 'Predefined Answers'
+                  ">{{ val1.key | translate }}</span>
+              </h4>
+              <div *ngIf="val1.key === 'null'" class="section p-rel" id="user-mgt-regulation">
+                <table
+                  class="table table-scroll setting-select-wrapper scroll-table full-width custom-col-table">
+                  <thead>
+                    <tr class="light-theme-bg-yellow light-theme-border-bottom-thick light-theme-no-radius table-headers">
+                      <th></th>
+                      <th class="text-dark-black gotham-bold">{{ "Users" | translate }}</th>
+                      <th class="text-dark-black gotham-bold">{{ "Roles" | translate }}</th>
+                      <th class="text-dark-black gotham-bold">{{ "Groups" | translate }}</th>
+                    </tr>
+                  </thead>
+                  <tbody class="mxh-250 scroll-tbody">
+                    <tr *ngFor="
+                        let itemTable of systemsettingObject.userManagementRegulationTable
+                          | keyvalue;
+                        let index = index;trackBy:trackByKey
+                      ">
+                      <td class="d-block text-overflow text-dark-black gotham-regular">
+                        {{ itemTable.key | translate }}
+                      </td>
+                      <td class="word-bw ws-pl gotham-regular" *ngFor="let itemValue of itemTable.value | keyvalue;trackBy:trackByKey">
+                        <label class="switch mar-l25 custom-switch-wrapper filters-switch-wrapper bst-switch-wrapper"
+                        permission [domainPermission]="permissionIds | getPermissionId :itemValue.value[
+                        systemsettingObject.typesOfUserManagementRegulation[itemValue.key]].name" [ViewOnly]="true">
+                          <input type="checkbox" class="custom-switch-checkbox" id="hyperCheck_{{
+                              itemValue.value[
+                                systemsettingObject
+                                  .typesOfUserManagementRegulation[
+                                  itemValue.key
+                                ]
+                              ].name
+                                .split(' ')
+                                .join('_')
+                            }}" (click)="
+                              enableDisableTog(
+                                itemValue.value[
+                                  systemsettingObject
+                                    .typesOfUserManagementRegulation[
+                                    itemValue.key
+                                  ]
+                                ],
+                                '',
+                                itemValue.value[
+                                  systemsettingObject
+                                    .typesOfUserManagementRegulation[
+                                    itemValue.key
+                                  ]
+                                ].name
+                                  .split(' ')
+                                  .join('_')
+                              )
+                            " [checked]="
+                              itemValue.value[
+                                systemsettingObject
+                                  .typesOfUserManagementRegulation[
+                                  itemValue.key
+                                ]
+                              ].checked
+                            " />
+                          <!-- [disabled]="key.includes('Allow 3rd Party synchronization') && systemsettingObject.isTwoWayAuthEnabled == true" -->
+                          <div class="slider round">
+                            <div class="slider-wrap"></div>
+                          </div>
+                        </label>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="theme-wrapper pad-t20" >
+                <app-theme-management
+                  *ngIf="val1.key == 'Theme'"
+                  [systemSettingObject]="systemsettingObject"
+                  [permissionIds]="permissionIds">
+                </app-theme-management>
+              </div>
+              <h6
+              class="mar-t15 f-17 text-dark-cream font-light widtheight-100 mar-r5 text-dark-black gotham-medium title-text-on-surface">
+              <span *ngIf="
+                  val1.key != 'null' && val1.key !== 'Predefined Answers' && val1.key === 'Screening Configurations'
+                ">Show Hits in Entity Page</span>
+              </h6>
+              <div *ngIf="val1.key !== 'Theme' && val1.key !== 'Jurisdiction Tenant Mapping' && val1.key !== 'Alert Indicators' && val1.key !== 'Entities Workflows' && val1.key !== 'Override Selection'"
+                class="custom-select-wrapper d-flex flex-wrap clearfix pad-0 mar-b15 setting-select-wrapper {{
+                  val1.key.split(' ').join('_').toLowerCase()
+                }}">
+                <!-- settings fields -->
+                <ng-container *ngFor="let setting of val1.values; let index1 = index;trackBy:trackByName" [ngSwitch]="setting.name">
+
+                  <div *ngSwitchCase="'Document expiry notification period'"
+                    class="width-100 mar-r10 mar-b10  text-dark-black {{
+                      setting.name.split(' ').join('')
+                    }}">
+                  <div class="expire-date-input d-flex align-items-center justify-content-between">
+                    <div class="label pl-13 text-dark-black gotham-regular text-dark-cream">Document expiry notification period</div>
+                    <div>
+                      <div class="d-flex align-items-center">
+                        <div class="select-group custom-select-dropdown" [class.invalid]="setting.validationFail" [ngClass]="setting.classType ? setting.classType : 'bst_input_group '">
+                          <input
+                            permission
+                            [domainPermission]="
+                              permissionIds | getPermissionId : setting.name
+                            "
+                            [ViewOnly]="true"
+                            *ngIf="setting.type.toLowerCase() == 'number'"
+                            type="number"
+                            (blur)="updateVal(setting)"
+                            class="custom-input text-dark-black"
+                            [(ngModel)]="setting.selectedValue"
+                            min="0"
+                          />
+                        </div>
+                        <span class="label">Days</span>
+                      </div>
+                      <!-- <div class="expire-date-input-invalid" *ngIf="setting.validationFail">
+                        <span style="color: Red">{{ "Please Enter Valid Period" | translate }}</span>
+                      </div> -->
+                    </div>
+                  </div>
+                  </div>
+
+                  <div *ngSwitchCase="'UBO Percentage'"
+                    class="width-100 mar-r10 mar-b10  text-dark-black {{setting.name.split(' ').join('')}}">
+                    <div class="expire-date-input d-flex align-items-center justify-content-between">
+                      <div class="label pl-13 text-dark-black gotham-regular text-dark-cream">
+                        UBO Settings
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngSwitchCase="'Level One'"
+                    class="width-100 mar-r10 mar-b10  text-dark-black {{setting.name.split(' ').join('')}}">
+                    <div class="expire-date-input d-flex align-items-center justify-content-between">
+                      <div class="label pl-13 text-dark-black gotham-regular text-dark-cream">
+                        UBO Level Settings
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngSwitchCase="'Add/Remove Entities to ABS (Monitored)'"
+                    class="select-group width-48 mar-r10 mar-b10 custom-select-dropdown text-dark-black settings-toggle-wrapper">
+                    <label class="switch mar-l25 custom-switch-wrapper filters-switch-wrapper bst-switch-wrapper"
+                      permission [domainPermission]="permissionIds | getPermissionId :'Add Entities to ABS'" [ViewOnly]="true">
+                      <input (click)="enableDisableTog(setting, '', 'add_remove_entities_to_abs')"
+                        class="custom-switch-checkbox" type="checkbox"
+                        name="'Add/Remove Entities to ABS (Monitored)'"
+                        id="add_remove_entities_to_abs"
+                        [checked]="setting.selectedValue == 'On' ? true : false" />
+                      <span class="slider round">
+                        <div class="slider-wrap"></div>
+                      </span>
+                    </label>
+                    <span class="label text-dark-black gotham-regular text-dark-cream">
+                      <i class="mar-r5 fa fa-"></i>{{ "Add/Remove Entities to ABS (Monitored)" | translate }}
+                    </span>
+                  </div>
+                
+                  <div *ngSwitchCase="'Add less than 25% shareholders to Profile Report'"
+                    class="select-group width-48 mar-r10 mar-b10 custom-select-dropdown text-dark-black settings-toggle-wrapper">
+                    <label class="switch mar-l25 custom-switch-wrapper filters-switch-wrapper bst-switch-wrapper"
+                      permission [domainPermission]="permissionIds | getPermissionId :'profileReportSettings'" [ViewOnly]="true">
+                      <input (click)="enableDisableTog(setting, '', 'add_less_than_25_percent_shareholders')"
+                        class="custom-switch-checkbox" type="checkbox"
+                        name="'Add less than 25% shareholders to Profile Report''"
+                        id="add_less_than_25_percent_shareholders"
+                        [checked]="setting.selectedValue == 'On' ? true : false" />
+                      <span class="slider round">
+                        <div class="slider-wrap"></div>
+                      </span>
+                    </label>
+                    <span class="label text-dark-black gotham-regular text-dark-cream">
+                      <i class="mar-r5 fa fa-"></i>{{ "Add less than 25% shareholders to Profile Report" | translate }}
+                    </span>
+                  </div>
+
+                  <div *ngSwitchCase="'Create Corporate Memory (Snapshot) when Entity Page is Refreshed'"
+                    class="select-group width-48 mar-r10 mar-b10 custom-select-dropdown text-dark-black settings-toggle-wrapper">
+                    <label class="switch mar-l25 custom-switch-wrapper filters-switch-wrapper bst-switch-wrapper"
+                      permission [domainPermission]="permissionIds | getPermissionId :'corporateMemorySetting'" [ViewOnly]="true">
+                      <input (click)="enableDisableTog(setting, '', 'createCorporateMemorysnapshot')"
+                        class="custom-switch-checkbox" type="checkbox"
+                        name="'Create Corporate Memory (Snapshot) when Entity Page is Refreshed'"
+                        id="createCorporateMemorysnapshot"
+                        [checked]="setting.selectedValue == 'On' ? true : false" />
+                      <span class="slider round">
+                        <div class="slider-wrap"></div>
+                      </span>
+                    </label>
+                    <span class="label text-dark-black gotham-regular text-dark-cream">
+                      <i class="mar-r5 fa fa-"></i>{{ "Create Corporate Memory (Snapshot) when Entity Page is Refreshed" | translate }}
+                    </span>
+                  </div>
+                  
+                    <div *ngSwitchCase="'PEP - Politically Exposed Person'"
+                      class="select-group width-48 mar-r10 mar-b10 custom-select-dropdown text-dark-black settings-toggle-wrapper">
+                      <label class="switch mar-l25 custom-switch-wrapper filters-switch-wrapper bst-switch-wrapper"
+                        permission [domainPermission]="permissionIds | getPermissionId :'screeningConfigurations'" [ViewOnly]="true">
+                        <input (click)="enableDisableTog(setting, '', 'politicallyExposedPerson')"
+                          class="custom-switch-checkbox" type="checkbox"
+                          name="'PEP - Politically Exposed Person'"
+                          id="politicallyExposedPerson"
+                          [checked]="setting.selectedValue == 'On' ? true : false" />
+                        <span class="slider round">
+                          <div class="slider-wrap"></div>
+                        </span>
+                      </label>
+                      <span class="label text-dark-black gotham-regular text-dark-cream">
+                        <i class="mar-r5 fa fa-street-view f-21 mar-y10"></i>{{ "PEP - Politically Exposed Person" | translate }}
+                      </span>
+                    </div>
+                    <div *ngSwitchCase="'Sanctions'"
+                      class="select-group width-48 mar-r10 mar-b10 custom-select-dropdown text-dark-black settings-toggle-wrapper">
+                      <label class="switch mar-l25 custom-switch-wrapper filters-switch-wrapper bst-switch-wrapper"
+                        permission [domainPermission]="permissionIds | getPermissionId :'screeningConfigurations'" [ViewOnly]="true">
+                        <input (click)="enableDisableTog(setting, '', 'sanctions')"
+                          class="custom-switch-checkbox" type="checkbox"
+                          name="'Sanctions'"
+                          id="sanctions"
+                          [checked]="setting.selectedValue == 'On' ? true : false" />
+                        <span class="slider round">
+                          <div class="slider-wrap"></div>
+                        </span>
+                      </label>
+                      <span class="label text-dark-black gotham-regular text-dark-cream">
+                        <i class="mar-r5 fa fa-ban f-21 mar-y10"></i>{{ "Sanctions" | translate }}
+                      </span>
+                    </div>
+                    <div *ngSwitchCase="'RCA - Relatives / Close Associates'"
+                      class="select-group width-48 mar-r10 mar-b10 custom-select-dropdown text-dark-black settings-toggle-wrapper">
+                      <label class="switch mar-l25 custom-switch-wrapper filters-switch-wrapper bst-switch-wrapper"
+                        permission [domainPermission]="permissionIds | getPermissionId :'screeningConfigurations'" [ViewOnly]="true">
+                        <input (click)="enableDisableTog(setting, '', 'relativesCloseAssociates')"
+                          class="custom-switch-checkbox" type="checkbox"
+                          name="'RCA - Relatives / Close Associates'"
+                          id="relativesCloseAssociates"
+                          [checked]="setting.selectedValue == 'On' ? true : false" />
+                        <span class="slider round">
+                          <div class="slider-wrap"></div>
+                        </span>
+                      </label>
+                      <span class="label text-dark-black gotham-regular text-dark-cream">
+                        <i class="mar-r5 fa fa-users  f-21 mar-y10"></i>{{ "RCA - Relatives / Close Associates" | translate }}
+                      </span>
+                    </div>
+                    <div *ngSwitchCase="'SIE - Special Interest Entity'"
+                      class="select-group width-48 mar-r10 mar-b10 custom-select-dropdown text-dark-black settings-toggle-wrapper">
+                      <label class="switch mar-l25 custom-switch-wrapper filters-switch-wrapper bst-switch-wrapper"
+                        permission [domainPermission]="permissionIds | getPermissionId :'screeningConfigurations'" [ViewOnly]="true">
+                        <input (click)="enableDisableTog(setting, '', 'specialInterestEntity')"
+                          class="custom-switch-checkbox" type="checkbox"
+                          name="'SIE - Special Interest Entity'"
+                          id="specialInterestEntity"
+                          [checked]="setting.selectedValue == 'On' ? true : false" />
+                        <span class="slider round">
+                          <div class="slider-wrap"></div>
+                        </span>
+                      </label>
+                      <span class="label text-dark-black gotham-regular text-dark-cream">
+                        <i class="mar-r5 fa fa-building   f-21 mar-y10"></i>{{ "SIE - Special Interest Entity" | translate }}
+                      </span>
+                    </div>
+                    <div *ngSwitchCase="'SIP - Special Interest Person'"
+                      class="select-group width-48 mar-r10 mar-b10 custom-select-dropdown text-dark-black settings-toggle-wrapper">
+                      <label class="switch mar-l25 custom-switch-wrapper filters-switch-wrapper bst-switch-wrapper"
+                        permission [domainPermission]="permissionIds | getPermissionId :'screeningConfigurations'" [ViewOnly]="true">
+                        <input (click)="enableDisableTog(setting, '', 'specialInterestPerson')"
+                          class="custom-switch-checkbox" type="checkbox"
+                          name="'SIP - Special Interest Person'"
+                          id="specialInterestPerson"
+                          [checked]="setting.selectedValue == 'On' ? true : false" />
+                        <span class="slider round">
+                          <div class="slider-wrap"></div>
+                        </span>
+                      </label>
+                      <span class="label text-dark-black gotham-regular text-dark-cream">
+                        <i class="mar-r5 fa fa-user   f-21 mar-y10"></i>{{ "SIP - Special Interest Person" | translate }}
+                      </span>
+                    </div>
+                    <div *ngSwitchCase="'AME - Adverse Media'"
+                      class="select-group width-48 mar-r10 mar-b10 custom-select-dropdown text-dark-black settings-toggle-wrapper">
+                      <label class="switch mar-l25 custom-switch-wrapper filters-switch-wrapper bst-switch-wrapper"
+                        permission [domainPermission]="permissionIds | getPermissionId :'screeningConfigurations'" [ViewOnly]="true">
+                        <input (click)="enableDisableTog(setting, '', 'adverseMedia')"
+                          class="custom-switch-checkbox" type="checkbox"
+                          name="'AME - Adverse Media'"
+                          id="adverseMedia"
+                          [checked]="setting.selectedValue == 'On' ? true : false" />
+                        <span class="slider round">
+                          <div class="slider-wrap"></div>
+                        </span>
+                      </label>
+                      <span class="label text-dark-black gotham-regular text-dark-cream">
+                        <i class="mar-r5 fa fa-newspaper-o  f-21 mar-y10"></i>{{ "AME - Adverse Media" | translate }}
+                      </span>
+                    </div>
+                    <div *ngSwitchDefault class=" select-group width-48 mar-r10 mar-b10 custom-select-dropdown text-dark-black
+                      {{(setting.name.includes('/')? setting.name.split('/')[0] :setting.name).split(' ').join('')}}"
+                      [ngClass]="setting.classType ? setting.classType : 'bst_input_group '">
+                  
+               
+                  <label class="switch mar-l25 custom-switch-wrapper filters-switch-wrapper bst-switch-wrapper" *ngIf="
+                      setting.differentiator == 'Main Key' &&
+                      setting.type == 'Toggle On/Off' &&
+                      setting.systemSettingType === 'USER_MANAGEMENT_REGULATION'
+                    " permission [domainPermission]="permissionIds | getPermissionId :setting.name" [ViewOnly]="true">
+                    <input (click)="
+                        enableDisableTog(
+                          setting,
+                          '',
+                          'user_mgt' + setting.name.split(' ').join('_')
+                        )
+                      " id="hyperCheck_user_mgt{{
+                        setting.name.split(' ').join('_')
+                      }}" type="checkbox" [value]="setting.checked" name="{{
+                        systemsettingObject.selectedVal[
+                          'name' +
+                            val1.key.split(' ').join('_') +
+                            'sub' +
+                            setting.name.split(' ').join('')
+                        ]
+                      }}" [checked]="setting.checked" class="custom-switch-checkbox"  />
+                    <span class="slider round"> 
+                      <div class="slider-wrap"></div>
+                    </span>
+                  </label>
+                  <span *ngIf="
+                      setting.differentiator == 'Main Key' &&
+                      setting.systemSettingType === 'USER_MANAGEMENT_REGULATION'
+                    " class="label text-dark-black"><i *ngIf="
+                        setting.name !== 'Questionnaries' &&
+                        val1.key !== 'Branding'
+                      " class="mar-r5 fa fa-{{ setting.iconClass }} "></i>
+                    {{ setting.name | translate }}
+                  </span>
+                  
+
+                  <!-- Status reasons (Entity Type and Entity status dropdowns) -->
+                  <div *ngIf="setting.name === 'Reasons for'"
+                    class="select-group width-48 mar-r10 mar-b10 custom-select-dropdown text-dark-black From bst_input_group">
+                    <select class="custom-input text-dark-black gotham-regular text-capitalize"
+                     permission [domainPermission]="permissionIds | getPermissionId :setting.name" [ViewOnly]="true"
+                      (change)="changeEntityType($event.target.value)" [(ngModel)]="selectedEntity">
+                      <option *ngFor="
+                          let etype of systemsettingObject.entityType;
+                          let indexin = index
+                        " value="{{ etype }}">
+                        {{ etype | translate }}
+                      </option>
+                    </select>
+                    <span *ngIf="
+                        setting.name !== 'Questionnaries' &&
+                        val1.key !== 'Branding' &&
+                        setting.section !== 'Alert Indicators' &&
+                        setting.systemSettingType !==
+                          'USER_MANAGEMENT_REGULATION' &&
+                        setting.section !== 'Predefined Answers' &&
+                        setting.localization == 'Reasonsfor'
+                      " [ngClass]="{
+                        'settings-error-msg': val1.key === 'Regional Settings'
+                      }" class="label text-dark-black gotham-regular text-dark-cream"><i *ngIf="
+                          setting.name !== 'Questionnaries' &&
+                          val1.key !== 'Branding'
+                        " class="mar-r5 fa fa-{{ setting.iconClass }}"></i>{{ setting.localization | translate }}
+                    </span>
+                  </div>
+                  <div *ngIf="setting.name === 'Reasons for'"
+                    class="select-group width-48 mar-r10 mar-b10 custom-select-dropdown text-dark-black From bst_input_group">
+                    <select (change)="changeEntityStatus($event)" [(ngModel)]="selectedEntityStatus"
+                    permission [domainPermission]="permissionIds | getPermissionId :setting.name" [ViewOnly]="true"
+                      class="custom-input text-dark-black gotham-regular text-capitalize mar-l10">
+                      <option *ngFor="
+                          let opt1 of systemsettingObject.entityStatus;
+                          let indexin = index;trackBy:trackByStatusValue
+                        " value="{{ opt1.status_value }}">
+                        {{ opt1.status_value | translate }}
+                      </option>
+                    </select>
+                    <span *ngIf="
+                        setting.name !== 'Questionnaries' &&
+                        val1.key !== 'Branding' &&
+                        setting.section !== 'Alert Indicators' &&
+                        setting.systemSettingType !==
+                          'USER_MANAGEMENT_REGULATION' &&
+                        setting.section !== 'Predefined Answers' &&
+                        setting.localization == 'Reasonsfor'
+                      " [ngClass]="{
+                        'settings-error-msg': val1.key === 'Regional Settings'
+                      }" class="label text-dark-black gotham-regular text-dark-cream"><i *ngIf="
+                          setting.name !== 'Questionnaries' &&
+                          val1.key !== 'Branding'
+                        " class="mar-r5 fa fa-{{ setting.iconClass }}"></i>{{ "Status" | translate }}
+                    </span>
+                  </div>
+
+                  <select permission [domainPermission]="permissionIds | getPermissionId :setting.name" [ViewOnly]="setting.name != 'List Type'"
+                    *ngIf="setting.options && (setting.name !== 'Questionnaries')
+                    && setting.section !== 'Alert Indicators' && setting.section !== 'Predefined Answers'
+                    && setting.section !== 'Regional Settings' && setting.name !== 'Case Workflow'
+                    && setting.name !== 'UBO Percentage' && setting.name !== 'Level One' && setting.name !== 'Level Two and above'"
+                    (change)="updateVal(setting, systemsettingObject.selectedVal['name' + item.split(' ').join('_') + '_' + val1.key.split(' ').join('_') + 'sub' + index1])"
+                    [(ngModel)]="systemsettingObject.selectedVal['name' + item.split(' ').join('_') + '_' + val1.key.split(' ').join('_') + 'sub' + index1]"
+                    name="{{'name' + item.split(' ').join('_') + '_' + val1.key.split(' ').join('_') + 'sub' + index1}}"
+                    class="custom-input text-dark-black gotham-regular">
+                    <option *ngFor="let opt of setting.options; let indexin = index" [value]="indexin">
+                      {{ opt.attributeName | translate }}
+                    </option>
+                  </select>
+
+                  <select permission [domainPermission]="permissionIds | getPermissionId :setting.name" [ViewOnly]="true"
+                    *ngIf="setting.options && (setting.name === 'UBO Percentage' || setting.name === 'Level One' || setting.name === 'Level Two and above')"
+                    (change)="
+                      updateVal(
+                        setting,
+                        systemsettingObject.selectedVal[
+                          'name' +
+                            item.split(' ').join('_') +
+                            '_' +
+                            val1.key.split(' ').join('_') +
+                            'sub' +
+                            index1
+                        ]
+                      )
+                    " [(ngModel)]="
+                      systemsettingObject.selectedVal[
+                        'name' +
+                          item.split(' ').join('_') +
+                          '_' +
+                          val1.key.split(' ').join('_') +
+                          'sub' +
+                          index1
+                      ]
+                    " name="{{
+                      'name' +
+                        item.split(' ').join('_') +
+                        '_' +
+                        val1.key.split(' ').join('_') +
+                        'sub' +
+                        index1
+                    }}" class="custom-input text-dark-black gotham-regular">
+                    <option *ngFor="let opt of setting.options; let indexin = index" [value]="indexin">
+                     {{ opt.attributeName }}%
+                    </option>
+                  </select>
+
+                  <select permission [domainPermission]="permissionIds | getPermissionId :setting.name" [ViewOnly]="true" *ngIf="
+                      setting.options &&
+                      setting.name == 'Questionnaries' &&
+                      systemsettingObject.selectedVal[
+                        'nameGeneral_SettingssubAllowchecklist'
+                      ]
+                    " (change)="
+                      updateVal(
+                        setting,
+                        systemsettingObject.selectedVal[
+                          'name' +
+                            item.split(' ').join('_') +
+                            '_' +
+                            val1.key.split(' ').join('_') +
+                            'sub' +
+                            index1
+                        ],
+                        '',
+                        '',
+                        'Questionnaries'
+                      )
+                    " [(ngModel)]="
+                      systemsettingObject.selectedVal[
+                        'name' +
+                          item.split(' ').join('_') +
+                          '_' +
+                          val1.key.split(' ').join('_') +
+                          'sub' +
+                          index1
+                      ]
+                    " class="custom-input text-dark-black">
+                    <option *ngFor="let opt of setting.options; let index2 = index" value="{{ index2 }}">
+                      {{ opt.attributeName }}
+                    </option>
+                  </select>
+                  <!-- <a class="material-icons sm-plus c-pointer f-12 text-on-surface  mar-l10 plus-icon"
+                    [ngClass]="setting.secondaryClassType?setting.secondaryClassType:' '" (click)="addRow();"
+                    *ngIf="setting.name === 'Predefined answers for :'">add</a> -->
+                  <!-- <div class="section custom-data-table-wrapper pad-25 p-rel"
+                    *ngIf="setting.name === 'Predefined answers for :'">
+                    <table
+                      class="table table-scroll scroll-table table-striped-z full-width three-col-settings light-theme-border-bottom">
+                      <thead>
+                        <tr>
+                          <th>Answer Title</th>
+                          <th>Answer Body</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody class="mxh-250 scroll-tbody">
+                        <tr *ngFor="let list of systemsettingObject.answerToshowInTable;let answer_index = index">
+                          <td class="word-bw ws-pl text-capitalize gotham-regular" *ngIf="list.disableInput">
+                            {{list.code}}</td>
+                          <td class="word-bw ws-pl gotham-regular" *ngIf="!list.disableInput">
+                            <div
+                              class="input-group width-90 custom-input-group custom-select-dropdown inner-element mar-b0 text-dark-black"
+                              ng-class="{'c-ban':list.disableInput}">
+                              <input type="text" maxlength="50"
+                                class="custom-input border-blue-thin-b widtheight-100 text-dark-black"
+                                [(ngModel)]="list.code" [ngClass]="{'pe-none':list.disableInput}"
+                                [disabled]="list.disableInput">
+                            </div>
+                          </td>
+                          <td class="word-bw ws-pl gotham-regular" *ngIf="list.disableInput">{{list.disableInput}}
+                            {{list.displayName}}</td>
+                          <td class="word-bw ws-pl gotham-regular overflow-v" *ngIf="!list.disableInput">
+                            <div
+                              class="input-group width-90 custom-input-group custom-select-dropdown inner-element mar-b0 text-dark-black"
+                              [ngClass]="{'c-ban':list.disableInput}">
+                              <input type="text" maxlength="200"
+                                class="custom-input border-blue-thin-b widtheight-100 text-dark-black"
+                                [(ngModel)]="list.displayName" [ngClass]="{'pe-none':list.disableInput}"
+                                [disabled]="list.disableInput">
+                            </div>
+                          </td>
+                          <td>
+                            <span class="fa mar-l10  mar-l15 fa-trash c-pointer text-coral-red"
+                              (click)="deleteRow(list);" permission="permissionIds['delete']"
+                              [ngClass]="{'pe-none':!list.allowDelete}"></span>
+                            <span *ngIf="list.disableInput" permission="permissionIds['edit']"><i
+                                class="fa fa-pencil f-12 mar-l15 text-dark-cream c-pointer text-dark-black"
+                                (click)="editUpdateListInTable(answer_index,list,'AnswerTable');"></i></span>
+                            <span *ngIf="!list.disableInput"><i
+                                class="fa fa-check f-12 mar-l15 text-dark-cream c-pointer text-dark-black"
+                                (click)="saveEditUpdateListInTable(answer_index,list,'AnswerTable');"></i></span>
+                            <span *ngIf="!list.disableInput"><i
+                                class="fa fa-times  f-12 mar-l15 text-dark-cream c-pointer text-dark-black"
+                                (click)="cancelEditUpdateListInTable(answer_index,'AnswerTable');"></i></span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <span class="material-icons  text-on-primary c-pointer f-24 p-abs b-0 plus-icon"
+                      style="right: -10px;" (click)="addRowInTable('AnswerTable');">add</span>
+                  </div> -->
+                  <span *ngIf="
+                      setting.section === 'Case Assets'
+                    " [ngClass]="{
+                      'settings-error-msg': val1.key === 'Regional Settings'
+                    }" class="label text-dark-black gotham-regular text-dark-cream mar-r10 case-attachment-label"><i *ngIf="
+                        setting.name !== 'Questionnaries' &&
+                        val1.key !== 'Branding'
+                      " class="mar-r5 fa fa-{{ setting.iconClass }}"></i>{{ setting.name | translate }}
+                  </span>
+                  <label class="switch custom-switch-wrapper filters-switch-wrapper bst-switch-wrapper"
+                   *ngIf="val1.key !== 'Branding' &&
+                      (!setting.type || setting.type == 'Toggle On/Off') &&
+                      setting.systemSettingType !== 'USER_MANAGEMENT_REGULATION'
+                    " permission [domainPermission]="permissionIds | getPermissionId :setting.name" [ViewOnly]="true">
+                    <input (click)="
+                        enableDisableTog(
+                          setting,
+                          '',
+                          !setting.name.includes('/')?setting.name.split(' ').join('_') : setting.name.split('/')[0].split(' ').join('_')
+                        )
+                      " id="hyperCheck_{{ !setting.name.includes('/')?setting.name.split(' ').join('_') : setting.name.split('/')[0].split(' ').join('_') }}" type="checkbox"
+                      [checked]="setting.selectedValue == 'On'? true : false" class="custom-switch-checkbox" name="{{
+                        systemsettingObject.selectedVal[
+                          'name' +
+                            val1.key.split(' ').join('_') +
+                            'sub' +
+                            setting.name.split(' ').join('')
+                        ]
+                      }}" />
+                    <span class="slider round"> 
+                      <div class="slider-wrap"></div>
+                    </span>
+                  </label>
+                  <div class="custom-range-wrapper w-30f entity-range-bar" [ngClass]="{
+                      active: setting.type == 'Slider' && setting.select == 'On'
+                    }" *ngIf="setting.section == 'Alert Indicators'">
+                    <span *ngIf="setting.type == 'Toggle On/Off'" class="f-14 font-light text-dark-black" >
+                      {{ setting.name | translate }}
+                      <i class="fa fa-question-circle info-icon c-pointer" aria-hidden="true"></i>
+                    </span>
+                    <h3 class="font-light text-capitalize mar-b30 mar-t5 f-12 c-arrow" *ngIf="
+                        setting.type == 'Slider' &&
+                        setting.select == 'On' &&
+                        setting.name.split(' ')[0] !== 'Time'
+                      ">
+                      <span class="indicator {{
+                          setting.name.split(' ')[1].toLowerCase()
+                        }}">
+                        <i class="fa fa-exclamation-triangle"></i></span>
+                      {{ setting.name.split(" ")[1] | translate }}
+                    </h3>
+                    <h3 class="font-light text-capitalize mar-b30 mar-t5 f-12 c-arrow" *ngIf="
+                        setting.type == 'Slider' &&
+                        setting.select == 'On' &&
+                        setting.name.split(' ')[0] == 'Time'
+                      ">
+                      <span *ngIf="setting.name.split(' ')[2] == 'Medium'">
+                        <span class="indicator medium"><i class="fa fa-battery-half"></i></span>
+                        {{ "Long-term" | translate }}</span>
+                      <span *ngIf="setting.name.split(' ')[2] == 'High'">
+                        <span class="indicator low"><i class="fa fa-battery-full"></i>
+                        </span>
+                        {{ "Short-term" | translate }}</span>
+                    </h3>
+                    <input permission [domainPermission]="permissionIds | getPermissionId :setting.name" [ViewOnly]="true"
+                    *ngIf="setting.type == 'Slider' && setting.select == 'On'" type="range" min="{{
+                        setting.selectedValueMin ? setting.selectedValueMin : 0
+                      }}" max="{{
+                        setting.selectedValueMax >= setting.FixedMaxVal
+                          ? setting.FixedMaxVal
+                          : setting.selectedValueMax
+                      }}" step="1" class="bg-transparent pad-y5  slider-{{
+                        setting.name.split(' ')[1].toLowerCase()
+                      }} slider-{{ setting.name.split(' ')[2].toLowerCase() }}"
+                      (change)="updateVal(setting, setting.sliderTo)" [(ngModel)]="setting.sliderTo" />
+                    <input *ngIf="setting.type == 'Slider' && setting.select == 'On'" type="number" min="{{
+                        setting.selectedValueMin ? setting.selectedValueMin : 0
+                      }}" max="{{
+                        setting.selectedValueMax >= setting.FixedMaxVal
+                          ? setting.FixedMaxVal
+                          : setting.selectedValueMax
+                      }}" [(ngModel)]="setting.sliderTo"
+                      class="custom-input bst_input_group text-on-surface font-light text-dark-black theme-f-15"
+                      (change)="updateVal(setting, setting.sliderTo)" />
+                    <span class="sort-icon c-pointer" *ngIf="setting.type == 'Slider' && setting.select == 'On'">
+                      <i class="fa fa-sort-asc up-icon"></i>
+                      <i class="fa fa-sort-desc down-icon"></i>
+                    </span>
+
+                    <span *ngIf="
+                        setting.options &&
+                        setting.name !== 'Questionnaries' &&
+                        setting.section == 'Alert Indicators' &&
+                        setting.select == 'On'
+                      ">
+                      <i class="fa fa-caret-down down-arrow"></i>
+                    </span>
+                    <select permission [domainPermission]="permissionIds | getPermissionId :setting.name" [ViewOnly]="true" *ngIf="
+                        setting.options &&
+                        setting.name !== 'Questionnaries' &&
+                        setting.section == 'Alert Indicators' &&
+                        setting.select == 'On'
+                      " name="drop_{{ setting.name.split(' ').join('_') }}"
+                      id="drop_{{ setting.name.split(' ').join('_') }}" (change)="
+                        updateVal(
+                          setting.
+                          selectedVal[
+                            'name' +
+                              item.split(' ').join('_') +
+                              '_' +
+                              val1.key.split(' ').join('_') +
+                              'sub' +
+                              index1
+                          ]
+                        )
+                      " [(ngModel)]="
+                        systemsettingObject.selectedVal[
+                          'name' +
+                            item.split(' ').join('_') +
+                            '_' +
+                            val1.key.split(' ').join('_') +
+                            'sub' +
+                            index1
+                        ]
+                      " class="custom-input font-light text-dark-black c-pointer">
+                      <option *ngFor="let opt of setting.options; let index3 = index" [disabled]="opt.disabled"
+                        value="{{ index3 }}">
+                        {{ opt.attributeName }}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="col-sm-12 pad-x0 d-flex" *ngIf="
+                      val1.key === 'Branding' && setting.name == 'Company Logo'
+                    ">
+                    <div class="" id="customer_logo">
+                      <img alt="No Logo" class="img-responsive" [src]="
+                          'data:image/png;base64,' +
+                          (setting.customerLogoImage || setting.defaultValue)
+                        " />
+                    </div>
+                    <div class="pad-10">
+                      <p class="f-16 mar-b5 gotham-medium">
+                        {{ setting.name | translate }}
+                      </p>
+                      <p class="font-light mb-3">
+                        {{ "RecommendedResolutionText" | translate }}
+                      </p>
+                      <button class="grad-button sm-btns gotham-medium mr-2"
+                        (click)="openUploadCustomerLogoModal(setting)" permission [domainPermission]="permissionIds | getPermissionId :'upload'" [ViewOnly]="true">
+                        {{ "Upload" | translate }}
+                      </button>
+                      <button class="bordered-button sm-btns gotham-medium" (click)="removeCustomerLogo(setting)" permission [domainPermission]="permissionIds | getPermissionId :'remove'" [ViewOnly]="true">
+                        {{ "Remove" | translate }}
+                      </button>
+                    </div>
+                  </div>
+                  <div *ngIf="val1.key === 'Branding' && ['Report Logo','Report Footer'].includes(setting.name)">
+                    <h4 *ngIf="setting.name == 'Report Logo'"
+                      class="sub-heading mar-t15 f-24 text-dark-cream font-light widtheight-100 mar-r5 text-dark-black gotham-medium title-text-on-surface">
+                      <span>{{ "Report Settings" | translate }}</span>
+                    </h4>
+                    <div class="col-sm-12 pad-x0 d-flex" *ngIf="val1.key === 'Branding' && setting.name == 'Report Logo'">
+                      <div class="" id="customer_logo">
+                        <img alt="No Logo" class="img-responsive" [src]="
+                            'data:image/png;base64,' +
+                            (setting.customerLogoImage || setting.defaultValue)
+                          " />
+                      </div>
+                      <div class="pad-10">
+                        <p class="f-16 mar-b5 gotham-medium">{{ "Report logo" | translate }}</p>
+                        <p class="font-light mb-3">
+                          {{ "RecommendedResolutionText" | translate }}
+                        </p>
+                        <button class="grad-button sm-btns gotham-medium mr-2"
+                          (click)="openUploadCustomerLogoModal(setting)" permission [domainPermission]="permissionIds | getPermissionId :'upload'" [ViewOnly]="true">
+                          {{ "Upload" | translate }}
+                        </button>
+                        <button class="bordered-button sm-btns gotham-medium" (click)="removeCustomerLogo(setting)" permission [domainPermission]="permissionIds | getPermissionId :'remove'" [ViewOnly]="true">
+                          {{ "Remove" | translate }}
+                        </button>
+                      </div>
+                    </div>
+                    <div class="col-sm-12 pad-x0 mar-t10 d-flex" *ngIf="val1.key === 'Branding' && setting.name == 'Report Footer'">
+                      <div class="pad-10">
+                        <p class="f-16 mar-b5 gotham-medium">{{ "Report Footer" | translate }}</p>
+                        <p class="font-light mb-3">
+                          {{ "ReportFooterSubText" | translate }}
+                        </p>
+                        <button class="grad-button sm-btns gotham-medium mr-2 mt-2" (click)="openReportFooterModal(setting)" permission
+                          [domainPermission]="permissionIds | getPermissionId :'upload'" [ViewOnly]="true">
+                          {{ "Edit Footer" | translate }}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div *ngIf="setting.type == 'Autocomplete'" style="align-items: center"
+                    class="d-flex select-group autocomplete-wrapper flex-wrap m-0 mar-b10 custom-select-dropdown">
+                    <input permission [domainPermission]="permissionIds | getPermissionId :'Language'" [ViewOnly]="true"
+                     id="typeahead-focus" type="text" class="form-control custom-input"
+                      [(ngModel)]="systemsettingObject.selected_Language" [ngbTypeahead]="search"
+                      (focus)="focus$.next($any($event).target.value)" #instance="ngbTypeahead"
+                      (selectItem)="slelectedLanguage($event, setting)" [resultTemplate]="rt"
+                      [inputFormatter]="formatter" (keyup)="mouseover($event.target.value)" />
+                    <ng-template #rt let-r="result" let-t="term">
+                      <ngb-highlight [result]="r.displayName" [term]="t"></ngb-highlight>
+                    </ng-template>
+
+                    <div class="clearfix border-0 autocomplete-popover light-theme-bg-white w-100 p-4"
+                      *ngIf="systemsettingObject.showAdddLanguageJSon">
+                      <p class="f-13 mb-3">
+                        <!-- language is not added to the system yet -->
+                        {{ "language is not added to the system yet" | translate }}
+
+                      </p>
+                      <p class="mb-4 f-13">
+                        <!-- Do you want to Add this language ? -->
+                        {{ "Do you want to Add this language" | translate }}?
+                      </p>
+                      <div class="btn-wrapper pull-right pad-r10 f-12">
+                        <button class="button light-theme-btn secondary-btn pad-5" (click)="
+                            uploadCsvFiles(setting.selectedValue, setting)
+                          " [disabled]="!setting.selectedValue">
+                          {{ "ADD LANGUAGE" | translate }}
+                        </button>
+                        <button class="button ml-3 light-theme-btn primary-btn pad-5" (click)="dimisspop($event)">
+                          {{ "CANCEL" | translate }}
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- <input *ngIf="setting.type== 'Autocomplete'" type="text" autocomplete="off"
+                         [(ngModel)]="setting.selectedValue" placeholder="Jurisdiction Name"
+                         uib-typeahead="state as state.displayName for state in systemsettingObject.languageList | filter:{displayName :$viewValue}"
+                         typeahead-template-url="customTemplateSettings.html"
+                         class="custom-input mar-t0 bg-transparent form-control typehead-dropdown text-dark-black"
+                         typeahead-show-hint="true" typeahead-min-length="0"
+                         (keyup)="onSelect(setting.selectedValue,systemsettingObject.languageList)"
+                         typeahead-on-select="updateVal(setting,systemsettingObject.selectedVal['name' +key.split(' ').join('_')+ '_' + (val1.key.split(' ').join('_')) +'sub' +$index]);"
+                         style="padding-left: 35px"> -->
+                    <img *ngIf="systemsettingObject.selectedFlagSource" [src]="systemsettingObject.selectedFlagSource"
+                      width="16" style="
+                        position: absolute;
+                        top: 20px;
+                        left: 15px;
+                        width: 20px;
+                        height: 12px;
+                      " />
+                    <span *ngIf="systemsettingObject.selectedIconSource" class="icon f-18"><i style="
+                          position: absolute;
+                          top: 18px;
+                          left: 15px;
+                          width: 20px;
+                          height: 12px;
+                        "></i></span>
+                    <!-- ngclaass uncomment -->
+                  </div>
+                  <span *ngIf="
+                      setting.name == 'Questionnaries' &&
+                      systemsettingObject.selectedVal[
+                        'nameGeneral_SettingssubAllowchecklist'
+                      ]
+                    " class="label text-dark-black">{{ setting.name | translate }}
+                  </span>
+                  <div *ngIf="setting.validationFail" style="margin-left: 20%">
+                    <span style="color: Red" class="mar-l25">{{ "Please Enter Valid Email" | translate }}</span>
+                  </div>
+                  <div *ngIf="
+                      val1.key === 'Regional Settings' &&
+                      !systemsettingObject.filteredArrayRegionalSetting
+                    " class="clearfix border-0 autocomplete-popover light-theme-bg-white">
+                    <div class="content-wrapper-regional">
+                      <p class="f-13 mb-1">
+                        {{ setting.selectedValue | translate }}
+                        <!-- language is not added to the
+                        system yet -->
+                        {{ "language is not added to the system yet" | translate }}
+                      </p>
+                      <p class="f-13">
+                        <!-- Do you want to Add this language ? -->
+                        {{ "Do you want to Add this language" | translate }}?
+                      </p>
+                    </div>
+                    <div class="btn-wrapper pull-right pad-r10 f-12">
+                      <button class="button light-theme-btn secondary-btn pad-5"
+                      permission [domainPermission]="permissionIds | getPermissionId :setting.name" [ViewOnly]="true"
+                        (click)="uploadCsvFiles(setting.selectedValue, setting)"
+                        [class.disabled-p]="!setting.selectedValue" [disabled]="!setting.selectedValue">
+                        <!-- ADD LANGUAGE -->
+                        {{ "ADD LANGUAGE" | translate }}
+                      </button>
+                      <button class="button light-theme-btn primary-btn pad-5"
+                      permission [domainPermission]="permissionIds | getPermissionId :setting.name" [ViewOnly]="true"
+                        (click)="cancelRegionalSettings(setting)">
+                        <!-- CANCEL -->
+                        {{ "CANCEL" | translate }}
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 pad-x0 d-flex" *ngIf="
+                      val1.key === 'Regional Settings' &&
+                      systemsettingObject.filteredArrayRegionalSetting
+                    " style="
+                      position: absolute;
+                      right: -350px;
+                      top: 9px;
+                      justify-content: flex-end;
+                    ">
+                    <div class="fileNameLangauage" style="align-items: center; padding: 3px 17px 0px 0px">
+                      <span style="font-size: 14px; margin-right: 10px"><i class="fa fa-file"></i></span>
+                      <span *ngIf="setting.selectedFile">
+                        {{ setting.selectedFile | translate }}
+                      </span>
+                      <span *ngIf="!setting.selectedFile">{{ setting.selectedValue | translate}}</span><span
+                        *ngIf="!setting.selectedFile && setting.selectedValue">.zip</span>
+                    </div>
+                    <button class="f-15 border-0 bst-btn-light-theme" permission [domainPermission]="permissionIds | getPermissionId :'Download'" [ViewOnly]="true"
+                     style="
+                        background: transparent;
+                        text-transform: uppercase;
+                      " (click)="downloadCSV(setting.selectedValue, setting)">
+                      {{ "Download" | translate }}
+                    </button>
+                    <button class="f-15 border-0 bst-btn-light-theme" permission [domainPermission]="permissionIds | getPermissionId :'Replace'" [ViewOnly]="true"
+                    style="
+                        background: transparent;
+                        text-transform: uppercase;
+                      " (click)="uploadCsvFiles(setting.selectedValue, setting)">
+                      {{ "Replace" | translate }}
+                    </button>
+                  </div>
+                  <input  permission [domainPermission]="permissionIds | getPermissionId :setting.name" [ViewOnly]="true"
+                   *ngIf="setting.type == 'Text' && setting.name == 'Port'" type="text"
+                    (blur)="updateVal(setting)" class="custom-input text-dark-black"
+                    [(ngModel)]="setting.selectedValue" />
+                  <!-- pattern='[/^([0-5]?[0-9]?[0-9]?[0-9]?[0-9]|6[0-4][0-9][0-9][0-9]|65[0-4][0-9][0-9]|655[0-2][0-9]|6553[0-5])$/]' -->
+                  <input permission [domainPermission]="permissionIds | getPermissionId :setting.name" [ViewOnly]="true"
+                  *ngIf="
+                      setting.type == 'Text' &&
+                      setting.name == 'Outbound SMTP Server'
+                    " type="text" (blur)="updateVal(setting)" class="custom-input text-dark-black"
+                    [(ngModel)]="setting.selectedValue" maxlength="{{ setting.maximumLength }}" />
+                  <input permission [domainPermission]="permissionIds | getPermissionId :setting.name" [ViewOnly]="true"
+                  *ngIf="
+                      setting.type == 'Text' &&
+                      setting.name != 'Port' &&
+                      setting.name != 'Outbound SMTP Server'
+                    " type="text" (blur)="updateVal(setting)" class="custom-input text-dark-black c1234"
+                    [(ngModel)]="setting.selectedValue" maxlength="{{ setting.maximumLength }}" />
+                  <span *ngIf="setting.name.split(' ').join('') === 'Pendingusersdeactivationafter'" class="ml-3">{{ 'days' | translate }}</span>
+                  <input permission [domainPermission]="permissionIds | getPermissionId :setting.name" [ViewOnly]="true"
+                  *ngIf="
+                      setting.type.toLowerCase() == 'number' &&
+                      setting.name != 'Port' &&
+                      setting.name != 'Outbound SMTP Server'
+                    " type="number" (blur)="updateVal(setting)" class="custom-input text-dark-black"
+                    [(ngModel)]="setting.selectedValue" min="-1" />
+                  <input permission [domainPermission]="permissionIds | getPermissionId :'Authentication'" [ViewOnly]="true"
+                  *ngIf="setting.type == 'Password'" type="password" (blur)="updateVal(setting)"
+                    class="custom-input text-dark-black 6" [(ngModel)]="setting.selectedValue"
+                    maxlength="{{ setting.maximumLength }}" />
+                  <input permission [domainPermission]="permissionIds | getPermissionId :'Authentication'" [ViewOnly]="true"
+                  *ngIf="setting.type == 'Email'" type="email" (blur)="updateVal(setting, '', '', 'email')"
+                    class="custom-input text-dark-black" [(ngModel)]="setting.selectedValue"
+                    maxlength="{{ setting.maximumLength }}" />
+                    <span *ngIf="
+                    setting.section !== 'Case Assets' &&
+                    setting.name !== 'Questionnaries' &&
+                    val1.key !== 'Branding' &&
+                    setting.section !== 'Alert Indicators' &&
+                    setting.systemSettingType !==
+                      'USER_MANAGEMENT_REGULATION' &&
+                    setting.section !== 'Predefined Answers' &&
+                    setting.localization !== 'Reasonsfor' &&
+                    setting.section !== 'Jurisdiction Tenant Mapping'
+                  " [ngClass]="{
+                    'settings-error-msg': val1.key === 'Regional Settings'
+                  }" class="label text-dark-black gotham-regular text-dark-cream"><i *ngIf="
+                      setting.name !== 'Questionnaries' &&
+                      val1.key !== 'Branding'
+                    " class="mar-r5 fa fa-{{ setting.iconClass }}"></i>{{ setting.name | translate }}
+                    </span>
+                  <!-- <span
+                    *ngIf="(setting.name !== 'Questionnaries' && val1.key !== 'Branding' && setting.section !== 'Alert Indicators' && setting.systemSettingType !== 'USER_MANAGEMENT_REGULATION' && setting.section !== 'Predefined Answers' && setting.localization == 'Reasonsfor')"
+                    [ngClass]="{'settings-error-msg':(val1.key === 'Regional Settings')}"
+                    class="label text-dark-black gotham-regular ganesh text-dark-cream"><i
+                      *ngIf="(setting.name !== 'Questionnaries' && val1.key !== 'Branding')"
+                      class="mar-r5 fa fa-{{setting.iconClass}}"></i>{{setting.localization | translate }}
+                  </span> -->
+                </div>
+                </ng-container>
+
+                
+                <ng-container *ngFor="let setting of val1.values; let index1 = index;trackBy:trackByName">
+                  <ng-container *ngIf="setting.section === 'List Management' && showEntityTypeListManagementDropdown && systemsettingObject.entityWorkFlowList && systemsettingObject.entityWorkFlowList.length">
+                    <div class="select-group width-48 mar-r10 mar-b10 custom-select-dropdown text-dark-black {{setting.name.split(' ').join('')}}"
+                      [ngClass]="setting.classType ? setting.classType : 'bst_input_group '"
+                    >
+                      <select
+                        permission [domainPermission]="permissionIds | getPermissionId :setting.name" [ViewOnly]="setting.name != 'List Type'"
+                        [value]="selectedEntityTypeListManagement.entityName"
+                        class="custom-input text-dark-black gotham-regular"
+                        (change)="changeListManagementEntityStatusTypeFromSelect($event.target.value)"
+                      >
+                        <option
+                          *ngFor="let opt of systemsettingObject.entityWorkFlowList;trackBy:trackByEntityName"
+                          [value]="opt.entityName"
+                        >
+                          {{ opt.entityName }}
+                        </option>
+                      </select>
+                      <span class="label text-dark-black">
+                          {{ 'Entity Type' }}
+                      </span>
+                    </div>
+                  </ng-container>
+                </ng-container>
+
+              </div>
+              <!-- List Management and status reasons -->
+              <div class="section p-rel" *ngIf="item === 'List Management Settings'" >
+                <table class="table table-scroll scroll-table full-width four-col-settings light-theme-specific"
+                  *ngIf="val1.key === 'List Management'">
+                  <thead>
+                    <tr>
+                      <th>{{ "Code" | translate }}</th>
+                      <th>{{ "Icon" | translate }}</th>
+                      <th>{{ "Display Name" | translate }}</th>
+                      <th>{{ "Actions" | translate }}</th>
+                    </tr>
+                  </thead>
+                  <tbody class="mxh-250 custom-scroll-wrapper scroll-tbody">
+                    <tr *ngFor="
+                        let list of systemsettingObject.dataToShowAsperList;
+                        let table_index = index;trackBy:trackByCode
+                      ">
+                      <td class="word-bw ws-pl gotham-regular" *ngIf="list.disableInput">
+                        {{ list.code | translate }}
+                      </td>
+                      <td class="word-bw ws-pl gotham-regular" *ngIf="!list.disableInput">
+                        <div
+                          class="width-100 mar-t10"
+                          [ngClass]="{ 'c-ban': list.disableInput }"
+                        >
+                        <div *ngIf="list.newItem;then NewItemcontent else EditItemcontent"></div>
+                            <ng-template #NewItemcontent>
+                          <mat-form-field class="bst-form-field bst-form-field--small" appearance="fill">
+                            <div class="input-wrapper">
+                                <input
+                                matInput
+                                class="input-wrapper__text-input subtitle1"
+                                [(ngModel)]="list.code"
+                                [name]="list.code"
+                                [value]="list.code"
+                                [ngClass]="{ 'pe-none': list.disableInput }"
+                                [disabled]="list.disableInput"
+                                maxlength="50"
+
+                              />
+
+                            </div>
+                          </mat-form-field>
+                        </ng-template>
+                        <ng-template #EditItemcontent>
+                          {{ list.code | translate }}
+                        </ng-template>
+                        </div>
+                      </td>
+                      <td>
+                        <button permission [domainPermission]="permissionIds | getPermissionId :'Choose Icon'" [ViewOnly]="true" [ngbPopover]="popContent" (click)="
+                            p2.open();
+                            handlingPopUpFlagColorIcon(table_index, list);
+                            refernce(p2)
+                          " triggers="manual" #p2="ngbPopover" container="body"
+                          popoverClass="setting-icons-popover no-arrow" [autoClose]="'outside'">
+                          <span class="fa c-pointer fa-{{
+                              list.icon ? list.icon : 'ban'
+                            }}" [ngStyle]="{ color: setColorCaseRisk(list.colorCode) }"></span>
+                        </button>
+                      </td>
+                      <td class="word-bw ws-pl gotham-regular" *ngIf="list.disableInput">
+                        {{ list.displayName | translate }}
+                      </td>
+                      <td class="word-bw ws-pl gotham-regular" *ngIf="!list.disableInput">
+                        <div
+                          class="width-100 mar-t10"
+                          [ngClass]="{ 'c-ban': list.disableInput }"
+                        >
+                            <mat-form-field class="bst-form-field bst-form-field--small" appearance="fill">
+                              <div class="input-wrapper">
+                                <input
+                                  matInput
+                                  type="text"
+                                  permission
+                                  [domainPermission]="permissionIds | getPermissionId :list.displayName"
+                                  [ViewOnly]="true"
+                                  class="input-wrapper__text-input subtitle1"
+                                  [ngClass]="{ 'pe-none': list.disableInput }"
+                                  [(ngModel)]="list.displayName"
+                                  [name]="list.displayName"
+                                  [value]="list.displayName"
+                                  [disabled]="list.disableInput"
+                                  maxlength="200"
+                                />
+                              </div>
+                            </mat-form-field>
+                        </div>
+                      </td>
+                      <td>
+                        <span class="material-icons mar-l15 text-dark-cream c-pointer text-dark-black op-05" *ngIf="!list.disableInput" (click)="saveEditUpdateListInTable(table_index, list, 'ListTable')">done</span>
+                        <span class="material-icons mar-l15 text-dark-cream c-pointer text-dark-black op-05" *ngIf="!list.disableInput" (click)="cancelEditUpdateListInTable(table_index, 'ListTable')">close</span>
+                        <span class="material-icons mar-l15 text-dark-cream c-pointer text text-dark-black op-05" permission [domainPermission]="permissionIds | getPermissionId :'Edit'" [ViewOnly]="true" *ngIf="list.disableInput" (click)="editUpdateListInTable(table_index, list, 'ListTable')">edit</span>
+                        <span class="material-icons mar-l10 mar-l15 c-pointer text-coral-red" permission [domainPermission]="permissionIds | getPermissionId :'Delete'" [ViewOnly]="true" [ngClass]="{ 'pe-none': !list.allowDelete }" (click)="deleteRow(list, item)">delete</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <span
+                  permission
+                  [domainPermission]="permissionIds | getPermissionId :'List Management Settings'"
+                  class="plus material-icons text-on-primary c-pointer f-24 text-dark-black plus-icon"
+                  (click)="addRowInTable('ListTable')" *ngIf="val1.key === 'List Management'"> add </span>
+                <table
+                  class="table table-scroll scroll-table full-width three-col-settings light-theme-border-bottom light-theme-specific"
+                  *ngIf="val1.key === 'Status Reasons'">
+                  <thead>
+                    <tr>
+                      <th>{{ "ReasonCode" | translate }}</th>
+                      <th>{{ "Reason" | translate }}</th>
+                      <th>{{ "Actions" | translate }}</th>
+                    </tr>
+                  </thead>
+                  <tbody class="mxh-250 scroll-tbody">
+                    <tr *ngFor="
+                        let list of systemsettingObject.reasonsData;
+                        let answer_index = index
+                      ">
+                      <td class="word-bw ws-pl text-capitalize gotham-regular" *ngIf="list.disableCode">
+                        {{ list.reason_code }}
+                      </td>
+                      <td class="word-bw ws-pl gotham-regular" *ngIf="!list.disableCode">
+                        <div
+                          class="width-100 mar-t10"
+                          ng-class="{ 'c-ban': list.disableCode }"
+                        >
+                          <mat-form-field class="bst-form-field bst-form-field--small" appearance="fill">
+                            <div class="input-wrapper">
+                              <input
+                                matInput
+                                permission
+                                [domainPermission]="permissionIds | getPermissionId :''"
+                                [ViewOnly]="true"
+                                class="input-wrapper__text-input subtitle1"
+                                [ngClass]="{ 'pe-none': list.disableCode }"
+                                [(ngModel)]="list.reason_code"
+                                [disabled]="list.disableCode"
+                                maxlength="50"
+                              />
+                            </div>
+                          </mat-form-field>
+                        </div>
+                      </td>
+                      <td class="word-bw ws-pl gotham-regular" *ngIf="list.disableInput">
+                        {{ list.reason }}
+                      </td>
+                      <td class="word-bw ws-pl gotham-regular" *ngIf="!list.disableInput">
+                        <div
+                          class="width-100 mar-t10"
+                          [ngClass]="{ 'c-ban': list.disableInput }"
+                        >
+                          <mat-form-field class="bst-form-field bst-form-field--small" appearance="fill">
+                            <div class="input-wrapper">
+                              <input
+                                matInput
+                                class="input-wrapper__text-input subtitle1"
+                                [ngClass]="{ 'pe-none': list.disableInput }"
+                                [(ngModel)]="list.reason"
+                                [disabled]="list.disableInput"
+                                maxlength="200"
+                              />
+                            </div>
+                          </mat-form-field>
+                        </div>
+                      </td>
+                      <td>
+                        <span class="material-icons mar-l15 text-dark-cream c-pointer text-dark-black op-05" *ngIf="!list.disableInput" (click)="saveReason(answer_index, list)">done</span>
+                        <span class="material-icons mar-l15 text-dark-cream c-pointer text-dark-black op-05" *ngIf="!list.disableInput" (click)="cancelEditUpdateResaon(answer_index, list)">close</span>
+                        <span class="material-icons mar-l15 text-dark-cream c-pointer text text-dark-black op-05" *ngIf="list.disableInput" (click)="updateReasonsRow(answer_index, list, 'Reasons')">edit</span>
+                        <span class="material-icons mar-l10 mar-l15 c-pointer text-coral-red" [ngClass]="{ 'pe-none': !list.allowDelete }" (click)="deleteReasonRow(list)">delete</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <span class="plus material-icons text-on-primary c-pointer f-24 plus-icon"
+                  (click)="
+                    addRowInReasonTable(selectedEntity, selectedEntityStatus)
+                  " *ngIf="val1.key === 'Status Reasons'">add</span>
+              </div>
+              <div class="section p-rel" *ngIf="val1.key === 'Entities Workflows'">
+                
+                <table class="table table-scroll scroll-table full-width three-col-settings light-theme-specific"
+                  *ngIf="val1.key === 'Entities Workflows'">
+                  <thead>
+                    <tr>
+                      <th>
+                        {{ "Entity" | translate }}
+                        <i class="fa f-12 mar-l15 text-dark-cream c-pointer text text-dark-black"
+                        [ngClass]="{'fa-sort-alpha-asc': systemsettingObject.entityWorkFlowSort == 'asc', 'fa-sort-alpha-desc': systemsettingObject.entityWorkFlowSort == 'desc'}"
+                        (click)="sortListInTable()"></i>
+                      </th>
+                      <th>{{ "Workflow" | translate }}</th>
+                      <th>{{ "Actions" | translate }}</th>
+                    </tr>
+                  </thead>
+                  <tbody class="mxh-250 custom-scroll-wrapper scroll-tbody">
+                    <tr *ngFor="let item of systemsettingObject.entityWorkFlowList; let table_index = index">
+                      <td class="word-bw ws-pl gotham-regular" *ngIf="item.disableInput">
+                        {{ item.entityName | translate }}
+                      </td>
+                      <td class="word-bw ws-pl gotham-regular" *ngIf="!item.disableInput">
+                        <div
+                          class="width-100 mar-t10"
+                          [ngClass]="{ 'c-ban': item.disableInput }"
+                        >
+                          <div class="bst-select-full-wrapper">
+                            <mat-form-field class="bst-form-field bst-form-field--select bst-form-field--select__small small-dropdown"
+                                  appearance="fill">
+                                  <mat-label class="text-label">{{ 'Select an option' | translate }}</mat-label>
+                                  <mat-select
+                                    id="indicatorSelect"
+                                    [(ngModel)]="item.entityId"
+                                    class="bst-select-wrapper"
+                                    panelClass="bst-select-panel"
+                                    (selectionChange)="changeEntityWorkflow($event.value, table_index, 'entity')">
+                                      <mat-option
+                                        class="bst-select-wrapper__option bst-body1"
+                                        *ngFor="let entity of systemsettingObject.entityTypeDrop"
+                                        [disabled]="item.entityId == entity.attributeId"
+                                        [value]="entity.attributeId"
+                                      >
+                                          <span [ngClass]="{ 'pe-none': item.entityId == entity.attributeId}">
+                                            {{ entity.attributeName | translate }}
+                                          </span>
+                                      </mat-option>
+                                  </mat-select>
+                              </mat-form-field>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="word-bw ws-pl gotham-regular" *ngIf="item.disableInput">
+                        {{ item.workflowName }}
+                      </td>
+                      <td class="word-bw ws-pl gotham-regular" *ngIf="!item.disableInput">
+                       
+                        <div
+                          class="width-100 mar-t10"
+                          [ngClass]="{ 'c-ban': item.disableInput }"
+                        >
+                          <div class="bst-select-full-wrapper">
+                     
+                            <mat-form-field class="bst-form-field bst-form-field--select bst-form-field--select__small small-dropdown"
+                                  appearance="fill">
+                                  <mat-label class="text-label">{{ 'Select an option' | translate }}</mat-label>
+                                  <mat-select
+                                  id="indicatorSelect"
+                                  [(ngModel)]="item.workflowModelKey"
+                                  class="bst-select-wrapper"
+                                  panelClass="bst-select-panel"
+                                  (selectionChange)="changeEntityWorkflow($event.value, table_index, 'workflow')">
+                                    <mat-option
+                                      class="bst-select-wrapper__option bst-body1"
+                                      *ngFor="let workflow of systemsettingObject.workFlowDrop"
+                                      [value]="workflow.workflowModelKey"
+                                    >
+                                        <span [ngClass]="{ 'pe-none': item.workflowModelKey == workflow.workflowModelKey }">
+                                          {{ workflow.workflowName | translate }}
+                                        </span>
+                                    </mat-option>
+                                </mat-select>
+                              </mat-form-field> 
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <span *ngIf="!item.isValid" class="fa mar-l10 mar-l15 fa-exclamation-triangle c-pointer text-yellow-orange pad-b0" [matTooltip]="item.errorMessage"></span>
+                        <span class="material-icons mar-l15 text-dark-cream c-pointer text-dark-black op-05" *ngIf="!item.disableInput && item.isValid" (click)="saveEditUpdateListInTable(table_index, item, 'EntityWorkFlow')">done</span>
+                        <span class="material-icons mar-l15 text-dark-cream c-pointer text-dark-black op-05" *ngIf="!item.disableInput" (click)="cancelEditUpdateListInTable(table_index, 'EntityWorkFlow')">close</span>
+                        <span class="material-icons mar-l15 text-dark-cream c-pointer text text-dark-black op-05" *ngIf="item.disableInput" (click)="editUpdateListInTable(table_index, item, 'EntityWorkFlow')">edit</span>
+                        <span class="material-icons mar-l10 mar-l15 c-pointer text-coral-red pad-b0" (click)="deleteRow(item, 'EntityWorkFlow')">delete</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <span class="plus material-icons text-on-primary c-pointer f-24 text-dark-black plus-icon"
+                  (click)="addRowInTable('EntityWorkFlow')" *ngIf="val1.key === 'Entities Workflows'">add</span>
+              </div>
+              <div class="section p-rel"
+              permission [domainPermission]="permissionIds | getPermissionId :'Alert Management Settings'" [ViewOnly]="true"
+              *ngIf="val1.key === 'Indicator'">
+                <table class="table table-scroll scroll-table full-width four-col-settings light-theme-specific"
+                  *ngIf="val1.key === 'Indicator'">
+                  <thead>
+                    <tr>
+                      <th>{{ "Indicator" | translate }}</th>
+                      <th>{{ "Operator" | translate }}</th>
+                      <th class="width-25">{{ "Value" | translate }}</th>
+                      <th>{{ "Period" | translate }}</th>
+                      <th>{{ "Actions" | translate }}</th>
+                    </tr>
+                  </thead>
+                  <tbody class="mxh-250 custom-scroll-wrapper scroll-tbody">
+                    <tr *ngFor="
+                        let list of systemsettingObject.indicatorList;
+                        let table_index = index;trackBy:trackByCode
+                      ">
+                      <td class="word-bw ws-pl gotham-regular" *ngIf="list.disableInput">
+                        <span class=" mar-r5 fa c-pointer fa-{{
+                            list.icon ? list.icon : 'ban'
+                          }}" [ngStyle]="{ color: setColor(list.colorCode) }"></span>{{ list.code | translate }}
+                      </td>
+                      <td class="word-bw ws-pl gotham-regular" *ngIf="!list.disableInput">
+                        <div
+                          class="width-100 mar-t10"
+                          [ngClass]="{ 'c-ban': list.disableInput }"
+                        >
+                          <div class="bst-select-full-wrapper">
+                            <mat-form-field class="bst-form-field bst-form-field--select bst-form-field--select__small small-dropdown"
+                                  appearance="fill">
+                                  <mat-label class="text-label">{{ 'Select an option' | translate }}</mat-label>
+                                  <mat-select
+                                    id="indicatorSelect"
+                                    permission
+                                    [domainPermission]="permissionIds | getPermissionId :list.displayName"
+                                    [ViewOnly]="true"
+                                    [(ngModel)]="list.code"
+                                    class="bst-select-wrapper"
+                                    panelClass="bst-select-panel"
+                                    (selectionChange)="changeIndicatorType($event.value, list)">
+                                      <mat-option
+                                        class="bst-select-wrapper__option bst-body1"
+                                        *ngFor="let list of systemsettingObject.indicatorDrop;"
+                                        [disabled]="list.isCodeSelected"
+                                        [value]="list.code"
+                                      >
+                                        <span [ngClass]="{ 'pe-none': list.isCodeSelected }">
+                                          {{ list.code | translate }}
+                                        </span>
+                                      </mat-option>
+                                  </mat-select>
+                              </mat-form-field>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="word-bw ws-pl gotham-regular" *ngIf="list.disableInput">
+                        {{ systemsettingObject.operator[0] | translate }}
+
+                      </td>
+                      <td class="word-bw ws-pl gotham-regular" *ngIf="!list.disableInput">
+                        <div
+                          class="width-100 mar-t10"
+                          [ngClass]="{ 'c-ban': list.disableInput }"
+                        >
+                          <div class="bst-select-full-wrapper">
+                            <mat-form-field class="bst-form-field bst-form-field--select bst-form-field--select__small small-dropdown"
+                                  appearance="fill">
+                                  <mat-label class="text-label">{{ 'Select an option' | translate }}</mat-label>
+                                  <mat-select
+                                    permission
+                                    [domainPermission]="permissionIds | getPermissionId :list.displayName"
+                                    [ViewOnly]="true"
+                                    [(ngModel)]="list.operator"
+                                    class="bst-select-wrapper"
+                                    panelClass="bst-select-panel"
+                                    (selectionChange)="changeEntityType($event.value)">
+                                      <mat-option
+                                        class="bst-select-wrapper__option bst-body1"
+                                        *ngFor="let operator of systemsettingObject.operator"
+                                        [value]="operator"
+                                      >
+                                        {{ operator | translate }}
+                                      </mat-option>
+                                  </mat-select>
+                              </mat-form-field>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="word-bw ws-pl gotham-regular width-25" *ngIf="list.disableInput">
+                        {{ list.value }}
+                      </td>
+                      <td class="word-bw ws-pl gotham-regular width-25" *ngIf="!list.disableInput">
+                        <div id="valueId"
+                          class="width-100 mar-t10"
+                          [ngClass]="{ 'c-ban': list.disableInput }"
+                        >
+                          <mat-form-field class="bst-form-field bst-form-field--small" appearance="fill">
+                            <div class="input-wrapper">
+                              <input
+                                matInput
+                                type="number"
+                                permission
+                                [domainPermission]="permissionIds | getPermissionId :list.displayName"
+                                [ViewOnly]="true"
+                                class="input-wrapper__text-input subtitle1"
+                                [(ngModel)]="list.value"
+                                [ngClass]="{ 'pe-none': list.disableInput }"
+                                [disabled]="list.disableInput"
+                              >
+                            </div>
+                          </mat-form-field>
+                          <mat-error class="text-error caption-typo" >
+                            <ng-container *ngIf="list.period == 'Day' && list.value > 365">{{ 'days must be less than 365' | translate }}</ng-container>
+                            <ng-container *ngIf="list.period == 'Month' && list.value > 36">{{ 'months must be less than 36' | translate }}</ng-container>
+                            <ng-container *ngIf="list.period == 'Year' && list.value > 10">{{ 'years must be less than 10' | translate }}</ng-container>
+                          </mat-error>
+                        </div>
+                      </td>
+                      <td class="word-bw ws-pl gotham-regular" *ngIf="list.disableInput">
+                        {{ list.period | translate }}
+                      </td>
+                      <td class="word-bw ws-pl gotham-regular" *ngIf="!list.disableInput">
+                        <div
+                          class="width-100 mar-t10"
+                          [ngClass]="{ 'c-ban': list.disableInput }"
+                        >
+                          <div class="bst-select-full-wrapper">
+                            <mat-form-field class="bst-form-field bst-form-field--select bst-form-field--select__small small-dropdown"
+                                  appearance="fill">
+                                  <mat-label class="text-label">{{ 'Select an option' | translate }}</mat-label>
+                                  <mat-select
+                                    permission
+                                    [domainPermission]="permissionIds | getPermissionId :list.displayName"
+                                    [ViewOnly]="true"
+                                    [(ngModel)]="list.period"
+                                    class="bst-select-wrapper"
+                                    panelClass="bst-select-panel"
+                                    (selectionChange)="changeEntityType($event.value, table_index, 'ListTable')">
+                                      <mat-option
+                                        class="bst-select-wrapper__option bst-body1"
+                                        *ngFor="let period of systemsettingObject.period"
+                                        [value]="period"
+                                      >
+                                        {{ period | translate }}
+                                      </mat-option>
+                                  </mat-select>
+                              </mat-form-field>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <span class="material-icons mar-l15 text-dark-cream c-pointer text-dark-black op-05" *ngIf="!list.disableInput" (click)="saveEditUpdateListInTable(table_index, list, 'Indicator')">done</span>
+                        <span class="material-icons mar-l15 text-dark-cream c-pointer text-dark-black op-05" *ngIf="!list.disableInput" (click)="cancelEditUpdateListInTable(table_index, 'Indicator')">close</span>
+                        <span class="material-icons mar-l15 text-dark-cream c-pointer text text-dark-black op-05" *ngIf="list.disableInput" (click)="editUpdateListInTable(table_index, list, 'Indicator')">edit</span>
+                        <span class="material-icons mar-l10 mar-l15 c-pointer text-coral-red" [ngClass]="{ 'pe-none': !list.allowDelete }" (click)="deleteRow(list)">delete</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <span class="plus material-icons text-on-primary c-pointer f-24 text-dark-black plus-icon"
+                  (click)="addRowInTable('Indicator')" *ngIf="val1?.key === 'Indicator'">add</span>
+              </div>
+              <div class="section custom-data-table-wrapper p-rel"
+              *ngIf="val1?.key === 'Tag Management'">
+                <div class="d-flex feed-list">
+                  <div class="ag-table-wrapper no-filters-wrapper data-table-wrapper tags-table-wrapper">
+                    <ng-container *ngIf="showTagGridTable" >
+                      <app-ag-grid-table [fromComponent]="componentName" class="mar-t10 tag-ag-grid" [tableData]="tagGridOptions"></app-ag-grid-table>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+
+              <ng-container *ngIf="val1.key === 'Override Selection'">
+                <ng-container *ngFor="let setting  of val1.values;">
+                  <mat-radio-group
+                    class="d-flex flex-column pt-4" (change)="updateRadioGroup($event, setting)"
+                  >
+                    <div *ngFor="let radioValue of setting.options; let i = index" class="radio-item">
+                      <mat-radio-button
+                      [value]="radioValue" [checked]="radioValue.selected">
+                        <span>{{radioValue.attributeName | translate}}</span>
+                      </mat-radio-button>
+                      <div class="radio-item-description" *ngIf="radioValue.attributeValue === 'Override Risk'">{{ 'OverrideRiskDescription' | translate }}</div>
+                      <div class="radio-item-description" *ngIf="radioValue.attributeValue === 'Calculated Risk'">{{ 'CalculatedRiskDescription' | translate }}</div>
+                    </div>
+                  </mat-radio-group>
+                </ng-container>
+              </ng-container>
+
+              <div class="section p-rel alert_indicators" *ngIf="val1.key === 'Alert Indicators'">
+                <div class="row">
+                  <ng-container *ngFor="let setting  of val1.values;let index1 = index;trackBy:trackByName">
+                    <div
+                      *ngIf="setting.name === 'Time In Status' || setting.name === 'PEP Risk Factor' &&  setting.type == 'Toggle On/Off' "
+                      class=" select-group width-45 mar-r10 mar-b10 custom-select-dropdown col-md-6text-dark-black {{
+                      setting.name.split(' ').join('')
+                    }}" [ngClass]="
+                      setting.classType ? setting.classType : 'bst_input_group '
+                    ">
+                      <label
+                        class="switch mar-l25 custom-switch-wrapper filters-switch-wrapper bst-switch-wrapper ng-star-inserted"
+                        *ngIf="(setting.name === 'Time In Status' || setting.name === 'PEP Risk Factor') ">
+                        <input permission [domainPermission]="permissionIds | getPermissionId :setting.name" [ViewOnly]="true" (click)="
+                              enableDisableTog(
+                                setting,
+                                '',
+                                setting.name.split(' ').join('_')
+                              )
+                              " id="hyperCheck_{{ setting.name.split(' ').join('_') }}" type="checkbox"
+                          [checked]="setting.checked" class="custom-switch-checkbox" name="{{
+                              systemsettingObject.selectedVal[
+                                'name' +
+                                val1.key.split(' ').join('_') +
+                                'sub' +
+                                setting.name.split(' ').join('')
+                              ]
+                              }}" />
+                        <span class="slider round"> 
+                          <div class="slider-wrap"></div>
+                        </span>
+                      </label>
+                      <div class="custom-range-wrapper w-30f entity-range-bar">
+                        <span *ngIf="(setting.name === 'Time In Status' || setting.name === 'PEP Risk Factor')"
+                          class="f-14 font-light text-dark-black">
+                          {{setting.name | translate}} <i class="fa fa-question-circle info-icon c-pointer"
+                            aria-hidden="true"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+                <div class="section p-rel">
+                  <table class="table table-scroll scroll-table full-width five-col-settings light-theme-specific"
+                    *ngIf="val1.key === 'Alert Indicators'">
+                    <thead>
+                      <tr>
+                        <th> {{ "Operator" | translate }}</th>
+                        <th> {{ "Value" | translate }}</th>
+                        <th> {{ "Period" | translate }}</th>
+                        <th> {{ "Indicator" | translate }}</th>
+                        <th> {{ "Feed Classifications" | translate }}</th>
+                        <th> {{ "Actions" | translate }}</th>
+                      </tr>
+                    </thead>
+                    <tbody class="mxh-250 custom-scroll-wrapper scroll-tbody">
+                      <tr *ngFor="let list of systemsettingObject.alertIndicatorList; let table_index = index">
+                        <td class="word-bw ws-pl gotham-regular" *ngIf="list.disableInput">
+                          {{ list.operator }}
+                        </td>
+                        <td class="word-bw ws-pl gotham-regular" *ngIf="!list.disableInput">
+                          <div
+                            class="width-100 mar-t10"
+                            [ngClass]="{ 'c-ban': list.disableInput }"
+                          >
+                            <div class="bst-select-full-wrapper">
+                              <mat-form-field class="bst-form-field bst-form-field--select bst-form-field--select__small small-dropdown"
+                                    appearance="fill">
+                                    <mat-label class="text-label">{{ 'Select an option' | translate }}</mat-label>
+                                    <mat-select
+                                      permission
+                                      [domainPermission]="permissionIds | getPermissionId :list.value"
+                                      [ViewOnly]="true"
+                                      [(ngModel)]="list.operator"
+                                      class="bst-select-wrapper"
+                                      panelClass="bst-select-panel"
+                                      (selectionChange)="changeEntityType($event.value)">
+                                        <mat-option
+                                          class="bst-select-wrapper__option bst-body1"
+                                          *ngFor="let operator of systemsettingObject.alertIndicatorOperator"
+                                          [value]="operator"
+                                        >
+                                          {{ operator | translate }}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="word-bw ws-pl gotham-regular" *ngIf="list.disableInput">
+                          {{ list.value }}
+                        </td>
+                        <td class="word-bw ws-pl gotham-regular" *ngIf="!list.disableInput">
+                          <div id="valueId"
+                            class="width-100 mar-t10"
+                            [ngClass]="{ 'c-ban': list.disableInput }"
+                          >
+                            <mat-form-field class="bst-form-field bst-form-field--small" appearance="fill">
+                              <div class="input-wrapper">
+                                <input
+                                  matInput
+                                  type="number"
+                                  class="input-wrapper__text-input subtitle1"
+                                  [(ngModel)]="list.value"
+                                  [ngClass]="{ 'pe-none': list.disableInput }"
+                                  [disabled]="list.disableInput"
+                                >
+                              </div>
+                            </mat-form-field>
+                            <mat-error class="text-error caption-typo" >
+                              <ng-container *ngIf="list.period == 'Day' && list.value > 365">{{ 'days must be less than 365' | translate }}</ng-container>
+                              <ng-container *ngIf="list.period == 'Month' && list.value > 36">{{ 'months must be less than 36' | translate }}</ng-container>
+                              <ng-container *ngIf="list.period == 'Year' && list.value > 10">{{ 'years must be less than 10' | translate }}</ng-container>
+                            </mat-error>
+                          </div>
+                        </td>
+                        <td class="word-bw ws-pl gotham-regular" *ngIf="list.disableInput">
+                          {{ list.period }}
+                        </td>
+                        <td class="word-bw ws-pl gotham-regular" *ngIf="!list.disableInput">
+                          <div
+                            class="width-100 mar-t10"
+                            [ngClass]="{ 'c-ban': list.disableInput }"
+                          >
+                            <div class="bst-select-full-wrapper">
+                              <mat-form-field class="bst-form-field bst-form-field--select bst-form-field--select__small small-dropdown"
+                                    appearance="fill">
+                                    <mat-label class="text-label">{{ 'Select an option' | translate }}</mat-label>
+                                    <mat-select
+                                      class="bst-select-wrapper"
+                                      panelClass="bst-select-panel"
+                                      [(ngModel)]="list.period"
+                                      (selectionChange)="changeEntityType($event.value, table_index, 'ListTable')"
+                                    >
+                                        <mat-option
+                                          class="bst-select-wrapper__option bst-body1"
+                                          *ngFor="let period of systemsettingObject.alertIndicatorPeriod"
+                                          [value]="period"
+                                        >
+                                          {{ period | translate }}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="word-bw ws-pl gotham-regular" *ngIf="list.disableInput">
+                          <span class=" mar-r5 fa fa-{{
+                              list.icon ? list.icon : 'ban'
+                            }}" [ngStyle]="{ color: setColor(list.colorCode) }"></span>{{ list.code }}
+                        </td>
+                        <td class="word-bw ws-pl gotham-regular" *ngIf="!list.disableInput">
+                          <div
+                            class="width-100 mar-t10"
+                            [ngClass]="{ 'c-ban': list.disableInput }"
+                          >
+                            <div class="bst-select-full-wrapper">
+                              <mat-form-field class="bst-form-field bst-form-field--select bst-form-field--select__small small-dropdown"
+                                    appearance="fill">
+                                    <mat-label class="text-label">{{ 'Select an option' | translate }}</mat-label>
+                                    <mat-select
+                                      class="bst-select-wrapper"
+                                      panelClass="bst-select-panel"
+                                      [(ngModel)]="list.code"
+                                      (selectionChange)="changeAlertIndicatorType($event.value, list)">
+                                        <mat-option
+                                          class="bst-select-wrapper__option bst-body1"
+                                          *ngFor="let list of systemsettingObject.alertIndicatorDrop;trackBy:trackByCode"
+                                          [value]="list.code"
+                                        >
+                                          <span [ngClass]="{ 'pe-none': list.isCodeSelected }">
+                                            {{ list.code | translate }}
+                                          </span>
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="word-bw ws-pl gotham-regular" *ngIf="list.disableInput">
+                          <ng-container *ngFor="
+                            let feed of list.feedClasification | slice:0:4;let indexin = index">
+                            {{ indexin != 0 && (feed.feedCode || feed.feedCode == "") ? ',' : ''}}
+                            {{feed.feedName}}
+                          </ng-container>
+                          <span *ngIf="list.feedClasification.length > 4"> &nbsp;... </span>
+                        </td>
+                        <td class="word-bw ws-pl gotham-regular" *ngIf="!list.disableInput">
+                          <div
+                            class="width-100 mar-t10"
+                            [ngClass]="{ 'c-ban': list.disableInput }"
+                          >
+                            <div class="bst-select-full-wrapper">
+                              <mat-form-field class="bst-form-field bst-form-field--select bst-form-field--select__small small-dropdown"
+                                    appearance="fill">
+                                    <mat-label class="text-label">{{ 'Select an option' | translate }}</mat-label>
+                                    <mat-select
+                                      multiple
+                                      class="bst-select-wrapper"
+                                      panelClass="bst-select-panel"
+                                      [compareWith]="compareFeedBackList"
+                                      [(ngModel)]="list.feedClasification"
+                                      (selectionChange)="changeFeedClassifications($event.value, list)"
+                                    >
+                                        <mat-option
+                                          class="bst-select-wrapper__option bst-body1"
+                                          *ngFor="let list of systemsettingObject.feedClassificationDrop;trackBy:trackByFeedName"
+                                          [value]="list.feed_management_id"
+                                        >
+                                          {{ list.feedName | translate }}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <span class="material-icons mar-l15 text-dark-cream c-pointer text-dark-black op-05" *ngIf="!list.disableInput" (click)="saveEditUpdateListInTable(table_index, list, 'AlertIndicator')">done</span>
+                          <span class="material-icons mar-l15 text-dark-cream c-pointer text-dark-black op-05" *ngIf="!list.disableInput" (click)="cancelEditUpdateListInTable(table_index, 'AlertIndicator')">close</span>
+                          <span class="material-icons mar-l15 text-dark-cream c-pointer text text-dark-black op-05" *ngIf="list.disableInput" (click)="editUpdateListInTable(table_index, list, 'AlertIndicator')">edit</span>
+                          <span class="material-icons mar-l10 mar-l15 c-pointer text-coral-red" [ngClass]="{ 'pe-none': !list.allowDelete }" (click)="deleteRow(list)">delete</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <span class="plus material-icons text-on-primary c-pointer f-24 text-dark-black plus-icon"
+                    (click)="addRowInTable('AlertIndicator')" *ngIf="val1.key === 'Alert Indicators'">add</span>
+                </div>
+              </div>
+              <div class="section-tenant p-rel"
+                *ngIf="val1.key === 'Jurisdiction Tenant Mapping'">
+                <div *ngIf="val1.values && val1.values.length"
+                  class="select-group width-48 mar-r10 mar-b10 custom-select-dropdown text-dark-black Showconsolidatedhits settings-toggle-wrapper">
+                  <label class="switch mar-l25 custom-switch-wrapper filters-switch-wrapper bst-switch-wrapper">
+                    <input (click)="
+                        enableDisableTog(
+                          val1.values[0],
+                          '',
+                          val1.key.split(' ').join('_')
+                        )
+                      " class="custom-switch-checkbox" type="checkbox"
+                      id="hyperCheck_{{ val1.key.split(' ').join('_') }}" name="{{
+                        systemsettingObject.selectedVal[
+                          'name' +
+                            val1.key.split(' ').join('_') +
+                            'sub' +
+                            val1.key.split(' ').join('')
+                        ]
+                      }}" [checked]="val1.values[0].checked" />
+                    <span class="slider round">
+                      <div class="slider-wrap"></div>
+                    </span>
+                  </label>
+                  <label>{{
+                    systemsettingObject.selectedVal[
+                      'name' +
+                        val1.key.split(' ').join('_') +
+                        'sub' +
+                        val1.key.split(' ').join('')
+                    ]
+                  }}</label>
+                  <span class="label text-dark-black gotham-regular text-dark-cream">
+                    <i class="mar-r5 fa fa-"></i>{{ "Routing alerts by tenants" | translate }}
+                  </span>
+                </div>
+                <div class="section p-rel">
+                  <table class="table table-scroll scroll-table full-width three-col-settings light-theme-border-bottom light-theme-specific">
+                    <thead>
+                      <tr>
+                        <th>{{ "Jurisdiction" | translate }}</th>
+                        <th>{{ "Name" | translate }}</th>
+                        <th>{{ "Actions" | translate }}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let route of systemsettingObject.routingtableList; let index = index">
+                          <td class="word-bw ws-pl gotham-regular" *ngIf="!route.toEdit">
+                            <span *ngIf="
+                                route &&
+                                route.jurisdiction &&
+                                route.jurisdiction.displayName
+                              ">
+                              <span *ngIf="
+                                  route &&
+                                  route.jurisdiction &&
+                                  route.jurisdiction.code
+                                " class="flag-icon flag-icon-squared flag-icon-{{
+                                  route.jurisdiction.code.toLowerCase()
+                                }}"></span>
+                                <span class="f-12 mar-l10">{{ route.jurisdiction.displayName | translate }}</span>
+                            </span>
+                          </td>
+                          <td class="word-bw ws-pl gotham-regular" *ngIf="route.toEdit">
+                              <mat-form-field class="bst-form-field bst-form-field--small text-field-with-prefix" appearance="fill">
+                                <span matPrefix *ngIf="systemsettingObject?.currentSelectedcountry?.code as iconCode" class="bst-mat-icon flag-icon flag-icon-squared flag-icon-{{iconCode.toLowerCase()}}"></span>
+                                <div class="input-wrapper">
+                                  <input
+                                    matInput
+                                    permission
+                                    [ViewOnly]="true"
+                                    class="input-wrapper__text-input subtitle1"
+                                    placeholder="{{ 'State' | translate }}"
+                                    aria-label="State"
+                                    [(ngModel)]="selectedJurisdiction"
+                                    [matAutocomplete]="auto"
+                                    #trigger="matAutocompleteTrigger"
+                                    (keyup)="_filterStates($event)"
+                                    (click)="_filterStates('')"
+                                  >
+                                </div>
+                              </mat-form-field>
+                              <mat-autocomplete #auto="matAutocomplete" >
+                                <mat-option *ngFor="let state of systemsettingObject.filterStates;trackBy:trackByDisplayname" [value]="state.displayName"
+                                  (click)="tenantcountrySelection(state)" [ngClass]="{ 'pe-none c-ban': state.countryalreadyselected }"
+                                  [disabled]="state.countryalreadyselected"
+                                >
+                                  <span class="mr-3 flag-icon flag-icon-squared flag-icon-{{
+                                      state.code ? state.code.toLowerCase() : ''
+                                    }}"></span>
+                                  <span class="text-dark-black">{{ state.displayName }}</span>
+                                </mat-option>
+                              </mat-autocomplete>
+                          </td>
+                          <td class="word-bw ws-pl gotham-regular" *ngIf="!route.toEdit">
+                            <span class="primary-btn radius-5 mar-r5 pad-5 f-12" *ngFor="let tenant of route.tanents;trackBy:trackByDisplayname">{{
+                              tenant.displayName | translate }}
+                            </span>
+                          </td>
+                          <td class="word-bw ws-pl gotham-regular" *ngIf="route.toEdit">
+                            <mat-form-field class="bst-form-field bst-form-field--small text-field-with-prefix" appearance="fill">
+                              <mat-chip-list #chipList aria-label="Tenats">
+                                <mat-chip
+                                  *ngFor="let tenatant of systemsettingObject.selectedTenant"
+                                  [removable]="'true'"
+                                  (removed)="removeTentatsFromList(tenatant)"
+                                >
+                                  {{ tenatant }}
+                                  <mat-icon matChipRemove>cancel</mat-icon>
+                                </mat-chip>
+                                <div class="input-wrapper">
+                                  <input matInput type="text" class="input-wrapper__text-input subtitle1" placeholder="{{ 'Tenants' | translate }}"
+                                  #tenantsInput="matAutocompleteTrigger" [matAutocomplete]="tenantAuocompleteRef" [matChipInputFor]="chipList"
+                                  [matChipInputSeparatorKeyCodes]="TenantseparatorKeysCodes" (matChipInputTokenEnd)="addTentatstoList($event)"
+                                  (click)="focusAutocomplete(tenantsInput)" [(ngModel)]="tenantAuocompleteModel"
+                                  (keyup)="filterTenants($event)" />
+                                </div>
+                              </mat-chip-list>
+                              <mat-autocomplete #tenantAuocompleteRef (optionSelected)="selectedTenant($event)">
+                                <mat-option *ngFor="let tenant of filteredTenants;trackBy:trackByDisplayname" [value]="tenant.displayName"
+                                  [ngClass]="{ 'c-ban': tenant.isalreadySelected }" [disabled]="tenant.isalreadySelected"
+                                  (click)="TenantoptionSelected(tenant)">
+                                  <span class="text-dark-black">{{ tenant.displayName }}</span>
+                                </mat-option>
+                              </mat-autocomplete>
+                            </mat-form-field>
+                          </td>
+                          <td>
+                            <span class="material-icons mar-l15 text-dark-cream c-pointer text text-dark-black op-05" *ngIf="route.toEdit" (click)="updateTenantData('tanents/createOrUpdateTanentMapping', systemsettingObject.tenantMode)">done</span>
+                            <span class="material-icons mar-l15 text-dark-cream c-pointer text text-dark-black op-05" *ngIf="route.toEdit" (click)="canCelRoutingtable(index)">close</span>
+                            <span class="material-icons mar-l15 text-dark-cream c-pointer text text-dark-black op-05" [ngClass]="{ 'c-ban pe-none': systemsettingObject.addEditTeanantObject.disableTenantAddButton}" *ngIf="!route.toEdit" (click)="addItemtoRouting(route, index, 'edit')">edit</span>
+                            <span class="material-icons mar-l10 mar-l15 c-pointer text-coral-red" (click)="deleteTenantRow(route, index)">delete</span>
+                          </td>
+                        </tr>
+                    </tbody>
+                  </table>
+                  <!-- <button class="btn btn-primary" (click)="addItemtoRouting(false,-1)"
+              [ngClass]=" {'c-ban' : systemsettingObject.addEditTeanantObject.disableTenantAddButton }"
+              [disabled] ="systemsettingObject.addEditTeanantObject.disableTenantAddButton">Add</button> -->
+                  <span [ngClass]="{
+                      'c-ban pe-none':
+                        systemsettingObject.addEditTeanantObject
+                          .disableTenantAddButton
+                    }" (click)="addItemtoRouting(false, -1, 'add')"
+                    class="plus material-icons text-on-primary c-pointer f-24 text-dark-black plus-icon">add</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="isSettingsError" class="no-data-wrapper text-center">
+            {{ "Data Not Found" | translate }}
+          </div>
+        </div>
+        <!-- dummy ends here -->
+        <!-- //orignal Data Starts //// -->
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #popContent>
+  <div class="width-100 height-100 p-rel d-block pad-b30 settings-content-wrapper">
+    <h3 class="f-14 font-regular text-cream mar-b0">{{ "Choose Icon" | translate }}</h3>
+    <ul id="myDIV"
+      class="custom-list pad-l0 mxh-140 overflow-a custom-scroll-wrapper mar-b15 d-flex flex-wrap settings-icons-list">
+      <li class="mar-5 list-icon" *ngFor="let icon of systemsettingObject.iconList;trackBy:trackByName">
+        <div (click)="addIcon(icon.name)" class="icon-wrapper d-flex fd-c ai-c icons-btn-wrapper">
+          <span class="icon f-18"><i class="fa fa-{{ icon.name }}" [ngClass]="{
+                active:
+                  systemsettingObject.addColorIconObj.obj.icon === icon.name
+              }"></i></span>
+          <span class="icon-name ws-pl word-bw f-10 lh-1 mt-3">{{
+            icon.name
+            }}</span>
+        </div>
+      </li>
+    </ul>
+    <h3 class="f-16 font-regular text-cream mar-b10">
+      {{ "Choose Flag" | translate }} {{ systemsettingObject.nameOfFlag | translate }}
+    </h3>
+    <div class="bst_input_group">
+      <input type="text" name="jusrisdiction{{ systemsettingObject.searchtxt.jurisdictionName }}"
+        [(ngModel)]="systemsettingObject.searchtxt.jurisdictionName" class="width-100 custom-input" placeholder="Search"
+        (keyup)="searchJurisdiction($event.target.value)" />
+    </div>
+    <ul class="custom-list pad-l0 settings-icons-list mxh-100 overflow-a custom-scroll-wrapper d-block">
+      <li class="mar-5 pad-5" *ngFor="let country of filteredjurisdiction;trackBy:trackByKey">
+        <div class="flag-name-wrapper fd-c ai-c d-flex" (click)="addCountryFlag(country.key)"
+          [ngClass]="{ active: systemsettingObject.nameOfFlag === country.key }">
+          <span class="flag-wrapper"><img [src]="country.flag" class="square-18" /></span>
+          <span class="flag-name ws-pl word-bw f-10 lh-1 mar-t5">{{
+            country.key
+            }}</span>
+        </div>
+      </li>
+    </ul>
+    <h3 class="f-16 font-regular text-cream mar-b10">{{ "Choose Color" | translate }}</h3>
+
+    <ul
+      class="custom-list pad-l0 mxh-100 overflow-a custom-scroll-wrapper d-flex icon-color-wrapper fw-w settings-icons-list">
+      <li class="mar-5" *ngFor="let color of systemsettingObject.colorList;trackBy:trackByColorCode">
+        <div class="color-name-wrapper d-flex fd-c ai-c">
+          <span (click)="addColor(color.colorCode)" class="square-25 radius-5 check-btn" [ngClass]="{
+              activeCheck: systemsettingObject.nameOfColor === color.colorCode
+            }" [ngStyle]="{ 'background-color': setColor(color.colorCode) }"></span>
+        </div>
+      </li>
+    </ul>
+
+    <div class="d-flex jc-fe">
+      <button class="grad-button sm-btns f-14 mar-r10 lh-1" (click)="changeColorNIconToTable()">
+        Add
+      </button>
+      <button class="bordered-button sm-btns f-14 lh-1" (click)="p2.close()">
+        Close
+      </button>
+    </div>
+  </div>
+</ng-template>

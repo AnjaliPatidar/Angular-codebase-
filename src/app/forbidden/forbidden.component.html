@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="forbidden-wrapper">
+        <div class="d-flex align-items-center">
+            <div class="sub-container-1">
+                <span class="text-bold">
+                    403
+                </span>
+                <span class="text-forbid">
+                    Forbidden
+                </span>
+            </div>
+            <div class="sub-container-2">
+                <span class="access">
+                    Access denied
+                </span>
+                <span class="paragraph">
+                    Maybe the permissions for the file are incorrect. Please contact the administrator.
+                </span>
+                <div class="buttons-wrapper">
+                    <button disabled mat-button class="theme-button-bg text-dark-black light-theme-btn primary-btn font-large btn-disable">
+                        SUBSTANCE SCREEN
+                    </button>
+                    <button (click)="navigateToPath('#/domain')" mat-button class="theme-button-bg text-dark-black light-theme-btn primary-btn font-large">
+                        HOME
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,123 @@
+$bst-side-bar-bg-color : $surface;
+$bst-box-shadow        : $shadow-70;
+
+.bst-sidebar {
+    width           : 256px;
+    padding         : 16px 24px;
+    height          : calc(100vh - 88px);
+    position        : fixed;
+    top             : 120px;
+    right           : 0;
+    background-color: $bst-side-bar-bg-color;
+    box-shadow      : $bst-box-shadow;
+    z-index         : 100;
+    transition      : all 0.3s ease;
+    overflow-y      : hidden;
+    overflow-x      : hidden;
+
+    &__header {
+        display: flex;
+
+        &--close {
+            right   : 24px;
+            position: absolute;
+        }
+    }
+
+    &__body {
+        overflow-y   : auto;
+        max-height   : calc(100vh - 145px);
+        padding-right: 5px;
+    }
+}
+
+.bst-right-side-panel {
+    height          : calc(100vh - 55px);
+    position        : fixed;
+    top             : 55px;
+    right           : 0;
+    width           : 0;
+    background-color: $bst-right-side-panel-bg-color;
+    box-shadow      : $bst-box-shadow;
+    z-index         : 100;
+    transition      : all 0.3s ease;
+    overflow-y      : hidden;
+    overflow-x      : hidden;
+}
+
+.bst-right-panel-open {
+    width: 350px !important;
+}
+
+.bst-headline6 {
+    color: rgba(255,255,255,.87) !important;
+    font-family: "Roboto" !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    line-height: normal !important;
+    letter-spacing: .15px !important
+}
+
+.bst-side-bar-modal-container {
+    width     : 391px;
+    height    : auto;
+    object-fit: contain;
+    box-shadow: $shadow-100;
+
+    .mat-dialog-container {
+        overflow: hidden;
+
+        .mat-dialog-content {
+            margin-top: 16px !important;
+            position  : relative;
+
+            .right-content {
+                position    : absolute;
+                right       : 0;
+                float       : right;
+                border-left : 1px solid $color-white-12;
+                padding-left: 16px;
+                height      : calc(100% - 16px);
+                max-height  : calc(100% - 16px);
+                overflow    : hidden;
+                width       : 289px;
+                background  : $surface;
+
+                .bst-sidebar {
+                    &__header--close {
+                        position: absolute;
+                        right   : 0px;
+                    }
+
+                    &__body {
+                        height: calc(100vh - 310px);
+                    }
+
+                }
+            }
+
+            .left-content {
+                &.with-side-panel {
+                    width: calc(100% - 321px);
+                }
+
+                &__centered {
+                    margin-top     : 150px;
+                    height         : auto;
+                    display        : flex;
+                    align-items    : center;
+                    justify-content: center;
+                }
+            }
+
+        }
+    }
+}
+
+.bst-modal-panel-open {
+    width     : 256px !important;
+    padding   : 16px 24px;
+    box-shadow: none;
+    display   : contents;
+}
+

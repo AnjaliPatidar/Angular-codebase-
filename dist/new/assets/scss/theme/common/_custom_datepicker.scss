@@ -1,0 +1,361 @@
+/*==============================================================================
+***********************  Date Picker Styles For The Site  **********************
+==============================================================================*/
+
+/*--  Date Picker Styles  --*/
+.ng-star-inserted {
+  .md-drppicker {
+    min-width: 16rem !important;
+    background-color: var(--backGround);
+    padding: 0;
+    display: flex;
+    min-height: 368px;
+
+    .buttons {
+      position: absolute;
+      bottom: 0;
+      right: 1rem;
+      line-height: 32px;
+      margin: 0 24px 24px 0;
+
+      &_input {
+        button {
+          background: transparent;
+          margin-left: 10px;
+          color: $primary-color;
+          box-shadow: none;
+          display: inline-flex;
+          align-items: center;
+          font-size: 14px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.14;
+          letter-spacing: 1.25px;
+          padding: 10px 16px;
+          border-radius: $sm-comp-corner-radius;
+
+          &:last-child {
+            border: 1px solid $primary-color;
+          }
+
+          &.btn-default {
+            background: transparent !important;
+
+            svg {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .calendar {
+      margin: 0;
+      padding-bottom: 5rem !important;
+      background-color: rgba($white, 0.08);
+
+      .calendar-table {
+        background-color: transparent !important;
+        border: 0;
+        padding: 0;
+
+        table {
+          margin: 0;
+        }
+
+        thead {
+          tr {
+            &:first-of-type {
+              border-bottom: 15px solid transparent;
+            }
+
+            th {
+              color: $text-on-surface;
+              font-size: 1.2rem;
+              border: 0;
+              border-radius: 0;
+              line-height: 32px;
+
+              &.prev {
+                background-image: none;
+                background-color: unset !important;
+
+                &:before {
+                  font-family: "Material Icons Round";
+                  content: "\e5e0";
+                  display: inline-block;
+                  padding-right: 3px;
+                  vertical-align: middle;
+                  font-weight: 900;
+                  color: $text-on-surface;
+                  font-size: 20px;
+                  position: relative;
+                  left: 0px;
+                  top: -1px;
+                }
+              }
+
+              &.next {
+                background-image: none;
+                background-color: unset !important;
+
+                &:before {
+                  font-family: "Material Icons Round";
+                  content: "\e5e1";
+                  display: inline-block;
+                  padding-right: 3px;
+                  vertical-align: middle;
+                  font-weight: 900;
+                  color: $text-on-surface;
+                  font-size: 20px;
+                  position: relative;
+                  transform: rotate(180deg);
+                  left: 0px;
+                  top: -1px;
+                }
+              }
+            }
+
+            &:nth-of-type(1) {
+              th {
+                font-size: 1.6rem;
+              }
+            }
+          }
+        }
+
+        tbody {
+          tr {
+            td {
+              color: $text-on-surface;
+              font-size: 1.2rem;
+              border: 0 !important;
+              margin: 0 !important;
+              line-height: 32px;
+
+              &.available {
+                &:hover {
+                  &:not(.active) {
+                    background-color: $text-dark-grey;
+                  }
+                }
+              }
+
+              &.active {
+                background-color: transparent;
+
+                span {
+                  height: 100%;
+                  width: 100%;
+                  border-radius: 50%;
+                }
+
+                &.start-date {
+                  span {
+                    background: $primary-color;
+                    left: 2px;
+                    position: relative;
+                  }
+                }
+
+                &.end-date {
+                  span {
+                    background: $primary-color;
+                    right: 2px;
+                    position: relative;
+                    min-height: 100%;
+                  }
+                }
+              }
+
+              &.in-range {
+                background-color: transparent;
+
+                span {
+                  background: $primary-color;
+                  width: 100%;
+                  height: 14px;
+                  position: relative;
+                  display: flex;
+                  top: 1px;
+                  align-items: center;
+                  justify-content: center;
+                }
+              }
+
+              &.off {
+                background-color: transparent;
+                color: rgba($text-default, 0.5);
+              }
+            }
+          }
+        }
+      }
+
+      &.left {
+        padding-right: 2rem;
+        padding-top: 18px;
+        padding-left: 30px;
+        position: relative;
+
+        &::after {
+          font-family: "Material Icons Round";
+          content: "\e931";
+          display: inline-block;
+          padding-right: 3px;
+          vertical-align: middle;
+          color: var(--textOnSurface);
+          font-size: 28px;
+          position: absolute;
+          left: 96%;
+          top: 12px;
+          line-height: 0.9;
+        }
+      }
+
+      &.right {
+        padding-left: 2rem;
+        padding-right: 30px;
+        padding-top: 18px;
+      }
+    }
+
+    .ranges {
+      width: 180px;
+      background-color: $surface;
+
+      ul {
+        padding: 16px 0;
+
+        li {
+          margin: 0 15px;
+          line-height: 32px;
+          height: 48px;
+
+          &:not(:last-child) {
+            button {
+              border-bottom: 1px solid rgba($white, 0.12);
+            }
+          }
+
+          button {
+            position: relative;
+            display: flex;
+            padding: 4px 12px;
+            align-items: center;
+            font-size: 1.4rem;
+            padding-left: 3rem;
+            color: $text-default;
+            transition: all 0.2s ease;
+            background-color: transparent;
+            height: 100%;
+            font-weight: 500;
+
+            &:hover {
+              color: $primary-color;
+              background: transparent !important;
+
+              &:before {
+                border-color: $primary-color;
+              }
+            }
+
+            &:before {
+              content: "";
+              height: 16px;
+              width: 16px;
+              border: 2px solid $text-on-surface;
+              z-index: 999;
+              margin-right: 0.5rem;
+              position: absolute;
+              left: 2px;
+              border-radius: 50%;
+            }
+
+            &.active {
+              color: $primary-color;
+              background: transparent;
+
+              &:after {
+                content: "";
+                height: 8px;
+                width: 8px;
+                position: absolute;
+                left: 6px;
+                background: $primary-color;
+                border-radius: 50%;
+              }
+
+              &:before {
+                border-color: $primary-color;
+              }
+            }
+          }
+
+          &:hover {
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+
+  .md-drppicker {
+    .btn {
+      background-color: transparent !important;
+      box-shadow: none;
+      -webkit-text-fill-color: $primary-color;
+      font-weight: 550;
+      font-size: 1.4rem;
+      letter-spacing: 1.25px;
+      line-height: 1.14;
+      margin-left: 25px;
+
+      svg {
+        display: none;
+        color: $white;
+        vertical-align: top;
+      }
+    }
+  }
+
+  app-date-filter > div:before {
+    visibility: hidden;
+  }
+
+  app-date-filter > div {
+    border-radius: 0.5em;
+    height: 35px;
+    padding-top: 0.3rem;
+  }
+}
+
+.remove-calendar {
+  .md-drppicker {
+    .left,
+    .right,
+    .buttons {
+      display: none !important;
+    }
+  }
+}
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+
+@media (min-width: $screen-lg) {
+}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
+}
+
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {
+}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {
+}

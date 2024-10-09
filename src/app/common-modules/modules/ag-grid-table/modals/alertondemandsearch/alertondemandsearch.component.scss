@@ -1,0 +1,39 @@
+@import "../../../../../../assets/scss/theme/common/variable";
+
+::ng-deep{
+    .search-popover{
+        .mat-form-field-flex{
+            padding: 2em 0.75em 0 0.75em;
+            height: 52px;
+            border-radius: var(--smComponentCornerRadius);
+            background-color: $input-color-bg;
+        }
+    }
+} 
+.loader{
+    position: absolute;;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100% !important;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.mat-datepicker-toggle-active {
+   opacity: 0.87;
+}
+.date-picker-align {
+    position: absolute;
+    top: -36px;
+    right: 0;
+}
+
+.card-body{
+    min-height: 150px;
+}

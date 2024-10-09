@@ -1,0 +1,61 @@
+.d-grid {
+  display: grid;
+}
+
+/*-- Grid Columns 1 to 12 --*/
+@for $i from 1 through 12 {
+  .grid-c-#{$i} {
+    grid-template-columns: repeat($i, 1fr);
+  }
+}
+
+/*-- Grid Rows 1 to 12 --*/
+@for $i from 1 through 12 {
+  .grid-r-#{$i} {
+    grid-template-rows: repeat($i, 1fr);
+  }
+}
+
+/*-- Grid Columns spans 1 to 12 --*/
+@for $i from 1 through 12 {
+  .c-span-#{$i} {
+    grid-column: span $i;
+  }
+}
+
+/*-- Grid Rows spans 1 to 12 --*/
+@for $i from 1 through 12 {
+  .r-span-#{$i} {
+    grid-row: span $i;
+  }
+}
+
+/*-- Grid-gap 5 to 30 --*/
+@for $i from 1 through 5 {
+  .grid-gap-#{$i * 5} {
+    grid-gap: ($i * .5rem) !important;
+  }
+
+  .grid-x#{$i * 5} { 
+    grid-row-gap: ($i * .5rem) !important;
+
+  }
+
+  .grid-y#{$i * 5} {
+    grid-column-gap: ($i * .5rem) !important;
+  }
+}
+
+/*-- Grid auto row and Column 5 to 30 --*/
+@for $i from 1 through 10 {
+  .grid-auto-r#{$i * 5} {
+    grid-auto-rows: ($i * 5rem)
+  }
+
+  .grid-auto-c#{$i * 5} {
+    grid-auto-columns: ($i * 5rem)
+  }
+}
+.grid-flow{
+    grid-auto-flow: dense;
+}

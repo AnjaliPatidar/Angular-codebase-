@@ -1,0 +1,936 @@
+{
+    "alert_generation": false,
+    "created_at": "06-11-2020, 11:32:08",
+    "id": "821edb9d979142f78a7a0f6e4645b503",
+    "is_er_validated": true,
+    "results": {
+      "screening": {
+        "news": {
+          "link": "https://entity.back.dev3.xara.ai/v1/screening/b_s_t_a86b1342222645a3aa9f8ae8d85728eb_0/b_s_t_a86b1342222645a3aa9f8ae8d85728eb_0"
+        },
+        "watchlists": [
+          {
+            "algorithm": "exact",
+            "attributes": [
+              {
+                "attribute_name": "name",
+                "attribute_value": "Khaled Bin Fahd Bin Abdul Aziz Al Saud",
+                "confidence": 1,
+                "is_primary": "True",
+                "matching_strategy": "exact"
+              },
+              {
+                "attribute_name": "date_of_birth",
+                "attribute_value": [
+                  "1947"
+                ],
+                "confidence": 0,
+                "matcher": "Date matcher"
+              },
+              {
+                "attribute_name": "place_of_birth",
+                "attribute_value": [],
+                "confidence": 0,
+                "matcher": "Country matcher"
+              }
+            ],
+            "basic_info": {
+              "active_status": "Active",
+              "address": [],
+              "alternative_names": [],
+              "city_of_birth": [],
+              "country": [
+                "Saudi Arabia"
+              ],
+              "date": "05-Dec-2019",
+              "date_of_birth": [
+                "1947"
+              ],
+              "deceased": "No",
+              "deceased_date": [],
+              "descriptions": [
+                "Relative or Close Associate (RCA)"
+              ],
+              "dj_mat_ch_date": "2020-08-20 11:17:49.893257+00:00",
+              "family_name": "Al Saud",
+              "first_name": "Khaled",
+              "gender": "Male",
+              "home_location": {
+                "address": {
+                  "country": [
+                    "Saudi Arabia"
+                  ],
+                  "entity_type": "PostalAddress",
+                  "locality": "",
+                  "postal_code": "",
+                  "region": ""
+                },
+                "entity_type": "",
+                "has_map": ""
+              },
+              "honor_prefix": "Prince",
+              "id": "307414",
+              "identifiers": "",
+              "images": [],
+              "inactive_PEP": "",
+              "inactive_RCA_rel_PEP": "",
+              "inactive_as_of": [],
+              "last_name": "Al Saud",
+              "middle_name": "Bin Fahd Bin Abdul Aziz",
+              "name": "Khaled Bin Fahd Bin Abdul Aziz Al Saud",
+              "nationality": [
+                "Saudi Arabia"
+              ],
+              "place_of_birth": [],
+              "primary_name": "Khaled Bin Fahd Bin Abdul Aziz Al Saud",
+              "profile_notes": "",
+              "roles": [],
+              "sanction_references": [],
+              "watchlist_id": "PFA2_201912052200_D formatted"
+            },
+            "confidence": 0.8,
+            "entries": [
+              {
+                "classification": "Relative or Close Associate (RCA)",
+                "source": "DJW Index",
+                "watchlist_id": "PFA2_201912052200_D formatted"
+              }
+            ],
+            "value": "Khaled Bin Fahd Bin Abdul Aziz Al Saud"
+          },
+          {
+            "algorithm": "query_string",
+            "attributes": [
+              {
+                "attribute_name": "name",
+                "attribute_value": "Abdul Aziz Bin Abdullah Bin Abdul Aziz Al Saud",
+                "confidence": 0.5874999999999999,
+                "is_primary": "True",
+                "matching_strategy": "query_string"
+              },
+              {
+                "attribute_name": "date_of_birth",
+                "attribute_value": [
+                  "1962-10-27"
+                ],
+                "confidence": 0,
+                "matcher": "Date matcher"
+              },
+              {
+                "attribute_name": "place_of_birth",
+                "attribute_value": [
+                  "Saudi Arabia"
+                ],
+                "confidence": 0,
+                "matcher": "Country matcher"
+              }
+            ],
+            "basic_info": {
+              "active_status": "Active",
+              "address": [],
+              "alternative_names": [],
+              "city_of_birth": [
+                "Riyadh,Saudi Arabia"
+              ],
+              "country": [
+                "Saudi Arabia"
+              ],
+              "date": "05-Dec-2019",
+              "date_of_birth": [
+                "1962-10-27"
+              ],
+              "deceased": "No",
+              "deceased_date": [],
+              "descriptions": [
+                "Politically Exposed Person (PEP)"
+              ],
+              "dj_mat_ch_date": "2020-08-20 11:17:49.893257+00:00",
+              "family_name": "Al Saud",
+              "first_name": "Abdul Aziz",
+              "gender": "Male",
+              "home_location": {
+                "address": {
+                  "country": [
+                    "Saudi Arabia"
+                  ],
+                  "entity_type": "PostalAddress",
+                  "locality": "",
+                  "postal_code": "",
+                  "region": ""
+                },
+                "entity_type": "",
+                "has_map": ""
+              },
+              "honor_prefix": "Prince",
+              "id": "319098",
+              "identifiers": "",
+              "images": [
+                "http://www.mofa.gov.sa/sites/mofaen/ServicesAndInformation/news/GovernmentNews/PublishingImages/nalsaawi/the%20ministry/art1.568753.JPG",
+                "https://c1.staticflickr.com/9/8353/8322216817_e31368b159_b.jpg"
+              ],
+              "inactive_PEP": "",
+              "inactive_RCA_rel_PEP": "",
+              "inactive_as_of": [],
+              "last_name": "Al Saud",
+              "middle_name": "Bin Abdullah Bin Abdul Aziz",
+              "name": "Abdul Aziz Bin Abdullah Bin Abdul Aziz Al Saud",
+              "nationality": [
+                "Saudi Arabia"
+              ],
+              "place_of_birth": [
+                "Saudi Arabia"
+              ],
+              "primary_name": "Abdul Aziz Bin Abdullah Bin Abdul Aziz Al Saud",
+              "profile_notes": "",
+              "roles": [
+                {
+                  "occupation": "Adviser to the King",
+                  "occupation_type": "Senior Civil Servants-National Government",
+                  "role_type": "Other Roles",
+                  "since_date": "",
+                  "to_date": ""
+                },
+                {
+                  "occupation": "Deputy Minister for Foreign\n                        Affairs",
+                  "occupation_type": "National Government Ministers",
+                  "role_type": "Primary Role",
+                  "since_date": "2011-07-21",
+                  "to_date": ""
+                },
+                {
+                  "occupation": "Adviser to the Crown\n                        Prince",
+                  "occupation_type": "Senior Civil Servants-National Government",
+                  "role_type": "Previous Roles",
+                  "since_date": "1991-01-01",
+                  "to_date": "2011-07-21"
+                }
+              ],
+              "sanction_references": [],
+              "watchlist_id": "PFA2_201912052200_D formatted"
+            },
+            "confidence": 0.47,
+            "entries": [
+              {
+                "classification": "Politically Exposed Person (PEP)",
+                "source": "DJW Index",
+                "watchlist_id": "PFA2_201912052200_D formatted"
+              }
+            ],
+            "value": "Abdul Aziz Bin Abdullah Bin Abdul Aziz Al Saud"
+          },
+          {
+            "algorithm": "query_string",
+            "attributes": [
+              {
+                "attribute_name": "name",
+                "attribute_value": "Abdul Aziz Bin Nasser Bin Abdul Aziz Al Saud",
+                "confidence": 0.5874999999999999,
+                "is_primary": "True",
+                "matching_strategy": "query_string"
+              },
+              {
+                "attribute_name": "date_of_birth",
+                "attribute_value": "",
+                "confidence": 0,
+                "matcher": "Date matcher"
+              },
+              {
+                "attribute_name": "place_of_birth",
+                "attribute_value": [],
+                "confidence": 0,
+                "matcher": "Country matcher"
+              }
+            ],
+            "basic_info": {
+              "active_status": "Active",
+              "address": [],
+              "alternative_names": [],
+              "city_of_birth": [],
+              "country": [
+                "Saudi Arabia",
+                "International"
+              ],
+              "date": "05-Dec-2019",
+              "date_of_birth": "",
+              "deceased": "No",
+              "deceased_date": "",
+              "descriptions": [
+                "Relative or Close Associate (RCA)"
+              ],
+              "dj_mat_ch_date": "2020-08-20 11:17:49.893257+00:00",
+              "family_name": "Al Saud",
+              "first_name": "Abdul Aziz",
+              "gender": "Male",
+              "home_location": {
+                "address": {
+                  "country": [
+                    "Saudi Arabia"
+                  ],
+                  "entity_type": "PostalAddress",
+                  "locality": "",
+                  "postal_code": "",
+                  "region": ""
+                },
+                "entity_type": "",
+                "has_map": ""
+              },
+              "honor_prefix": "",
+              "id": "2895774",
+              "identifiers": "",
+              "images": [
+                "http://s.alriyadh.com/2012/04/29/img/050770164713.jpg"
+              ],
+              "inactive_PEP": "",
+              "inactive_RCA_rel_PEP": "",
+              "inactive_as_of": "",
+              "last_name": "Al Saud",
+              "middle_name": "Bin Nasser Bin Abdul Aziz",
+              "name": "Abdul Aziz Bin Nasser Bin Abdul Aziz Al Saud",
+              "nationality": [
+                "Saudi Arabia"
+              ],
+              "place_of_birth": [],
+              "primary_name": "Abdul Aziz Bin Nasser Bin Abdul Aziz Al Saud",
+              "profile_notes": "",
+              "roles": [],
+              "sanction_references": [],
+              "watchlist_id": "PFA2_201912052200_D formatted"
+            },
+            "confidence": 0.47,
+            "entries": [
+              {
+                "classification": "Relative or Close Associate (RCA)",
+                "source": "DJW Index",
+                "watchlist_id": "PFA2_201912052200_D formatted"
+              }
+            ],
+            "value": "Abdul Aziz Bin Nasser Bin Abdul Aziz Al Saud"
+          },
+          {
+            "algorithm": "query_string",
+            "attributes": [
+              {
+                "attribute_name": "name",
+                "attribute_value": "Abdul Aziz Bin Nawaf Bin Abdul Aziz Al Saud",
+                "confidence": 0.5874999999999999,
+                "is_primary": "True",
+                "matching_strategy": "query_string"
+              },
+              {
+                "attribute_name": "date_of_birth",
+                "attribute_value": [
+                  "Dec-1979"
+                ],
+                "confidence": 0,
+                "matcher": "Date matcher"
+              },
+              {
+                "attribute_name": "place_of_birth",
+                "attribute_value": [],
+                "confidence": 0,
+                "matcher": "Country matcher"
+              }
+            ],
+            "basic_info": {
+              "active_status": "Active",
+              "address": [],
+              "alternative_names": [],
+              "city_of_birth": [],
+              "country": [
+                "Saudi Arabia",
+                "International"
+              ],
+              "date": "05-Dec-2019",
+              "date_of_birth": [
+                "Dec-1979"
+              ],
+              "deceased": "No",
+              "deceased_date": [],
+              "descriptions": [
+                "Relative or Close Associate (RCA)"
+              ],
+              "dj_mat_ch_date": "2020-08-20 11:17:49.893257+00:00",
+              "family_name": "Al Saud",
+              "first_name": "Abdul Aziz",
+              "gender": "Male",
+              "home_location": {
+                "address": {
+                  "country": [
+                    "Saudi Arabia"
+                  ],
+                  "entity_type": "PostalAddress",
+                  "locality": "",
+                  "postal_code": "",
+                  "region": ""
+                },
+                "entity_type": "",
+                "has_map": ""
+              },
+              "honor_prefix": "Prince",
+              "id": "2380348",
+              "identifiers": "",
+              "images": [],
+              "inactive_PEP": "",
+              "inactive_RCA_rel_PEP": "",
+              "inactive_as_of": [],
+              "last_name": "Al Saud",
+              "middle_name": "Bin Nawaf Bin Abdul Aziz",
+              "name": "Abdul Aziz Bin Nawaf Bin Abdul Aziz Al Saud",
+              "nationality": [
+                "Saudi Arabia"
+              ],
+              "place_of_birth": [],
+              "primary_name": "Abdul Aziz Bin Nawaf Bin Abdul Aziz Al Saud",
+              "profile_notes": "",
+              "roles": [],
+              "sanction_references": [],
+              "watchlist_id": "PFA2_201912052200_D formatted"
+            },
+            "confidence": 0.47,
+            "entries": [
+              {
+                "classification": "Relative or Close Associate (RCA)",
+                "source": "DJW Index",
+                "watchlist_id": "PFA2_201912052200_D formatted"
+              }
+            ],
+            "value": "Abdul Aziz Bin Nawaf Bin Abdul Aziz Al Saud"
+          },
+          {
+            "algorithm": "query_string",
+            "attributes": [
+              {
+                "attribute_name": "name",
+                "attribute_value": "Mashhour Bin Abdul Aziz Al Saud",
+                "confidence": 0.5874999999999999,
+                "is_primary": "True",
+                "matching_strategy": "query_string"
+              },
+              {
+                "attribute_name": "date_of_birth",
+                "attribute_value": [
+                  "1942"
+                ],
+                "confidence": 0,
+                "matcher": "Date matcher"
+              },
+              {
+                "attribute_name": "place_of_birth",
+                "attribute_value": [],
+                "confidence": 0,
+                "matcher": "Country matcher"
+              }
+            ],
+            "basic_info": {
+              "active_status": "Active",
+              "address": [],
+              "alternative_names": [],
+              "city_of_birth": [],
+              "country": [
+                "Saudi Arabia",
+                "International"
+              ],
+              "date": "05-Dec-2019",
+              "date_of_birth": [
+                "1942"
+              ],
+              "deceased": "No",
+              "deceased_date": [],
+              "descriptions": [
+                "Relative or Close Associate (RCA)"
+              ],
+              "dj_mat_ch_date": "2020-08-20 11:17:49.893257+00:00",
+              "family_name": "Al Saud",
+              "first_name": "Mashhour",
+              "gender": "Male",
+              "home_location": {
+                "address": {
+                  "country": [
+                    "Saudi Arabia"
+                  ],
+                  "entity_type": "PostalAddress",
+                  "locality": "",
+                  "postal_code": "",
+                  "region": ""
+                },
+                "entity_type": "",
+                "has_map": ""
+              },
+              "honor_prefix": "Prince",
+              "id": "325135",
+              "identifiers": "",
+              "images": [
+                "http://amr.azq1.com/king/wp-content/uploads/783c1b1e4d5b4c5f8a39efea015e2d3b.jpg"
+              ],
+              "inactive_PEP": "",
+              "inactive_RCA_rel_PEP": "",
+              "inactive_as_of": [],
+              "last_name": "Al Saud",
+              "middle_name": "Bin Abdul Aziz",
+              "name": "Mashhour Bin Abdul Aziz Al Saud",
+              "nationality": [
+                "Saudi Arabia"
+              ],
+              "place_of_birth": [],
+              "primary_name": "Mashhour Bin Abdul Aziz Al Saud",
+              "profile_notes": "",
+              "roles": [],
+              "sanction_references": [],
+              "watchlist_id": "PFA2_201912052200_D formatted"
+            },
+            "confidence": 0.47,
+            "entries": [
+              {
+                "classification": "Relative or Close Associate (RCA)",
+                "source": "DJW Index",
+                "watchlist_id": "PFA2_201912052200_D formatted"
+              }
+            ],
+            "value": "Mashhour Bin Abdul Aziz Al Saud"
+          },
+          {
+            "algorithm": "query_string",
+            "attributes": [
+              {
+                "attribute_name": "name",
+                "attribute_value": "Sattam Bin Saud Bin Abdul Aziz Al Saud",
+                "confidence": 0.5874999999999999,
+                "is_primary": "True",
+                "matching_strategy": "query_string"
+              },
+              {
+                "attribute_name": "date_of_birth",
+                "attribute_value": [
+                  "1953",
+                  "1954"
+                ],
+                "confidence": 0,
+                "matcher": "Date matcher"
+              },
+              {
+                "attribute_name": "place_of_birth",
+                "attribute_value": [],
+                "confidence": 0,
+                "matcher": "Country matcher"
+              }
+            ],
+            "basic_info": {
+              "active_status": "Active",
+              "address": [],
+              "alternative_names": [],
+              "city_of_birth": [],
+              "country": [
+                "Saudi Arabia",
+                "International"
+              ],
+              "date": "05-Dec-2019",
+              "date_of_birth": [
+                "1953",
+                "1954"
+              ],
+              "deceased": "No",
+              "deceased_date": [],
+              "descriptions": [
+                "Relative or Close Associate (RCA)"
+              ],
+              "dj_mat_ch_date": "2020-08-20 11:17:49.893257+00:00",
+              "family_name": "Al Saud",
+              "first_name": "Sattam",
+              "gender": "Male",
+              "home_location": {
+                "address": {
+                  "country": [
+                    "Saudi Arabia"
+                  ],
+                  "entity_type": "PostalAddress",
+                  "locality": "",
+                  "postal_code": "",
+                  "region": ""
+                },
+                "entity_type": "",
+                "has_map": ""
+              },
+              "honor_prefix": "",
+              "id": "2270148",
+              "identifiers": "",
+              "images": [],
+              "inactive_PEP": "",
+              "inactive_RCA_rel_PEP": "",
+              "inactive_as_of": [],
+              "last_name": "Al Saud",
+              "middle_name": "Bin Saud Bin Abdul Aziz",
+              "name": "Sattam Bin Saud Bin Abdul Aziz Al Saud",
+              "nationality": [
+                "Saudi Arabia"
+              ],
+              "place_of_birth": [],
+              "primary_name": "Sattam Bin Saud Bin Abdul Aziz Al Saud",
+              "profile_notes": "",
+              "roles": [],
+              "sanction_references": [],
+              "watchlist_id": "PFA2_201912052200_D formatted"
+            },
+            "confidence": 0.47,
+            "entries": [
+              {
+                "classification": "Relative or Close Associate (RCA)",
+                "source": "DJW Index",
+                "watchlist_id": "PFA2_201912052200_D formatted"
+              }
+            ],
+            "value": "Sattam Bin Saud Bin Abdul Aziz Al Saud"
+          },
+          {
+            "algorithm": "query_string",
+            "attributes": [
+              {
+                "attribute_name": "name",
+                "attribute_value": "Mohammed Bin Faisal Bin Abdul Aziz Al Saud",
+                "confidence": 0.5222222222222223,
+                "is_primary": "True",
+                "matching_strategy": "query_string"
+              },
+              {
+                "attribute_name": "date_of_birth",
+                "attribute_value": [
+                  "1937"
+                ],
+                "confidence": 0,
+                "matcher": "Date matcher"
+              },
+              {
+                "attribute_name": "place_of_birth",
+                "attribute_value": [],
+                "confidence": 0,
+                "matcher": "Country matcher"
+              }
+            ],
+            "basic_info": {
+              "active_status": "Active",
+              "address": [],
+              "alternative_names": [],
+              "city_of_birth": [],
+              "country": [
+                "Saudi Arabia"
+              ],
+              "date": "05-Dec-2019",
+              "date_of_birth": [
+                "1937"
+              ],
+              "deceased": "No",
+              "deceased_date": [],
+              "descriptions": [
+                "Relative or Close Associate (RCA)"
+              ],
+              "dj_mat_ch_date": "2020-08-20 11:17:49.893257+00:00",
+              "family_name": "Al Saud",
+              "first_name": "Mohammed",
+              "gender": "Male",
+              "home_location": {
+                "address": {
+                  "country": [
+                    "Saudi Arabia"
+                  ],
+                  "entity_type": "PostalAddress",
+                  "locality": "",
+                  "postal_code": "",
+                  "region": ""
+                },
+                "entity_type": "",
+                "has_map": ""
+              },
+              "honor_prefix": "Prince",
+              "id": "749177",
+              "identifiers": "",
+              "images": [],
+              "inactive_PEP": "",
+              "inactive_RCA_rel_PEP": "",
+              "inactive_as_of": [],
+              "last_name": "Al Saud",
+              "middle_name": "Bin Faisal Bin Abdul Aziz",
+              "name": "Mohammed Bin Faisal Bin Abdul Aziz Al Saud",
+              "nationality": [
+                "Saudi Arabia"
+              ],
+              "place_of_birth": [],
+              "primary_name": "Mohammed Bin Faisal Bin Abdul Aziz Al Saud",
+              "profile_notes": "",
+              "roles": [],
+              "sanction_references": [],
+              "watchlist_id": "PFA2_201912052200_D formatted"
+            },
+            "confidence": 0.4177777777777778,
+            "entries": [
+              {
+                "classification": "Relative or Close Associate (RCA)",
+                "source": "DJW Index",
+                "watchlist_id": "PFA2_201912052200_D formatted"
+              }
+            ],
+            "value": "Mohammed Bin Faisal Bin Abdul Aziz Al Saud"
+          },
+          {
+            "algorithm": "query_string",
+            "attributes": [
+              {
+                "attribute_name": "name",
+                "attribute_value": "Miteb Bin Abdullah Bin Abdul Aziz Al Saud",
+                "confidence": 0.5222222222222223,
+                "is_primary": "True",
+                "matching_strategy": "query_string"
+              },
+              {
+                "attribute_name": "date_of_birth",
+                "attribute_value": [
+                  "1952"
+                ],
+                "confidence": 0,
+                "matcher": "Date matcher"
+              },
+              {
+                "attribute_name": "place_of_birth",
+                "attribute_value": [
+                  "Saudi Arabia"
+                ],
+                "confidence": 0,
+                "matcher": "Country matcher"
+              }
+            ],
+            "basic_info": {
+              "active_status": "Active",
+              "address": [],
+              "alternative_names": [],
+              "city_of_birth": [
+                "Riyadh,Saudi Arabia"
+              ],
+              "country": [
+                "Saudi Arabia"
+              ],
+              "date": "05-Dec-2019",
+              "date_of_birth": [
+                "1952"
+              ],
+              "deceased": "No",
+              "deceased_date": [],
+              "descriptions": [
+                "Special Interest Person (SIP)"
+              ],
+              "dj_mat_ch_date": "2020-08-20 11:17:49.893257+00:00",
+              "family_name": "Al Saud",
+              "first_name": "Miteb",
+              "gender": "Male",
+              "home_location": {
+                "address": {
+                  "country": [
+                    "Saudi Arabia"
+                  ],
+                  "entity_type": "PostalAddress",
+                  "locality": "",
+                  "postal_code": "",
+                  "region": ""
+                },
+                "entity_type": "",
+                "has_map": ""
+              },
+              "honor_prefix": "Prince",
+              "id": "1074109",
+              "identifiers": "",
+              "images": [
+                "http://www.alsharq.net.sa/wp-content/uploads/2013/06/502432-513x340.jpg",
+                "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRDhWeshJbuMBQTKB3UytUx4rDOE8ogw_ew2rYlrsNCDqwsMOt3d2p1Xg",
+                "http://www.marefa.org/images/thumb/1/1c/%D8%A7%D9%84%D8%A3%D9%85%D9%8A%D8%B1_%D9%85%D8%AA%D8%B9%D8%A8.jpg/300px-%D8%A7%D9%84%D8%A3%D9%85%D9%8A%D8%B1_%D9%85%D8%AA%D8%B9%D8%A8.jpg"
+              ],
+              "inactive_PEP": "2017-11-04",
+              "inactive_RCA_rel_PEP": "",
+              "inactive_as_of": [
+                "2017-11-04"
+              ],
+              "last_name": "Al Saud",
+              "middle_name": "Bin Abdullah Bin Abdul Aziz",
+              "name": "Miteb Bin Abdullah Bin Abdul Aziz Al Saud",
+              "nationality": [
+                "Saudi Arabia"
+              ],
+              "place_of_birth": [
+                "Saudi Arabia"
+              ],
+              "primary_name": "Miteb Bin Abdullah Bin Abdul Aziz Al Saud",
+              "profile_notes": "PROFILE CREATED: 06-Nov-2017\n                UPDATE ADDED: 29-Nov-2017\n                Keywords: corruption\n                People mentioned: Miteb bin Abdullah\n                Profile:\n                Miteb bin Abdullah, the Minister of National Guard, was among 11 Saudi princes, four ministers and 10\n                former ministers arrested on November 4, 2017, on suspicion of corruption.\n                The arrests were the result of a large anti-corruption probe launched by a newly established\n                anti-corruption agency headed by the Crown Prince, which dealt with cases of suspected corruption\n                involving public funds.\n                As reported by media sources, bin Abdullah was also removed from his position. According to\n                investigations, at least USD 100 billion were misused through systematic corruption and embezzlement\n                over several decades.\n\n                PROFILE UPDATED: 29-Nov-2017\n                On November 28, 2017, bin Abdullah was released from prison.\n            ",
+              "roles": [
+                {
+                  "occupation": "See Previous Roles",
+                  "occupation_type": "National Government Ministers",
+                  "role_type": "Primary Role",
+                  "since_date": "",
+                  "to_date": ""
+                },
+                {
+                  "occupation": "Assistant Deputy Commander, National Guard",
+                  "occupation_type": "Senior Members of the Armed Forces",
+                  "role_type": "Previous Roles",
+                  "since_date": "2000-12-01",
+                  "to_date": "2009-06-21"
+                },
+                {
+                  "occupation": "Deputy Commander, National Guard",
+                  "occupation_type": "Senior Members of the Armed Forces",
+                  "role_type": "Previous Roles",
+                  "since_date": "2009-06-21",
+                  "to_date": "2010-11-01"
+                },
+                {
+                  "occupation": "Commander, National Guard",
+                  "occupation_type": "Senior Members of the Armed Forces",
+                  "role_type": "Previous Roles",
+                  "since_date": "2010-11-01",
+                  "to_date": "2013-05-27"
+                },
+                {
+                  "occupation": "Minister of National Guard",
+                  "occupation_type": "National Government Ministers",
+                  "role_type": "Previous Roles",
+                  "since_date": "2013-05-27",
+                  "to_date": "2017-11-04"
+                }
+              ],
+              "sanction_references": [],
+              "watchlist_id": "PFA2_201912052200_D formatted"
+            },
+            "confidence": 0.4177777777777778,
+            "entries": [
+              {
+                "classification": "Special Interest Person (SIP)",
+                "source": "DJW Index",
+                "watchlist_id": "PFA2_201912052200_D formatted"
+              }
+            ],
+            "value": "Miteb Bin Abdullah Bin Abdul Aziz Al Saud"
+          },
+          {
+            "algorithm": "query_string",
+            "attributes": [
+              {
+                "attribute_name": "name",
+                "attribute_value": "Faisal Bin Abdul-Majeed Bin Abdul-Aziz Al Saud",
+                "confidence": 0.5222222222222223,
+                "is_primary": "True",
+                "matching_strategy": "query_string"
+              },
+              {
+                "attribute_name": "date_of_birth",
+                "attribute_value": "",
+                "confidence": 0,
+                "matcher": "Date matcher"
+              },
+              {
+                "attribute_name": "place_of_birth",
+                "attribute_value": [],
+                "confidence": 0,
+                "matcher": "Country matcher"
+              }
+            ],
+            "basic_info": {
+              "active_status": "Active",
+              "address": [],
+              "alternative_names": [],
+              "city_of_birth": [],
+              "country": [
+                "Saudi Arabia",
+                "International"
+              ],
+              "date": "05-Dec-2019",
+              "date_of_birth": "",
+              "deceased": "No",
+              "deceased_date": "",
+              "descriptions": [
+                "Relative or Close Associate (RCA)"
+              ],
+              "dj_mat_ch_date": "2020-08-20 11:17:49.893257+00:00",
+              "family_name": "Al Saud",
+              "first_name": "Faisal",
+              "gender": "Male",
+              "home_location": {
+                "address": {
+                  "country": [
+                    "Saudi Arabia"
+                  ],
+                  "entity_type": "PostalAddress",
+                  "locality": "",
+                  "postal_code": "",
+                  "region": ""
+                },
+                "entity_type": "",
+                "has_map": ""
+              },
+              "honor_prefix": "Prince",
+              "id": "3118288",
+              "identifiers": "",
+              "images": [
+                "http://www.riyadhcement.com.sa/en/images/md.jpg"
+              ],
+              "inactive_PEP": "",
+              "inactive_RCA_rel_PEP": "",
+              "inactive_as_of": "",
+              "last_name": "Al Saud",
+              "middle_name": "Bin Abdul-Majeed Bin Abdul-Aziz",
+              "name": "Faisal Bin Abdul-Majeed Bin Abdul-Aziz Al Saud",
+              "nationality": [
+                "Saudi Arabia"
+              ],
+              "place_of_birth": [],
+              "primary_name": "Faisal Bin Abdul-Majeed Bin Abdul-Aziz Al Saud",
+              "profile_notes": "ASSOCIATED ENTITIES INFORMATION:\n                Saudi Installment Company\n            ",
+              "roles": [],
+              "sanction_references": [],
+              "watchlist_id": "PFA2_201912052200_D formatted"
+            },
+            "confidence": 0.4177777777777778,
+            "entries": [
+              {
+                "classification": "Relative or Close Associate (RCA)",
+                "source": "DJW Index",
+                "watchlist_id": "PFA2_201912052200_D formatted"
+              }
+            ],
+            "value": "Faisal Bin Abdul-Majeed Bin Abdul-Aziz Al Saud"
+          }
+        ]
+      }
+    },
+    "screening_type": "ODS",
+    "stats": {
+      "Alerts": {
+        "Alerts_Pushed": 1,
+        "Errors": 0
+      },
+      "ER": {
+        "ER_Validation_Failed": 0,
+        "ER_Validation_Success": 0
+      },
+      "Private_Enrichment": {
+        "Enriched": 0,
+        "Errors": 0
+      },
+      "Public_Enrichment": {
+        "Enriched": 0,
+        "Errors": 0
+      },
+      "Validation": {
+        "Bad": 0,
+        "Batches_Count": 1,
+        "Organization_Entities_Count": 0,
+        "Person_Entities_Count": 1,
+        "Total": 1
+      },
+      "WL_Screening": {
+        "Batches_Count": 1,
+        "Batches_Failed": 0,
+        "Batches_Finished": 1,
+        "Batches_Pending": 0,
+        "Batches_Running": 0,
+        "Total_Entities": 1,
+        "WL_Hits_Found": 1
+      }
+    },
+    "workflow_status": "Finished"
+  }

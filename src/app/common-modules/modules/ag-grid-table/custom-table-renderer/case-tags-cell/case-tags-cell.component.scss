@@ -1,0 +1,85 @@
+@import "../../../../../../assets/scss/theme/common/variable";
+.tag {
+  border-radius: 3px;
+  line-height: 20px;
+  padding: 5px;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tags-wrapper {
+  display: grid;
+  grid-template-columns: minmax(auto, auto) auto;
+  grid-gap: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  grid-column-start: 2;
+  overflow-x: hidden;
+  transition: all 0.3s ease;
+}
+.counter-number {
+  width: max-content !important;
+  margin-left: 3px;
+  border-radius: 3px;
+  line-height: 20px;
+  padding: 5px;
+}
+.width-85 {
+  width: 85% !important;
+}
+
+.tag-bg {
+  background-color: $tag-bg-color;
+}
+
+::ng-deep .hidden-tag-menu {
+  min-width: 400px !important;
+  max-width: 400px !important;
+  background-color: $bg-header-new;
+
+  .mat-menu-content {
+    padding: 0 !important;
+  }
+  .menu-header {
+    color: $white;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.25px;
+    padding: 12.7px 16px 16px;
+    background-color: rgba(rgba($white, 0.5), 0.08);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .header-close {
+      background: transparent;
+      border: none;
+      color: rgba($white, 0.5);
+    }
+  }
+  .hidden-tag {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 4px 4px 4px 0;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 3px;
+    line-height: 20px;
+  }
+  .hidden-tag-wrapper {
+    padding: 16px;
+  }
+}
+
+.count-tag {
+  &:hover {
+    cursor: pointer;
+  }
+}

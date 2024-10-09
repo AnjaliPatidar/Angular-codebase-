@@ -1,0 +1,15 @@
+ createNewArrayReportData (generate-report.component.ts) effects in functions 
+"customerOutreachDataForReport"(compliance.component.ts,"SADFDJKFH") ,
+"customerOutreachUpdateData" Global function in js  (compliance.component.tssdhjfh)
+"saveTheValueOfOwnership" (NOT implemented)
+
+
+
+SADFDJKFH =>{
+customerOutreachDataForReport Is calling in  updateOwnershipRecurssive(compliance.component.ts,"asdsfdsgfd")
+
+}
+tssdhjfh =>{
+    customerOutreachUpdateData is calling in addNewCompanyOwnership(add-new-entity.component.ts) 
+    and flowMaximizeModalController.js file(NOT implemented)
+}

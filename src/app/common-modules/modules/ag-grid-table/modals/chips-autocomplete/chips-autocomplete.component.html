@@ -1,0 +1,72 @@
+<mat-form-field appearance="fill" class="mb-3 bst-form-field bst-form-field--select bst-form-field--select__autocomplete
+bst-form-field--select__autocomplete--multiSelectChips" *ngIf="dropdownType != 'classificationtype'">
+  <mat-label class="text-dark-black">{{'Watchlist' | translate}}</mat-label>
+  <mat-chip-list required #chipList aria-label="Watchlist selection" class="bst-form-field--select__autocomplete--multiSelectChips__list">
+    <mat-chip
+      *ngFor="let watchlist of watchlists"
+      [selectable]="selectable"
+      [removable]="removable"
+      (removed)="remove(watchlist)"
+      class="multiSelectChips__list">
+      {{watchlist.name | translate}}({{watchlist.version}})
+      <mat-icon matChipRemove *ngIf="removable" class="multiSelectChips__list multiSelectChips__list--icon">cancel</mat-icon>
+    </mat-chip>
+    <input
+      placeholder="{{ 'Add Watchlist' | translate }}"
+      #watchlistInput
+      [formControl]="watchlistCtrl"
+      [matAutocomplete]="auto"
+      [matChipInputFor]="chipList"
+      class="bst-form-field--select__autocomplete--multiSelectChips__input"
+      [disabled]="originalWatchlists?.length==0">
+  </mat-chip-list>
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)" class="bst-select-wrapper custom-scroll-wrapper">
+    <mat-option [value]="{ name: 'All' | translate, type: 'all' }" *ngIf="isAllShow">
+      <mat-checkbox [checked]="isAllSelected" (click)="$event.preventDefault()">
+        {{ 'Select All' | translate }}
+      </mat-checkbox>
+    </mat-option>
+    <mat-optgroup *ngFor="let watchlist of filteredWatchlists | async; trackBy: trackById" [label]="watchlist.name + ' (' + watchlist.entity_type + ')'" class="bst-select-wrapper__option">
+      <mat-option *ngFor="let version of watchlist.versions" [value]="{ id: watchlist.id, name: watchlist.name, entity_type: watchlist.entity_type, list_type: watchlist.list_type, version: version, type: 'single' }">
+        <mat-checkbox [checked]="watchlist.selectedVersion === version" (click)="$event.preventDefault()"> {{version}} </mat-checkbox>
+      </mat-option>
+  </mat-optgroup>
+  </mat-autocomplete>
+</mat-form-field>
+<span *ngIf="watchlists.length === 0 && dropdownType != 'classificationtype'" class="d-block text-coral-red" [class.error-msg]="watchlists.length === 0">
+  <span *ngIf="watchlists.length === 0" class="mb-2 b-10 position-relative">{{ 'this field is mandatory' | translate }}</span>
+</span>
+
+
+<mat-form-field appearance="fill" class="mb-3 bst-form-field bst-form-field--select bst-form-field--select__autocomplete
+bst-form-field--select__autocomplete--multiSelectChips" *ngIf="dropdownType == 'classificationtype'">
+  <mat-label class="text-dark-black">{{'Feed Classification' | translate}}</mat-label>
+  <mat-chip-list #chipList2 aria-label="classification selection" class="bst-form-field--select__autocomplete--multiSelectChips__list">
+    <mat-chip
+      *ngFor="let classification of classificationList;trackBy:trackByListItemId"
+      [selectable]="selectable"
+      [removable]="removable"
+      (removed)="removeClassification(classification)"
+      class="multiSelectChips__list">
+      {{classification.displayName | translate}}{{classification.version}}
+      <mat-icon matChipRemove *ngIf="removable" class="multiSelectChips__list multiSelectChips__list--icon">cancel</mat-icon>
+    </mat-chip>
+    <input
+      placeholder="{{ 'Add Classification' | translate }}"
+      #classificationInput
+      [formControl]="classificationCtrl"
+      [matAutocomplete]="classificationAuto"
+      [matChipInputFor]="chipList2"
+      class="bst-form-field--select__autocomplete--multiSelectChips__input">
+  </mat-chip-list>
+  <mat-autocomplete #classificationAuto="matAutocomplete" (optionSelected)="selectedClassification($event)" class="bst-select-wrapper custom-scroll-wrapper">
+    <mat-option [value]="{ displayName: 'All' | translate, listType: 'all' }">
+      <mat-checkbox [checked]="isAllClassificationSelected" (click)="$event.preventDefault()">
+        {{ 'Select All' | translate }}
+      </mat-checkbox>
+    </mat-option>
+    <mat-option *ngFor="let classification of filteredClassifications | async; trackBy: trackByListItemId" [value]="{ listItemId: classification.listItemId, displayName: classification.displayName, listType: classification.listType, version: classification.version}">
+      <mat-checkbox [checked]="classification.selected" (click)="$event.preventDefault()"> {{classification.displayName}} </mat-checkbox>
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>

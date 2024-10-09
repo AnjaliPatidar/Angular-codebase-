@@ -1,0 +1,166 @@
+@import "../../../../../../assets/theme-builder/theme_builder";
+
+
+.initial-name {
+  // width: 3.2rem;
+  // height: 3.2rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(116, 116, 116, 0.8);
+  font-size: 10px;
+  margin-right: 5px;
+  line-height: 3.0;
+  text-align: center;
+
+  &.large {
+    // width: 4rem;
+    // height: 4rem;
+    width: 40px;
+    height: 40px;
+    line-height: 4;
+  }
+}
+
+
+
+/* users table custom styles */
+
+::ng-deep .users-table {
+
+  .ag-body-viewport .ag-row,
+  .ag-header-row {
+    .ag-cell-value[col-id='fullname'] {
+      font-size: 1.6rem;
+    }
+  }
+
+
+  .bst_mat_input {
+    line-height: 1.9;
+
+    .mat-select-value-text {
+      height: 20px;
+    }
+  }
+
+  #dropdown-multiselect-wrapper {
+    transform: none;
+    position: absolute;
+    left: unset;
+    top: 0;
+    right: 15px !important;
+  }
+
+  .pagination-dropdown {
+    // top: 0 !important;
+    // right: 50% !important;
+    top: -42px;
+    transform: none;
+  }
+
+  .ag-cell-value {
+    display: block !important;
+    line-height: 5rem !important;
+  }
+
+
+  app-user-actions {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .ag-cell-wrapper {
+    display: flex;
+    align-items: center;
+
+    .ag-hidden {
+      display: block !important;
+      visibility: hidden;
+      height: 0 !important;
+    }
+
+    .ag-selection-checkbox {
+      margin-right: .1rem;
+      cursor: pointer;
+    }
+  }
+
+  .ag-theme-balham {
+    .ag-paging-panel {
+      // top: -4.5rem !important;
+      // right: 18.5% !important;
+      // max-height: 17px;
+      right: 20%;
+      top: -35px;
+    }
+  }
+
+  .ag-table-wrapper.data-table-wrapper .ag-header-container .ag-header-row {
+    background-color: #5f5f5f;
+  }
+  .mat-select-arrow  {
+    color: $text-on-surface !important;
+  }
+}
+
+::ng-deep .quick-search-data {
+  .mat-option-text {
+    display: inline-block !important;
+  }
+
+  .mat-option {
+    height: 7.2rem;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 76%;
+      height: 1px;
+      background: rgba(255, 255, 255, .12);
+      bottom: 0;
+      right: 0;
+    }
+
+    &:last-of-type {
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+
+
+::ng-deep{
+  .user-management-table{
+    .source-management-loader{
+      position: absolute !important;
+      height: 70vh !important;
+      top: 0;
+    }
+  }
+
+  app-advanced-search-user-table {
+    .user-management-table{
+      .source-management-loader{
+        top: 0;
+        height: 8rem !important;
+      }
+    }
+  }
+} 
+.right-export-btn {
+  // top: 10px !important;
+  top: -35px !important;
+  right: 50px !important;
+}
+.left-add-btn {
+  left: 15px;
+  // top: 0.6rem;
+  top: -35px;
+}
+
+
+

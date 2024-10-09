@@ -1,0 +1,86 @@
+
+/*==============================================================================
+****************  Custom List Group Styles For The Site  ***********************
+==============================================================================*/
+
+.custom-list-group-wrapper {
+    @include padding(0);
+    @include margin(0);
+    display: flex;   
+    flex-wrap: wrap;
+    align-items: center; 
+    li {
+      @include padding(0);
+      @include transition(all 0.3s ease-in-out);
+      cursor: pointer;
+      // font-family: $roboto-regular;
+      @include fontFamily($fonts) {
+        font-family: fonted(font-regular);
+      }
+      font-size: $font-size-base;
+      line-height: 1;
+      position: relative;
+      display: inline-flex;
+      white-space: normal;
+      color:#fbfbfb;
+    }
+    &.alert-acc-list {
+      max-height: 10rem;
+      flex-direction: column;
+    }
+  }
+.custom-list-group{
+    @include margin(0);   
+    .list-group-item{
+        @include margin(0 0 10px);  
+        @include padding(10px);  
+        @include box-shadow(none);
+        /* @include box-shadow(0 0 20px #f1f1f1); */
+        @include border-radius(0);
+        @include transition(all 0.3s ease-in-out);
+        background-color: $casal6;
+        color: $bali-hai23; 
+        // font-family: $roboto-regular;   
+        @include fontFamily($fonts) {
+          font-family: fonted(font-regular);
+        } 
+        font-size: ($font-size-base - 1);  
+        line-height: ($line-height-computed * .8);
+        font-weight: normal; 
+        cursor: pointer;   
+        border: 1px solid $casal6;
+        a{
+        	color: $bali-hai23;
+        }
+        &:hover,&:focus,&.active,&.active:hover,&.active:focus{
+            background-color: $matisse3;
+            color: $heather8;
+            border: 1px solid $matisse3;
+	        a{
+	        	color: $heather8;
+	        }
+        }
+        &:last-child{
+        	@include margin(0);
+        }
+    }
+}
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+@media (min-width:$screen-lg){
+
+}
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
+
+}
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {
+
+}

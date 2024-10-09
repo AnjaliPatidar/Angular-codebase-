@@ -1,0 +1,59 @@
+<!--  Process Wrapper Starts  -->
+<div class="process-wrapper">
+
+  <!--  Welcome Message Wrapper Starts  -->
+  <div class="welcome-msg-wrapper d-flex ai-c">
+    <p class="choose-msg mar-b0 text-cream raleway-light">
+      Hi, {{name}}! Now choose your process
+    </p>
+    <p class="nothanks mar-autol">
+      <a href="javascript:void(0);" class="font-regular" ng-click="toDiscover();"><i
+          class="fa fa-tachometer pad-r3"></i> Thanks! Skip to Dashboard</a>
+    </p>
+  </div>
+  <!--  Welcome Message Wrapper Ends  -->
+
+  <!--  Tile Menu Wrapper Starts  -->
+  <div class="tile-wrapper">
+
+    <div class="tile-group-wrapper p-rel" *ngFor="let dashboardItem of submenuOptions; trackBy: trackByModuleGroupName">
+      <div class="tile-name">
+        <div class="tile-content ai-c d-flex">
+          <a href=javascript:void(0); class="{{dashboardItem.moduleGroupIcon}} mar-r10 icon"></a>
+          <h4 class="raleway-light text-cream text-capitalize">{{dashboardItem.moduleGroupName}}</h4>
+        </div>
+      </div>
+      <div class="tile height-100 {{dashboardItem.moduleGroupName.toLowerCase()}}-tile"
+        [ngClass]="{'disabled': checkSubmenuDisable(dashboardItem.disabled)}"
+        (click)="subMenuDropdownClick(dashboardItem.moduleGroupName)">
+
+        <div class="tile-contents height-100 ">
+          <ul class=" tile-contents-list mar-b0 height-100 ">
+            <li routerLink="{{content.route}}" class="tile-contents-list-item text-center"
+              *ngFor="let content of dashboardItem.modules; trackBy: trackByModuleName"
+              (click)="getSubMenu(content, content.disabled, dashboardItem); $event.stopPropagation()">
+              <i class="fa fa-home home-icon" popover-trigger="'mouseenter'" popover-placement="top-right"
+                popover-class="top-popover-wrapper border-0 pad-0" uib-popover="Set as main screen"
+                popover-append-to-body='true'></i>
+              <button [disabled]="content.disabled" class="btn text-cream btn-default"
+                [ngClass]="{'color':addClass($index),'c-ban':content.disabled}">
+                <i class="{{content.moduleIcon}} icon text-cream"
+                  *ngIf="content.moduleName != 'Fraud' && content.moduleName != 'Lead Generation'"></i>
+                <img src="assets/images/icon/fraud.svg" class="img-responsive center-block"
+                  style="width:32px;height:32px" *ngIf="content.moduleName == 'Fraud'">
+                <img src="assets/images/icon/leadGeneration.svg" class="img-responsive center-block"
+                  style="width:32px;height:32px" *ngIf="content.moduleName == 'Lead Generation'">
+                <p class="text-center text-cream roboto-regular">{{content.moduleName}}</p>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!--  Tile Menu Wrapper Ends  -->
+
+</div>
+<!--  Process Wrapper Ends  -->

@@ -1,0 +1,41 @@
+.bst-simple-filter {
+  display: flex;
+
+  button {
+    position       : absolute;
+    right          : 8px;
+    top            : 50%;
+    transform      : translateY(-50%);
+    display        : flex;
+    align-items    : center;
+    justify-content: flex-start;
+
+    .mat-button-wrapper {
+      display        : flex;
+    }
+  }
+
+  .input-wrapper__text-input {
+    height        : 40px;
+    width         : 100%;
+    background    : $color-white-08;
+    border        : none;
+    padding       : 0px 10px;
+    border-radius : 4px;
+    font-size     : 16px;
+    letter-spacing: 0.15px;
+    font-family   : "Roboto";
+    font-weight   : normal;
+    caret-color   : $color-accent;
+    padding-right : 40px;
+
+    &::placeholder {
+      color         : rgba($color-white, 0.6);
+      font-size     : 16px;
+      letter-spacing: 0.15px;
+      transform     : translatey(1.5px);
+      font-family   : "Roboto Regular";
+      font-weight   : 400;
+    }
+  }
+}

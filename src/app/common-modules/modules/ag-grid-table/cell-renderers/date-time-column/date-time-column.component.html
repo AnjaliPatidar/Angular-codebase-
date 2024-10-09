@@ -1,0 +1,5 @@
+<div class="custom-cell">
+    {{ dateTimeValue ? dateTimeValue : '' }}
+    <i *ngIf="notifiction" class="fa fa-exclamation-triangle selected-icon pointer ml-2 align-middle f-20"
+    [matTooltip]="notifiction" matTooltipPosition="above"></i>
+</div>

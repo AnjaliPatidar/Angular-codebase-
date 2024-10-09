@@ -1,0 +1,749 @@
+<div class="position-relative">
+  <div *ngIf="showFormLoader" class="w-100 h-100 position-absolute loader-bg z-99">
+    <i class="fa fa-spinner txt-on-surface-06 no-data mnh-auto fa-pulse f-23"></i>
+  </div>
+  <div class="popover-header border-thin-dark-cream-b bg-transparent p-0 pb-2">
+    <h1
+      class="d-flex align-items-center justify-content-between pb-2 mb-0 title gotham-medium text-dark-black light-theme-border-bottom mt-0 f-20">
+      {{ "Create Case" | translate }}
+      <div class="d-flex align-items-center">
+        <span class="rounded-circle circle-filled mr-2" *ngIf="!isCaseExists && !isCaseCreated"></span>
+        <span class="rounded-circle mr-3" [class.circle-filled]="!showFirstStep"
+          *ngIf="!isCaseExists && !isCaseCreated"></span>
+        <i class="material-icons c-pointer txt-on-surface-06" id="createCaseClosePopup"
+          (click)="dialogReference.close()">close</i>
+      </div>
+    </h1>
+  </div>
+
+  <ng-container *ngIf="!isCaseExists && !isCaseCreated">
+    <form #step1CreateCase="ngForm" class="no-pink-form search-popover position-relative" autocomplete="none">
+      <div class="popover-body px-0 mt-3" *ngIf="showFirstStep">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3 custom-user-input">
+              <mat-form-field class="f-16">
+                <mat-select [disabled]="showLoader" id="entityTypeDropDown" [ngClass]="{ 'c-ban': showLoader }"
+                  disableOptionCentering placeholder="{{ 'Entity_Type' | translate }}" name="entityType" required
+                  [(ngModel)]="createCaseFormFiels.entityType" #entityType="ngModel"
+                  (ngModelChange)="resetEntityResultSet()">
+                  <ng-container>
+                    <mat-option value="personnel" id="entityTypePersonnel">
+                      {{ "Person" | translate }}
+                    </mat-option>
+                    <mat-option value="organization" id="entityTypeOrganization">
+                      {{ "Organization" | translate }}
+                    </mat-option>
+                  </ng-container>
+                </mat-select>
+              </mat-form-field>
+              <span *ngIf="entityType.hasError('required')" class="mb-2">{{
+                "Entity_Type_Is_Mandatory" | translate
+                }}</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3 custom-user-input">
+              <mat-form-field class="f-16 text-white text-on-surface">
+                <input matInput required id="entityNameTextField" maxlength="100" autocomplete="off" placeholder="{{('Entity_Full_Name' | translate)}}"
+                  name="enityname" [(ngModel)]="createCaseFormFiels.entityName" #enityname="ngModel"
+                  class="text-overflow" />
+              </mat-form-field>
+              <span *ngIf="enityname.touched" class="d-block text-coral-red" [class.error-msg]="
+                  enityname.hasError('required') ||
+                  enityname.hasError('maxlength')
+                ">
+                <span *ngIf="enityname.hasError('required')" class="mb-2 position-relative">{{
+                  "Entity_name_is_mandatory" | translate }}</span>
+                <span *ngIf="enityname.hasError('maxlength')" class="mb-2">{{
+                  "Max_allowed_charaters_are_100" | translate
+                  }}</span>
+              </span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="d-flex autocomplete-input countryList position-relative">
+              <span class="flag-icon position-absolute flag-icon-squared placeholder-icon  flag-icon-{{
+                  createCaseFormFiels?.selcountry?.jurisdictionName?.toLowerCase()
+                }}"></span>
+              <input [required]="createCaseFormFiels.entityType === 'organization'" id="entityCountryTextField" matInput
+                class="text-dark-black text-white text-on-surface placeholder-transparent gotham-regular pl-5 mb-3 f-16"
+                placeholder="{{ 'Country' | translate }}" [matAutocomplete]="birthplace"
+                [(ngModel)]="createCaseFormFiels.jurisdiction" autocomplete="off"
+                (ngModelChange)="filterStates(createCaseFormFiels.jurisdiction)" name="countryOrigin"
+                #countryOrigin="ngModel" />
+                <div class="mat-select-arrow-wrapper"><div class="mat-select-arrow"></div></div>
+            </div>
+
+            <mat-autocomplete #birthplace="matAutocomplete" class="custom-scroll-wrapper popover" required
+              id="entityCountryAutoComplete">
+              <mat-option *ngFor="let state of filteredStates; let i = index;trackBy:trackByJurisdictionOriginalName" class="text-dark-black"
+                [value]="state.jurisdictionOriginalName" (click)="selectedCountry(state)"
+                id="{{ 'entityCountryOption' + (i+1)}}">
+                <span class="mar-r5 flag-icon flag-icon-squared placeholder-icon  flag-icon-{{
+                    state.jurisdictionName.toLowerCase()
+                  }}"></span>
+                <span class="text-dark-black">{{
+                  state.jurisdictionOriginalName
+                  }}</span>
+              </mat-option>
+            </mat-autocomplete>
+            <span *ngIf="countryOrigin.touched && !countryOrigin.value" class="d-block text-coral-red">
+              <span class="mb-2 b-10 position-relative">
+                <span *ngIf="createCaseFormFiels.entityType === 'organization'">{{
+                  "Country_Of_Registration_is_Mandatory" | translate
+                  }}</span>
+              </span>
+            </span>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3 custom-user-input">
+              <mat-form-field class="f-16 text-white text-on-surface">
+                <input (ngModelChange)="filterEntityIdVal(createCaseFormFiels.entityID)" matInput maxlength="30" id="entityIDTextField" autocomplete="off"
+                  placeholder="{{ 'Entity_ID' | translate }}" name="enityID" [(ngModel)]="createCaseFormFiels.entityID"
+                  #enityid="ngModel" class="text-overflow" />
+              </mat-form-field>
+              <span *ngIf="enityid.touched" class="d-block text-coral-red" [class.error-msg]="
+                  enityid.hasError('required') || enityid.hasError('maxlength')
+                ">
+                <span *ngIf="enityid.hasError('maxlength')" class="mb-2">{{
+                  "max_allowed_charaters" | translate
+                  }}</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="search-results clearfix mt-3">
+          <p class="float-left text-dark-black txt-on-surface-06">
+            {{ "Choose_the_Entity_to_continue_or_Update_Search" | translate }}
+          </p>
+          <div class="results-count float-right">
+            <span class="color-gray" *ngIf="(entityList && entityList.length) || noDataFound">{{ entityList.length }} {{
+              "results" | translate }}</span>
+            <button type="button" id="entitySearchBtn"
+              class="w-auto text-white text-on-surface primary-btn ml-3 light-theme-btn primary-btn gotham-medium font-medium fw-500"
+              [ngClass]="{
+                'c-ban op-05': step1CreateCase.invalid || disableSearchBtn
+              }" [disabled]="step1CreateCase.invalid || disableSearchBtn" (click)="searchEntity(createCaseFormFiels)">
+              {{ "SEARCH" | translate }}
+            </button>
+          </div>
+        </div>
+
+        <div class="row" *ngIf="noDataFound && suggestionsData.length > 0">
+          <div class="col-12">
+            <p class="fs-16">{{ "did_you_mean" | translate }}:
+              <span class="font-italic text-blue">
+                <a (click)="searchBySuggestion(suggestion)"
+                  *ngFor="let suggestion of suggestionsData; let i = index">{{suggestion}}<span
+                    *ngIf="i < (suggestionsData.length - 1)">{{','}}&nbsp;</span></a>
+              </span>
+            </p>
+          </div>
+        </div>
+
+        <div class="results-table mt-3 custom-scroll-wrapper" *ngIf="showResultsTable">
+          <div class="table-responsive">
+            <table class="table m-0 light-theme-no-radius">
+              <thead>
+                <tr>
+                  <th class="f-14 w-65"></th>
+                  <th class="f-14">{{ "Entity IDs" | translate }}</th>
+                  <th class="f-14">
+                    {{
+                    createCaseFormFiels.entityType == "personnel"
+                    ? "Name"
+                    : ("Entity Name" | translate)
+                    }}
+                  </th>
+                  <th class="f-14"> {{("Sources" | translate)}} </th>
+                  <th class="f-14 w-120">{{ "Jurisdiction" | translate }}</th>
+                  <th class="f-14">{{ "Address" | translate }}</th>
+                  <th class="f-14" *ngIf="createCaseFormFiels.entityType != 'personnel'">
+                    {{ "Website" | translate }}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr *ngIf="showLoader || noDataFound">
+                  <td [attr.colspan]="
+                      createCaseFormFiels.entityType != 'personnel' ? 6 : 5
+                    " class="text-center border-0">
+                    <i *ngIf="showLoader" class="fa fa-spinner fa-pulse text-white text-on-surface f-17"></i>
+                    <span *ngIf="noDataFound; &quot;text-white text-on-surface&quot;">{{
+                      "No_Data_Found" | translate
+                      }}</span>
+                  </td>
+                </tr>
+
+                <ng-container *ngIf="!showLoader">
+                  <tr *ngFor="let state of entityList; let i = index;trackBy:trackByIdentifier">
+                    <td class="text-center">
+                      <div class="custom-radio position-relative">
+                        <input type="radio" name="sources" [id]="i" [value]="
+                            state['vcard:organization-name']
+                              ? state['vcard:organization-name']
+                              : ''
+                          " [checked]="i == selectedRowIndex ? true : false"
+                          (click)="onRowCheckEntity(state, i, false)" />
+                        <span class="pad-0 mar-0 square-18 custom-radio-span">
+                          <i class="fa fa-circle custom-radio-icon"></i>
+                        </span>
+                        <label [for]="i" class="l-10 c-pointer t-0 position-absolute w-40 h-30"></label>
+                      </div>
+                    </td>
+                    <td >
+                      <span  *ngIf="!isPersonTypeSearch" class="w-100 dots-text">
+                        <div *ngIf="state?.identifiers?.legal_entity_identifier">
+                          <span>LEI : </span>
+                          <span>{{ state?.identifiers?.legal_entity_identifier?
+                            state.identifiers.legal_entity_identifier : "" }}</span>
+                        </div>
+                        <div *ngIf="state?.identifiers?.vat_tax_number">
+                          <span>VAT : </span>
+                          <span> {{ state?.identifiers?.vat_tax_number?
+                            state.identifiers.vat_tax_number : "" }}</span>
+                        </div>
+                        <div *ngIf="state?.identifiers?.international_securities_identifier">
+                          <span>ISIN : </span>
+                          <span>{{ state?.identifiers?.international_securities_identifier?
+                            state.identifiers.international_securities_identifier : "" }}</span>
+                        </div>
+                        <div *ngIf="state?.identifiers?.trade_register_number">
+                          <span>Trade/Commerce ID : </span>
+                          <span>{{ state?.identifiers?.trade_register_number?
+                            state.identifiers.trade_register_number : "" }}</span>
+                        </div>
+                        <div *ngIf="state?.identifiers?.other_company_id_number">
+                          <span>Customer Internal ID : </span>
+                          <span>{{ state?.identifiers?.other_company_id_number?
+                            state.identifiers.other_company_id_number : "" }}</span>
+                        </div>
+                      </span>
+                      <span *ngIf="isPersonTypeSearch" class="w-100 dots-text">
+                      <div>
+                        <span>{{ state?.identifier}}</span>
+                      </div>
+                      </span>
+                    </td>
+                    <td>
+                      {{
+                      state["vcard:organization-name"]
+                      ? state["vcard:organization-name"]
+                      : ""
+                      }}
+                    </td>
+                    <td>
+                      <app-entity-source-modal [data]="getSourceData(state)"></app-entity-source-modal>
+                    </td>
+                    <td>
+                      <div *ngIf='state["mdaas:RegisteredAddress"]?.country || state.isDomiciledIn'>
+                        <span class="mar-r5 flag-icon flag-icon-squared placeholder-icon  flag-icon-{{
+                          state.isDomiciledIn.toLowerCase()
+                        }}"></span>
+                        <span>
+                          {{ state["mdaas:RegisteredAddress"]?.country
+                          ? state["mdaas:RegisteredAddress"].country
+                          : state.isDomiciledIn ? state.isDomiciledIn:'' }}
+                        </span>
+                      </div>
+                    </td>
+                    <td>
+                      {{
+                      state["mdaas:RegisteredAddress"]?.fullAddress
+                      ? state["mdaas:RegisteredAddress"].fullAddress
+                      : ""
+                      }}
+                    </td>
+                    <td *ngIf="createCaseFormFiels.entityType != 'personnel'">
+                      <span *ngIf="state.hasURL"><a href="{{ state.hasURL }}" target="_blank"
+                          class="dots-text d-block">{{ state.hasURL }}</a></span>
+                    </td>
+                  </tr>
+                </ng-container>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <form #step2CreateCase="ngForm" class="no-pink-form search-popover position-relative" autocomplete="none">
+      <div class="popover-body px-0 mt-3" *ngIf="!showFirstStep">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3 custom-user-input mb-lg-5">
+              <mat-form-field>
+                <input matInput required maxlength="100" autocomplete="off" [(ngModel)]="createCaseFormFiels2.caseName"
+                  placeholder="{{ 'Case_Name' | translate }}" name="caseName" class="text-overflow text-captlize" />
+                <mat-hint class="pr-1 f-11 mt-4" align="end">{{
+                  createCaseFormFiels2.caseName
+                  ? createCaseFormFiels2.caseName.length
+                  : 0
+                  }}
+                  / 100</mat-hint>
+              </mat-form-field>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-md-12 p-0">
+                  <div class="mb-3 custom-user-input">
+                    <mat-form-field>
+                      <mat-select disableOptionCentering placeholder="{{ 'Case_Type' | translate }}" name="caseType"
+                        [(ngModel)]="createCaseFormFiels2.caseType" required>
+                        <ng-container *ngFor="let case of caseTypes;trackBy:trackByListItemId">
+                          <mat-option [value]="case.listItemId" (click)="getSelectedItem(case, 'caseType')">
+                            <i class="fa fa-{{ case.icon }} f-15 mr-2" [ngStyle]="{ color: '#' + case.colorCode }"></i>
+                            {{ case.displayName | translate }}
+                          </mat-option>
+                        </ng-container>
+
+                        <mat-select-trigger class="text-white text-on-surface">
+                          <i class="fa fa-{{
+                              selectedCase.selectedIcon
+                            }} selected-icon f-20 mr-2 align-middle" [ngStyle]="{
+                              color: '#' + selectedCase.selectedColor
+                            }">
+                          </i>{{ selectedCase.caseName }}
+                        </mat-select-trigger>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-md-12 p-0">
+                  <div class="mb-3 custom-user-input">
+                    <mat-form-field>
+                      <mat-select disableOptionCentering placeholder="{{ 'Tenant' | translate }}" name="tenant"
+                        [(ngModel)]="createCaseFormFiels2.tenant">
+                        <ng-container *ngFor="let tenant of filteredTenants">
+                          <mat-option [value]="tenant">
+                            {{ tenant }}
+                          </mat-option>
+                        </ng-container>
+
+                        <mat-select-trigger class="text-white text-on-surface">
+                          {{ createCaseFormFiels2.tenant }}
+                        </mat-select-trigger>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-md-6 p-0 pr-3">
+                  <div class="mb-3 custom-user-input">
+                    <mat-form-field>
+                      <mat-select disableOptionCentering placeholder="{{ 'Risk' | translate }}" name="risk"
+                        [(ngModel)]="createCaseFormFiels2.caseRisk" id="caseRiskSelect">
+                        <ng-container *ngFor="let risk of caseRiskLevels; let i = index; trackBy:trackByListItemId">
+                          <mat-option [value]="risk.listItemId" (click)="getSelectedItem(risk, 'caseRisk')"
+                            id="{{ 'caseRiskSelectOption'+(i+1) }}">
+                            <i class="fa fa-{{ risk.icon }} f-15 mr-2" [ngStyle]="{ color: '#' + risk.colorCode }"></i>
+                            {{ risk.displayName | translate }}
+                          </mat-option>
+                        </ng-container>
+                        <mat-select-trigger class="text-white text-on-surface">
+                          <i class="fa fa-{{
+                              selectedCaseRisk.selectedIcon
+                            }} selected-icon f-20 mr-2 align-middle" [ngStyle]="{
+                              color: '#' + selectedCaseRisk.selectedColor
+                            }">
+                          </i>{{ selectedCaseRisk.caseName }}
+                        </mat-select-trigger>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="col-md-6 p-0">
+                  <div class="mb-3 custom-user-input">
+                    <mat-form-field>
+                      <mat-select disableOptionCentering placeholder="{{ 'Priority' | translate }}" name="casePriority"
+                        id="casePrioritySelect" [(ngModel)]="createCaseFormFiels2.casePriority">
+                        <ng-container *ngFor="let priority of casePriorities; let i = index;trackBy:trackByListItemId">
+                          <mat-option [value]="priority.listItemId" (click)="getSelectedItem(priority, 'casePriority')"
+                            id="{{ 'casePrioritySelectOption'+(i+1) }}">
+                            <i class="fa fa-{{ priority.icon }} f-15 mr-2"
+                              [ngStyle]="{ color: '#' + priority.colorCode }"></i>
+                            {{ priority.displayName | translate }}
+                          </mat-option>
+                        </ng-container>
+                        <mat-select-trigger class="text-white text-on-surface">
+                          <i class="fa fa-{{
+                              selectedCasePriority.selectedIcon
+                            }} selected-icon f-20 mr-2 align-middle" [ngStyle]="{
+                              color: '#' + selectedCasePriority.selectedColor
+                            }">
+                          </i>{{ selectedCasePriority.caseName }}
+                        </mat-select-trigger>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-md-6 p-0 pr-3">
+                  <div class="d-flex autocomplete-input position-relative">
+                    <span class="flag-icon position-absolute flag-icon-squared placeholder-icon  flag-icon-{{
+                        createCaseFormFiels2?.selRegion?.code?.toLowerCase()
+                      }}"></span>
+                    <input matInput
+                      class="text-dark-black text-white text-on-surface placeholder-transparent gotham-regular pl-5 mb-3 f-16 custom-placeholder-size"
+                      placeholder="{{ 'Region_Uplift' | translate }}" [matAutocomplete]="birthplace"
+                      [(ngModel)]="createCaseFormFiels2.region" autocomplete="off" (ngModelChange)="
+                        filterRegionStatesList(createCaseFormFiels2.region)
+                      " name="countryOrigin" #countryOrigin="ngModel" id="caseRegionUpliftInput" />
+                  </div>
+
+                  <mat-autocomplete #birthplace="matAutocomplete" class="custom-scroll-wrapper popover">
+                    <mat-option *ngFor="let state of filteredRegionStates; let i = index;trackBy:trackByDisplayName" class="text-dark-black"
+                      id="{{ 'caseRegionUpliftSelectOption'+(i+1) }}" [value]="state.displayName"
+                      (click)="selectedRegion(state)">
+                      <span class="mar-r5 flag-icon flag-icon-squared placeholder-icon  flag-icon-{{
+                          state.code.toLowerCase()
+                        }}"></span>
+                      <span class="text-dark-black">{{
+                        state.displayName | translate
+                        }}</span>
+                    </mat-option>
+                  </mat-autocomplete>
+                </div>
+
+                <div class="col-md-6 p-0 create-case-multiselect">
+                  <ng-multiselect-dropdown name="financial" id="caseFinancialList" [placeholder]="'Product' | translate"
+                    [data]="createCaseFormFiels2.financialList" [(ngModel)]="createCaseFormFiels2.financeModel"
+                    [settings]="financialSetting" (onSelect)="onProductItemSelect($event)"
+                    (onDeSelect)="onProductItemSelect($event)" (onSelectAll)="onProductItemSelect($event)"
+                    (onDeSelectAll)="onProductItemSelect($event)">
+                  </ng-multiselect-dropdown>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-md-6 p-0 pr-3">
+                  <div class="mb-3 custom-user-input">
+                    <mat-form-field>
+                      <mat-select disableOptionCentering class="f-16" placeholder="{{ 'Requester' | translate }}"
+                        [(ngModel)]="createCaseFormFiels2.requester" name="requester" id="caseRequesterSelect" required>
+                        <ng-container *ngFor="let requester of requesters; let i = index;trackBy:trackByScreenName">
+                          <mat-option [value]="requester.screenName" id="{{ 'caseRequesterSelectOption' + (i+1)}}"
+                            (click)="
+                              getSelectedItem(requester.screenName, 'requester')
+                            ">
+                            {{ requester.screenName }}
+                          </mat-option>
+                        </ng-container>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="col-md-6 p-0">
+                  <div class="mb-3 custom-user-input infix-pad-b0">
+                    <mat-form-field appearance="fill" class="c-pointer">
+                      <mat-label class="text-dark-black">{{
+                        "Request_Date" | translate
+                        }}</mat-label>
+                      <input matInput [matDatepicker]="picker" name="requestedDate" autocomplete="none"
+                        [(ngModel)]="createCaseFormFiels2.requesterDate" (click)="picker.open()" (focus)="picker.open()"
+                        [(ngModel)]="requestedDate"
+                        class="text-dark-black gotham-regular placeholder-transparent mt-3" />
+                      <mat-datepicker-toggle id="datePick" matPrefix [for]="picker" class="text-dark-black text-white text-on-surface">
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #picker panelClass="user-datepicker" class="text-dark-black"></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="col-md-12 p-0">
+                  <div class="mb-3 custom-user-input">
+                    <mat-form-field>
+                      <input (ngModelChange)="modelChangeFn($event)" matInput required maxlength="50" autocomplete="off"
+                        [(ngModel)]="createCaseFormFiels2.customerInternalID"
+                        placeholder="{{ 'Customer_Internal_ID' | translate }}" name="customerInternalID"
+                        class="text-overflow" />
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3 custom-user-input">
+              <textarea rows="4" placeholder="{{ 'Add_a_comment' | translate }}" maxlength="3072" name="comment"
+                class="text-white text-on-surface rz-none w-100 textarea-field p-3 f-16 custom-scroll-wrapper lh-20 text-dark-black"
+                [(ngModel)]="createCaseFormFiels2.comment"></textarea>
+              <p class="text-dark-black text-on-surface">
+                {{ "Characters_used" | translate }}
+                {{ createCaseFormFiels2.comment.length }}/3072
+              </p>
+            </div>
+            <div class="attachements-list mt-4 pt-2 text-on-surface">
+              <p class="f-14 text-dark-black text-on-surface">
+                {{ "Attachments" | translate }}
+              </p>
+              <div *ngIf="uploadFormData">
+                <div class="text-dark-black text-white text-on-surface py-2 rounded lh-normal d-inline-block attachement-item f-12 mt-3"
+                  *ngFor="let item of createCaseFormFiels.filesArray;trackBy:trackByName">
+                  <i class="material-icons mr-2 f-14 file-icon text-on-surface">insert_drive_file</i>
+                  <span class="dots-text mxw-150 align-top text-on-surface">{{
+                    item.name
+                    }}</span>
+                  <i class="material-icons ml-2 f-14 align-top c-pointer text-on-surface" (click)="removeUploadedDoc(item)">close</i>
+                </div>
+              </div>
+              <div class="chip-group-sec">
+                <div class="text-dark-black text-white text-on-surface attachement-item f-12 mt-3"
+                  *ngFor="let item of seletedRepoDocumetList;trackBy:trackByFileId">
+                  <i class="material-icons mr-2 f-12 file-icon text-on-surface">insert_drive_file</i>
+                  <span class="dots-text  text-on-surface mr-auto">{{item.title.fileName}}</span>
+                  <i class="material-icons ml-2 f-14 c-pointer text-on-surface"
+                    (click)="removeconnectDocuments(item)">close</i>
+                </div>
+              </div>
+              <span class="color-gray f-14 mt-3 text-dark-black text-on-surface"
+                *ngIf="createCaseFormFiels.filesArray.length == 0 && repoDocumentList.length == 0">
+                {{ "There_are_no_Files_attached" | translate }}
+              </span>
+            </div>
+          </div>
+          <div class="col-md-6 document-container">
+            <mat-tab-group animationDuration="0ms">
+              <mat-tab label="{{ 'Upload' | translate }}">
+                <div class="file-upload-box">
+                  <div ng2FileDrop class="file-drag-drop" [uploader]="uploader" multiple
+                    (onFileDrop)="getUploadedFile($event)">
+                    <p class="text-on-surface">
+                      <i class="material-icons upload-icon light-theme-light-black">cloud_upload</i>
+                    </p>
+                    <p class="f-24 text-dark-black title-text-on-surface">
+                      {{ "DragAndDropFileHere" | translate }}
+                    </p>
+                    <p class="f-10 color-image text-dark-black text-on-surface">
+                      {{ "Or" | translate }}
+                    </p>
+                    <button class="bg-transparent text-uppercase text-dodger-blue light-theme-btn primary-btn gotham-medium font-medium fw-500" style="width: auto">
+                      {{ 'choose_files' | translate }}
+                    </button>
+                    <input type="file" id="fileAttachment" #filesupload class="file-upload-btn"
+                      (change)="getUploadedFile(filesupload.files)" multiple
+                      style="white-space: inherit; color: transparent; opacity: 0; margin-top: -40px;" />
+                  </div>
+                </div>
+              </mat-tab>
+              <mat-tab label="{{ 'Repository' | translate }}">
+                <app-document-repository [componentType]="'createAttachments'"></app-document-repository>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div mat-dialog-actions class="my-1">
+      <div class="text-right w-100">
+        <button type="button"
+          class="secondary-btn bg-transparent text-uppercase light-theme-btn secondary-btn gotham-medium font-medium fw-500 text-dodger-blue"
+          (click)="dialogReference.close()" id="createCaseCancelBtn">
+          {{ "Cancel" | translate }}
+        </button>
+        <button type="button"
+          class="bg-transparent text-uppercase ml-3 text-dodger-blue light-theme-btn primary-btn gotham-medium font-medium fw-500"
+          cdkFocusInitial *ngIf="!showFirstStep" (click)="showFirstStep = !showFirstStep" id="createCasePreviousBtn">
+          {{ "Previous" | translate }}
+        </button>
+        <button type="button" *ngIf="showFirstStep"
+          class="text-uppercase ml-3 light-theme-btn primary-btn gotham-medium font-medium fw-500" cdkFocusInitial
+          (click)="showFirstStep = !showFirstStep" [disabled]="disableNextButton && !this.repoDocumentList.length"
+          [ngClass]="{ 'c-ban op-05': disableNextButton }" id="createCaseNextBtn">
+          {{ "Next" | translate }}
+        </button>
+        <button type="button" class="ml-3 light-theme-btn text-uppercase primary-btn gotham-medium font-medium fw-500"
+          cdkFocusInitial *ngIf="!showFirstStep" (click)="step2FormDetails(createCaseFormFiels2, true) ; clicked = true;"
+          [ngClass]="[step2CreateCase.invalid ? 'c-ban op-05' : '', disableWhiteSpace ? 'c-ban op-05' : '']"  [disabled]="step2CreateCase.invalid && !repoDocumentList.length || disableWhiteSpace || clicked"
+          id="createCaseCreateBtn">
+          {{ "Create" | translate }}
+        </button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isCaseExists">
+    <div class="case-exists-wrapper mt-4 radius-10 bg-light-gray">
+      <div class="d-flex align-items-center py-4 px-3">
+        <i class="material-icons mr-2 f-19 color-gray">info</i>
+        <p class="case-exists-msg lh-18 align-items-center c-pointer f-15 txt-on-surface-06" data-toggle="collapse"
+          data-target="#existedCase">
+          {{ "The_system_found_a_related_case" | translate }}
+          <span class="mx-1 underline" (click)="openCaseDetail()">{{existedCaseData.caseName}}</span>
+          <span class="mx-1">
+            (<span class="underline" (click)="openCaseDetail()">{{existedCaseData.caseId}}</span>)
+          </span>
+          <span *ngIf="tenantName" class="mx-1">
+            {{ "assigned_to" | translate }} {{tenantName}}
+          </span>.
+          {{ "do_you_wish_to_continue_with_case_creation" | translate }}
+        </p>
+
+      </div>
+      <div id="existedCase" class="collapse px-4 pb-4">
+        <div class="case-title mb-3 border-thin-dark-cream-t pt-4 d-flex justify-content-between">
+          <h3 class="f-20 m-0">
+            {{ "Case" | translate }} {{ existedCaseData.caseName }}
+          </h3>
+          <div>
+            <span class="mr-3 color-gray">
+              <i class="material-icons">attach_file</i>
+              <span class="align-top">{{
+                existedCaseData.attachmentsCount
+                }}</span>
+            </span>
+            <span class="color-gray">
+              <i class="material-icons">insert_comment</i>
+              <span class="align-top">{{ existedCaseData.commentsCount }}</span>
+            </span>
+          </div>
+        </div>
+        <div class="case-details">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="col-md-6">
+                <ul class="list-unstyled f-14">
+                  <li class="mb-3">
+                    <span class="color-gray mnw-90">{{
+                      "Case_ID" | translate
+                      }}</span>
+                    <span>{{ existedCaseData.caseId }}</span>
+                  </li>
+                  <li class="mb-3">
+                    <span class="color-gray mnw-90">{{ "Name" | translate }}:</span>
+                    <span>{{ existedCaseData.caseName }}</span>
+                  </li>
+                  <li class="mb-3">
+                    <span class="color-gray mnw-90">{{ "Risk" | translate }}:</span>
+                    <span *ngIf="existedCaseData.riskIndicators == 0">{{
+                      "High" | translate
+                      }}</span>
+                    <span *ngIf="existedCaseData.riskIndicators == 1">{{
+                      "Medium" | translate
+                      }}</span>
+                    <span *ngIf="existedCaseData.riskIndicators == 2">{{
+                      "Low" | translate
+                      }}</span>
+                    <span>{{ existedCaseData.riskIndicators }}</span>
+                  </li>
+                  <li class="mb-3">
+                    <span class="color-gray mnw-90">{{ "Case_Type" | translate }}:</span>
+                    <span>{{ existedCaseData.caseType | translate }} </span>
+                  </li>
+                  <li class="mb-3 mt-3">
+                    <span class="color-gray mr-4 mnw-90 text-dark-black">
+                      {{ "Region_Uplift" | translate }}:
+                    </span>
+                    <span class="mar-r5 flag-icon flag-icon-squared placeholder-icon  flag-icon-{{
+                        existedCaseData?.regionUplift?.code?.toLowerCase()
+                      }}" *ngIf="
+                        existedCaseData &&
+                        existedCaseData.regionUplift &&
+                        existedCaseData.regionUplift.displayName
+                      "></span>
+                    <span class="text-dark-black">{{
+                      existedCaseData.regionUplift &&
+                      existedCaseData.regionUplift.displayName
+                      ? existedCaseData.regionUplift.displayName
+                      : "N/A"
+                      }}</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-6">
+                <ul class="list-unstyled f-14">
+                  <li class="mb-3">
+                    <span class="color-gray mnw-100">{{ "Originator" | translate }}:</span>
+                    <span>{{ existedCaseData.originator }}</span>
+                  </li>
+                  <li class="mb-3">
+                    <span class="color-gray mnw-100">{{ "Owner" | translate }}:</span>
+                    <span>{{ existedCaseData.originator }}</span>
+                  </li>
+                  <li class="mb-3">
+                    <span class="color-gray mnw-100">{{
+                      "Created_Date" | translate
+                      }}</span>
+                    <span> {{ existedCaseData.createdOn }}</span>
+                  </li>
+                  <li class="mb-3">
+                    <span class="color-gray mnw-100">{{ "Updated_Date" | translate }}:</span>
+                    <span> {{ existedCaseData.modifiedOn }}</span>
+                  </li>
+                  <li class="mb-3">
+                    <span class="color-gray mnw-100">{{ "Product" | translate }}:</span>
+                    <span>
+                      {{
+                      existedCaseData.product
+                      ? existedCaseData.product
+                      : "N/A"
+                      }}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div mat-dialog-actions class="my-1 mt-5">
+      <div class="text-right w-100">
+        <button type="button"
+          class="w-auto bg-transparent secondary-btn text-uppercase light-theme-btn gotham-medium font-medium fw-500 text-dodger-blue"
+          (click)="dialogReference.close()">
+          {{ "No" | translate }}
+        </button>
+        <button type="button"
+          class="w-auto text-uppercase primary-btn ml-3 light-theme-btn primary-btn gotham-medium font-medium fw-500 text-uppercase"
+          cdkFocusInitial [disabled]="clickedYes"(click)="step2FormDetails(createCaseFormFiels2, false) ; clickedYes = true; ">
+          {{ "yes" | translate }}
+        </button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isCaseCreated">
+    <div class="alert alert-success mt-4">
+      <span class="align-middle">
+        <i class="material-icons">check_circle_outline</i>
+      </span>
+      {{ "Your_Case" | translate }}{{ ' ' + createdCaseId }}
+      {{ "was successfully created" | translate }}.
+    </div>
+
+    <div mat-dialog-actions class="my-1 mt-5">
+      <div class="text-right w-100">
+        <button type="button"
+          class="w-auto bg-transparent text-uppercase ml-3 text-dodger-blue light-theme-btn primary-btn gotham-medium font-medium mr-3 fw-500"
+          cdkFocusInitial (click)="openCaseDetail()">
+          {{ "Go_To_Case_Page" | translate }}
+        </button>
+        <button type="button" class="w-auto text-uppercase light-theme-btn gotham-medium font-medium fw-500 primary-btn"
+          (click)="dialogReference.close()">
+          {{ "OK" | translate }}
+        </button>
+      </div>
+    </div>
+  </ng-container>
+</div>

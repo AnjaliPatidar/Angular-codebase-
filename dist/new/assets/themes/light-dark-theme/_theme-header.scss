@@ -1,0 +1,33 @@
+  /* Theme styles for the header */
+  .header-wrapper {
+    .navbar {
+      background-color: $header-bg-color !important;
+      height: 64px;
+
+      li {
+        a {
+          .nav-link-icon {
+            color: $header-icons-color;
+          }
+
+          span {
+            color: $theme-text-color;
+            text-transform: capitalize !important;
+            letter-spacing: 0.1px;
+          }
+        }
+      }
+    }
+    .profile-dropdown-menu {
+      right: -10px;
+    }
+  }
+
+  .tag-icon {
+    color: $header-icons-color;
+  }
+
+  .tag-add {
+    background-color: $theme-yellow-color !important;
+    border-color: $theme-yellow-color !important;
+  }

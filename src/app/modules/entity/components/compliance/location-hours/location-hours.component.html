@@ -1,0 +1,40 @@
+<div class="pad-0 height-100 details-panel-wrapper panel custom-panel-wrapper bst_panel_wrapper  details-panel-wrapper mar-b0">
+    <div class="d-flex panel-heading ai-c">
+        <h3 class="mar-b0 roboto-light f-18 lh-1_2 text-unset text-cream">Location & Hours</h3>
+    </div>
+    <div class="mnh-235 panel-body panel-scroll p-rel details-panel-wrapper" *ngIf="!showLocationHours">
+        <div class="map-container1">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="map-frame1">
+                        <div id="map1" class="top-15"></div>
+                        <div class="map-footer">
+                            <h3 class="address-header">Registered Address</h3>
+                            <!-- <div class="d-flex ">
+                                <div style="color: white;">{{registerAddress}}</div>
+                                <div class="direction">
+                                    <span class="material-icons">directions</span>
+                                </div>
+                            </div> -->
+                            <div class="d-flex sub-header justify-content-between align-items-start">
+                                <span class="text-white float-left">{{registerAddress}}</span>
+                                <span class="direction float-right">
+                                    <span class="material-icons p-0">directions</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div *ngFor="let data of openingHoursSpecification" class="open-hours"> {{data}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mnh-235 panel-body panel-scroll p-rel details-panel-wrapper" *ngIf="showLocationHours">
+        <div class="d-flex align-items-center justify-content-center h-100">
+            <div class="text-center text-coral-red">Data Not Found</div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" class="bst_element">
+  <head>
+    <title>Element by Blackswan</title>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="./assets/images/logo-new.webp">
+    <link href="./assets/css/flags/flag-icon.min.css" rel="stylesheet">
+    <script src="./assets/paths.js"></script>
+    <!-- Loading Material Icons -->
+    <!-- <link  rel="stylesheet" href="./assets/css/font-awesome/icon.css"> -->
+    <!-- Loading Font Awesome 5 -->
+    <!-- <link rel="stylesheet" href="./assets/css/font-awesome/all.css"> -->
+    <!-- <link href="./assets/css/primitive.css" rel="stylesheet"> -->
+
+  </head>
+
+<body class="custom-modal-body custom-scroll-wrapper font-roboto" id="body">
+  <app-root></app-root>
+</body >
+
+<script>
+    setTimeout(() => {
+      document.onclick = function(event) {
+        if (event.target.matches("ngb-popover-window a")) {
+          event.target.parentElement.parentElement.parentElement.parentElement.style.display = "none";
+        }
+      };
+    }, 1000);
+</script>
+<script>
+window.recallKpiData = false;
+window.recallKpiDataCaseManagement=false;
+</script>
+<script>
+  document.onclick = function(event) {
+    if (event.target.matches("ngb-popover-window a")) {
+      event.target.parentElement.parentElement.parentElement.parentElement.style.display = "none";
+    }
+  };
+</script>
+</html>

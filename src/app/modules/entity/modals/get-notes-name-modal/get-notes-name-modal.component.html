@@ -1,0 +1,64 @@
+<form name="noteForm" #noteForm="ngForm"  novalidate autocomplete="off">
+        <div class="modal-body pad-b0">
+            <p class="mar-0 ">Please Enter Title</p>
+            <div class="custom-input-group">
+                <input type='text' id="getTitleName" name="getTitleName" #getTitleName="ngModel" [(ngModel)]="getTitle" required minlength="4"/>
+                <span style = "color:red" *ngIf="getTitleName.errors?.required">*Title is required</span>
+                <span style = "color:red" *ngIf="getTitleName.errors?.minlength">*Minimum 4 character required</span>
+    
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" [disabled]="noteForm.invalid" (click)="confirmDocument('sticky')"
+                class="btn btn-update">Save</button>
+            <button type="button" (click)="confirmDocument('close')" class="btn btn-update">Cancel</button>
+        </div>
+</form>
+ <!-- Sticky Notes Starts -->
+ <!-- <div class="panel custom-panel-wrapper sticky-panel-wrapper panel-info " id="stickyNotesEntity"
+ style="position:absolute;">
+ <div class="panel-heading pad-b0">
+     <div class="custom-input-group">
+         <input type="text" *ngIf="permissionDocument == 'Read Only'" id="documentTitleEntitySec"
+             value={{doc.title}} (keyup)="stickyTitleAutoSave($event, $index)" disabled>
+         <input type="text" *ngIf="permissionDocument != 'Read Only'" id="documentTitleEntitySec"
+             (keyup)="stickyTitleAutoSave($event, $index)">
+         <ul class="top-icon-list input-group-addon pull-right">
+             <li (click)="showSourceLinkModal()">
+
+                 <a popover-placement="bottom-right" uib-popover-template="'stickyLinks.html'"
+                     popover-append-to-body='true'
+                     popover-class="sticky-link-popover width-50 bottom-pop-wrapper mxh-none">
+                     <i class="fa pad-r0 pad-l20 fa-link"></i>
+                 </a>
+
+             </li>
+             <li>
+                 <a (click)="closeSticky()"> 
+                     <i class="fa fa-times" ></i> -->
+                     <!-- </span> -->
+                 <!-- </a>
+             </li>
+         </ul>
+     </div>
+ </div>
+ <div class="panel-body textarea-body">
+     <span *ngIf="loadDocumentContent" class="custom-spinner case-dairy-spinner">
+         <i class="fa fa-spinner fa-spin fa-2x"></i>
+     </span>
+     <div contenteditable="true" wrap="hard" *ngIf="permissionDocument == 'Read Only'"
+         id="documentTextEntity" rows="9"
+         class="textarea-scrollbar scrollbar-outer custom-scroll-wrapper "
+         (keyup)="stickyAutoSave($event,$index)" readonly>
+     </div>
+     <div contenteditable="true" wrap="hard" *ngIf="permissionDocument != 'Read Only'"
+         id="documentTextEntity" rows="9"
+         class="textarea-scrollbar scrollbar-outer custom-scroll-wrapper " maxlength="4000"
+         (keyup)="stickyAutoSave($event,$index)">
+     </div>
+ </div>
+ <div class="panel-footer">
+     <span>{{docUserList?.length|| 0}} shares | {{caseList?.length|| 0}} cases linked</span>
+ </div>
+</div> -->
+<!-- Sticky Notes Ends -->

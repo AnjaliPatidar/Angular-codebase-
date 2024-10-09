@@ -1,0 +1,83 @@
+::ng-deep :root {
+    --avatar-size: 50px;
+}
+
+.circle {
+    background-color: #047165;
+    border-radius: 50%;
+    height: var(--avatar-size);
+    text-align: center;
+    width: var(--avatar-size);
+}
+
+.initials {
+    font-size: calc(var(--avatar-size) / 2);
+    /* 50% of parent */
+    line-height: 1;
+    position: relative;
+    top: calc(var(--avatar-size) / 4);
+    /* 25% of parent */
+    line-height: 1 !important;
+    letter-spacing: 1 !important;
+}
+
+// .recommendation-element p {
+//     all: revert;
+// }
+::ng-deep .recommendation-element {
+    margin-bottom: 35px;
+}
+
+::ng-deep .recommendation-element .profile-image {
+    width: 150%;
+    border-radius: 50%;
+    border: #c1c1c191 solid 2px;
+}
+
+::ng-deep .recommendation-element .recommendation-name p {
+    font-weight: 46px !important;
+    text-transform: capitalize !important;
+    color: #FFFFFF;
+}
+
+::ng-deep .recommendation-element .recommendation-job {
+    font-size: 15px;
+    color: #a29e9e !important;
+    margin-bottom: 5px;
+}
+
+::ng-deep .recommendation-element .recommendation-relation {
+    font-weight: 12px;
+    color: #999999;
+    font-style: normal;
+    font-family: 'Roboto Light' !important;
+}
+
+::ng-deep .recommendation-element .recommendation-description {
+    font-style: normal;
+    font-family: 'Roboto Light' !important;
+    margin-top: 14px;
+    height: 65px;
+
+}
+
+.status-message {
+    margin: auto;
+    width: 60%;
+    border: 3px solid #9121ad;
+    padding: 10px;
+    text-align: center !important;
+}
+
+.status-message p {
+    text-align: center !important;
+}
+
+.recommendation-container{
+  padding-bottom: 20px;
+}
+
+.filter-tool-panel{
+  position: absolute;
+  right: 22px; top: 15px;
+}

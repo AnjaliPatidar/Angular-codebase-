@@ -1,0 +1,57 @@
+.skill-container{
+  margin-top: 10px;;
+}
+
+::ng-deep .progress {
+  background-color : #324E5F !important;
+  text-align:center;
+}
+
+::ng-deep .progress-bar{
+  background-color: #42B7FF !important;
+}
+
+.progress-text {
+  color: #fff;
+  font-weight: 700;
+  position: absolute;
+  display: block;
+  left: 49%; /* just in case calc is unavailable in a browser */
+  left: calc(50% - 12px);
+}
+
+::ng-deep .panel-body {
+
+  max-height: 470px !important;
+}
+
+::ng-deep .popover{
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  min-width: 250px !important;
+}
+
+::ng-deep .popover .popover-header{
+  background-color: #474747;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding: 5px 10px;
+  min-height: 30px;
+  margin-bottom: 5px;
+}
+
+::ng-deep .popover > .arrow {
+  margin-top: -18px;
+  left: 102px !important;
+
+}
+
+::ng-deep .popover .popover-body {
+  color: #b6b6b6;
+}
+
+::ng-deep .popover-header::before {
+   border-bottom: 1px solid transparent !important;
+}
+
+

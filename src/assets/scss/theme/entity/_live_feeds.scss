@@ -1,0 +1,238 @@
+
+/*==============================================================================
+******************  Live Feeds Wrapper Styles For The Site  ********************
+==============================================================================*/
+.live-feed-content-wrapper{
+    .entity-company-content-left {
+        background-color: $tarawera2;
+        width: calc(100% - 410px);
+    }
+    .entity-company-content-right {
+        background-color: $oxford-blue3;
+        vertical-align: top;
+        width: 410px;
+    }
+    .live-feed-wrapper {
+        height: 400px;
+        padding: 0;
+        .mCSB_inside>.mCSB_container{
+        	margin-right: 15px;
+        }
+        .custom-panel {
+            @include padding(10px);
+            border-bottom: 1px solid $big-stone14;
+        }
+        .media-list {
+            .media-left a {
+                @extend .text-center;
+           	    @include square(65px);
+                @include padding(1px 4px);
+                @include border-radius(50%);
+                color: $dark-grey3;
+                font-size: $font-size-base;
+                line-height: 20px;
+                display: inline-block;
+                position: relative;
+                overflow: hidden;
+                border: 4px solid $dark-grey3;
+                img {
+                	@include square(65px);
+                    @include margin(0 auto);
+                    @include center-position();
+                    display: block;
+                    float: none;
+                }
+            }
+            .media-body {
+                .media-heading {
+                    @extend .text-uppercase;
+                    @include margin(0 0 5px);
+                    // font-family: $roboto-medium;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-medium);
+                    }
+                    color: $shuttle-grey3;
+                    font-size: $font-size-base;
+                    line-height: ($line-height-computed * .8);
+                }
+                p {
+                    @include margin(0 0 5px);
+                    color: $fiord18;
+                    // font-family: $roboto-regular;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-regular);
+                    }
+                    font-size: ($font-size-base - 3);
+                    line-height: 18px;
+                    font-weight: normal;
+                    .icon {
+                        color: $orient;
+                       font-size: ($font-size-base + 2);
+                        vertical-align: middle;
+                        display: inline-block;
+                    }
+                    &.progress-text span {
+                        @include margin(0 20px 0 0);
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+    }    
+}
+#twitter-network-chart,#twitter-socket-network-chart{
+    > svg {
+        width: 100%;
+    }
+    line {
+        fill: none;  
+        stroke: $dim-grey;
+        stroke-width: 1.5px;   
+    }
+    text {
+        fill: $black;
+        font: 10px sans-serif;
+        pointer-events: none;
+    }
+}
+#socialMedialLegend {
+    @extend .text-uppercase;
+    color: $bismark10;
+    // font-family: $roboto-regular;
+    @include fontFamily($fonts) {
+		font-family: fonted(font-regular);
+	}
+    font-size: ($font-size-base - 3);
+    line-height: ($line-height-computed * .8);
+    font-weight: normal;
+    position: absolute;
+    left: auto;
+    bottom: auto;
+    top: 145px; 
+    right: 410px;
+    z-index: 2000;
+    .circle {
+    	@include square(15px);
+        @include border-radius(50%);  
+        display: inline-block;
+    }
+    .circle-blue {
+        background-color: $royal-blue;
+    }
+    .circle-yellow {
+        background-color: $laser-lemon;
+    }
+    .circle-pink {
+        background-color: $pink-flamingo;
+    }
+}
+.live-feed-wrapper{
+    .custom-panel.tweets-count-panel{
+        @include padding(0 10px);
+    }
+    .tweets-count-panel {
+        span {
+            @extend .text-left;
+            @extend .text-uppercase;
+            @include margin(0 0 10px);
+            color: $smalt-blue1 ;
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+            }
+            font-size: ($font-size-base - 4);
+            font-weight: normal;
+            display: block;
+        }
+        p {
+            @extend .text-uppercase;
+            @include margin(0 0 15px);
+            color: $bali-hai2;
+            // font-family: $roboto-medium;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-medium);
+            }
+            font-size: ($font-size-small * 2);
+            font-weight: normal;
+        }
+        h3 {
+            @extend .text-uppercase;
+            color: $fern-green	;
+            // font-family: $roboto-medium;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-medium);
+            }
+            font-size: $font-size-small;
+            font-weight: normal;
+        }
+        .left-grid {
+            @include padding(15px);
+            min-height: 130px;
+            border-right: 1px solid $big-stone14;
+        }
+        .right-grid {  
+            @include padding(15px);            
+            .col-sm-4{  
+           		 @include padding(0 5px);
+            	&:first-of-type{
+            		@include padding(0 0 0 15px);
+            	}
+            }
+        }
+    }
+}
+
+.entity-company-wrapper .live-feed-wrapper{
+    h3 {
+        color: $hippie-blue;
+    }
+    .tweets-count-panel .right-grid h5 {
+        @include margin(0 0 20px);
+        color: $fern-green1;
+        font-size: $font-size-small;
+        line-height: ($line-height-computed * .7);
+        .icon {
+            font-size: ($font-size-base + 2);
+            cursor: pointer;
+            color: $fern-green1;
+            &:hover, &:focus {
+               font-size: ($font-size-base + 2);
+                cursor: pointer;
+                color: $fern-green1;
+            }
+        }
+    }
+}
+
+.live-feed-wrapper .tweets-count-panel .right-grid p{
+    font-size: ($font-size-base * 1.5);
+    &.text-green{
+        color: $fern-green1;
+    }
+    &.text-red{
+        color: $dark-red3;
+    }
+    &.text-light-blue{
+        color: $hippie-blue;
+    }
+}
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+@media (min-width:$screen-lg){
+
+}
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
+
+}
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {
+ 
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {
+
+}

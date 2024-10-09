@@ -1,0 +1,8 @@
+<div class="title-wrapper" >
+  <i class="material-icons-round c-pointer title-icon"
+      [style.color]="(iconDetail?.colorCode) ? iconDetail?.colorCode : ''"
+      [class.text-on-surface]="(!iconDetail?.colorCode)">
+      {{iconDetail?.icon}}
+  </i>
+  <span>{{this.documentData?.title?.fileName}}</span>
+</div>

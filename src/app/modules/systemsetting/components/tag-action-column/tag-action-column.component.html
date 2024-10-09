@@ -1,0 +1,9 @@
+<div class="custom-cell" [class.error-state] = "isEditMode">
+    <i *ngIf="!isEditMode" class="tag-icon material-icons c-pointer badge f-18" [matTooltip]="'Edit' | translate"
+        (click)="onEdit()" matTooltipClass="bst-custom-tooltip">mode_edit</i>
+    <i *ngIf="!isEditMode" class="material-icons c-pointer badge f-18 text-coral-red w-32" [matTooltip]="'Delete' | translate" (click)="onDelete()" matTooltipClass="bst-custom-tooltip">delete_outline</i>
+    <i *ngIf="isEditMode" class="tag-icon material-icons c-pointer badge f-18" [matTooltip]="'Save' | translate" matTooltipClass="bst-custom-tooltip"
+        (click)="onSave()" [attr.readOnly] = "isDisable ? true : null" [ngClass]="{ 'c-ban': isDisable }">done</i>
+    <i *ngIf="isEditMode" class="tag-icon material-icons c-pointer badge f-18" [matTooltip]="'Cancel' | translate" matTooltipClass="bst-custom-tooltip"
+        (click)="onCancel()">close</i>
+</div>  

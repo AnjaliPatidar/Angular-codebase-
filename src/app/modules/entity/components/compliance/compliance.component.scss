@@ -1,0 +1,303 @@
+@import "../../../../../assets/scss/theme/common/variable";
+@import "../../../../../assets/scss/theme/common/mixin";
+
+//Extra Css
+        .min-ht-360 {
+            min-height: 360px;
+        }
+        #companyComplianceWorldMap svg {
+            margin: auto;
+            display: block;
+            margin-left: 10%;
+        }
+        .orgdiagram{
+          width:100% !important;
+        }
+        .risk-rate-legends {
+            bottom: 0%;
+            top: 56%;
+            position: absolute;
+            z-index: 10;
+            left: 1%;
+        }
+        .risk-rate-legends h4,
+        .risk-rate-legends p {
+            @include fontFamily($fonts) {
+            font-family: fonted(font-medium);
+        }
+            font-size: 12px;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.25;
+            letter-spacing: -0.3px;
+            color: #2d2d2d;
+            display:inline-flex;
+            margin:0 1rem;
+        }
+        .risk-rate-legends span.very-high-risk {
+            background-color: #a84778;
+        }
+        .risk-rate-legends span.high-risk {
+            background-color: #f8ce00;
+        }
+        .risk-rate-legends span.medium-risk {
+            background-color: #839cab;
+        }
+        .risk-rate-legends span.low-risk {
+            background-color: #434343;
+        }
+        .risk-score-list-map ul {
+            margin: 0px;
+            padding: 0px;
+        }
+        .risk-score-list-map .risk-score-box {
+            padding: 2% 4%;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 0 2px 0 rgba(0, 0, 0, 0.14);
+            background-color: #2d424b;
+        }
+        .risk-score-list-map .risk-score-country-name {
+            @include fontFamily($fonts) {
+            font-family: fonted(font-medium);
+        }
+            font-size: 10px;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.25;
+            letter-spacing: -0.3px;
+            padding: 0px 1px;
+            margin: 0px;
+            display: inline-block;
+        }
+        .risk-score-list-map .risk-score-country-text {
+            color: #879fa9;
+            padding: 0px;
+            margin: 0px;
+            @include fontFamily($fonts) {
+            font-family: fonted(font-medium);
+        }
+            font-size: 10px;
+            /* font-weight: normal; */
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.33;
+            letter-spacing: -0.2px;
+            word-break: break-word;
+        }
+        .world-map-compliance #companyComplianceWorldMap svg {
+            margin: auto !important;
+            display: block !important;
+        }
+        .countries-risk-score-table {
+            overflow-y: hidden;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        #countiesOperation {
+            height: 250px;
+        }
+        .score-circle {
+            float: left;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            margin-right: 3px;
+        }
+        .map-left-legends-text {
+            margin-top: -5px;
+            color: #a4a7a9 !important;
+            font-weight: 600;
+        }
+        .map-left-legends-text-none {
+            margin-top: -5px;
+            color: #686868 !important;
+            font-weight: 600;
+        }
+::ng-deep .entity_popover{
+  z-index: 1000 !important;
+}
+
+.min-ht-360 {
+    min-height: 360px;
+  }
+
+  #companyComplianceWorldMap svg {
+    margin: auto;
+    display: block;
+    margin-left: 10%;
+  }
+
+  .orgdiagram {
+    width: 100% !important;
+  }
+
+  .risk-rate-legends {
+    bottom: 0%;
+    top: 56%;
+    position: absolute;
+    z-index: 10;
+    left: 1%;
+  }
+
+  .risk-rate-legends h4,
+  .risk-rate-legends p {
+    // font-family: "Roboto Medium", sans-serif;
+    @include fontFamily($fonts) {
+      font-family: fonted(font-medium);
+    }
+    font-size: 8px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: -0.3px;
+    color: #2d2d2d;
+  }
+
+  .risk-rate-legends span.very-high-risk {
+    background-color: #a84778;
+  }
+
+  .risk-rate-legends span.high-risk {
+    background-color: #f8ce00;
+  }
+
+  .risk-rate-legends span.medium-risk {
+    background-color: #839cab;
+  }
+
+  .risk-rate-legends span.low-risk {
+    background-color: #434343;
+  }
+
+  .risk-score-list-map ul {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .risk-score-list-map .risk-score-box {
+    padding: 2% 4%;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.12), 0 0 2px 0 rgba(0, 0, 0, 0.14);
+    background-color: #2d424b;
+  }
+
+  .risk-score-list-map .risk-score-country-name {
+    // font-family: "Roboto Medium", sans-serif;
+    @include fontFamily($fonts) {
+      font-family: fonted(font-medium);
+    }
+    font-size: 10px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: -0.3px;
+    padding: 0px 1px;
+    margin: 0px;
+    display: inline-block;
+  }
+
+  .risk-score-list-map .risk-score-country-text {
+    color: #879fa9;
+    padding: 0px;
+    margin: 0px;
+    // font-family: "Roboto Medium", sans-serif;
+    @include fontFamily($fonts) {
+      font-family: fonted(font-medium);
+    }
+    font-size: 10px;
+    /* font-weight: normal; */
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: -0.2px;
+    word-break: break-word;
+  }
+
+  .world-map-compliance #companyComplianceWorldMap svg {
+    margin: auto !important;
+    display: block !important;
+  }
+
+  .countries-risk-score-table {
+    overflow-y: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .data-table-top{
+    top:-15px !important;
+  }
+  .germany-panel-height{
+    height: 25px;
+  }
+
+  #countiesOperation {
+    height: 250px;
+    .flag-icon-squared{
+          height: 16px;
+          margin-top: -3px;
+    }
+  }
+
+  .score-circle {
+    float: left;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    margin-right: 3px;
+  }
+
+  .map-left-legends-text {
+    margin-top: -5px;
+    color: #a4a7a9 !important;
+    font-weight: 600;
+  }
+  .verticle-text-wrapper{
+    display: block !important;
+    margin: 0 0 1rem !important;
+    font-size: 10px !important;
+  }
+
+  .map-left-legends-text-none {
+    margin-top: -5px;
+    color: #686868 !important;
+    font-weight: 600;
+  }
+  .risk-rate-wrapper{
+    bottom: 40% !important;
+    top: 33% !important;
+  }
+
+.score-circle {
+  float: left;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  margin-right: 3px;
+}
+
+.map-left-legends-text {
+  margin-top: -5px;
+  color: #a4a7a9 !important;
+  font-weight: 600;
+}
+.verticle-text-wrapper {
+  display: block !important;
+  margin: 0 0 1rem !important;
+  font-size: 10px !important;
+}
+
+.map-left-legends-text-none {
+  margin-top: -5px;
+  color: #686868 !important;
+  font-weight: 600;
+}
+.risk-rate-wrapper {
+  bottom: 40% !important;
+  top: 33% !important;
+}
+
+//   Compliance specific  Styles
+.compliance-tab-wrapper {
+}

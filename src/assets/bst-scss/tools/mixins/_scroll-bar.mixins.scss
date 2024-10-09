@@ -1,0 +1,31 @@
+/* Scrollbar Mixins */
+
+@mixin scroll-b-all($over-max-h, $over-x, $over-y) {
+  max-height: $over-max-h;
+  overflow-x: $over-x;
+  overflow-y: $over-y;
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $color-skyblue-20;
+    border-radius: 4px;
+  }
+}
+
+/* Usage */
+//@include scroll-b-all(150px, hidden, auto);
+
+
+@mixin scroll-b-only($s-width:4px, $thumb: $color-skyblue-20) {
+  &::-webkit-scrollbar {
+    width: $s-width;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $thumb;
+    border-radius: 10px;
+  }
+}
+
+/* Usage */
+//@include scroll-b-only(8px, #fff);

@@ -1,0 +1,559 @@
+/* Theme styles for ag grid table */
+.alert-bulk-operations {
+  margin-top: 20px;
+
+  & + ag-grid-angular .ag-paging-panel {
+    top: -15.2rem !important;
+  }
+}
+
+#dropdown-multiselect-wrapper {
+  .dropdown-list {
+    background-color: $theme-white-color;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+      0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 8px 10px 1px rgba(0, 0, 0, 0.14);
+
+    li div {
+      color: $theme-text-color;
+      word-break: break-all;
+    }
+  }
+
+  .filter-textbox {
+    background: transparent;
+    border-bottom: 1px solid #c1c1c1 !important;
+    border-radius: 0;
+    input {
+      color: $theme-black-color;
+    }
+  }
+}
+
+.ag-theme-balham {
+  margin-top: 2rem;
+  /* styles for table header filter dropdowns */
+  .ag-menu {
+    padding: 10px;
+    background-color: $theme-white-color;
+    border-color: $theme-white-color;
+    label {
+      color: $theme-text-color;
+    }
+    select {
+      background: $theme-bg-color;
+      color: $theme-text-color;
+      -webkit-text-fill-color: $theme-text-color !important;
+      border-radius: 0 !important;
+      option {
+        background-color: $theme-bg-color;
+        color: $theme-text-color;
+      }
+    }
+    .ag-input-text-wrapper {
+      input {
+        color: $theme-text-color;
+        -webkit-text-fill-color: $theme-text-color !important;
+      }
+    }
+
+    #applyButton,
+    #clearButton {
+      border-radius: 0 !important;
+      color: $theme-text-color;
+      text-transform: capitalize !important;
+      padding: 10px 10px !important;
+      font-family: "gotham-medium";
+    }
+    #applyButton {
+      background-color: $theme-yellow-color !important;
+    }
+    #clearButton {
+      border: 1px solid $theme-black-color;
+    }
+  }
+  .ag-header-cell-label .ag-header-cell-text {
+    font-family: "gotham-medium", sans-serif !important;
+    color: $theme-text-color;
+    font-size: 1.4rem;
+  }
+
+  .ag-body-viewport {
+    border-top: 1px solid $table-filter-border-color;
+    background-color: $ag-body-bg !important;
+  }
+
+  .ag-body-viewport .ag-row .ag-cell-value {
+    font-size: 1.4rem;
+    color: $theme-black-color;
+  }
+
+  .ag-row {
+    background-color: $table-bg-color !important;
+    border-bottom: 1px solid $table-filter-border-color !important;
+
+    .mat-form-field {
+      background: $theme-bg-color;
+      border-radius: 0px;
+
+      .mat-select-value-text {
+        color: $theme-text-color;
+      }
+
+      .mat-select-arrow {
+        color: transparent !important;
+        border-top-color: #2d2d2d;
+        border-bottom-color: #2d2d2d;
+      }
+    }
+  }
+
+  .ag-input-text-wrapper {
+    background: transparent;
+    border-bottom: 1px solid $table-filter-border-color;
+    border-radius: 0;
+
+    &:after {
+      background-color: $theme-yellow-color;
+    }
+  }
+
+  .ag-header-cell {
+    input {
+      -webkit-text-fill-color: $theme-light-color;
+      caret-color: $theme-black-color;
+    }
+
+    .mat-form-field-flex {
+      background: transparent;
+      border-bottom: 1px solid $table-filter-border-color;
+      border-radius: 0 !important;
+    }
+
+    app-date-filter {
+      & > div {
+        background: rgba(0, 0, 0, 0.12);
+        border-bottom: 1px solid $table-filter-border-color;
+        border-radius: 0;
+        height: 35px;
+        input {
+          -webkit-text-fill-color: $theme-light-color;
+        }
+      }
+    }
+  }
+
+  .header-label {
+    font-family: "gotham-medium", sans-serif !important;
+    color: #333;
+    font-size: 1.4rem;
+  }
+}
+
+.ag-header .ag-header-row {
+  &:first-child {
+    background-image: unset;
+    // border-bottom: 2px solid $theme-text-color;
+    background-color: $table-headers-bg;
+  }
+
+  &:last-of-type {
+    background: $theme-bg-color;
+    height: 52px !important;
+    padding-top: 8px;
+    // top: 0.2rem !important;
+    .mat-select-value-text {
+      span {
+        color: $theme-text-color;
+      }
+    }
+    .ag-input-text-wrapper,
+    mat-form-field {
+      height: 33px;
+      background-color: rgba(0, 0, 0, 0.12);
+      vertical-align: middle;
+      line-height: 1.8;
+      .mat-form-field-flex {
+        border-bottom: none;
+      }
+      .mat-select-arrow {
+        border-top-color: $theme-black-color;
+        // position: relative;
+        // top: -7px;
+      }
+      .mat-form-field-label {
+        font-size: 14px;
+        line-height: 1.2;
+      }
+    }
+  }
+}
+
+.feedList-table {
+  .ag-header .ag-header-row:last-of-type mat-form-field {
+    .mat-select-trigger {
+      vertical-align: super;
+    }
+  }
+}
+
+/* Custom theme styles for ag-grid table pagination */
+.ag-table-wrapper {
+  background-color: $table-bg-color;
+  margin-top: 1.6rem !important;
+
+  .ag-theme-balham {
+    background: $white !important;
+      .ag-floating-bottom,
+      .ag-header,
+      .ag-row {
+        background: $white !important;
+      }
+  }
+
+  .ag-paging-panel {
+    right: 223px;
+    top: -6.5rem;
+  }
+
+  app-custom-table-renderer span {
+    color: $theme-black-color !important;
+  }
+
+  .pagination-dropdown {
+    z-index: 2;
+
+    h3 {
+      letter-spacing: 0.1px;
+      color: $theme-black-color;
+    }
+
+    .mat-select {
+      background-color: $pagination-dropdown-color !important;
+      height: 42px;
+      min-width: 64px;
+      border-radius: 0;
+    }
+
+    .mat-select-value,
+    .mat-select-arrow,
+    .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+      color: $theme-text-color !important;
+      // border: none;
+      text-align: center;
+    }
+  }
+}
+
+/* Custom theme styles for ag-grid table pagination */
+.ag-table-wrapper {
+  background-color: $table-bg-color;
+  margin-top: 1.6rem !important;
+
+  .ag-paging-panel {
+    right: 223px;
+    top: -7rem;
+    position: absolute;
+  }
+
+  app-custom-table-renderer span {
+    color: $theme-black-color !important;
+  }
+
+  .pagination-dropdown {
+    z-index: 2;
+    top: -35px !important;
+    h3 {
+      letter-spacing: 0.1px;
+      color: $theme-black-color;
+    }
+
+    .mat-select {
+      background-color: $pagination-dropdown-color !important;
+      height: 42px;
+      min-width: 70px;
+      border-radius: 0;
+    }
+
+    .mat-select-value,
+    .mat-select-arrow {
+      color: $theme-text-color;
+      // border: none;
+      text-align: center;
+    }
+  }
+
+  .ag-paging-panel.ag-unselectable {
+    > span:first-child {
+      background-color: rgba(0, 0, 0, 0.12) !important;
+      border-radius: 0;
+      color: rgba(0, 0, 0, 0.6);
+    }
+    & > span {
+      margin-left: 20px;
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    .ag-paging-page-summary-panel {
+      color: $theme-light-color;
+    }
+  }
+
+  .export-button {
+    color: $theme-text-color;
+    font-family: gotham-medium;
+    border: 1px solid $theme-text-color;
+    border-radius: 0;
+    padding: 8px 22px;
+    font-size: 1.5rem !important;
+    top: 22px;
+    text-transform: capitalize !important;
+    line-height: 1.33;
+    letter-spacing: 0.1px;
+  }
+
+  .bst-dropdown-wrapper.alert-view-dropdown button {
+    border: 1px solid $theme-bg-color;
+    color: $theme-light-color !important;
+  }
+
+  #dropdown-multiselect-wrapper .dropdown-btn span:last-of-type span:after {
+    color: $theme-text-color!important;
+  }
+}
+.ag-table-wrapper {
+  .ag-paging-panel {
+    font-family: "gotham-regular", sans-serif !important;
+  }
+}
+
+.alert_management_dashboard {
+  .ag-table-wrapper {
+    .pagination-dropdown {
+      top: 1.1rem !important;
+    }
+  }
+}
+
+// Agrid Table Styles for Alert list
+app-alerts-list {
+  .ag-table-wrapper {
+    &.data-table-wrapper {
+      ag-grid-angular {
+        height: calc(100vh - 465px) !important;
+      }
+    }
+  }
+  .ag-table-wrapper {
+    &.data-table-wrapper {
+      .alert-bulk-operations {
+        & + ag-grid-angular {
+          height: calc(100vh - 550px) !important;
+        }
+      }
+    }
+  }
+}
+
+app-case-list {
+  .ag-table-wrapper {
+    &.data-table-wrapper {
+      .alert-bulk-operations {
+        & + .add-feed-btn {
+          & + ag-grid-angular {
+            height: calc(100vh - 550px) !important;
+          }
+        }
+      }
+    }
+  }
+}
+// Agrid Table Styles for Feed list and System Monitoring
+app-sources,
+app-feed-list,
+app-sm-list {
+  .ag-table-wrapper {
+    &.data-table-wrapper {
+      ag-grid-angular {
+        height: calc(100vh - 235px) !important;
+      }
+    }
+  }
+}
+// Agrid Table Styles for User Mangament
+app-users {
+  .ag-table-wrapper {
+    height: auto !important;
+    &.data-table-wrapper {
+      ag-grid-angular {
+        height: calc(100vh - 245px) !important;
+      }
+    }
+  }
+}
+.ag-table-wrapper {
+  .ag-theme-balham {
+    a {
+      &.text-white {
+        color: $theme-black-color !important;
+      }
+    }
+  }
+}
+.ag-theme-balham {
+  .ag-header-cell {
+    &::after {
+      border-right: 1px solid $theme-black-color !important;
+    }
+    &.ag-header-cell.ag-header-cell-sortable {
+      &::after {
+        top: 13px;
+      }
+    }
+  }
+}
+
+.mat-dialog-container {
+  background-color: $theme-white-color !important;
+
+  .export-report {
+    h3 {
+      color: $theme-black-color !important;
+    }
+  }
+}
+
+.ag-table-wrapper {
+  input[type="range"]::-webkit-slider-runnable-track {
+    background-image: linear-gradient(to right, #ffcc33, #ffcc33) !important;
+  }
+}
+
+.font-16 {
+  color: #5a5157 !important;
+}
+
+.c-token {
+  background-color: #fc3 !important;
+}
+
+.case-grid-table {
+  .ag-icon-checkbox-checked,
+  .ag-icon-checkbox-checked:empty {
+    &::after {
+      content: "\e876" !important;
+      font-family: "Material Icons Round";
+    }
+  }
+  .ag-icon-checkbox-unchecked {
+    &::after {
+      content: "" !important;
+    }
+  }
+  .ag-header-select-all {
+    padding-top: 5px;
+    .ag-icon-checkbox-checked,
+    .ag-icon-checkbox-checked:empty {
+      &::after {
+        content: "\e876" !important;
+        font-family: "Material Icons Round";
+        top: -7px;
+        left: 2px;
+      }
+    }
+    .ag-icon-checkbox-unchecked {
+      &::after {
+        content: "" !important;
+      }
+    }
+    .ag-icon-checkbox-checked {
+      margin-top: 5px !important;
+    }
+  }
+}
+
+.attachment-top-section {
+  background-color: $white !important;
+
+  .pagination-dropdown {
+    top: unset !important;
+  }
+}
+
+.attachments-count,
+.bst-grid-table .attachment-table .ag-paging-panel {
+  top: -56px !important;
+  color: $text-dark-grey !important;
+  -webkit-text-fill-color: $text-dark-grey !important;
+}
+
+.bulk-download-wrapper {
+  color: $text-dark-grey !important;
+  -webkit-text-fill-color: $text-dark-grey !important;
+  border-left: 1px solid rgba($text-dark-grey, 0.12) !important;
+}
+
+.attachment-table {
+  .input-filter {
+    background-color: rgba($theme-light-operation-bg, 0.3) !important;
+
+    &::placeholder {
+      color: $black;
+      -webkit-text-fill-color: $black;
+    }
+  }
+  .title-cell {
+    .title {
+      color: $text-dark-grey !important;
+    }
+  }
+}
+
+.ag-pinned-right-header,
+.ag-pinned-right-cols-container {
+  .ag-cell {
+    background: linear-gradient(
+      90deg,
+      rgba($white, 0),
+      $white,
+      $white,
+      $white,
+      $white
+    ) !important;
+  }
+
+  .ag-row:not(.ag-row-hover),
+  .ag-row:not(.ag-row-hover) .ag-cell {
+    background: linear-gradient(
+      90deg,
+      rgba($white, 0),
+      $white,
+      $white,
+      $white,
+      $white
+    ) !important;
+  }
+}
+
+#file-name .case-title-cell {
+  .title {
+    color: rgba($black, 0.87) !important;
+  }
+}
+.case-history-tooltip {
+  background-color: $white !important;
+
+  .mat-dialog-container {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+}
+
+.reason-dialog {
+  .attach-icon {
+    color: rgba($black, 0.84) !important;
+  }
+}
+
+.bst-grid-table .ag-theme-balham .ag-root-wrapper .ag-root .ag-header .ag-header-cell-resize {
+  background-color: rgba($black, 0.87);
+}

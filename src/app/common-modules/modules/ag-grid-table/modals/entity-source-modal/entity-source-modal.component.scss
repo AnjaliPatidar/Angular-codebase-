@@ -1,0 +1,68 @@
+@import "../../../../../../assets/scss/theme/common/variable";
+
+
+.titlle-source-link {
+  background: transparent;
+  border: none;
+  padding: 0px 20px 0px 0;
+
+  &:hover{
+    cursor: pointer;
+  }
+  .source-icon{
+    margin-right: 4px;
+  }
+  .source-count{
+    font-size: 12px;
+  }
+}
+
+
+.source-link {
+  margin-right: 13px;
+  .source-icon{
+    margin-right: 4px;
+  }
+  .source-count{
+    font-size: 12px;
+  }
+}
+
+.source-header{
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba($white , 0.08);
+  padding: 16px;
+
+  h6{
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.15px;
+  }
+}
+
+.source-body{
+  padding: 16px;
+  position: relative;
+
+  .content{
+    font-size: 14px;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .source-row{
+    &:not(:last-child){
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.custom-body-height{
+  height: calc(156px - 56px);
+}

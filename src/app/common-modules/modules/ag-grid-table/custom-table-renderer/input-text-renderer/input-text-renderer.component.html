@@ -1,0 +1,35 @@
+<div class="w-100">
+  <div *ngIf="enableText" class="w-100">
+    <p class="float-left text-dark-black mxw-85-percent text-overflow text-on-surface">{{inputValue}}</p>
+    <span class="editIcon control-icons float-right" *ngIf="!disable"  (click)="openEditInput($event)"><i
+        class="material-icons c-pointer edit-icon text-dark-black ">edit</i></span>
+  </div>
+  <div *ngIf="enableTextInput" class="d-flex align-items-center flex-wrap justify-content-between">
+    <input type="text" 
+          #element  
+          pattern="{{get_pattern(element)}}" 
+          id="inputId" 
+          class="form-control mxw-70 light-theme-border-bottom edit-field text-dark-black light-theme-no-radius" 
+          (keydown)="keyDownFunction($event)"
+          maxlength="100" 
+          #feedName = "ngModel"
+          [(ngModel)]="inputValue" 
+          name="name" />
+      <span *ngIf="feedName.touched" class="d-block text-coral-red" [class.error-msg]="feedName.invalid">
+            <span *ngIf="feedName.hasError('pattern')" class="mb-2"> {{get_pattern_error('text')}} </span>
+      </span>
+    <div [ngClass]="{ 'c-ban':!inputValue }" class="d-flex justify-content-between">
+      <span class="saveIcon control-icons text-dark-black" [ngClass]="{ 'pe-none':!inputValue || feedName.invalid }" (click)="saveInputValue($event,'')">
+        <span class="material-icons f-16">
+          check
+        </span>
+      </span>
+    </div>
+    <div>
+      <span class="cancelIcon control-icons" (click)="cancleInputValue($event)"><span class="material-icons c-pointer f-16">close</span></span>
+    </div>
+    <br>
+    <span style="color: red;" *ngIf="inputValue.length >= 100"> {{'TextLength' | translate}}</span>
+  </div>
+
+</div>

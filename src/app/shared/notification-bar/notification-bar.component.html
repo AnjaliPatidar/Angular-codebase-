@@ -1,0 +1,25 @@
+<div class="bst-custom-toast-wrapper">
+    <div class="bst-custom-toast bst-toast bst-error" [ngClass]="{
+        'bst-info': notificationType === 'info',
+        'bst-success': notificationType === 'success',
+        'bst-warning': notificationType === 'warning',
+        'bst-error': notificationType === 'error'
+    }">
+        <div class="bst-toast-inner">
+            <span class="bst-mat-icon bst-mat-icon__icon-type material-icons-round u-pt-5">
+                {{(this._sharedService.isDisplayNotificationBar$ | async)?.ntfType}}
+            </span>
+            <span class="bst-body1 bst-color-ty u-pt-5">
+                {{(this._sharedService.isDisplayNotificationBar$ | async)?.msg}}
+            </span>
+            <button *ngIf="(this._sharedService.isDisplayNotificationBar$ | async)?.isBtn" mat-button
+                class="bst-mat-btn bst-mat-btn--normal">
+                <span>{{(this._sharedService.isDisplayNotificationBar$ | async)?.btnTxt}}</span>
+            </button>
+            <span class="bst-mat-icon bst-mat-icon__close material-icons-round pointer u-pt-5"
+                (click)="onCloseNotificationbar()">
+                close
+            </span>
+        </div>
+    </div>
+</div>

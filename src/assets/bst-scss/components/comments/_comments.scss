@@ -1,0 +1,424 @@
+$bst-icon-color               : $color-icon-enabled;
+$bst-right-side-panel-bg-color: $surface;
+$header-icon-color            : $color-icon-enabled;
+$surface-color2               : $color-gray-20;
+$text-dark-white              : $color-white-87;
+$modal-border-color           : $color-white-12;
+$text-light-gray              : $color-white-60;
+$orange-pink                  : $color-red-10;
+$bright-blue                  : $primary-color;
+$bst-box-shadow               : $shadow-70;
+
+.bst-mat-icon {
+    &__comment {
+        color: $bst-icon-color;
+    }
+}
+
+.bst-comment-icon-wrapper {
+    cursor: pointer;
+
+    .bst-mat-icon__comment {
+        position: relative;
+        top     : 3px;
+    }
+
+    &__count {
+        position: relative;
+        top     : -5px;
+        left    : 4px;
+    }
+}
+
+.bst-comment {
+
+    &__body {
+        margin-top: 8px;
+
+        &--msg {
+            color          : $color-white-60;
+            min-height     : calc(100vh - 240px);
+            display        : flex;
+            align-items    : center;
+            justify-content: center;
+
+            .line {
+                display        : flex;
+                justify-content: center;
+            }
+        }
+
+        &--add-comment {
+            .bst-form-field {
+                &.mat-form-field-should-float+.add-comment-actions {
+                    display: block;
+                }
+
+                &.mat-form-field-should-float {
+                    .mat-form-field-label {
+                        display: none;
+                    }
+                }
+            }
+
+            .bst-add-comment {
+                position        : absolute;
+                background-color: $surface;
+                bottom          : 33px;
+                left            : 0;
+                width           : 86%;
+                padding-left    : 24px;
+                padding-right   : 24px;
+
+                .bst-form-field {
+                    &--textarea {
+                        .input-wrapper {
+                            &__textarea {
+                                width: 211px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .add-comment-actions {
+                float         : right;
+                padding-bottom: 16px;
+            }
+        }
+
+        &--list-wrapper {
+            overflow-y   : auto;
+            overflow-x   : hidden;
+            max-height   : calc(100vh - 268px);
+            padding-right: 5px;
+            width        : 265px;
+        }
+    }
+}
+
+.bst-comment-form-edit {
+    min-height: 140px;
+    height    : auto;
+    width     : 256px;
+
+    .bst-add-comment {
+        .bst-form-field {
+            &--textarea {
+                .input-wrapper {
+                    &__textarea {
+                        width: 205px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.bst-add-comment {
+
+    .bst-form-field {
+        &--textarea {
+            .input-wrapper {
+                margin-top: 6px !important;
+
+                &__textarea {
+                    padding-right: 30px;
+                }
+
+                mention-list .mention-menu {
+                    background-color: $color-background;
+                    max-height      : 330px !important;
+
+                    .mention-item {
+                        color: $color-white-60;
+                    }
+
+                    li:hover {
+                        background: $color-white-04;
+                    }
+
+                    .mention-active a {
+                        background: $color-white-12;
+                    }
+
+                }
+
+            }
+
+            .text-area-suffix {
+                top: -17px;
+            }
+
+        }
+    }
+
+    .bst-file-list {
+        padding-top: 10px;
+    }
+
+    &.top-border {
+        border-top: 2px solid $color-white-12;
+    }
+}
+
+.bst-comment-list-item-wrapper {
+    position     : relative;
+    display      : contents;
+    margin-top   : -5px;
+    width        : 198px;
+    overflow-wrap: break-word;
+
+    &__header {
+        display: flex;
+
+        &--avatar {
+            width        : 24px;
+            height       : 24px;
+            border-radius: 50%;
+        }
+
+        &--edit {
+            height       : 27px;
+            margin-bottom: 16px;
+            width        : 100%;
+
+            .user-name {
+                float      : left;
+                margin-top : 3px;
+                margin-left: 16px;
+                text-align : left;
+                color      : $text-dark-white;
+            }
+
+            .commented-date-time {
+                display   : block;
+                position  : relative;
+                top       : 3px;
+                right     : 10px;
+                text-align: right;
+                color     : $text-dark-white;
+            }
+
+            .update-comment {
+                top     : -7px;
+                position: relative;
+                right   : -3px;
+                display : none;
+
+                .edit-btn {
+                    margin-right: -5px;
+                }
+
+                &__delete-btn {
+                    position  : relative;
+                    background: transparent;
+                    top       : 0px;
+                    width     : 24px;
+                    height    : 24px;
+                }
+            }
+
+        }
+    }
+
+    &__body {
+        max-width    : 215px !important;
+        display      : block;
+        width        : 215px;
+        position     : relative;
+        left         : 39px;
+        bottom       : 20px;
+        padding-right: 10px;
+        flex-grow    : 0;
+        text-align   : left;
+        color        : $text-dark-white;
+    }
+
+    .bst-file-list {
+        width   : calc(100% - 44px);
+        position: relative;
+        bottom  : 15px;
+    }
+
+}
+
+.bst-comment-list-item-wrapper {
+    padding-top: 7px;
+
+    &:hover {
+        .commented-date-time {
+            display: none;
+        }
+
+        .update-comment {
+            display: block;
+        }
+    }
+}
+
+.bst-avatar-icon {
+    color           : $header-icon-color;
+    background-color: $surface-color2;
+    border-radius   : 50%;
+    width           : 24px !important;
+    height          : 24px !important;
+    font-size       : 18px !important;
+    display         : flex;
+    align-items     : center;
+    justify-content : center;
+
+    &--user-uploaded {
+        color           : $header-icon-color !important;
+        background-color: transparent;
+    }
+}
+
+.bst-list-underline {
+    bottom          : 20px;
+    position        : relative;
+    height          : 1px;
+    margin          : 8px 8px 8px 16px;
+    background-color: $modal-border-color;
+    margin-bottom   : -10px;
+}
+
+.bst-file-list {
+    width         : calc(100% - 55px);
+    padding       : 0 0 10px 16px;
+    display       : flex;
+    flex-direction: column;
+    border-radius : 4px;
+
+    li {
+        margin-bottom: 5px;
+    }
+
+    &__attachment {
+        display         : flex;
+        align-items     : center;
+        width           : -webkit-fit-content;
+        width           : -moz-fit-content;
+        width           : fit-content;
+        background-color: $color-white-12;
+        height          : 32px;
+        padding         : 0 10px;
+        border-radius   : 4px;
+        max-width       : 100%;
+        cursor          : pointer;
+
+        &--icon {
+            color    : $color-white-87;
+            font-size: 24px;
+        }
+
+        &--name {
+            margin-left  : 5px;
+            overflow     : hidden;
+            text-overflow: ellipsis;
+            display      : inline-block;
+            white-space  : nowrap;
+        }
+
+        &--close {
+            display        : grid;
+            margin-left    : 10px;
+            background     : $color-white-60;
+            border-radius  : 100%;
+            padding        : 3px;
+            align-items    : center;
+            justify-content: center;
+            border         : none;
+            height         : 20px;
+            width          : 20px;
+            cursor         : pointer;
+
+            .close-icon {
+                font-size: 17px;
+                color    : $color-background;
+                position : relative;
+                top      : -1px
+            }
+        }
+    }
+
+    &__img {
+        display: flex;
+
+        img {
+            height   : 85px;
+            max-width: 100%;
+        }
+
+        &--close {
+            width           : 32px;
+            height          : 32px;
+            padding         : 4px;
+            border-radius   : 4px;
+            background-color: $color-black-60;
+            position        : relative;
+            top             : 3px;
+            right           : 35px;
+            display         : none;
+            align-items     : center;
+            justify-content : center;
+            border          : none;
+            cursor          : pointer;
+
+            .close-icon {
+                font-size: 24px;
+                color    : $color-icon-enabled;
+                position : relative;
+                top      : -1px
+            }
+        }
+    }
+
+}
+
+.bst-file-list__img:hover>button {
+    display: grid !important;
+}
+
+.bst-side-bar-modal-container {
+    .mat-dialog-container {
+        .mat-dialog-content {
+            .right-content {
+                .bst-comment {
+
+                    &__body {
+                        &--add-comment .bst-add-comment {
+                            bottom       : 0px;
+                            width        : 91%;
+                            padding-right: 0px;
+
+                            .input-wrapper__textarea {
+                                width: 230px;
+                            }
+                        }
+
+                        &--msg {
+                            min-height: calc(100vh - 440px);
+                        }
+
+                        &--list-wrapper {
+                            max-height  : calc(100vh - 462px);
+                            margin-right: 2px;
+                            width       : 284px;
+
+                            &__form-edit {
+                                width: 271px;
+
+                                textarea {
+                                    width: 223px;
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+
+        }
+    }
+}

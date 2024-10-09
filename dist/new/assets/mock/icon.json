@@ -1,0 +1,72 @@
+[
+    {
+      "format" : "pdf",
+      "icon": "picture_as_pdf",
+      "colorCode" : "#ef5350"
+    },
+    {
+      "format" : "jpg",
+      "icon": "insert_photo",
+      "colorCode" : "#9c27b0"
+    },
+    {
+      "format" : "png",
+      "icon": "insert_photo",
+      "colorCode" : "#9c27b0"
+    },
+    {
+      "format" : "gif",
+      "icon": "insert_photo",
+      "colorCode" : "#9c27b0"
+    },
+    {
+      "format" : "docx",
+      "icon": "description",
+      "colorCode" : "#448aff"
+    },
+    {
+      "format" : "csv",
+      "icon": "description",
+      "colorCode" : "#448aff"
+    },
+    {
+      "format" : "txt",
+      "icon": "description",
+      "colorCode" : "#448aff"
+    },
+    {
+      "format" : "rtf",
+      "icon": "description",
+      "colorCode" : "#448aff"
+    },
+    {
+      "format" : "tiff",
+      "icon": "description",
+      "colorCode" : "#448aff"
+    },
+    {
+      "format" : "snt",
+      "icon": "description",
+      "colorCode" : "#448aff"
+    },
+    {
+      "format" : "json",
+      "icon": "description",
+      "colorCode" : "#448aff"
+    },
+    {
+      "format" : "xlsx",
+      "icon": "description",
+      "colorCode" : "#388e3c"
+    },
+    {
+      "format" : "xml",
+      "icon": "description",
+      "colorCode" : "#448aff"
+    },
+    {
+      "format" : "zip",
+      "icon": "archive",
+      "colorCode" : "#fbc02d"
+    }
+  ]

@@ -1,0 +1,141 @@
+<div class="ag-table-wrapper data-table-wrapper " style="flex:1;height: 100%;margin-top:0%">
+  
+    <div style="padding: 10px;" class="text-dark-black text-on-surface">
+      <ng-container *ngIf='isShowTable'>
+          <div class="mat-elevation-z8">
+
+            <div class="row">
+              <div class="col-md-2 mt-3">
+                <ng-container>
+                  <mat-form-field class="catogory-dropdown case-pagination">
+       
+                    <mat-select [(ngModel)]="selectedType">
+                      <mat-option [value]="item"  *ngFor="let item of categoriesList; let ind = index" value="{{item}}" (click)="haddleChangeType(item, ind, $event)">
+                        {{ item | translate }}
+                      </mat-option>
+                    </mat-select>
+
+                  </mat-form-field>
+                </ng-container>
+      
+              </div>
+              <div class="col-md-10">
+                <mat-paginator class="tRow" [pageSizeOptions]="[10, 20, 50, 100, 200]" showFirstLastButtons="true">
+                </mat-paginator>
+              </div>
+            </div>
+  
+            <div class="main-table">
+              <table mat-table [dataSource]="dataSource" matSort matSortActive="createdDate" matSortDirection="desc"
+              matSortDisableClear>
+              
+              <!-- officership -->
+                <!-- Name -->
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header class="headerTh txt-on-surface-87"> {{'Name' | translate}} </th>
+                  <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+                </ng-container>
+                <!-- Address -->
+                <ng-container matColumnDef="address">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header class="headerTh txt-on-surface-87"> {{'Address' | translate}} </th>
+                  <td mat-cell *matCellDef="let row"> {{row.address.fullAddress}} </td>
+                </ng-container>
+                <!-- Role -->
+                <ng-container matColumnDef="role">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header class="headerTh txt-on-surface-87"> {{'Role' | translate}} </th>
+                  <td mat-cell *matCellDef="let row"> {{row.officer_role}} </td>
+                </ng-container>
+
+              <!-- shareholder -->
+                <!-- Name -->
+                <ng-container matColumnDef="shareholderName">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header class="headerTh txt-on-surface-87"> {{'Name' | translate}} </th>
+                  <td mat-cell *matCellDef="let row"> {{row.shareholderName}} </td>
+                </ng-container>
+                <!-- Country -->
+                <ng-container matColumnDef="isDomiciledIn">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header class="headerTh txt-on-surface-87"> {{'Country' | translate}} </th>
+                  <td mat-cell *matCellDef="let row"> {{row.isDomiciledIn}} </td>
+                </ng-container>
+                <!-- Address -->
+                <ng-container matColumnDef="shareholderAddress">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header class="headerTh txt-on-surface-87"> {{'Address' | translate}} </th>
+                  <td mat-cell *matCellDef="let row"> {{row.shareholderAddress}} </td>
+                </ng-container>
+                <!-- Source -->
+                <ng-container matColumnDef="relationSource">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header class="headerTh txt-on-surface-87"> {{'Relationship' | translate}} </th>
+                  <td mat-cell *matCellDef="let row"> {{row.relationSource}} </td>
+                </ng-container>
+                <!-- Confidence -->
+                <ng-container matColumnDef="totalPercentage">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header class="headerTh txt-on-surface-87"> {{'Confidence' | translate}} </th>
+                  <td mat-cell *matCellDef="let row"> {{row.totalPercentage}} &nbsp;% </td>
+                </ng-container>
+              
+              <!-- branches -->
+                <!-- Name -->
+                <ng-container matColumnDef="brancheName">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header class="headerTh txt-on-surface-87"> {{'Name' | translate}} </th>
+                  <td mat-cell *matCellDef="let row"> {{row.brancheName}} </td>
+                </ng-container>
+                <!-- Country -->
+                <ng-container matColumnDef="brancheIsDomiciledIn">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header class="headerTh txt-on-surface-87"> {{'Country' | translate}} </th>
+                  <td mat-cell *matCellDef="let row"> {{row.brancheIsDomiciledIn}} </td>
+                </ng-container>
+                <!-- Address -->
+                <ng-container matColumnDef="brancheAddress">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header class="headerTh txt-on-surface-87"> {{'Address' | translate}} </th>
+                  <td mat-cell *matCellDef="let row"> {{row.brancheAddress}} </td>
+                </ng-container>
+                <!-- Source -->
+                <ng-container matColumnDef="brancheSource">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header class="headerTh txt-on-surface-87"> {{'Relationship' | translate}} </th>
+                  <td mat-cell *matCellDef="let row"> {{row.brancheSource}} </td>
+                </ng-container>
+
+              <!-- subsidiaries -->
+                <!-- Name -->
+                <ng-container matColumnDef="subsidiarieName">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header class="headerTh txt-on-surface-87"> {{'Name' | translate}} </th>
+                  <td mat-cell *matCellDef="let row"> {{row.subsidiarieName}} </td>
+                </ng-container>
+                <!-- Country -->
+                <ng-container matColumnDef="subsidiarieIsDomiciledIn">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header class="headerTh txt-on-surface-87"> {{'Country' | translate}} </th>
+                  <td mat-cell *matCellDef="let row"> {{row.subsidiarieIsDomiciledIn}} </td>
+                </ng-container>
+                <!-- Address -->
+                <ng-container matColumnDef="subsidiarieAddress">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header class="headerTh txt-on-surface-87"> {{'Address' | translate}} </th>
+                  <td mat-cell *matCellDef="let row"> {{row.subsidiarieAddress}} </td>
+                </ng-container>
+                <!-- Source -->
+                <ng-container matColumnDef="subsidiarieSource">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header class="headerTh txt-on-surface-87"> {{'Relationship' | translate}} </th>
+                  <td mat-cell *matCellDef="let row"> {{row.subsidiarieSource}} </td>
+                </ng-container>
+  
+              <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" class="header-background"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="tRow test123"></tr>
+  
+              <!-- Row shown when there is no matching data. -->
+              <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4"> {{'No data found' | translate}} </td>
+              </tr>
+              
+            </table>
+  
+            </div>          
+            <div *ngIf="loading$ | async" class="mat-table-message">{{'Loading' | translate}}
+            </div>
+          </div>
+
+      </ng-container>
+      <ng-container *ngIf='isShowTable === false'>
+        <div style="text-align: center;">{{'No data found' | translate}}</div>
+      </ng-container>
+    </div>
+  </div>
+  

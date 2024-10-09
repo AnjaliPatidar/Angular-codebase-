@@ -1,0 +1,643 @@
+<div class="row custom-row bst_row_wrapper">
+  <!--  Leadership Counter Info Starts  -->
+  <div class="col-sm-12 pad-x0  custom-col  span-3 entity-item general-info-wrapper leadership-status-wrapper ">
+      <div class="entity-item-submmenu">
+          <div class="item-submmenu-list-wrapper">
+              <ul class="item-submmenu-list list-inline pad-l10">
+
+                  <li>
+                      <div class="submmenu-list">
+                          <h5 class="text-uppercase">
+                              Key Executives
+                          </h5>
+                          <strong>{{entitySearchResult.list['mixed_company_key_executives'].length}}</strong>
+
+                      </div>
+                  </li>
+                  <li>
+                      <div class="submmenu-list">
+                          <h5 class="text-uppercase">
+                              Board of Directors
+                          </h5>
+                          <strong>{{entitySearchResult.list['other_board_members'].length
+                                 + entitySearchResult.list['company_boardmembers'].length}}</strong>
+
+                      </div>
+                  </li>
+                  <li>
+                      <div class="submmenu-list">
+                          <h5 class="text-uppercase">
+                              Audit Commit
+                          </h5>
+                          <strong>{{entitySearchResult.list['audit_committee'].length}}</strong>
+                      </div>
+                  </li>
+
+              </ul>
+          </div>
+      </div>
+  </div>
+  <!--  Leadership Counter Info Ends  -->
+
+  <!--  Founding Persons Starts  -->
+  <div class="col-sm-12 pad-0 custom-col  span-3 founding-wrapper ">
+      <div class="container-fluid pad-x0">
+          <div class="row  d-flex jc-sb mar-x0">
+              <div class="col-sm-4  custom-col entity-item ">
+                  <h3 class="font-light text-cream f-18 text-unset lh-1_2">Key Executive</h3>
+                  <div class="entity-result-item custom-result-item"
+                      *ngIf="entitySearchResult.list['mixed_company_key_executives'].length > 0">
+                      <ul class="media-list">
+                          <li class="media"
+                              *ngFor="let founder of entitySearchResult.list['mixed_company_key_executives']">
+                              <div class="media-left">
+                                  <a href="javascript:void(0);">
+                                      <img class="img-responsive"
+                                          src="../assets/images/menu_icons/icon_profile_settings.webp" alt="img">
+                                  </a>
+                              </div>
+                              <div class="media-body">
+                                  <h4 class="media-heading">
+                                      {{founder.name}}
+                                  </h4>
+                                  <h5>
+                                      {{founder.officer_role || founder.title}}
+                                  </h5>
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+
+                  <div class="entity-result-item custom-result-item alert-message-wrapper"
+                      *ngIf="entitySearchResult.list['mixed_company_key_executives'].length == 0">
+                      <div class="alert-message loading-message"
+                          *ngIf="entitySearchResult.is_data_not_found.is_keyExecutive">Loading...</div>
+                      <div class="alert-message-wrapper alert-message"
+                          *ngIf="!entitySearchResult.is_data_not_found.is_keyExecutive">
+                          Data Not Found
+                      </div>
+                  </div>
+
+              </div>
+              <div class="col-sm-4  custom-col entity-item">
+                  <h3 class="font-light text-cream f-18 text-unset lh-1_2">Board of Directors</h3>
+                  <div class="entity-result-item custom-result-item"
+                      *ngIf="entitySearchResult.list['other_board_members'].length > 0 || entitySearchResult.list['company_boardmembers'].length > 0">
+                      <ul class="media-list">
+                          <!--  <li class="media" *ngFor="board in entitySearchResult.list['other_board_members']">
+                                 <div class="media-left">
+                                     <a href="javascript:void(0);">
+                                         <img class="img-responsive" src="../assets/images/menu_icons/icon_profile_settings.webp" alt="img">
+                                     </a>
+                                 </div>
+                                 <div class="media-body">
+                                     <h4 class="media-heading">
+                                         {{board.name}}
+                                     </h4>
+                                     <h5>
+                                         {{board.designation }}
+                                     </h5>
+                                     <p>
+                                         <a class="" href="{{entity.website}}" target="_blank">{{entity.website}}</a>
+                                     </p>
+                                 </div>
+                             </li> -->
+                          <li class="media" *ngFor="let board of entitySearchResult.list['company_boardmembers']">
+                              <div class="media-left">
+                                  <a href="javascript:void(0);">
+                                      <img class="img-responsive"
+                                          src="../assets/images/menu_icons/icon_profile_settings.webp" alt="img">
+                                  </a>
+                              </div>
+                              <div class="media-body">
+                                  <h4 class="media-heading">
+                                      {{board.name}}
+                                  </h4>
+                                  <h5>
+                                      {{board.designation || board.officer_role || board.title}}
+                                  </h5>
+                                  <p>
+                                      <a class="" href="{{entity.website}}" target="_blank">{{entity.website}}</a>
+                                  </p>
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="entity-result-item custom-result-item alert-message-wrapper"
+                      *ngIf="entitySearchResult.list['company_boardmembers'].length > 0">
+                      <div class="alert-message loading-message"
+                          *ngIf="entitySearchResult.is_data_not_found.board_of_director">Loading...</div>
+                      <div class="alert-message alert-message-wrapper"
+                          *ngIf="!entitySearchResult.is_data_not_found.board_of_director">Data
+                          Not Found</div>
+                  </div>
+              </div>
+              <!-- <div class="col-sm-4 mar-r0  custom-col entity-item commitee-tabs">
+                  <h3 class="font-light text-cream f-18 text-unset lh-1_2">Committee</h3>
+                  <div class="tabs-section custom-commitee-tabs">
+                      <ul class="nav nav-tabs">
+                          <li ng-class="{'active': commiteeTabType === 'Audit'}">
+                              <a href ng-click="onClickCommiteeTypeTabs('Audit')">
+                                  <span class="main-nav-texts">AUDIT</span>
+                              </a>
+                          </li>
+                          <li ng-class="{'active': commiteeTabType === 'Nominating'}">
+                              <a href ng-click="onClickCommiteeTypeTabs('Nominating')">
+                                  <span class="main-nav-texts">NOMINATING</span>
+                              </a>
+                          </li>
+                          <li ng-class="{'active': commiteeTabType === 'Corporate'}">
+                              <a href ng-click="onClickCommiteeTypeTabs('Corporate')">
+                                  <span class="main-nav-texts">Corporate
+                                      Governance</span>
+                              </a>
+                          </li>
+                          <li ng-class="{'active': commiteeTabType === 'Compensation'}">
+                              <a href ng-click="onClickCommiteeTypeTabs('Compensation')">
+                                  <span class="main-nav-texts">Compensation</span>
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="entity-result-item custom-result-item">
+                      <div class="investing-item">
+                          <div *ngIf="commiteeTabType === 'Audit'">
+                              <div *ngIf="entitySearchResult.list['audit_committee'].length > 0">
+                                  <div class="office-location-wrapper"
+                                      *ngFor="let entity of entitySearchResult.list['audit_committee']">
+                                      <h5>
+                                          <a href="{{entity.profile_link|| entity.links}}" target="_blank">
+                                              {{entity.name}}
+                                              <span *ngIf="entity.key_developments">({{
+                                                     entity.key_developments}})</span>
+                                          </a>
+                                      </h5>
+                                      <p>
+                                          {{entity.designation}}
+                                      </p>
+                                  </div>
+                              </div>
+                              <div class="entity-result-item custom-result-item alert-message-wrapper"
+                                  *ngIf="entitySearchResult.list['audit_committee'].length > 0">
+                                  <div class="alert-message loading-message"
+                                      *ngIf=" entitySearchResult.is_data_not_found.is_committe_audit">Loading...
+                                  </div>
+                                  <div class="alert-message"
+                                      *ngIf=" !entitySearchResult.is_data_not_found.is_committe_audit"> Data
+                                      Not Found</div>
+                              </div>
+                          </div>
+                          <div *ngIf="commiteeTabType === 'Nominating'">
+                              <div *ngIf="entitySearchResult.list['nominating_committee'].length > 0">
+                                  <div class="office-location-wrapper"
+                                      *ngFor="let entity of entitySearchResult.list['nominating_committee']">
+                                      <h5>
+                                          <a href="{{entity.profile_link|| entity.link}}" target="_blank">
+                                              {{entity.name}}
+                                              <span *ngIf="entity.key_developments">({{
+                                                     entity.key_developments}})</span>
+                                          </a>
+                                      </h5>
+                                      <p>
+                                          {{entity.designation}}
+                                      </p>
+                                  </div>
+                              </div>
+                              <div class="entity-result-item custom-result-item alert-message-wrapper"
+                                  *ngIf="entitySearchResult.list['nominating_committee'].length > 0">
+                                  <div class="alert-message loading-message"
+                                      *ngIf="entitySearchResult.is_data_not_found.is_committe_nominating">Loading...
+                                  </div>
+                                  <div class="alert-message alert-message-wrapper"
+                                      *ngIf="!entitySearchResult.is_data_not_found.is_committe_nominating"> Data
+                                      Not Found</div>
+                              </div>
+                          </div>
+                          <div *ngIf="commiteeTabType === 'Corporate'">
+                              <div *ngIf="entitySearchResult.list['corporate_governance_committee'].length > 0">
+                                  <div class="office-location-wrapper"
+                                      *ngFor="let entity in entitySearchResult.list['corporate_governance_committee']">
+                                      <h5>
+                                          <a href="{{entity.profile_link|| entity.link}}" target="_blank">
+                                              {{entity.name}}
+                                              <span *ngIf="entity.key_developments">({{
+                                                     entity.key_developments}})</span>
+                                          </a>
+                                      </h5>
+                                      <p>
+                                          {{entity.designation}}
+                                      </p>
+                                  </div>
+                              </div>
+                              <div class="entity-result-item custom-result-item alert-message-wrapper"
+                                  *ngIf="entitySearchResult.list['corporate_governance_committee'].length > 0">
+                                  <div class="alert-message loading-message"
+                                      *ngIf="entitySearchResult.is_data_not_found.is_committe_corporate">Loading...
+                                  </div>
+                                  <div class="alert-message"
+                                      *ngIf="!entitySearchResult.is_data_not_found.is_committe_corporate"> Data
+                                      Not Found</div>
+                              </div>
+                          </div>
+                          <div *ngIf="commiteeTabType === 'Compensation'">
+                              <div *ngIf="entitySearchResult.list['compensation_committee'].length > 0">
+                                  <div class="office-location-wrapper"
+                                      *ngFor="entity in entitySearchResult.list['compensation_committee']">
+                                      <h5>
+                                          <a href="{{entity.profile_link|| entity.link}}" target="_blank">
+                                              {{entity.name}}
+                                              <span *ngIf="entity.key_developments">({{
+                                                     entity.key_developments}})</span>
+                                          </a>
+                                      </h5>
+                                      <p>
+                                          {{entity.designation}}
+                                      </p>
+                                  </div>
+                              </div>
+                              <div class="entity-result-item custom-result-item alert-message-wrapper"
+                                  *ngIf="entitySearchResult.list['compensation_committee'].length > 0">
+                                  <div class="alert-message loading-message"
+                                      *ngIf="entitySearchResult.is_data_not_found.is_committe_compensation">
+                                      Loading...</div>
+                                  <div class="alert-message"
+                                      *ngIf="!entitySearchResult.is_data_not_found.is_committe_compensation"> Data
+                                      Not Found</div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div> -->
+          </div>
+      </div>
+  </div>
+  <!--  Founding Persons Ends  -->
+
+
+  <!--   Top Listing persons Starts   -->
+  <!-- <div class="col-sm-12 pad-0 custom-col  span-3 top-listing-wrapper">
+      <div class="container-fluid pad-x0 ">
+          <div class="row  d-flex jc-sb mar-x0">
+              <div class="col-sm-3  custom-col entity-item listing-entity-item">
+                  <div class="top-listings top-employees">
+                      <h3 class="font-light text-cream f-18 text-unset lh-1_2">People Also Visited</h3>
+                      <div class="entity-result-item custom-result-item listing-item people-viewed"
+                          *ngIf="entitySearchResult.list['people_also_viewd'].length > 0">
+                          <ul class="media-list">
+                              <li class="media"
+                                  *ngFor="people_also_viewd in entitySearchResult.list['people_also_viewd']">
+                                  <div class="media-left">
+                                      <a href="javascript:void(0);">
+                                          <img class="img-responsive" ng-src="{{people_also_viewd.logo}}" alt="img">
+                                      </a>
+                                  </div>
+                                  <div class="media-body">
+                                      <h4 class="media-heading">
+                                          {{people_also_viewd.name}}
+                                      </h4>
+                                      <a href="{{people_also_viewd.link}}" target="_blank">
+                                          {{people_also_viewd.link}}
+                                      </a>
+                                      <p>Company Size: {{people_also_viewd.company_size}}</p>
+                                  </div>
+                              </li>
+                          </ul>
+                      </div>
+                      <div class="entity-result-item custom-result-item alert-message-wrapper"
+                          *ngIf="entitySearchResult.list['people_also_viewd'].length > 0">
+                          <div class="alert-message loading-message"
+                              *ngIf="entitySearchResult.is_data_not_found.is_people_visited">Loading...</div>
+                          <div class="alert-message alert-message-wrapper"
+                              *ngIf="!entitySearchResult.is_data_not_found.is_people_visited && entitySearchResult.list['people_also_viewd'].length === 0">
+                              Data
+                              Not Found</div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-sm-3  custom-col entity-item listing-entity-item">
+                  <div class="top-listings near-by-companies">
+                      <h3 class="font-light text-cream f-18 text-unset lh-1_2">Near By Companies</h3>
+                      <div class="entity-result-item custom-result-item"
+                          *ngIf="entitySearchResult.list['near_by_companies'].length > 0">
+                          <div class="investing-item">
+                              <div class="office-location-wrapper"
+                                  *ngFor="entity in entitySearchResult.list['near_by_companies']">
+                                  <h5>{{entity.name}}</h5>
+                                  <p>{{entity.address}}</p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="entity-result-item custom-result-item alert-message-wrapper"
+                          *ngIf="entitySearchResult.list['near_by_companies'].length > 0">
+                          <div class="alert-message loading-message"
+                              *ngIf="entitySearchResult.is_data_not_found.is_nearby_company">Loading...</div>
+                          <div class="alert-message alert-message-wrapper"
+                              *ngIf="!entitySearchResult.is_data_not_found.is_nearby_company">Data
+                              Not Found</div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-sm-3  custom-col entity-item listing-entity-item">
+                  <div class="top-listings near-by-companies">
+                      <h3 class="font-light text-cream f-18 text-unset lh-1_2">Company Members</h3>
+                      <div class="entity-result-item custom-result-item"
+                          *ngIf="entitySearchResult.list['has_company_members'].length > 0">
+                          <div class="investing-item">
+                              <div class="office-location-wrapper"
+                                  *ngFor="entity in entitySearchResult.list['has_company_members'] track by $index">
+                                  <h5> {{entity.name}} </h5>
+                                  <p> {{entity.officer_role}}
+                                      <span *ngIf="entity.appointed_on">{{'('+entity.appointed_on+')'}}</span>
+                                  </p>
+                                  <p>{{entity.address.address_line_1
+                                                 + ' ' +(entity.address.country
+                                                 || entity.country_of_residence)+'
+                                                 '+entity.address.postal_code}}
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="entity-result-item custom-result-item alert-message-wrapper"
+                          *ngIf="entitySearchResult.list['has_company_members'].length > 0">
+                          <div class="alert-message loading-message"
+                              *ngIf="entitySearchResult.is_data_not_found.is_company_member">Loading...</div>
+                          <div class="alert-message alert-message-wrapper"
+                              *ngIf="!entitySearchResult.is_data_not_found.is_company_member && entitySearchResult.list['has_company_members'].length === 0">
+                              Data
+                              Not Found</div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-sm-3  custom-col entity-item mar-r0 listing-entity-item">
+                  <div class="top-listings dual-office-location">
+                      <h3 class="font-light text-cream f-18 text-unset lh-1_2">Positive Business Outlook</h3>
+                      <div class="listing-item">
+                          <div class="genderRatioChart-wrapper">
+                              <div
+                                  class="header-content-entry person-circle-graph  custom-person-circle-graph clearfix">
+                                  <div class="c100 p{{ entitySearchResult.list['glassdoor']['bizOutlook']['percentRounded'] || 0 }} purple radial"
+                                      ng-click="openRiskScoreModal();">
+                                      <span class="inner-number"
+                                          *ngIf="entitySearchResult.list['glassdoor']['bizOutlook']['percentRounded']">
+                                          {{ entitySearchResult.list['glassdoor']['bizOutlook']['percent'] || 0 }}%
+                                      </span>
+                                      <span class="inner-number"
+                                          *ngIf="entitySearchResult.list['glassdoor']['bizOutlook']['percentRounded']">
+                                          N/A
+                                      </span>
+                                      <div class="slice">
+                                          <div class="bar"></div>
+                                          <div class="fill"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div> -->
+  <!--   Top Listing persons Ends   -->
+
+
+  <!-- Top Investors wrapper starts -->
+  <!-- <div class="col-sm-12 pad-0 custom-col  span-3 top-investing-wrapper associated-persons-wrapper">
+      <div class="container-fluid pad-x0">
+          <div class="row  d-flex jc-sb mar-x0">
+              <div class="col-sm-6 mar-b0 custom-col entity-item related-company-main-wrapper associated-persons">
+                  <h3 class="font-light text-cream f-18 text-unset lh-1_2">Associated Persons</h3>
+                  <div class="entity-item-submmenu">
+                      <div class="item-submmenu-list-wrapper">
+                          <ul class="item-submmenu-list list-inline associated-person-counter">
+                              <li>
+                                  <div class="submmenu-list">
+                                      <h5 class="text-uppercase">
+                                          Memberships
+                                          <strong>{{entitySearchResult.list['associated_persons']['membership'].length}}</strong>
+                                      </h5>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="submmenu-list">
+                                      <h5 class="text-uppercase">
+                                          Ownership
+                                          <strong>{{entitySearchResult.list['associated_persons']['ownership'].length}}</strong>
+                                      </h5>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="submmenu-list">
+                                      <h5 class="text-uppercase">
+                                          Transactions
+                                          <strong>{{entitySearchResult.list['associated_persons']['transaction'].length}}</strong>
+                                      </h5>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="submmenu-list">
+                                      <h5 class="text-uppercase">
+                                          donation
+                                          <strong>{{entitySearchResult.list['associated_persons']['donation'].length}}</strong>
+                                      </h5>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="submmenu-list">
+                                      <h5 class="text-uppercase">
+                                          hierarchy
+                                          <strong>{{entitySearchResult.list['associated_persons']['hierarchy'].length}}</strong>
+                                      </h5>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="submmenu-list">
+                                      <h5 class="text-uppercase">
+                                          lobbying
+                                          <strong>{{entitySearchResult.list['associated_persons']['lobbying'].length}}</strong>
+                                      </h5>
+                                  </div>
+                              </li>
+                              <li>
+                                  <div class="submmenu-list">
+                                      <h5 class="text-uppercase">
+                                          position
+                                          <strong>{{entitySearchResult.list['associated_persons']['position'].length}}</strong>
+                                      </h5>
+                                  </div>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+                  <a href="" ng-click="onViewClick('leadershipAdditional')" class="read-more"
+                      *ngIf="entitySearchResult.list['associated_persons']['lobbying'].length > 0 || entitySearchResult.list['associated_persons']['hierarchy'].length > 0 || entitySearchResult.list['associated_persons']['position'].length > 0 || entitySearchResult.list['associated_persons']['donation'].length > 0 || entitySearchResult.list['associated_persons']['transaction'].length > 0 || entitySearchResult.list['associated_persons']['ownership'].length > 0 || entitySearchResult.list['associated_persons']['membership'].length > 0">Read
+                      More</a>
+                  <div class="entity-result-item"
+                      *ngIf="entitySearchResult.list['associated_persons']['lobbying'].length > 0 || entitySearchResult.list['associated_persons']['hierarchy'].length > 0 || entitySearchResult.list['associated_persons']['position'].length > 0 || entitySearchResult.list['associated_persons']['donation'].length > 0 || entitySearchResult.list['associated_persons']['transaction'].length > 0 || entitySearchResult.list['associated_persons']['ownership'].length > 0 || entitySearchResult.list['associated_persons']['membership'].length > 0">
+                      <div class="company-table-wrapper custom-data-table-wrapper">
+                          <table class="table scroll-table">
+                              <tbody>
+                                  <tr class="text-left"
+                                      *ngFor="entity in entitySearchResult.list['associated_persons']['membership']">
+                                      <td>
+                                          <a href="{{ entity.url}}" target="_blank">{{entity.related_name}}
+                                              <span *ngIf="entity.description">({{entity.description}})</span>
+                                          </a>
+                                      </td>
+                                      <td>
+                                          <div>{{entity.details}}</div>
+                                          {{entity.last_updated_date| date : 'dd-MM-yyyy'}}
+                                          <span *ngIf="entity.amount">({{entity.amount|
+                                                         number : 0 }})</span>
+                                      </td>
+
+
+                                  </tr>
+                                  <tr class="text-left"
+                                      *ngFor="entity in entitySearchResult.list['associated_persons']['ownership']">
+                                      <td>
+                                          <a href="{{ entity.url}}" target="_blank">{{entity.related_name}}
+                                              <span *ngIf="entity.description">({{entity.description}})</span>
+                                          </a>
+                                      </td>
+                                      <td>
+                                          <div>{{entity.details}}</div>
+                                      </td>
+                                      {{entity.last_updated_date| date : 'dd-MM-yyyy'}}
+                                      <span *ngIf="entity.amount">({{entity.amount|
+                                                     number : 0 }})
+                                      </span>
+                                  </tr>
+                                  <tr class="text-left"
+                                      *ngFor="entity in entitySearchResult.list['associated_persons']['transaction']">
+                                      <td>
+                                          <a href="{{ entity.url}}" target="_blank">{{entity.related_name}}
+                                              <span *ngIf="entity.description">({{entity.description}})</span>
+                                          </a>
+                                      </td>
+                                      <td>
+                                          <div>{{entity.details}}</div>
+                                          {{entity.last_updated_date| date : 'dd-MM-yyyy'}}
+                                          <span *ngIf="entity.amount">({{entity.amount|
+                                                         number : 0 }})</span>
+                                      </td>
+
+
+                                  </tr>
+                                  <tr class="text-left"
+                                      *ngFor="entity in entitySearchResult.list['associated_persons']['donation']">
+                                      <td>
+                                          <a href="{{ entity.url}}" target="_blank">{{entity.related_name}}
+                                              <span *ngIf="entity.description">({{entity.description}})</span>
+                                          </a>
+                                      </td>
+                                      <td>
+                                          <div>{{entity.details}}</div>
+                                          {{entity.last_updated_date| date : 'dd-MM-yyyy'}}
+                                          <span *ngIf="entity.amount">({{entity.amount|
+                                                         number : 0 }})</span>
+                                      </td>
+
+
+                                  </tr>
+                                  <tr class="text-left"
+                                      *ngFor="entity in entitySearchResult.list['associated_persons']['hierarchy']">
+                                      <td>
+                                          <a href="{{ entity.url}}" target="_blank">{{entity.related_name}}
+                                              <span *ngIf="entity.description">({{entity.description}})</span>
+                                          </a>
+                                      </td>
+                                      <td>
+                                          <div>{{entity.details}}</div>
+                                          {{entity.last_updated_date| date : 'dd-MM-yyyy'}}
+                                          <span *ngIf="entity.amount">({{entity.amount|
+                                                         number : 0 }})</span>
+                                      </td>
+
+
+                                  </tr>
+                                  <tr class="text-left"
+                                      *ngFor="entity in entitySearchResult.list['associated_persons']['lobbying']">
+                                      <td>
+                                          <a href="{{ entity.url}}" target="_blank">{{entity.related_name}}
+                                              <span *ngIf="entity.description">({{entity.description}})</span>
+                                          </a>
+                                      </td>
+                                      <td>
+                                          {{entity.last_updated_date| date : 'dd-MM-yyyy'}}
+                                          <span *ngIf="entity.amount">({{entity.amount|
+                                                         number : 0 }})</span>
+                                          <div>{{entity.details}}</div>
+                                      </td>
+
+
+                                  </tr>
+                                  <tr class="text-left"
+                                      *ngFor="entity in entitySearchResult.list['associated_persons']['position']">
+                                      <td>
+                                          <a href="{{ entity.url}}" target="_blank">{{entity.related_name}}
+                                              <span *ngIf="entity.description">({{entity.description}})</span>
+                                          </a>
+                                      </td>
+                                      <td>
+                                          <div>{{entity.details}}</div>
+                                          {{entity.last_updated_date| date : 'dd-MM-yyyy'}}
+                                          <span *ngIf="entity.amount">({{entity.amount|
+                                                         number : 0}})</span>
+                                      </td>
+
+
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+                  <div class="entity-result-item custom-result-item alert-message-wrapper"
+                      *ngIf="entitySearchResult.list['associated_persons']['lobbying'].length == 0 && entitySearchResult.list['associated_persons']['hierarchy'].length == 0 && entitySearchResult.list['associated_persons']['position'].length == 0 && entitySearchResult.list['associated_persons']['donation'].length == 0 && entitySearchResult.list['associated_persons']['transaction'].length == 0 && entitySearchResult.list['associated_persons']['ownership'].length == 0 && entitySearchResult.list['associated_persons']['membership'].length == 0">
+                      <div class="alert-message-wrapper alert-message">Data
+                          Not Found </div>
+                  </div>
+
+              </div>
+
+              <div class="col-sm-6 mar-b0 mar-r0 custom-col entity-item investing-entity-item">
+                  <div class="top-investings hierarchy-connections">
+                      <h3 class="font-light text-cream f-18 text-unset lh-1_2">Leadership Clusters</h3>
+                      <div class="investing-item">
+                          <div class="hierarchyVla-wrapper" id="networkGraphLeadersips">
+
+                          </div>
+                          <div
+                              class="entity-result-item custom-result-item alert-message-wrapper dittoBlurChart-wrapper vla-chart-ditto">
+                              <div class="alert-message loading-message">Loading...</div>
+                          </div>
+                          <div
+                              class="entity-result-item custom-result-item alert-message-wrapper dittoBlurChart-wrapper vla-chart-ditto">
+                              <div class="alert-message">Data Not
+                                  found</div>
+                          </div>
+                      </div>
+                      <a href="" ng-click="loadLinkAnalysis('', 'networkGraphLeadersips')"
+                          class="read-more">Expand</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div> -->
+  <!-- Top investors wrapper Ends -->
+</div>
+
+<script>
+  $(document).ready(function () {
+      $(".item-submmenu-list, .custom-commitee-tabs > .nav-tabs , .custom-fraud-tabs > .nav-tabs")
+          .mThumbnailScroller({
+              axis: "x"
+          });
+  });
+  $('.entity-result-item').mCustomScrollbar({
+      axis: "y"
+  });
+</script>
+<div class="pull-right" >
+<app-leadership-rightpanel></app-leadership-rightpanel>
+</div>

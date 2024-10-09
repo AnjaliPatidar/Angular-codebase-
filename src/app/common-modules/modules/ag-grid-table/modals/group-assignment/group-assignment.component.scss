@@ -1,0 +1,69 @@
+@import "../../../../../../assets/scss/theme/common/variable";
+::ng-deep{
+    .search-popover{
+        .mat-form-field-flex{
+            padding: 2em 0.75em 0 0.75em;
+            height: 52px;
+        }
+
+      .mat-form-field-type-mat-select{
+        .mat-form-field-flex{
+          background-color: $input-color-bg;
+        }
+      }
+    }
+    .custom-textarea {
+        .mat-form-field-flex{
+            min-height: 160px !important;
+        }
+        .mat-input-element {
+            min-height: 130px !important;
+        }
+    }
+}
+
+.initial-name-wrapper {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $initial-name-wrapper;
+    font-size: 10px;
+    margin-right: 5px;
+  }
+
+  .alert-primary{
+    background-color: $alert-primary-bg-color;
+    color: $alert-primary-color !important;
+  }
+
+  .alert-danger{
+    background-color: $alert-danger-bg-color;
+    color: $alert-danger-color !important;
+  }
+
+  .download-report {
+    float: right;
+    cursor: pointer;
+  }
+
+  .result-text {
+    vertical-align: 8px !important;
+  }
+
+  .result-table {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 350px;
+  }
+
+  .groupItem {
+    width: 29%;
+    .active-icon {
+      float: right;
+      position: relative;
+      display: inline-flex;
+    }
+  }

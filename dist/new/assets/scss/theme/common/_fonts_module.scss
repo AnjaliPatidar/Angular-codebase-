@@ -1,0 +1,119 @@
+ 
+/*  
+================================================================================
+************************  Font Styles For The Site  ****************************
+================================================================================
+*/
+/*--  Bootstrap Fonts  --*/
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url("/src/assets/fonts/glyphicons-halflings-regular.eot");
+  src: url("/src/assets/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"),
+   url("/src/assets/fonts/glyphicons-halflings-regular.woff2") format("woff2"), 
+   url("/src/assets/fonts/glyphicons-halflings-regular.woff") format("woff"), 
+   url("/src/assets/fonts/glyphicons-halflings-regular.ttf") format("truetype"),
+   url("/src/assets/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); 
+} 
+ 
+/*--  Font Awesome Fonts  --*/
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("/src/assets/fonts/fontawesome-webfont.eot?v=4.7.0");
+  src: url("/src/assets/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), 
+  url("/src/assets/fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), 
+  url("/src/assets/fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"), 
+  url("/src/assets/fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), 
+  url("/src/assets/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
+  font-weight: normal;
+  font-style: normal; 
+ }
+  
+/*--  Roboto Fonts  --*/
+@font-face {  
+	font-family: 'Roboto';
+	src: url("/src/assets/fonts/roboto/roboto.eot");
+	src: url("/src/assets/fonts/roboto/roboto.eot?#iefix") format("embedded-opentype"),
+		//url("/src/assets/fonts/roboto/roboto.woff") format("woff"),
+		//url("/src/assets/fonts/roboto/roboto.ttf") format("truetype"),
+		url("/src/assets/fonts/roboto/roboto.svg#svgFontName") format("svg");
+}
+
+/*--  Roboto Bold Fonts  --*/
+@font-face {
+	font-family: 'Roboto Bold';
+	src: url("/src/assets/fonts/roboto-bold/roboto-bold.eot");
+	src: url("/src/assets/fonts/roboto-bold/roboto-bold.eot?#iefix") format("embedded-opentype"),
+		//url("/src/assets/fonts/roboto-bold/roboto-bold.woff") format("woff"),
+		//url("/src/assets/fonts/roboto-bold/roboto-bold.ttf") format("truetype"),
+		url("/src/assets/fonts/roboto-bold/roboto-bold.svg#svgFontName") format("svg");
+}
+
+/*--  Roboto Light Fonts  --*/
+@font-face {
+	font-family: 'Roboto Light';
+	src: url("/src/assets/fonts/roboto-light/roboto-light.eot");
+	src: url("/src/assets/fonts/roboto-light/roboto-light.eot?#iefix") format("embedded-opentype"),
+		//url("/src/assets/fonts/roboto-light/roboto-light.woff") format("woff"),
+		//url("/src/assets/fonts/roboto-light/roboto-light.ttf") format("truetype"),
+		url("/src/assets/fonts/roboto-light/roboto-light.svg#svgFontName") format("svg");
+}
+
+/*--  Roboto Light Italic Fonts  --*/
+@font-face {
+	font-family: 'Roboto Light Italic';
+	src: url("/src/assets/fonts/roboto-light-italic/roboto-light-italic.eot");
+	src: url("/src/assets/fonts/roboto-light-italic/roboto-light-italic.eot?#iefix") format("embedded-opentype"),
+		url("/src/assets/fonts/roboto-light-italic/roboto-light-italic.woff") format("woff"),
+		url("/src/assets/fonts/roboto-light-italic/roboto-light-italic.ttf") format("truetype"),
+		url("/src/assets/fonts/roboto-light-italic/roboto-light-italic.svg#svgFontName") format("svg");
+}
+
+/*--  Roboto Regular Fonts  --*/
+@font-face {
+	font-family: 'Roboto Regular';
+	src: url("/src/assets/fonts/roboto-regular/roboto-regular.eot");
+	src: url("/src/assets/fonts/roboto-regular/roboto-regular.eot?#iefix") format("embedded-opentype"),
+		//url("/src/assets/fonts/roboto-regular/roboto-regular.woff") format("woff"),
+		//url("/src/assets/fonts/roboto-medium/roboto-regular.ttf") format("truetype"),
+		url("/src/assets/fonts/roboto-regular/roboto-regular.svg#svgFontName") format("svg");
+}
+
+/*--  Roboto Medium Fonts  --*/
+@font-face {
+	font-family: 'Roboto Medium';
+	src: url("/src/assets/fonts/roboto-medium/roboto-medium.eot");
+	src: url("/src/assets/fonts/roboto-medium/roboto-medium.eot?#iefix") format("embedded-opentype"),
+		//url("/src/assets/fonts/roboto-medium/roboto-medium.woff") format("woff"),
+		//url("/src/assets/fonts/roboto-medium/roboto-medium.ttf") format("truetype"),
+		url("/src/assets/fonts/roboto-medium/roboto-medium.svg#svgFontName") format("svg");
+}
+
+/*--  Francois One Regular Fonts  --*/
+@font-face {
+	font-family: 'Francois One Regular';
+	src: url("/src/assets/fonts/francoisone-regular/francoisone-regular.eot");
+	src: url("/src/assets/fonts/francoisone-regular/francoisone-regular.eot?#iefix") format("embedded-opentype"),
+		//url("/src/assets/fonts/francoisone-regular/francoisone-regular.woff") format("woff"),
+		//url("/src/assets/fonts/francoisone-regular/francoisone-regular.ttf") format("truetype"),
+		url("/src/assets/fonts/francoisone-regular/francoisone-regular.svg#svgFontName") format("svg");
+}
+
+/*--  Cherokee Regular Font  --*/
+@font-face {
+    font-family: 'cherokee-regular';
+    src: url('/src/assets/fonts/cherokee-regular/cherokee-regular.eot');
+    src: url('/src/assets/fonts/cherokee-regular/cherokee-regular.eot?#iefix') format("embedded-opentype"),
+      url('/src/assets/fonts/cherokee-regular/cherokee-regular.woff') format("woff"),
+      url('/src/assets/fonts/cherokee-regular/cherokee-regular.ttf') format("truetype"), 
+      url('/src/assets/fonts/cherokee-regular/cherokee-regular.svg#cherokeeregular') format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+/*--  Raleway Regular Font  --*/
+@font-face {
+    font-family: 'raleway-light';
+    src: url('/src/assets/fonts/raleway/Raleway-Light.ttf');
+    src: url('/src/assets/fonts/raleway/Raleway-Light.ttf') format("truetype");     
+    font-weight: 300;
+    font-style: normal;
+}

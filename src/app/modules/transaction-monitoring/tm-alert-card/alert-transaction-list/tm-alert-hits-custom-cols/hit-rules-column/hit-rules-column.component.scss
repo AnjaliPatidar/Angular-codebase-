@@ -1,0 +1,121 @@
+@import "../../../../../../../assets/scss/theme/common/_variable.scss";
+
+.criteria-list {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    grid-auto-rows: 28px;
+
+    span {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    span:nth-child(odd) {
+      opacity: 0.6;
+    }
+}
+
+.details-column {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 28px 28px;
+
+  span {
+      margin-top: auto;
+      margin-bottom: auto;
+  }
+
+  span:nth-child(odd) {
+      opacity: 0.6;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px;
+  align-items: center;
+  background: rgba($white, 0.08);
+}
+
+.content-title {
+  font-size: 20px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0.15px;
+  text-align: left;
+  opacity: 0.87;
+}
+
+.content-body {
+  min-width: 284px;
+  max-height: 300px;
+  padding: 16px;
+}
+
+.rule-item-divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 0;
+  margin: 0;
+}
+
+.rules-container {
+  .rule-item:last-child .rule-item-divider {
+    display: none;
+  }
+}
+
+::ng-deep {
+  .popover {
+      max-width: unset;
+      padding: unset;
+      border: unset;
+      z-index: 99;
+      background-color: var(--surface);
+
+    .popover-body {
+      padding: unset;
+      color: white;
+    }
+  }
+}
+
+::ng-deep {
+  .popover-styles {
+      background: var(--surface) !important;
+      border-radius: 8px;
+      border: 2px solid var(--surface) !important;
+  }
+  
+  .bs-popover-auto[x-placement^=top]>.arrow::after, .bs-popover-top>.arrow::after {
+    bottom: 1px;
+    border-width: 0.5rem 0.5rem 0;
+    border-top-color: #fff;
+  }
+
+  .bs-popover-auto[x-placement^=top]>.arrow::before, .bs-popover-top>.arrow::before {
+    bottom: 0;
+    border-width: 0.5rem 0.5rem 0;
+    border-top-color: rgba(0,0,0,.25);
+  }
+
+  .bs-popover-auto[x-placement^=left]>.arrow::after, .bs-popover-top>.arrow::after {
+    right: 1px;
+    border-width: 0.5rem 0 0.5rem 0.5rem;
+    border-left-color: #fff;
+  }
+
+  .bs-popover-auto[x-placement^=left]>.arrow::before, .bs-popover-top>.arrow::before {
+    right: 0;
+    border-width: 0.5rem 0 0.5rem 0.5rem;
+    border-left-color: rgba(0,0,0,.25);
+  }
+
+  .popover > .arrow {
+    border-width: unset;
+    display: none;
+  }
+}

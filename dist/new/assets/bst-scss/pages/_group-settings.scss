@@ -1,0 +1,13 @@
+.bst-group-bkdrop {
+    +.cdk-overlay-connected-position-bounding-box {
+        .cdk-overlay-pane {
+            margin-top: 0px !important;
+
+            .custom-grp-dd {
+                min-width: calc(100% + 30px) !important;
+                top      : 36px;
+                left     : 25px;
+            }
+        }
+    }
+}

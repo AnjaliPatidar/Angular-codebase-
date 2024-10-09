@@ -1,0 +1,1066 @@
+
+<div class="container-fluid report-gp report-wrapper"  style="display:none;" *ngIf="showReport" id="report_generation_div">
+
+
+
+    <!--     <thead> -->
+    <!--     <tr>  -->
+    <!--     <th id="report-header" class="report-header-space"> -->
+    <!--     &nbsp; -->
+    <!--     </th> -->
+    <!--     </tr> -->
+    <!--     </thead> -->
+
+
+
+
+        <!--Main page start-->
+        <div class="first-page-img width-100 clearfix p-rel"  style=" max-height:27.7cm">
+         <div class="report-header">
+         <p> Customer Due Diligence Desktop Research Report</p>
+         <div class="mybox">
+                            <!-- <img class="img-responsive bitMat-logo pull-left" alt="logo" />  src="{{'data:image/png;base64,'+customerLogo}}" -->
+                        </div>
+        <p>
+            <!-- <span>{{ceriSearchResultObject['vcard:organization-name'].value}}</span><span>{{ceriSearchResultObject['trade_register_number'].value}} </span> -->
+            <span><span>{{ceriSearchResultObject['vcard:organization-name'].value}} </span>{{reportv2Data['#Trade_Registration_No']}} </span>
+        <p>
+
+        </div>
+            <!-- <div style="height: 100%;width: 100%;position: absolute;"><img src="./assets/img/bgr@3x.png"
+                    style="height: 100%;width: 100%;"></div> -->
+            <div class="col-xs-12 main-div-report">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <!-- <p class="side-text">Powered by Blackswan Technologies</p> -->
+                    </div>
+                    <div class="col-xs-6">
+                        <!-- <img class="ingBitmap pull-right" src="assets/img/bitmap@3x.png" /> -->
+                        <img *ngIf="!complianceReport" class="ingBitmap pull-right" />
+                        <!-- ng-src="{{'data:image/png;base64,'+customerLogo}}" -->
+                    </div>
+                </div>
+                <div class="row" style="display: flex;height: 100%; justify-content:flex-end;">
+                    <div class="title-logo-div">
+                        <!-- <div class="mybox">
+                            <img class="img-responsive bitMat-logo pull-left" ng-src="{{'data:image/png;base64,'+customerLogo}}"
+                                alt="fetcher_logo" />
+                                ng-src="{{entitySearchResult.list.topHeaderObject.logo_url || entitySearchResult.comapnyLogo || '../assets/images/dummy-logo.png'}}"
+                                ng-show="entitySearchResult.list.topHeaderObject.logo_url || entitySearchResult.comapnyLogo"
+                        </div> -->
+                        <div class="companyInfo">
+                            <p><span class="f-50 text-dark-oran-greport">{{ceriSearchResultObject['vcard:organization-name'].value}}</span> </p>
+                            <p class="f-28">{{ceriSearchResultObject['country'].value}} </p>
+                            <!-- <p><span class="f-28">{{ceriSearchResultObject['trade_register_number'].value}} </span> </p> -->
+                            <p><span class="f-28">{{reportv2Data['#Trade_Registration_No']}} </span> </p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-content-wrapper">
+                <p class="side-text bottom-content">Printed on: {{genRepDate | date:'medium' }}</p>
+                <p class="side-text bottom-content">Printed by: ehubObject.fullName</p>
+                <p class="side-text bottom-content">Type of Report: CDD Desktop Research Report</p>
+            </div>
+        </div>
+        <!--Main page end-->
+
+        <!--Table of contents start -->
+        <div class="table-of-content width-100" style="height: 100%;">
+            <h2 style="text-align: center">Table of Contents</h2>
+            <div>
+                <ol>
+                    <li><a href="#summaryInfo">SUMMARY</a>
+                        <ol>
+                            <li class="list-color"><a href="#summaryInfo_cdd_process">CDD Process and CDD Results Fields</a>
+                            </li>
+                            <li class="list-color"><a href="#summaryInfo_cdd_risk">CDD Risk Assessment</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#legal_existence">Legal Existence</a>
+                        <ol>
+                            <li class="list-color"><a href="#legal_existence_party_info">Party Information </a></li>
+                            <li class="list-color"><a href="#legal_existence_party_address">Party Address Details –
+                                    Registered Address </a></li>
+                            <li class="list-color"><a href="#legal_existence_registration_details">Registration and TAX
+                                    Details </a></li>
+                            <li class="list-color"><a href="#legal_existence_verification_details">Verification Details</a>
+                            </li>
+                        </ol>
+                    </li>
+                    <li><a href="#due_deligence">Due Diligence</a>
+                        <ol>
+                            <li class="list-color"><a href="#due_deligence_ownership_diagram">Ownership - Diagram </a></li>
+                            <li class="list-color"><a href="#due_deligence_complexOwnership">Complex Ownership Structure
+                                </a></li>
+                            <li class="list-color"><a href="#due_deligence_productinfo">Party/Customer Product Information
+                                </a></li>
+                            <li class="list-color"><a href="#due_deligence_sourceOfFunds">Verification – Source of Fund
+                                    and Legal
+                                    form </a></li>
+                            <li class="list-color"><a href="#due_deligence_uhrc">UHRC Nexus Through Public Sources </a></li>
+                            <li class="list-color"><a href="#due_deligence_party_customer">Party/Customer Activity  </a></li>
+                            <li class="list-color"><a href="#due_deligence_ultimate_beneficiary">Ultimate Beneficiary Owners
+                                    – UBO </a></li>
+                            <li class="list-color"><a href="#due_deligence_ubo_details">UBO/Pseudo UBO Details </a></li>
+                            <li class="list-color"><a href="#due_deligence_main_principals">Main Principals Details</a></li>
+                            <li class="list-color"><a href="#due_deligence_principals">Principals Details  </a></li>
+                            <li class="list-color"><a href="#due_deligence_associated_parties">Associated Parties </a></li>
+                            <li class="list-color"><a href="#due_deligence_screening">Screening </a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#Info_of_News">News</a></li>
+                    <!-- *ngIf="entitySearchResult.list['adverse_news'].length > 0 || generateReportofficernews.length > 0 || generateReportofficernewsByGroup.length > 0" -->
+
+                     <li><a href="#evidence_report">Evidence Report</a></li>
+
+                </ol>
+            </div>
+        </div>
+
+        <!--General information and risk score page start-->
+        <div class="main-container-report width-100">
+
+            <div id="summaryInfo" class="summaryInfo">
+                <div class="panel custom-panel-wrapper pb-a ">
+                    <div class="panel-heading main-heading">
+                        <h4>Summary</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="panel sub-panel custom-panel-wrapper">
+                            <div id="summaryInfo_cdd_process" class="panel-heading">
+                                <h5>CDD Process and CDD Results Fields</h5>
+                            </div>
+                            <div class="panel-body">
+                                <table  class="custom-table table table_head">
+
+                                    <tbody>
+                                        <tr *ngFor="let data of reportv2Data['CDD_Process_and_CDD_Results_Fields']">
+                                            <ng-container *ngFor="let item of data">
+                                                    <td class="text-capitalize p-text text-left" ><span class="label-indicator d-flex ai-c">{{item.label}}</span></td>
+
+                                                    <td class="text-capitalize p-text text-left"><span class="answer-indicator d-flex ai-c">{{item.value}}</span></td>
+                                            </ng-container>
+
+                                         </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                        </div>
+                        <div class="panel custom-panel-wrapper sub-panel ">
+                            <div class="panel-heading">
+                                <h4>Information Received {{reportv2Data['information_recevied_from_ing']}} </h4>
+                            </div>
+                            <div class="panel-body">
+                                <table  class="custom-table table table_head">
+                                    <tbody>
+                                        <tr *ngFor="let data of reportv2Data['information_recevied_from_ing']">
+                                            <ng-container *ngFor="let item of data">
+                                                    <td class="text-capitalize p-text text-left"><span class="label-indicator">{{item.label}}</span></td>
+                                                    <td class="text-capitalize p-text text-left">
+                                                            <span class="answer-indicator" *ngIf="item.label !== 'Product Type'">{{item.value}}</span>
+                                                            <span class="answer-indicator" *ngIf="item.label === 'Product Type'">
+                                                                   <ul *ngIf="item.value.length>0">
+                                                                       <li *ngFor="let types of item.value">
+                                                                           {{types.text}}
+                                                                       </li>
+                                                                   </ul>
+                                                                   <p *ngIf="item.value.length == 0"></p>
+                                                            </span>
+                                                       </td>
+                                            </ng-container>
+
+
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="summaryInfoCDDRisk panel sub-panel custom-panel-wrapper ">
+                            <div id="summaryInfo_cdd_risk" class="panel-heading">
+                                <h5>CDD Risk Assessment</h5>
+                            </div>
+                            <div class="panel-body">
+                                <div class="question-answer-wrapper">
+                                    <div class="question-wrapper">
+                                        <h5 class="question">Short Customer Introduction </h5><span class="mar-autol">
+                                            <a *ngIf="ceriSearchResultObject['bst:description'].sourceType === 'link'"
+                                               [ngClass]="{'pe-none':((ceriSearchResultObject['bst:description'].sourceUrl.toLowerCase()) ==='bst' || (ceriSearchResultObject['bst:description'].sourceUrl.toLowerCase()) === 'bureau-van-dijk')}"
+                                                href="{{ceriSearchResultObject['bst:description'].sourceUrl}}"
+                                                target="_blank">{{ceriSearchResultObject['bst:description'].source}}</a>
+                                                <a *ngIf="ceriSearchResultObject['bst:description'].sourceType === 'png' || ceriSearchResultObject['bst:description'].sourceType === 'jpg' || ceriSearchResultObject['bst:description'].sourceType === 'jpeg' || ceriSearchResultObject['bst:description'].sourceType === 'gif' || ceriSearchResultObject['bst:description'].sourceType === 'tiff' || ceriSearchResultObject['bst:description'].sourceType === 'bmp'"
+                                                [ngClass]="{'pe-none':((ceriSearchResultObject['bst:description'].sourceUrl.toLowerCase()) ==='bst' || (ceriSearchResultObject['bst:description'].sourceUrl.toLowerCase()) === 'bureau-van-dijk')}"
+                                                href="#{{ceriSearchResultObject['bst:description'].sourceUrl.split('').join('_')}}"
+                                                  >{{ceriSearchResultObject['bst:description'].source}}</a></span>
+                                                <a *ngIf="ceriSearchResultObject['bst:description'].sourceType !== 'link' && ceriSearchResultObject['bst:description'].sourceType !== 'png' && ceriSearchResultObject['bst:description'].sourceType !== 'jpg' && ceriSearchResultObject['bst:description'].sourceType !== 'jpeg' && ceriSearchResultObject['bst:description'].sourceType !== 'gif' && ceriSearchResultObject['bst:description'].sourceType !== 'tiff' && ceriSearchResultObject['bst:description'].sourceType !== 'bmp'"
+                                                [ngClass]="{'pe-none':((ceriSearchResultObject['bst:description'].sourceUrl.toLowerCase()) ==='bst' || (ceriSearchResultObject['bst:description'].sourceUrl.toLowerCase()) === 'bureau-van-dijk')}"
+                                                href="{{ehub_Api}}/documentStorage/downloadDocument?docId={{ceriSearchResultObject['bst:description'].docId}}&token="
+                                                target="_blank"
+                                                >{{ceriSearchResultObject['bst:description'].source}}</a>
+                                    </div>
+                                    <div class="answer-wrapper">
+                                        <p class="answer" [innerHTML]="ceriSearchResultObject['bst:description'].value ? ceriSearchResultObject['bst:description'].value : ''">
+                                            <!-- {{ceriSearchResultObject['bst:description'].value ? ceriSearchResultObject['bst:description'].value : ''}} -->
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="question-answer-wrapper"
+                                    *ngFor="let quesAnsData of reportv2Data['#LegalQuestionnaire'] ">  <!--track by $index -->
+                                    <div class="question-wrapper">
+                                        <h5 class="question">{{quesAnsData.questionName}}</h5>
+                                    </div>
+                                    <div class="answer-wrapper">
+                                        <p class="answer" *ngIf="quesAnsData.questionType == 'text'">
+                                            {{quesAnsData.questionAnswer}} </p>
+                                        <div class="answer" *ngIf="quesAnsData.questionType == 'multiple-short-txt'">
+                                            <ul *ngIf="quesAnsData.questionName !== 'Missing Information Required'">
+                                                <ng-container *ngFor="let options of quesAnsData['questionOptions']">
+                                                    <li *ngIf="options.label.toLowerCase() !== 'rationale'">
+                                                        <span>{{options.label}} : </span>
+                                                        <span>{{options.value}}</span>
+                                                    </li>
+                                                </ng-container>
+
+                                                <!-- track by $index -->
+                                            </ul>
+                                            <ul *ngIf="quesAnsData.questionName === 'Missing Information Required'" class="mar-0 pad-0">
+                                                <ng-container *ngFor="let options of quesAnsData['questionOptions']">
+                                                        <li  *ngIf="options.label.toLowerCase() !== 'rationale'" style="white-space: pre-line;list-style: none;">
+                                                                <span>{{options.label}} : </span>
+                                                                <span>{{options.value}}</span>
+                                                            </li>
+                                                </ng-container>
+
+                                                    <!-- track by $index -->
+                                                </ul>
+
+                                        </div>
+                                        <ng-container *ngFor="let options of quesAnsData['questionOptions'] ">
+                                            <div *ngIf="options.label.toLowerCase() === 'rationale'">
+                                                <h6 style="padding: 0;margin: 0;color: #2d2d2d;">{{options.label}} :
+                                                    {{options.value}}</h6>
+                                            </div>
+                                        </ng-container>
+
+                                        <!-- track by $index -->
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="d-flex mar-y15 fd-c " style="padding :10px 0 0; flex-wrap:wrap"
+                            *ngIf="stickyListForReport && stickyListForReport.length>0">
+    <ng-container *ngFor="let doc of stickyListForReport">
+        <div *ngIf="doc.docId != '' && doc.docSection === 'companyinformation'"
+                                class="panel sub-panel custom-panel-wrapper sticky-panel-wrapper sub-panel"
+                                style="background:rgba(251,251,251,.15)">
+                                <div class="panel-heading bg-transparent d-flex ai-c">
+                                    <h3 class="clipboard-item-name p-text mar-b0">{{removeSntExt(doc.title)}}</h3><span
+                                        class="mar-autol mar-r10"></span><span>{{doc.modifiedOn | date: 'MMM dd, yyyy hh:mm:ss'}}
+                                    </span>
+                                </div>
+                                <div class="panel-body ">
+                                    <p style=white-space:pre-line; [innerHTML]="(doc.content)"></p>
+                                </div>
+                            </div>
+    </ng-container>
+
+
+                        </div>
+                        <div class="d-flex" style="padding :0 ; flex-wrap:wrap">
+                            <ng-container *ngFor="let doc of documentsListForReport">
+                                    <div class="clipboard-list-item ai-c d-flex fd-c pad-10px"  id="{{(doc.sourceId.split('').join('_')) || (doc.docName.split('').join('_'))}}"  *ngIf="( doc.docId != '' && doc.docSection === 'companyinformation' )  && doc.type != ''" style="padding :10px;max-width:14%" >
+                                            <a class="mar-autox mar-b10" href="{{ehub_Api}}/documentStorage/downloadDocument?docId={{doc.docId}}&token=ehubObject.token" target="_blank"> <img  src="../assets/img/clipBoardIcon/{{doc.type}}.webp" /></a>
+                                            <p class="clipboard-item-name p-text mar-b0">{{doc.title || doc.docName}}</p>
+                                    </div>
+                            </ng-container>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="legalExistence pb-a ">
+
+                    <div id="legal_existence" class="panel custom-panel-wrapper">
+                        <div class="panel-heading main-heading">
+                            <h4>Legal Existence</h4>
+
+                        </div>
+                        <div class="panel-body">
+                            <ul>
+                                <li *ngIf="reportv2Data['legal_existence_verified']  ">{{reportv2Data['legal_existence_verified'].question}} {{reportv2Data['legal_existence_verified'].answer}} </li>
+                            </ul>
+                            <div class="panel sub-panel custom-panel-wrapper">
+                                <div id="legal_existence_party_info" class="panel-heading">
+                                    <h5>Party Information</h5>
+                                </div>
+                                <div class="panel-body">
+                                    <table  class="custom-table table table_head">
+
+                                        <tbody>
+                                            <tr *ngFor="let data of reportv2Data['party_information']">
+                                                <ng-container *ngFor="let  item of data">
+                                                        <td class="text-capitalize p-text text-left"><span class="label-indicator">{{item.label}}</span></td>
+
+                                                        <td class="text-capitalize p-text text-left" >
+                                                            <span class="answer-indicator">
+                                                                {{item.value}}
+                                                            </span>
+                                                        </td>
+                                                        <td class="text-capitalize p-text text-left">
+                                                            <span class="mar-l10" *ngIf="item.label !== 'Legal Name'">
+                                                                <a  *ngIf="item.sourceType === 'link'"
+                                                                [ngClass] ="{'pe-none':((item.source.toLowerCase()) ==='bst' || (item.source.toLowerCase()) === 'bureau-van-dijk')}"
+                                                                href="{{addhttpProtocol(item.sourceUrl)}}"
+                                                                target="_blank">{{item.source}}</a>
+                                                                <a  *ngIf="item.sourceType === 'png' || item.sourceType === 'jpg' || item.sourceType === 'jpeg' || item.sourceType === 'gif' || item.sourceType === 'tiff' || item.sourceType === 'bmp'"
+                                                                [ngClass] ="{'pe-none':((item.source.toLowerCase()) ==='bst' || (item.source.toLowerCase()) === 'bureau-van-dijk')}"
+                                                                href="#{{item.sourceUrl.split('').join('_')}}"
+                                                                >{{item.source}}</a>
+                                                                <a *ngIf="item.sourceType !== 'link' && item.sourceType !== 'png' && item.sourceType !== 'jpg' && item.sourceType !== 'jpeg' && item.sourceType !== 'gif' && item.sourceType !== 'tiff' && item.sourceType !== 'bmp'"
+                                                                [ngClass] ="{'pe-none': ((item.sourceUrl.toLowerCase()) ==='bst' || (item.sourceUrl.toLowerCase()) === 'bureau-van-dijk')}"
+                                                                href="{{ehub_Api}}/documentStorage/downloadDocument?docId={{item.docId}}&token=ehubObject.token" target="_blank"
+                                                                >{{item.source}}</a>
+                                                            </span>
+                                                        </td>
+                                                </ng-container>
+
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="panel custom-panel-wrapper sub-panel">
+                                <div id="legal_existence_party_address" class="panel-heading">
+                                    <h5>Party Address Details – Registered Address</h5>
+                                </div>
+                                <div class="panel-body">
+                                    <table  class="custom-table table table_head">
+
+                                        <tbody>
+                                            <tr *ngFor="let data of reportv2Data['Party_Address_Details']">
+                                                <ng-container *ngFor="let item of data" >
+                                                <td class="text-capitalize p-text text-left"><span class="label-indicator">{{item.label}}</span></td>
+
+                                                <td class="text-capitalize p-text text-left" >
+                                                    <span class="answer-indicator">
+                                                        {{item.value}}
+                                                    </span>
+                                                </td>
+
+                                                        <td class="text-capitalize p-text text-left">
+                                                                <span class="mar-l10" *ngIf="item.label !== 'Legal Name'">
+                                                                    <a  *ngIf="item.sourceType === 'link'"
+                                                                    [ngClass]="{'pe-none':((item.source | lowercase) ==='bst' || (item.source | lowercase) === 'bureau-van-dijk')}"
+                                                                    href="{{item.sourceUrl}}"
+                                                                    target="_blank">{{item.source}}</a>
+                                                                    <a  *ngIf="item.sourceType === 'png' || item.sourceType === 'jpg' || item.sourceType === 'jpeg' || item.sourceType === 'gif' || item.sourceType === 'tiff' || item.sourceType === 'bmp'"
+                                                                    [ngClass] ="{'pe-none':((item.source | lowercase) ==='bst' || (item.source | lowercase) === 'bureau-van-dijk')}"
+                                                                    href="#{{item.sourceUrl.split('').join('_')}}"
+                                                                    >{{item.source}}</a>
+                                                                    <a *ngIf="item.sourceType !== 'link' && item.sourceType !== 'png' && item.sourceType !== 'jpg' && item.sourceType !== 'jpeg' && item.sourceType !== 'gif' && item.sourceType !== 'tiff' && item.sourceType !== 'bmp'"
+                                                                    [ngClass] ="{'pe-none': ((item.sourceUrl | lowercase) ==='bst' || (item.sourceUrl | lowercase) === 'bureau-van-dijk')}"
+                                                                    href="{{ehub_Api}}/documentStorage/downloadDocument?docId={{item.docId}}&token=ehubObject.token" target="_blank"
+                                                                    >{{item.source}}</a>
+                                                                </span>
+                                                            </td>
+                                                </ng-container>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="panel custom-panel-wrapper sub-panel">
+                                <div id="legal_existence_registration_details" class="panel-heading">
+                                    <h5>Registration and TAX Details</h5>
+                                </div>
+                                <div class="panel-body">
+                                    <table  class="custom-table table table_head">
+
+                                        <tbody>
+                                            <tr *ngFor="let data of reportv2Data['Registration_and_TAX_Details']">
+                                                <ng-container *ngFor="let item of data">
+
+
+                                                    <td class="text-capitalize p-text text-left"><span class="label-indicator">{{item.label}}</span></td>
+
+                                                    <td class="text-capitalize p-text text-left" >
+                                                        <span class="answer-indicator">
+                                                            {{item.value}}
+                                                        </span>
+                                                    </td>
+                                                    <td class="text-capitalize p-text text-left">
+                                                        <span class="mar-l10" *ngIf="item.label !== 'Legal Name'">
+                                                            <!-- *ngIf="!item.isTakenScreenShot" -->
+                                                            <a  *ngIf="item.sourceType === 'link'"
+                                                            [ngClass] = "{'pe-none':((item.source | lowercase) ==='bst' || (item.source | lowercase) === 'bureau-van-dijk')}"
+                                                            target="_blank">{{item.source}}</a>
+                                                            <!-- *ngIf="item.isTakenScreenShot" -->
+                                                            <a  *ngIf="item.sourceType === 'png' || item.sourceType === 'jpg' || item.sourceType === 'jpeg' || item.sourceType === 'gif' || item.sourceType === 'tiff' || item.sourceType === 'bmp'"
+                                                            [ngClass] ="{'pe-none':((item.source | lowercase) ==='bst' || (item.source | lowercase) === 'bureau-van-dijk')}"
+                                                            href="#{{item.sourceUrl.split('').join('_')}}"
+                                                            >{{item.source}}</a>
+                                                            <a *ngIf="item.sourceType !== 'link' && item.sourceType !== 'png' && item.sourceType !== 'jpg' && item.sourceType !== 'jpeg' && item.sourceType !== 'gif' && item.sourceType !== 'tiff' && item.sourceType !== 'bmp'"
+                                                            [ngClass] ="{'pe-none':((item.sourceUrl | lowercase) ==='bst' || (item.sourceUrl | lowercase) === 'bureau-van-dijk')}"
+                                                            href="{{ehub_Api}}/documentStorage/downloadDocument?docId={{item.docId}}&token=ehubObject.token"
+                                                            target="_blank"
+                                                            >{{item.source}}</a>
+                                                        </span>
+                                                    </td>
+                                                </ng-container>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+
+                            <div class="panel custom-panel-wrapper sub-panel">
+                                <div id="legal_existence_verification_details" class="panel-heading">
+                                    <h5>Verification Details</h5>
+                                </div>
+                                <div class="panel-body">
+                                    <ul *ngIf="reportv2Data['legal_existence_verificationDetails']?.answer" class="mar-0 pad-0">
+                                        <li style="white-space: pre-line;list-style: none;">
+                                            {{reportv2Data['legal_existence_verificationDetails']?.answer}}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                            <div class="d-flex mar-y15 fd-c" style="padding :10px 0 0; flex-wrap:wrap"
+                                *ngIf="stickyListForReport?.length>0">
+    <ng-container  *ngFor="let doc of stickyListForReport">
+            <div *ngIf="doc.docId != '' && (doc.docSection === 'CompanyDetails' || doc.docSection === 'CompanyIdentifiers' ) "
+            class="panel sub-panel custom-panel-wrapper sticky-panel-wrapper sub-panel"
+            style="background:rgba(238, 212, 212, 0.15)">
+            <div class="panel-heading bg-transparent d-flex ai-c">
+                <h3 class="clipboard-item-name p-text mar-b0">{{removeSntExt(doc.title)}}</h3><span
+                    class="mar-autol mar-r10"></span><span>{{doc.modifiedOn | date: 'MMM dd, yyyy hh:mm:ss'}}
+                </span>
+            </div>
+            <div class="panel-body ">
+                <p style=white-space:pre-line; [innerHTML]="(doc.content)"></p>
+            </div>
+        </div>
+    </ng-container>
+
+
+                            </div>
+                            <div class="d-flex mar-y15" style="padding :0 0 0 40px;flex-wrap:wrap">
+                                <ng-container *ngFor="let doc of documentsListForReport" >
+                                        <div class="clipboard-list-item ai-c d-flex fd-c "  style="padding :10px;max-width:14%"
+
+                                        id="{{(doc.sourceId.split('').join('_')) || (doc.docName.split('').join('_'))}}"  *ngIf="doc.type != '' && (doc.docSection === 'CompanyDetails' || doc.docSection === 'CompanyIdentifiers' )" >
+                                           <a class="mar-autox mar-b10" href="{{ehub_Api}}/documentStorage/downloadDocument?docId={{doc.docId}}&token=ehubObject.token" target="_blank"> <img  src="../assets/img/clipBoardIcon/{{doc.type}}.webp" /></a>
+                                           <p class="clipboard-item-name p-text mar-b0">{{doc.title || doc.docName}}</p>
+                                   </div>
+                                    </ng-container>
+                                </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="duedeligence ">
+                <div class="panel custom-panel-wrapper pb-a ">
+                    <div id="due_deligence" class="panel-heading main-heading">
+                        <h4>Due Diligence</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="panel custom-panel-wrapper sub-panel">
+                            <div id="due_deligence_ownership_diagram" class="panel-heading">
+                                <h5>Ownership - Diagram</h5>
+                            </div>
+                            <div class="panel-body">
+                                <div style="page-break-before:avoid !important;">
+                                    <div id="corporate_structure_diagram"
+                                        style="margin:auto;display:block;width:100%;height:auto;background-color: #fff !important;">
+                                        <img class="img-responsive" style="margin:auto;" src="{{complexImg}}" >
+                                    </div>
+                                </div>
+                                <div class="d-flex mar-y15 fd-c" style="padding :10px 0 0; flex-wrap:wrap"
+                                    *ngIf="stickyListForReport?.length>0">
+    <ng-container *ngFor="let doc of stickyListForReport">
+            <div
+            *ngIf="doc.docId != '' && (doc.docSection === 'ownershipStructure' ) "
+            class="panel sub-panel custom-panel-wrapper sticky-panel-wrapper sub-panel"
+            style="background:rgba(251,251,251,.15)">
+            <div class="panel-heading bg-transparent d-flex ai-c">
+                <h3 class="clipboard-item-name p-text mar-b0">{{removeSntExt(doc.title)}}</h3><span
+                    class="mar-autol mar-r10"></span><span>{{doc.modifiedOn | date: 'MMM dd, yyyy hh:mm:ss'}}
+                </span>
+            </div>
+            <div class="panel-body ">
+                <p style=white-space:pre-line; [innerHTML]="(doc.content)"></p>
+            </div>
+        </div>
+    </ng-container>
+
+
+                                </div>
+                                <div  class="d-flex mar-y15" style="padding :0; flex-wrap:wrap"   >
+                                    <ng-container *ngFor="let doc of documentsListForReport">
+                                            <div class="clipboard-list-item ai-c d-flex fd-c "  style="padding :10px;max-width:14%"  id="{{(doc.sourceId.split('').join('_')) || (doc.docName.split('').join('_'))}}"  *ngIf="doc.docId != '' && (doc.docSection === 'ownershipStructure' )" >
+                                                    <a class="mar-autox mar-b10" href="{{ehub_Api}}/documentStorage/downloadDocument?docId={{doc.docId}}&token=ehubObject.token" target="_blank"> <img  src="../assets/img/clipBoardIcon/{{doc.type}}.webp" /></a>
+                                                    <p class="clipboard-item-name p-text mar-b0">{{doc.title || doc.docName}}</p>
+                                            </div>
+                                    </ng-container>
+
+                                    </div>
+                            </div>
+                        </div>
+                        <!-- Complex Ownership Structure -->
+                        <div class="panel custom-panel-wrapper sub-panel">
+                            <div id="due_deligence_complexOwnership" class="panel-heading">
+                                <h5>Complex Ownership Structure</h5>
+                            </div>
+                            <div class="panel-body">
+                                <ul>
+                                    <li *ngIf="reportv2Data['complex ownership structure']">
+                                        {{reportv2Data['complex ownership structure']['Which of the following complex ownership parameters are identified.'][0].questionOptions.length ? 'Complex ownership identified due presence below mentioned factor' : 'The complex ownership not identified.'}}
+
+                                    </li>
+                                </ul>
+                                <table  class="custom-table table table_head">
+                                    <tbody>
+                                        <ng-container *ngIf="reportv2Data &&  reportv2Data['complex ownership structure'] && reportv2Data['complex ownership structure']['Which of the following complex ownership parameters are identified.'] && reportv2Data['complex ownership structure']['Which of the following complex ownership parameters are identified.'][0]">
+
+
+                                        <tr
+                                            *ngFor="let option of reportv2Data['complex ownership structure']['Which of the following complex ownership parameters are identified.'][0].questionOptions">
+                                            {{option}}
+                                            <ng-container>
+                                                <td *ngFor="let item of option"><span
+                                                    class="label-indicator">{{item.text}}</span></td>
+
+                                                <td><span class="answer-indicator">{{item.comment}}</span></td>
+                                            </ng-container>
+
+
+                                        </tr>
+                                    </ng-container>
+                                        <!-- track by $index -->
+                                    </tbody>
+                                </table>
+                                <ng-container *ngIf="reportv2Data && reportv2Data['complex ownership structure'] && reportv2Data['complex ownership structure']['complex ownership structure'][0].comments">
+
+
+                                <div class="comments"
+                                    *ngFor="let value of reportv2Data['complex ownership structure']['complex ownership structure'][0].comments ">
+                                    <h5>{{value.commenthead + ": " + value.comment}}</h5>
+                                </div>
+                            </ng-container>
+                            </div>
+                        </div>
+                        <div class="panel custom-panel-wrapper sub-panel">
+                            <div id="due_deligence_productinfo" class="panel-heading">
+                                <h5>Party/Customer Product Information</h5>
+                            </div>
+                            <div class="panel-body">
+                                <ul>
+                                    <li>
+                                        Please provide the product related information if received from Bank – {{reportv2Data['#Party/Customer_Product_InformationQuestionAns']}}
+                                    </li>
+                                </ul>
+                                <table  class="custom-table table table_head" *ngIf="(reportv2Data['#Party/Customer_Product_InformationQuestionAns'] | lowercase)=='yes'">
+                                    <tbody>
+                                        <tr
+                                            *ngFor="let option of reportv2Data['#Party/Customer Product Information']['High Risk Product'][0].questionOptions">
+                                            {{option}}
+                                            <ng-container>
+                                                 <td *ngFor="let item of option"><span
+                                                    class="label-indicator">{{item.text}}</span></td>
+
+                                                <td><span class="answer-indicator">{{item.comment}}</span></td>
+                                            </ng-container>
+
+
+                                        </tr>
+                                        <!-- track by $index -->
+                                    </tbody>
+                                </table>
+                                <ng-container   *ngFor="let value of reportv2Data['#Party/Customer Product Information']['High Risk Product']?.comments ">
+                                    <div class="comments"  *ngIf="(reportv2Data['#Party/Customer_Product_InformationQuestionAns'] | lowercase)=='yes'">
+                                     <h5>{{value.commenthead + ": " + value.comment}}</h5>
+                                 </div>
+                                </ng-container>
+
+                            </div>
+                        </div>
+                        <div class="panel custom-panel-wrapper sub-panel">
+                            <div id="due_deligence_sourceOfFunds" class="panel-heading">
+                                <h5>Verification – Source of Fund and Legal form
+                                </h5>
+                            </div>
+                            <div class="panel-body">
+                                <table  class="custom-table table table_head" *ngIf="reportv2Data['sourcesOfFunds'] && reportv2Data['sourcesOfFunds'].length > 0 && reportv2Data['sourceOfFundOutreach'].toLowerCase() === 'yes'">
+                                    <thead>
+                                        <th>Source of Fund</th>
+                                        <th>Source</th>
+                                        <th>Date</th>
+                                        <!-- <th>Please specify the source</th> -->
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let funds of reportv2Data['sourcesOfFunds'] ">
+                                            <td class="text-capitalize p-text text-left">{{funds.description}}</td>
+                                            <td class="text-capitalize p-text text-left">
+
+                                                <a [ngClass]="{'pe-none':((funds.url | lowercase) ==='bst' || (funds.source | lowercase) === 'bureau-van-dijk')}" href="{{funds.url}}" target="_blank">{{funds.source_url}}</a>
+                                            </td>
+                                            <td class="text-capitalize p-text text-left"> {{funds.date}}</td>
+                                            <!-- <td class="text-capitalize p-text text-left"></td> -->
+
+                                        </tr>
+                                        <!-- track by $index -->
+                                    </tbody>
+                                </table>
+                                <ul *ngIf="reportv2Data['sourceOfFundOutreach'].toLowerCase() === 'yes'">
+                                    <li style="white-space: pre-line;list-style: none;">
+                                            {{reportv2Data['sourceOfFundOutreachInfo']}}
+                                    </li>
+                                </ul>
+                                <ul *ngIf="reportv2Data['sourceOfFundOutreach'].toLowerCase() !== 'yes'" class="mar-0 pad-0">
+                                        <li style="white-space: pre-line;list-style: none;">
+                                                {{reportv2Data['sourceOfFundOutreach']}}
+                                        </li>
+                                    </ul>
+                            </div>
+                        </div>
+                        <div class="panel custom-panel-wrapper sub-panel">
+                            <div id="due_deligence_uhrc" class="panel-heading">
+                                <h5>UHRC Nexus Through Public Sources</h5>
+                            </div>
+                            <div class="panel-body">
+                                <ul>
+                                    <li>
+                                        If the customer/party (or sub) has a direct presence and/or engagement involving
+                                        Iran, Sudan, Syria, North-Korea and/or Cuba (UHRCs) – {{reportv2Data['#UHRC'].selected}} <span *ngIf="reportv2Data['#UHRC'].values && reportv2Data['#UHRC'].values.length>0">({{reportv2Data['#UHRC'].values.toString()}})</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="panel custom-panel-wrapper sub-panel">
+                            <div id="due_deligence_party_customer" class="panel-heading">
+                                <h5>Party/Customer Activity </h5>
+                            </div>
+                            <div class="panel-body">
+                                <ul>
+                                    <li>
+                                        Does customer/party have any high-risk risk business activity as part of its
+                                        portfolio – {{reportv2Data['#Party/Customer_Activity_High_RiskQuestionAns']}}
+                                    </li>
+                                </ul>
+                                <table  class="custom-table table table_head">
+                                    <tbody>
+                                        <ng-container *ngIf="reportv2Data && reportv2Data['#Party/Customer Activity – High Risk'] && reportv2Data['#Party/Customer Activity – High Risk']['Activity Type'] ">
+                                            <tr
+                                            *ngFor="let option of reportv2Data['#Party/Customer Activity – High Risk']['Activity Type'][0].questionOptions ">
+                                                {{option}}
+                                                <ng-container>
+                                                        <td *ngFor="let item of option"><span
+                                                            class="label-indicator">{{item.text}}</span></td>
+
+                                                        <td><span class="answer-indicator">{{item.comment}}</span></td>
+                                                </ng-container>
+
+
+                                            </tr>
+                                        </ng-container>
+
+                                        <!-- track by $index -->
+                                    </tbody>
+                                </table>
+                                 <ng-container *ngIf="reportv2Data && reportv2Data['#Party/Customer Activity – High Risk'] && reportv2Data['#Party/Customer Activity – High Risk']['Activity Type']">
+                                        <div class="comments"
+                                        *ngFor="let value of reportv2Data['#Party/Customer Activity – High Risk']['Activity Type'][0].comments ">
+                                        <h5>{{value.commenthead + ": " + value.comment}}</h5>
+                                    </div>
+                                 </ng-container>
+
+                            </div>
+                        </div>
+                        <div class="panel custom-panel-wrapper sub-panel">
+                            <div id="due_deligence_ultimate_beneficiary" class="panel-heading">
+                                <h5>Ultimate Beneficiary Owners – UBO</h5>
+                            </div>
+                            <div class="panel-body">
+                                <table  class="custom-table table table_head">
+
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-capitalize p-text text-left">
+                                                <span class="label-indicator">UBO/Beneficiary identification
+                                                    level</span></td>
+                                            <td class="text-capitalize p-text text-left"><span
+                                                    class="label-indicator">>={{sliderUtilitesobj.sliderMinValue + "%"}}</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-capitalize p-text text-left"> <span class="label-indicator">The
+                                                    UBO’s/Beneficiaries are
+                                                    greater than the threshold</span></td>
+                                            <td class="text-capitalize p-text text-left">{{reportv2Data['ubo_greater_threshold'] ? 'Yes' : 'No'}}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="panel custom-panel-wrapper sub-panel">
+                            <div id="due_deligence_ubo_details" class="panel-heading">
+                                <h5>UBO/Pseudo UBO  Details</h5>
+                            </div>
+                            <div class="panel-body">
+                                <ul>
+                                    <li>
+                                        Have UBO identified in the ownership structure? {{reportv2Data['#UBO_Identified_in_ownership']}}
+                                    </li>
+                                </ul>
+
+                                <table  class="custom-table table table_head" *ngIf="reportv2Data['UBO_Details'] && reportv2Data['UBO_Details'].length > 0">
+                                    <thead>
+                                        <tr>
+                                            <th class="label-indicator">#</th>
+                                            <th class="label-indicator">Name</th>
+                                            <th class="label-indicator">Role</th>
+                                            <th class="label-indicator">Country of Residence and Risk</th>
+                                            <th class="label-indicator">Date of Birth</th>
+                                            <th class="label-indicator">Pep Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                         <tr *ngFor= "let ubodetails of reportv2Data['UBO_Details']; let index = index"> <!--="(index,ubodetails) in reportv2Data['UBO_Details']" -->
+                                            <td class="text-capitalize p-text text-left">{{index+1}}</td>
+                                            <td class="text-capitalize p-text text-left">{{ubodetails.name}}</td>
+                                            <td class="text-capitalize p-text text-left">
+                                                {{ubodetails.officer_role.toString()}}</td>
+                                            <td class="text-capitalize p-text text-left">
+                                                {{(ubodetails.country || getCountryName(ubodetails.jurisdiction) )+ "-" +( ubodetails.high_risk_jurisdiction || ubodetails.report_jurisdiction_risk || 'None') }} </td>
+                                            <td class="text-capitalize p-text text-left">{{ubodetails.date_of_birth}}</td>
+                                            <td class="text-capitalize p-text text-left">{{ !ubodetails["no-screening"] ? (ubodetails.pep_url.length > 0 ? 'Yes' :'No') : '' }}</td>
+                                        </tr>
+                                        <tr *ngIf="reportv2Data['UBO_Details'].length == 0">
+                                            <td colspan="5" style="text-align: center"> No Data Found</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                        <div class="panel custom-panel-wrapper sub-panel">
+                            <div id="due_deligence_main_principals" class="panel-heading">
+                                <h5>Main Principals Details</h5>
+                            </div>
+                            <div class="panel-body">
+                                <ul>
+                                    <li>
+                                        Have all the main principals identified? – {{reportv2Data['#Main_principals_question']}}
+                                    </li>
+                                </ul>
+                                <table  class="custom-table table table_head" *ngIf="reportv2Data['main_priociples_data'].length > 0">
+                                    <thead>
+                                        <tr>
+                                            <th class="label-indicator">#</th>
+                                            <th class="label-indicator">Name</th>
+                                            <th class="label-indicator">Role</th>
+                                            <th class="label-indicator">Country of Residence and Risk</th>
+                                            <th class="label-indicator">Date of Birth</th>
+                                            <!-- <th class="label-indicator">Performed Screening</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- <tr ng-repeat="screening in screeningCheckedData" *ngIf="screening.entity_type === 'person' || screening.entity_type === 'individual' ">
+                                            <td class="text-capitalize p-text text-left">{{screening.name}}</td>
+                                            <td class="text-capitalize p-text text-left">
+                                                {{screening.officer_role.toString()}}</td>
+                                            <td class="text-capitalize p-text text-left">{{(screening.country || getCountryName(screening.jurisdiction) ) +'-'+ (screening.high_risk_jurisdiction || screening.report_jurisdiction_risk || 'None' )}} </td>
+                                            <td class="text-capitalize p-text text-left">{{screening.date_of_birth}}</td> -->
+                                            <!-- <td class="text-capitalize p-text text-left">
+                                                {{(!screening['no-screening']) ? 'Yes' : 'No'}}</td> -->
+                                                <!-- <td class="text-capitalize p-text text-left" *ngIf="!screening['no-screening']">Yes</td>
+                                            <td class="text-capitalize p-text text-left"  *ngIf="screening['no-screening']">No</td>
+                                        </tr>
+                                        <tr *ngIf="screeningCheckedData.length == 0">
+                                            <td colspan="5" style="text-align: center"> No Data Found</td>
+                                        </tr> -->
+                                        <tr *ngFor="let item of reportv2Data['main_priociples_data'] ; let index = index ; ">
+                                                <td class="text-capitalize p-text text-left">{{index+1}}</td>
+                                                <td class="text-capitalize p-text text-left">{{item.name}}</td>
+                                                <td class="text-capitalize p-text text-left">{{item.role || item.officer_roles.toString()}}</td>
+                                                <td class="text-capitalize p-text text-left">{{item.country + "-" +( item.high_risk_jurisdiction || item.report_jurisdiction_risk || 'None')}}</td>
+                                                <td class="text-capitalize p-text text-left">{{item.dob || item.date_of_birth}}</td>
+                                       </tr>
+                                            <!-- track by $index -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="panel custom-panel-wrapper sub-panel">
+                            <div id="due_deligence_principals" class="panel-heading">
+                                <h5>Principals Details</h5>
+                            </div>
+                            <div class="panel-body">
+                                <ul>
+                                    <li>
+                                        Is the customer/party is registered in high-risk country/jurisdiction – {{reportv2Data['#Principals_question']}}
+                                    </li>
+                                </ul>
+                                <table  class="custom-table table table_head" *ngIf="reportv2Data['#Principals_question'] === 'Yes'">
+                                    <thead>
+                                        <tr>
+                                            <th class="label-indicator">#</th>
+                                            <th class="label-indicator">Name</th>
+                                            <th class="label-indicator">Role</th>
+                                            <th class="label-indicator">Country of Residence and Risk</th>
+                                            <th class="label-indicator">Date of Birth</th>
+                                            <th class="label-indicator">Performed Screening</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- | orderBy:'name' subsidiaries[0].subsidiaries[0].subsidiariegs-->
+                                    <tbody>
+                                        <ng-container *ngFor="let screening of reportv2Data['Principals_Details_High_Risk'] ; let index = index">
+                                                <tr  *ngIf="reportv2Data['Principals_Details_High_Risk'].length>0">
+                                                        <td class="text-capitalize p-text text-left">{{index+1}}</td>
+                                                    <td class="text-capitalize p-text text-left">{{screening.name}}</td>
+                                                    <td class="text-capitalize p-text text-left">
+                                                        {{screening.officer_role.toString()}}</td>
+                                                    <td class="text-capitalize p-text text-left">
+                                                        {{(screening.country || getCountryName(screening.jurisdiction))+ "-" + (screening.high_risk_jurisdiction || screening.report_jurisdiction_risk || 'None')}} </td>
+                                                    <td class="text-capitalize p-text text-left">{{screening.date_of_birth}}</td>
+                                                    <!-- <td class="text-capitalize p-text text-left">
+                                                        {{ {{(!screening['no-screening'] ) ? 'Yes' : 'No'}}}}</td> -->
+                                                        <td class="text-capitalize p-text text-left" *ngIf="!screening['no-screening']">Yes</td>
+                                                    <td class="text-capitalize p-text text-left"  *ngIf="screening['no-screening']">No</td>
+                                                </tr>
+                                        </ng-container>
+
+                                        <tr *ngIf="reportv2Data['Principals_Details_High_Risk'].length == 0">
+                                            <td colspan="5" style="text-align: center"> No Data Found</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Associated Parties -->
+                        <div class="panel custom-panel-wrapper sub-panel">
+                            <div id="due_deligence_associated_parties" class="panel-heading">
+                                <h5>Associated Parties</h5>
+                            </div>
+                            <div class="panel-body">
+                                <ul>
+                                    <li>
+                                        {{reportv2Data['Associated_Parties_QuesAns'].question}} - {{reportv2Data['Associated_Parties_QuesAns'].answer}}
+                                    </li>
+                                </ul>
+                                <table  class="custom-table table table_head">
+                                    <thead>
+                                        <tr>
+                                            <th class="label-indicator">#</th>
+                                            <th class="label-indicator">Name</th>
+                                            <th class="label-indicator">Role</th>
+                                            <th class="label-indicator">Country of Registration/Residence</th>
+                                            <th class="label-indicator">Industry</th>
+                                            <th class="label-indicator">Performed Screening</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let screening of reportv2Data['associated_parties'] ; let index = index" >
+                                            <td class="text-capitalize p-text text-left">{{index+1}}</td>
+                                            <td class="text-capitalize p-text text-left">{{screening.name}}</td>
+                                            <!-- <td class="text-capitalize p-text text-left">Intermidiate Parent -->
+                                            <td class="text-capitalize p-text text-left" *ngIf="screening.classification && screening.classification.length > 0">
+                                                <p *ngFor="let role of screening.classification" style="margin: 0;">
+                                                    {{role + ','}}
+                                                </p>
+                                            </td>
+                                            <td class="text-capitalize p-text text-left" *ngIf="!screening.classification || screening.classification.length == 0"> </td>
+                                           <td class="text-capitalize p-text text-left">{{screening.country || getCountryName(screening.jurisdiction)}}
+                                                  <span *ngIf="screening.high_risk_jurisdiction || screening.report_jurisdiction_risk || 'None'">-{{screening.high_risk_jurisdiction || screening.report_jurisdiction_risk || calculateCountryRiskForReport(screening.country || getCountryName(screening.jurisdiction)) || 'None'}}</span>  </td>
+                                           <td class="text-capitalize p-text text-left"></td>
+                                            <td class="text-capitalize p-text text-left" *ngIf="!screening['no-screening']">Yes</td>
+                                            <td class="text-capitalize p-text text-left"  *ngIf="screening['no-screening']">No</td>
+                                        </tr>
+                                        <tr *ngIf="reportv2Data['associated_parties'] && reportv2Data['associated_parties'].length == 0">
+                                            <td colspan="7" style="text-align: center"> No Data Found</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Screening -->
+                        <div class="panel custom-panel-wrapper sub-panel">
+                            <div id="due_deligence_screening" class="panel-heading">
+                                <h5>Screening</h5>
+                            </div>
+                            <div class="panel-body">
+                                <ul>
+                                    <li>
+                                        Are all the relevant parties screened against sanctions and PEP list? – {{reportv2Data['#screeing_question']}}
+                                    </li>
+                                </ul>
+                                <table  class="custom-table table table_head" *ngIf="screeningDataforReport && screeningDataforReport.length > 0">
+                                    <thead>
+                                        <tr>
+                                            <th class="label-indicator">#</th>
+                                            <th class="label-indicator">Name</th>
+                                            <th class="label-indicator">Role</th>
+                                            <th class="label-indicator">Type</th>
+                                            <th class="label-indicator">Match found</th>
+                                            <th class="label-indicator">Discounted/Disposition </th>
+                                            <th class="label-indicator">Reason for discounting/escalation </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let screening of screeningDataforReport ; let index = index">
+                                            <td class="text-capitalize p-text text-left">{{index+1}}</td>
+                                            <td class="text-capitalize p-text text-left">{{screening.name}}</td>
+                                            <td class="text-capitalize p-text text-left">
+                                                {{screening.classification ? (screening.classification.toString()) : ''}}</td>
+                                            <td class="text-capitalize p-text text-left">{{screening.entity_type}} </td>
+                                            <td class="text-capitalize p-text text-left">
+                                                {{(screening.pep_url.length > 0 || screening['sanction_bst:description'].length > 0) ? 'Yes' : 'No'}}
+                                            </td>
+                                            <td class="text-capitalize p-text text-left">{{(screening.pep_url.length > 0 || screening['sanction_bst:description'].length > 0) &&  screening.reason.length > 0 ? 'Discounted' : ''}}</td>
+                                            <td class="text-capitalize p-text text-left" *ngIf ="(screening.pep_url.length > 0 || screening['sanction_bst:description'].length > 0)">
+                                                <p class="mar-b0" [ng-show]="(screening.pep_url.length > 0 || screening['sanction_bst:description'].length > 0) &&  screening.reason.length > 0" *ngFor="let reason of  screening.reason">{{reason}}</p>
+                                            </td>
+                                            <td class="text-capitalize p-text text-left" *ngIf ="!(screening.pep_url.length > 0 || screening['sanction_bst:description'].length > 0)">
+                                                <p>Not Applicable</p>
+                                            </td>
+                                        </tr>
+                                        <!-- track by $index -->
+                                        <tr *ngIf="screeningDataforReport && screeningDataforReport.length == 0">
+                                            <td colspan="7" style="text-align: center"> No Data Found</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+
+
+                                <div class="d-flex mar-y15 fd-c" style="padding :10px 0 0; flex-wrap:wrap"
+                                    *ngIf="stickyListForReport && stickyListForReport.length>0">
+    <ng-container *ngFor="let doc of stickyListForReport">
+            <div
+            *ngIf="doc.docId != '' && (doc.docSection === 'screeningDetails' ) "
+            class="panel sub-panel custom-panel-wrapper sticky-panel-wrapper sub-panel"
+            style="background:rgba(251,251,251,.15)">
+            <div class="panel-heading bg-transparent d-flex ai-c">
+                <h3 class="clipboard-item-name p-text mar-b0">{{removeSntExt(doc.title)}}</h3><span
+                    class="mar-autol mar-r10"></span><span>{{doc.modifiedOn | date: 'MMM dd, yyyy hh:mm:ss'}}
+                </span>
+            </div>
+            <div class="panel-body ">
+                <p style=white-space:pre-line; [innerHTML]="(doc.content)"></p>
+            </div>
+        </div>
+    </ng-container>
+
+
+                                </div>
+                                <div class="d-flex width-100 " style="padding :10px ; flex-wrap:wrap" *ngIf="doc?.docId != '' &&  (doc?.docSection === 'screeningDetails' )">
+                                    <ng-container *ngFor="let doc of documentsListForReport">
+                                        <div  class="clipboard-list-item ai-c d-flex fd-c "  style="padding :10px;max-width:14%"   id="{{(doc.sourceId.split('').join('_')) || (doc.docName.split('').join('_'))}}"  *ngIf="doc.type != '' && (doc.docSection === 'screeningDetails' )" >
+                                                <a class="mar-autox mar-b10" href="{{ehub_Api}}/documentStorage/downloadDocument?docId={{doc.docId}}&token=ehubObject.token" target="_blank"> <img  src="../assets/img/clipBoardIcon/{{doc.type}}.webp" /></a>
+                                                <p class="clipboard-item-name p-text mar-b0">{{doc.title || doc.docName}}</p>
+                                        </div>
+                                    </ng-container>
+
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div id="Info_of_News" class="evidenceInfo panel custom-panel-wrapper ">
+                <div class="panel-heading main-heading">
+                    <h4>News</h4>
+                </div>
+                <div class="panel-body p-rel" >
+                    <ng-container  *ngFor="let newsdata of generateReportofficernewsByGroup">
+                        <div *ngIf="newsdata.key">
+                        <p class="adversNewsHeading" style="font-size: 12px;color: #2d2d2d;"><strong>Keen on 2014 : </strong><span *ngIf="newsdata.key">({{newsdata.key}})</span></p>
+                        <div class="news-margin" *ngFor="let news of newsdata.values">
+                            <p class="adversNewsText" style="font-size: 12px;color: #2d2d2d;"><strong class="fontForAdverse">Date : </strong><span>{{
+                                news.results.published }}</span></p>
+                            <p class="adversNewsText"  style="font-size: 12px;color: #2d2d2d;"><strong class="fontForAdverse">Classification : </strong><span>{{ news.classification.toLowerCase() == 'neutral' ? 'News' : news.classification }}</span></p>
+                            <p class="adversNewsText hidden" style="font-size: 12px;color: #2d2d2d;"><strong class="fontForAdverse">Key Phrases : </strong><span></span></p>
+                            <p class="adversNewsText">
+                                <strong class="fontForAdverse" style="font-size: 12px;color: #2d2d2d;">Source : </strong>
+                                <a target="_blank" class="adverseTitleLink" href="{{news.results.url}}" style="fill: #ff6200 !important;-webkit-text-fill-color: #ff6200 !important;font-size: 12px;">{{news.results.title}}</a>
+                                <span class="hidden"><i class="fa fa-check-circle-o"></i></span>
+                            </p>
+                            <p class="adversNewsContent" style="font-size: 12px;color: #2d2d2d;"><span class="highlightWordSpan">{{news.results.text}}</span></p>
+                        </div>
+                    </div>
+                    </ng-container>
+
+                </div>
+            </div>
+
+            <div id="evidence_report" class="evidenceInfo panel custom-panel-wrapper ">
+                <div class="panel-heading main-heading">
+                    <h4>Evidence</h4>
+                </div>
+                <div class="panel-body p-rel" >
+                <div class="col-sm-12 report-width-wrapper-12 pb-a pad-l0 mar-b30" style="display:flex; flex-wrap:wrap;">
+                    <ng-container *ngFor="let doc of documentsListForReport">
+                            <div class="report-width-wrapper-3 " style="padding :10px;"   *ngIf="!doc.docSection">
+                                    <div id="{{(doc.sourceId?.split('').join('_')) || (doc.docName?.split('').join('_'))}}" class="clipboard-list-item ai-c d-flex fd-c " *ngIf="doc.type != ''" >
+                                        <a class="mar-autox mar-b10"  href="#" target="_blank"> <img  src="../assets/img/clipBoardIcon/{{doc.type}}.webp" /></a>
+                                        <p  class="clipboard-item-name p-text mar-b0">{{doc.title || doc.docName}}</p>
+                                    </div>
+                                </div>
+                    </ng-container>
+
+                    </div>
+                    <div class="col-sm-12 report-width-wrapper-12 pb-a pad-l0 mar-b30" style="display:flex; flex-wrap:wrap;">
+                        <ng-container *ngFor="let doc of evidenceDocumentsListDocotherThanPNG">
+                                <div class="report-width-wrapper-3 " style="padding :10px;"   *ngIf="!doc.docSection">
+                                        <div id="{{(doc.sourceId?.split('').join('_')) || (doc.docName?.split('').join('_'))}}" class="clipboard-list-item ai-c d-flex fd-c " *ngIf="doc.type != ''" >
+                                            <a class="mar-autox mar-b10" href="#" target="_blank"> <img  src="../assets/img/clipBoardIcon/{{doc.type}}.webp" /></a>
+                                            <p  class="clipboard-item-name p-text mar-b0">{{doc.title || doc.docName}}</p>
+                                        </div>
+                                    </div>
+                        </ng-container>
+
+                    </div>
+
+
+                </div>
+                <div *ngFor="let doc of evidenceDocumentsListForReport" style="position:relative;" class="panel p-rel custom-panel-wrapper pb-b fd-c ai-c border-l0 border-r0 border-b0">
+                    <p id="{{doc.docName}}" class="small-headings mar-b20 mar-autor" style="margin-top:1%;">{{doc.title || doc.docName}}</p>
+                    <div class="d-flex ai-c jc-c width-100 p-rel">
+                        <img class="img img-responsive width" style="z-index:9;" src="{{doc['url']}}" />
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+</div>
+
+
+

@@ -1,0 +1,51 @@
+<!-- @uthor:shravani
+     Date:19-5-2020
+     Purpose: To show all the Ratings 
+-->
+<div class="review-container top-row custom-row bst_row_wrapper">
+    <div class="col-sm-12 pad-b0 pad-x0 custom-col">
+        <div class="panel custom-panel-wrapper bst_panel_wrapper details-panel-wrapper height-100">
+            <div class="panel-heading  d-flex ai-c">
+                <h4 class="f-18 lh-1_2 top-details-heading mar-b0">Reviews
+                    <select class="filter pull-right text-capitalize mar-0 c-pointer h-2_4 custom-select-box f-12">
+                        Sort by:
+                        <option *ngFor="let filter of filterObj" [ngValue]="filter">
+                            {{filter}}</option>
+                    </select>
+                    <div class="search-bar pull-right ai-c d-flex light-theme-no-bottom-border">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        <input type="text" class="custom-input input-control light-theme-bg-transparent"
+                            placeholder="Search reviews" [(ngModel)]="searchInfo">
+                    </div>
+                </h4>
+
+            </div>
+            <div class="review-body panel-body panel-scroll " malihu-scrollbar
+                [scrollbarOptions]="scrollbarOptions" *ngIf="ratingInfo">
+                <div class="row review-row" *ngFor="let rating of ratingInfo | textFilter:searchInfo">
+                    <div class="col-sm-1 d-flex ai-c">
+                        <div class="user-icon ">
+                            <span>{{formatName(rating.author)}}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 d-flex ai-c">
+                        {{rating.author}}
+                    </div>
+                    <div class="col-sm-9">
+                        <rating [(ngModel)]="rating.reviewRating.ratingValue" [max]="5" [readonly]="true"
+                            [disabled]="false" [float]="true">
+                        </rating>
+                        <span class="pl-3">{{formateTime(rating.datePublished)}}</span><br>
+                        {{rating.description}}
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="ratingInfo === undefined " class="not-found mnh-150">
+                <p style="text-align:center;color:red !important;">Data Not Found</p>
+            </div>
+            <span class="custom-spinner full-page-spinner" style="height: 100%;" *ngIf="pageLoader">
+                <i class="fa fa-spinner txt-on-surface-06 fa-spin fa-4x"></i>
+            </span>
+        </div>
+    </div>
+</div>

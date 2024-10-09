@@ -1,0 +1,326 @@
+/*==============================================================================
+******************  Custom Panel Wrapper Styles For The Site  ******************
+==============================================================================*/
+
+.custom-panel-wrapper {
+
+
+
+  .panel-heading {
+
+    color: $white;
+
+    .panel-title {
+      @include padding(0);
+      position: relative;
+
+      i {
+        font-size: $font-size-large;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    .link-red {
+      float: right;
+      font-size: ($font-size-large - 5);
+      line-height: ($line-height-computed * 1.05);
+    }
+
+    .link-black,
+    .link-red,
+    .link-white,
+    .link-yellow {
+      i {
+        top: 3px;
+        font-size: ($font-size-large - 2);
+      }
+    }
+  }
+
+  .panel-body {
+    .description {
+      @include margin(0 -15px 0);
+      color: $dark-grey8;
+      font-size: $font-size-base;
+      line-height: ($line-height-computed * 1.05);
+      // font-family: $roboto-regular;
+
+      strong {
+        color: $dark-grey9;
+      }
+    }
+
+    .custom-list {
+      li {
+        a {
+          @extend .text-center;
+          color: $dark-grey8;
+          font-size: $font-size-base;
+          line-height: ($line-height-computed * 1.05);
+
+          img {
+            min-height: 50px;
+          }
+        }
+      }
+    }
+  }
+
+  &.panel-info {
+    .panel-body {
+      p {
+        color: $dark-grey8;
+        font-size: $font-size-base;
+        line-height: ($line-height-computed * 1.05);
+
+        &.description {
+          @include margin(0 0 15px);
+          @include padding(0 0 15px);
+          border-bottom: 1px solid $dark-grey3;
+        }
+      }
+
+      .breadcrumb {
+        @include padding(0);
+        background-color: transparent;
+
+        li {
+          a {
+            color: $dark-grey8;
+            font-size: $font-size-base;
+            line-height: ($line-height-computed * 1.05);
+          }
+        }
+      }
+    }
+
+    .panel-footer {
+      background-color: $light-blue;
+
+      h3 {
+        @include margin(0);
+        @include padding(0 0 0 30px);
+        color: $white;
+        font-size: $font-size-large;
+        position: relative;
+
+        i {
+          font-size: ($font-size-large * 1.5);
+          position: absolute;
+          top: -3px;
+          left: 0;
+        }
+
+        small {
+          color: $white;
+          position: relative;
+          top: -2.5px;
+        }
+      }
+
+      a {
+        color: $white;
+        font-size: $font-size-large;
+      }
+    }
+  }
+
+  &.bst_panel_wrapper {
+    background-color: #2d2d2d;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 4px 5px 0 rgba(0, 0, 0, 0.14);
+    border-radius: 10px;
+
+    .panel-heading {
+      background-color: transparent;
+      height: 35px;
+      padding: 10px 0 0 10px;
+
+      &.panel-heading-right {
+        height: auto;
+        background-color: transparent;
+      }
+
+      .top-details-heading {
+        @extend .text-uppercase;
+        color: $text-dark;
+        font-size: 14px;
+        line-height: 16px;
+        // font-family: $roboto-medium;
+        @include fontFamily($fonts) {
+          font-family: fonted(font-medium);
+        }
+        margin-bottom: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        .button-list {
+
+          border-radius: .5rem;
+
+          li {
+            padding: 0;
+            margin: 0 .5rem 0 0;
+            width: 33%;
+            min-width: 60px;
+
+            .badges {
+              padding: 0% 10% !important;
+              font-size: 11px !important;
+              background-color: #545454;
+              border-radius: .5rem;
+              text-align: center;
+            }
+          }
+        }
+      }
+
+      h4 {
+        @extend .text-capitalize;
+        @extend .roboto-light;
+        @extend .text-cream;
+        font-size: 18px;
+        font-weight: 300;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.33;
+        letter-spacing: normal;
+      }
+    }
+
+    .panel-body {
+      padding: 0 1.5rem;
+      height: calc(100% - 3.5rem);
+
+      span {
+        font-weight: 400;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.43;
+        letter-spacing: -.2px;
+      }
+
+      #chart-container-scroll {
+        height: 438px;
+
+        .mCSB_scrollTools_horizontal {
+          bottom: -12px !important;
+        }
+      }
+
+      &.right-panel-body {
+        max-height: none;
+        height: calc(100% - 35px);
+
+        .media-list {
+          &.list-scroll-2 {
+            height: 190px;
+
+            .media-heading {
+              margin-top: 7px !important;
+            }
+          }
+
+          &.media-list-scroll {
+            height: 250px;
+          }
+        }
+      }
+
+      .company-details {
+        .company-details-wrapper {
+          @extend .clearfix;
+
+          .left {
+            @extend .pull-left;
+            display: inline-block;
+            width: 150px;
+
+            p {
+              color: rgba($text-color-default, .6);
+              font-size: 12px;
+              line-height: 16px;
+              // font-family: $roboto-light;
+              @include fontFamily($fonts) {
+                font-family: fonted(font-light);
+              }
+              margin-bottom: .5rem;
+              padding: 0 1rem 0 0;
+
+
+            }
+          }
+
+          .center {
+            @extend .pull-left;
+            width: calc(100% - 150px);
+            display: inline-block;
+
+            span {
+              color: rgba($text-color-default, .6);
+              font-size: 12px;
+              line-height: 16px;
+              // font-family: $roboto-light;
+              @include fontFamily($fonts) {
+                font-family: fonted(font-light);
+              }
+
+            }
+          }
+
+
+        }
+      }
+
+      &.height-280px {
+        max-height: none;
+        height: 256px;
+      }
+
+      p {
+        @extend .roboto-regular;
+        @extend .text-cream;
+        font-size: 14px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.43;
+        letter-spacing: -0.2px;
+      }
+    }
+  }
+}
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+@media (min-width:$screen-lg) {}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {}
+
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {
+  .custom-panel-wrapper {
+    .panel-heading {
+      .panel-title {
+        @include padding(0 0 0 20px);
+        font-size: $font-size-base;
+
+        i {
+          font-size: ($font-size-base + 2);
+          top: 2px;
+          left: -5px;
+        }
+      }
+
+      .link-red {
+        font-size: $font-size-base;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {}

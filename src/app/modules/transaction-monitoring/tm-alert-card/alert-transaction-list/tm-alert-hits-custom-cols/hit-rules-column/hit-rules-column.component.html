@@ -1,0 +1,65 @@
+<div class="custom-cell">
+    <!-- <a role="button" #hitRulesLink [ngbPopover]="popContent" popoverClass="popover-styles" autoClose="outside" placement="auto" container="body"
+    #closePop="ngbPopover">Hit Rules</a> -->
+    <button mat-icon-button class="material-icons-round p-0 c-pointer f-20 border-0 bg-transparent"
+        matTooltip="View Rules | translate"
+        [ngbPopover]="popContent"
+        popoverClass="popover-styles"
+        autoClose="outside"
+        placement="auto"
+        container="body"
+        #closePop="ngbPopover"
+    >
+        info
+    </button>
+</div>
+
+<ng-template #popContent>
+    <div class="w-100 h-100 bst-color-gray">
+        <div class="bst-color-rgba-60 header text-on-surface">
+            <div class="content-title">{{ 'Hit Rules' | translate }}</div>
+            <i class="material-icons c-pointer close-btn" (click)="closePop.close()">close</i>
+        </div>
+        
+        <div class="content-body">
+            <div class="rules-container h-100 overflow-auto pr-3 custom-scroll-wrapper">
+                <div class="rule-item text-on-surface" *ngFor="let rule of hitRules">
+                    <div class="criteria-list col-margin">
+                        <span class="mr-2"> {{ 'Hit Name' | translate }}: </span>
+                        <span> {{ rule.name || '-'}} </span>
+            
+                        <span class="mr-2"> {{ 'Hit Score' | translate }}: </span>
+                        <span> {{ rule.score || '-'}} </span>
+            
+                        <ng-container *ngFor="let criteria of rule.criteria">
+                            <span class="mr-2 text-capitalize"> {{ criteria.name | translate }}: </span>
+                            <span class="text-capitalize"> {{ criteria.value || '-'}} </span>
+                        </ng-container>
+                    </div>
+                    <div>
+            
+                    </div>
+            
+                    <hr class="rule-item-divider text-on-surface my-3" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="dialog-header d-flex mb-4 align-items-center">
+        <span class="color-gray text-dark-black f-20">Hit Rules</span>
+    
+        <i class="material-icons color-gray text-dark-black c-pointer close-icon">close</i>
+    </div>
+    <div class="dialog-body reason-dialog">
+        <div class="details-column col-margin">
+            <span class="mr-2" translate> Entity Name: </span>
+            <span> {{ alertCardData?.entityName || '-'}} </span>
+    
+            <span class="mr-2" translate> Entity ID: </span>
+            <span> {{ alertCardData?.entityId || '-'}} </span>
+    
+            <span class="mr-2" translate> Tenant ID: </span>
+            <span> {{ alertCardData?.tenantId || '-'}} </span>
+        </div>
+    </div> -->
+</ng-template>

@@ -1,0 +1,36 @@
+    .initial-name-wrapper {
+      // width: 3.2rem;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(116, 116, 116, 0.8);
+      font-size: 1rem;
+      margin-right: 5px;
+      text-align: center;
+      min-width: 32px;
+      max-width: 32px;
+           display: flex; 
+    align-items: center; 
+    justify-content: center;
+    }
+
+    ::ng-deep .status-icons {
+      .check_circle {
+        color: #3eb6ff;
+      }
+
+      .watch_later {
+        color: #00796b;
+      }
+
+      .block {
+        color: #ef5350;
+      }
+
+      .pause_circle_filled {
+        color: #e6ae20;
+      }
+
+      .cancel {
+        color: rgba(255, 255, 255, 0.54);
+      }
+    }

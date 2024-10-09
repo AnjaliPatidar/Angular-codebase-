@@ -1,0 +1,39 @@
+/*==============================================================================
+********************  RZ Slider Styles For The Site  ***********************
+==============================================================================*/
+
+/*--  RZ Slider Styles  --*/
+
+.custom-rzslider-wrapper {
+    .rzslider {
+        margin: 15px 0;
+        .rz-bar-wrapper {
+            padding-top: 6px;
+            .rz-bar {
+                background: #324853;
+            }
+        }
+        .rz-pointer {
+            top: -16px;
+            width: 10px;
+            height: 15px;
+            background-color: #324853;
+            &:after {
+                top: 4px;
+                left: 1px;
+                width: 8px;
+                height: 8px;
+                background: #213239;
+                &:hover,
+                &:focus {
+                    background: #213239;
+                }
+            }
+            &.rz-active {
+                &:after {
+                    background: #213239;
+                }
+            }
+        }
+    }
+}

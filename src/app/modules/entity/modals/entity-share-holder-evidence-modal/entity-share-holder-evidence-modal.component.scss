@@ -1,0 +1,50 @@
+::ng-deep {
+  .bst_custom_accordian .accordion .card .collapse.show:after {
+    height: 0px;
+  }
+
+  app-entity-share-holder-evidence-modal {
+    height: 100%;
+  }
+
+  .custom-acc-tab {
+    p {
+      line-height: 16px !important;
+    }
+
+    .card {
+      background: #424242 !important;
+      border-radius: 10px;
+      position: relative;
+
+      &:after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 5px;
+        background-image: linear-gradient(to top, rgba(249, 249, 249, 0.2), rgba(250, 250, 250, 0.5));
+        top: 0;
+        left: 0;
+        border-radius: 5px 0 0 5px;
+      }
+
+      &:nth-of-type(odd) {
+        background-color: #353535;
+      }
+    }
+
+
+
+    .media-left {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      margin-right: 10px;
+      align-items: center;
+      background: #747474;
+    }
+  }
+}

@@ -1,0 +1,346 @@
+{
+    "result": [
+        {
+            "entity_status_id": 297434,
+            "entity_name": "case",
+            "status_key": "new",
+            "status_value": "New",
+            "reasons": [
+                {
+                    "reason": "option1",
+                    "allowDelete": true,
+                    "reason_id": 298755,
+                    "reason_code": "reason1"
+                },
+                {
+                    "reason": "reason2",
+                    "allowDelete": true,
+                    "reason_id": 298822,
+                    "reason_code": "reason"
+                }
+            ]
+        },
+        {
+            "entity_status_id": 297435,
+            "entity_name": "case",
+            "status_key": "returnedPendingReview",
+            "status_value": "Returned-Pending Review",
+            "reasons": [
+                {
+                    "reason": "option checking1",
+                    "allowDelete": true,
+                    "reason_id": 302345,
+                    "reason_code": "option1"
+                },
+                {
+                    "reason": "optionchecking2",
+                    "allowDelete": true,
+                    "reason_id": 302346,
+                    "reason_code": "option checking"
+                }
+            ]
+        },
+        {
+            "entity_status_id": 297436,
+            "entity_name": "case",
+            "status_key": "dcAbandoned",
+            "status_value": "Abandoned",
+            "reasons": []
+        },
+        {
+            "entity_status_id": 297437,
+            "entity_name": "case",
+            "status_key": "dcHold",
+            "status_value": "SCREENING ESCALATION",
+            "reasons": [
+                {
+                    "reason": "sdklfjsg",
+                    "allowDelete": true,
+                    "reason_id": 313105,
+                    "reason_code": "jklszdf"
+                }
+            ]
+        },
+        {
+            "entity_status_id": 297438,
+            "entity_name": "case",
+            "status_key": "test",
+            "status_value": "Pending Sign-off",
+            "reasons": []
+        },
+        {
+            "entity_status_id": 297439,
+            "entity_name": "case",
+            "status_key": "outreach",
+            "status_value": "Outreach",
+            "reasons": []
+        },
+        {
+            "entity_status_id": 297440,
+            "entity_name": "case",
+            "status_key": "accepted",
+            "status_value": "Accepted",
+            "reasons": []
+        },
+        {
+            "entity_status_id": 297441,
+            "entity_name": "case",
+            "status_key": "holdPendingReview",
+            "status_value": "QA Review for Screening",
+            "reasons": []
+        },
+        {
+            "entity_status_id": 297442,
+            "entity_name": "case",
+            "status_key": "clarification",
+            "status_value": "Clarification Required",
+            "reasons": []
+        },
+        {
+            "entity_status_id": 297443,
+            "entity_name": "case",
+            "status_key": "submitPendingReview",
+            "status_value": "QA Review for Outreach",
+            "reasons": []
+        },
+        {
+            "entity_status_id": 297444,
+            "entity_name": "case",
+            "status_key": "clientAbandoned",
+            "status_value": "Abandoned",
+            "reasons": []
+        },
+        {
+            "entity_status_id": 297445,
+            "entity_name": "case",
+            "status_key": "research",
+            "status_value": "Under Review",
+            "reasons": [
+                {
+                    "reason": "underreview",
+                    "allowDelete": true,
+                    "reason_id": 308951,
+                    "reason_code": "reason"
+                }
+            ]
+        },
+        {
+            "entity_status_id": 297446,
+            "entity_name": "case",
+            "status_key": "submitted",
+            "status_value": "CLIENT OUTREACH",
+            "reasons": []
+        },
+        {
+            "entity_status_id": 297447,
+            "entity_name": "case",
+            "status_key": "escalation",
+            "status_value": "Escalation",
+            "reasons": []
+        },
+        {
+            "entity_status_id": 297448,
+            "entity_name": "case",
+            "status_key": "cancelled",
+            "status_value": "Cancelled",
+            "reasons": []
+        },
+        {
+            "entity_status_id": 297449,
+            "entity_name": "case",
+            "status_key": "clarificationPendingReview",
+            "status_value": "QA Review for Clarification",
+            "reasons": []
+        },
+        {
+            "entity_status_id": 297450,
+            "entity_name": "case",
+            "status_key": "clientHold",
+            "status_value": "Hold",
+            "reasons": []
+        },
+        {
+            "entity_status_id": 297451,
+            "entity_name": "case",
+            "status_key": "completed1",
+            "status_value": "Completed",
+            "reasons": []
+        },
+        {
+            "entity_status_id": 297452,
+            "entity_name": "case",
+            "status_key": "returned",
+            "status_value": "Returned",
+            "reasons": []
+        },
+        {
+            "entity_status_id": 297453,
+            "entity_name": "case",
+            "status_key": "escalationPendingReview",
+            "status_value": "Escalation - Pending Review",
+            "reasons": []
+        },
+        {
+            "entity_status_id": 297454,
+            "entity_name": "case",
+            "status_key": "outreachPendingReview",
+            "status_value": "Outreach - Pending Review",
+            "reasons": []
+        },
+        {
+            "entity_status_id": 297455,
+            "entity_name": "case",
+            "status_key": "cancelled1",
+            "status_value": "Cancelled",
+            "reasons": []
+        },
+        {
+            "entity_status_id": 297456,
+            "entity_name": "alert",
+            "status_key": "883",
+            "status_value": "New",
+            "reasons": [
+                {
+                    "reason": "option1",
+                    "allowDelete": true,
+                    "reason_id": 297773,
+                    "reason_code": "1235"
+                },
+                {
+                    "reason": "option2",
+                    "allowDelete": true,
+                    "reason_id": 297774,
+                    "reason_code": "456789"
+                }
+            ]
+        },
+        {
+            "entity_status_id": 297457,
+            "entity_name": "alert",
+            "status_key": "884",
+            "status_value": "Identity Approved",
+            "reasons": [
+                {
+                    "reason": "check1",
+                    "allowDelete": true,
+                    "reason_id": 298248,
+                    "reason_code": "12e"
+                },
+                {
+                    "reason": "option2",
+                    "allowDelete": true,
+                    "reason_id": 300903,
+                    "reason_code": "4434"
+                },
+                {
+                    "reason": "option 3",
+                    "allowDelete": true,
+                    "reason_id": 300904,
+                    "reason_code": "dsfs"
+                },
+                {
+                    "reason": "option4",
+                    "allowDelete": true,
+                    "reason_id": 300905,
+                    "reason_code": "dasd"
+                },
+                {
+                    "reason": "release",
+                    "allowDelete": true,
+                    "reason_id": 303698,
+                    "reason_code": "check"
+                }
+            ]
+        },
+        {
+            "entity_status_id": 297458,
+            "entity_name": "alert",
+            "status_key": "885",
+            "status_value": "Identity Rejected",
+            "reasons": []
+        },
+        {
+            "entity_status_id": 297459,
+            "entity_name": "alert",
+            "status_key": "886",
+            "status_value": "Identity Approved, Needed Review",
+            "reasons": []
+        },
+        {
+            "entity_status_id": 297460,
+            "entity_name": "alert",
+            "status_key": "887",
+            "status_value": "Identity Rejected, Needed Review",
+            "reasons": []
+        },
+        {
+            "entity_status_id": 297461,
+            "entity_name": "alert",
+            "status_key": "888",
+            "status_value": "Approved",
+            "reasons": [
+                {
+                    "reason": "option1",
+                    "allowDelete": true,
+                    "reason_id": 297775,
+                    "reason_code": "12345698"
+                },
+                {
+                    "reason": "option3",
+                    "allowDelete": true,
+                    "reason_id": 297777,
+                    "reason_code": "54782"
+                }
+            ]
+        },
+        {
+            "entity_status_id": 297462,
+            "entity_name": "alert",
+            "status_key": "889",
+            "status_value": "Approved, Needed Review",
+            "reasons": []
+        },
+        {
+            "entity_status_id": 297463,
+            "entity_name": "alert",
+            "status_key": "890",
+            "status_value": "Rejected",
+            "reasons": [
+                {
+                    "reason": "option1",
+                    "allowDelete": true,
+                    "reason_id": 298041,
+                    "reason_code": "159"
+                },
+                {
+                    "reason": "option2",
+                    "allowDelete": true,
+                    "reason_id": 298042,
+                    "reason_code": "789"
+                },
+                {
+                    "reason": "option3",
+                    "allowDelete": true,
+                    "reason_id": 298043,
+                    "reason_code": "895"
+                }
+            ]
+        },
+        {
+            "entity_status_id": 297464,
+            "entity_name": "alert",
+            "status_key": "891",
+            "status_value": "Rejected, Needed Review",
+            "reasons": []
+        },
+        {
+            "entity_status_id": 297465,
+            "entity_name": "alert",
+            "status_key": "104922",
+            "status_value": "test",
+            "reasons": []
+        }
+    ],
+    "paginationInformation": null,
+    "types": null
+}

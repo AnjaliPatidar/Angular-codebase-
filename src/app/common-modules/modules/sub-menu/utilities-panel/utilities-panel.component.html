@@ -1,0 +1,43 @@
+<div class="dashboard-title-wrapper">
+  <a class="dropdown-toggle bg-transparent border-0 ai-c d-flex">
+    <img class="square-40" src="./assets/images/logo.webp">
+    <span class="hidden-xs f-19 mar-l10 text-white">{{dashboardName | translate}}</span>
+    <!-- ngIf: submenu.dashboardName != submenu.hoverdashboardName.toLowerCase() <span ng-if="submenu.dashboardName != submenu.hoverdashboardName.toLowerCase()" class="hidden-xs f-21 mar-l10 ng-binding ng-scope">Predict</span><!-- end ngIf: submenu.dashboardName != submenu.hoverdashboardName.toLowerCase() -->
+    <span (click)="hidePanel()"><i class="fa fa-times icon-right text-white"></i></span>
+  </a>
+</div>
+<div class="submenu-tab-wrapper custom-scroll-wrapper bg-{{dashboardName|lowercase}}"
+  *ngIf="submenuOptions && submenuOptions.moduleGroups && submenuOptions.moduleGroups.length">
+  <ngb-tabset #t="ngbTabset">
+    <ngb-tab *ngFor="let dashboardItem of submenuOptions.moduleGroups;trackBy:trackByModuleGroupName"  permission [domainPermission]="dashboardItem.permissionDetails">
+      <ng-template ngbTabTitle><span><span
+            (mouseenter)="getDashboardName(dashboardItem.moduleGroupName,dashboardItem.modules)"><i
+              class="{{dashboardItem?.moduleGroupIcon}} f-21 list-item-{{dashboardItem?.moduleGroupName|lowercase}} mar-r10 icon"></i></span></span>
+      </ng-template>
+      <ng-template ngbTabContent >
+        <div class="tile height-100 {{dashboardItem?.moduleGroupName?.toLowerCase()}}-tile">
+
+          <div class="tile-contents height-100">
+            <ul class=" tile-contents-list mar-b0 list-submenu height-100 ">
+              <li routerLink="{{content?.route}}" id="submenu" class="tile-contents-list-item" *ngFor="let content of moduleList;trackBy:trackByModuleName"   permission [domainPermission]="content.permissionDetails"
+                (click)="getSubMenu(content, content.disabled, dashboardItem); $event.stopPropagation()">
+
+                <button [disabled]="content.disabled"
+                  class="btn btn-default w-100 d-flex align-items-center overflow-h bg-transparent">
+                  <i class="{{content?.moduleIcon}} icon"
+                    *ngIf="content.moduleName != 'Fraud' && content.moduleName != 'Lead Generation'"></i>
+                  <img src="assets/images/icon/fraud.svg" class="img-responsive center-block"
+                    style="width:32px;height:32px" *ngIf="content.moduleName == 'Fraud'">
+                  <img src="assets/images/icon/leadGeneration.svg" class="img-responsive center-block"
+                    style="width:32px;height:32px" *ngIf="content.moduleName == 'Lead Generation'">
+                  <span class="text-center text-cream text-uppercase f-8">{{content?.moduleName | translate}}</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-tab>
+
+  </ngb-tabset>
+</div>

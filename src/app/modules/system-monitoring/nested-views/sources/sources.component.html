@@ -1,0 +1,16 @@
+<div class="d-flex fd-c sources-list">
+  <div class="ag-table-wrapper data-table-wrapper" style="flex:1;height: 100vh;margin-top:0%">
+    <!--=================================Ag grid table loader starts=======================================-->
+    <div class="app-loader h-100" *ngIf="agGridLoader">
+      <div class="text-center text-on-surface custom-dropdown-menu source-management-loader">
+        <i class="fa fa-spinner txt-on-surface-06 fa-pulse" style="font-size:4rem;"></i>
+      </div>
+    </div>
+
+    <button class="export-button position-absolute bg-transparent ws-nowrap mar-r10 f-14  text-dark-black text-uppercase"  permission [domainPermission]="permissionIdsList | getPermissionId :'export Data'" 
+      (click)="exportData()">{{'ExportData' | translate}}</button>
+
+    <!--=================================Ag grid table loader ends=======================================-->
+    <app-ag-grid-table [fromComponent]="componentName" class="source-monitoring-table mar-t10" [tableData]="gridOptions"></app-ag-grid-table>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+.cdk-drop-list{
+    display: flex !important;
+    flex-direction: column !important;
+}
+.drag-icon{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    z-index: 9999;
+    transform: translateY(-35%);
+}
+
+mat-form-field{
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    width: 100% !important;
+    padding: 0 15px;
+    // padding-top: 18px;
+    height: 32px;
+    border-radius: var(--smComponentCornerRadius);
+}

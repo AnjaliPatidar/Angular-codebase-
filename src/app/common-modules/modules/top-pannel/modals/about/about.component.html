@@ -1,0 +1,77 @@
+<div class="screening-batch-main position-relative p-0">
+    <div class="screening-batch-header light-theme-border-bottom pb-2 mb-4 border-cream-thin-b d-flex justify-content-between">
+        <h2 class="upload-file f-23 text-capitalize m-0 text-dark-black gotham-medium font-medium">{{'About' | translate}}</h2>
+        <i class="material-icons c-pointer color-image text-dark-black" (click)="close()">close</i>
+    </div>
+
+    <div class="bst-version-details text-center mb-4">
+        <img src="assets/images/logo-ele.webp" alt="bst" class="mb-4 img-fluid">
+        <p class="f-14 mb-3 text-dark-black">ELEMENT&trade;</p>
+        <p class="f-14 mb-3 text-dark-black">Version {{elementVersion}}</p>
+        <p class="f-14 mb-3 text-dark-black">&copy; 2020 Blackswan Technologies</p>
+        <p class="f-14 mb-3 text-dark-black">All rights reserved</p>
+    </div>
+
+<!--
+    <div class="mxh-200 custom-scroll-wrapper overflow-a">
+        <table class="table table-bordered" *ngIf="servicesListKeys && servicesListKeys.length">
+            <tr *ngFor="let service of servicesListKeys">
+                <td class="f-14">{{ service }}</td>
+                <td class="f-14 text-uppercase text-center">{{servicesList[service] }}</td>
+            </tr>
+        </table>
+
+        <div class="d-flex justify-content-center align-items-center mnh-200" *ngIf="!(servicesListKeys && servicesListKeys.length) && !isNoDataFound">
+            <i class="fa fa-spinner txt-on-surface-06 fa-pulse f-23"> </i>
+        </div>
+        <div class="d-flex justify-content-center align-items-center mnh-200" *ngIf="isNoDataFound">
+           <p class="text-coral-red">No Data Found</p>
+        </div>
+    </div> -->
+    <ng-container *ngIf="servicesListKeys && servicesListKeys.length">
+        <p class="f-14 mb-4 text-dark-black">{{'Installed Products' | translate}}</p>
+
+        <div class="row version-details">
+            <div class="col-4">
+                <div class="versions-list">
+                    <div class="nav flex-column nav-pills p-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <ng-container *ngFor="let service of servicesListKeys">
+                            <div class="main-version border-cream-thin-b mb-3" *ngIf="service === 'Explorer'">
+                                <p class="f-12 color-gray text-dark-black">{{'Main version' | translate}}:</p>
+                                <a class="nav-link f-15 py-4 pl-0" [class.text-dark-black]="currentProduct != service" [class.active-link]="currentProduct == service" (click)="showDescription(service)"> {{service}} : {{servicesList[service] }} </a>
+                            </div>
+                        </ng-container>
+                            <div>
+                                <p class="f-12 color-gray text-dark-black">{{'Additional Services' | translate}}:</p>
+                                <div class="mxh-200 overflow-auto custom-scroll-wrapper">
+                                    <ng-container *ngFor="let service of servicesListKeys">
+                                        <a class="nav-link f-15 py-4 pl-0" [class.text-dark-black]="currentProduct != service"  [class.active-link]="currentProduct == service" (click)="showDescription(service)" *ngIf="service != 'Explorer'" >{{service}} {{servicesList[service] }}</a>
+                                    </ng-container>
+                                </div>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+            <div class="tab-content h-100" id="v-pills-tabContent h-100">
+                <div class="f-14 lh-20 h-100 version-description text-dark-black p-3">
+                    <p class="f-12 color-gray mb-4 text-dark-black">{{'Service Details' | translate}}:</p>
+                    {{versionsDescription[currentProduct]}}
+            </div>
+            </div>
+            </div>
+        </div>
+    </ng-container>
+    <div class="d-flex justify-content-center align-items-center mnh-200" *ngIf="!(servicesListKeys && servicesListKeys.length) && !isNoDataFound">
+        <i class="fa fa-spinner txt-on-surface-06 fa-pulse f-23"> </i>
+    </div>
+    <div class="d-flex justify-content-center align-items-center mnh-200" *ngIf="isNoDataFound">
+        <p class="text-coral-red">{{'No Data Found' | translate}}</p>
+    </div>
+
+    <div class="text-right mt-3">
+        <button class="btn gotham-medium light-theme-btn primary-btn btn-primary px-5" type="button" (click)="close()">{{'OK' | translate}}</button>
+    </div>
+
+</div>

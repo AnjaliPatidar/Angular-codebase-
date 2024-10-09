@@ -1,0 +1,220 @@
+<div class="risk-overview-modal-wrapper">
+  <div class="modal-header pad-b5 position-relative">
+    <button type="button" class="closePulseModal width-5 text-cream  pad-x0 pull-right"
+      (click)="activeModal.dismiss(false)" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title width-95 text-overflow"><span id="articleHeader">Edit Entity For Screening</span></h4>
+  </div>
+  <div class="modal-body">
+    <form class="form pad-r0" autocomplete="no-display" #personForm="ngForm"
+      (ngSubmit)="saveTheValueOfOwnership(true,editUBOValue)" autocomplete="off">
+      <div class="d-flex mar-b20 ai-c">
+        <div class=" p-rel  mar-b0 bst_input_group  width-45 company-icon">
+          <i class="fas placeholder-icon"
+            [ngClass]="popOverEditDataForOwnership.entity_type === 'person' ? 'fa-user':'fa-building' "></i>
+          <input type="text" autocomplete="no-display" name="companyName" #companynameRef="ngModel"
+            class="custom-input text-cream pad-t15 pad-x15 f-12 mt-1 height-100"
+            [(ngModel)]="popOverEditDataForOwnership.name" placeholder="First Name" required
+            [disabled]="popOverEditDataForOwnership.entity_id ==='orgChartmainEntity'"
+            [ngClass]="popOverEditDataForOwnership.entity_id ==='orgChartmainEntity' ? 'c-ban':''">
+          <span class="label pl-4"
+            *ngIf="popOverEditDataForOwnership.entity_type && popOverEditDataForOwnership.entity_type !== 'person'">Company
+            Name</span>
+          <span class="label"
+            *ngIf="popOverEditDataForOwnership.entity_type && popOverEditDataForOwnership.entity_type === 'person'">Person
+            Name</span>
+
+          <p class=" width-100 text-coral-red f-10 mar-b0 " *ngIf="companynameRef.touched && companynameRef.invalid">
+            *Please Enter Company Name</p>
+        </div>
+        <div class=" mar-b0 mar-x15 bst_input_group  width-20 p-rel ">
+          <input type="text" autocomplete="no-display" [(ngModel)]="popOverEditDataForOwnership.numberOfShares"
+            name="shareHolders" maxlength="7" placeholder="number of shares"
+            class="custom-input text-cream pad-x15 pad-t20 f-12 height-100">
+          <span class="label"> Number Of Shares</span>
+          <p class=" width-100 d-none mar-xauto d-ib text-center text-dark-cream f-10 mar-b0">*Required Field
+          </p>
+        </div>
+        <div class="custom-range-wrapper mar-t0 width-20 entity-range-bar"
+          *ngIf="editshowDirectIndirectPercentagePerson && popOverEditDataForOwnership.Ubo_ibo !== 'officers'">
+          <h3 class="font-light text-capitalize mar-b5 mar-t0 text-dark-cream f-12 c-arrow">Direct ownership
+          </h3>
+          <input class="" type="range" min="1" max="100" step="any"
+            [(ngModel)]="popOverEditDataForOwnership.totalPercentage" name="totalPercentageRange">
+        </div>
+        <div class="w-50 mar-l5 h-2_4 bst_input_group d-ib mar-b0 border-r3"
+          *ngIf="editshowDirectIndirectPercentagePerson && popOverEditDataForOwnership.Ubo_ibo !== 'officers'">
+          <input type="number" max="100" step="any" name="perceentageInput"
+            [(ngModel)]="popOverEditDataForOwnership.totalPercentage"
+            class="custom-input border-blue-thin-b f-12 h-2_4 mar-0 pad-5" id="">
+        </div>
+      </div>
+
+      <div class="d-flex mar-b20 ai-c">
+        <div class="width-45 jurisdiction-screening bst_input_group p-rel d-block flag-icon"
+          [ngClass]="{'modal-pad-left': editCustomSelected.country }" id="input_container">
+          <!-- <input type="text" autocomplete="off" ng-model="editCustomSelected.country" placeholder=""
+                        uib-typeahead="state as state.jurisdictionOriginalName for state in countryNames | filter:{jurisdictionOriginalName:$viewValue}"
+                        typeahead-template-url="customTemplate.html"
+                        class="custom-input pad-b5 pad-t15 pad-x15 mar-t0 bg-transparent typehead-dropdown"
+                        typeahead-show-hint="true" typeahead-min-length="0" typeahead-on-select="countrySelected($label,$item)"
+                        id="input"> -->
+          <!-- <img *ngIf="editCustomSelected.country" [src]="editSelectedFlagSource" id="input_img"> -->
+
+          <ng-template #rt let-r="result" let-t="term">
+            <span class="flag-icon flag-icon-squared flag-icon-{{r.jurisdictionName}}"></span>
+            <ngb-highlight [result]="r.jurisdictionOriginalName" [term]="t"></ngb-highlight>
+          </ng-template>
+          <span
+            class="flag-icon flag-icon-squared placeholder-icon flag-icon-{{editCustomSelected.jurisdictionName}}"></span>
+          <!-- <div class="width-45 flag-icon bst_input_group"> -->
+          <input id="typeahead-template" type="text" class="form-control mt-2 pt-3 custom-input" placeholder="country name" selectItem
+            [(ngModel)]="editCustomSelected" name="countryautocomplete" [ngbTypeahead]="searchCountry"
+            [resultTemplate]="rt" [inputFormatter]="selectedCountry" />
+          <!-- </div> -->
+    <span class="label" style="color:rgba(251,251,251,.6)">Country Name
+          </span>
+          <p class=" width-45 d-none mar-xauto d-ib text-center text-dark-cream f-10 mar-b0 ng-scope"
+            *ngIf="!editCustomSelected.country">*Required Field</p>
+        </div>
+        <div class="width-20 mar-x15 bst_input_group p-rel d-block"
+          *ngIf="popOverEditDataForOwnership.entity_type !== 'person'">
+          <div class="select-box-wrapper  height-100">
+            <!-- <button id="menu1"
+                class="btn btn-primary d-flex jc-sb pad-t15 custom-input pad-x15 border-0 height-100 ai-c width-100 bg-transparent dropdown-toggle"
+                 type="button" data-toggle="dropdown">
+                <span class="width-75 f-12 text-left "><a
+                        class="f-12 text-cream"><span></span>{{entitySearchResult.list.recognized_entity.entityType}}</a></span>
+                </button> -->
+            <select
+              class="selectBoxWidget height-100 pad-x15 bg-transparent border-0 custom-input text-cream custom-select pad-t15 pad-b5"
+              id="editCompanyEntityType" name="entityType" [(ngModel)]="popOverEditDataForOwnership.SelectedEntityType">
+              <option *ngFor="let  v of EditEntityTypeList;trackBy:trackByEntityType" (click)="entitySelected(v)">{{v.entityType}}
+              </option>
+            </select>
+            <span class="label p-abs t-0 flag_select_label" style="color:rgba(251,251,251,.6)"> Entity Type
+            </span>
+            <!-- <ul class="dropdown-menu" role="menu" aria-labelledby="menu1" style="z-index:9999;">
+                <li class="c-pointer" (click)="entitySelected(item)"
+                    *ngFor="let item of EditEntityTypeList"><a>{{item.entityType}}</a></li>
+            </ul> -->
+
+          </div>
+        </div>
+        <div class="dropdown bst_input_group width-20 mar-x15 height-100 p-rel"
+          *ngIf="popOverEditDataForOwnership.entity_type == 'person'">
+          <select [(ngModel)]="editModelClassification.editRoleModel" name="roleSelection"
+            class="selectBoxWidget custom-input custom-input_select custom-select height-100 pad-t15 pad-b5 pad-x15 text-cream bg-transparent border-0 ng-pristine ng-untouched ng-valid ng-empty"
+            id="entityOfficeRole" style="-webkit-appearance: menulist !important;">
+            <option *ngFor="let v of editModelClassification.editRoleData;trackBy:trackByLabel" value="{{v.label}}">{{v.label}}
+            </option>
+          </select>
+          <span class="label p-abs t-0 flag_select_label" style="color:rgba(251,251,251,.6)">Role</span>
+        </div>
+        <div class="custom-range-wrapper mar-t0  width-20 entity-range-bar"
+          *ngIf="editshowDirectIndirectPercentagePerson && popOverEditDataForOwnership.Ubo_ibo !== 'officers' ">
+          <h3 class="font-light text-capitalize mar-b5 mar-t0 text-dark-cream f-12 c-arrow">Indirect
+            Ownership
+          </h3>
+          <input type="range" min="0" max="100" step="any" name="inPercentage"
+            [(ngModel)]="popOverEditDataForOwnership.indirectPercentage" class="">
+        </div>
+        <div class="w-50 mar-l5 h-2_4 bst_input_group d-ib mar-b0  border-r3"
+          *ngIf="editshowDirectIndirectPercentagePerson && popOverEditDataForOwnership.Ubo_ibo !== 'officers' ">
+          <input type="number" max="100" step="any" name="totalPercentage"
+            [(ngModel)]="popOverEditDataForOwnership.indirectPercentage"
+            class="custom-input border-blue-thin-b f-12 h-2_4 pad-0" id="">
+        </div>
+      </div>
+      <div class="d-flex mar-b20 ai-c">
+        <div class="width-45 mar-b0 mar-r10  bst_input_group  p-rel d-block website-icon"
+          *ngIf="popOverEditDataForOwnership.entity_type || popOverEditDataForOwnership.entity_type !== 'person'">
+          <input type="url" autocomplete="no-display" placeholder="website" name="editWebsite" pattern="https?://.+"
+            class="custom-input text-cream pad-x15 pad-t15 f-12 height-100"
+            [(ngModel)]="popOverEditDataForOwnership.hasURL" #editWebsite="ngModel">
+          <span class="label">Website</span>
+          <p class=" width-45  mar-xauto d-ib text-center text-coral-red f-10 mar-b0 ng-scope"
+            *ngIf="editWebsite.touched && editWebsite.pattern">*Please Enter Valid
+            format</p>
+        </div>
+        <div class="width-30 mar-b0  bst_input_group mar-r15  p-rel d-block"
+          *ngIf="popOverEditDataForOwnership.entity_type === 'person'">
+          <input type="text" autocomplete="no-display" placeholder="Dob" name="dateofbirth"
+            pattern="/^\d{4}-\d{2}-\d{2}$/" class="custom-input text-cream pad-x15 pad-t15 f-12 height-100"
+            [(ngModel)]="popOverEditDataForOwnership.date_of_birth" #dateofbirth="ngModel">
+          <span class="label">Date Of Birth</span>
+          <p class=" mar-xauto d-ib text-left text-coral-red f-10 mar-b0 ng-scope" *ngIf="dateofbirth.invalid">*Please
+            Enter Date in YYYY-MM-DD format</p>
+        </div>
+        <ng-multiselect-dropdown *ngIf="popOverEditDataForOwnership.entity_type === 'person'" name="personClasification"
+          [placeholder]="'Classifications'" [data]="editModelClassification.editPersonListData"
+          [(ngModel)]="editModelClassification.editPersonModel" [settings]="personSettings"
+          (onSelect)="onclassificationItemSelect($event)" (onSelectAll)="onclassificationItemSelect($event)"
+          (onDeSelect)="onclassificationItemSelect($event)" (onDeSelectAll)="onclassificationItemSelect($event)">
+        </ng-multiselect-dropdown>
+        <ng-multiselect-dropdown *ngIf="popOverEditDataForOwnership.entity_type !== 'person'"
+          name="classficiatioCompany" [placeholder]="'classifications'"
+          [data]="editModelClassification.editCompanyListData" [(ngModel)]="editModelClassification.editCompanyModel"
+          [settings]="personSettings" (onSelect)="onclassificationItemSelect($event)"
+          (onSelectAll)="onclassificationItemSelect($event)" (onDeSelect)="onclassificationItemSelect($event)"
+          (onDeSelectAll)="onclassificationItemSelect($event)">
+        </ng-multiselect-dropdown>
+        <div class="width-20 mar-x5 d-flex ai-c" *ngIf="popOverEditDataForOwnership.entity_type === 'person'">
+          <span class="text-cream f-14">Mark as UBO</span>
+          <label class="switch mar-autol custom-switch-wrapper override-switch bst-switch-wrapper">
+            <input type="checkbox" name="editUBO" [(ngModel)]="editUBOValue" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+      <div class="d-flex mar-b20 ai-c bst_border_t">
+        <div class="width-40 source-icon bst_input_group p-rel d-block">
+          <div class="select-box-wrapper  height-100">
+            <input class="custom-input pad-x10 pad-t15 lh-18 height-a mar-r10" autocomplete="no-display"
+              placeholder="addSource" (keyup)="toggleSourcedropDown()"
+              [(ngModel)]="popOverEditDataForOwnership.source_evidence" (focus)="getNewSources()" name="selectSource">
+            <span class="label">Source</span>
+            <ul class="custom-list searchSource z-99 mxh-140 l-0 pad-10px p-abs item-1"
+              *ngIf="popOverEditDataForOwnership.source_evidence && showfiteredSourceList">
+              <li class="" *ngFor="let sourceNameSearched of  fiteredSourceList;trackBy:trackBySourceName"
+                (click)="fillSourceSearchedInput(sourceNameSearched,'edit')">
+                {{sourceNameSearched.sourceName}}</li>
+            </ul>
+            <!-- <%-- <ul class="custom-list z-99 mxh-140 l-0 pad-10px p-abs item-1"
+                                            *ngIf="showAddNew && (sourceList && sourceList.length == 0)">
+                                            <li ctoggleSourcedropDownlass="" (click)="addSource()">Add new
+                                            </li>
+                                        </ul> --%> -->
+            <p class=" width-100  text-left text-coral-red f-10 mar-t5 "
+              *ngIf="popOverEditDataForOwnership.source_evidence === ''">
+              *Please Enter Source </p>
+          </div>
+        </div>
+        <div class="width-40 mar-b0 mar-x15  bst_input_group  p-rel d-block">
+          <input type="text" autocomplete="no-display" placeholder="sourceURL" name="sourceURL"
+            class="custom-input text-cream pad-x15 pad-t15 f-12 height-100"
+            [value]="popOverEditDataForOwnership.sourceUrl" [(ngModel)]="popOverEditDataForOwnership.sourceUrl"
+            pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" #sourceURL="ngModel">
+          <span class="label">Source URL</span>
+          <span *ngIf="sourceURL.touched && sourceURL.errors.pattern" class="error f-10">Please enter valid url</span>
+        </div>
+        <div class="width-20 mar-b0 bst_input_group bst_input_group_r  p-rel d-block">
+          <span class="input-group-prepend f-14 text-dark-cream fa fa-calendar"></span>
+          <input type="text" name="publishDate" autocomplete="no-display" placeholder="Date"
+            [value]="searchedSourceInputDateValue" [(ngModel)]="popOverEditDataForOwnership.from"
+            pattern="\d{1,2}/\d{1,2}/\d{4}" #publishDate="ngModel"
+            class="custom-input text-cream pad-b10 pad-t15 f-12 height-100">
+          <span class="label pad-l15">Published Date</span>
+          <span class="error f-10" *ngIf="publishDate.touched && publishDate.invalid">Invalid format (yyyy-MM-dd)</span>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="d-flex jc-fe">
+  <button type="button" class="bordered-button lh-18 f-14 height-a pull-right"
+    (click)="activeModal.close()">Cancel</button>
+  <button type="button" class="grad-button mar-l10 f-14 lh-20 height-a pull-right"
+    [disabled]="popOverEditDataForOwnership.name === '' "
+    [ngClass]="{'c-ban' : popOverEditDataForOwnership.name === ''}"
+    (click)="saveTheValueOfOwnership(true,editUBOValue)">Update</button>
+</div>

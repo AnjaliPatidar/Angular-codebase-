@@ -1,0 +1,278 @@
+
+    
+    
+    // Popover styles for theme
+   
+    .dropdown-list {
+      background-color: $theme-text-color;
+      border-radius: 0px !important;
+    }
+    .popover {
+      background-color: $theme-white-color;
+      border-radius: 0px;
+
+      .arrow {
+        &:before {
+          border-bottom-color: $theme-white-color !important;
+        }
+      }
+    }
+    .alert-bulk-operations{
+      background-color: $theme-bg-color;
+    }
+
+
+    /** Changing the default material and ngb-popover dialog styles **/
+    .light-theme{
+        mat-dialog-container{
+            background-color: $theme-white-color;
+            border-radius: 0px;
+        }
+    }
+    ngb-popover-window{
+        &.light-theme{
+            background-color: $theme-white-color;
+            .popover-header{
+                border-bottom: 1px solid $input-border-color;
+                background-color: $theme-white-color;
+            }
+            .popover-body{
+              background-color: $theme-white-color;
+            }
+            .bst_input_group{
+                background-color: $theme-bg-color;
+                border-color:   $theme-light-color;
+                border-width: 1px;
+                -webkit-text-fill-color: $theme-text-color;
+                border-radius: 0px;
+                input{
+                    color: $theme-text-color !important;
+                    -webkit-text-fill-color: $theme-text-color !important;
+                }
+            }
+            &.alert-card-popover{
+              .popover-header{
+                border-bottom: none;
+                background-color: #f4f4f4;
+              }
+            }
+        }
+    }
+    
+    ngb-modal-window{
+      &.light-theme{
+        .modal-content{
+          background-color: $theme-white-color;
+          border-radius: 0;
+        }
+      }
+    }
+
+
+.custom-modal {
+  .modal-content {
+      background-color: $theme-white-color;
+      border-radius: 0;
+      .modal-header {
+          border-color: $input-border-color;
+          .modal-title {
+              color: $theme-black-color !important;
+              font-family: 'gotham-medium',sans-serif !important;
+          }
+          .close {
+              color: $theme-black-color;
+          }
+      }
+      .modal-body {
+          .modal-subtitle {
+              color: $theme-black-color;
+          }
+          .modal-text {
+              font-family: 'gotham-medium',sans-serif;
+              .help-block {
+                  color: $theme-black-color;
+               
+              }
+          }
+      }
+      .modal-footer {
+          border-color: $input-border-color;
+      }
+  }
+}
+
+    ngb-tooltip-window{
+      &.light-theme-tooltip{
+        background-color: $theme-white-color !important;
+        .tooltip-inner{
+          background-color: $theme-white-color !important;
+          font-size: 14px;
+        }
+        .arrow{
+          &:before{
+            border-top-color: $theme-white-color !important;
+            top: 2px;
+            border-width: .8rem .8rem 0;
+            left: -4px;
+          }
+        }
+      }
+    }
+
+
+    /** Chart Tooltip styles **/  
+    .grouped-bar-tooltip,
+    .line_chart_new_tooltip,
+    .Country_Chart_tooltip,
+    .line_chart_tool,
+    .TimeScale_Bubble_Chart_tooltip1,
+    .entity_vlatooltip{
+      background-color: $theme-white-color !important;
+      border-radius: 0px !important;
+      border-color: transparent !important;
+      color: $theme-black-color !important;
+      box-shadow: 0 1.1rem 1.5rem -0.7rem rgba(0, 0, 0, 0.2), 0 0.9rem 4.6rem 0.8rem rgba(0, 0, 0, 0.12), 0 2.4rem 3.8rem 0.3rem rgba(0, 0, 0, 0.14);
+      table td,
+      span{
+        color: $theme-black-color !important;
+      }
+      &:before{
+        border-left-color: $theme-white-color;
+        border-right-color:  $theme-white-color;
+      }
+    }
+    .entity_vlatooltip{
+      box-shadow: 0 0px 8px 0px rgba(0, 0, 0, 0.1);
+    }
+    .pulseVisualizerText-wrapper {
+      p{
+        color: $theme-black-color;
+      }
+      [data-entity][data-entity=organization] { 
+        color: rgba(0,0,0,0.6);
+        &::after {
+          color: rgba(0,0,0,1);
+      }
+    }
+  [data-entity][data-entity=title] {
+    color: rgba(0,0,0,0.6);
+    &::after {
+      color: rgba(0,0,0,1);
+  }
+  }
+  [data-entity][data-entity=event] {
+    color: rgba(0,0,0,0.6);
+    &::after {
+      color: rgba(0,0,0,1);
+  }
+  }
+  [data-entity][data-entity=location] {
+    color: rgba(0,0,0,0.6);
+    &::after {
+      color: rgba(0,0,0,1);
+  }
+  }
+  [data-entity][data-entity=person] {
+    color: rgba(0,0,0,0.6);
+    &::after {
+      color: rgba(0,0,0,1);
+  }
+  }
+  [data-entity][data-entity=other] {
+    color: rgba(0,0,0,0.6);
+    &::after {
+      color: rgba(0,0,0,1);
+  }
+  }  
+  [data-entity][data-entity=commercial_item] { 
+    color: rgba(0,0,0,0.6);
+    &::after {
+      color: rgba(0,0,0,1);
+  }
+  }
+  [data-entity][data-entity=date] { 
+    color: rgba(0,0,0,0.6);
+    &::after {
+      color: rgba(0,0,0,1);
+  }
+  }
+  [data-entity][data-entity=quantity] { 
+    color: rgba(0,0,0,0.6);
+    &::after {
+      color: rgba(0,0,0,1);
+  }
+  }
+  mark[data-entity][data-entity=answer] {
+    color: rgba(0,0,0,0.6);
+    &::after {
+      color: rgba(0,0,0,1);
+  }
+}
+mark[data-entity][data-entity=question] {
+  color: rgba(0,0,0,0.6);
+  &::after {
+    color: rgba(0,0,0,1);
+}
+}
+    }
+
+  text{
+      fill: $theme-black-color !important;
+  }
+
+  .custom-reviewer-scrollbar{
+    width: 280px;
+}
+
+.mat-datepicker-content {
+  border-radius: 0;
+}
+
+.bst_modal {
+  h3,
+  p,
+  span {
+      color: $theme-black-color !important;
+  }
+	&.world_map_modal {
+		.modal-content {
+			border-radius: 0px !important;
+		}
+	}
+}
+
+.file-upload-btn {
+	&::-webkit-file-upload-button {
+		line-height: 2.4 !important;
+	}
+}
+
+
+.grad-button {
+	&.sm-btns {
+		padding: 0.45em 0.8em !important;
+	}
+}
+ /*--  shravani : 31-10-2020 ng2-tooltip css styling  --*/
+.tool_tip {
+  .tooltip {
+    background-color:$theme-white-color !important;
+  }
+  .tooltip-bottom::after {
+    left: 48% !important;
+    border-color: $theme-white-color !important;
+  }
+  .popup-container {
+    background-color:$theme-white-color !important;
+    .heading {
+      border-bottom: 1px solid #c1c1c1;
+      background-color: $theme-white-color !important; 
+    }
+  }
+}
+
+ .dataAtribute-popup {
+   input[type="range"]::-webkit-slider-runnable-track {    
+     background-image: linear-gradient(to right, #ffcc33, #ffcc33) !important;
+   }
+}

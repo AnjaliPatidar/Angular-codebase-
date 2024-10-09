@@ -1,0 +1,117 @@
+<!-- <ng-template #userInfo>
+  <h1>user info</h1>
+</ng-template> -->
+<mat-menu #userInfo="matMenu" class="info-popover">
+    <div class="user_info overflow-h">
+        <div class="mt-header">
+            <div class="header-dt align-items-center  d-flex">
+                <span *ngIf="!imagePath" class="initial-name-wrapper rounded-circle text-center d-flex justify-content-center align-items-center">{{profileIcon}}</span>
+                <div class="user-img" *ngIf="imagePath">
+                    <img src="{{imagePath}}" class="img-fluid rounded-circle">
+                </div>
+                <div>
+                    <ul class="mb-0 mt-3 list-unstyled ml-2">
+                        <li class="U_name gotham-medium text-dark-black">{{fullName}}</li>
+                        <li class="time-stmp theme-light-color">{{'LastLogin' | translate}}: <span>{{currentRowData?.lastLoginDate}}</span></li>
+                    </ul>
+                </div>
+                <div class="status_use status-icons mar-autol d-flex align-items-center px-1">
+                    <span class="fa  fa-{{currentRowData?.completeResponse?.statusId?.icon}} align-sub check_i f-22"></span>
+                    <span class="stat_act mr-2 align-super text-dark-black">{{ currentRowData?.completeResponse?.statusId?.displayName | translate }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="content_info custom-scroll-wrapper overflow-auto">
+            <div class="col-7 p-0">
+                <div class="d-flex align-items-center"><span><i
+                class="material-icons f-29 text-on-surface theme-light-color">assignment_ind</i></span><span class="detail_h text-dark-black">{{'Details' | translate}}</span>
+                </div>
+                <ul *ngIf="currentRowData && currentRowData.completeResponse" class="pl-0">
+                    <li> <span class="key_d text-dark-black">{{'Full Name' | translate}}</span><span class="details_dta text-dark-black">{{fullName}}</span>
+                    </li>
+                    <li> <span class="key_d text-dark-black">{{'Country' | translate}}</span><span class="details_dta text-dark-black">
+                {{ (currentRowData.completeResponse.countryId && currentRowData.completeResponse.countryId.displayName) ? currentRowData.completeResponse.countryId.displayName : 'N/A' }}</span>
+                    </li>
+                    <li> <span class="key_d text-dark-black">{{'DateOfBirth' | translate}}</span>
+                        <span class="details_dta text-dark-black" *ngIf="currentRowData.completeResponse.dob; else noDate">{{ currentRowData.completeResponse.dob | date : dateFormat.ShortDateFormat  }}
+              </span>
+                        <ng-template #noDate>
+                            <span class="details_dta text-dark-black">N/A</span>
+
+                        </ng-template>
+                    </li>
+                    <li> <span class="key_d text-dark-black">{{'JobTitle' | translate}}</span><span class="details_dta text-dark-black">{{ (currentRowData.completeResponse.jobTitle) ? currentRowData.completeResponse.jobTitle : 'N/A' }}
+              </span></li>
+                    <li> <span class="key_d text-dark-black">{{'Department' | translate}}</span><span class="details_dta text-dark-black">{{(currentRowData.completeResponse.department) ? currentRowData.completeResponse.department : 'N/A' }}</span>
+                    </li>
+                    <li> <span class="key_d text-dark-black">{{'Email' | translate}}</span><span class="details_dta text-dark-black">{{ (currentRowData.email)? currentRowData.email : 'N/A' }}</span></li>
+                    <li> <span class="key_d ws-nowrap text-dark-black">{{'PhoneNumber' | translate}}</span><span class="details_dta text-dark-black">{{(currentRowData.completeResponse.phoneNumber) ? currentRowData.completeResponse.phoneNumber : 'N/A'}}</span>
+                    </li>
+                    <li> <span class="key_d text-dark-black">{{'Extention' | translate}}</span><span class="details_dta text-dark-black">{{(currentRowData.completeResponse.extension) ? currentRowData.completeResponse.extension : 'N/A' }}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-5 p-0">
+                <div class="d-flex align-items-center"><span><i class="material-icons f-29 text-on-surface theme-light-color">people</i></span><span class="detail_h text-dark-black">{{'Roles' | translate}}</span></div>
+                <ul *ngIf="currentRowData && currentRowData.completeResponse && currentRowData.completeResponse.usersRoles && currentRowData.completeResponse.usersRoles.length > 0 ; else noRoles" class="pl-0">
+                    <li *ngFor="let roles of currentRowData?.completeResponse?.usersRoles; trackBy: trackByRoleIdRoleName"> <span><i
+                  class="material-icons f-21 text-on-surface theme-light-color mr-3">people</i></span><span class="details_dta text-dark-black w-100" style="line-height: 1.8;">{{roles.roleId.roleName}}</span></li>
+                </ul>
+                <ng-template #noRoles>
+                    <span class="ml-5 text-dark-black">{{'userhasnoroles' | translate}}</span>
+                </ng-template>
+
+                <div class="d-flex align-items-center"><span><i class="material-icons f-29 text-on-surface theme-light-color">folder</i></span><span class="detail_h text-dark-black">{{'Groups' | translate}}</span></div>
+                <ul *ngIf="currentRowData && currentRowData.completeResponse && currentRowData.completeResponse.usersGroups && currentRowData.completeResponse.usersGroups.length > 0 ; else noGroups" class="pl-0">
+                    <li *ngFor="let groups of currentRowData?.completeResponse?.usersGroups; trackBy: trackByName"> <span><i
+                  class="material-icons f-21 text-on-surface theme-light-color mr-3">folder</i></span><span class="details_dta text-dark-black w-100" style="line-height: 1.8;">{{groups.name}}</span></li>
+                </ul>
+                <ng-template #noGroups class="text-dark-black">
+                    <span class="ml-5 text-dark-black">{{'userhasnogroups' | translate}}</span>
+                </ng-template>
+
+            </div>
+        </div>
+    </div>
+</mat-menu>
+<!-- <span class="clockIcon c-pointer"> -->
+<!-- <i class="fa fa-clock"
+    aria-hidden="true"></i> -->
+<!-- <i class="material-icons f-21">
+    restore
+  </i> -->
+<span class="clockIcon c-pointer d-flex" (click)="showRightPanel()">
+  <i class="material-icons f-22 text-on-surface mr-4 text-dark-black">
+    history
+  </i></span>
+
+<!-- </span> -->
+<!-- <i class="fa fa-times w-25"></i> -->
+<!-- <i class="fa fa-info-circle w-25 f-18" mat-raised-button [matTooltip]="userInfo"
+  aria-label="Button that displays a tooltip when focused or hovered over">
+</i> -->
+<!-- <button mat-button [matMenuTriggerFor]="animals">Animal index</button> -->
+<i class="material-icons text-on-surface f-21 c-pointer mr-4 text-dark-black" [matMenuTriggerFor]="userInfo" aria-label="Button that displays a tooltip when focused or hovered over">
+  info
+</i>
+
+<!-- <i class="fa fa-pencil w-25 f-16"></i> -->
+<button id="userActionsEdit{{screenName}}" class="material-icons f-20 text-on-surface c-pointer mr-4 border-0 bg-transparent text-dark-black" (click)="openEditModal()">
+    create
+</button>
+
+<!-- <i class="fa fa-trash text-coral-red w-25 f-16"></i> -->
+<button id="userActionsDelete{{screenName}}" *ngIf="assignedUser=='users' && systemSettings['Allow update manually-Users']" class="material-icons text-coral-red f-20 c-pointer mr-3 border-0 bg-transparent" (click)="deleteUser()" [disabled]="!currentRowData?.completeResponse?.isModifiable || currentRowData?.statusId?.displayName == 'Deactivated' || currentRowData?.statusId?.displayName == 'Suspended'  || currentRowData?.statusId?.displayName == 'Blocked'"
+    [ngClass]="{'c-ban':(currentRowData?.statusId?.displayName == 'Deactivated')}">
+    delete
+</button>
+<button id="userActionsDelete{{screenName}}" *ngIf="assignedUser=='roles' && systemSettings['Allow update manually-Roles']" class="material-icons text-coral-red f-20 c-pointer mr-3 border-0 bg-transparent" (click)="removeUserFromRole()">
+    delete
+</button>
+<button id="userActionsDelete{{screenName}}" *ngIf="assignedUser=='groups' && systemSettings['Allow update manually-Groups']" class="material-icons text-coral-red f-20 c-pointer mr-3 border-0 bg-transparent" (click)="removeUserFromGroup()">
+   delete
+</button>
+<!-- <i class="fa fa-angle-right f-22"></i> -->
+<!-- <i class="material-icons f-22 color-gray c-pointer">
+  arrow_forward_ios
+</i> -->

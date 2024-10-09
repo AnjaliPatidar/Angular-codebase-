@@ -1,0 +1,71 @@
+@import 'src/assets/scss/theme/common/_variable.scss';
+
+::ng-deep .delete-modal-wrapper {
+    .sm-btns {
+        width: 92px;
+        height: 36px;
+        padding: 10px 16px;
+        font-size: 14px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.14;
+        letter-spacing: 1.25px;
+        text-align: center;
+        border-radius: 4px!important;
+        font-family: 'Roboto Medium';
+    }
+    .bordered-button {                  
+        border: solid 1px $primary-color!important;
+        margin-right: 8px;
+    }
+    .modal-header {
+        border-bottom: 1px solid rgba(249, 249, 249, 0.12)!important;
+        padding-bottom: 16px!important;
+    }
+    .modal-content {
+        padding: 16px 32px 32px 32px!important;
+    }
+    .modal-title {
+        height: 24px;
+        margin: 0 0 16px;
+        font-size: 20px!important;
+        font-family: 'Roboto Medium', sans-serif;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.2!important;
+        letter-spacing: 0.15px!important;
+        text-align: left;
+        color: rgba(255, 255, 255, 0.87)!important;
+    }
+    #mainTitle {
+        color: rgba(255, 255, 255, 0.87)!important;
+    }
+    .modal-body {
+        padding: 0px!important;
+    }
+    .p-15 {
+        padding: 0px!important;
+    }
+}
+
+.delete-comment-title {
+    line-height: 1.75!important;
+}
+
+.clr-p54 {
+    color: rgba($white, 0.54)!important;
+}
+
+.close-icon {
+    font-size: 24px!important;
+    font-weight: 500;
+    height: 24px!important;
+    width: 24px!important;
+    line-height: normal!important;
+    margin-left: auto;
+
+    &:hover {
+      cursor: pointer;
+    }
+}

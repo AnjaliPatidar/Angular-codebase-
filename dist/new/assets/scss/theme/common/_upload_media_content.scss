@@ -1,0 +1,90 @@
+
+/*==============================================================================
+***********************  Wrapper Styles For The Site  **************************
+==============================================================================*/
+.upload-content-wrapper{
+    @include padding(15px);
+    margin: 0 0 15px;
+    h4{
+        color: #a2b5be;
+        font-size: 14px;
+        text-transform: uppercase;
+        // font-family: "Roboto Regular",sans-serif;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        margin: 0 0 15px;
+    }
+    .form{
+        @include padding(0 15px 15px);
+        .form-group{
+            label{
+                padding: 0;
+                color: #7d94a5;
+                // font-family: "Roboto Regular",sans-serif;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                  }
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 16px;
+            }
+            .form-control{
+                margin: 0;
+                padding: 7px 15px;
+                -webkit-box-shadow: none;
+                -moz-box-shadow: none;
+                box-shadow: none;
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+                -ms-border-radius: 0;
+                border-radius: 0;
+                background-color: transparent;
+                color: #626e78;
+                width: 100%;
+                border: 0;
+                border-bottom: 1px solid #1f77b4;
+                &:hover,&:focus{   
+                    border: 0;
+                    border-bottom: 1px solid #1f77b4;
+                }
+            }
+        }
+        .btn{
+            @include border-radius(0);
+            background-color: #3179ad;
+            color: #c5d0d8;
+            cursor: pointer;
+            border-color: #3179ad;
+        }
+    }
+    .custom-data-table-wrapper{
+        @include margin(0 0 15px);
+        .paragraph-text{
+            @include margin(0 0 15px);
+            &.sub-text{
+                @include margin(0 0 10px 15px);
+            }
+        }
+    }
+}
+
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+@media (min-width:$screen-lg){
+
+}
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
+
+}
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {
+
+}

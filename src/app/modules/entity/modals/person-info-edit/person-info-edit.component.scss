@@ -1,0 +1,40 @@
+@import "../../../../../assets/scss/theme/common/variable";
+::ng-deep .PersonEditModal {
+    overflow-y: hidden !important;
+    .modal-content {
+        resize: both;
+        overflow: auto;
+        top: 37px !important;
+        position: absolute;
+        background-color: $bg-header-new;
+        max-height: 857px !important;
+        min-height: 300px !important;
+        max-width: 660px !important;
+        min-width: 500px !important;
+        overflow-y: hidden;
+        .modal-header {
+            .close {
+                margin-top: -19px;
+            }
+        }
+    }
+    //  .light-theme{
+    //    background-color:$surface;
+    //  }
+}
+
+ ::ng-deep body#body.light-dark-theme .card {
+    background-color: white !important;
+}
+
+::ng-deep body#body.light-dark-theme #secondary-panel {
+    background-color: white !important;
+}
+
+::ng-deep body#body.light-dark-theme #secondary-panel h4 {
+    color: black !important;
+}
+
+::ng-deep body#body.light-dark-theme .card-header button {
+    color: black !important;
+}

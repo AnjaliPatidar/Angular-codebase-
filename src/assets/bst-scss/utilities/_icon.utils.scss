@@ -1,0 +1,18 @@
+/* Icon common class */
+
+/* Icon common class */
+
+.bst-mat-icon {
+  cursor   : pointer;
+  color    : $color-icon-enabled;
+  font-size: 24px !important;
+
+  &.mat-icon-sm {
+    font-size: 21px !important;
+  }
+
+}
+
+.pointer {
+  cursor: pointer;
+}

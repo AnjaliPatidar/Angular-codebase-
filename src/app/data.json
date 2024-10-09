@@ -1,0 +1,2702 @@
+{
+    "result": [
+      {
+        "sourceId": 2531019,
+        "sourceName": "Airbus SE",
+        "sourceUrl": "http://www.eads-nv.com",
+        "sourceDisplayName": "Airbus SE",
+        "entityId": "mino79wloo247m1il051",
+        "sourceType": "Company Website",
+        "sourceCreatedDate": 1549280008000,
+        "sourceDomain": [
+          {
+            "domainId": 2500145,
+            "domainName": "General"
+          }
+        ],
+        "sourceIndustry": [
+          {
+            "industryId": 2500167,
+            "industryName": "All"
+          }
+        ],
+        "sourceJurisdiction": [
+          {
+            "jurisdictionId": 2500168,
+            "jurisdictionName": "All",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          }
+        ],
+        "classifications": [
+          {
+            "classificationId": 2500169,
+            "classifcationName": "GENERAL",
+            "hideStatusDto": {
+              "sourcesHideStatusId": 2531025,
+              "visible": true,
+              "hideLink": false,
+              "hideDomain": false,
+              "hideIndustry": false,
+              "hideCategory": null,
+              "hideJurisdiction": false,
+              "hideMedia": false,
+              "sourceId": 2531019,
+              "classificationId": 2500169
+            },
+            "subClassifications": [
+              {
+                "subClassificationId": 2500170,
+                "subClassifcationName": "Company Information",
+                "subClassificationCredibility": "HIGH",
+                "dataAttributes": [
+                  {
+                    "attributeId": 2500171,
+                    "sourceAttributeName": "Organization Name",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "vcard:organization-name",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": true
+                  },
+                  {
+                    "attributeId": 2500172,
+                    "sourceAttributeName": "Website",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasURL",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": true
+                  },
+                  {
+                    "attributeId": 2500173,
+                    "sourceAttributeName": "Registered Address",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "mdaas:RegisteredAddress",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": true
+                  },
+                  {
+                    "attributeId": 2500174,
+                    "sourceAttributeName": "Founded Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasLatestOrganizationFoundedDate",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": true
+                  },
+                  {
+                    "attributeId": 2500175,
+                    "sourceAttributeName": "IPO Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasIPODate",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": true
+                  },
+                  {
+                    "attributeId": 2500176,
+                    "sourceAttributeName": "Summary",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "overview",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": true
+                  },
+                  {
+                    "attributeId": 2500177,
+                    "sourceAttributeName": "Incorporated In",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "isIncorporatedIn",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": true
+                  },
+                  {
+                    "attributeId": 2500178,
+                    "sourceAttributeName": "Domiciled In",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "isDomiciledIn",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": true
+                  },
+                  {
+                    "attributeId": 2500179,
+                    "sourceAttributeName": "Phone Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasRegisteredPhoneNumber",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": true
+                  },
+                  {
+                    "attributeId": 2500180,
+                    "sourceAttributeName": "Fax Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasRegisteredFaxNumber",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": true
+                  },
+                  {
+                    "attributeId": 2500181,
+                    "sourceAttributeName": "Headquarters Phone Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasHeadquartersPhoneNumber",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": true
+                  },
+                  {
+                    "attributeId": 2500182,
+                    "sourceAttributeName": "Headquarters Fax Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasHeadquartersFaxNumber",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": true
+                  },
+                  {
+                    "attributeId": 2500183,
+                    "sourceAttributeName": "Regulation Status",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "RegulationStatus",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": true
+                  },
+                  {
+                    "attributeId": 2500184,
+                    "sourceAttributeName": "Regulation Status Effective Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "RegulationStatusEffectiveDate",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": true
+                  }
+                ]
+              },
+              {
+                "subClassificationId": 2500185,
+                "subClassifcationName": "Financial",
+                "subClassificationCredibility": "HIGH",
+                "dataAttributes": [
+                  {
+                    "attributeId": 2500186,
+                    "sourceAttributeName": "Financial Statements",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "financial_statements",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": true
+                  },
+                  {
+                    "attributeId": 2500187,
+                    "sourceAttributeName": "Balance Sheets",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "balance_sheet",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": true
+                  },
+                  {
+                    "attributeId": 2500188,
+                    "sourceAttributeName": "Income Statements",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "income_statement",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": true
+                  },
+                  {
+                    "attributeId": 2500189,
+                    "sourceAttributeName": "Cash Flow",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "cash_flow_statement",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": true
+                  },
+                  {
+                    "attributeId": 2500190,
+                    "sourceAttributeName": "Stocks",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "stocks_information",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": true
+                  },
+                  {
+                    "attributeId": 2500191,
+                    "sourceAttributeName": "Current Status",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "Summary",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": true
+                  }
+                ]
+              },
+              {
+                "subClassificationId": 2500192,
+                "subClassifcationName": "Corporate Structure",
+                "subClassificationCredibility": "HIGH",
+                "dataAttributes": [
+                  
+                ]
+              },
+              {
+                "subClassificationId": 2500193,
+                "subClassifcationName": "Social Media",
+                "subClassificationCredibility": "HIGH",
+                "dataAttributes": [
+                  
+                ]
+              }
+            ]
+          }
+        ],
+        "sourceMedia": [
+          {
+            "mediaId": 2500144,
+            "mediaName": "All"
+          }
+        ],
+        "deleteMedia": false
+      },
+      {
+        "sourceId": 2534504,
+        "sourceName": "adidas AG",
+        "sourceUrl": "www.adidas.de",
+        "sourceDisplayName": "adidas AG",
+        "entityId": "549300jsx0z4cw0v5023",
+        "sourceType": "Company Website",
+        "sourceCreatedDate": 1549289158000,
+        "sourceDomain": [
+          {
+            "domainId": 2500145,
+            "domainName": "General"
+          }
+        ],
+        "sourceIndustry": [
+          {
+            "industryId": 2500167,
+            "industryName": "All"
+          }
+        ],
+        "sourceJurisdiction": [
+          {
+            "jurisdictionId": 2500168,
+            "jurisdictionName": "All",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          }
+        ],
+        "classifications": [
+          {
+            "classificationId": 2500169,
+            "classifcationName": "GENERAL",
+            "hideStatusDto": {
+              "sourcesHideStatusId": 2534510,
+              "visible": true,
+              "hideLink": false,
+              "hideDomain": false,
+              "hideIndustry": false,
+              "hideCategory": null,
+              "hideJurisdiction": false,
+              "hideMedia": false,
+              "sourceId": 2534504,
+              "classificationId": 2500169
+            },
+            "subClassifications": [
+              {
+                "subClassificationId": 2500170,
+                "subClassifcationName": "Company Information",
+                "subClassificationCredibility": "HIGH",
+                "dataAttributes": [
+                  {
+                    "attributeId": 2500171,
+                    "sourceAttributeName": "Organization Name",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "vcard:organization-name",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500172,
+                    "sourceAttributeName": "Website",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasURL",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500173,
+                    "sourceAttributeName": "Registered Address",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "mdaas:RegisteredAddress",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500174,
+                    "sourceAttributeName": "Founded Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasLatestOrganizationFoundedDate",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500175,
+                    "sourceAttributeName": "IPO Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasIPODate",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500176,
+                    "sourceAttributeName": "Summary",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "overview",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500177,
+                    "sourceAttributeName": "Incorporated In",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "isIncorporatedIn",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500178,
+                    "sourceAttributeName": "Domiciled In",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "isDomiciledIn",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500179,
+                    "sourceAttributeName": "Phone Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasRegisteredPhoneNumber",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500180,
+                    "sourceAttributeName": "Fax Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasRegisteredFaxNumber",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500181,
+                    "sourceAttributeName": "Headquarters Phone Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasHeadquartersPhoneNumber",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500182,
+                    "sourceAttributeName": "Headquarters Fax Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasHeadquartersFaxNumber",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500183,
+                    "sourceAttributeName": "Regulation Status",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "RegulationStatus",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500184,
+                    "sourceAttributeName": "Regulation Status Effective Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "RegulationStatusEffectiveDate",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  }
+                ]
+              },
+              {
+                "subClassificationId": 2500185,
+                "subClassifcationName": "Financial",
+                "subClassificationCredibility": "HIGH",
+                "dataAttributes": [
+                  {
+                    "attributeId": 2500186,
+                    "sourceAttributeName": "Financial Statements",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "financial_statements",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500187,
+                    "sourceAttributeName": "Balance Sheets",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "balance_sheet",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500188,
+                    "sourceAttributeName": "Income Statements",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "income_statement",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500189,
+                    "sourceAttributeName": "Cash Flow",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "cash_flow_statement",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500190,
+                    "sourceAttributeName": "Stocks",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "stocks_information",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500191,
+                    "sourceAttributeName": "Current Status",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "Summary",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  }
+                ]
+              },
+              {
+                "subClassificationId": 2500192,
+                "subClassifcationName": "Corporate Structure",
+                "subClassificationCredibility": "HIGH",
+                "dataAttributes": [
+                  
+                ]
+              },
+              {
+                "subClassificationId": 2500193,
+                "subClassifcationName": "Social Media",
+                "subClassificationCredibility": "HIGH",
+                "dataAttributes": [
+                  
+                ]
+              }
+            ]
+          }
+        ],
+        "sourceMedia": [
+          {
+            "mediaId": 2500144,
+            "mediaName": "All"
+          }
+        ],
+        "deleteMedia": false
+      },
+      {
+        "sourceId": 2528742,
+        "sourceName": "Dixons Carphone Holdings Limited",
+        "sourceUrl": "www.cpwplc.com",
+        "sourceDisplayName": "Dixons Carphone Holdings Limited",
+        "entityId": "07866062",
+        "sourceType": "Company Website",
+        "sourceCreatedDate": 1549264350000,
+        "sourceDomain": [
+          {
+            "domainId": 2500145,
+            "domainName": "General"
+          }
+        ],
+        "sourceIndustry": [
+          {
+            "industryId": 2500167,
+            "industryName": "All"
+          }
+        ],
+        "sourceJurisdiction": [
+          {
+            "jurisdictionId": 2500168,
+            "jurisdictionName": "All",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          }
+        ],
+        "classifications": [
+          {
+            "classificationId": 2500169,
+            "classifcationName": "GENERAL",
+            "hideStatusDto": {
+              "sourcesHideStatusId": 2528747,
+              "visible": true,
+              "hideLink": false,
+              "hideDomain": false,
+              "hideIndustry": false,
+              "hideCategory": null,
+              "hideJurisdiction": false,
+              "hideMedia": null,
+              "sourceId": 2528742,
+              "classificationId": 2500169
+            },
+            "subClassifications": [
+              {
+                "subClassificationId": 2500170,
+                "subClassifcationName": "Company Information",
+                "subClassificationCredibility": "HIGH",
+                "dataAttributes": [
+                  {
+                    "attributeId": 2500171,
+                    "sourceAttributeName": "Organization Name",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "vcard:organization-name",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500172,
+                    "sourceAttributeName": "Website",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasURL",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500173,
+                    "sourceAttributeName": "Registered Address",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "mdaas:RegisteredAddress",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500174,
+                    "sourceAttributeName": "Founded Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasLatestOrganizationFoundedDate",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500175,
+                    "sourceAttributeName": "IPO Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasIPODate",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500176,
+                    "sourceAttributeName": "Summary",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "overview",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500177,
+                    "sourceAttributeName": "Incorporated In",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "isIncorporatedIn",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500178,
+                    "sourceAttributeName": "Domiciled In",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "isDomiciledIn",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500179,
+                    "sourceAttributeName": "Phone Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasRegisteredPhoneNumber",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500180,
+                    "sourceAttributeName": "Fax Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasRegisteredFaxNumber",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500181,
+                    "sourceAttributeName": "Headquarters Phone Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasHeadquartersPhoneNumber",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500182,
+                    "sourceAttributeName": "Headquarters Fax Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasHeadquartersFaxNumber",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500183,
+                    "sourceAttributeName": "Regulation Status",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "RegulationStatus",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500184,
+                    "sourceAttributeName": "Regulation Status Effective Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "RegulationStatusEffectiveDate",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  }
+                ]
+              },
+              {
+                "subClassificationId": 2500185,
+                "subClassifcationName": "Financial",
+                "subClassificationCredibility": "HIGH",
+                "dataAttributes": [
+                  {
+                    "attributeId": 2500186,
+                    "sourceAttributeName": "Financial Statements",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "financial_statements",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500187,
+                    "sourceAttributeName": "Balance Sheets",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "balance_sheet",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500188,
+                    "sourceAttributeName": "Income Statements",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "income_statement",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500189,
+                    "sourceAttributeName": "Cash Flow",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "cash_flow_statement",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500190,
+                    "sourceAttributeName": "Stocks",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "stocks_information",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500191,
+                    "sourceAttributeName": "Current Status",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "Summary",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  }
+                ]
+              },
+              {
+                "subClassificationId": 2500192,
+                "subClassifcationName": "Corporate Structure",
+                "subClassificationCredibility": "HIGH",
+                "dataAttributes": [
+                  
+                ]
+              },
+              {
+                "subClassificationId": 2500193,
+                "subClassifcationName": "Social Media",
+                "subClassificationCredibility": "HIGH",
+                "dataAttributes": [
+                  
+                ]
+              }
+            ]
+          }
+        ],
+        "sourceMedia": [
+          {
+            "mediaId": 2500144,
+            "mediaName": "All"
+          }
+        ],
+        "deleteMedia": false
+      },
+      {
+        "sourceId": 2500208,
+        "sourceName": "companyhouse.co.uk",
+        "sourceUrl": "https://companyhouse.co.uk",
+        "sourceDisplayName": "Company House",
+        "entityId": "",
+        "sourceType": "",
+        "sourceCreatedDate": 1547181592000,
+        "sourceDomain": [
+          {
+            "domainId": 2500145,
+            "domainName": "General"
+          }
+        ],
+        "sourceIndustry": [
+          {
+            "industryId": 2500167,
+            "industryName": "All"
+          }
+        ],
+        "sourceJurisdiction": [
+          {
+            "jurisdictionId": 2500207,
+            "jurisdictionName": "GB",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          }
+        ],
+        "classifications": [
+          {
+            "classificationId": 2500169,
+            "classifcationName": "GENERAL",
+            "hideStatusDto": {
+              "sourcesHideStatusId": 2500209,
+              "visible": false,
+              "hideLink": false,
+              "hideDomain": false,
+              "hideIndustry": false,
+              "hideCategory": null,
+              "hideJurisdiction": false,
+              "hideMedia": false,
+              "sourceId": 2500208,
+              "classificationId": 2500169
+            },
+            "subClassifications": [
+              {
+                "subClassificationId": 2500170,
+                "subClassifcationName": "Company Information",
+                "subClassificationCredibility": "MEDIUM",
+                "dataAttributes": [
+                  {
+                    "attributeId": 2500171,
+                    "sourceAttributeName": "Organization Name",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "vcard:organization-name",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500172,
+                    "sourceAttributeName": "Website",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasURL",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500173,
+                    "sourceAttributeName": "Registered Address",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "mdaas:RegisteredAddress",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500174,
+                    "sourceAttributeName": "Founded Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasLatestOrganizationFoundedDate",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500175,
+                    "sourceAttributeName": "IPO Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasIPODate",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500176,
+                    "sourceAttributeName": "Summary",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "overview",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500177,
+                    "sourceAttributeName": "Incorporated In",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "isIncorporatedIn",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500178,
+                    "sourceAttributeName": "Domiciled In",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "isDomiciledIn",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500179,
+                    "sourceAttributeName": "Phone Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasRegisteredPhoneNumber",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500180,
+                    "sourceAttributeName": "Fax Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasRegisteredFaxNumber",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500181,
+                    "sourceAttributeName": "Headquarters Phone Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasHeadquartersPhoneNumber",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500182,
+                    "sourceAttributeName": "Headquarters Fax Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasHeadquartersFaxNumber",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500183,
+                    "sourceAttributeName": "Regulation Status",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "RegulationStatus",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500184,
+                    "sourceAttributeName": "Regulation Status Effective Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "RegulationStatusEffectiveDate",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  }
+                ]
+              },
+              {
+                "subClassificationId": 2500185,
+                "subClassifcationName": "Financial",
+                "subClassificationCredibility": "HIGH",
+                "dataAttributes": [
+                  {
+                    "attributeId": 2500186,
+                    "sourceAttributeName": "Financial Statements",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "financial_statements",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500187,
+                    "sourceAttributeName": "Balance Sheets",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "balance_sheet",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500188,
+                    "sourceAttributeName": "Income Statements",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "income_statement",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500189,
+                    "sourceAttributeName": "Cash Flow",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "cash_flow_statement",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500190,
+                    "sourceAttributeName": "Stocks",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "stocks_information",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500191,
+                    "sourceAttributeName": "Current Status",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "Summary",
+                    "credibilityValue": "HIGH",
+                    "attributeSaved": false
+                  }
+                ]
+              },
+              {
+                "subClassificationId": 2500192,
+                "subClassifcationName": "Corporate Structure",
+                "subClassificationCredibility": "HIGH",
+                "dataAttributes": [
+                  
+                ]
+              },
+              {
+                "subClassificationId": 2500193,
+                "subClassifcationName": "Social Media",
+                "subClassificationCredibility": "NONE",
+                "dataAttributes": [
+                  
+                ]
+              }
+            ]
+          }
+        ],
+        "sourceMedia": [
+          {
+            "mediaId": 2500138,
+            "mediaName": "Doc"
+          },
+          {
+            "mediaId": 2500142,
+            "mediaName": "Movies"
+          }
+        ],
+        "deleteMedia": false
+      },
+      {
+        "sourceId": 2500232,
+        "sourceName": "permid.org",
+        "sourceUrl": "https://permid.org",
+        "sourceDisplayName": "Open PermID",
+        "entityId": "",
+        "sourceType": "",
+        "sourceCreatedDate": 1547181592000,
+        "sourceDomain": [
+          {
+            "domainId": 2500145,
+            "domainName": "General"
+          }
+        ],
+        "sourceIndustry": [
+          {
+            "industryId": 2500167,
+            "industryName": "All"
+          }
+        ],
+        "sourceJurisdiction": [
+          {
+            "jurisdictionId": 2500207,
+            "jurisdictionName": "GB",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500220,
+            "jurisdictionName": "RU",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500227,
+            "jurisdictionName": "DE",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500228,
+            "jurisdictionName": "DK",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500229,
+            "jurisdictionName": "FR",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500230,
+            "jurisdictionName": "ES",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500231,
+            "jurisdictionName": "US",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          }
+        ],
+        "classifications": [
+          {
+            "classificationId": 2500169,
+            "classifcationName": "GENERAL",
+            "hideStatusDto": {
+              "sourcesHideStatusId": 2500233,
+              "visible": true,
+              "hideLink": false,
+              "hideDomain": false,
+              "hideIndustry": false,
+              "hideCategory": null,
+              "hideJurisdiction": false,
+              "hideMedia": false,
+              "sourceId": 2500232,
+              "classificationId": 2500169
+            },
+            "subClassifications": [
+              {
+                "subClassificationId": 2500170,
+                "subClassifcationName": "Company Information",
+                "subClassificationCredibility": "MEDIUM",
+                "dataAttributes": [
+                  {
+                    "attributeId": 2500171,
+                    "sourceAttributeName": "Organization Name",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "vcard:organization-name",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500172,
+                    "sourceAttributeName": "Website",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasURL",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500173,
+                    "sourceAttributeName": "Registered Address",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "mdaas:RegisteredAddress",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500174,
+                    "sourceAttributeName": "Founded Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasLatestOrganizationFoundedDate",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500175,
+                    "sourceAttributeName": "IPO Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasIPODate",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500176,
+                    "sourceAttributeName": "Summary",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "overview",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500177,
+                    "sourceAttributeName": "Incorporated In",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "isIncorporatedIn",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500178,
+                    "sourceAttributeName": "Domiciled In",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "isDomiciledIn",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500179,
+                    "sourceAttributeName": "Phone Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasRegisteredPhoneNumber",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500180,
+                    "sourceAttributeName": "Fax Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasRegisteredFaxNumber",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500181,
+                    "sourceAttributeName": "Headquarters Phone Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasHeadquartersPhoneNumber",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500182,
+                    "sourceAttributeName": "Headquarters Fax Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasHeadquartersFaxNumber",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500183,
+                    "sourceAttributeName": "Regulation Status",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "RegulationStatus",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500184,
+                    "sourceAttributeName": "Regulation Status Effective Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "RegulationStatusEffectiveDate",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  }
+                ]
+              },
+              {
+                "subClassificationId": 2500185,
+                "subClassifcationName": "Financial",
+                "subClassificationCredibility": "MEDIUM",
+                "dataAttributes": [
+                  {
+                    "attributeId": 2500186,
+                    "sourceAttributeName": "Financial Statements",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "financial_statements",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500187,
+                    "sourceAttributeName": "Balance Sheets",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "balance_sheet",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500188,
+                    "sourceAttributeName": "Income Statements",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "income_statement",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500189,
+                    "sourceAttributeName": "Cash Flow",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "cash_flow_statement",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500190,
+                    "sourceAttributeName": "Stocks",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "stocks_information",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500191,
+                    "sourceAttributeName": "Current Status",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "Summary",
+                    "credibilityValue": "MEDIUM",
+                    "attributeSaved": false
+                  }
+                ]
+              },
+              {
+                "subClassificationId": 2500192,
+                "subClassifcationName": "Corporate Structure",
+                "subClassificationCredibility": "MEDIUM",
+                "dataAttributes": [
+                  
+                ]
+              },
+              {
+                "subClassificationId": 2500193,
+                "subClassifcationName": "Social Media",
+                "subClassificationCredibility": "MEDIUM",
+                "dataAttributes": [
+                  
+                ]
+              }
+            ]
+          }
+        ],
+        "sourceMedia": [
+          {
+            "mediaId": 2500144,
+            "mediaName": "All"
+          }
+        ],
+        "deleteMedia": false
+      },
+      {
+        "sourceId": 2500238,
+        "sourceName": "verif.com",
+        "sourceUrl": "https://verif.com",
+        "sourceDisplayName": "Verif",
+        "entityId": "",
+        "sourceType": "",
+        "sourceCreatedDate": 1547181592000,
+        "sourceDomain": [
+          {
+            "domainId": 2500145,
+            "domainName": "General"
+          }
+        ],
+        "sourceIndustry": [
+          {
+            "industryId": 2500167,
+            "industryName": "All"
+          }
+        ],
+        "sourceJurisdiction": [
+          {
+            "jurisdictionId": 2500229,
+            "jurisdictionName": "FR",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          }
+        ],
+        "classifications": [
+          {
+            "classificationId": 2500169,
+            "classifcationName": "GENERAL",
+            "hideStatusDto": {
+              "sourcesHideStatusId": 2500239,
+              "visible": true,
+              "hideLink": false,
+              "hideDomain": false,
+              "hideIndustry": false,
+              "hideCategory": null,
+              "hideJurisdiction": false,
+              "hideMedia": false,
+              "sourceId": 2500238,
+              "classificationId": 2500169
+            },
+            "subClassifications": [
+              {
+                "subClassificationId": 2500170,
+                "subClassifcationName": "Company Information",
+                "subClassificationCredibility": "NONE",
+                "dataAttributes": [
+                  {
+                    "attributeId": 2500171,
+                    "sourceAttributeName": "Organization Name",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "vcard:organization-name",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500172,
+                    "sourceAttributeName": "Website",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasURL",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500173,
+                    "sourceAttributeName": "Registered Address",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "mdaas:RegisteredAddress",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500174,
+                    "sourceAttributeName": "Founded Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasLatestOrganizationFoundedDate",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500175,
+                    "sourceAttributeName": "IPO Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasIPODate",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500176,
+                    "sourceAttributeName": "Summary",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "overview",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500177,
+                    "sourceAttributeName": "Incorporated In",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "isIncorporatedIn",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500178,
+                    "sourceAttributeName": "Domiciled In",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "isDomiciledIn",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500179,
+                    "sourceAttributeName": "Phone Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasRegisteredPhoneNumber",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500180,
+                    "sourceAttributeName": "Fax Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasRegisteredFaxNumber",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500181,
+                    "sourceAttributeName": "Headquarters Phone Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasHeadquartersPhoneNumber",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500182,
+                    "sourceAttributeName": "Headquarters Fax Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasHeadquartersFaxNumber",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500183,
+                    "sourceAttributeName": "Regulation Status",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "RegulationStatus",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500184,
+                    "sourceAttributeName": "Regulation Status Effective Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "RegulationStatusEffectiveDate",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  }
+                ]
+              },
+              {
+                "subClassificationId": 2500185,
+                "subClassifcationName": "Financial",
+                "subClassificationCredibility": "NONE",
+                "dataAttributes": [
+                  {
+                    "attributeId": 2500186,
+                    "sourceAttributeName": "Financial Statements",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "financial_statements",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500187,
+                    "sourceAttributeName": "Balance Sheets",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "balance_sheet",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500188,
+                    "sourceAttributeName": "Income Statements",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "income_statement",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500189,
+                    "sourceAttributeName": "Cash Flow",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "cash_flow_statement",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500190,
+                    "sourceAttributeName": "Stocks",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "stocks_information",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500191,
+                    "sourceAttributeName": "Current Status",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "Summary",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  }
+                ]
+              },
+              {
+                "subClassificationId": 2500192,
+                "subClassifcationName": "Corporate Structure",
+                "subClassificationCredibility": "NONE",
+                "dataAttributes": [
+                  
+                ]
+              },
+              {
+                "subClassificationId": 2500193,
+                "subClassifcationName": "Social Media",
+                "subClassificationCredibility": "NONE",
+                "dataAttributes": [
+                  
+                ]
+              }
+            ]
+          }
+        ],
+        "sourceMedia": [
+          {
+            "mediaId": 2500144,
+            "mediaName": "All"
+          }
+        ],
+        "deleteMedia": false
+      },
+      {
+        "sourceId": 2500263,
+        "sourceName": "ivc-online.com",
+        "sourceUrl": "https://ivc-online.com",
+        "sourceDisplayName": "Ivc Online",
+        "entityId": "",
+        "sourceType": "",
+        "sourceCreatedDate": 1547181592000,
+        "sourceDomain": [
+          {
+            "domainId": 2500145,
+            "domainName": "General"
+          }
+        ],
+        "sourceIndustry": [
+          {
+            "industryId": 2500167,
+            "industryName": "All"
+          }
+        ],
+        "sourceJurisdiction": [
+          {
+            "jurisdictionId": 2500262,
+            "jurisdictionName": "IL",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500231,
+            "jurisdictionName": "US",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500207,
+            "jurisdictionName": "GB",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          }
+        ],
+        "classifications": [
+          {
+            "classificationId": 2500169,
+            "classifcationName": "GENERAL",
+            "hideStatusDto": {
+              "sourcesHideStatusId": 2500264,
+              "visible": true,
+              "hideLink": false,
+              "hideDomain": false,
+              "hideIndustry": false,
+              "hideCategory": null,
+              "hideJurisdiction": false,
+              "hideMedia": false,
+              "sourceId": 2500263,
+              "classificationId": 2500169
+            },
+            "subClassifications": [
+              {
+                "subClassificationId": 2500170,
+                "subClassifcationName": "Company Information",
+                "subClassificationCredibility": "NONE",
+                "dataAttributes": [
+                  {
+                    "attributeId": 2500171,
+                    "sourceAttributeName": "Organization Name",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "vcard:organization-name",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500172,
+                    "sourceAttributeName": "Website",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasURL",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500173,
+                    "sourceAttributeName": "Registered Address",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "mdaas:RegisteredAddress",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500174,
+                    "sourceAttributeName": "Founded Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasLatestOrganizationFoundedDate",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500175,
+                    "sourceAttributeName": "IPO Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasIPODate",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500176,
+                    "sourceAttributeName": "Summary",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "overview",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500177,
+                    "sourceAttributeName": "Incorporated In",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "isIncorporatedIn",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500178,
+                    "sourceAttributeName": "Domiciled In",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "isDomiciledIn",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500179,
+                    "sourceAttributeName": "Phone Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasRegisteredPhoneNumber",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500180,
+                    "sourceAttributeName": "Fax Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasRegisteredFaxNumber",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500181,
+                    "sourceAttributeName": "Headquarters Phone Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasHeadquartersPhoneNumber",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500182,
+                    "sourceAttributeName": "Headquarters Fax Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasHeadquartersFaxNumber",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500183,
+                    "sourceAttributeName": "Regulation Status",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "RegulationStatus",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500184,
+                    "sourceAttributeName": "Regulation Status Effective Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "RegulationStatusEffectiveDate",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  }
+                ]
+              },
+              {
+                "subClassificationId": 2500185,
+                "subClassifcationName": "Financial",
+                "subClassificationCredibility": "NONE",
+                "dataAttributes": [
+                  {
+                    "attributeId": 2500186,
+                    "sourceAttributeName": "Financial Statements",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "financial_statements",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500187,
+                    "sourceAttributeName": "Balance Sheets",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "balance_sheet",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500188,
+                    "sourceAttributeName": "Income Statements",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "income_statement",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500189,
+                    "sourceAttributeName": "Cash Flow",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "cash_flow_statement",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500190,
+                    "sourceAttributeName": "Stocks",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "stocks_information",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500191,
+                    "sourceAttributeName": "Current Status",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "Summary",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  }
+                ]
+              },
+              {
+                "subClassificationId": 2500192,
+                "subClassifcationName": "Corporate Structure",
+                "subClassificationCredibility": "NONE",
+                "dataAttributes": [
+                  
+                ]
+              },
+              {
+                "subClassificationId": 2500193,
+                "subClassifcationName": "Social Media",
+                "subClassificationCredibility": "NONE",
+                "dataAttributes": [
+                  
+                ]
+              }
+            ]
+          }
+        ],
+        "sourceMedia": [
+          {
+            "mediaId": 2500138,
+            "mediaName": "Doc"
+          }
+        ],
+        "deleteMedia": false
+      },
+      {
+        "sourceId": 2500244,
+        "sourceName": "4-traders.com",
+        "sourceUrl": "https://4-traders.com",
+        "sourceDisplayName": "4 Traders Finance",
+        "entityId": "",
+        "sourceType": "",
+        "sourceCreatedDate": 1547181592000,
+        "sourceDomain": [
+          {
+            "domainId": 2500145,
+            "domainName": "General"
+          }
+        ],
+        "sourceIndustry": [
+          {
+            "industryId": 2500167,
+            "industryName": "All"
+          }
+        ],
+        "sourceJurisdiction": [
+          {
+            "jurisdictionId": 2500207,
+            "jurisdictionName": "GB",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500227,
+            "jurisdictionName": "DE",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500229,
+            "jurisdictionName": "FR",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500231,
+            "jurisdictionName": "US",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          }
+        ],
+        "classifications": [
+          {
+            "classificationId": 2500169,
+            "classifcationName": "GENERAL",
+            "hideStatusDto": {
+              "sourcesHideStatusId": 2500245,
+              "visible": true,
+              "hideLink": false,
+              "hideDomain": false,
+              "hideIndustry": false,
+              "hideCategory": null,
+              "hideJurisdiction": false,
+              "hideMedia": false,
+              "sourceId": 2500244,
+              "classificationId": 2500169
+            },
+            "subClassifications": [
+              {
+                "subClassificationId": 2500170,
+                "subClassifcationName": "Company Information",
+                "subClassificationCredibility": "NONE",
+                "dataAttributes": [
+                  {
+                    "attributeId": 2500171,
+                    "sourceAttributeName": "Organization Name",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "vcard:organization-name",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500172,
+                    "sourceAttributeName": "Website",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasURL",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500173,
+                    "sourceAttributeName": "Registered Address",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "mdaas:RegisteredAddress",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500174,
+                    "sourceAttributeName": "Founded Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasLatestOrganizationFoundedDate",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500175,
+                    "sourceAttributeName": "IPO Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasIPODate",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500176,
+                    "sourceAttributeName": "Summary",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "overview",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500177,
+                    "sourceAttributeName": "Incorporated In",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "isIncorporatedIn",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500178,
+                    "sourceAttributeName": "Domiciled In",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "isDomiciledIn",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500179,
+                    "sourceAttributeName": "Phone Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasRegisteredPhoneNumber",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500180,
+                    "sourceAttributeName": "Fax Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasRegisteredFaxNumber",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500181,
+                    "sourceAttributeName": "Headquarters Phone Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasHeadquartersPhoneNumber",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500182,
+                    "sourceAttributeName": "Headquarters Fax Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasHeadquartersFaxNumber",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500183,
+                    "sourceAttributeName": "Regulation Status",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "RegulationStatus",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500184,
+                    "sourceAttributeName": "Regulation Status Effective Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "RegulationStatusEffectiveDate",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  }
+                ]
+              },
+              {
+                "subClassificationId": 2500185,
+                "subClassifcationName": "Financial",
+                "subClassificationCredibility": "NONE",
+                "dataAttributes": [
+                  {
+                    "attributeId": 2500186,
+                    "sourceAttributeName": "Financial Statements",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "financial_statements",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500187,
+                    "sourceAttributeName": "Balance Sheets",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "balance_sheet",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500188,
+                    "sourceAttributeName": "Income Statements",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "income_statement",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500189,
+                    "sourceAttributeName": "Cash Flow",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "cash_flow_statement",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500190,
+                    "sourceAttributeName": "Stocks",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "stocks_information",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500191,
+                    "sourceAttributeName": "Current Status",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "Summary",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  }
+                ]
+              },
+              {
+                "subClassificationId": 2500192,
+                "subClassifcationName": "Corporate Structure",
+                "subClassificationCredibility": "NONE",
+                "dataAttributes": [
+                  
+                ]
+              },
+              {
+                "subClassificationId": 2500193,
+                "subClassifcationName": "Social Media",
+                "subClassificationCredibility": "NONE",
+                "dataAttributes": [
+                  
+                ]
+              }
+            ]
+          }
+        ],
+        "sourceMedia": [
+          {
+            "mediaId": 2500144,
+            "mediaName": "All"
+          }
+        ],
+        "deleteMedia": false
+      },
+      {
+        "sourceId": 2523751,
+        "sourceName": "facebook",
+        "sourceUrl": "facebook.com",
+        "sourceDisplayName": "facebook",
+        "entityId": "",
+        "sourceType": "",
+        "sourceCreatedDate": 1548760754000,
+        "sourceDomain": [
+          {
+            "domainId": 2500145,
+            "domainName": "General"
+          },
+          {
+            "domainId": 2500149,
+            "domainName": "Market Sonar"
+          }
+        ],
+        "sourceIndustry": [
+          {
+            "industryId": 2500160,
+            "industryName": "Agriculture"
+          },
+          {
+            "industryId": 2500167,
+            "industryName": "All"
+          },
+          {
+            "industryId": 2500161,
+            "industryName": "Communications / Electronics"
+          },
+          {
+            "industryId": 2500158,
+            "industryName": "Construction"
+          },
+          {
+            "industryId": 2500166,
+            "industryName": "Education"
+          },
+          {
+            "industryId": 2500163,
+            "industryName": "Energy "
+          },
+          {
+            "industryId": 2500151,
+            "industryName": "Finance"
+          },
+          {
+            "industryId": 2500159,
+            "industryName": "Healthcare"
+          },
+          {
+            "industryId": 2500156,
+            "industryName": "Insurance"
+          },
+          {
+            "industryId": 2500153,
+            "industryName": "Investments"
+          },
+          {
+            "industryId": 2500150,
+            "industryName": "Manufacturing"
+          },
+          {
+            "industryId": 2500157,
+            "industryName": "Mining"
+          },
+          {
+            "industryId": 2500164,
+            "industryName": "Real Estate"
+          },
+          {
+            "industryId": 2500154,
+            "industryName": "Retail"
+          },
+          {
+            "industryId": 2500155,
+            "industryName": "Technology"
+          },
+          {
+            "industryId": 2500162,
+            "industryName": "Telecommunication"
+          },
+          {
+            "industryId": 2500152,
+            "industryName": "Transport"
+          },
+          {
+            "industryId": 2500165,
+            "industryName": "Transportation"
+          }
+        ],
+        "sourceJurisdiction": [
+          {
+            "jurisdictionId": 2500220,
+            "jurisdictionName": "RU",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500227,
+            "jurisdictionName": "DE",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500228,
+            "jurisdictionName": "DK",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500229,
+            "jurisdictionName": "FR",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500230,
+            "jurisdictionName": "ES",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500231,
+            "jurisdictionName": "US",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500262,
+            "jurisdictionName": "IL",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500275,
+            "jurisdictionName": "BE",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500306,
+            "jurisdictionName": "ANY",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500207,
+            "jurisdictionName": "GB",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500168,
+            "jurisdictionName": "All",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          }
+        ],
+        "classifications": [
+          {
+            "classificationId": 2500169,
+            "classifcationName": "GENERAL",
+            "hideStatusDto": {
+              "sourcesHideStatusId": 2523756,
+              "visible": true,
+              "hideLink": false,
+              "hideDomain": false,
+              "hideIndustry": false,
+              "hideCategory": null,
+              "hideJurisdiction": false,
+              "hideMedia": false,
+              "sourceId": 2523751,
+              "classificationId": 2500169
+            },
+            "subClassifications": [
+              {
+                "subClassificationId": 2500170,
+                "subClassifcationName": "Company Information",
+                "subClassificationCredibility": "NONE",
+                "dataAttributes": [
+                  {
+                    "attributeId": 2500171,
+                    "sourceAttributeName": "Organization Name",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "vcard:organization-name",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500172,
+                    "sourceAttributeName": "Website",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasURL",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500173,
+                    "sourceAttributeName": "Registered Address",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "mdaas:RegisteredAddress",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500174,
+                    "sourceAttributeName": "Founded Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasLatestOrganizationFoundedDate",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500175,
+                    "sourceAttributeName": "IPO Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasIPODate",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500176,
+                    "sourceAttributeName": "Summary",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "overview",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500177,
+                    "sourceAttributeName": "Incorporated In",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "isIncorporatedIn",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500178,
+                    "sourceAttributeName": "Domiciled In",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "isDomiciledIn",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500179,
+                    "sourceAttributeName": "Phone Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasRegisteredPhoneNumber",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500180,
+                    "sourceAttributeName": "Fax Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasRegisteredFaxNumber",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500181,
+                    "sourceAttributeName": "Headquarters Phone Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasHeadquartersPhoneNumber",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500182,
+                    "sourceAttributeName": "Headquarters Fax Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasHeadquartersFaxNumber",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500183,
+                    "sourceAttributeName": "Regulation Status",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "RegulationStatus",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500184,
+                    "sourceAttributeName": "Regulation Status Effective Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "RegulationStatusEffectiveDate",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  }
+                ]
+              },
+              {
+                "subClassificationId": 2500185,
+                "subClassifcationName": "Financial",
+                "subClassificationCredibility": "NONE",
+                "dataAttributes": [
+                  {
+                    "attributeId": 2500186,
+                    "sourceAttributeName": "Financial Statements",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "financial_statements",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500187,
+                    "sourceAttributeName": "Balance Sheets",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "balance_sheet",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500188,
+                    "sourceAttributeName": "Income Statements",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "income_statement",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500189,
+                    "sourceAttributeName": "Cash Flow",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "cash_flow_statement",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500190,
+                    "sourceAttributeName": "Stocks",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "stocks_information",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500191,
+                    "sourceAttributeName": "Current Status",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "Summary",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  }
+                ]
+              },
+              {
+                "subClassificationId": 2500192,
+                "subClassifcationName": "Corporate Structure",
+                "subClassificationCredibility": "NONE",
+                "dataAttributes": [
+                  
+                ]
+              },
+              {
+                "subClassificationId": 2500193,
+                "subClassifcationName": "Social Media",
+                "subClassificationCredibility": "NONE",
+                "dataAttributes": [
+                  
+                ]
+              }
+            ]
+          }
+        ],
+        "sourceMedia": [
+          {
+            "mediaId": 2500143,
+            "mediaName": "Audio"
+          },
+          {
+            "mediaId": 2500142,
+            "mediaName": "Movies"
+          },
+          {
+            "mediaId": 2500141,
+            "mediaName": "PDF"
+          }
+        ],
+        "deleteMedia": false
+      },
+      {
+        "sourceId": 2500269,
+        "sourceName": "europages.com",
+        "sourceUrl": "https://europages.com",
+        "sourceDisplayName": "europages.com",
+        "entityId": "",
+        "sourceType": "",
+        "sourceCreatedDate": 1547181592000,
+        "sourceDomain": [
+          {
+            "domainId": 2500145,
+            "domainName": "General"
+          }
+        ],
+        "sourceIndustry": [
+          {
+            "industryId": 2500167,
+            "industryName": "All"
+          }
+        ],
+        "sourceJurisdiction": [
+          {
+            "jurisdictionId": 2500227,
+            "jurisdictionName": "DE",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500229,
+            "jurisdictionName": "FR",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500207,
+            "jurisdictionName": "GB",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          },
+          {
+            "jurisdictionId": 2500220,
+            "jurisdictionName": "RU",
+            "jurisdictionOriginalName": null,
+            "selected": null
+          }
+        ],
+        "classifications": [
+          {
+            "classificationId": 2500169,
+            "classifcationName": "GENERAL",
+            "hideStatusDto": {
+              "sourcesHideStatusId": 2500270,
+              "visible": true,
+              "hideLink": false,
+              "hideDomain": false,
+              "hideIndustry": false,
+              "hideCategory": null,
+              "hideJurisdiction": false,
+              "hideMedia": false,
+              "sourceId": 2500269,
+              "classificationId": 2500169
+            },
+            "subClassifications": [
+              {
+                "subClassificationId": 2500170,
+                "subClassifcationName": "Company Information",
+                "subClassificationCredibility": "NONE",
+                "dataAttributes": [
+                  {
+                    "attributeId": 2500171,
+                    "sourceAttributeName": "Organization Name",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "vcard:organization-name",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500172,
+                    "sourceAttributeName": "Website",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasURL",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500173,
+                    "sourceAttributeName": "Registered Address",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "mdaas:RegisteredAddress",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500174,
+                    "sourceAttributeName": "Founded Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasLatestOrganizationFoundedDate",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500175,
+                    "sourceAttributeName": "IPO Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasIPODate",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500176,
+                    "sourceAttributeName": "Summary",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "overview",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500177,
+                    "sourceAttributeName": "Incorporated In",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "isIncorporatedIn",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500178,
+                    "sourceAttributeName": "Domiciled In",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "isDomiciledIn",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500179,
+                    "sourceAttributeName": "Phone Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasRegisteredPhoneNumber",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500180,
+                    "sourceAttributeName": "Fax Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "hasRegisteredFaxNumber",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500181,
+                    "sourceAttributeName": "Headquarters Phone Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasHeadquartersPhoneNumber",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500182,
+                    "sourceAttributeName": "Headquarters Fax Number",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "tr-org:hasHeadquartersFaxNumber",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500183,
+                    "sourceAttributeName": "Regulation Status",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "RegulationStatus",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500184,
+                    "sourceAttributeName": "Regulation Status Effective Date",
+                    "sourceAttributeSchemaGroup": "Overview",
+                    "sourceAttributeSchema": "RegulationStatusEffectiveDate",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  }
+                ]
+              },
+              {
+                "subClassificationId": 2500185,
+                "subClassifcationName": "Financial",
+                "subClassificationCredibility": "NONE",
+                "dataAttributes": [
+                  {
+                    "attributeId": 2500186,
+                    "sourceAttributeName": "Financial Statements",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "financial_statements",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500187,
+                    "sourceAttributeName": "Balance Sheets",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "balance_sheet",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500188,
+                    "sourceAttributeName": "Income Statements",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "income_statement",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500189,
+                    "sourceAttributeName": "Cash Flow",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "cash_flow_statement",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500190,
+                    "sourceAttributeName": "Stocks",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "stocks_information",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  },
+                  {
+                    "attributeId": 2500191,
+                    "sourceAttributeName": "Current Status",
+                    "sourceAttributeSchemaGroup": "Finacial_Information",
+                    "sourceAttributeSchema": "Summary",
+                    "credibilityValue": "NONE",
+                    "attributeSaved": false
+                  }
+                ]
+              },
+              {
+                "subClassificationId": 2500192,
+                "subClassifcationName": "Corporate Structure",
+                "subClassificationCredibility": "NONE",
+                "dataAttributes": [
+                  
+                ]
+              },
+              {
+                "subClassificationId": 2500193,
+                "subClassifcationName": "Social Media",
+                "subClassificationCredibility": "NONE",
+                "dataAttributes": [
+                  
+                ]
+              }
+            ]
+          }
+        ],
+        "sourceMedia": [
+          {
+            "mediaId": 2500144,
+            "mediaName": "All"
+          }
+        ],
+        "deleteMedia": false
+      }
+    ],
+    "paginationInformation": {
+      "title": "/ehubrest/api/sourceCredibility/getSources",
+      "kind": "list",
+      "totalResults": 22,
+      "count": 10,
+      "index": 1,
+      "startIndex": 2,
+      "inputEncoding": "utf-8",
+      "outputEncoding": "utf-8"
+    }
+  }

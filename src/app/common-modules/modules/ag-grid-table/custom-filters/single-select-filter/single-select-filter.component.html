@@ -1,0 +1,74 @@
+<div>
+  <mat-form-field class="bst_mat_input btn-reset-select-filter select-filter-wrapper" (click)="changeScroll()">
+    <mat-label class="select-place-holder">{{ 'Select' | translate }}</mat-label>
+    <mat-select (selectionChange)="selectItem($event)" [(ngModel)]="singleSelectModel">
+      <ngx-mat-select-search
+        *ngIf="actualSelectOptions.length > 5"
+        [placeholderLabel]="placeholderLabel"
+        ngModel
+        (ngModelChange)="filterMyOptions($event)"
+        [clearSearchInput]="true"
+      ></ngx-mat-select-search>
+      <mat-option
+        *ngFor="let item of selectOptions; trackBy: trackByValue"
+        [value]="
+          colId == 'region_uplift'
+            ? item
+            : tableName != 'Feed list view'
+            ? item.value
+            : isRelatedCasesColumn(colId)
+            ? item.value
+            : item.label
+        "
+      >
+        <span
+          class="mar-r5 flag-icon flag-icon-squared placeholder-icon  flag-icon-{{ item?.code?.toLowerCase() }}"
+          *ngIf="colId == 'region_uplift' || colId == 'counterPartyLocation'"
+        ></span>
+        <span
+          class="mar-r5 flag-icon flag-icon-squared placeholder-icon  flag-icon-{{ item.jurisdictionName.toLowerCase() }}"
+          *ngIf="colId === 'jurisdiction_code'"
+        ></span>
+        <span class="w-100 text-overflow d-block">{{ item.label | translate }}</span>
+        <i class="fa fa-check active-icon" style="float: right; position: relative; top: 9px" aria-hidden="true"></i>
+      </mat-option>
+      <mat-select-trigger *ngIf="colId == 'region_uplift'">
+        <span
+          class="flag-icon flag-icon-squared placeholder-icon  flag-icon-{{ selectedFlag?.code?.toLowerCase() }}"
+          style="width: 20%"
+        ></span>
+        <span style="width: 80%">{{ selectedFlag && selectedFlag.label ? selectedFlag.label : '' }}</span>
+      </mat-select-trigger>
+      <mat-select-trigger *ngIf="colId == 'counterPartyLocation'">
+        <span
+          class="flag-icon
+          flag-icon-squared
+          placeholder-icon
+          flag-icon-{{ selectedFlag?.code?.toLowerCase() }}"
+          style="width: 20%"
+        ></span>
+        <span style="width: 80%">
+          {{ selectedFlag && selectedFlag.displayName ? selectedFlag.displayName : '' }}
+        </span>
+      </mat-select-trigger>
+    </mat-select>
+
+    <button
+      [disableRipple]="true"
+      *ngIf="singleSelectModel"
+      matSuffix
+      mat-icon-button
+      aria-label="Clear"
+      (click)="onRemoveFilter($event)"
+      class="btn-reset-filter input-wrapper__input-close-icon material-icons-round pointer"
+    >
+      <mat-icon class="bst-icon-tool-tip">
+        close
+        <div class="bst-icon-tool-tip__block tt-top-center">
+          <span class="bst-icon-tool-tip__text">{{ 'Reset Filter' | translate }}</span>
+        </div>
+      </mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+<button id="readPieChartSourceMonitoring_{{ colId }}" class="op-0" (click)="readPieChartSourceMonitoringFunction()"></button>

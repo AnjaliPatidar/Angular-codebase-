@@ -1,0 +1,92 @@
+@import "../../../../../assets/theme-builder/theme_builder";
+
+::ng-deep {
+  .custom-modal-body.modal-open .modal.bst_modal.add-new-officer .modal-content .form .bst_input_group input.custom-input:not(:placeholder-shown)~span.label {
+    left: 0 !important;
+    padding-left: 10px !important;
+  }
+
+  .placeholder-icon {
+    position: absolute;
+    top: 21px;
+    left: 7px;
+    font-size: 1.1rem;
+
+    &+input {
+      padding-left: 25px !important;
+    }
+  }
+
+  ng-multiselect-dropdown {
+    width: 25% !important;
+    height: 4.4em;
+    transition: all ease-in-out 0.5s;
+    border-radius: 0.5em 0.5em 0 0;
+    background-color: rgba(251, 251, 251, 0.08);
+    border-bottom: 2px solid rgba(249, 249, 249, 0.5);
+    font-size: 1rem;
+
+    .dropdown-list {
+      height: 17.5rem !important;
+      padding: 0;
+      // background-color: #424242 !important;
+      background-color: $surface !important;
+      border: 0 !important;
+      max-height: 20rem;
+
+      ul {
+        max-height: 122px !important;
+        overflow: auto;
+      }
+
+      li {
+        input[type=checkbox]+div {
+          color: #fff;
+          font-size: 1.4rem;
+          // font-family: "Roboto Regular",
+          //   sans-serif;
+          @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+          font-weight: 400;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.29;
+          letter-spacing: normal;
+          padding-left: 15px;
+          padding: 3px 0 3px 35px;
+          color: #fbfbfb !important;
+          position: relative;
+          background-color: transparent !important;
+        }
+      }
+    }
+
+  }
+
+  ng-multiselect-dropdown .multiselect-dropdown .dropdown-btn {
+    font-size: 14px;
+    color: rgba(251, 251, 251, 0.6);
+    border: 0 !important;
+
+    span:last-of-type {
+      span {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+
+        &.dropdown-down {
+          border-top: 6px solid #adadad !important;
+          border-left: 6px solid transparent !important;
+          border-right: 6px solid transparent !important;
+        }
+
+        &.dropdown-up {
+          border-bottom: 6px solid #adadad !important;
+          border-left: 6px solid transparent !important;
+          border-right: 6px solid transparent !important;
+        }
+      }
+    }
+  }
+}

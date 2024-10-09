@@ -1,0 +1,27 @@
+@import '../light-dark-theme/theme-utilities';
+/*  
+=======================================================================================
+****************************** Custom Styles For Themeing *****************************
+=======================================================================================
+*/
+body#body {
+
+  // Condition to load the styles if body has light-dark-theme class
+  &.light-dark-theme {
+    font-family: 'gotham-regular', sans-serif;
+    background-color: $theme-bg-color;
+
+    @import '../light-dark-theme/theme-scrollbar';
+    @import '../light-dark-theme/theme-header';
+    @import '../light-dark-theme/theme-submenu';
+    @import '../light-dark-theme/theme-form-controls';
+    @import '../light-dark-theme/theme-grid-table';
+    @import '../light-dark-theme/theme-panels';
+    @import '../light-dark-theme/theme-common-styles';
+    @import '../light-dark-theme/theme-popovers';
+    @import '../light-dark-theme/theme-usermangment';
+    @import "./_theme-system-settings";
+    @import "./theme-case-mangment";
+    @import "./theme-mat-table";
+  }
+}

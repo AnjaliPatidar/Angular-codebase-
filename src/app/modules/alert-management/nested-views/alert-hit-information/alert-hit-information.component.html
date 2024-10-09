@@ -1,0 +1,45 @@
+<h5 class="main-title-hit">{{hitData.hitEntityName}}</h5>
+<div class="card custom-card">
+  <h6 class="sm-title">Information</h6>
+  <div class="row">
+    <div class="col-md-5">
+      <div class="information-block">
+        <ul class="list-content-wrap">
+          <li class="list txt-mute">Watchlist:</li>
+          <li class="list">{{hitData.watchlistName ? hitData.watchlistName : 'N/A'}}</li>
+        </ul>
+        <ul class="list-content-wrap">
+          <li class="list txt-mute">Created:</li>
+          <li class="list">{{ hitData.createdDate ? (hitData.createdDate | date: 'M.d.y, hh:mm:ss a') : 'N/A'}}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="information-block">
+        <ul class="list-content-wrap">
+          <li class="list txt-mute">Status:</li>
+          <li class="list">
+            <!--            <mat-form-field appearance="fill" *ngIf="AllowedStatusList && AllowedStatusList.length > 0">-->
+            <!--              <mat-select [(value)]="currentStatusCode">-->
+            <!--                <mat-option *ngFor="let item of AllowedStatusList" [value]="item.key" (click)="setTransition(item.key)">-->
+            <!--                  {{item.name}}-->
+            <!--                </mat-option>-->
+            <!--              </mat-select>-->
+            <!--            </mat-form-field>-->
+            <app-bst-alert-status [alertData]="data"></app-bst-alert-status>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="information-block">
+        <ul class="list-content-wrap">
+          <li class="list txt-mute">Confidence Level</li>
+        </ul>
+        <ul class="list-content-wrap">
+          <li class="list txt-percent">{{hitData.confidenceLevel ? (hitData.confidenceLevel | number:'1.1-1')+' %' : 'N/A'}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

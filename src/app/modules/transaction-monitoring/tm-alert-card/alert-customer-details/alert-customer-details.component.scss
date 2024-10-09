@@ -1,0 +1,29 @@
+@import "../../../../../assets/scss/theme/common/variable";
+
+.custom-card{
+    margin-top: 16px;
+    padding: 16px 24px 24px 24px;
+    p {
+        letter-spacing: 0.15px;
+        color: $text-light-gray;
+    }
+}
+
+.details-column {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 28px 28px 28px;
+
+    span {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    span:nth-child(odd) {
+      opacity: 0.6;
+    }
+}
+
+.col-margin {
+    margin-right: 7.5%;
+}

@@ -1,0 +1,42 @@
+<div class="">
+  <mat-form-field class="bst_mat_input">
+    <mat-label>{{ 'Select' | translate }}</mat-label>
+    <mat-select #mySel [formControl]="myFormControl" multiple panelClass="indicator-filter">
+      <mat-option (click)="toggleAllSelection()" value="all">{{ 'RiskFactors' | translate }}</mat-option>
+      <mat-option
+        *ngFor="let item of selectOptions; trackBy: trackByListItemId"
+        (onSelectionChange)="adjustSelections()"
+        class="w-100 text-overflow d-block"
+        [value]="item.label"
+      >
+        <i class="fa fa-exclamation-triangle p-3" [ngStyle]="{ color: item.color }"></i>
+        {{ item.label | translate }}
+        <i class="fa fa-check active-icon" style="float: right; position: relative; top: 12px" aria-hidden="true"></i>
+      </mat-option>
+      <div class="ag-theme-balham bg-transparent">
+        <div class="ag-filter">
+          <div class="ag-filter-apply-panel">
+            <div class="ag-filter-apply-panel" id="applyPanel">
+              <button
+                (click)="cancelFilters()"
+                type="button"
+                class="gotham-medium light-theme-btn secondary-btn theme-f-12 theme-text-capitalize"
+                id="clearButton"
+              >
+                {{ 'Cancel' | translate }}
+              </button>
+              <button
+                (click)="applyFilters()"
+                type="button"
+                class="gotham-medium light-theme-btn primary-btn theme-f-12 theme-text-capitalize"
+                id="applyButton"
+              >
+                {{ 'Apply' | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-select>
+  </mat-form-field>
+</div>

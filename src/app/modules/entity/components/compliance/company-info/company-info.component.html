@@ -1,0 +1,448 @@
+<div class=" top-row custom-row bst_row_wrapper">
+    <div class="col-sm-12 pad-b0 pad-x0 custom-col">
+        <div class="panel custom-panel-wrapper bst_panel_wrapper details-panel-wrapper height-100">
+            <div class="panel-heading  d-flex ai-c" *ngIf="ceriSearchResultObject">
+                <h4 class="f-18 lh-1_2 top-details-heading mar-b0">Description
+
+                </h4>
+                <div class="d-none mar-l0 checkbox-inline" popover-trigger="'mouseenter'" popover-placement="top-left"
+                    uib-popover-template="'approval.html'" popover-class="top-popover-wrapper approval-popover "
+                    popover-append-to-body='true'>
+                    <!-- <input type="checkbox"
+                      ng-mouseover="entitySearchResult.complianceWidgets.setPopoverMsg(entitySearchResult.complianceWidgets.companyDescription)"
+                      [(ngModel)]="entitySearchResult.complianceWidgets.description"
+                      ng-change="entitySearchResult.complianceWidgets.updateOneWidget(entitySearchResult.complianceWidgets.companyDescription, entitySearchResult.complianceWidgets.description)"
+                      class="mar-l0 d-block z-99 c-pointer op-0 "> -->
+                    <span class="mar-r0"> <i class="fa fa-check"></i></span> </div>
+                <!-- <i class="fa fa-sticky-note f-18 heading-icons mar-l5 c-pointer" (click)="stickyFilesCompliance($event,'companyinformation');" [ngbPopover]="stickyNotes" popoverClass="caret" [autoClose]="'outside'" placement="top" container="body"></i> -->
+                <i class="fa fa-sticky-note f-18 heading-icons mar-l5 c-pointer"
+                    (click)="stickyFilesCompliance($event,'companyinformation');" [ngbPopover]="stickyNotes"
+                    popoverClass="caret" [autoClose]="'outside'" placement="top" container="body"></i>
+                <i class="fa fa-paperclip  heading-icons f-18 mar-l5 c-pointer" [ngbPopover]="stickyNotes"
+                    popoverClass="caret" [autoClose]="'outside'" placement="top" container="body"
+                    (click)="UploadFilesCompliance($event,'companyinformation');"></i>
+
+                <!-- <ng-template #stickyNotes>
+            <app-entity-clipboard></app-entity-clipboard>
+          </ng-template> -->
+
+                <ng-template #companyInfoConflict>
+                    <div
+                        [innerHTML]="ConflicttooltipData((ceriSearchResultObject['bst:description'].conflicts ),'companyInfoTooltip','Conflicts')">
+                    </div>
+                </ng-template>
+                <ng-template #content let-modal>
+                    <app-company-info-edit [modalInstance]='modal' [sourceList]="sourceList"
+                        (ceriSearchResultObjectChange)="ceriSearchResultObjectChange($event)"
+                        (companyInfoChange)="companyInfoChange($event)"
+                        [ceriSearchResultObject]="ceriSearchResultObject" [queryParams]="queryParams"
+                        [params]="{ 'source' : ceriSearchResultObject['bst:description'],'type':'Conflicts','index':1,'schema':'bst:description','title':'Registered Company Information Sources'}">
+                    </app-company-info-edit>
+                </ng-template>
+                <span class="mar-autol">
+                    <span class="d-ib companyInfoTooltip  c-pointer"
+                        *ngIf="ceriSearchResultObject['bst:description'] && ceriSearchResultObject['bst:description'].conflicts.length > 0 "
+                        [ngbPopover]="companyInfoConflict" container="body"
+                        popoverClass="custom-popover custom-scroll-wrapper" placement="bottom-right"
+                        popoverTitle="Conflicts" triggers="mouseenter:mouseleave" (click)="open(content)">
+                        <!-- (click)="conflictPopUpmodal((ceriSearchResultObject['bst:description']),'Conflicts',$index,'bst:description','Registered Company Information Sources')" -->
+                        <i class="fa fa-exclamation-triangle text-coral-red f-16" aria-hidden="true"></i>
+                    </span>
+
+
+                    <button class="source-button-wrapper border-0 mar-autol mnw-80" placement="left"
+                        [ngbPopover]="companyInfoDetails" popoverTitle="Registered Company Information Sources"
+                        triggers="mouseenter:mouseleave" (click)="open(content)" container="body"
+                        popoverClass="custom-popover custom-scroll-wrapper" placement="bottom-right">
+
+
+                        <!-- (click)="conflictPopUpmodal(ceriSearchResultObject['bst:description'],'Conflicts','', 'bst:description','Registered Company Information Sources')" -->
+                        <!-- popover-title="Registered Company Information Sources" uncomment -->
+                        <span class="text-dark-pastal-green mar-r5 " [style]="myStyle2"><i class="fa f-10 fa-link"></i>
+                            {{ceriSearchResultObject['bst:description']?.primarySource.length
+                          || 0}}</span>
+                        <span class="text-dark-cream mar-r5 c-pointer "><i class="fa f-10 fa-link"></i>
+                            {{ceriSearchResultObject['bst:description']?.secondarySource.length || 0}}</span>
+                        <ng-template #companyInfoDetails>
+                            <div [innerHTML]="complianceCompanyDetailsModal(ceriSearchResultObject['bst:description'])">
+                            </div>
+                        </ng-template>
+                    </button>
+                    <span *ngIf="!companyInfo.edit" class="showTooltip"
+                        (mouseover)="changedTooltipCompanyDetailsData(companyInfo,'companyInfoTooltip')"><button
+                            style="background: transparent;border:transparent;"
+                            (click)="editCompanyDetailsField(companyInfo,'companyInfo')"><i class="fa fa-pencil"
+                                [ngClass]="(ceriSearchResultObject['bst:description'] && ceriSearchResultObject['bst:description'].isUserData) ? 'text-dark-blue' : 'text-dark-cream' "
+                                aria-hidden="true"></i></button></span>
+                    <span *ngIf="companyInfo.edit" popover-class="top-pop-wrapper" popover-append-to-body="'true'"
+                        popover-animation="true" uib-popover="Save" popover-trigger="'mouseenter'"
+                        class="mar-r10 c-pointer mar-autol "
+                        (click)="updateCompanyDetails(companyInfo.texts,companyInfo,'companyInfo');"><i
+                            class="fa fa-check f-13   text-dark-cream" aria-hidden="true"></i></span>
+                    <span *ngIf="companyInfo.edit" popover-class="top-pop-wrapper" popover-append-to-body="'true'"
+                        popover-animation="true" uib-popover="Cancel" popover-trigger="'mouseenter'" class="c-pointer"
+                        (click)="companyInfo.edit = false;companyInfo.texts=ceriSearchResultObject['bst:description'].value;cancelCompanyDetails(companyInfo.texts,companyInfo,'companyInfo');"><i
+                            class="fa fa-times f-13   text-dark-cream" aria-hidden="true"></i> </span>
+
+                </span>
+            </div>
+            <!-- <span *ngIf="!pageloader.companyInfoReview" class="custom-spinner full-page-spinner height-200px">
+                <i class="fa fa-spinner txt-on-surface-06 fa-spin fa-2x"></i>
+            </span> -->
+            <div class="panel-body  panel-scroll mnh-235 h-25r p-rel" *ngIf="!showDescription" malihu-scrollbar>
+                <!--  Progressbar List Starts -->
+                <div class="company-details"
+                    *ngIf="ceriSearchResultObject['bst:description'] && ceriSearchResultObject['bst:description'].value !== '' ">
+                    <p *ngIf="!companyInfo.edit" style="text-align: left" class="text-dark-cream"
+                        [innerHTML]="ceriSearchResultObject['bst:description'].value">
+                        {{ceriSearchResultObject['bst:description'].value}}
+                    </p>
+
+
+                    <textarea wrap="hard" rows="13" cols="50" *ngIf="companyInfo.edit"
+                        class="custom-scroll-wrapper custom-input pad-0 lh-18 height-a mar-r10 entity-companyInfo"
+                        (keyup)="onInputCompanyDetails(companyInfo.texts,companyInfo.key,$event,companyInfo,'companyInfo')"
+                        [(ngModel)]="companyInfo.texts">
+                  </textarea>
+                </div>
+
+                <!--  Progressbar List Ends -->
+            </div>
+            <!-- <div class="panel-body  panel-scroll" *ngIf="ceriSearchResultObject['bst:description'] && ceriSearchResultObject['bst:description'].value === ''">
+                <div class="not-found text-center text-coral-red">
+                    Data not Found
+                </div>
+            </div> -->
+            <div *ngIf="showDescription" class="d-flex align-items-center justify-content-center h-100">
+                <div class="text-center text-coral-red">Data Not Found</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class=" top-row d-flex jc-sb custom-row bst_row_wrapper">
+    <div class="col-sm-6  pad-l0 custom-col">
+        <div
+            class="pad-0 height-100 details-panel-wrapper panel custom-panel-wrapper bst_panel_wrapper  c-details-tabs-wrapper mar-b0">
+            <div class="d-flex panel-heading ai-c">
+                <h3 class="mar-b0 roboto-light f-18 lh-1_2 text-unset text-cream">Company Details</h3>
+                <!--     <div class="d-none mar-l5 checkbox-inline" popover-trigger="'mouseenter'" popover-placement="top-left"
+                  uib-popover-template="'approval.html'" popover-class="top-popover-wrapper approval-popover"
+                  popover-append-to-body='true'> <input type="checkbox"
+                      (mouseover)="entitySearchResult.complianceWidgets.setPopoverMsg(entitySearchResult.complianceWidgets.companyDetails)"
+                      [(ngModel)]="entitySearchResult.complianceWidgets.details"
+                      (click)="entitySearchResult.complianceWidgets.updateOneWidget(entitySearchResult.complianceWidgets.companyDetails, entitySearchResult.complianceWidgets.details, $event)"
+                      class="mar-l0 d-block z-99 c-pointer op-0 ">
+                  <span class="mar-r0"> <i class="fa fa-check"></i></span> </div> -->
+                <i class="fa fa-sticky-note f-18 heading-icons  mar-l5 c-pointer" [ngbPopover]="stickyNotes"
+                    popoverClass="caret" placement="top" container="body" [autoClose]="'outside'"
+                    (click)="stickyFilesCompliance($event,'CompanyDetails');"></i>
+                <i class="fa fa-paperclip  heading-icons f-18 mar-l5 c-pointer" [ngbPopover]="stickyNotes"
+                    popoverClass="caret" placement="top" container="body" [autoClose]="'outside'"
+                    (click)="UploadFilesCompliance($event,'CompanyDetails');"></i>
+            </div>
+            <!-- <div class="mnh-235 h-25r p-rel panel-body panel-scroll" *ngIf="pageloader.companyDetailsloader">
+                <span class="custom-spinner full-page-spinner height-200px">
+                    <i class="fa fa-spinner txt-on-surface-06 fa-spin fa-2x"></i>
+                </span>
+            </div> -->
+
+            <div class="mnh-235 h-25r p-rel panel-body panel-scroll " malihu-scrollbar>
+
+                <span *ngIf="ErrorHandling.companyInformation">
+                    <span class="no-data-wrapper text-center">Data Not Found</span>
+                </span>
+                <div class="company-details " *ngIf="!pageloader.companyDetailsloader">
+                    <!-- <div class="Screening_new_tooltip"></div> this is commented as it was  giveing a bug of modified and changed by in the company detais sections-->
+                    <!--             <div *ngFor="compkeys in  conplianceMapKeys"> {{compkeys.value}}:{{ceriSearchResultObject[compkeys.key].value || 'Unknown'}}</div> -->
+
+                    <div class="company-details-wrapper d-flex pad-r10 "
+                        *ngFor="let compkeys of conplianceMapKeys ; let iter = index;">
+                        <div class="left">
+                            <p class="d-flex ai-c"> {{compkeys.value}}
+
+                            </p>
+                        </div>
+                        <div class="center ai-c d-flex p-rel">
+                            <span class="p-rel mar-r5">: </span>
+                            <span class="flag-icon mar-x5 text-cream flag-icon-squared flag-pop c-pointer f-9"
+                                *ngIf="(!compkeys.edit && compkeys.value == 'Country' && ceriSearchResultObject['isDomiciledIn'] && ceriSearchResultObject['isDomiciledIn'].value)"
+                                [ngClass]="(ceriSearchResultObject['isDomiciledIn'] && ceriSearchResultObject['isDomiciledIn'].value) ? 'flag-icon-'+ceriSearchResultObject['isDomiciledIn'].value.toLowerCase() : '' "></span>
+
+                            <span [ng-show]="!compkeys.edit">
+                                <span
+                                    *ngIf=" compkeys.key !== 'industryType' && compkeys.value !== 'Stock Exchange' && compkeys.key !== 'bst:businessClassifier' || (compkeys.value !== 'Alias Name'  && ceriSearchResultObject['bst:aka'] && ceriSearchResultObject['bst:aka'].value) && (compkeys.value !== 'Business Activity'  && ceriSearchResultObject['bst:businessClassifier'] && ceriSearchResultObject['bst:businessClassifier'].value) ">{{ceriSearchResultObject[compkeys.key]?.value
+                                              || 'Unknown'}}</span>
+                            </span>
+                            <span [ng-show]="!compkeys.edit">
+                                <span
+                                    *ngIf="(compkeys.key !== 'industryType' && compkeys.value !== 'Stock Exchange' && compkeys.key !== 'bst:businessClassifier') && (compkeys.value == 'Alias Name'  && ceriSearchResultObject['bst:aka'] && ceriSearchResultObject['bst:aka'].value)">{{ceriSearchResultObject[compkeys.key]?.value.toString()
+                                              || 'Unknown'}}</span>
+                            </span>
+                            <span [ng-show]="!compkeys.edit">
+                                <span
+                                    *ngIf="!compkeys.edit && compkeys.key == 'industryType'">{{ceriSearchResultObject[compkeys.key]?.value
+                                              || entitySearchResult?.list?.topHeaderObject?.industry || 'Unknown'}}</span>
+                            </span>
+                            <span [ng-show]="!compkeys.edit">
+                                <span *ngIf="!compkeys.edit && compkeys.key == 'bst:businessClassifier' ">{{getBussinessClassifer(ceriSearchResultObject[compkeys.key]?.value)
+                                              || 'Unknown'}}</span>
+                            </span>
+                            <span [ng-show]="!compkeys.edit">
+                                <span *ngIf="!compkeys.edit && compkeys.value == 'Stock Exchange'">{{ceriSearchResultObject[compkeys.key]?.value
+                                              || 'Unknown'}}</span>
+                            </span>
+                            <span *ngIf="compkeys.edit">
+                                <input
+                                    *ngIf="( compkeys.key !== 'industryType' && compkeys.value !== 'Stock Exchange' && compkeys.key !== 'bst:businessClassifier') || (compkeys.value !== 'Alias Name'  && ceriSearchResultObject['bst:aka'] && ceriSearchResultObject['bst:aka'].value) && (compkeys.value !== 'Business Activity'  && ceriSearchResultObject['bst:businessClassifier'] && ceriSearchResultObject['bst:businessClassifier'].value)"
+                                    class="custom-input pad-0 lh-18 height-a mar-r10"
+                                    (keyup)="onInputCompanyDetails(ceriSearchResultObject[compkeys.key]?.value2 ,compkeys.key,$event,compkeys,'companyDetails');"
+                                    [value]="ceriSearchResultObject[compkeys.key]?.value.toString()"
+                                    [(ngModel)]="ceriSearchResultObject[compkeys.key].value2">
+                                <input
+                                    *ngIf="( compkeys.key !== 'industryType' && compkeys.value !== 'Stock Exchange' && compkeys.key !== 'bst:businessClassifier') &&  (compkeys.value == 'Alias Name'  && ceriSearchResultObject['bst:aka'] && ceriSearchResultObject['bst:aka'].value)"
+                                    class="custom-input pad-0 lh-18 height-a mar-r10"
+                                    (keyup)="onInputCompanyDetails(ceriSearchResultObject[compkeys.key]?.value2 ,compkeys.key,$event,compkeys,'companyDetails')"
+                                    [value]="ceriSearchResultObject[compkeys.key]?.value.toString() "
+                                    [(ngModel)]="ceriSearchResultObject[compkeys.key].value2">
+                                <input *ngIf=" compkeys.key == 'industryType'"
+                                    class="custom-input pad-0 lh-18 height-a mar-r10"
+                                    (keyup)="onInputCompanyDetails(ceriSearchResultObject[compkeys.key]?.value2 ,compkeys.key,$event,compkeys,'companyDetails')"
+                                    [value]="ceriSearchResultObject[compkeys.key]?.value || entitySearchResult.list.topHeaderObject.industry "
+                                    [(ngModel)]="ceriSearchResultObject[compkeys.key].value2">
+                                <input *ngIf=" compkeys.value == 'Stock Exchange'"
+                                    class="custom-input pad-0 lh-18 height-a mar-r10"
+                                    (keyup)="onInputCompanyDetails(ceriSearchResultObject[compkeys.key]?.value2 ,compkeys.key,$event,compkeys,'companyDetails')"
+                                    [value]="ceriSearchResultObject[compkeys.key]?.value"
+                                    [(ngModel)]="ceriSearchResultObject[compkeys.key].value2">
+                                <input *ngIf=" compkeys.key== 'bst:businessClassifier'"
+                                    class="custom-input pad-0 lh-18 height-a mar-r10"
+                                    (keyup)="onInputCompanyDetails(ceriSearchResultObject[compkeys.key]?.value2 ,compkeys.key,$event,compkeys,'companyDetails')"
+                                    [value]="getBussinessClassifer(ceriSearchResultObject[compkeys.key]?.value)"
+                                    [(ngModel)]="ceriSearchResultObject[compkeys.key].value2">
+                            </span>
+
+                            <ul class="custom-list auto-complete-list z-99 mxh-140 l-0 pad-10px p-abs item-1"
+                                *ngIf="(compkeys.edit && compkeys.key == 'industryType') && (filterIndustry && filterIndustry.length > 0)">
+                                <li class="" *ngFor="let industrydata of filterIndustry"
+                                    (click)="fillIndustryTextbox(industrydata,compkeys.key)">
+                                    {{industrydata}}</li>
+                            </ul>
+                            <ul class="custom-list auto-complete-list z-99 mxh-140 l-0 pad-10px p-abs item-1"
+                                *ngIf="(compkeys.edit && compkeys.key == 'industryType') && (filterIndustry && filterIndustry.length == 0)">
+                                <li class="" (click)="saveIndustryOption(compkeys,compkeys.key)">Add new
+                                </li>
+                            </ul>
+                            <div #_popContent style="display:none;" class="noneeee">
+                                <div *ngIf="ceriSearchResultObject[compkeys.key] && ceriSearchResultObject[compkeys.key].conflicts"
+                                    [innerHTML]="ConflicttooltipData(ceriSearchResultObject[compkeys.key].conflicts,'companyTooltip','Conflicts',compkeys.title)">
+                                </div>
+                            </div>
+                            <ng-template #popContent>
+                                <div [innerHTML]="_popContent.innerHTML"></div>
+                            </ng-template>
+                            <ng-template #content let-modal>
+                                <app-company-info-edit [modalInstance]='modal'
+                                    (ceriSearchResultObjectChange)="ceriSearchResultObjectChange($event)"
+                                    (companyInfoChange)="companyInfoChange($event)"
+                                    [ceriSearchResultObject]="ceriSearchResultObject" [queryParams]="queryParams"
+                                    [params]="{ 'source' : ceriSearchResultObject[compkeys.key],'type':'Conflicts','index':iter,'schema':compkeys.key,'title':compkeys.title}">
+                                </app-company-info-edit>
+                            </ng-template>
+                            <button class="d-ib companyTooltip c-pointer mar-autol"
+                                style="background:transparent;border:transparent" [ngbPopover]="popContent"
+                                placement="bottom" popoverClass="custom-popover custom-scroll-wrapper" container="body"
+                                popoverTitle="Conflicts" triggers="mouseenter:mouseleave"
+                                *ngIf="!compkeys.edit && ceriSearchResultObject[compkeys.key]?.conflicts.length > 0"
+                                (click)="open(content)">
+
+
+                                <i class="fa fa-exclamation-triangle text-coral-red f-16" aria-hidden="true"></i>
+
+                            </button>
+                            <!-- (click)="conflictPopUpmodal(ceriSearchResultObject[compkeys.key],'Conflicts',$index, compkeys.key,compkeys.value)" -->
+                            <!-- (mouseover)="ConflicttooltipData(ceriSearchResultObject[compkeys.key]?.conflicts,'companyTooltip','Conflicts',compkeys.title)" -->
+                            <ng-template #popItem>
+                                <div [innerHTML]="complianceCompanyDetailsModal(ceriSearchResultObject[compkeys.key])">
+                                </div>
+                            </ng-template>
+                            <!-- <ng-template #companyInfoDetails>
+                <div [innerHTML]="complianceCompanyDetailsModal(ceriSearchResultObject['bst:description'])"></div>
+              </ng-template> -->
+
+                            <button *ngIf="!compkeys.edit" class="source-button-wrapper border-0  mnw-80"
+                                [ngClass]="(ceriSearchResultObject[compkeys.key]?.conflicts.length > 0) ? '' : 'mar-autol' "
+                                [ngbPopover]="popItem" triggers="mouseenter:mouseleave"
+                                popoverTitle="{{compkeys.title}}" placement="bottom" (click)="open(content)"
+                                container="body" popoverClass="custom-popover custom-scroll-wrapper">
+
+                                <!-- (click)="conflictPopUpmodal(ceriSearchResultObject[compkeys.key],'Conflicts',$index, compkeys.key,compkeys.title)" -->
+                                <!--popover-title={{compkeys.title}}  uib-popover-html="complianceCompanyDetailsModal(ceriSearchResultObject[compkeys.key,'Secondary', $index)"  uncomment -->
+                                <!-- openComplianceModal(ceriSearchResultObject[compkeys.key]?) -->
+                                <span class="text-dark-pastal-green mar-r5 " [style]="myStyle2"
+                                    style="cursor: pointer;"><i class="fa f-10 fa-link"></i>
+                                    {{ceriSearchResultObject[compkeys.key]?.primarySource.length || 0}}</span>
+                                <span class="text-dark-cream mar-r5 c-pointer "> <i class="fa f-10 fa-link"></i>
+                                    {{ceriSearchResultObject[compkeys.key]?.secondarySource.length || 0}}</span></button>
+                            <span *ngIf="!compkeys.edit" class="showTooltip">
+                                <!-- (mouseover)="changedTooltipCompanyDetailsData(compkeys,'companyDetailsTooltip')" -->
+                                <button style="background: transparent;border:transparent;"
+                                    (click)="editCompanyDetailsField(compkeys,'companyDetails')"><i class="fa fa-pencil"
+                                        [ngClass]="(ceriSearchResultObject[compkeys.key]?.isUserData) ? 'text-dark-blue' : 'text-dark-gray2' "
+                                        aria-hidden="true"></i></button></span>
+                            <span *ngIf="compkeys.edit" popover-class="top-pop-wrapper" popover-append-to-body="'true'"
+                                popover-animation="true" uib-popover="Save" popover-trigger="'mouseenter'"
+                                class="mar-r10 c-pointer mar-autol "
+                                (click)="updateCompanyDetails(compkeys.texts,compkeys,'companyDetails');"><i
+                                    class="fa fa-check f-13   text-dark-gray2" aria-hidden="true"></i></span>
+                            <span *ngIf="compkeys.edit" popover-class="top-pop-wrapper" popover-append-to-body="'true'"
+                                popover-animation="true" uib-popover="Cancel" popover-trigger="'mouseenter'"
+                                class="c-pointer"
+                                (click)="compkeys.edit = false;compkeys.texts='';cancelCompanyDetails(compkeys.texts,compkeys,'companyDetails');"><i
+                                    class="fa fa-times f-13   text-dark-gray2" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 pad-r0 custom-col">
+        <div
+            class="pad-0 height-100 details-panel-wrapper panel custom-panel-wrapper bst_panel_wrapper  c-details-tabs-wrapper mar-b0">
+            <div class="d-flex panel-heading ai-c">
+                <h3 class="mar-b0 roboto-light f-18 lh-1_2 text-unset text-cream">Customer Information</h3>
+                <!-- <div class="d-none mar-l5 checkbox-inline" popover-trigger="'mouseenter'" popover-placement="top-left"
+                  uib-popover-template="'approval.html'" popover-class="top-popover-wrapper approval-popover"
+                  popover-append-to-body='true'> <input type="checkbox"
+                      (mouseover)="entitySearchResult.complianceWidgets.setPopoverMsg(entitySearchResult.complianceWidgets.companyIdentifiers)"
+                      [(ngModel)]="entitySearchResult.complianceWidgets.identifiers"
+                      (click)="entitySearchResult.complianceWidgets.updateOneWidget(entitySearchResult.complianceWidgets.companyIdentifiers, entitySearchResult.complianceWidgets.identifiers, $event)"
+                      class="mar-l0 d-block z-99 c-pointer op-0 ">
+                  <span class="mar-r0"> <i class="fa fa-check"></i></span> </div> -->
+                <i class="fa fa-sticky-note f-18 heading-icons mar-l5 c-pointer" [ngbPopover]="stickyNotes"
+                    popoverClass="sticky-popup" placement="bottom" container="body" [autoClose]="'outside'"
+                    (click)="stickyFilesCompliance($event,'CompanyIdentifiers');"></i>
+                <i class="fa fa-paperclip  heading-icons f-18 mar-l5 c-pointer" [ngbPopover]="stickyNotes"
+                    popoverClass="sticky-popup" placement="bottom" container="body" [autoClose]="'outside'"
+                    (click)="UploadFilesCompliance($event,'CompanyIdentifiers');"></i>
+            </div>
+            <div class="mnh-235 h-25r p-rel panel-body panel-scroll " malihu-scrollbar *ngIf="!showCustomerInfo">
+                <div class=" customer-onfo1">
+                    <!-- <div class="left d-flex" *ngFor="let key  of conplianceIdentifiers">
+                        <p class="ai-c mar-l15"> {{key.value}}</p>
+                        <div class="center ai-c d-flex custom-value">
+                            <span class="p-rel mar-r5">:</span>
+                            <span>{{ceriSearchResultObject[key.key]?.value ||'Unknown'}}</span>
+                        </div>
+                    </div> -->
+                    <table class="table1" *ngIf="customerMap">
+                        <!-- <tr>
+                            <th></th>
+                        </tr> -->
+                        <tr *ngFor="let customer  of customerMap" style="vertical-align:top">
+                            <td class="column-name pr-2">{{customer.name}}</td>
+                            <!-- <td class="custom-value">:</td> -->
+                            <td class="custom-value" *ngIf="customer.type === 'clientSince'">
+                                <img src="assets/images/check-circle.webp"
+                                    *ngIf="formateTime(customerInformationDetails[customer.type])">
+                                {{formateTime(customerInformationDetails[customer.type]) ||'N/A'}}</td>
+                            <td class="custom-value"
+                                *ngIf="customer.type !== 'products' && customer.type !=='potentialFurtherProducts'&& customer.type !== 'clientSince'">
+                                {{customerInformationDetails[customer.type] ||'N/A'}}</td>
+                            <td class="custom-value" *ngIf="customer.type === 'products'">
+                                <!-- {{customerInformationDetails[customer.type] ||'N/A'}} -->
+                                <div *ngFor="let i of customerInformationDetails[customer.type]">
+                                    <span>{{i.productName}} ({{i.price}})</span><br>
+                                    <span class="lite">Start</span> <span
+                                        class="pl-3 lite">{{formateTime(i.startDate)}}</span><br>
+                                    <span class="lite">Expired</span><span
+                                        class="pl-2 lite">{{formateTime(i.expirationDate)}}</span>
+                                </div>
+                                <div *ngIf="customerInformationDetails[customer.type]?.length == 0">
+                                    N/A
+                                </div>
+                            </td>
+                            <td class="custom-value" *ngIf="customer.type ==='potentialFurtherProducts'">
+                                <!-- {{customerInformationDetails[customer.type] ||'N/A'}} -->
+                                <span
+                                    *ngFor="let prod of customerInformationDetails[customer.type];let j=last;let i=index">
+                                    {{prod}}<span *ngIf="i != j">,</span>
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div *ngIf="showCustomerInfo" class="d-flex align-items-center justify-content-center h-100">
+                <div class="text-center text-coral-red">Data Not Found</div>
+            </div>
+            <!-- <div class="mnh-235 panel-body panel-scroll p-rel details-panel-wrapper">
+                <span *ngIf="pageloader.companyIdentifiersReview" class="custom-spinner full-page-spinner height-200px">
+          <i class="fa fa-spinner txt-on-surface-06 fa-spin fa-2x"></i>
+        </span>
+                <span *ngIf="ErrorHandling.companyInformation">
+          <span class="no-data-wrapper text-center">Data Not Found</span>
+                </span> -->
+            <!-- <div class="company-details" *ngIf="!pageloader.companyIdentifiersReview">
+                    <div class="company-details-wrapper d-flex pad-r10 ">
+                        <div class="row">
+                            <div class="col-sm-6" *ngFor="let key  of conplianceIdentifiers; let iter = index;">
+                                <div class="left">
+                                    <p class="d-flex ai-c"> {{key.value}}
+                                    </p>
+                                </div>
+                                <div class="center ai-c d-flex">
+                                    <span class="p-rel mar-r5">: </span>
+                                    <span *ngIf="!key.edit">{{ceriSearchResultObject[key.key]?.value ||'unknown'}} </span>
+                                    <input *ngIf="key.edit" class="custom-input pad-0 lh-18 height-a mar-r10" [value]="ceriSearchResultObject[key.key]?.value ||'unknown'" [(ngModel)]="ceriSearchResultObject[key.key].value2" (keyup)="onInputCompanyDetails(ceriSearchResultObject[key.key]?.value2,key.key,$event,key,'companyIdentifiers')">
+                                    <ng-template #content let-modal>
+                                        <app-company-info-edit [modalInstance]='modal' (ceriSearchResultObjectChange)="ceriSearchResultObjectChange($event)" (companyInfoChange)="companyInfoChange($event)" [ceriSearchResultObject]="ceriSearchResultObject" [queryParams]="queryParams" [params]="{ 'source' : ceriSearchResultObject[key.key]?.conflicts,'type':'Conflicts','index':iter,'schema':key.key,'title':key.title}">
+                                        </app-company-info-edit>
+                                    </ng-template>
+                                    <ng-template #popItem>
+                                        <div [innerHTML]="ConflicttooltipData(ceriSearchResultObject[key.key]?.conflicts,'companyTooltip','Conflicts')">
+                                        </div>
+                                    </ng-template>
+                                    <span class="d-ib mar-autol companyTooltip c-pointer" *ngIf="ceriSearchResultObject[key.key]?.conflicts.length > 0" [ngbPopover]="popItem" triggers="mouseenter:mouseleave" popoverTitle="conflicts" popoverClass="custom-popover
+            custom-scroll-wrapper" placement="bottom" container="body" (click)="open(content)" style="background:transparent;border:transparent">
+            <i class="fa fa-exclamation-triangle text-coral-red f-16" aria-hidden="true"></i>
+          </span>
+                                    <ng-template #popItem2>
+                                        <div [innerHTML]="complianceCompanyDetailsModal(ceriSearchResultObject[key.key])"></div>
+                                    </ng-template> -->
+            <!-- <button class="source-button-wrapper border-0  mnw-80" placement="left" [ngClass]="(ceriSearchResultObject[key.key]?.conflicts.length > 0) ? '' : 'mar-autol' " [ngbPopover]="popItem2" triggers="mouseenter:mouseleave" popoverTitle="{{key.title}}" placement="bottom-right"
+                            (click)="open(content)" container="body" popoverClass="custom-popover custom-scroll-wrapper"> -->
+            <!--  popover-title={{key.title}} uncomment -->
+            <!-- <span class="text-dark-pastal-green mar-r5 " [style]="myStyle2" style="cursor: pointer;"><i
+                class="fa f-10 fa-link"></i>
+              {{ceriSearchResultObject[key.key]?.primarySource.length || 0}}</span>
+            <span class="text-dark-cream c-pointer "><i class="fa f-10 fa-link"></i>
+              {{ceriSearchResultObject[key.key]?.secondarySource.length || 0}}</span></button> -->
+            <!-- <span *ngIf="!key.edit" class="showTooltip" (mouseover)="changedTooltipCompanyDetailsData(key,'companyIdentifierTooltip')"><button
+              style="background: transparent;border:transparent;"
+              (click)="editCompanyDetailsField(key,'companyIdentifiers')"><i class="fa fa-pencil"
+                [ngClass]="(ceriSearchResultObject[key.key]?.isUserData) ? 'text-dark-blue' : 'text-dark-gray2' "
+                aria-hidden="true"></i></button></span> -->
+            <!-- <span *ngIf="key.edit" popover-class="top-pop-wrapper" popover-append-to-body="'true'" popover-animation="true" uib-popover="Save" popover-trigger="'mouseenter'" class="mar-r10 c-pointer mar-autol" (click)="updateCompanyDetails(key.texts,key,'companyIdentifiers');"><i
+              class="fa fa-check f-13   text-dark-blue" aria-hidden="true"></i></span>
+                                    <span *ngIf="key.edit" popover-class="top-pop-wrapper" popover-append-to-body="'true'" popover-animation="true" uib-popover="Cancel" popover-trigger="'mouseenter'" class="c-pointer mar-autol" (click)="key.edit = false;"><i class="fa fa-times f-13   text-dark-blue" aria-hidden="true"></i>
+          </span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">Hiiiiiii: heloo</div>
+                        </div>
+
+
+                    </div>
+                    <!-- <div class="no-data-wrapper text-center" *ngIf="entitySearchResult.is_data_not_found.is_complianceDetails">
+            <span>Data Not Found</span>
+          </div> -->
+            <!-- </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+<ng-template #stickyNotes>
+    <app-entity-clipboard></app-entity-clipboard>
+</ng-template>

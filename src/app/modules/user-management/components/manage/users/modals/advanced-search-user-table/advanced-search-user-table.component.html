@@ -1,0 +1,9 @@
+<h1 mat-dialog-title class="d-flex align-items-center justify-content-between pb-4 mb-3 title f-14 bottom-border text-dark-black fw-500">{{'Add Users To the' |translate}}
+  {{nameOfGroup ? nameOfGroup:''}} <i class="material-icons c-pointer f-16" (click)="dialogRef.close()">close</i></h1>
+<div mat-dialog-content class="custom-scroll-wrapper">
+  <app-users [addUsersTable]="addUsersTab" class="advance-search"></app-users>
+  <div class="btn-group width-100 add-user-btns mt-4 d-flex ai-c jc-fe">
+    <button class="bordered-button mr-3 light-theme-btn secondary-btn gotham-medium fw-500" type="button" (click)="close()">{{'Cancel' | translate}}</button>
+    <button class="grad-button light-theme-btn primary-btn gotham-medium fw-500" type="button" (click)="addUsersList()">{{'Assign Users' | translate}}</button>
+  </div>
+</div>

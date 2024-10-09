@@ -1,0 +1,391 @@
+<!-- Entity Clipboard Dropdown Starts -->
+<div id="entityWrapper" 
+  class="dropdown-menu-wrapper clipboard-entity-menu-wrapper clipboard-dropdown-menu-wrapper upload-document-popover stick-popover"
+  [ngClass]="clipBoardObject.file_wraper ? 'clipboard_entity_file_wraper':''">
+  <div class="row search-clip-holder d-flex justify-content-end">
+    <div class="col-sm-5 search-clip-item" [hidden]="isFromEntitySection || isUploadFromEntitySection">
+
+      <p class="ml-0">Total
+        {{ evidenceReportAddToPageFromclip?.length + mydocumentUploaded?.length + mydocumentSticky?.length }}
+        Files </p>
+
+
+
+    </div>
+    <div class="col-sm-7 text-right search-clip-item pad-x0 d-flex justify-content-end"
+      [ngClass]="{'width-100' : isFromEntitySection || isUploadFromEntitySection}">
+      <h3 class="font-weight-bold d-inline-flex align-self-center">Add Media</h3>
+      <!-- <button class="btn btn-primary btn-blue">
+<span class="fa fa-camera"></span> Capture Screen</button> -->
+      <button type="button" class="btn btn-primary grad-button sm-btns btn-blue" (click)="createSticky()"
+        [hidden]="isUploadFromEntitySection">
+        <span class="fa fa-plus-square text-white"></span>Note</button>
+      <button type="button" class="btn btn-primary grad-button sm-btns btn-blue" (click)="clipboardUploadFile()"
+        [hidden]="isFromEntitySection">
+        <span class="fa fa-upload text-white"></span>Upload</button>
+      <button type="button" class="pad-0 bg-transparent border-0">
+        <span class="fa mar-0 fa-times text-cream" (click)="closeEntityClipboard()"></span></button>
+    </div>
+  </div>
+  <div class="row context-menu mt-2 mar-l0 mar-r0 hr-line">
+    <div class="col-sm-5 context-menu-item" [hidden]="isFromEntitySection || isUploadFromEntitySection">
+      <ul>
+        <li id="removefilterByCase" class="active">
+          <a>All FILES</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-sm-7 text-right context-menu-item" [hidden]="isFromEntitySection || isUploadFromEntitySection">
+      <div class="input-group custom-input-group col-sm-6 pull-left">
+        <span class="input-group-addon">
+          <i class="fa fa-search position-none"></i>
+        </span>
+        <input type="text" id="filterFiles" [(ngModel)]="filterFiles"
+          class="form-control bg-transparent">
+
+      </div>
+      <div class="select-group">
+        <span class="filter-key text-uppercase">Display :</span>
+        <select id="displayByIconOrTable" class="filter-value text-uppercase" name="displayByIcon">
+          <option value="icon" selected="selected">Icons</option>
+          <option value="table">Table</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="clipboard-items">
+    <div class="hidden table-details-wrapper" id="tableDetail">
+      <div class="transaction-predictive-wrapper custom-data-table-wrapper">
+        <table id="" class="table table-scroll five-col-equal table-striped border-b0" role="grid"
+          [hidden]="isFromEntitySection || isUploadFromEntitySection">
+          <thead>
+            <tr role="row">
+              <th class="text-left sorting" rowspan="1" colspan="1" aria-label="Id">
+                Name
+              </th>
+              <th class="text-left sorting" tabindex="0" aria-controls="landingTableData" rowspan="1" colspan="1"
+                aria-sort="ascending" aria-label="Name: activate to sort column descending">
+                Type
+              </th>
+              <th class="text-left sorting" tabindex="0" aria-controls="landingTableData" rowspan="1" colspan="1"
+                aria-sort="ascending" aria-label="Name: activate to sort column descending">
+                Created by
+              </th>
+              <th class="text-left sorting" rowspan="1" colspan="1" aria-label="Id">
+                Created on
+              </th>
+              <!-- <th class="text-left sorting" tabindex="0" aria-controls="landingTableData" rowspan="1" colspan="1" aria-sort="ascending"
+aria-label="Name: activate to sort column descending">
+Case
+</th> -->
+              <th class="text-left sorting" tabindex="0" aria-controls="landingTableData" rowspan="1" colspan="1"
+                aria-sort="ascending" aria-label="Name: activate to sort column descending">
+                File size
+              </th>
+            </tr>
+          </thead>
+          <tbody id="dataList">
+            <tr id="" role="row" class="odd" *ngFor="let doc of documents">
+              <td>{{doc.title}}</td>
+              <td *ngIf="doc.type == ''">Sticky Notes</td>
+              <td *ngIf="doc.type != ''">{{doc.type}}</td>
+              <td>{{doc.uploadedUserName}}</td>
+              <td>{{doc.uploadedOn| date: 'dd/MM/yyyy'}}</td>
+              <!-- <td>HSBC AML Dubai</td> -->
+              <td>{{doc.size / 1000}} Mb</td>
+            </tr>
+        </table>
+      </div>
+    </div>
+    <div class="tiles-style">
+      <span *ngIf="loadDocument" class="custom-spinner case-dairy-spinner">
+        <i class="fa fa-spinner txt-on-surface-06 fa-spin fa-2x"></i>
+      </span>
+      <div class="select-group pl-0">
+        <span class="filter-key text-uppercase">List-By :</span>
+        <select id="displayByOrder" class="filter-value text-uppercase" name="displayByOrder">
+          <option value="desc">Descending</option>
+          <option value="asc" selected>Ascending</option>
+        </select>
+      </div>
+      <div class="folder-wrapper mxh-140 custom-scroll-wrapper overflow-auto"
+        [ngClass]="{'height-a':isFromEntitySection ||isUploadFromEntitySection}">
+        <div class="folder-list-wrapper pl-0 "*ngIf="!isUploadFromEntitySection">
+          <h5 class="font-weight-bold">My Sticky Notes</h5>
+          <ul class="list-inline clipboard-items-list top-pop" id="folder">
+            <ng-container *ngFor="let doc of mydocumentSticky;trackBy:trackByDocId">
+              <li class="clipboard-list-item p-rel" (click)="getMenuForDoc($event, doc)"
+                  mat-raised-button
+                  [matTooltip]="doc.title"
+                  matTooltipPosition="above"
+                  aria-label="Button that displays complete doc name when hovered over"
+                *ngIf="doc.type == '' && ((doc.title.toLowerCase().indexOf(filterFiles.toLowerCase().trim()) != -1) || (doc.docName.toLowerCase().indexOf(filterFiles.toLowerCase().trim()) != -1) )"
+                triggers="mouseenter:mouseleave" [ngbPopover]="doc.title" triggers="manual" #p1="ngbPopover">
+                <!-- <li class="clipboard-list-item p-rel" (click)="getMenuForDoc($event, doc)"
+                                *ngIf="doc.type == '' && ((doc.title.toLowerCase().indexOf(filterFiles.toLowerCase().trim()) != -1) || (doc.docName.toLowerCase().indexOf(filterFiles.toLowerCase().trim()) != -1) )"
+                                uib-popover={{}} popover-trigger="'mouseenter'" popover-placement='top'
+                                popover-class="top-popover-wrapper" popover-append-to-body='true' ng-cloak> -->
+                <i class="fa fa-file-pdf-o clipboard-icon hidden"></i>
+                <i class="fa fa-times p-abs clipboard-icon text-coral-red f-12 r-5"
+                  (click)="deleteDoc($event, doc.docId,doc)"></i>
+                <img *ngIf="pathChange()" src="assets/img/clipBoardIcon/sticky.webp" alt="sticky-img" />
+                <img *ngIf="!pathChange()" src="../assets/img/clipBoardIcon/sticky.webp" alt="sticky-img" />
+                <span class="clipboard-item-name" style="display:none;">{{doc}}</span>
+                <span class="clipboard-item-name">{{doc.title }}</span>
+              </li>
+            </ng-container>
+            <ng-container *ngFor="let doc of mydocumentSticky;trackBy:trackByDocId">
+              <li class="clipboard-list-item p-rel" (click)="getMenuForDoc($event, doc)"
+                  mat-raised-button
+                  [matTooltip]="doc.title"
+                  matTooltipPosition="above"
+                  aria-label="Button that displays complete doc name when hovered over"
+                *ngIf="doc.type != '' && ((doc.title.toLowerCase().indexOf(filterFiles.toLowerCase().trim()) != -1) || (doc.docName.toLowerCase().indexOf(filterFiles.toLowerCase().trim()) != -1) )"
+                [ngbPopover]="doc.title" triggers="manual" #p1="ngbPopover">
+                <!-- <li class="clipboard-list-item p-rel" (click)="getMenuForDoc($event, doc)"
+                                *ngIf="doc.type != '' && ((doc.title.toLowerCase().indexOf(filterFiles.toLowerCase().trim()) != -1) || (doc.docName.toLowerCase().indexOf(filterFiles.toLowerCase().trim()) != -1) )"
+                                uib-popover={{doc.title}} popover-trigger="'mouseenter'" popover-placement='top'
+                                popover-class="top-popover-wrapper" popover-append-to-body='true' ng-cloak> -->
+                <i class="fa fa-file-pdf-o clipboard-icon hidden"></i>
+                <i class="fa fa-times p-abs clipboard-icon text-coral-red f-12 r-5"
+                  (click)="deleteDoc($event, doc.docId,doc)"></i>
+                <img *ngIf="pathChange()" src="../../../../../assets/img/clipBoardIcon/{{doc.type}}.webp" alt="clipBoardIcon-img" />
+                <img *ngIf="!pathChange()" src="../../../../../assets/img/clipBoardIcon/{{doc.type}}.webp" alt="clipBoardIcon-img" />
+                <span class="clipboard-item-name" style="display:none;">{{doc}}</span>
+                <span class="clipboard-item-name">{{doc.title }}</span>
+              </li>
+            </ng-container>
+          </ul>
+          <div class="alertsDashErrorDiv" *ngIf="mydocumentSticky?.length == 0">
+            <span>No Document Found</span>
+          </div>
+          <div class="text-right pagin">
+            <ul class="clipboard-pagination"
+              *ngIf="(mydocumentSticky?.length < mydocumentStickyLength && mydocumentStickyLength>9)" uib-pagination
+              total-items="mydocumentStickyLength" items-per-page="9" [(ngModel)]="pageNum1"
+              (change)="pageChangedmydocumentSticky(pageNum1)" max-size="2" items-per-page="9" class="pagination-sm"
+              boundary-link-numbers="true">
+            </ul>
+          </div>
+        </div>
+        <div class="folder-list-wrapper pl-0" [hidden]="isFromEntitySection">
+          <h5 class="font-weight-bold">My Uploaded Document</h5>
+          <ul class="list-inline clipboard-items-list top-pop" id="folder">
+            <ng-container *ngFor="let doc of mydocumentUploaded;trackBy:trackByDocId">
+              <li class="clipboard-list-item p-rel"
+                mat-raised-button
+                [matTooltip]="doc.title"
+                matTooltipPosition="above"
+                aria-label="Button that displays complete doc name when hovered over"
+                *ngIf="doc.type == 'snt' && ((doc.title.toLowerCase().indexOf(filterFiles.toLowerCase().trim()) != -1) || (doc.docName.toLowerCase().indexOf(filterFiles.toLowerCase().trim()) != -1) )"
+                (click)="downloadDocument(doc, 'download')" [ngbPopover]="doc.title" triggers="manual" #p1="ngbPopover">
+                <!-- <li class="clipboard-list-item p-rel"
+                                *ngIf="doc.type == 'snt' && ((doc.title.toLowerCase().indexOf(filterFiles.toLowerCase().trim()) != -1) || (doc.docName.toLowerCase().indexOf(filterFiles.toLowerCase().trim()) != -1) )"
+                                uib-popover={{doc.title}} popover-trigger="'mouseenter'" popover-placement='top'
+                                popover-class="top-popover-wrapper" popover-append-to-body='true'
+                                (click)="downloadDocument(doc, 'download')" ng-cloak> -->
+                <i class="fa fa-file-pdf-o clipboard-icon hidden"></i>
+                <i class="fa fa-times p-abs clipboard-icon text-coral-red f-12 r-5"
+                  (click)="deleteDoc($event, doc.docId,doc)"></i>
+                <img *ngIf="pathChange()" src="assets/img/clipBoardIcon/sticky.webp" alt="sticky-img" />
+                <img *ngIf="!pathChange()" src="../assets/img/clipBoardIcon/sticky.webp" alt="sticky-img" />
+                <span class="clipboard-item-name" style="display:none;">{{doc}}</span>
+                <span class="clipboard-item-name">{{doc.title}}</span>
+              </li>
+            </ng-container>
+            <ng-container *ngFor="let doc of mydocumentUploaded ; let i = index;trackBy:trackByDocId">
+              <li class="clipboard-list-item p-rel"
+                  mat-raised-button
+                  [matTooltip]="!doc.title ? doc.docName : doc.title"
+                  matTooltipPosition="above"
+                  aria-label="Button that displays complete doc name when hovered over"
+                *ngIf="doc.type != '' && ((doc.title.toLowerCase().indexOf(filterFiles.toLowerCase().trim()) != -1) || (doc.docName.toLowerCase().indexOf(filterFiles.toLowerCase().trim()) != -1) )"
+                (click)="downloadDocument(doc, 'download')" [ngbPopover]="doc.title" triggers="manual" #p1="ngbPopover">
+                <!-- <li class="clipboard-list-item p-rel"
+                                *ngIf="doc.type != '' && ((doc.title.toLowerCase().indexOf(filterFiles.toLowerCase().trim()) != -1) || (doc.docName.toLowerCase().indexOf(filterFiles.toLowerCase().trim()) != -1) )"
+                                uib-popover={{doc.title}} popover-trigger="'mouseenter'" popover-placement='top'
+                                popover-class="top-popover-wrapper" popover-append-to-body='true'
+                                (click)="downloadDocument(doc, 'download')" ng-cloak> -->
+                <i class="fa fa-file-pdf-o clipboard-icon hidden"></i>
+                <i class="fa fa-times p-abs clipboard-icon text-coral-red f-12 r-5"
+                  (click)="deleteDoc($event, doc.docId,doc)"></i>
+                <img *ngIf="pathChange()" src="assets/img/clipBoardIcon/{{doc.type.toLowerCase()}}.webp"
+                  alt="clipBoardIcon-img" />
+                <img *ngIf="!pathChange()" src="../assets/img/clipBoardIcon/{{doc.type.toLowerCase()}}.webp"
+                  alt="clipBoardIcon-img" />
+                <span class="clipboard-item-name" style="" *ngIf="!doc.title">{{doc.docName}}</span>
+                <span class="clipboard-item-name">{{doc.title}}</span>
+              </li>
+            </ng-container>
+          </ul>
+          <div class="alertsDashErrorDiv" *ngIf="mydocumentUploaded?.length == 0">
+            <span>No Document Found</span>
+          </div>
+          <!-- <div class="text-right pagin">
+<ul class="clipboard-pagination" *ngIf="(mydocumentUploaded.length < mydocumentUploadedLength && mydocumentUploadedLength>9)" uib-pagination total-items="mydocumentUploadedLength" items-per-page="9" [(ngModel)]="pageNum2" (change)="pageChangedmydocumentUploaded(pageNum2)" max-size="2" items-per-page="5" class="pagination-sm"
+boundary-link-numbers="true">
+</ul>
+</div> -->
+        </div>
+        <div class="folder-list-wrapper pl-0" *ngIf="!isFromEntitySection && !isUploadFromEntitySection">
+          <h5 class="font-weight-bold">My Evidence section</h5>
+          <ul class="list-inline clipboard-items-list top-pop" id="folder">
+            <ng-container *ngFor="let doc of evidenceReportAddToPageFromclip;trackBy:trackByDocId">
+              <li class="clipboard-list-item p-rel"
+                mat-raised-button
+                [matTooltip]="!doc.title ? doc.docName : doc.title"
+                matTooltipPosition="above"
+                aria-label="Button that displays complete doc name when hovered over"
+                *ngIf="(doc.title.toLowerCase().indexOf(filterFiles.toLowerCase().trim()) != -1) || (doc.docName.toLowerCase().indexOf(filterFiles.toLowerCase().trim()) != -1) "
+                (click)="downloadDocument(doc, 'download')">
+                <i class="fa fa-times p-abs clipboard-icon text-coral-red f-12 r-5"
+                  (click)="deleteDoc($event, doc.docId,doc)"></i>
+                <img *ngIf="pathChange()" src="assets/img/clipBoardIcon/{{doc.type.toLowerCase()}}.webp"
+                  alt="clipBoardIcon-img" />
+                <img *ngIf="!pathChange()" src="../assets/img/clipBoardIcon/{{doc.type.toLowerCase()}}.webp"
+                  alt="clipBoardIcon-img" />
+                <!-- <img src="../assets/img/clipBoardIcon/png.png" class="square-18" *ngIf="doc.type =='png'"/> -->
+                <!-- <span class="clipboard-item-name" style="display:none;">{{doc}}</span> -->
+                <span class="clipboard-item-name" style="" *ngIf="!doc.title">{{doc.docName}}</span>
+                <span class="clipboard-item-name">{{doc.title}}</span>
+
+              </li>
+            </ng-container>
+            <!-- <li class="clipboard-list-item p-rel" ngIf="doc.type != ''" uib-popover={{doc.title}} popover-trigger="'mouseenter'" popover-placement='top' ngFor="let doc of mydocumentUploaded" (click)="downloadDocument(doc, 'download')" ng-cloak>
+<i class="fa fa-file-pdf-o clipboard-icon hidden"></i>
+<i class="fa fa-times p-abs clipboard-icon text-coral-red f-12 r-5"
+(click)="deleteDoc($event, doc.docId)"></i>
+<img *ngIf="pathChange()" src="assets/img/clipBoardIcon/{{doc.type}}.png" />
+<img *ngIf="!pathChange()" src="../assets/img/clipBoardIcon/{{doc.type}}.png" />
+<span class="clipboard-item-name" style="" *ngIf="!doc.title">{{doc.docName}}</span>
+<span class="clipboard-item-name">{{doc.title}}</span>
+</li> -->
+          </ul>
+          <div class="alertsDashErrorDiv" *ngIf="evidenceReportAddToPageFromclip?.length == 0">
+            <span>No Document Found</span>
+          </div>
+          <!-- <div class="text-right pagin">
+<ul class="clipboard-pagination" *ngIf="(evidenceReportAddToPageFromclip.length < evidenceReportAddToPageFromclipLength && evidenceReportAddToPageFromclipLength>9)" uib-pagination total-items="evidenceReportAddToPageFromclipLength" items-per-page="9" [(ngModel)]="pageNum2" (change)="pageChangedmydocumentUploaded(pageNum2)" max-size="2" items-per-page="5" class="pagination-sm"
+boundary-link-numbers="true">
+</ul>
+</div> -->
+        </div>
+      </div>
+
+
+      <!-- Sticky Notes Starts -->
+      <div class="panel custom-panel-wrapper sticky-panel-wrapper panel-info " id="stickyNotesEntity"
+        style="display:none;position:absolute;">
+        <div class="panel-heading pad-b0">
+          <div class="custom-input-group">
+            <input type="text" id="documentTitleEntitySec"
+              (keyup)="stickyTitleAutoSave($event, $index); $event.stopPropagation()">
+            <ul class="top-icon-list input-group-addon pull-right">
+              <li (click)="showSourceLinkModal(); $event.stopPropagation()">
+
+                <a placement="bottom" container="body" [ngbPopover]="stickyLinks"
+                  popover-append-to-body='true'
+                  popoverClass="sticky-link-popover custom-popover bottom-pop-wrapper mxh-none">
+                  <i class="fa pad-r0 pad-l20 fa-link"></i>
+                </a>
+
+              </li>
+              <li>
+                <a>
+                  <i class="fa fa-times" (click)="closeSticky(); $event.stopPropagation()"></i>
+                  <!-- </span> -->
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="panel-body textarea-body">
+          <span *ngIf="loadDocumentContent" class="custom-spinner case-dairy-spinner">
+            <i class="fa fa-spinner txt-on-surface-06 fa-spin fa-2x"></i>
+          </span>
+          <div contenteditable="true" wrap="hard" id="documentTextEntity"
+            rows="9" class="textarea-scrollbar scrollbar-outer custom-scroll-wrapper " maxlength="4000"
+            (keyup)="stickyAutoSave($event,$index)">
+          </div>
+        </div>
+        <div class="panel-footer">
+          <span>0 shares | 0 cases linked</span>
+        </div>
+      </div>
+      <!-- Sticky Notes Ends -->
+      
+    </div>
+  </div>
+</div>
+
+<!-- Entity Clipboard Dropdown Ends -->
+<!-- <ng-template #noteForm let-modal>
+        <form name="noteForm" novalidate>
+                <div class="modal-body pad-b0">
+                    <p class="mar-0 ">Please Enter Title</p>
+                    <div class="custom-input-group">
+                        <input type='text' id="getTitle" name="getTitle" [(ngModel)]="getTitle" required ng-minlength="4"/>
+                        <span style = "color:red" *ngIf="noteForm.getTitle.$error.required">*Title is required</span>
+                        <span style = "color:red" *ngIf="noteForm.getTitle.$error.minlength">*Minimum 4 character required</span>
+            
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" [disabled]="noteForm.getTitle.$invalid" (click)="confirmDocument('','sticky')"
+                        class="btn btn-update">Save</button>
+                    <button type="button" (click)="confirmDocument('close')" class="btn btn-update">Cancel</button>
+                </div>
+            </form>
+</ng-template> -->
+<ng-template type="text/ng-template" #stickyLinks>
+  <div class="width-100 p-rel d-block" (click)="$event.stopPropagation()">
+    <form class="form jc-sb pad-x0" (ngSubmit)="applySourceEvidenceEntityClipBoard(forms.form); $event.stopPropagation()" #forms="ngForm" name="forms" autocomplete="off">
+      <div class="bst_input_group p-rel bst_input_group_r height-a">
+        <input class="custom-input pad-r10 pad-l15 pad-t15 lh-18 height-a mar-r10" (click)="$event.stopPropagation();"
+          name="selectedSourceTitle" [(ngModel)]="dataPopObjectEntityClipBoard.selectedSourceTitle" />
+        <span class="label f-12 text-dark-cream">Title</span>
+      </div>
+      <div class="bst_input_group bst_input_group_r mar-t10 p-rel height-a">
+        <input class="custom-input pad-r10 pad-l15 pad-t15 lh-18 height-a mar-r10" autocomplete="no-place"
+          placeholder="source"
+          (keyup)="sourceSearchInputOverideEntityClipBoard(dataPopObjectEntityClipBoard.overideSearchedInputSourceEdit,$event); $event.stopPropagation()"
+          [value]="overideSearchedInputSourceEditValEntityClipBoard" (click)="$event.stopPropagation();"
+         name="overideSearchedInputSourceEdit" [(ngModel)]="dataPopObjectEntityClipBoard.overideSearchedInputSourceEdit" [disabled]="disableInput" />
+        <span class="label f-12 text-dark-cream">Source</span>
+        <ul class="custom-list searchSource z-99 mxh-140 l-0 pad-b35 pad-y10 item-1"
+          *ngIf="showfiteredSourceListEntityClipBoard && dataPopObjectEntityClipBoard.overideSearchedInputSourceEdit && (fiteredSourceListEntityClipBoard && fiteredSourceListEntityClipBoard?.length > 0) && sourceUrlListEntityClipBoard">
+          <div class="width-95 mar-b0 mar-x10 p-rel d-block">
+            <div class="bst_input_group bst_input_group_r height-a">
+              <input type="text" [disabled]="disableInput"
+                pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/" http-prefix
+                placeholder="sourceURL" [value]="dataPopObjectEntityClipBoard.overideSearchedInputURLEdit"
+                [(ngModel)]="dataPopObjectEntityClipBoard.overideSearchedInputURLEdit" name="sourceURL"
+                class="custom-input text-cream mar-b0 pad-x15 pad-t15 f-12 height-100" />
+              <span class="label">Source URL *</span>
+            </div>
+          </div>
+         <ng-container *ngFor="let sourceNameSearched of fiteredSourceListEntityClipBoard ; let i = index">
+          <li class="pad-x10 f-14 h-30 d-flex ai-c"
+            
+            (click)="fillSourceSearchedInputOverideEntityClipBoard(sourceNameSearched); $event.stopPropagation()">
+            <span>
+              <i class="fa pad-r10 c-pointer fa-link" *ngIf="(sourceNameSearched.source_type == 'link')"></i>
+              <i class="fa pad-r10 c-pointer fa-file-word-o"
+                *ngIf="(sourceNameSearched.source_type == 'doc' || sourceNameSearched.source_type == 'docx')"></i>
+              <i class="fa pad-r10 c-pointer fa-file-pdf-o" *ngIf="(sourceNameSearched.source_type == 'pdf')"></i>
+              <i class="fa pad-r10 c-pointer fa-file-image-o" *ngIf="(sourceNameSearched.source_type == 'png')"></i>
+            </span>
+            {{sourceNameSearched.sourceName}}
+          </li>
+        </ng-container>
+          <div class="pad-x10 width-100 d-flex p-abs bg-process-background b-0 ai-c pad-y5">
+            <button class="btn mar-autol sm-btns mar-r10 bordered-button"
+              (click)="closeSourceListPopUp(); $event.stopPropagation()">Cancel</button>
+            <button type="submit" value="Submit" class="btn grad-button sm-btns ng-scope">Apply</button>
+          </div>
+        </ul>
+      </div>
+    </form>
+  </div>
+</ng-template>

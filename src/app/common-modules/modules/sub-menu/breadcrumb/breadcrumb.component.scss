@@ -1,0 +1,119 @@
+@import "../../../../../assets/scss/theme/common/variable";
+ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding-left: 15px;
+
+  li {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    a {
+      // font-family: Roboto;
+      font-size: 1.4rem;
+      line-height: 1.43;
+      padding: 0 15px 0 0;
+      cursor: pointer;
+    }
+
+    &:after {
+      content: "";
+      height: 100%;
+      width: 2px;
+      background-color: rgba(#fbfbfb, 0.8);
+      right: 5px;
+      position: absolute;
+    }
+
+    &:nth-last-of-type(1) {
+      &:after {
+        width: 0;
+      }
+
+      span {
+        font-size: 1.4rem;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.5px;
+        text-align: center;
+
+        + a {
+          cursor: pointer;
+          pointer-events: all;
+        }
+      }
+
+      a {
+        pointer-events: none;
+        cursor: default;
+      }
+    }
+  }
+}
+
+// Styling related to the top navigation bar (Module)
+body {
+  :not(.light-dark-theme) {
+  }
+}
+
+.textDiscover {
+  a {
+    color: $textOnDiscover !important;
+    span {
+      color: $textOnDiscover !important;
+    }
+    i {
+      color: $textOnDiscover !important;
+      opacity: 0.6 !important;
+    }
+  }
+}
+
+.textEnrich {
+  a {
+    color: $textOnEnrich !important;
+    span {
+      color: $textOnEnrich !important;
+    }
+  }
+}
+
+.textManage {
+  a {
+    color: $textOnManage !important;
+    span {
+      color: $textOnManage !important;
+    }
+    i {
+      color: $textOnManage !important;
+      opacity: 0.6 !important;
+    }
+  }
+}
+.textPredict {
+  a {
+    color: $textOnPredict !important;
+    span {
+      color: $textOnPredict !important;
+    }
+  }
+}
+.textAct {
+  a {
+    color: $textOnAct !important;
+    span {
+      color: $textOnAct !important;
+    }
+  }
+}
+
+.link-clickable {
+  pointer-events: all !important;
+  cursor: pointer !important;
+}

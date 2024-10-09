@@ -1,0 +1,20 @@
+<div class="filter-menu-inner">
+  <div>
+    <div class="d-flex justify-content-between align-items-center confidence-content">
+      <h3 class="roboto-medium">{{'Confidence Level
+        ' | translate}}</h3>
+      <span>{{confidenceFilter}}%</span>
+    </div>
+    <div class="match-slider">
+      <mat-slider [max]="100" [min]="0" [step]="1" [value]="0" [thumbLabel]='true'
+        [(ngModel)]="confidenceFilter"></mat-slider>
+    </div>
+  </div>
+  <div class="ag-theme-balham custom-filter-button">
+    <div class="ag-filter-apply-panel">
+      <button type="button" class="outline-btn border-none" (click)="menuTrigger.closeMenu()">{{'Cancel' |
+        translate}}</button>
+      <button class="outline-btn applyButton" type="button" (click)="sendHitsFilterValue()">{{'Apply' | translate}}</button>
+    </div>
+  </div>
+</div>

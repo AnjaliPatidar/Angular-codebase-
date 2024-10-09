@@ -1,0 +1,46 @@
+<div class="bst-sidebar bst-comment" [class.bst-right-panel-open]="isOpen">
+    <header class="bst-sidebar__header">
+        <span class="bst-sidebar__header--title bst-headline6">
+            Comments ({{commentData.length}})
+        </span>
+        <span class="bst-sidebar__header--close material-icons-round bst-mat-icon bst-mat-icon-btn" (click)="close()">close</span>
+    </header>
+    <mat-divider class="bst-mat-divider"></mat-divider>
+    <div class="bst-comment__body bst-body1 bst-color-ty">
+
+        <mat-form-field class="bst-form-field bst-form-field--small text-prefix" appearance="fill"
+            *ngIf="commentData.length > 0 || searchField !=''">
+            <mat-icon class="bst-mat-icon bst-mat-icon-btn material-icons-round" matPrefix>search</mat-icon>
+            <mat-label class="text-label">Search</mat-label>
+            <div class="input-wrapper">
+                <input class="input-wrapper__text-input bst-subtitle1 bst-color-ty" [(ngModel)]="searchField" name="searchField" matInput
+                    type="text" (keyup)="onKey($event.target.value)" (keydown)="$event.stopPropagation()"
+                    autocomplete="off" [formControl]="searchTextboxControl">
+                <span class="input-wrapper__close material-icons-round pointer bst-mat-icon bst-mat-icon-btn" matSuffix *ngIf="searchField"
+                    (click)="searchField = ''; clearSearch($event)">close</span>
+            </div>
+        </mat-form-field>
+
+        <div class="bst-comment__body--msg" *ngIf="commentData.length == 0 && searchField==''">
+            <div class="no-comment-wrap">
+                <div class="line">There are no comments created.</div>
+                <div class="line">Add your comment.</div>
+            </div>
+        </div>
+        <div class="bst-comment__body--msg" *ngIf="commentData.length == 0 && searchField !=''">
+            <div class="no-comment-wrap">
+                <div class="line">No results found!</div>
+            </div>
+        </div>
+        <div class="bst-comment__body--list-wrapper" *ngIf="commentData.length > 0">
+            <div class="list-item"
+                *ngFor="let comment of commentData;let i = index; let last = last;">
+                <app-comment-list-item [comment]="comment" [index]="i" [isLast]="last"
+                    (deletedComment)="deleteCommentHandler($event)"></app-comment-list-item>
+            </div>
+        </div>
+        <div class="bst-comment__body--add-comment">
+            <app-add-comment (newlyAddedComment)="newlyAddedCommentHandler($event)"></app-add-comment>
+        </div>
+    </div>
+</div>  

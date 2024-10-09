@@ -1,0 +1,51 @@
+<div class="filter-view-section">
+  <form class="form-wrapper" [formGroup]="filterForm">
+    <span class="material-icons-round search-icon txt-on-surface-87 f-24">search</span>
+    <mat-form-field class="example-chip-list text-on-surface" appearance="fill">
+      <mat-chip-list aria-label="Fruit selection">
+        <div
+          class="filter-chip text-on-surface"
+          *ngFor="let fruit of selectedFilterType; trackBy: trackByColId"
+          >
+          {{fruit.label | translate}} :
+          <input type="text"
+          #contentInput
+          placeholder="Search"
+          class="filter-content"
+          [formControlName] = "fruit.colID"
+          [readOnly]="isNotEditMode"
+          >
+          <button (click)="remove(fruit , fruit.colID)" class="filter-remove">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+        <input
+          placeholder="{{ 'Search Repository' | translate }}"
+          #filterInput
+          [formControl]="filterFormControl"
+          [matAutocomplete]="auto"
+          class="search-input-element"
+          >
+      </mat-chip-list>
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="selected($event)">
+        <ng-container *ngFor="let fruit of filteredFruits | async; trackBy:trackByColId">
+          <mat-option *ngIf="!fruit.isSelected" [value]="fruit">
+            <span class="material-icons-round dropsown-icon txt-on-surface-06 f-24">{{fruit.icon}}</span>
+            <span>{{fruit && fruit.label | translate}}</span>
+          </mat-option>
+        </ng-container>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
+  <!-- commented becasue out of scope -->
+  <!-- <div class="view-wrapper">
+    <span class="material-icons-round clr-p6 f-24 mr-10">view_list</span>
+    <span class="material-icons-round clr-p6 f-24">view_module</span>
+  </div> -->
+</div>
+
+<app-ag-grid-table *ngIf="isLoadGrid" [fromComponent]="'documentReference'" class="document-repository-table" [tableData]="gridOptions" (onSeletionDocument)="getSelectedDocument($event)"></app-ag-grid-table>
+<div class="loading-repo z-99" *ngIf="!isLoadGrid">
+  <i class="fa fa-spinner txt-on-surface-06 fa-pulse f-25"></i>
+</div>

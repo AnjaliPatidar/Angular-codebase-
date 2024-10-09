@@ -1,0 +1,483 @@
+<div class="screening-modal">
+    <div class="modal-header modal-header d-flex justify-content-start light-theme-border-bottom align-items-center">
+        <h4 class="modal-title f-20 text-dark-black d-flex align-items-center gotham-medium" id="modal-basic-title">
+            <i class="material-icons text-dark-black mr-2">{{entityDetails['type-icon']}}</i> {{entityDetails['name']}}
+        </h4>
+        <button type="button" class=" bg-transparent border-0 closeMe closeMe" aria-label="Close"
+            (click)="dialogReference.close()">
+            <i class="material-icons f-25 text-on-surface text-dark-black opct-87">close</i>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="col-md-3 height-100 pl-0">
+            <div class="col-xs-12 pad-x0 alert-custom-accordian custom-scroll-wrapper overflow-auto"
+                style="max-height:620px">
+                <ngb-accordion #acc="ngbAccordion" (panelChange)="sourcePanelChange($event,entity)"
+                    [activeIds]="[activePanelId]" *ngFor="let entity of accodrianData;trackBy:trackById">
+                    <ngb-panel id="{{'panel-'+entity.id}}">
+                        <ng-template ngbPanelTitle>
+                            <span class="text-dark-black d-inline-flex align-items-center">
+                                {{entity.first_name}}
+                                <div class="" *ngIf="entity.first_name === 'Adverse Media Articles'">
+                                    <div (click)="$event.stopPropagation()" ngbDropdown class="d-inline-block"
+                                        [autoClose]="false">
+                                        <span class="material-icons" id="dropdownBasic1"
+                                            ngbDropdownToggle>filter_list</span>
+                                        <div class="adverse-media-filter" ngbDropdownMenu
+                                            aria-labelledby="dropdownBasic1">
+                                            <div (click)="$event.stopPropagation()">
+                                                <h3 class="text-dark-black">Article Publication Date</h3>
+                                                <h3 class="text-dark-black">Jan 1, {{minValue}}-{{currentMonth}}
+                                                    {{currentDate}},{{maxValue}}</h3>
+                                                    <ngx-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ngx-slider>
+                                            </div>
+                                            <!-- <div class="d-flex jc-fe">
+                                                            <button type="button"
+                                                                class="light-theme-btn theme-f-12 secondary-btn gotham-medium theme-text-capitalize bg-transparent border-0 pad-5 mar-5">{{'Cancel' | translate}}</button>
+                                                            <button
+                                                                class=" light-theme-btn theme-f-12 primary-btn gotham-medium theme-text-capitalize bg-transparent border-0 primary-color pad-5"
+                                                                type="button">{{'Apply' | translate}}</button>
+                                                        </div> -->
+                                            <div class="article-filter-element " (click)="$event.stopPropagation()">
+                                                <div class="alert-matform-field">
+                                                    <mat-form-field
+                                                        class="light-theme-light-black light-theme-no-radius position-relative">
+                                                        <div class="position-relative">
+                                                            <mat-label class="custom-label">{{ 'Show media related to' | translate }}</mat-label>
+
+                                                            <mat-select #relationFilter [(value)]="adverseSelectedItems"
+                                                                multiple>
+                                                                <mat-checkbox class="mat-option" #relationsSelall
+                                                                    (click)="$event.stopPropagation()"
+                                                                    (change)="toggleAllAdverseSelected(relationsSelall)"
+                                                                    [checked]="adverseSelectedItems.length == adverseListForDropDown.length">
+                                                                    {{ 'Select All' | translate }}
+                                                                </mat-checkbox>
+                                                                <mat-option class="matOption"
+                                                                    *ngFor="let filter of adverseListForDropDown"
+                                                                    (click)="$event.stopPropagation()" [value]="filter">
+                                                                    {{filter}}
+                                                                </mat-option>
+                                                                <div
+                                                                    class="ag-theme-balham custom-filter-button bg-transparent py-4 px-4">
+                                                                    <div class="ag-filter">
+                                                                        <div class="ag-filter-apply-panel border-0"
+                                                                            id="applyPanel">
+                                                                            <button
+                                                                                (click)="relationFilter.close();$event.stopPropagation();"
+                                                                                type="button" id="clearButton"
+                                                                                class="bg-transparent border-0 f-14  light-theme-btn secondary-btn">Cancel</button>
+                                                                            <button ngbDropdownToggle
+                                                                                (click)="relationFilter.close();filterAdverseMediaNews();$event.stopPropagation()"
+                                                                                type="button"
+                                                                                class="bg-transparent border-0 f-14 light-theme-btn primary-btn hide-toggle-icon"
+                                                                                id="applyButton">{{ 'Apply' | translate }}</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </mat-select>
+                                                        </div>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                            <span class="text-dark-pastal-green mar-l5 text-dark-black" [ngStyle]="myStyle2"
+                                style="cursor: pointer;">
+                            </span>
+                            <i class=" fa mar-l10 pull-right text-dark-black mt-2"
+                                [ngClass]="{'fa-caret-down': entity.primaryOpen, 'fa-caret-left': !entity.primaryOpen}"></i>
+                        </ng-template>
+                        <ng-template ngbPanelContent>
+                            <div class="c-pointer">
+                                <p style="word-break: break-word;white-space:pre-wrap" class="text-dark-black p-3"
+                                    [ngClass]="{'active-item': ( (entity.first_name) === highlightrow) }"
+                                    *ngIf="screenData[entity.first_name]?.length === 0 && entity.first_name !== 'Adverse Media Articles'"
+                                    (click)="selectedTab(entity.first_name,screenData[entity.first_name][index],'')">
+                                    {{'No' | translate}} {{entity.first_name}} {{'available' | translate}}</p>
+                            </div>
+                            <div
+                                *ngIf="entity.first_name !== 'Adverse Media Articles' && entity.first_name !== 'jurisdiction'">
+                                <ng-container *ngFor="let screening of screenData[entity.first_name];index as index ">
+                                    <div class="sources-list-details p-3 c-pointer"
+                                        [ngClass]="{'active-item': ((entity.first_name+index) === highlightrow) , 'ac-i':((entity.first_name+index) !== highlightrow)}"
+                                        (click)="selectedTab(entity.first_name,screening,index)">
+                                        <p class="text-dark-black d-flex justify-content-between text-on-surface"
+                                            style="word-break: break-word;white-space:pre-wrap">
+                                            <span> {{screening.value}}</span>
+                                            <span
+                                                class="pull-right text-nowrap">{{getConfidencePercentage(screening.confidence)+"%"}}</span>
+                                        </p>
+                                    </div>
+                                </ng-container>
+                            </div>
+                            <div *ngIf="entity.first_name === 'Adverse Media Articles'">
+                                <ng-container
+                                    *ngFor="let financeList of personAlertCardUtilityObject.articlesData;index as index ">
+                                    <div class="sources-list-details p-3 c-pointer"
+                                        [ngClass]="{'active-item': ((entity.first_name+index) === highlightrow) , 'ac-i':((entity.first_name+index) !== highlightrow)}"
+                                        (click)="selectedTab(entity.first_name,personAlertCardUtilityObject.articlesData[index],index)">
+                                        <p class="text-dark-black d-flex justify-content-between text-on-surface"
+                                            style="word-break: break-word;">
+                                            <span>{{financeList.article_title}} </span>
+                                        </p>
+                                    </div>
+                                </ng-container>
+                                <ng-container
+                                    *ngIf="personAlertCardUtilityObject.articlesData.length === 0  && !alertUtilityObject.financeSpinner">
+                                    <div class="c-pointer">
+                                        <p style="word-break: break-word;white-space:pre-wrap"
+                                            class="text-dark-black p-3"
+                                            [ngClass]="{'active-item': ( (entity.first_name) === highlightrow) }">
+                                            {{'No' | translate}} {{entity.first_name}} {{'Available' | translate}}
+                                        </p>
+                                    </div>
+                                </ng-container>
+                                <ng-container
+                                    *ngIf="alertUtilityObject.financeSpinner && personAlertCardUtilityObject.articlesData.length === 0">
+                                    <div class="text-center">
+                                        <i class="fa fa-spinner txt-on-surface-06"></i>
+                                    </div>
+                                </ng-container>
+                            </div>
+                            <div *ngIf="entity.first_name === 'jurisdiction'">
+                                <ng-container *ngFor="let screening of screenData[entity.first_name];index as index ">
+                                    <div class="sources-list-details p-3 c-pointer"
+                                        [ngClass]="{'active-item': ((entity.first_name+index) === highlightrow) , 'ac-i':((entity.first_name+index) !== highlightrow)}"
+                                        (click)="selectedTab(entity.first_name,screenData[entity.first_name][index],index)">
+                                        <p class="text-dark-black d-flex justify-content-between text-on-surface"
+                                            style="word-break: break-word;white-space:pre-wrap">
+                                            <span> {{screening.country}}</span>
+                                            <span class="pull-right text-nowrap">{{screening.risk}}</span>
+                                        </p>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </ng-template>
+                    </ngb-panel>
+
+                </ngb-accordion>
+            </div>
+        </div>
+        <div class="adverse-panel-area" *ngIf="checkTabSelected ==='Adverse Media Articles'">
+            <div class="col-md-6 height-100">
+                <div class="col-xs-12 pad-x0 alert-custom-accordian"
+                    *ngIf="personAlertCardUtilityObject.articlesData.length > 0">
+                    <div id="" class="text-on-surface justify-content-between  pulseVisualizerText-wrapper">
+                        <div class="loader" *ngIf="alertUtilityObject.financeSpinner">
+                            <i class="fa fa-spinner txt-on-surface-06"></i>
+                        </div>
+                        <div class="theme-light-black-bg p-3 radius-10 mb-4" style="background:#4d4d4d;">
+                            <div class="d-flex  justify-content-between">
+                                <div>
+                                    <p class="mb-3 f-15"><span
+                                            class="font-weight-bold f-15 mr-2">Classification:</span>{{financeArticleDetails.classification_1?.classes[0]}}<button
+                                            class="btn b-0 bg-transparent crime-btn text-blue pad-b0 pad-t0"
+                                            name="reasonButton"
+                                            (click)="alertUtilityObject.showReasons = !alertUtilityObject.showReasons; addQuestionAndAnswers()">
+                                            <span *ngIf="!alertUtilityObject.showReasons">show</span>
+                                            <span *ngIf="alertUtilityObject.showReasons">hide</span>
+                                            reasons</button></p>
+                                    <p class="mb-3 f-15 d-flex align-items-center" style="display: none !important;">
+                                        <span class="font-weight-bold f-15 mr-2">Classification verfication:</span>
+                                        <span class="c-pointer mar-10"><i class="material-icons"
+                                                (click)="likeClassifiationArtical()"
+                                                [class.text-dark-pastal-green]="likeClassification == true">thumb_up</i>
+                                        </span>
+                                        <span class="alert-classification">
+                                            <span class="dropdown-multiselect-wrapper" id="dropdown-multiselect-wrapper"
+                                                (click)="dislikeClassifiationArtical()"
+                                                [ngClass]="{'active_like':dislikeClassification === true}">
+                                                <!-- [ngClass]="{'noData': listForDropDown.length <=0}" -->
+                                                <ng-multiselect-dropdown #dropdown placeholder=" "
+                                                    [data]="listForDropDown"
+                                                    [ngClass]="{'noData': listForDropDown.length <=0}"
+                                                    [(ngModel)]="selectedItems" [settings]="dropdownSettings"
+                                                    (onDropDownClose)="onDropDownClose($event)"
+                                                    (onSelect)="onItemSelect($event)"
+                                                    (onDeSelect)="OnItemDeSelect($event)">
+                                                </ng-multiselect-dropdown>
+                                            </span>
+                                        </span>
+                                    </p>
+
+                                    <!-- <p class="mb-3 f-15">
+                                              <span class="font-weight-bold f-15 mr-2">Source:</span>
+                                              hi
+                                              <a href="{{financeArticleDetails.url}}" target="_blank"
+                                                  class="fa fa-external-link "></a>
+                                          </p>
+                                          <p class="mb-3 f-15"><span
+                                                  class="font-weight-bold f-15 mr-2">Date:</span>{{financeArticleDetails.published}}
+                                          </p>
+                                          <i class="material-icons f-15" aria-hidden="true">g_translate</i>  -->
+
+                                    <p class="mb-3 f-15">
+                                        <span class="font-weight-bold f-15 mr-2">Source:</span>
+                                        {{financeArticleDetails.source_url}}
+                                        <a href="{{financeArticleDetails.url}}" target="_blank"
+                                            class="fa fa-external-link "></a>
+                                    </p>
+                                    <p class="mb-3 f-15"><span
+                                            class="font-weight-bold f-15 mr-2">Date:</span>{{financeArticleDetails.published | date:dateFormat.ShortDateFormat }}
+                                    </p>
+
+                                </div>
+                                <div class="alert-matform-field ml-3">
+                                    <p class="d-flex align-items-center mb-3 f-14 mr-3 text-dark-black"
+                                        style="display: none !important;">Status
+                                    </p>
+                                    <div class="alert-matform-field" style="display: none;">
+                                        <mat-form-field class="light-theme-light-black light-theme-no-radius">
+                                            <mat-select
+                                                [(ngModel)]="alertCardUtilityObject.relatedArticleselectedStatus">
+                                                <mat-option
+                                                    *ngFor="let item of alertCardUtilityObject.relatedArticleStatus;trackBy:trackByStatusValue"
+                                                    [(value)]="item.status_value"
+                                                    (click)=" updaterelatedArticleStatus(item)">
+                                                    {{item.status_value}}
+                                                </mat-option>
+                                                <mat-select-trigger>
+                                                    {{alertCardUtilityObject.relatedArticleselectedStatus}}
+                                                </mat-select-trigger>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <p class="d-flex align-items-center mb-3 f-14 mr-3 text-dark-black"
+                                        style="display: none !important;">
+                                        {{'Reasons' | translate}} :</p>
+                                    <div class="alert-matform-field mb-3" style="display: none;">
+                                        <mat-form-field class="light-theme-light-black light-theme-no-radius">
+                                            <mat-label>{{ 'Select reasons' | translate }}</mat-label>
+                                            <mat-select panelClass="reason-display-length"
+                                                [(ngModel)]="alertCardUtilityObject.relatedArticleselectedReason"
+                                                multiple (closed)="updateRelatedArticleReasons()">
+                                                <mat-option
+                                                    *ngFor="let item of alertCardUtilityObject.relatedArticleReasons;trackBy:trackByReason"
+                                                    [(value)]="item.reason">
+                                                    {{item.reason | translate}}
+                                                </mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <mat-form-field class="light-theme-light-black"
+                                        *ngIf="(alertUtilityObject.article_sentiment && alertUtilityObject.article_sentiment.label)&&(alertCardUtilityObject.articleStatus == 'Approved, Needed Review'||alertCardUtilityObject.articleStatus == 'Rejected, Needed Review')">
+                                        <mat-select [(ngModel)]="alertUtilityObject.article_sentiment.label">
+                                            <mat-option *ngFor="let item of alertUtilityObject.articleSentimentList;trackBy:trackByLabel"
+                                                [(value)]="item.label" (click)="changeSentiment(item)">
+                                                <span class="d-flex ai-c">
+                                                    <i class="fa fa-{{item.values.icon}} mr-4" style="font-size: 19px;"
+                                                        [ngStyle]="{'color': item.values.colorCode}"></i>
+                                                    <span>{{item.label | translate}}</span>
+                                                </span>
+                                            </mat-option>
+                                            <mat-select-trigger>
+                                                <i *ngIf="alertUtilityObject.article_sentiment && alertUtilityObject.article_sentiment.values "
+                                                    class="fa fa-{{alertUtilityObject.article_sentiment.values.icon}} selected-icon f-20 mr-2 align-middle"
+                                                    [ngStyle]="{'color':alertUtilityObject.article_sentiment.values.colorCode}">
+                                                </i> <span
+                                                    *ngIf="alertUtilityObject.article_sentiment && alertUtilityObject.article_sentiment.label">{{alertUtilityObject.article_sentiment.label}}</span>
+                                            </mat-select-trigger>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gtranslate w-100 d-inline-flex"
+                            *ngIf="personAlertCardUtilityObject.articlesData .length > 0">
+                            <span class="mb-3 f-22 word-ba  text-dark-black">
+                                {{financeArticleDetails.title}}
+                            </span>
+                            <span class="mb-3 f-15 h-30 translate_icon"
+                                *ngIf="languageTranslateList && financeArticleDetails.title">
+                                <mat-form-field class="" style="top: 5px;">
+                                    <span class="customtranslate">
+                                        <mat-icon
+                                            [ngStyle]="{'color': alertCardUtilityObject.langselected ? 'rgb(102 173 234)' : white}">
+                                            g_translate</mat-icon>
+                                    </span>
+                                    <div class="mat-drop">
+                                        <mat-select id="countrySelect" name="country" required
+                                            [(ngModel)]="selectedCountry" [disableOptionCentering]="true">
+                                            <ng-container *ngFor="let country of languageTranslateList;trackBy:trackByCode">
+                                                <mat-option *ngIf="country.code.toLowerCase().trim() != 'all'"
+                                                    [ngClass]="{'checkmark text-dark-black text-on-surface':country.code == selectedCountry}"
+                                                    [value]="country.code"
+                                                    (click)="selectedlang($event, country.displayName)">
+                                                    <span class="fa fa-icon"></span><i
+                                                        class="flag-icon w-25 pad-r3 mr-3 flag-icon-squared flag-icon-{{country.displayName.toLowerCase()}}"></i>
+                                                    {{country.code}} <span
+                                                        *ngIf="alertCardUtilityObject.originalang == country.displayName && alertCardUtilityObject.langselected">
+                                                        &nbsp; (Original)
+                                                    </span>
+                                                </mat-option>
+                                            </ng-container>
+                                            <!-- 11-08-2020 :commented for now the cancel and apply buttons -->
+                                            <!-- <div class="ag-theme-balham custom-filter-button bg-transparent py-4 px-4">
+                                                <div class="ag-filter">
+                                                    <div class="ag-filter-apply-panel border-0" id="applyPanel">
+                                                        <button (click)="cancelFilters();mySel.close();" type="button" id="clearButton"
+                                                            class="bg-transparent border-0 f-14  light-theme-btn secondary-btn">Clear</button>
+                                                        <button (click)="mySel.close();applyFilters();" type="button"
+                                                            class="bg-transparent border-0 f-14 light-theme-btn primary-btn"
+                                                            id="applyButton">Apply</button>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                        </mat-select>
+                                    </div>
+                                </mat-form-field>
+                            </span>
+                        </div>
+                        <p class="text-captalise f-14 lh-24 custom-scroll-wrapper overflow-auto mnh-300" id="displacy"
+                            style="max-height: 400px;"></p>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-center height-100"
+                    *ngIf="screenData[checkTabSelected].length === 0" style=" min-height: 700px;">
+                    <span class="text-coral-red">{{'DataNotFound' | translate}}</span>
+                </div>
+            </div>
+            <div class="col-sm-3 height-100">
+                <div class="keywordsArea p-0 alert-custom-accordian custom-scroll-wrapper"
+                    *ngIf="!alertCardUtilityObject.adverseMediaData && !alertCardUtilityObject.langselected">
+                    <h3 class="text-dark-black">{{'Keywords' | translate}}</h3>
+                    <div class="keyword-filter-box" *ngIf="financeArticleDetails.resultskeywords">
+                        <span class="text-dark-black d-inline-flex align-items-center">Show Only Related Entities</span>
+                        <label class="switch mar-l25 custom-switch-wrapper filters-switch-wrapper bst-switch-wrapper">
+                            <input type="checkbox" class="custom-switch-checkbox" [(ngModel)]="showOnlyRelatedEntities"
+                                id="showOnlyRelatedEntitiesCheckbox" (click)="toggleShowOnlyRelatedEntities($event)">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <ngb-accordion #keywordacc="ngbAccordion" class="custom-accordion"
+                        (panelChange)="keywordtabchange($event)" [activeIds]="activeKeywordsPanels"
+                        *ngFor="let keywordTabs of financeArticleDetails.resultskeywords;index  as tabindex;trackBy:trackByType">
+                        <ngb-panel id="{{'keytab'+keywordTabs.type}}">
+                            <ng-template ngbPanelTitle>
+                                <span class="text-dark-black">
+                                    <mat-checkbox class="mr-2" id="keywordTabs{{tabindex}}"
+                                        [(ngModel)]="keywordTabs.tabCheck"
+                                        (change)="highlightKeywords(tabindex, -1, keywordTabs.tabCheck)"></mat-checkbox>
+                                    {{keywordTabs.type}}
+                                </span>
+                                <span class="text-dark-pastal-green mar-l5 text-dark-black" [ngStyle]="myStyle2"
+                                    style="cursor: pointer;">
+                                </span>
+                                <!-- <i class=" fa mar-l10 pull-right text-dark-black"
+                              [ngClass]="{'fa-caret-down': entity.primaryOpen, 'fa-caret-left': !entity.primaryOpen}"></i> -->
+                            </ng-template>
+                            <ng-template ngbPanelContent>
+                                <ng-container *ngFor="let keywords of keywordTabs.values;index as valueindex;trackBy:trackByName">
+                                    <div class="sources-list-details p-3 c-pointer ">
+                                        <p class="text-dark-black d-flex align-item-center"
+                                            style="word-break: break-word;">
+
+                                            <!-- <input type="checkbox" class="mr-2" id="keyword{{valueindex}}" [(ngModel)]="keywords.checked" (change)="highlightKeywords(tabindex,valueindex,keywords.checked)"> -->
+                                            <mat-checkbox class="mr-2" id="keyword{{valueindex}}-{{tabindex}}"
+                                                [(ngModel)]="keywords.checked"
+                                                (change)="highlightKeywords(tabindex,valueindex,keywords.checked,('keyword'+valueindex+'-'+tabindex))">
+                                            </mat-checkbox>
+
+                                            <label for="keyword{{valueindex}}"
+                                                class="mb-0 f-15 font-weight-normal">{{keywords.name}}</label>
+                                        </p>
+                                    </div>
+                                </ng-container>
+                            </ng-template>
+                        </ngb-panel>
+                    </ngb-accordion>
+                </div>
+            </div>
+        </div>
+        <div class="default-panel-area" *ngIf="checkTabSelected !=='Adverse Media Articles'">
+            <div class="col-md-9 height-100">
+                <mat-tab-group animationDuration="0ms">
+                    <mat-tab label="{{'GeneralAttributes' | translate}}">
+                        <div class="entity-info-st custom-scroll-wrapper">
+                            <div class="table-responsive info-table" tabindex="1">
+                                <table class="table border-0 m-0">
+                                    <thead>
+                                        <tr class="pad-l3">
+                                            <th class="text-dark-black f-14 pad-l3">{{'Attribute' | translate}}
+                                            </th>
+                                            <!-- <th class="text-dark-black f-14 pad-l3 w-55"></th> -->
+                                            <th class="text-dark-black f-14 pad-l3">
+                                                {{'Watchlist Information' | translate}}
+                                            </th>
+                                            <th class="text-dark-black f-14 pad-l3" *ngIf="showMatchType">
+                                                {{'Match Type' | translate}}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="alternate-row-colors">
+                                        <tr *ngFor="let key of this.personAlertCardUtilityObject?.mainData">
+                                            <td class="text-dark-black text-capitalize va-m" style="color :white;">
+                                                <span class="d-inline-flex align-items-center">
+                                                    {{key.displayName | translate}}
+                                                </span>
+                                            </td>
+                                            <td
+                                                class="text-dark-black d-flex align-items-center justify-content-between mnh-55">
+                                                <span style="color :white;" *ngIf="key.displayName !=='Person Image'">
+                                                    {{key.value}}
+                                                </span>
+                                                <span *ngIf="key.displayName =='Person Image'">
+                                                    <span *ngFor="let attr of key.value"
+                                                        style="height: 40px; width: 40px;display: inline-block;">
+                                                        <a href="{{attr}}" target="_blank"><img class="img-fluid"
+                                                                [src]="attr"
+                                                                style="height: 40px; width: 40px;" /></a></span>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab label="Watchlist Attributes">
+                        <div class="entity-info-st custom-scroll-wrapper">
+                            <div class="table-responsive info-table" tabindex="1">
+                                <table class="table border-0 m-0">
+                                    <thead>
+                                        <tr class="pad-l3">
+                                            <th class="text-dark-black f-14 pad-l3">{{'Attribute' | translate}}
+                                            </th>
+                                            <!-- <th class="text-dark-black f-14 pad-l3 w-55"></th> -->
+                                            <th class="text-dark-black f-14 pad-l3">
+                                                {{'Match Information' | translate}}
+                                            </th>
+                                            <th class="text-dark-black f-14 pad-l3" *ngIf="showMatchType">
+                                                {{'Match Type' | translate}}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="alternate-row-colors">
+                                        <tr *ngFor="let key of personAlertCardUtilityObject?.watchlistMainData;trackBy:trackByDisplayName">
+                                            <td class="text-dark-black text-capitalize va-m" style="color :white;">
+                                                <span class="d-inline-flex align-items-center">
+                                                    {{key.displayName | translate}}
+                                                </span>
+                                            </td>
+                                            <td
+                                                class="text-dark-black d-flex align-items-center justify-content-between mnh-55">
+                                                <span style="color :white;">
+                                                    {{key.value}}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+                <div class="d-flex align-items-center justify-content-center height-100"
+                    *ngIf="screenData[checkTabSelected].length === 0" style="min-height: 700px;">
+                    <span class="text-coral-red">{{'DataNotFound' | translate}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

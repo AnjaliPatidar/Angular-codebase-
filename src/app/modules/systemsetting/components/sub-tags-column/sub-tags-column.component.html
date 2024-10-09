@@ -1,0 +1,89 @@
+<mat-form-field class="tag-chip-list sub-tag-light-mode" [class.input-active-background]="isEditMode" id="tagList" [ngClass]="[isEditMode ? 'error-state auto-height' : '']">
+  <mat-chip-list #chipList aria-label="Fruit selection" class="tag-input-wrapper" [class.t-m4]="isEditMode"
+  [class.full-width]="isEditMode">
+    <div  #tagWrapper  class="selected-tag-wrapper" [class.d-unset]="isEditMode">
+      <div #selectedtags class="selected-tags" [ngClass] ="[isEditMode ? 'light-selected-tag full-width' : '']" [class.no-background]="!isEditMode" [class.selcetd-tags-editing]="isEditMode">
+        <ng-container *ngIf ="isEditMode">
+          <mat-chip *ngFor="let tag of newTags; trackBy: trackById" [selectable]= "this.tagService.isError ? false : true" [removable]= "isEditMode" class="remove-effect"
+            (removed)="removeTag(tag)">
+            <span class="tag-wrapper" [class.d-none]="tag.hidden" [style.background]="tag.color_code" (click)="openColorPicker(tag)">
+              <span>{{tag && tag.content}} ({{tag?.entity_count && tag?.entity_count  ? tag?.entity_count : 0}})</span>
+              <i class="material-icons close-button" matChipRemove>close</i>
+            </span>
+          </mat-chip>
+
+         <div class="position-relative" (click)="onFocus()">
+          <input matInput *ngIf="isEditMode" #tagInput  [formControl]="tagFormControl" (foucs)="onFocus()" [matAutocomplete]="auto" [matChipInputFor]="chipList" (ngModelChange)="hidePlcaeHolder()"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]= "true" class="tag-onEdit-input">
+          <mat-placeholder *ngIf="isInputEmpty && isEditMode" class="tag-placeholder">{{ 'Add Sub Tags' | translate}}</mat-placeholder>
+         </div>
+        </ng-container>
+
+        <ng-container *ngIf="!isEditMode">
+          <mat-chip #tagElem *ngFor="let tag of selectedTag; trackBy: trackById" matTooltip="{{tag?.entity_count && tag?.entity_count  ? tag?.entity_count : 0}} {{'Documents have this Sub Tag' | translate}}"
+          matTooltipPosition="above" [removable]= "true" [selectable]="true" class="remove-effect"
+          (removed)="removeSelectedtag(tag)">
+            <span class="tag-wrapper" [style.background]="tag.color_code">
+              <span>{{tag && tag.content}} ({{tag?.entity_count && tag?.entity_count  ? tag?.entity_count : 0}})</span>
+              <i class="material-icons close-button" matChipRemove>close</i>
+            </span>
+          </mat-chip>
+          <button *ngIf="hiddenTag.length > 0" type="button" class="count-button" [matMenuTriggerFor]="menu">
+            <span>+{{hiddenTag.length}}</span>
+          </button>
+        </ng-container>
+      </div>
+    </div>
+  </mat-chip-list>
+
+  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="selected($event)"
+    class="custom-scroll-wrapper mat-wrapper">
+    <mat-option *ngIf="isTagAvilable" class="create-new-option light-create">
+      <button type="button" (click)="createNewTag(tagFormControl.value)">
+        <i class="material-icons">add</i>
+        <span>{{'Add new tag' | translate}} "{{tagFormControl.value ? tagFormControl.value : ''}}"</span>
+      </button>
+    </mat-option>
+    <mat-option *ngIf="isError" (click)="$event.stopPropagation()">
+      <span [class.error-message]="isError">{{errorText | translate}}</span>
+    </mat-option>
+    <mat-option *ngFor="let tag of filteredTags | async;trackBy: trackById" [value]="tag">
+      <span class="autocomplete-tag-wrapper" [style.background]="tag?.color_code">
+        <span>{{tag && tag.content}}</span>
+      </span>
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+
+
+<!-- hiden tag dialog -->
+<div>
+  <mat-menu #menu="matMenu" class="hidden-tag-menu">
+    <div class="menu-header">
+      <span>{{'Sub Tags' | translate}}</span>
+      <button type="button" class="header-close">
+        <i class="material-icons header-close-button">close</i>
+      </button>
+    </div>
+    <div class="hidden-tag-wrapper">
+      <mat-chip-list class="tag-input-wrapper">
+        <div #subTagWrapper class="selected-tag-wrapper">
+          <div class="selected-tags">
+            <ng-container>
+              <mat-chip #singleTag *ngFor="let tag of hiddenTag;trackBy: trackById" [selectable]=true [removable]="true" class="remove-effect"
+                (removed)="removeSelectedtag(tag)" matTooltip="{{tag?.entity_count && tag?.entity_count  ? tag?.entity_count : 0}} {{'Documents have this Sub Tag' | translate}}"
+                matTooltipPosition="above" >
+                <span class="tag-wrapper" [style.background]="tag.color_code">
+                  <span>{{tag?.content}} ({{tag?.entity_count && tag?.entity_count  ? tag?.entity_count : 0}})</span>
+                  <i class="material-icons close-button" matChipRemove >close</i>
+                </span>
+              </mat-chip>
+            </ng-container>
+          </div>
+        </div>
+      </mat-chip-list>
+    </div>
+  </mat-menu>
+</div>
+
+<app-collor-picker [color]="selectedColor" (colorSaved)="handleColorChange($event)"></app-collor-picker>

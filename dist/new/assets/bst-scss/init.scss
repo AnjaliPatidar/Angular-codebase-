@@ -1,0 +1,20 @@
+/* Import Global Style Files */
+
+/*SETTINGS Files*/
+@import "./settings/base-settings/color.settings";
+
+/* ELEMENTS Files */
+@import './elements/typography.elements';
+
+/*OBJECTS Files*/
+@import "./objects/atoms/select-fields";
+@import './objects/atoms/text-fields';
+@import "./objects/atoms/menu-popover";
+
+/*PAGES Files*/
+@import "./pages/group-settings";
+
+/* UTILITIES Files */
+@import './utilities/color.utils';
+/* UTILITIES Files */
+@import './utilities/border.utils.';

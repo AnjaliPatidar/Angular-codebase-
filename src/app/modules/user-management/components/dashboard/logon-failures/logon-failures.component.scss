@@ -1,0 +1,31 @@
+/* users table custom styles */
+
+::ng-deep .users-table {
+
+  .ag-body-viewport .ag-row,
+  .ag-header-row {
+    .ag-cell-value[col-id='fullname'] {
+      font-size: 1.6rem;
+    }
+
+  }
+
+  #dropdown-multiselect-wrapper {
+    transform: none;
+  }
+
+  .pagination-dropdown {
+    top: -5px;
+  }
+
+  .ag-cell-value {
+    display: block !important;
+    line-height: 5rem !important;
+  }
+
+  app-user-actions {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+}

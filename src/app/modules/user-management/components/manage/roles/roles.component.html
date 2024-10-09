@@ -1,0 +1,83 @@
+<section class="roles-section">
+    <div class="quick-search position-absolute r-0 mb-2">
+        <mat-form-field floatLabel="never">
+            <input type="text" #element  pattern="{{get_pattern(element)}}" name="search" placeholder="{{'Search' | translate}}" aria-label="Number" #searchRoleName="ngModel" matInput [(ngModel)]="searchRole" class="f-16 text-on-surface text-dark-black gotham-regular">
+            <button mat-button matPrefix mat-icon-button class="search-prefix-icon bg-transparent border-0 text-on-surface text-dark-black gotham-regular mt-2">
+        <i class="material-icons">search</i>
+      </button>
+        </mat-form-field>
+        <span *ngIf="searchRoleName.touched" class="d-block text-coral-red mt-2"
+              [class.error-msg]="searchRoleName.invalid">
+              <span *ngIf="searchRoleName.hasError('pattern')" class="mb-2">{{ get_pattern_error('text') }} </span>
+      </span>
+    </div>
+    <div class="container-fluid  sec">
+        <div class="app-spinner" *ngIf="dashboardSpinner">
+            <mat-spinner></mat-spinner>
+        </div>
+        <div class="row">
+            <div *ngIf="(systemSettings && systemSettings['Allow to create manually-Roles'])" class="col-md-3 col-sm-6 col-xs-12 c-pointer outline-none" [routerLink]="['/element/user-management/manage/roles/settings/newrole']">
+                <div class="create-role d-flex radius-10 h-229 justify-content-center align-items-center c-pointer light-theme-bg-light light-theme-no-radius">
+                    <h5 class="d-flex align-items-center mb-0 text-dark-black"> <i class="material-icons f-15 custom-user-add-icon">add</i>
+                        <span class="mar-l5 theme-mar-t4 theme-text-capitalize">{{'Create a new role' | translate}}</span></h5>
+                </div>
+            </div>
+            <ng-container *ngFor="let tab of rolesData | textFilter:searchRole; trackBy:trackByRoleName">
+                <div class="col-md-3 col-sm-6 col-xs-12 mb-4">
+                    <!-- *ngIf="userRoles.indexOf(tab.roleId) != -1" -->
+                    <div class="role light-theme-no-radius light-theme-bg-white">
+                        <div class="role-header d-flex align-items-center">
+                            <span class="p-2"><i class="material-icons"
+                  [ngStyle]="{'color':tab.color}">{{tab.icon ? tab.icon : "people"}}</i></span>
+                            <h5 class="p-2  text-capitalize f-20 c-pointer text-overflow" *ngIf="!tab.edit">
+                                <a [routerLink]='routeTOPerticularRole(tab.roleName)' class="title-text-on-surface text-overflow w-100 text-dark-black">
+                  {{tab.roleName}} </a>
+                  <!-- "/element/user-management/manage/roles/settings/{{tab.roleName}}" -->
+                            </h5>
+                            <ng-container *ngIf="tab.edit">
+                                <input type="text" #element  pattern="{{get_pattern(element)}}" #roleName= "ngModel" [(ngModel)]="tab.roleName"  (keyup)="updateRoleName($event,tab,roleName)" class="w-100 f-22  custom-input p-0">
+                                <span *ngIf="roleName.touched" class="d-block text-coral-red mt-2" [class.error-msg]="roleName.invalid">
+                                    <span *ngIf="roleName.hasError('pattern')" class="mb-2">{{ get_pattern_error('text') }} </span>
+                                </span>
+                            </ng-container>
+                            <span class="p-2"><i [matMenuTriggerFor]="menu" class="material-icons c-pointer text-dark-black">more_vert</i></span>
+                            <mat-menu #menu="matMenu">
+                                <button mat-menu-item (click)="tab.edit = true; tab.prevRoleName = tab.roleName" [disabled]="!roleUpdateEnable || !tab.isModifiable">
+                  <span> <i class="material-icons">edit</i></span> <span>{{'Rename' | translate}}</span>
+                </button>
+                                <button mat-menu-item [routerLink]="assignUsersRoute(tab.roleName)">
+                                    <!-- "/element/user-management/manage/roles/assigned-users/{{tab.roleName}}" -->
+                  <i class="material-icons">add_circle</i>{{'Assign Users' | translate}}</button>
+                                <button mat-menu-item routerLink="/element/user-management/manage/roles/settings/newrole" [disabled]="!roleUpdateEnable" [queryParams]="{'roleName':tab.roleName}">
+                  <i class="material-icons">content_copy</i>{{'Duplicate' | translate}}
+                </button>
+                                <button mat-menu-item class="border-top" [disabled]="!tab.isModifiable" (click)="deleteRole(tab.roleName,tab.roleId);">
+                  <i class="material-icons">delete</i>{{'Delete' | translate}}
+                </button>
+                            </mat-menu>
+                        </div>
+                        <div class="role-content d-flex align-items-center justify-content-center">
+                            <ul class="pad-0">
+                                <li class="d-flex align-items-center">
+                                    <span class="width-50 f-12 role-item text-dark-black text-on-surface">{{'Source' | translate}}</span>
+                                    <span class="mr-3">
+                    <i class="material-icons d-inline align-middle">link_off</i>
+                  </span>
+                                    <span class="f-14 text-on-surface text-dark-black" matTooltip="{{(tab.source | translate) || 'N/A'}}">{{(tab.source | translate) || 'N/A'}}</span>
+                                </li>
+                                <li>
+                                    <span class="width-50 f-12 align-top role-item text-dark-black text-on-surface">{{'Active Users' | translate}}</span>
+                                    <span class="f-34 text-on-surface text-dark-black"> {{tab.activeUsers ? tab.activeUsers : 0 }} </span>
+                                </li>
+                                <li>
+                                    <span class="width-50 f-12 role-item text-dark-black text-on-surface">{{'Last Updated' | translate}}</span>
+                                    <span class="f-14 text-on-surface text-dark-black">{{tab.modifiedOn | dateTranslated | async}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</section>

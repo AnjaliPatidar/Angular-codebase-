@@ -1,0 +1,18 @@
+.header-background {
+  background-image: unset;
+  background-color: $table-headers-bg;
+}
+
+.tRow {
+  background-color: $table-bg-color !important;
+  border-bottom: 1px solid $table-filter-border-color !important;
+}
+
+.filter-coloumn {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+.top-bar {
+  background: $theme-bg-color;
+}
+

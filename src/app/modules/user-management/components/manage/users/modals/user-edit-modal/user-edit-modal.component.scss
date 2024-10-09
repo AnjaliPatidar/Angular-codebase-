@@ -1,0 +1,72 @@
+@import "../../../../../../../../assets/theme-builder/theme_builder";
+::ng-deep ly-img-cropper{
+    div:last-of-type {
+        border-radius:50%;
+        &:after {
+            border-radius: 50%;
+        }
+    }
+   
+   
+} 
+::ng-deep .custom-mat-slider {
+    .mat-slider-thumb-label-text {
+        font-size: 9px;
+    }
+        .mat-slider-wrapper {
+            top: 6px !important;
+        }
+}
+.mat-slide{
+    margin-top: 44px;
+    display: flex;
+    justify-content: space-between;
+mat-slider{
+    width: 249px;
+    height: 2px;
+
+}
+}
+.cancel-button{
+    color: $text-on-primary !important;
+    border-radius: 5px !important;
+    // font-family: Roboto;
+    @include fontFamily($fonts) {
+		font-family: fonted(font-regular);
+	}
+    font-size: 12px !important;
+    font-weight: 500;
+    letter-spacing: 1.25px !important;
+}
+.upload-button{
+    background: transparent !important;
+    color: #3eb6ff;
+    border-radius: 5px !important;
+    margin-right: 10px !important;
+    // font-family: Roboto;
+    @include fontFamily($fonts) {
+		font-family: fonted(font-regular);
+	}
+    font-size: 12px !important;
+    font-weight: 500;
+    letter-spacing: 1.25px !important;
+}
+.profile-set{
+    white-space: nowrap;
+    width: 206px !important;
+    border-radius: 5px !important;
+    // font-family: Roboto;
+    @include fontFamily($fonts) {
+		font-family: fonted(font-regular);
+	}
+    font-size: 12px !important;
+    font-weight: 500;
+    letter-spacing: 1.25px !important;
+}
+.action-btn{
+    padding: 3rem 0 0 !important;
+}
+.y-cropping-i2{
+    width: 816px !important;
+    border-radius: 10px !important;
+}

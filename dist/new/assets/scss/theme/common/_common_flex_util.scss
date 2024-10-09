@@ -1,0 +1,374 @@
+/*
+================================================================================
+**********************  Common New Utilities Styles For The Site  ******************
+================================================================================
+*/
+
+.bst_element {
+    font-size: 62.4%;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.d-if {
+    display: inline-flex;
+}
+.d-ig{
+    display: inline-grid;
+}
+.fg-1 {
+    flex-grow: 1
+}
+
+.jc-sb {
+    justify-content: space-between;
+}
+
+.jc-sa {
+    justify-content: space-around;
+}
+
+.jc-c {
+    justify-content: center;
+}
+
+.jc-fe {
+    justify-content: flex-end;
+}
+
+.fd-c {
+    flex-direction: column;
+}
+.fd-rr {
+    flex-direction: row-reverse;
+}
+.ai-c {
+    align-items: center;
+}
+
+.ai-b {
+    align-items: baseline;
+}
+
+.as-st {
+    align-self: stretch;
+}
+
+.as-fe {
+    align-self: flex-end;  
+}
+
+.as-fs {
+    align-self: flex-start;
+}
+
+.dark-black-panels {
+    background-color: $surface !important;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 4px 5px 0 rgba(0, 0, 0, 0.14);
+    border-radius:$component-border-radius;
+}
+
+.dark-grey-dashboard {
+    background-color: #545454;
+}
+
+.mxw-10 {
+    max-width: 10em !important;
+}
+
+/*  Font Color Styles */
+
+.text-dark-cream {
+    // color: rgba(251, 251, 251, 0.6) !important;
+    color: $text-on-bg !important;
+}
+
+/*  After Line Styles */
+
+.right-line-border {
+    position: relative;
+
+    &:after {
+        position: absolute;
+        content: "";
+        height: 90%;
+        width: 2px;
+        background-color: #fbfbfb;
+        top: 0;
+        right: 0;
+    }
+}
+
+/*  Flex Division Styles */
+
+.div-360 {
+    @extend .d-flex;
+
+    .side-defined {
+        font-size: 1rem;
+        position: relative;
+        flex: 0 0 36em;
+    }
+
+    .side-remain {
+        font-size: 1rem;
+        flex: 1;
+        padding: 1.5em;
+    }
+}
+
+.bst_element {
+    font-size: 62.4%;
+
+    &_body {
+        padding: 121px 0 0 !important;
+    }
+
+    &_header {
+        font-size: 1rem;
+        height: 6.3em !important;
+        background-color: #2d2d2d !important;
+        box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .5);
+
+        .topheader-menu {
+            display: none;
+        }
+
+        .nav-link-icon {
+            color: #fbfbfb !important;
+            font-size: 1.6rem !important;
+            top: 75% !important;
+        }
+
+        .log-username {
+            color: #fbfbfb !important;
+            font-size: 1.8rem;
+            text-transform: capitalize !important;
+            // font-family: $roboto-light;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-light);
+            }
+        }
+
+        .last-login {
+            color: #fff !important;
+            opacity: .5;
+            text-transform: capitalize !important;
+        }
+
+        /* Header modal styles */
+        .header-wrapper .navbar .nav>li.dropdown-profile .profile-dropdown-menu {
+            width: 204px;
+            height: 226px;
+            border-radius: $lg-comp-corner-radius;
+            right: 25px;
+            padding-top: 0;
+            background-color: $surface;
+
+            li {
+                height: 40px;
+                margin: 5px 0;
+                font-size: 14px;
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.43;
+                letter-spacing: -0.2px;
+                border-top: 1px solid rgba(249, 249, 249, 0.2);
+
+                a {
+                    color: #fbfbfb;
+
+                    i {
+                        color: #fbfbfb;
+                    }
+                }
+
+                &:nth-of-type(1) {
+                    border-top: 0;
+                }
+            }
+        }
+    }
+
+    &_submenu {
+        -webkit-backdrop-filter: blur(4.4px);
+        backdrop-filter: blur(4.4px);
+        background-color: #424242 !important;
+        box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .5);
+
+        .dropdown-toggle {
+            strong {
+                font-size: 14px !important;
+                text-transform: capitalize !important;
+                color: #fbfbfb;
+                font-weight: 400 !important;
+            }
+
+            .icon-right {
+                font-size: 22px !important;
+            }
+        }
+    }
+
+    .utilities-panel-contents-wrapper {
+        a {
+            text-transform: capitalize;
+            color: #fbfbfb;
+        }
+    }
+
+    /** Custom Scrollbar **/
+    .custom-scroll-wrapper::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    .custom-scroll-wrapper::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0);
+    }
+
+    .custom-scroll-wrapper:hover::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0);
+    }
+
+    .custom-scroll-wrapper::-webkit-scrollbar-thumb {
+        @extend .radius-3;
+        // background-image: linear-gradient(to bottom, #79c9ff, #009eff);
+        background: $primary-color;
+    }
+
+    .custom-scroll-wrapper:hover::-webkit-scrollbar-thumb {
+        // background-image: linear-gradient(to bottom, #009eff, #79c9ff);
+        background: $primary-color;
+    }
+
+    .custom-scroll-wrapper:hover::-webkit-scrollbar-corner {
+        background: rgba(0, 0, 0, 0);
+    }
+
+    .custom-scroll-wrapper::-webkit-scrollbar-corner {
+        background: rgba(0, 0, 0, 0);
+    }
+
+    .custom-scroll-wrapper {
+        @include transition(all 0.3s ease-in-out);
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    /** Margin Classes Based on rems **/
+    .mar-t25 {
+        margin-top: 2.5em !important;
+    }
+
+    .mar-b25 {
+        margin-bottom: 2.5em !important;
+    }
+
+    .mar-t10 {
+        margin-top: 1em !important;
+    }
+
+    /** Font-Sizes Classes Based on rems **/
+    .f-12 {
+        font-size: 1.2rem !important;
+    }
+
+    /** Padding Classes Based on rems **/
+    .pad-y25 {
+        padding-top: 2.5em !important;
+        padding-bottom: 2.5em !important;
+    }
+
+    .pad-5 {
+        @include padding(.5em);
+    }
+}
+
+/*
+================================================================================
+**********************  Media Styles For The Site  ******************
+================================================================================
+*/
+
+
+@media screen and (min-width:1920px) {
+    .bst_element {
+        // font-size: 16px;
+        font-size : calc(var(--rootFontSize) + 6px);
+    }
+}
+
+@media screen and (min-width: 1600px) and (max-width:1920px) {
+    .bst_element {
+        // font-size: 14px;
+        font-size : calc(var(--rootFontSize) + 4px);
+
+    }
+}
+
+@media screen and (min-width: 1401px) and (max-width: 1600px) {
+    .bst_element {
+        // font-size: 12px;
+        font-size : calc(var(--rootFontSize) + 2px);
+    }
+}
+
+@media screen and (min-width: $screen-lg) and (max-width:1401px) {
+    .bst_element {
+        // font-size: 10px;
+        font-size :$root-font-size;
+
+    }
+}
+
+
+@media (min-width: $screen-llg) {
+    .bst_element {
+        // font-size: 12px;
+        font-size : calc(var(--rootFontSize) + 2px);
+    }
+}
+
+@media (min-width: $screen-lg) {
+    .bst_element {
+        // font-size: 10px;
+        font-size : $root-font-size;
+
+    }
+}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
+    .bst_element {
+        // font-size: 10px;
+        font-size : $root-font-size;
+    }
+}
+
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+    .bst_element {
+        // font-size: 8px;
+        font-size : calc(var(--rootFontSize) - 2px);
+
+    }
+}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {
+    .bst_element {
+        // font-size: 5px;
+        font-size : calc(var(--rootFontSize) - 5px);
+
+    }
+}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {
+    .bst_element {
+        // font-size: 5px;
+        font-size : calc(var(--rootFontSize) - 5px);
+    }
+}

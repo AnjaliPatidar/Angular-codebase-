@@ -1,0 +1,220 @@
+<div *ngIf="templateClass == 'feed-component'">
+
+  <!--=================================================-->
+  <!--Please dont change the classes of this icons-->
+  <!--=================================================-->
+
+  <!-- <span class="editIcon control-icons d-block"><i class="fa fa-pencil c-pointer"  style="font-size: 16px;"></i></span>
+    <span class="saveIcon control-icons d-none"><i class="fa fa-check c-pointer" style="font-size: 16px;"></i></span>
+    <span class="cancleIcon control-icons d-none"><i class="fa fa-times c-pointer" style="font-size: 16px;"></i></span> -->
+  <span class="clockIcon control-icons" permission
+    [domainPermission]="permissionIdsList | getPermissionId : 'feedAuditing'"  [PemissionHide]="true" (click)="showRightPanel(feedlist)"><i
+      class="material-icons c-pointer">history</i></span>
+
+  <span *ngIf="!valueForDelete" class="deleteIcon control-icons d-block f-16" permission
+    [domainPermission]="permissionIdsList | getPermissionId : 'delete'" [PemissionHide]="true"  ><i class="material-icons c-pointer"
+      style="color: #ef5350;">delete</i></span>
+
+</div>
+<div *ngIf="templateClass == 'alert-component' ">
+  <div *ngIf="showTrueMatch" class="alert-indicator-icon">
+    <button mat-button [matMenuTriggerFor]="afterMenu" class="no-hover-effect"
+      style="display: inline-flex;min-width: 10px; padding: 0;" permission
+      [domainPermission]="permissionIdsList | getPermissionId : 'alert Indicators'"><i [ngStyle]="{'color': alertColor}"
+        class="fa fa-exclamation-triangle ml-2 mr-3"></i></button>
+    <mat-menu #afterMenu="matMenu" xPosition="after">
+      <button style="display: flex;
+            align-items: center;" mat-menu-item (click)="risckIndicator('High')"><i
+          class="fa fa-exclamation-triangle mr-4" [ngStyle]="{'color': alertColors['High']}"
+          style="font-size:20px;"></i><span style="margin-right: 15px;">{{'High' | translate}}</span><span
+          *ngIf="riskIndicatorsVal == 'High'" style="    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;"><i class="material-icons f-15"
+            aria-hidden="true">done</i></span></button>
+      <button style="display: flex;
+            align-items: center;" mat-menu-item (click)="risckIndicator('Medium')"><i
+          class="fa fa-exclamation-triangle mr-4" [ngStyle]="{'color': alertColors['Medium']}"
+          style="font-size:20px;"></i><span style="margin-right: 15px;">{{'Medium' | translate}}</span><span style="    display: flex;
+    align-items: center;
+    justify-content: flex-end;" *ngIf="riskIndicatorsVal == 'Medium'"><i class="material-icons f-15"
+            aria-hidden="true">done</i></span></button>
+      <button style="display: flex;
+            align-items: center;" mat-menu-item (click)="risckIndicator('Low')"><i
+          class="fa fa-exclamation-triangle mr-4" [ngStyle]="{'color': alertColors['Low']}"
+          style="font-size:20px;"></i><span style="margin-right: 15px;">{{'Low' | translate}}</span><span style="    display: flex;
+    align-items: center;
+    justify-content: flex-end;" *ngIf="riskIndicatorsVal == 'Low'"><i class="material-icons f-15"
+            aria-hidden="true">done</i></span></button>
+    </mat-menu>
+  </div>
+  <!-- <div>
+
+    <span container="body" [ngbPopover]="popContent" triggers="mouseenter:mouseleave"
+      popo    verClass="custom-popup align-popup no-arrow" #closePop="ngbPopover" placement="bottom">
+      <i *ngIf="timeInStatus"
+        class="fa fa-battery-{{timeInStatusBatteryHeight[timeInStatus.replace(' ','').toLowerCase()]}}"
+        [ngStyle]="{'color':timeInStatusColor,'transform':'rotate(-90deg)'}" aria-hidden="true">done</i></span>
+  </div> -->
+
+  <div class="alert-indicator-icon">
+    <div
+      *ngIf="showReviewerIcon && (alertStatus != 'approved' && alertStatus != 'identity approved'  &&  alertStatus != 'rejected' &&  alertStatus != 'identity approved, needed review' && alertStatus != 'identity rejected, needed review' && alertStatus != 'approved, needed review' && alertStatus != 'rejected, needed review') ">
+      <button mat-button [matMenuTriggerFor]="reviewerMenu" class="no-hover-effect"
+        style="display: inline-flex;min-width: 10px; padding: 0;">
+        <!-- <i [ngStyle]="{'color': reviewerSt   atusColor}" class="fa fa-check-circle-o p-3"></i> -->
+        <i [ngStyle]="{'color': reviewerStatusColor}" class="material-icons mr-3 pr-1">check_circle</i></button>
+      <mat-menu #reviewerMenu="matMenu" xPosition="after">
+        <button style="display: flex;
+          align-items: center;" mat-menu-item (click)="reviewerStatusChange('Unconfirmed')">
+          <i class="fa fa-check-circle-o mr-4" [ngStyle]="{'color': reviewerStatusColors['Unconfirmed']}"
+            style="font-size:20px;"></i><span style="margin-right: 15px;">{{'Unconfirmed' | translate}}</span><span
+            *ngIf="reviewersVal == 'Unconfirmed'" style="    display: flex;
+                  align-items: center;
+                  justify-content: flex-end;">
+            <i class="material-icons f-15" aria-hidden="true">done</i></span></button>
+        <button style="display: flex;
+          align-items: center;" mat-menu-item (click)="reviewerStatusChange('Confirmed')"><i
+            class="fa fa-check-circle-o mr-4" [ngStyle]="{'color': reviewerStatusColors['Confirmed']}"
+            style="font-size:20px;"></i><span style="margin-right: 15px;">{{'Confirmed' | translate}}</span><span style="    display: flex;
+  align-items: center;
+  justify-content: flex-end;" *ngIf="reviewersVal == 'Confirmed'"><i class="material-icons f-15"
+              aria-hidden="true">done</i></span></button>
+        <button style="display: flex;
+          align-items: center;" mat-menu-item (click)="reviewerStatusChange('Declined')"><i
+            class="fa fa-check-circle-o mr-4" [ngStyle]="{'color': reviewerStatusColors['Declined']}"
+            style="font-size:20px;"></i><span style="margin-right: 15px;">{{'Declined' | translate}}</span><span style="    display: flex;
+  align-items: center;
+  justify-content: flex-end;" *ngIf="reviewersVal == 'Declined'"><i class="material-icons f-15"
+              aria-hidden="true">done</i></span></button>
+      </mat-menu>
+    </div>
+  </div>
+
+  <div class="alert-indicator-icon" *ngIf="showScreeningIcon">
+    <i matTooltipPosition="left" [matTooltip]="'Nightly Screening'" class="material-icons text-on-surface text-dark-black">
+      brightness_2
+    </i>
+  </div>
+
+  <div class="alert-indicator-icon mr-2">
+
+    <span *ngIf="!showReviewerIcon">
+      <i *ngIf="timeInStatus"
+        class="mr-3 pr-1 fa fa-battery-{{timeInStatusBatteryHeight[timeInStatus.replace(' ','').toLowerCase()]}}"
+        [ngStyle]="{'color':timeInStatusColor,'transform':'rotate(-90deg)'}" aria-hidden="true"></i>
+    </span>
+
+  </div>
+
+  <app-alert-comments *ngIf="currentRowData" [showComments]="true" [params]="params" class="mr-3"
+    (sendPrev)="sendPrevRow($event)" (send)="sendNextRow($event)"></app-alert-comments>
+  <div class="alert-indicator-icon">
+    <span class="clockIcon c-pointer" permission
+      [domainPermission]="permissionIdsList | getPermissionId : 'alert Auditing'" (click)="openRightPanel(alertlist)">
+      <i class="material-icons">
+        restore
+      </i>
+    </span>
+  </div>
+</div>
+
+<div *ngIf="templateClass=='entityType'" class="justify-content-center">
+  <span>
+    <i class="material-icons text-on-surface text-dark-black lh-17 c-arrow">
+      {{entityType}}
+    </i>
+  </span>
+</div>
+<div *ngIf="templateClass=='requestId'" class="justify-content-center">
+  <span style="font-size: 14px;">
+    {{requestId}}
+  </span>
+</div>
+<div *ngIf="templateClass == 'feed-assigned-alerts'">
+  <p [ngClass]="{'c-pointer' : valueFromComponent !== 0 }" class="text-dark-black" permission
+    [domainPermission]="permissionIdsList | getPermissionId : 'assignee'"
+    (click)="navigateToOtherComponent(currentRowData)"><i class="fa fa-exclamation-triangle text-dark-black"
+      style="font-size: 16px;color: rgba(255, 255, 255, 0.4);margin-right:6px;"></i> {{valueFromComponent}}</p>
+</div>
+
+<div *ngIf="templateClass =='caselist-component'">
+  <div class="d-flex align-items-center">
+    <span id="iconCommentBox" permission [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId : 'comment Box'" [PemissionHide]="true" class="d-flex align-items-center" [ngClass]="{'disabled-cursor': !isUserAssignedPermission}">
+      <i  #caseComments class="material-icons" (click)="openCommentsPopup()" [ngClass]="{'pe-none': !isUserAssignedPermission}"
+          [class.text-dark-pastal-green]="commentListItemsCount > 0">
+          chat
+      </i>
+      <div class="count width-unset" matTooltipPosition="left"
+      [matTooltip]="commentListItemsCount?.toString().length > 3 ? commentListItemsCount : ''"
+      [class.text-dark-pastal-green]="commentListItemsCount > 0">{{commentListItemsCount}}
+      </div>
+      </span>
+      <div class="case-copied" permission [IsHideRemoveBothEnabled]="true"
+      [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId: 'caseCreation'"> <i class="material-icons-round txt-on-surface-06 c-pointer custom-scroll-wrapper"
+        [matTooltip]="'Copy Case' | translate" matTooltipPosition="above" (click)="openCopiedCaseDetails()"> acontrol_point_duplicate </i>
+      </div>
+      <i id="iconAuditLog" [matTooltip]="'Audit History' | translate" matTooltipPosition="above"
+      [class.txt-on-surface-87]="rightPanelLoadCom == 'detailInfo' && showRightPanel"  class="material-icons-round txt-on-surface-06 c-pointer" (click)="openCaseAudit()"> restore </i>
+</div>
+
+</div>
+<div *ngIf="templateClass == 'jurisdiction'" class="justify-content-center">
+  <i class="flag-icon mar-x5 text-cream flag-icon-squared flag-pop f-9 flag-icon-{{currentRowData.Jurisdiction.flag}}"
+  >
+  </i>
+  {{currentRowData.Jurisdiction.name}}
+</div>
+
+<div *ngIf="templateClass == 'pep'" class="justify-content-center">
+  <i class="material-icons " [ngClass]="{'text-red':currentRowData.PEP > 0,'c-pointer':currentRowData.PEP > 0,'text-dark-black':currentRowData.PEP == 0}">
+    person
+  </i>
+  {{currentRowData.PEP}}
+ </div>
+<div *ngIf="templateClass == 'sanction'" class="justify-content-center">
+  <i class="material-icons " [ngClass]="{'text-red':currentRowData.Sanctions > 0,'c-pointer':currentRowData.Sanctions > 0,'text-dark-black':currentRowData.Sanctions == 0}">
+    block
+  </i>
+  {{currentRowData.Sanctions}}
+</div>
+<div *ngIf="templateClass == 'rca'" class="justify-content-center">
+  <i class="material-icons " [ngClass]="{'text-red':currentRowData.RCA > 0,'c-pointer':currentRowData.RCA > 0,'text-dark-black':currentRowData.RCA == 0}">
+    group
+  </i>
+ {{currentRowData.RCA}}
+
+</div>
+<div *ngIf="templateClass == 'reciept'" class="justify-content-center"  >
+  <i class="material-icons" [ngClass]="{'text-red':currentRowData.News > 0,'c-pointer':currentRowData.News > 0,'text-dark-black':currentRowData.News == 0}">
+    receipt
+  </i>
+  {{currentRowData.News}}
+</div>
+<div *ngIf="templateClass == 'sip'" class="justify-content-center">
+  <i class="material-icons" [ngClass]="{'text-red':currentRowData.SIP > 0,'c-pointer':currentRowData.SIP > 0,'text-dark-black':currentRowData.SIP == 0}">
+    person
+  </i>
+  {{currentRowData.SIP}}
+
+ </div>
+ <div *ngIf="templateClass == 'sie'" class="justify-content-center"  >
+  <i class="material-icons" [ngClass]="{'text-red':currentRowData.SIE > 0,'c-pointer':currentRowData.SIE > 0,'text-dark-black':currentRowData.SIE == 0}">
+    receipt
+  </i>
+   {{currentRowData.SIE}}
+ </div>
+ <div *ngIf="templateClass == 'ame'" class="justify-content-center"  >
+  <i class="material-icons" [ngClass]="{'text-red':currentRowData.AME > 0,'c-pointer':currentRowData.AME > 0,'text-dark-black':currentRowData.AME == 0}">
+    receipt
+  </i>
+   {{currentRowData.AME}}
+ </div>
+ <div *ngIf="templateClass=='alert-aging-component'" class="">
+  <i *ngIf="currentRowData.riskIndicator" class="material-icons fas fa-{{currentRowData.riskIndicator.icon}}"
+   [ngStyle] = "{'color': '#'+currentRowData.riskIndicator.colorCode }"
+   #tooltip="matTooltip"
+    [matTooltip]="currentRowData.riskIndicator.displayName"
+    matTooltipPosition="before"
+   ></i>
+   &nbsp;  {{ currentRowData.agingDisplayObj ?  currentRowData.agingDisplayObj.value  + ' ' + ((currentRowData.agingDisplayObj.period) | translate)  :''}}
+</div>

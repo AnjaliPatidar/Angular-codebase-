@@ -1,0 +1,37 @@
+
+    /* Theme styles for the submenu */
+    .submenu-wrapper {
+        // background-color: $submenu-bg-color !important;
+        background-color: rgba(0,0,0,32%) !important;
+        height: 52px;
+        top: 64px;
+        // border-bottom: 4px solid $submenu-border-color;
+        box-shadow: none;
+        // opacity: 0.9;
+        ul {
+          li {
+            a {
+              font-size: 13px;
+              line-height: 1.54;
+              letter-spacing: 0.1px;
+              .light-text{
+                color: $breadcrumb-text-color;
+              }
+            }
+          }
+        }
+        .utility-group {
+          a {
+            border-color: $theme-black-color;
+          }
+        }
+      }
+      .upload-file-btn {
+        color: $theme-black-color;
+        border-color: $theme-black-color !important;
+      }
+      .border-right {
+        &::after {
+        background: $theme-black-color;
+      }
+    }

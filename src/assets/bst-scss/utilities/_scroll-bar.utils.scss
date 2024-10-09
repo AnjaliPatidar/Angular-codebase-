@@ -1,0 +1,22 @@
+/* width for vertical scrollbar*/
+::-webkit-scrollbar {
+    width : 4px !important;
+    cursor: pointer;
+}
+
+/* height for horizontal scrollbar */
+::-webkit-scrollbar:horizontal {
+    height: 4px !important;
+    cursor: pointer;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: $surface !important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background   : $color-background !important;
+    border-radius: 10px !important;
+}

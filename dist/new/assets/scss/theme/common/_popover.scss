@@ -1,0 +1,132 @@
+/*==============================================================================
+******************  Header Wrapper Styles For The Site  ************************
+==============================================================================*/
+
+/*--  Header Wrapper Styles  --*/
+
+.bst_popover {
+  background-color: #545454;
+  max-width: none;
+  border-radius: 10px;
+
+
+  .tab_content {
+    padding-top: 10px;
+  }
+
+  .arrow {
+    &:after {
+      border-bottom-color: #545454;
+    }
+  }
+
+
+  &.alert-management-popover {
+    // width: 25.3rem;
+    width: 253px;
+    left: 2.6rem !important;
+    top: -2.5rem !important;
+    border-radius: 0;
+    // min-width: 32.3rem;
+    min-width: 323px;
+
+    .arrow {
+      display: none;
+    }
+
+    .button-group-wrapper {
+      .control-button {
+        background-color: transparent !important;
+        justify-content: flex-start;
+        margin: 5px !important;
+        padding: 5px;
+        width: 100%;
+        outline: none !important;
+
+        &:hover {
+          // background-color: #747474!important;
+          background-color: rgba(255, 255, 255, 0.08) !important;
+        }
+      }
+    }
+
+    &.add-table-alert-popover {
+      left: 105% !important;
+      top: -3.6rem !important;
+      // min-width: 32.3rem;
+      min-width: 323px;
+      width: auto;
+      .custom-switch-wrapper.bst-switch-wrapper{
+        // width: 43px;
+      }
+    }
+  }
+}
+
+.popover {
+  &.no-arrow {
+    .arrow {
+      display: none;
+    }
+  }
+
+  &.custom-popup {
+    z-index: 1002;
+    // max-width: 195px;
+
+    .popover-header {
+      background-color: #545454;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0;
+
+      &:before {
+        display: none;
+      }
+    }
+
+    .popover-body {
+      background-color: #424242;
+      display: block !important;
+    }
+
+    .arrow {
+      &:before {
+        border-bottom-color: #424242;
+        transform: rotate(-180deg);
+        border-right-color: transparent !important;
+      }
+    }
+
+    &.has-top-arrow {
+      .arrow {
+        // transform: rotateX(180deg);
+        // top: -25px;
+        display: none;
+
+        &:before {
+          border-bottom-color: #545454;
+        }
+      }
+
+    }
+  }
+}
+.popover-alignment-box-wrapper{
+  width: 333px;
+}
+
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+@media (min-width:$screen-lg) {}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {}
+
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {}

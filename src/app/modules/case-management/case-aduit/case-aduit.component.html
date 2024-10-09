@@ -1,0 +1,108 @@
+<div class="audit-left-panel custom-scroll-wrapper" [class.panel-open]="isOpen">
+  <header class="audit-header" *ngIf="isOpen">
+    <p class="title txt-on-surface">
+      {{"Case Auditing" | translate}}
+    </p>
+    <span class="material-icons-round opct-54 close-icon" (click)="close()" [matTooltip]="'Close' | translate" matTooltipPosition="above">close</span>
+</header>
+
+<div class="bst-audit">
+  <div *ngIf="component" class="bst-audit__description light-theme-no-radius">
+    <div *ngIf="caseId">
+      <div class="flex">
+          <span class="label bst-body2 u-mt-5">{{'Case ID' | translate}}: </span>
+          <span class="labelData bst-subtitle1 bst-color-ty">{{caseId}} </span>
+      </div>
+      <div class="flex">
+          <span class="label bst-body2 u-mt-5">{{'EntityName' | translate}}: </span>
+          <span class="labelData bst-subtitle1 bst-color-ty">{{name}}</span>
+      </div>
+  </div>
+  </div>
+</div>
+
+<div class="position-relative mt-3 search-container">
+  <i class="material-icons-round search-icon position-absolute">
+    search
+  </i>
+  <input type="text" name="filterargsName" [(ngModel)]="keyWord" (ngModelChange)="activeClearicon($event)" [placeholder]="'Search'| translate"
+    class="form-control mt-0 mb-3 search-input input-control light-theme-no-radius light-theme-no-shadow">
+    <i class="material-icons-round clear-icon position-absolute" (click)="clearInput()" *ngIf="isInputHasValue" [matTooltip]="'Clear' | translate" matTooltipPosition="above">
+      close
+    </i>
+</div>
+
+<mat-divider class="bst-mat-divider"></mat-divider>
+
+
+<div class="bst-audit-list">
+  <mat-accordion class="bst-accordion" *ngFor="let audit of rightPanelData;trackBy:trackByKey">
+    <mat-expansion-panel class="bst-accordion__master" togglePosition="before">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{audit?.key | translate}} {{getAuditYear(audit?.values[0])}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <ng-container>
+        <div>
+          <mat-accordion class="bst-accordion__master--inner" multi>
+            <mat-expansion-panel togglePosition="before" *ngFor="let info of audit?.values | textFilter:keyWord| TimeStampSort: '-key';trackBy:trackByKey">
+              <mat-expansion-panel-header>
+                <mat-panel-title class="flex">
+                  <div class="date bst-subtitle1 bst-color-ty">{{audit?.key | translate}} {{getAuditDay(info?.key)}}</div>
+                  <div class="actions bst-body2 bst-color-ty">{{info?.values[0]?.values?.length}} {{info?.values[0]?.values?.length > 1 ? 'actions' : 'action' | translate}}</div>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+    
+              <ng-container *ngFor="let case of info?.values[0]?.values;trackBy:trackByTimestamp">
+                <div class="case-audit-content">
+                  <div class="case-header">
+                    <div class="user-wrapper">
+                      <img *ngIf="case?.commentedBy && case?.commentedBy?.userImage" class="list-img" [src]="'case:image/gif;base64,' + case?.commentedBy?.userImage"
+                      alt="">
+                      <span *ngIf="case?.commentedBy && !case?.commentedBy?.userImage" class="avatar opct-60 fnt-10">
+                        {{ case?.commentedBy?.firstName ?  case?.commentedBy?.firstName.charAt(0).toUpperCase() : ''  }}{{ case?.commentedBy?.lastName ? case?.commentedBy?.lastName.charAt(0).toUpperCase() : '' }}</span>
+                    </div>
+    
+                    <p class="case-update-description case-update-header txt-on-surface opct-60 overflow-eclips" matTooltipPosition="below" [matTooltip]="case?.commentedBy?.firstName + ' ' + ((case?.actionType + 'd') | translate) + ' ' + case?.attribute | translate">{{case?.commentedBy?.firstName}} {{(case?.actionType + 'd' | translate)}} {{case?.attribute ? (case?.attribute | translate) : ''}}</p>
+                    <span class="case-update-time case-update-header txt-on-surface opct-60">{{case?.timestamp | dateTranslated :'hh:mm a':true | async}}</span>
+                  </div>
+    
+                  <ng-container *ngIf="isCaseOverRide(case?.attribute) && case?.attribute !== 'Case Risk reason'">
+                    <div class="case-risk-transfer-wrapper">
+                      <span class="d-flex align-items-center">
+                        <mat-icon class="fa fa-ban dropdown-icon audit-risk-icon clr-none-state" *ngIf="case?.oldValue == 'None'"></mat-icon>
+                        <mat-icon class="dropdown-icon audit-risk-icon" *ngIf="case?.oldValue !== 'None'" [style.color]="getCaseIcon(case?.oldValue , 'color')" [ngClass]="'fa fa-' + getCaseIcon(case?.oldValue , 'icon')"></mat-icon>
+                        <span class="override-type">{{case?.oldValue}}</span>
+                      </span>
+                      <span class="material-icons-round case-override-divider">chevron_right</span>
+                      <span class="d-flex align-items-center">
+                        <mat-icon class="dropdown-icon audit-risk-icon" [style.color]="getCaseIcon(case?.newValue , 'color')" [ngClass]="'fa fa-' + getCaseIcon(case?.newValue , 'icon')"></mat-icon>
+                        <span class="override-type">{{case?.newValue}}</span>
+                      </span>
+                    </div>
+                  </ng-container>
+    
+                  <p class="case-update-header description-info txt-on-surface opct-60">
+                    <span *ngIf="isCaseOverRide(case?.attribute)">{{"Reason for Status:" | translate}}
+                      <br/>
+                      {{case?.description}}
+                    </span>
+                    <span class="d-block" *ngIf="!isCaseOverRide(case?.attribute)">
+                      {{ case.description}}
+                    </span>
+                  </p>
+                </div>
+              </ng-container>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </ng-container>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<div class="loading-audit z-99 c-ban" *ngIf="isLoading">
+  <i class="fa fa-spinner txt-on-surface-06 fa-pulse f-25"></i>
+</div>
+</div>

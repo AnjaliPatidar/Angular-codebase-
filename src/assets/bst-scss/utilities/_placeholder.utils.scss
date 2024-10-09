@@ -1,0 +1,14 @@
+@import "../../../assets/scss/theme/common/variable";
+
+::placeholder {
+    color: $text-on-surface;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: $text-on-surface;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+   color: $text-on-surface;
+  }

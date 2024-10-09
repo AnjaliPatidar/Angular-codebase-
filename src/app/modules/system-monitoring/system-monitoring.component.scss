@@ -1,0 +1,41 @@
+@import "../../../assets/theme-builder/theme_builder";
+/* Styles for system monitoring left panel */
+
+/* Styles for system monitoring right panel */
+app-right-panel {
+  width: 305px;
+  min-width: 305px;
+  right: 0;
+  overflow: auto;
+  top: 118px;
+  bottom: 0;
+}
+
+/* Custom Styles for system monitoring page */
+::ng-deep .pagination-dropdown .mat-form-field-infix {
+  border: 0;
+}
+
+::ng-deep .mat-form-field-infix {
+  width: auto;
+  // border-top-width: 5px;
+  // border-bottom: 5px solid transparent;
+}
+
+::ng-deep mat-form-field {
+  width: 100%;
+}
+
+
+::ng-deep .multi-select-dropdown {
+  min-width: 270px !important;
+}
+
+::ng-deep .ag-table-wrapper .ag-cell-value {
+  display: block !important;
+  line-height: 4.5rem !important;
+}
+
+::ng-deep .mat-select {
+  margin-top: 2px !important;
+}

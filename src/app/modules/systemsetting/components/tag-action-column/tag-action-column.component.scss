@@ -1,0 +1,20 @@
+.custom-cell {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.error-state {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: -6px;
+}
+
+.tag-icon{
+    opacity: .6;
+}
+.w-32{
+    min-width: 32px;
+    width: 31px;
+}

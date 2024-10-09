@@ -1,0 +1,59 @@
+$bst-icon-btn__default-color         : $color-icon-enabled !default;
+$bst-icon-btn__default-disabled-color: $color-white-12 !default;
+$bst-icon-btn__accent-color          : $primary-color !default;
+$bst-icon-btn__accent-disabled-color : $color-white-12 !default;
+$bst-icon-btn__warning-color         : $color-red-10 !default;
+
+.bst-mat-icon-btn {
+    cursor: pointer;
+
+    &--default {
+        color: $bst-icon-btn__default-color !important;
+
+        &:hover,
+        &:focus {
+            color: $color-white-87 !important;
+        }
+
+        &.disabled {
+            color         : $bst-icon-btn__default-disabled-color !important;
+            pointer-events: none !important;
+        }
+    }
+
+    &--accent {
+        color: $bst-icon-btn__accent-color !important;
+
+        &.disabled {
+            color         : $bst-icon-btn__accent-disabled-color !important;
+            pointer-events: none !important;
+        }
+    }
+
+    &--warning {
+        color: $bst-icon-btn__warning-color !important;
+
+        &.disabled {
+            color         : $bst-icon-btn__accent-disabled-color !important;
+            pointer-events: none !important;
+        }
+    }
+
+}
+
+.bst-mat-btn-mini {
+    cursor: pointer;
+
+    &--default {
+        color: $bst-icon-btn__default-color !important;
+
+        &.disabled {
+            color         : $bst-icon-btn__default-disabled-color !important;
+            pointer-events: none !important;
+        }
+
+        &.with-bg {
+            background-color: $color-white-08 !important;
+        }
+    }
+}

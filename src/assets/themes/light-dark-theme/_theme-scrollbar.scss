@@ -1,0 +1,66 @@
+/*  
+=======================================================================================
+****************************** Theme scrollbar styles ***********************
+=======================================================================================
+*/
+
+ &.custom-scroll-wrapper::-webkit-scrollbar,
+ .custom-scroll-wrapper::-webkit-scrollbar,
+ .ag-table-wrapper .ag-body-viewport.ag-layout-normal::-webkit-scrollbar {
+   width: 4px;
+   height: 4px;
+ }
+
+ &.custom-scroll-wrapper::-webkit-scrollbar-track,
+ .custom-scroll-wrapper::-webkit-scrollbar-track,
+ .ag-table-wrapper .ag-body-viewport.ag-layout-normal::-webkit-scrollbar-track {
+   background: $theme-white-color;
+ }
+
+ &.custom-scroll-wrapper:hover::-webkit-scrollbar-track,
+ .custom-scroll-wrapper:hover::-webkit-scrollbar-track,
+ .ag-table-wrapper .ag-body-viewport.ag-layout-normal::-webkit-scrollbar-track {
+   background: $theme-white-color;
+ }
+
+ &.custom-scroll-wrapper::-webkit-scrollbar-thumb,
+ .custom-scroll-wrapper::-webkit-scrollbar-thumb,
+ .ag-table-wrapper .ag-body-horizontal-scroll-viewport::-webkit-scrollbar-thumb,
+ .ag-table-wrapper .ag-body-viewport.ag-layout-normal::-webkit-scrollbar,
+ .ag-table-wrapper .ag-body-viewport.ag-layout-normal::-webkit-scrollbar-thumb {
+   @extend .radius-3;
+   background-color: $theme-light-color !important;
+   background-image: none !important;
+ }
+
+ &.custom-scroll-wrapper:hover::-webkit-scrollbar-thumb,
+ .custom-scroll-wrapper:hover::-webkit-scrollbar-thumb,
+ .ag-table-wrapper .ag-body-viewport.ag-layout-normal:hover::-webkit-scrollbar-thumb {
+   background-color: $theme-light-color;
+   background-image: none;
+ }
+
+ &.custom-scroll-wrapper:hover::-webkit-scrollbar-corner,
+ .custom-scroll-wrapper:hover::-webkit-scrollbar-corner,
+ .ag-table-wrapper .ag-body-viewport.ag-layout-normal::-webkit-scrollbar-corner {
+   background: $theme-white-color;
+ }
+
+ &.custom-scroll-wrapper::-webkit-scrollbar-corner,
+ .custom-scroll-wrapper::-webkit-scrollbar-corner,
+ .ag-table-wrapper .ag-body-viewport.ag-layout-normal::-webkit-scrollbar-corner {
+   background: $theme-white-color;
+ }
+
+ &.custom-scroll-wrapper,
+ .custom-scroll-wrapper,
+ .ag-table-wrapper .ag-body-viewport.ag-layout-normal {
+   @include transition(all 0.3s ease-in-out);
+
+   &:focus {
+     outline: none;
+   }
+ }
+ .mCSB_dragger_bar {
+  background-color: $theme-light-color !important;
+ }

@@ -1,0 +1,301 @@
+<div class="screening-batch-main position-relative p-0" [class.h-auto]="incomingdata.operation == 'upload attachement' || incomingdata.operation == 'case comments' || screenProcessedCompleted || showSecondSection"
+    *ngIf="enableSSBScreenModalWindow">
+    <div class="screening-batch-header light-theme-border-bottom">
+        <h2 class="upload-file text-dark-black gotham-medium font-medium text-on-surface"
+            *ngIf="incomingdata.operation == 'screening batch file'">
+            <span *ngIf="fileUploadEnabled"> {{'File' | translate}} {{'Upload' | translate}} </span>
+            <span *ngIf="screenProcessedCompleted"> {{'Screening' | translate}}  {{'Completed' | translate}} </span>
+            <span *ngIf="!fileUploadEnabled && !screenProcessedCompleted"> {{'Screening Entities' | translate}}  </span>
+        </h2>
+        <h2 class="upload-file text-dark-black gotham-medium font-medium text-on-surface"
+            *ngIf="incomingdata.operation == 'upload attachement'">{{'Upload' | translate}} Attachement</h2>
+        <h2 class="upload-file text-dark-black gotham-medium font-medium text-on-surface"
+            *ngIf="incomingdata.operation == 'case comments'">{{'Upload' | translate}} document(s)</h2>
+        <i class="material-icons c-pointer color-image text-dark-black" (click)="close()" *ngIf="fileUploadEnabled">close</i>
+        <i class="material-icons c-pointer color-image text-dark-black" (click)="hideScreenReasult()" *ngIf="screenProcessedCompleted">close</i>
+        <i class="fa fa-minus c-pointer color-image text-dark-black" (click)="minimizeTheScreen()" *ngIf="showSecondSection && !screenProcessedCompleted"></i>
+    </div>
+    <div class="loader-bg z-999 w-100 h-100 b-0 position-absolute"
+        *ngIf="showUploadLoader && ( incomingdata.operation == 'upload attachement' || incomingdata.operation == 'case comments' ||  incomingdata.operation == 'screening batch file' )">
+        <i class="fa fa-spinner txt-on-surface-06 fa-pulse no-data f-25 mnh-auto"></i>
+    </div>
+
+    <div class="screening-batch-section-one custom-scroll-wrapper" cdkScrollable *ngIf="showFirstSection" style="overflow-x: hidden; overflow-y: auto; max-height: 550px;">
+        <div class="screening-batch-section-one-mat-forms" *ngIf="incomingdata.operation == 'screening batch file'">
+            <p class="c-ban suppression-paragraph text-dark-black d-flex text-on-surface"> <span> {{'Options' |
+                    translate}}:</span> <span class="mxw-150 text-overflow"> {{'EnableSuppression' | translate}}</span>
+                <mat-checkbox class="example-margin pe-none" checked="checked"></mat-checkbox>
+            </p>
+            <p class="c-ban suppression-paragraph text-dark-black text-on-surface">{{'GenerateAlert' | translate}}
+                <mat-checkbox class="example-margin pe-none" checked="checked"></mat-checkbox>
+            </p>
+            <span class="text-dark-black text-on-surface"> {{'Confidence' | translate}} <span
+                    class="ml-2">{{confidencePercentage}}% </span> </span>
+            <mat-slider [max]="100" [min]="0" [step]="1" [value]="0" [thumbLabel]='true' class="mxw-100 w-100"
+                [(ngModel)]="confidencePercentage">
+            </mat-slider>
+            <p
+                class="c-ban source-type light-theme-bg-light text-source text-dark-black light-theme-no-radius custom-upload-dropdown">
+                &nbsp;&nbsp;
+                <mat-form-field class="pe-none">
+                    <mat-select placeholder="{{'SelectSourceType' | translate}}" multiple [(ngModel)]="selectedList"
+                        (selectionChange)="getSourceList()">
+                        <mat-select-trigger>
+                            {{showSelectedValues}}
+                        </mat-select-trigger>
+                        <mat-option *ngFor="let item of sourceList; trackBy: trackByDisplayName" [value]="item.displayName" class="text-dark-black">
+                            {{item.displayName}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </p>
+        </div>
+
+        <app-chips-autocomplete [dropdownType]="'classificationtype'" [watchlistsData]="[]" (valueChange)="updateClassifications($event)" *ngIf="incomingdata.operation == 'screening batch file'"></app-chips-autocomplete>
+
+        <app-chips-autocomplete [dropdownType]="''" [watchlistsData]="allWatchlist" [feedData]="selectedFeedsforWl" (valueChange)="updateWatchlist($event)" component="screeningBatch" *ngIf="incomingdata.operation == 'screening batch file'"
+        (watchlistChange)="updateWatchlist($event)"></app-chips-autocomplete>
+
+        <div class="file-upload-main document-container" [ngClass]="{'remove-repo-style' : !isShowDocumentRepo}" [class.mb-24]="isShowFileSize == false && isShowDocumentRepo">
+          <mat-tab-group animationDuration="0ms" (selectedTabChange)="showFileSize($event)">
+            <mat-tab label="Upload">
+              <div class="file-upload-box">
+                <div ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" (fileOver)="fileOverBase($event)" [uploader]="uploader" multiple class="file-drag-drop" (onFileDrop)="onFileSelected($event)">
+                    <p><i class="material-icons upload-icon light-theme-light-black">cloud_upload</i></p>
+                    <p class="f-24 text-dark-black title-text-on-surface">{{'DragAndDropFileHere' | translate}}</p>
+                    <p class="f-10 color-image text-dark-black text-on-surface">{{'Or' | translate}}</p>
+                    <label>
+                    <input type="file" style="display:none" #filesupload class="file-upload-btn" (onFileSelected)="onFileSelected($event)" multiple ng2FileSelect [uploader]="uploader"/>
+                    <span  #filesupload  class="f-20 file-upload-btn  mat-raised-button light-theme-btn primary-btn">{{'choose_files' | translate}}</span>
+                    </label>
+                    <div>
+                        <div class="attachements-list mt-4 pt-2">
+                            <div class="text-dark-black text-white py-2 rounded lh-normal d-inline-block attachement-item f-12 mt-3 mr-3"
+                                *ngFor="let item of uploader.queue; trackBy: trackByFileName">
+                                <i class="material-icons mr-2 f-14 file-icon">insert_drive_file</i>
+                                <span class="dots-text mxw-150 align-top">{{item?._file?.name }}</span>
+                                <i class="material-icons ml-2 f-14 align-top c-pointer text-white" (click)="removeUploadedDoc(item)">close</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </mat-tab>
+            <mat-tab label="Repository" *ngIf="isShowDocumentRepo && canAccessDocumentMgt">
+              <app-document-repository [componentType]="'updateAttachments'"></app-document-repository>
+            </mat-tab>
+          </mat-tab-group>
+            <!-- <div class="d-flex mt-2 jc-fe">
+                <button mat-raised-button (click)="cancelUpload()"
+                    class="light-theme-btn pr-3 secondary-btn">{{'Cancel'|translate}}</button>
+                <button mat-raised-button (click)="validateUploadedFile('alert')" permission [IsHideRemoveBothEnabled]="true"
+                    [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'Submit SSB'"
+                    class="ml-3 light-theme-btn primary-btn" appNodbclick
+                    *ngIf="incomingdata.operation == 'screening batch file'">{{'Upload'| translate}}</button>
+                <button mat-raised-button (click)="validateUploadedFile('case')" class="ml-3 light-theme-btn primary-btn"
+                    [ngClass]="{'c-ban':!enableRunButton && !repoDocumentList.length}"
+                    [disabled]="!enableRunButton && !repoDocumentList.length" appNodbclick
+                    *ngIf="incomingdata.operation == 'upload attachement'">{{'Upload'| translate}}</button>
+                <button mat-raised-button (click)="closeDialog('comments')" class="ml-3 light-theme-btn primary-btn"
+                    [ngClass]="{'c-ban':!enableRunButton && !repoDocumentList.length}"
+                    [disabled]="!enableRunButton && !repoDocumentList.length" appNodbclick
+                    *ngIf="incomingdata.operation == 'case comments'">{{'Upload'| translate}}</button>
+            </div> -->
+        </div>
+
+        <div class="download-sample-file">
+            <p class="color-image text-dark-black text-on-surface allowed-text" *ngIf="isShowFileSize">
+                <span class="color-image text-dark-black text-on-surface"> {{'Maximum File Size' | translate}} {{fileSizeFromSystemSettings}}MB.</span> <br>
+                <span>{{ 'File Types Allowed' | translate}}:
+                    {{SSB_files_allowed.join(", ")}}</span></p>
+            <a href="assets/sample_files/sample_file.csv" download class="text-dark-black c-pointer"
+                *ngIf="incomingdata.operation == 'screening batch file' && SSB_files_allowed.indexOf('.csv') != -1 ">
+                {{'DownloadFileSample' | translate}}.csv</a>
+            <a href="assets/sample_files/sample_file.xls" download class="text-dark-black c-pointer"
+                *ngIf="incomingdata.operation == 'screening batch file' && SSB_files_allowed.indexOf('.xls') != -1  ">{{'DownloadFileSample'
+                | translate}}.xls</a>
+        </div>
+    </div>
+
+    <!-- first screen upload button section -->
+    <div class="d-flex mt-2 jc-fe">
+        <button mat-raised-button (click)="cancelUpload()" *ngIf="showFirstSection || showThirdSection"
+            class="light-theme-btn pr-3 secondary-btn">{{'Cancel'|translate}}</button>
+        <button mat-raised-button (click)="validateUploadedFile('alert')" permission [IsHideRemoveBothEnabled]="true"
+            [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'Submit SSB'"
+            [disabled]="disableSubmitButton"
+            class="ml-3 light-theme-btn primary-btn"
+            *ngIf="(incomingdata.operation == 'screening batch file' && showFirstSection) ||
+            (incomingdata.operation == 'screening batch file' && showThirdSection)">{{'Upload'| translate}}</button>
+        <button mat-raised-button (click)="validateUploadedFile('case')" class="ml-3 light-theme-btn primary-btn"
+            [ngClass]="{'c-ban':!enableRunButton && !repoDocumentList.length}"
+            [disabled]="!enableRunButton && !repoDocumentList.length" appNodbclick
+            *ngIf="incomingdata.operation == 'upload attachement'">{{'Upload'| translate}}</button>
+        <button mat-raised-button (click)="closeDialog('comments')" class="ml-3 light-theme-btn primary-btn"
+            [ngClass]="{'c-ban':!enableRunButton && !repoDocumentList.length}"
+            [disabled]="!enableRunButton && !repoDocumentList.length" appNodbclick
+            *ngIf="incomingdata.operation == 'case comments'">{{'Upload'| translate}}</button>
+    </div>
+    <!-- first screen upload button section -->
+
+    <!-- Enabling prgoress bar screen -->
+    <!-- <div class="screening-batch-section-progressbar" *ngIf="enableProgressBarModal">
+        <h6 class="header__progressbar">You can minimize this screen.</h6>
+        <div class="option__progressbar">
+            <span class="options-1">Options: Enable Suppression, Generate Alert</span>
+            <span class="options-2">Screen against: Watchlist, Adverse Media</span>
+        </div>
+        <div class="filename__progress-percentage">
+            <p class="Uploading-file-name">Uploading file employees_2020_01_01.csv</p>
+            <div class="progress__delete">
+                <p class="progress-percentage"> Progress: 70% </p>
+                <i class="fa fa-trash trash-icon f-16 text-coral-red c-pointer" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="progress">
+            <div class="progress-bar w-75 custom-progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+    </div> -->
+    <!-- Enabling prgoress bar screen -->
+
+    <!-- Screen entites && screen alert reasult entities, hits and errors -->
+    <div class="screening-batch-section-second" *ngIf="showSecondSection">
+        <span class="minimize-screen text-dark-black" *ngIf="!screenProcessedCompleted"> You can minimize this screen.</span>
+        <div class="screening-batch-section-two-options pad-t2">
+            <div class="screening-options">
+                <span class="option-text-color text-dark-black">{{'Options' | translate}}:</span>
+                <span class="option-text-color text-dark-black">{{'EnableSuppression' | translate}},</span>
+                <span class="option-text-color text-dark-black">{{'GenerateAlert' | translate}}</span>
+            </div>
+            <div class="screen-against">
+                <span class="option-text-color text-dark-black">{{'Screen against' | translate}}:</span>
+                <span class="option-text-color text-dark-black">{{'Watchlist' | translate}},</span>
+                <span class="option-text-color text-dark-black">{{'Adverse Media' | translate}}</span>
+            </div>
+            <!-- <span class="option-text-color text-dark-black">{{'SourceTypes' | translate}} : {{'All' | translate}}</span> -->
+            <!-- <span class="option-text-color text-dark-black pull-right">{{getScreeningResults}} {{'file' | translate}}
+                {{fileName}} &nbsp; &nbsp;</span> -->
+        </div>
+
+        <div class="file-section">
+            <i class="fa fa-file-text file-icon" aria-hidden="true"></i>
+            <span class="file-name">  {{fileName}} </span>
+        </div>
+
+        <ng-container *ngIf="!screenProcessedCompleted;else screeningReasult">
+            <p class="processing-label"> Processing Screening: {{totalProcessingScreeningEntites}} Entities </p>
+            <div class="progress-procesing-bar">
+                <div class="progress-bar-value"></div>
+            </div>
+        </ng-container>
+
+        <ng-template #screeningReasult>
+            <div class="screening-completed-screen" appBindCssVariable [bindCssVariableValue]="uploadScreenReasult">
+                <i class="{{ uploadScreenReasult?.icon }} reasult-icon">{{ uploadScreenReasult?.iconText}}</i>
+                <div class="error-description">
+                    <div class="error-text">
+                        <ng-container *ngFor="let data of uploadScreenReasult?.text">
+                            <p> {{ data }} </p>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+
+        <div class="csv-validation-progress-bar">
+            <!-- <div class="mb-3">
+                <h5 class="text-dark-black">Statuses</h5>
+                <span>
+                    <p class="text-dark-black"> Alerts Created: {{screeningResponse.created}}</p>&nbsp;
+                    <p class="text-dark-black"> Suppressed: {{screeningResponse.suppressed}}</p>&nbsp;
+                    <p class="text-dark-black">  Errors:  {{screeningResponse.failed}}</p>&nbsp;
+                </span>
+            </div> -->
+
+            <div class="progress-bar-results">
+                <div class="warning light-theme-no-radius screening-rectangle">
+                    <i class="fas fa-exclamation-triangle light-theme-no-radius"></i>
+                    <div class="screening_res_count warning-rect">
+                        <!-- <span class="text-dark-black text-nowrap">
+                            {{'Warnings' | translate}} : <span class="warning-days font-medium">0</span>
+                        </span> -->
+                        <span class="numbers_count warning-days font-medium"> {{ totalWarningHitsCounts }} </span>
+                        <span class="screening_labels"> hits generated against {{totalProcessingScreeningEntites}} Entities </span>
+                    </div>
+
+                </div>
+                <div class="success light-theme-no-radius screening-rectangle">
+                    <i class="material-icons light-theme-no-radius">check_circle </i>
+                    <div class="screening_res_count success-rect">
+                        <!-- <span class="text-dark-black">
+                            {{'Valid' | translate}} : <span class="font-medium">{{screeningResponse.created}}</span>
+                        </span> -->
+                        <span class="numbers_count warning-days font-medium"> {{totalValidHitCounts}} </span>
+                        <span class="screening_labels"> Entities has 0 hits </span>
+                    </div>
+
+                </div>
+                <div class="error light-theme-no-radius screening-rectangle">
+                    <i class="material-icons light-theme-no-radius">cancel</i>
+                    <div class="screening_res_count error-rect">
+                        <!-- <span class="text-dark-black">
+                            {{'errors' | translate}} : <span class="font-medium pr-3">{{screeningResponse.failed}}</span>
+                        </span> -->
+                        <span class="numbers_count warning-days font-medium"> {{totalErrorCounts}} </span>
+                        <span class="screening_labels"> {{'Errors' | translate}} </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="screening-batch-section-two-buttons">
+            <div class="buttons-main d-flex b-0 r-0">
+                <!-- <button mat-raised-button [disabled]="validatingFile" (click)="cancelUpload()"
+                    class="text-dark-black light light-theme-btn secondary-btn mr-3">{{'Cancel' | translate}}</button> -->
+                <button mat-raised-button [disabled]="!screenProcessedCompleted" (click)="uploadAnotherFileEvent()"
+                    class="text-dark-black light-theme-btn mr-3 secondary-btn">{{'UploadAnotherFile' |
+                    translate}}</button>
+                <button mat-raised-button [disabled]="!screenProcessedCompleted"
+                    class="button-design text-dark-black light-theme-btn primary-btn"
+                    (click)="hideScreenReasult()"><span class="next-text">{{'Done' |
+                        translate}}</span></button>
+            </div>
+        </div>
+    </div>
+    <!-- Screen entites && screen alert reasult entities, hits and errors -->
+
+    <div class="screening-batch-section-third" *ngIf="showThirdSection">
+        <div class="screening-batch-section-two-options d-flex">
+            <p class="option-text-color text-dark-black"> {{'Options' | translate}} :</p>
+            <p class="option-text-color text-dark-black"> {{'EnableSuppression' | translate}} </p>
+            <p class="option-text-color text-dark-black"> {{'GenerateAlert' | translate}} </p>
+            <p class="all-source-paragraph option-text-color text-dark-black"> {{'SourceTypes' | translate}} : All</p>
+        </div>
+        <p class="file-upload-alignment option-text-color text-dark-black">{{'File' | translate}} {{'uploaded' |
+            translate}} :</p>
+        <div class="d-flex">
+        </div>
+        <div class="validation-status screening-validation">
+            <div class="valid-success" *ngIf="!hasError">
+                <i class="material-icons align-middle text-dark-black">check_circle_outline</i>
+                <span class="option-text-color text-dark-black">{{'ScreeningCompletedNoErrors' | translate}} </span>
+            </div>
+            <p class="valid-error text-dark-black" *ngIf="hasError">
+                <i class="material-icons text-dark-black">error_outline</i>
+                <span>Screening {{'completed' | translate}} </span>
+                <span>{{'DataValidationErrorsFound' | translate}} </span>
+            </p>
+        </div>
+        <div class="screening-batch-section-one-buttons">
+            <div class="buttons-main d-flex position-absolute r-0 b-0">
+                <button mat-raised-button (click)="cancelUpload()"
+                    class="text-dark-black light-theme-btn secondary-btn mr-3">{{'Cancel' | translate}}</button>
+                <button mat-raised-button (click)="hideShowSections(true,false,false)"
+                    class="text-dark-black light-theme-btn primary-btn mr-3">{{'UploadAnotherFile' |
+                    translate}}</button>
+                <button mat-raised-button
+                    class="screening-batch-section-one-run done-button text-dark-black light-theme-btn primary-btn"
+                    (click)="validationDone()">{{'done' | translate}}</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+<div class="similar-companies">
+    <div class="pad-0 height-100 details-panel-wrapper panel custom-panel-wrapper bst_panel_wrapper  c-details-tabs-wrapper mar-b0">
+        <div class="pad-10" style="height: 100%;">
+            <div class="d-flex panel-heading ai-c">
+                <h3 class="mar-b0 roboto-light f-18 lh-1_2 text-unset text-cream head">Similar Companies</h3>
+            </div>
+            <div class="row rw-position" style="color: white;padding-bottom: 10px;height: calc(100% - 40px);">
+                <div class="col-4" style="padding-bottom: 10em;">
+                    <div class="filter-title">
+                        Find similarity based on:
+                    </div>
+                    <div class="filter-type">
+                        <div class="row pad-lft-15">
+                            <div class="col-6 pad-10">
+                                Industry
+                            </div>
+                            <div class="col-6 pad-top">
+                                <div class="switch mar-l15 custom-switch-wrapper filters-switch-wrapper bst-switch-wrapper">
+                                    <input type="checkbox" checked class="mar-l0 p-abs d-block z-99 c-pointer op-0" name="showSubsidariesbutton" style="width: 35px;height: 18px;" disabled>
+                                    <span class="slider round"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row pad-lft-15">
+                            <div class="col-6 pad-10">
+                                Location
+                            </div>
+                            <div class="col-6 pad-top">
+                                <div class="switch mar-l15 custom-switch-wrapper filters-switch-wrapper bst-switch-wrapper">
+                                    <input type="checkbox" checked class="mar-l0 p-abs d-block z-99 c-pointer op-0" name="showSubsidariesbutton" style="width: 35px;height: 18px;" disabled>
+                                    <span class="slider round"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row pad-lft-15">
+                            <div class="col-6 pad-10">
+                                Company Size
+                            </div>
+                            <div class="col-6 pad-top">
+                                <div class="switch mar-l15 custom-switch-wrapper filters-switch-wrapper bst-switch-wrapper">
+                                    <input type="checkbox" checked class="mar-l0 p-abs d-block z-99 c-pointer op-0" name="showSubsidariesbutton" style="width: 35px;height: 18px;" disabled>
+                                    <span class="slider round"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row pad-lft-15">
+                            <div class="col-6 pad-10">
+                                Revenue
+                            </div>
+                            <div class="col-6 pad-top">
+                                <div class="switch mar-l15 custom-switch-wrapper filters-switch-wrapper bst-switch-wrapper">
+                                    <input type="checkbox" class="mar-l0 p-abs d-block z-99 c-pointer op-0" name="showSubsidariesbutton" style="width: 35px;height: 18px;" disabled>
+                                    <span class="slider round"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div id="VLA" class="position-relative w-100 h-100">
+                        <div *ngIf="showEnitytNetwork" class="d-flex align-items-center justify-content-center h-100">
+                            <div class="text-center text-coral-red">Data Not Found</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider">
+                    <div class="discription">
+                        <div class="dot-main"><span class="pad-lft-10">Main Company</span></div>
+                        <div class="dot-cust"><span class="pad-lft-10">Similar Company </span></div>
+                        <div class="dot-simi"><span class="pad-lft-10">Customer</span></div>
+                    </div>
+                    <div class="d-inline-flex">
+                        <span class="material-icons f-23 c-pointer text-dark-black " id="zoomOutVlaIcon" (click)="vlaZoomOut()">
+                            zoom_out
+                        </span>
+                        <input type="range" min="1" max="200" name="vlaZoomIn" [(ngModel)]="vlaZoomIn" value="0" class="vlaZoom mx-3" id="vlaZoom">
+                        <span class="material-icons f-23 c-pointer text-dark-black " id="zoomInVlaIcon" (click)="zoomIn()">
+                            zoom_in
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div>
+            </div>
+        </div>
+    </div>
+</div>

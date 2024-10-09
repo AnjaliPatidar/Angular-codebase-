@@ -1,0 +1,2 @@
+Entity Type,Entity ID,Customer Internal ID,Entity Name,Birth Date/Registration Date,Birth Place/Country of Registration,Gender,Case Type Code,Priority Code,Region Uplift Code,Product Code,Comments,Documents,Tenant Code,Risk Level,Next Remediation Date,Case Status
+organization,DE000A1EWWW0,1,Adidas Ag,,DE,,Refresh,Low,003,pc1,Comment 01;Comment 02,Folder CAT/Folder ART/*,AFS,,,New

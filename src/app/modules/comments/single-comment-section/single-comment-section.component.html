@@ -1,0 +1,69 @@
+<div class="single-comment" (mouseenter)="onHoverComment()" (mouseleave)="onMouseLeave()" *ngIf="comment?.commented_by">
+    <div class="user-wrapper">
+        <img *ngIf="comment?.commented_by?.icon" [src]="'comment:image/gif;base64,' + comment?.commented_by?.icon"
+            alt="" height="100%" width="100%" class="avatar">
+        <span *ngIf="!comment?.commented_by?.icon">{{ comment?.commented_by?.first_name ?
+            comment?.commented_by?.first_name.charAt(0).toUpperCase() : '' }}{{ comment?.commented_by?.last_name ?
+            comment?.commented_by?.last_name.charAt(0).toUpperCase() : '' }}</span>
+    </div>
+    <div class="comment-content">
+        <div class="top-panel">
+            <span class="user-name clr-p87">
+                {{comment?.commented_by?.screen_name}}
+            </span>
+            <span class="updated-date clr-p87 created-date-fix" #tooltip="matTooltip"
+            [matTooltip]="getCreatedDate(comment.created_date)" matTooltipPosition="above"
+                *ngIf="!actionHoverd || currentUserDetails?.data?.userId !== comment?.commented_by?.assigned_to || !editModeStatus">
+                {{getCreatedDate(comment.created_date)}}
+            </span>
+            <div class="comment-actions"
+                *ngIf="actionHoverd && currentUserDetails?.data?.userId == comment?.commented_by?.assigned_to && editModeStatus"
+                permission [IsHideRemoveBothEnabled]="true"
+                [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'commentBox'">
+                <span class="material-icons-round icon clr-p54" [matTooltip]="'Edit' | translate"
+                    matTooltipPosition="above" (click)="editExisitingComments(comment)">edit</span>
+                <span class="material-icons-round icon clr-red" [matTooltip]="'Delete' | translate"
+                    matTooltipPosition="above" (click)="onDeleteComments(comment)">delete</span>
+            </div>
+        </div>
+        <textarea matInput disabled class="comment-info clr-p87" *ngIf="!isCommentEditMode"
+                         > {{comment?.comments}}</textarea>
+        <ul class="list-group f-14 mb-0"
+            *ngIf="comment && comment?.attachment && comment?.attachment?.length && !isCommentEditMode">
+            <li class="file-attachment" *ngFor="let attach of comment?.attachment; trackBy:trackByFilePath">
+                <span class="c-pointer icon"><i class="fa fa-file" aria-hidden="true"></i></span>
+                <span class="mar-l5 c-pointer dots-text doc-name" (click)="getDownload(attach)">{{attach?.title}}</span>
+            </li>
+        </ul>
+        <ng-container *ngIf="isCommentEditMode">
+            <div class="edit-comment-input">
+                <mat-form-field class="comment-mat-filed" appearance="fill">
+                    <textarea matInput [placeholder]="'Add Comment' | translate"
+                        [(ngModel)]="commentContent" maxlength="3072" (keyup)="onKeyUp()"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="action-button-wrapper">
+                <button type="button" class="comment-action-btn cancel-btn" [matTooltip]="'Cancel' | translate"
+                    matTooltipPosition="above" (click)="cancelEdit()">{{'Cancel' | translate}}</button>
+                <button type="button" class="comment-action-btn send-btn" [matTooltip]="'Save changes' | translate"
+                    matTooltipPosition="above" (click)="updateComments(comment?.comment_id)">{{'Save changes' |
+                    translate}}</button>
+            </div>
+            <ul class="list-group f-14 mb-0 mt-3" *ngIf="editedFile?.length">
+                <li class="file-attachment" *ngFor="let attach of editedFile;trackBy:trackByFilePath">
+                    <span class="c-pointer icon"><i class="fa fa-file" aria-hidden="true"></i></span>
+                    <span class="mar-l5 c-pointer dots-text doc-name"
+                        (click)="getDownload(attach)">{{attach?.title}}</span>
+                    <button type="button" class="close-btn" [matTooltip]="'Delete' | translate"
+                        matTooltipPosition="above" (click)="removeAttachment(attach)">
+                        <span class="material-icons-round close-icon">close</span>
+                    </button>
+                </li>
+            </ul>
+        </ng-container>
+    </div>
+</div>
+
+<div class="download-loader z-99" *ngIf="showFileSpinner">
+    <i class="fa fa-spinner txt-on-surface-06 fa-pulse f-25"></i>
+</div>

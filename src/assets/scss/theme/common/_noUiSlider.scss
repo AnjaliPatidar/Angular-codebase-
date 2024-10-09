@@ -1,0 +1,29 @@
+.nouislider-wrapper {
+    .noUi-horizontal .noUi-handle{
+            width: 20px !important;
+            height: 20px;
+            top: -6px;
+            border-radius: 50%;
+        }
+    .noUi-connect {
+        background-image: linear-gradient(to right,#233591,#3eb6ff) !important;
+    }
+    .noUi-target{
+        background: #FAFAFA;
+        border-radius: $sm-comp-corner-radius;
+        border: 0px solid #D3D3D3;
+        box-shadow: none;
+    }
+    .noUi-horizontal {
+        height: 10px;
+    }
+    .noUi-handle:after, .noUi-handle:before{
+        display: none;
+    }
+    .noUi-tooltip{
+        padding: 0px;
+        font-size: 10px;
+        width: 30px;
+        height: 30px;
+    }
+}

@@ -1,0 +1,327 @@
+<div class="sources-list">
+    <div *ngIf="isClassificationsLoaded" class="classification_wrapper">
+        <ngb-tabset class="classification_tab_set" type="pills" (tabChange)="tabChange($event)">
+            <ngb-tab *ngFor="let item of mainClassificationData;" [id]="item.classificationId">
+                <ng-template ngbTabTitle><span class="w-100" >{{item.classifcationName}}</span>
+                </ng-template>
+            </ngb-tab>
+        </ngb-tabset>
+    </div>
+    <div *ngIf="isGridOptionsLoaded" class="ag-table-wrapper data-table-wrapper"
+        style="width:100%;margin-top: 0 !important;">
+        <ng-container>
+            <button class="text-uppercase mar-r15 bg-transparent f-14 export-button" (click)="exportData()">
+                {{'ExportData' | translate}}
+            </button>
+            <app-ag-grid-table [fromComponent]="componentName" class="sourcesList-table mar-t10"
+                [tableData]="gridOptions">
+            </app-ag-grid-table>
+        </ng-container>
+    </div>
+</div>
+
+<!-- <ng-template #content let-modal>
+    <div class="modal-body">
+        <p class="text-dark-black f-16 text-on-surface">{{'Areyousuredeleteentity' | translate}}</p>
+    </div>
+    <div class="modal-footer border-t0">
+        <button type="button" class="btn btn grad-button sm-btns sm-btns light-theme-btn primary-btn box-shadow-none"
+            (click)="ModalClose(modal,1)">{{'Yes' | translate}}</button>
+        <button type="button" class="btn bordered-button sm-btns light-theme-btn secondary-btn"
+            (click)="modal.close('Save click')">{{'No' | translate}}</button>
+    </div>
+</ng-template> -->
+
+<ng-template #content let-modal>
+    <form class="container px-0" (ngSubmit)="onSubmit(f)" #f="ngForm" autocomplete="off">
+        <div class="modal-header">
+            <h4 class="modal-title" *ngIf="!showDomainList">
+                <span *ngIf="isEdit">{{ 'Edit_Source' | translate }}</span>
+                <span *ngIf="!isEdit">{{ 'Add_Source' | translate }}</span>
+            </h4>
+            <h4 class="modal-title" *ngIf="showDomainList">{{ 'Domain_Search' | translate }}</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="modal-body" [ngClass]="{ 'pe-none': (isEdit && editSourcePermission !== 'full') }">
+            <div class="row" [hidden]="showDomainList">
+                <div class="col-sm-6 pad-l0">
+                    <div class="custom-user-input mar-b16">
+                        <mat-form-field>
+                            <mat-select disableOptionCentering placeholder="{{ 'Classification' | translate }}"
+                                name="classification" [(ngModel)]="classificationType">
+                                <ng-container *ngFor="let classification of mainClassificationData">
+                                    <mat-option [value]="classification.classifcationName"  [ngStyle]="{ display : !isEdit ? 'block' : 'none' }">
+                                        {{classification.classifcationName}}
+                                    </mat-option>
+                                </ng-container>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="form-group mar-x0" *ngIf="!['NEWS', 'OTHER'].includes(classificationType)">
+                        <div class="mb-3 custom-user-input">
+                            <mat-form-field>
+                                <input matInput required maxlength="50" autocomplete="off"
+                                    [(ngModel)]="sourceid"
+                                    placeholder="{{ 'Source_Id' | translate }}" name="sourceid"
+                                    class="text-overflow" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="form-group mar-x0" *ngIf="!['NEWS', 'OTHER'].includes(classificationType)">
+                        <div class="mb-3 custom-user-input">
+                            <mat-form-field>
+                                <input matInput required maxlength="50" autocomplete="off"
+                                    [(ngModel)]="sourcename"
+                                    placeholder="{{ 'Source_Name' | translate }}" name="sourcename"
+                                    class="text-overflow" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="form-group mar-x0" *ngIf="!['NEWS', 'OTHER'].includes(classificationType)">
+                        <div class="mb-3 custom-user-input">
+                            <mat-form-field>
+                                <input matInput maxlength="50" autocomplete="off"
+                                ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/"
+                                autocomplete="off"
+                                ng-class="{'c-ban' : !((addSourceData.classification.toLowerCase() == 'general') || (addSourceData.classification.toLowerCase() == 'news'))}"
+                                ng-disabled="!((addSourceData.classification.toLowerCase() == 'general') || (addSourceData.classification.toLowerCase() == 'news'))"
+                                http-prefix
+                                required
+                                    [(ngModel)]="sourcelink"
+                                    placeholder="{{ 'Source_link' | translate }}" name="sourcelink"
+                                    class="text-overflow" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="mar-b16 custom-user-input" *ngIf="!['NEWS', 'OTHER'].includes(classificationType)">
+                        <mat-form-field>
+                            <mat-select disableOptionCentering placeholder="{{ 'sourceType' | translate }}*"
+                                name="sourceType" [(ngModel)]="sourceType">
+                                <ng-container *ngFor="let sourceType of sourceTypeData">
+                                    <mat-option [value]="sourceType">
+                                        {{sourceType}}
+                                    </mat-option>
+                                </ng-container>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="form-group mar-x0" *ngIf="!['NEWS', 'OTHER'].includes(classificationType)">
+                        <div class="mb-3 custom-user-input">
+                            <mat-form-field>
+                                <input matInput maxlength="50" autocomplete="off"
+                                ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/"
+                                autocomplete="off"
+                                ng-class="{'c-ban' : !((addSourceData.classification.toLowerCase() == 'general') || (addSourceData.classification.toLowerCase() == 'news'))}"
+                                ng-disabled="!((addSourceData.classification.toLowerCase() == 'general') || (addSourceData.classification.toLowerCase() == 'news'))"
+                                http-prefix
+                                    [(ngModel)]="searchUrl"
+                                    placeholder="{{ 'Search_Url' | translate }}" name="searchUrl"
+                                    class="text-overflow" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <!-- NEWS INPUTS -->
+                    <div class="form-group mar-x0" *ngIf="['NEWS', 'OTHER'].includes(classificationType)">
+                        <div class="mb-3 custom-user-input d-flex">
+                            <div
+                            class="width-100 p-rel mar-b10 bst_input_group ng-multiselect-wrapper bst_input_group_modal multiselect-height">
+                                <div for="name" class="form-group width-100">
+                                    <label for="name" class="text-dark-black pad-lft-15">{{'Source_Names' | translate}}</label>
+                                    <angular2-multiselect [(ngModel)]="SelectedSourceNamesList"
+                                        [data]="sourceNamesList"
+                                        [settings]="SelectedSourceNamesListSettings" (onSelect)="onItemSelect($event)"
+                                        (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)"
+                                        (onDeSelectAll)="onDeSelectAll($event)" name="SelectedSourceNames">
+                                    </angular2-multiselect>
+                                </div>
+                            </div>
+                            <a class="btn text-capitalize bordered-button align-self-center ml-2" (click)="domainWindowInit()" *ngIf="!isEdit"
+                            [ngClass]="{ 'pe-none': (domainSearchPermission === 'none') }">{{'Search' | translate}}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 pad-r0">
+                    <div class="form-group mar-x0" *ngIf="!['NEWS', 'OTHER'].includes(classificationType)">
+                        <div
+                            class="width-100 p-rel mar-b10 bst_input_group ng-multiselect-wrapper bst_input_group_modal multiselect-height">
+                            <div class="form-group">
+                                <label for="name" class="text-dark-black pad-lft-15">{{'Jurisdiction' | translate}}</label>
+                                <angular2-multiselect [data]="jurisdictionList" [(ngModel)]="selectedJurisdictions" [settings]="jurisdictionSettings"
+                                    (onSelect)="onItemSelect($event)" (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)"
+                                    (onDeSelectAll)="onDeSelectAll($event)" name="jurisdiction">
+                                    <c-badge>
+                                        <ng-template let-item="item">
+                                            <span class="mar-r5 flag-icon flag-icon-squared placeholder-icon  flag-icon-{{
+                                                                            item.jurisdictionName.toLowerCase()
+                                                                          }}"></span>
+                                            <label>{{item.jurisdictionOriginalName}}</label>
+                                        </ng-template>
+                                    </c-badge>
+                                    <c-item>
+                                        <ng-template let-item="item">
+                                            <span class="mar-r5 flag-icon flag-icon-squared placeholder-icon  flag-icon-{{
+                                                                            item.jurisdictionName.toLowerCase()
+                                                                          }}"></span>
+                                            <label>{{item.jurisdictionOriginalName}}</label>
+                                        </ng-template>
+                                    </c-item>
+                                </angular2-multiselect>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mar-x0">
+                        <div
+                            class="width-100 p-rel mar-b10 bst_input_group ng-multiselect-wrapper bst_input_group_modal multiselect-height">
+                            <div class="form-group">
+                                <label for="name" class="text-dark-black pad-lft-15">{{'Domain' | translate}}</label>
+                                <angular2-multiselect [data]="domainList" [(ngModel)]="selectedDomains"
+                                    [settings]="domainSettings" (onSelect)="onItemSelect($event)"
+                                    (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)"
+                                    (onDeSelectAll)="onDeSelectAll($event)" name="domain">
+                                </angular2-multiselect>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mar-x0">
+                        <div
+                            class="width-100 p-rel mar-b10 bst_input_group ng-multiselect-wrapper bst_input_group_modal multiselect-height">
+                            <div for="name" class="form-group">
+                                <label for="name" class="text-dark-black pad-lft-15">{{'Industry' | translate}}</label>
+                                <angular2-multiselect [data]="industryList" [(ngModel)]="selectedIndustries"
+                                    [settings]="industrySettings" (onSelect)="onItemSelect($event)"
+                                    (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)"
+                                    (onDeSelectAll)="onDeSelectAll($event)" name="industry">
+                                </angular2-multiselect>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mar-x0" *ngIf="!['NEWS', 'OTHER'].includes(classificationType)">
+                        <div
+                            class="width-100 p-rel mar-b10 bst_input_group ng-multiselect-wrapper bst_input_group_modal multiselect-height">
+                            <div class="form-group">
+                                <label for="name" class="text-dark-black pad-lft-15">{{'Media' | translate}}</label>
+                                <angular2-multiselect [data]="mediaList" [(ngModel)]="selectedMedias"
+                                    [settings]="mediaSettings" (onSelect)="onItemSelect($event)"
+                                    (onDeSelect)="OnItemDeSelect($event)" (onSelectAll)="onSelectAll($event)"
+                                    (onDeSelectAll)="onDeSelectAll($event)" name="media">
+                                </angular2-multiselect>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mar-b16 custom-user-input" *ngIf="!['NEWS', 'OTHER'].includes(classificationType)">
+                        <mat-form-field>
+                            <mat-select disableOptionCentering placeholder="{{ 'Category' | translate }}*"
+                                name="roleData" [(ngModel)]="addRole">
+                                <ng-container *ngFor="let roleData of categorieData">
+                                    <mat-option [value]="roleData.categoryName">
+                                        {{roleData.categoryName}}
+                                    </mat-option>
+                                </ng-container>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="mar-b16 custom-user-input" *ngIf="!['NEWS', 'OTHER'].includes(classificationType)">
+                        <mat-form-field>
+                            <mat-select disableOptionCentering placeholder="{{ 'sourceEntityType' | translate }}*"
+                                name="sourceEntityType" [(ngModel)]="sourceEntityType">
+                                <ng-container *ngFor="let sourceEntityType of sourceEntityTypeData">
+                                    <mat-option [value]="sourceEntityType">
+                                        {{sourceEntityType}}
+                                    </mat-option>
+                                </ng-container>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="form-group mar-x0" *ngIf="!['NEWS', 'OTHER'].includes(classificationType)">
+                        <div class="mb-3 custom-user-input">
+                            <mat-form-field>
+                                <input matInput maxlength="50" autocomplete="off"
+                                ng-pattern="/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/"
+                                autocomplete="off"
+                                ng-class="{'c-ban' : !((addSourceData.classification.toLowerCase() == 'general') || (addSourceData.classification.toLowerCase() == 'news'))}"
+                                ng-disabled="!((addSourceData.classification.toLowerCase() == 'general') || (addSourceData.classification.toLowerCase() == 'news'))"
+                                http-prefix
+                                    [(ngModel)]="relationshipUrl"
+                                    placeholder="{{ 'Relationship_Url' | translate }}" name="relationshipUrl"
+                                    class="text-overflow" />
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" [hidden]="!showDomainList">
+                <div class="col-md-4">
+                    <div class="chart-details-wrapper d-flex" >
+                        <div class="card new-theme sm-cards w-100">
+                            <div class="border-1">
+                                <p class="text-on-surface text-dark-black pl-4 py-2">
+                                    <small>Total Number of News Domains</small>
+                                </p>
+                            </div>
+                            <div class="w-100">
+                                <div class="col-md-9">
+                                    <div class="chart-status custom-scroll-wrapper w-100">
+                                        <div class="domain-search-count-card">
+                                            <div>
+                                                <h4 class="f-24 text-dark-black">{{totNumberOfNewsDomains | number}}</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="domain-count-icon"><i class="fa fa-newspaper-o text-dark-black"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8 pl-0">
+                    <div class="d-flex" >
+                        <div class="card new-theme sm-cards w-100">
+                            <div class="card-header border-0 mb-3">
+                                <p class="f-16 lh-14 text-on-surface">Top 10 Jurisdictions</p>
+                            </div>
+                            <div class="chart-content">
+                                <div id="barGraphDomainSearchTopJurisdiction"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-md-12">
+                    <div class="main-panel fg-1 overflow-auto custom-scroll-wrapper position-relative"  >
+                        <ng-container *ngIf="isDomainSearchGridOptionsLoaded">
+                            <div class="ag-table-wrapper ag-table-wrapper-common data-table-wrapper">
+                                <app-ag-grid-table style="height: 400px !important;" [fromComponent]="componentName" class="alertList-table" [tableData]="domainSearchGridOptions"></app-ag-grid-table>
+                            </div>
+                        </ng-container>
+                    </div>
+                 </div>
+            </div>
+
+        </div>
+        <div class="modal-footer border-t0 pad-x0">
+            <div class="text-right pad-x0 col-sm-12 buttons-wrapper">
+                <button type="button" class="btn bordered-button text-capitalize mar-r5"
+                    (click)="modalClose('Close click')">Cancel</button>
+                <button type="submit" [disabled]="showDomainList || (['NEWS', 'OTHER'].includes(classificationType) && SelectedSourceNamesList.length == 0) || (!sourcename && !['NEWS', 'OTHER'].includes(classificationType)) || (!sourceid && !['NEWS', 'OTHER'].includes(classificationType))|| (!sourcelink && !['NEWS', 'OTHER'].includes(classificationType)) || (!addRole && !['NEWS', 'OTHER'].includes(classificationType)) || (!sourceEntityType && !['NEWS', 'OTHER'].includes(classificationType))" class="btn text-capitalize grad-button" *ngIf="!isEdit && !showDomainList">{{'Add' | translate}}
+                    source</button>
+                <button type="button" (click)="showDomainList = false" [disabled]="SelectedSourceNamesList.length == 0" class="btn text-capitalize grad-button" *ngIf="showDomainList"
+                [ngClass]="{ 'pe-none': (domainSearchPermission !== 'full') }">{{'Add' | translate}}
+                    source</button>
+                <button type="submit" [disabled]="f.pristine || showDomainList || (!sourcename && !['NEWS', 'OTHER'].includes(classificationType)) || (!sourceid && !['NEWS', 'OTHER'].includes(classificationType))|| (!sourcelink && !['NEWS', 'OTHER'].includes(classificationType)) || (!selectedJurisdictions && !['NEWS', 'OTHER'].includes(classificationType)) || (!addRole && !['NEWS', 'OTHER'].includes(classificationType))" class="btn text-capitalize grad-button" *ngIf="isEdit"
+                [ngClass]="{ 'pe-none': (editSourcePermission !== 'full') }">{{'Update' |
+                    translate}}</button>
+            </div>
+        </div>
+    </form>
+</ng-template>

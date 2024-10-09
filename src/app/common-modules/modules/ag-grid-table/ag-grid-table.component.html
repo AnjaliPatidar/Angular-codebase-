@@ -1,0 +1,491 @@
+<div *ngIf="!showBulkOperations" class="d-flex align-items-center table-wrapper" style="margin-top: 3%" [ngClass]="{ 'attachment-top-section': tableName == 'Attachment view' || tableName == 'Case list view' || tableName == 'Associated Record view' || tableName == 'Related Cases view' || tableName == 'Events Lookup view' || isCaseGrid}">
+  <ng-container>
+    <div class="risk-title-h mr-5" *ngIf="tableName == 'Associated Record view'">
+      <div class="main-panel-header risk-title-m d-flex align-items-center justify-content-between">
+        <span class="f-14 title-text-on-surface text-dark-black ml-4">{{ 'Associated Records' | translate }} ({{ attachmentsCount ? attachmentsCount : 0 }})</span>
+      </div>
+    </div>
+  </ng-container>
+
+  <div class="col-6 p-0 d-flex align-items-center dropdown-container-main">
+    <div *ngIf="enableGridTopSection" class="dropdown-container d-flex align-items-center">
+      <div *ngIf="tabsFlag">
+        <ngb-tabset class="custom-ngb-tabset" type="pills" style="margin-top: 30%">
+          <ngb-tab *ngFor="let item of tabsDataFromComponent; trackBy: trackByTitle">
+            <ng-template ngbTabTitle index="$index"><span class="w-100" (click)="tabChange(item, $event)">{{ item.title
+                | uppercase
+                }}<span *ngIf="item.count">({{ item.count }})</span></span>
+            </ng-template>
+            <ng-template ngbTabContent></ng-template>
+          </ngb-tab>
+        </ngb-tabset>
+      </div>
+
+      <div class="attachments-count d-flex align-items-center" *ngIf="tableName == 'Attachment view'">
+        <span class="f-14">{{'Attachments' | translate}} <span class="align-middle"> ({{ attachmentsCount ? attachmentsCount : 0 }})</span></span>
+      </div>
+
+      <div class="case-related-entity-count d-flex align-items-center" *ngIf="tableName == 'Case related entity'">
+        <span class="f-14">{{'Related_Entities' | translate}}  ({{this.totalresults ? this.totalresults : 0 }})</span>
+      </div>
+
+      <div class="attachments-count d-flex align-items-center" *ngIf="tableName == 'Related Cases view'">
+        <span class="f-14">{{'related_cases' | translate}} <span class="align-middle"> ({{ attachmentsCount ? attachmentsCount : 0 }})</span></span>
+      </div>
+
+      <div class="attachments-count d-flex align-items-center" *ngIf="tableName == 'Events Lookup view'">
+        <span class="f-14">{{'events_lookup' | translate}} <span class="align-middle"> ({{ attachmentsCount ? attachmentsCount : 0 }})</span></span>
+      </div>
+
+      <div class="attachments-count d-flex align-items-center" *ngIf="isCaseContactView">
+        <span class="f-14">{{'Contacts' | translate}} <span class="align-middle"> ({{ attachmentsCount ? attachmentsCount : 0 }})</span></span>
+      </div>
+
+      <div  *ngIf="!hideGridTopViewDropdownSection || tableName == 'Case related entity'" class=" mxw-300  view-dropdown-wrapper">
+        <div class="view-select-full-wrapper">
+          <mat-form-field class="bst-form-field bst-form-field--select" appearance="fill">
+            <mat-select #newViewDropDown [(value)]="selectedViewName" [formControl]="viewDropDownControl" fo class="bst-select-wrapper"
+                panelClass="bst-select-panel bst-select-panel__single view-select-trigger">
+
+                <div class="create-new-wrapper">
+                    <div *ngIf="!isOpenCreateNewEditor" class="left-v-centered dropdown-item-height pointer"
+                        (click)="openCreateNewEditor($event)">
+                        <mat-icon class="material-icons-round pointer txt-on-surface-87">
+                            add
+                        </mat-icon>
+                        <span class="bst-subtitle2 txt-on-surface-87">{{ 'Create New' | translate }}</span>
+                    </div>
+                    <div *ngIf="isOpenCreateNewEditor" class="flex create-new-editor-wrapper">
+                        <div class="bst-select-full-wrapper">
+                            <mat-form-field class="bst-form-field bst-form-field--small" appearance="fill">
+                                <div class="input-wrapper">
+                                    <input #createNewInput autofocus class="input-wrapper__text-input bst-subtitle1 txt-on-surface-87"
+                                        (keydown)="$event.stopPropagation()" aria-label="CreateNew" autocomplete="off"
+                                        [(ngModel)]="newViewName" matInput>
+                                    <span class="input-wrapper__input-close-icon material-icons-round pointer mat-icon-done txt-on-surface-06"
+                                        matSuffix (click)="saveOrUpdateGridView('save', addNewView);$event.stopPropagation(); newViewDropDown.close()">
+                                        done
+                                    </span>
+                                    <span
+                                        class="input-wrapper__input-close-icon material-icons-round pointer mat-icon-close txt-on-surface-06"
+                                        matSuffix (click)="onCloseCreateNewEdit($event);">
+                                        close
+                                    </span>
+                                </div>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <mat-divider class="dropdown-divider"></mat-divider>
+                <mat-option class="bst-select-wrapper__option bst-body1" [value]="item.gridViewName"  *ngFor="let item of listOfSavedGridViews; let ind = index; trackBy:trackByGridViewName" value="{{item.gridViewName}}" (click)="sendDataToPopover(item, ind, $event)">
+                  {{ item.gridViewName | translate }}
+                  <span *ngIf="item?.gridViewId == defaultView?.gridViewId"> ({{ 'default' | translate }})</span>
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        </div>
+        <div class="menuSet">
+          <div class="section">
+              <div>
+                  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Icon-button with a menu" class="menuIconDots"
+                      matRippleColor="red" (click)="closeUpdateInput()">
+                      <span class="material-icons-round txt-on-surface-87">
+                          more_vert
+                      </span>
+                  </button>
+                  <mat-menu #menu="matMenu" class="menuPopOverWrapper view-option-dropdown" [ngClass]="{'table-view-update' : isViewUpdate}">
+                      <button class="menuPopOver" mat-menu-item (click)="toggleUpdateViewButton();
+                      $event.stopPropagation();"
+                      *ngIf="!isViewUpdate">
+                          <mat-icon>edit</mat-icon>
+                          <span>{{'Rename' | translate}}</span>
+                      </button>
+                      <div *ngIf="isViewUpdate" class="flex create-new-editor-wrapper">
+                        <div class="bst-select-full-wrapper">
+                            <form (click)="$event.stopPropagation()">
+                              <mat-form-field class="bst-form-field bst-form-field--small" appearance="fill">
+                                <div class="input-wrapper">
+                                    <input #updateNewInput autofocus class="input-wrapper__text-input subtitle1" aria-label="CreateNew" autocomplete="off"
+                                        [(ngModel)]="updateInputModal" name="updateView"  matInput>
+                                    <span class="input-wrapper__input-close-icon material-icons-round pointer mat-icon-done"
+                                        matSuffix (click)="updateViewName();$event.stopPropagation(); newViewDropDown.close()">
+                                        done
+                                    </span>
+                                    <span
+                                        class="input-wrapper__input-close-icon material-icons-round pointer mat-icon-close"
+                                        matSuffix (click)="toggleUpdateViewButton();$event.stopPropagation();">
+                                        close
+                                    </span>
+                                </div>
+                            </mat-form-field>
+                            </form>
+                        </div>
+                      </div>
+                      <button class="menuPopOver" mat-menu-item (click)="
+                      resetGridView(popoverData.viewName, popoverData.viewId, $event); newViewDropDown.close()
+                      ">
+                          <mat-icon>refresh</mat-icon>
+                          <span>{{'Reset' | translate}}</span>
+                      </button>
+                      <button class="menuPopOver" mat-menu-item
+                      (click)="saveOrUpdateGridView('update', popoverData, popoverData.index, true);newViewDropDown.close();">
+                          <mat-icon>update</mat-icon>
+                          <span>{{'Update' | translate}}</span>
+                      </button>
+                      <button class="menuPopOver" mat-menu-item (click)="setViewAsDefault(); newViewDropDown.close()">
+                          <mat-icon>favorite</mat-icon>
+                          <span>{{'Set as default' | translate}}</span>
+                      </button>
+                      <mat-divider class="horizontalDivider"></mat-divider>
+                      <button class="menuPopOver d-flex align-items-center" mat-menu-item (click)="
+                      deleteSavedView(popoverData.viewId); newViewDropDown.close()" >
+                          <mat-icon class="bst-mat-icon-delete">delete</mat-icon>
+                          <span>{{'Remove' | translate}}</span>
+                      </button>
+                  </mat-menu>
+              </div>
+          </div>
+      </div>
+      </div>
+    </div>
+
+    <button  *ngIf="gridApi?.gridOptionsWrapper.gridOptions.csvExportParams" id="export-button"
+      class="d-none btn btn-primary" (click)="exportCsv()">
+      Export csv
+    </button>
+
+    <button *ngIf="gridApi?.gridOptionsWrapper.gridOptions.csvExportParams" id="export-pdf-button"
+      class="d-none btn btn-primary" (click)="exportPdf()">
+      Export pdf
+    </button>
+
+    <ng-container *ngIf="gridOptions && gridOptions.pagination && !hideGridTopRowsperpage">
+      <mat-form-field class="pagination-dropdown case-pagination" [ngClass]="{ 'attachment-table-count' : tableName == 'Attachment view' || tableName == 'Case list view' || tableName == 'Associated Record view' || tableName == 'Related Cases view' || tableName == 'Events Lookup view' || isCaseGrid}">
+        <h3 class="mb-0 text-dark-black">
+          {{ "Rowsperpage" | translate }}:
+        </h3>
+        <mat-select [(ngModel)]="recordsInPage">
+          <mat-option *ngFor="let item of pagenationlist; trackBy:trackByItem" [value]="recordsInPage"
+            (click)="paginationList(gridOptions, item)">
+            {{ item }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </ng-container>
+  </div>
+
+  <ng-container>
+    <div *ngIf="originalGirdTableName == 'Associated Record view' || tableName == 'Attachment view'|| tableName == 'Case related entity' || tableName == 'Case list view' || tableName == 'Related Cases view' || tableName == 'Events Lookup view' || tableName === 'Hit list' || tableName === 'Hit transaction list' || isCaseGrid" class="bulk-download-wrapper" [ngClass]="{ 'actions-wrapper' : tableName == 'Attachment view' || tableName == 'Related Cases view' || tableName == 'Events Lookup view' || tableName == 'Case related entity' || tableName == 'Associated Record view' || tableName == 'Hit list' || tableName === 'Hit transaction list' || isCaseGrid}">
+      <i class="bst-icon-tool-tip material-icons-round bst-icon c-pointer f-24 table-view-icon table-icon" [class.disabled]="originalGirdTableName == 'Associated Record view'" (click) = 'hideFloatingFilters()' [ngClass]="(isFilterBarOpen)?'filter-activated':''">filter_alt</i>
+      <i class="bst-icon-tool-tip material-icons-round bst-icon c-pointer f-24 table-view-icon only-attachment table-icon" *ngIf="!isCaseGrid && tableName != 'Case related entity' && tableName != 'Related Cases view' && tableName != 'Events Lookup view' && tableName != 'Attachment view' && tableName !== 'Hit list' && tableName !== 'Hit transaction list'" (click)="gridRefresh()"><div class="bst-icon-tool-tip__block tt-top-center"><span class="bst-icon-tool-tip__text">{{'Refresh' | translate}}</span></div>refresh</i>
+      <i class="bst-icon-tool-tip material-icons-round bst-icon c-pointer f-24 table-view-icon table-icon grid-refresh-icon" *ngIf=" (tableIconsStatus && tableIconsStatus.isRefreshEnable) || tableName == 'Attachment view' || tableName == 'Case related entity' || tableName == 'Case list view' || tableName == 'Related Cases view' || tableName == 'Events Lookup view' " (click) = 'refreshTable()'><div class="bst-icon-tool-tip__block" [ngClass]="isShowWidget ? 'tt-top-center' : 'tt-bottom-center'"><span class="bst-icon-tool-tip__text z-index-1001">{{'Refresh' | translate}}</span></div>refresh</i>
+      <i class="bst-icon-tool-tip material-icons-round bst-icon c-pointer f-24 table-view-icon table-icon" *ngIf="tableName === 'Hit list' || tableName === 'Hit transaction list'" (click) = 'refreshClientSideRowModelTable()'><div class="bst-icon-tool-tip__block tt-top-center"><span class="bst-icon-tool-tip__text">{{'Refresh' | translate}}</span></div>refresh</i>
+      <i class="material-icons-round bst-icon c-pointer f-24` table-view-icon table-icon" *ngIf="(tableIconsStatus && tableIconsStatus.isExportEnable) || tableName == 'Case related entity' || tableName == 'Attachment view' || tableName !== 'Case list view' || tableName == 'Related Cases view' || tableName == 'Events Lookup view' || tableName === 'Hit list' || tableName === 'Hit transaction list'" (click)="onDownloadFileClick()">file_download</i>
+      <i class="material-icons-round bst-icon c-pointer menu color-gray table-icon" mat-button [matMenuTriggerFor]="menu" *ngIf="(tableIconsStatus && tableIconsStatus.isMoreEnable) && tableName != 'Case list view' && tableName != 'Case related entity' && tableName != 'Attachment view' && tableName != 'Related Cases view' && tableName != 'Events Lookup view' && tableName !='Associated Record view' && tableName !== 'Hit transaction list'">more_vert</i>
+      <i class="material-icons-round bst-icon c-pointer menu color-gray table-icon" mat-button *ngIf="tableName === 'Events Lookup view'">
+      </i>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="columnsMenu">
+          <span class="material-icons-round align-middle mr-3">view_column</span>
+          Columns
+        </button>
+        <!-- <button mat-menu-item [matMenuTriggerFor]="densityMenu">
+          <span class="material-icons-round align-middle mr-3">density_medium</span>
+          Density
+        </button> -->
+      </mat-menu>
+
+      <mat-menu #columnsMenu="matMenu" yPosition="below">
+        <div class="dropdown-multiselect-wrapper" id="dropdown-multiselect-wrapper" *ngIf="showHideColumnHeaders">
+          <ng-multiselect-dropdown placeholder="{{ 'Search' | translate }}" [data]="listForDropDown" [(ngModel)]="selectedItems"
+            [settings]="dropdownSettings" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)"
+            (onDeSelect)="OnItemDeSelect($event)" (onDeSelectAll)="onDeSelectAll($event)">
+          </ng-multiselect-dropdown>
+        </div>
+      </mat-menu>
+      <!-- <mat-menu #densityMenu="matMenu" yPosition="below">
+        <button mat-menu-item>Option 1</button>
+        <button mat-menu-item>Option 2</button>
+      </mat-menu> -->
+    </div>
+    <div class="dropdown-multiselect-wrapper case-view-icon mb-0" [ngClass]="{'top1px': true, 'dropdown-multiselect-wrapper2': tableName ==='Related Cases view' || isCaseContactView, 'dropdown-multiselect-wrapper-alertTbl' : tableName === 'Alert list view' }" id="dropdown-multiselect-wrapper" *ngIf="showHideColumnHeaders && ((tableName == 'Alert list view') || (tableName == 'Case list view') || (tableName ==='Related Cases view') || (tableName ==='Events Lookup view')) || isCaseGrid">
+      <ng-multiselect-dropdown placeholder="{{ 'Search' | translate }}" [data]="listForDropDown" [(ngModel)]="selectedItems"
+        [settings]="dropdownSettings" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)"
+        (onDeSelect)="OnItemDeSelect($event)" (onDeSelectAll)="onDeSelectAll($event)">
+      </ng-multiselect-dropdown>
+    </div>
+  </ng-container>
+</div>
+
+<button class="btn f-18 add-feed-btn d-flex jc-c tag-add align-items-center"  (click)="addNewRow($event, gridApi)"
+  *ngIf="showTagAddButton" [matTooltip]="'Add New' | translate" matTooltipClass="bst-custom-tooltip">
+  <span class="material-icons text-on-primary">add</span>
+</button>
+
+<button class="btn f-18 add-feed-btn d-flex jc-c" permission
+  [domainPermission]="permissionIdsList | getPermissionId: 'addFeed'" (click)="addNewRow($event, gridApi)"
+  *ngIf="showAddFeedButton">
+  <span class="material-icons text-on-primary">add</span>
+</button>
+<button id="addUserButton" class="btn f-18 add-feed-btn d-flex jc-c" permission (click)="openAddUserModal($event)"
+  *ngIf="userManageButton">
+  <span class="material-icons text-on-primary">add</span>
+</button>
+
+<div *ngIf="showBulkOperations" class="alert-bulk-operations d-flex light-theme-no-radius">
+  <div class="alert-bulk-operations-inner d-flex fg-1">
+    <span class="ml-0">
+      <h3 class="bst-subtitle1 text-capitalize text-dark-black bst-info-txt-color">
+        {{ selectedRowCount }} {{ "Selected" | translate }}
+      </h3>
+    </span>
+    <div class="d-flex allign-items-center">
+      <span>
+        <button mat-button [matMenuTriggerFor]="menu1" permission [domainPermission]="
+            permissionIdsList | getPermissionId: 'bulk ChangeLevel'
+          " class="theme-button-bg text-dark-black light-theme-btn primary-btn font-medium" *ngIf="
+            originalGirdTableName !== 'Case list view' &&
+            originalGirdTableName !== 'Case detail view'
+          ">
+          {{ "Change" | translate }} {{ "Group" | translate }}
+        </button>
+        <mat-menu #menu1="matMenu" class="custom-scroll-wrapper level-dropdown-menu">
+          <button class="bulk-button-wrapper" mat-menu-item
+            *ngFor="let item of optionsFromComponent.groupsLevelBulkOperations; trackBy:trackByName"
+            (click)="getClickedGroupLevel($event, item)">
+            {{ item.name }}
+          </button>
+        </mat-menu>
+      </span>
+      <span>
+        <button id="assignUserButton" mat-button class="theme-button-bg text-dark-black bst-mat-btn bst-mat-btn--primary" permission
+          [domainPermission]="
+            permissionIdsList | getPermissionId: 'bulk Assignee'
+          " (click)="openAutoComplete($event); itemNumber = 0" [ngbPopover]="assigneeDropdownForBulk"
+          [autoClose]="'outside'" popoverClass="bst_popover alert-management-popover" placement="bottom-left"
+          *ngIf="originalGirdTableName !== 'Case detail view'">
+          {{ "Assign" | translate }} {{ "User" | translate }}
+        </button>
+
+        <button mat-button class="text-uppercase mar-r15 bg-transparent f-14 export-button" (click)="deselect()"
+          *ngIf="originalGirdTableName == 'Case detail view'" style="top: auto;">
+          {{ "DESELECT" | translate }}
+        </button>
+
+        <ng-template #assigneeDropdownForBulk>
+          <div class="bulk-switch-section light-theme-border-bottom" *ngIf="originalGirdTableName !== 'Case list view'">
+            <p class="popover-title f-15 bg-transparent border-0 text-dark-black">
+              {{ "AssignForAllFeeds" | translate }}
+            </p>
+            <label class="custom-switch-wrapper bst-switch-wrapper light-dark-theme-switch">
+              <input type="checkbox" (change)="
+                  getAllAssigneesOnChangeOfFeedInBulk(enableAllFeeds, '');
+                  itemNumber = 0
+                " [(ngModel)]="enableAllFeeds" name="assignee" class="input-control" />
+              <span class="slider round m-0 w-20 h-10"> </span>
+            </label>
+          </div>
+          <div class="" *ngIf="showFeedSlider && originalGirdTableName !== 'Case list view'">
+            <div id="carouselExampleControls" class="carousel slide" data-interval="false" data-wrap="false"
+              data-ride="carousel">
+              <div class="carousel-inner">
+                <ul class="carousel-inner">
+                  <li class="carousel-item" [ngClass]="{ active: i === 0 }"
+                    *ngFor="let item of listForBulkSlider; let i = index">
+                    <h3 class="text-center f-16 font-medium text-unset text-dark-black">
+                      {{ "AssignFor" | translate }}
+                      {{
+                      listForBulkSlider &&
+                      listForBulkSlider[itemNumber] &&
+                      listForBulkSlider[itemNumber]["feedName"]
+                      ? listForBulkSlider[itemNumber]["feedName"]
+                      : "N/A"
+                      }}
+                    </h3>
+                  </li>
+                </ul>
+              </div>
+
+              <button [disabled]="itemNumber == 0" class="carousel-control-prev ml-0 bg-transparent border-0"
+                [ngClass]="{ 'c-ban': itemNumber === 0 }" (click)="getListOfParticularFeed('prev')" role="button"
+                data-slide="prev">
+                <span class="material-icons pt-0 text-dark-black ml-0" aria-hidden="true">
+                  arrow_back_ios</span>
+              </button>
+
+              <button [disabled]="itemNumber == listForBulkSlider.length - 1"
+                class="carousel-control-next bg-transparent border-0" [ngClass]="{
+                  'c-ban': itemNumber === listForBulkSlider.length - 1
+                }" (click)="getListOfParticularFeed('next')" role="button" data-slide="next">
+                <span class="material-icons pt-0 mr-0 text-dark-black" aria-hidden="true">
+                  arrow_forward_ios</span>
+              </button>
+            </div>
+          </div>
+          <section>
+            <div class="ng-autocomplete">
+              <ng-autocomplete id="assigneeAutoComplete" [data]="assigneeList" class="bulk-autocomplete" [searchKeyword]="keyword"
+                placeHolder="{{ 'Assignee' | translate }}" [itemTemplate]="itemTemplate"
+                class="input-control no-theme-border" (selected)="selectEventOfBulkAssignee($event, 'FromList')"
+                [notFoundTemplate]="notFoundTemplate" (mouseenter)="mouseover(assigneeList)">
+              </ng-autocomplete>
+              <ng-template #itemTemplate let-item id="autoCompleteTemplate">
+                <div class="item d-block autocomplete-input">
+                  <span class="image-placeholder light-theme-bg-light text-on-surface text-dark-black"
+                    [innerHTML]="getLetters(item.name)"></span>
+                  <p [innerHTML]="item.name" class="f-16 text-dark-black light-theme-border-bottom text-on-surface"></p>
+                </div>
+              </ng-template>
+              <ng-template #notFoundTemplate let-notFound>
+                <div [innerHTML]="notFound" class="text-dark-black"></div>
+              </ng-template>
+            </div>
+          </section>
+        </ng-template>
+      </span>
+      <span [ngClass]="{'disabled-p' : disabledAssignToMe}">
+        <button id="assignToMeButton" mat-button
+          class="theme-button-bg text-dark-black light-theme-btn bst-mat-btn bst-mat-btn--primary" permission
+          [domainPermission]="permissionIdsList | getPermissionId: 'bulk AssignToMe'"
+          (click)="selectEventOfBulkAssignee({}, 'FromAissigneeToMe')" *ngIf="originalGirdTableName !== 'Case detail view'">
+          {{ "AssignToMe" | translate }}
+        </button>
+      </span>
+      <span>
+        <button mat-button class="theme-button-bg text-dark-black light-theme-btn primary-btn font-medium"
+          (click)="bulkDownload()" *ngIf="originalGirdTableName == 'Case detail view'">
+          <i class="fa fa-download" style="font-size: 13px"></i>
+          {{ "DOWNLOAD" | translate }}
+        </button>
+      </span>
+      <span>
+        <mat-menu #menu4="matMenu" class="custom-scroll-wrapper mxh-250">
+          <button mat-menu-item *ngFor="let status of optionsFromComponent?.statusObjs; trackBy:trackByLabel"
+            (click)="getSelectedStatus($event, status)">
+            <span>
+              <i class="fa fa-{{ status.values.icon }} mr-4" style="font-size: 19px"
+                [ngStyle]="{ color: getColor(status.values.colorCode) }"></i>
+            </span>
+            {{ status.label }}
+          </button>
+        </mat-menu>
+      </span>
+    </div>
+  </div>
+</div>
+<div class="alert-bulk-operations d-flex light-theme-no-radius mar-t20 justify-content-end"
+  *ngIf="aggrid_table_utilty.screeningSelected.length > 0">
+  <button mat-button class="theme-button-bg text-dark-black light-theme-btn primary-btn font-medium"
+    (click)="activatePersonScreening()">
+    {{ "Activate Screening" | translate }}
+  </button>
+</div>
+
+<div class="source-management-loader" *ngIf="agGridLoader">
+  <i class="fa fa-spinner txt-on-surface-06 fa-pulse" style="font-size: 4rem;"></i>
+</div>
+
+<div class="document-download-loader" *ngIf="documentDownloaded">
+  <i class="fa fa-spinner txt-on-surface-06 fa-pulse" style="font-size: 4rem;"></i>
+</div>
+
+<!-- Fab -Style guide - start -->
+<div class="bst-fab position-absolute text-right"
+[ngClass]="{'active': fabActionMenuActive, 'fab-without-filter-bar': !isFilterBarOpen, 'fab-with-bulk-operations': showBulkOperations}">
+  <button mat-fab class="bst-fab-btn" (click)="toggleFab()"
+  *ngIf="currentUrl.indexOf('case-management/caseList') != -1 && gridOptions && gridOptions.pagination"
+  permission [IsHideRemoveBothEnabled]="true" [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId: 'case Creation'"
+  >
+      <mat-icon *ngIf="!fabActionMenuActive">add</mat-icon>
+      <mat-icon *ngIf="fabActionMenuActive">close</mat-icon>
+  </button>
+  <div class="action-menu">
+      <div class="floating-action">
+          <div class="badge badge-dark bst-floating-action-label f-14 bst-body1 bst-color-ty">{{ "Search" }}</div>
+          <button mat-mini-fab class="bst-fab-btn" id="btnOpenCreateCaseModal" permission [IsHideRemoveBothEnabled]="true"
+          [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId: 'case Creation Search'"
+          (click)="openCreateCaseModal('')">
+              <mat-icon>search</mat-icon>
+          </button>
+      </div>
+      <div class="floating-action">
+          <div class="badge badge-dark bst-floating-action-label f-14 bst-body1 bst-color-ty">{{ "Insert Drive File" }}</div>
+          <button mat-mini-fab class="bst-fab-btn" id="btnOpenBatchCreateCaseModal" permission [IsHideRemoveBothEnabled]="true"
+          [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId: 'case Creation Batch'"
+          (click)="openBatchCreateCaseModal('')">
+              <mat-icon>insert_drive_file</mat-icon>
+          </button>
+      </div>
+  </div>
+</div>
+<!-- Fab -Style guide - end -->
+
+<div class="alert-loader" *ngIf="!gridShow">
+  <i class="fa fa-spinner txt-on-surface-06 fa-pulse" style="font-size: 4rem"></i>
+</div>
+
+<ag-grid-angular *ngIf="gridOptions && gridShow" #agGrid class="ag-theme-balham custom-feed-scroll-bar case-grid-table" [ngClass]="{ 'attachment-table': tableName == 'Attachment view' || tableName == 'Case list view' || tableName == 'Associated Record view' || tableName == 'Related Cases view' || tableName == 'Events Lookup view' || isCaseGrid, 'bst-bg-darker':fabActionMenuActive}"
+  [gridOptions]="gridOptions" [getRowHeight]="getRowHeight" [enableCellChangeFlash]="true"  [localeText]="localeText"
+  [defaultColDef]="defaultColDef" [singleClickEdit]="true" [suppressClickEdit]="true" [editType]="editType"
+  [deltaColumnMode]="true" [animateRows]="true" [rowModelType]="rowModelType" [suppressRowClickSelection]="true"
+  [rowSelection]="rowSelection" [frameworkComponents]="frameworkComponents" [rowClassRules]="rowClassRules"
+  [cacheBlockSize]="cacheBlockSize" [sortingOrder]="sortingOrder" [multiSortKey]="multiSortKey"
+  [isRowSelectable]="isRowSelectable" (columnVisible)="onColumnVisible($event)" (gridReady)="onGridReady($event)"
+  (selectionChanged)="onSelectionChanged($event)" (cellClicked)="onCellClicked($event)"
+  (rowClicked)="onRowClicked($event)" (rowSelected)="onRowSelected($event)" (paginationChanged)="getGridTableData($event)"
+   [overlayNoRowsTemplate]="noRowsTemplate" (viewportChanged)="afterDataLoad($event)" (bodyScroll)="bodyScroll($event)"
+                 (cellMouseOver)="mouseover($event)"
+>
+</ag-grid-angular>
+
+
+<ng-template #changeLevelConfirmModal>
+  <h1 mat-dialog-title class="pb-3 mb-5 text-dark-black light-theme-border-bottom">
+    {{ "ConfirmBulkAction" | translate }}
+  </h1>
+  <button [mat-dialog-close]="false" class="bg-transparent close-icon text-dark-black border-0 px-0">
+    <i class="material-icons c-pointer">close</i>
+  </button>
+  <div mat-dialog-content>
+    <p *ngIf="effectedAlerts" class="text-dark-black">
+      {{ aggrid_table_utilty.WillEffectAlert | translate }}
+      {{ effectedAlerts }}
+      {{ aggrid_table_utilty.type_of_alert | translate }}.
+      {{ "SureContinue" | translate }}
+    </p>
+    <p *ngIf="!effectedAlerts" class="text-dark-black">
+      {{ aggrid_table_utilty.WillnotEffectAlert | translate }}
+    </p>
+  </div>
+  <div mat-dialog-actions class="mt-5">
+    <button mat-button [mat-dialog-close]="false" class="light-theme-btn secondary-btn bst-mat-btn bst-mat-btn--secondary">
+      {{ "Cancel" | translate }}
+    </button>
+    <button mat-button [mat-dialog-close]="true" class="light-theme-btn primary-btn bst-mat-btn bst-mat-btn--primary" cdkFocusInitial>
+      {{ "Confirm" | translate }}
+    </button>
+  </div>
+</ng-template>
+
+<ng-template #downloadModal>
+  <h1 mat-dialog-title class="pb-3 mb-5 text-dark-black light-theme-border-bottom">
+    {{ "Export Report" | translate }}
+  </h1>
+  <button (click)="closeDownloadModal()" class="bg-transparent close-icon text-dark-black border-0 px-0">
+    <i class="material-icons c-pointer">close</i>
+  </button>
+  <div mat-dialog-content>
+    <span class="export-report"><h3 class="title-text-on-surface">{{"Report Created" | translate}}.</h3>
+      <button mat-button (click)="closeDownloadModal()"> <a  class="download-link" id='reportDownload'>{{"Download" | translate}}</a> </button>
+    </span>
+  </div>
+  <div mat-dialog-actions class="mt-5">
+    <button mat-button (click)="closeDownloadModal()" class="light-theme-btn secondary-btn download-cancle">
+      {{ "Cancel" | translate }}
+    </button>
+  </div>
+</ng-template>
+
+<ng-container *ngIf="showAuditPanel && originalGirdTableName === 'Case list view'">
+  <app-case-aduit></app-case-aduit>
+</ng-container>

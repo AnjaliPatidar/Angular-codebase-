@@ -1,0 +1,38 @@
+
+h2{
+    color: var(--textOnSurface);
+}
+table{
+    tr{
+        td{
+            color: var(--textOnSurface);
+            border: 1px solid rgba(255,255,255,0.25);
+            padding: 10px;
+        }
+        &:nth-of-type(odd){
+            background-color: var(--backGround);
+        }
+   	    &:nth-of-type(even){
+            background-color: transparent;
+        }
+    }
+}
+
+.version-details{
+    .versions-list{
+        border-radius: var(--smComponentCornerRadius);
+        border: solid 1px #5f5f5f;
+    }
+    .nav-pills .nav-link{
+        color:var(--textOnSurface) !important ;
+        &.active-link{
+            background-color: rgba(var(--primary),0.12);
+            color: var(--primary) !important;
+            -webkit-text-fill-color: var(--primary); 
+        }
+    }
+}
+.version-description{
+    border-radius: var(--smComponentCornerRadius);
+    border: 1px solid #5f5f5f;
+}

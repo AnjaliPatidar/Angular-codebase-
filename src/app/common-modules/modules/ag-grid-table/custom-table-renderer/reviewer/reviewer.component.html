@@ -1,0 +1,56 @@
+<div permission  [domainPermission]="permissionIdsList | getPermissionId : 'is ReviewRequired'" *ngIf="tableName == 'Feed list view'" (click)="updateReview()" class="c-pointer feed-popup-bg theme-button-bg light-theme-no-radius" popoverTitle="Pop title" container="body" [autoClose]="'outside'"
+[ngbPopover]="popContent" [popoverTitle]="popTitle" popoverClass="mxw-231 align-popup no-arrow"
+#closePop="ngbPopover" placement="bottom">
+    <p *ngIf="value" class="text-overflow text-dark-black text-on-surface">
+        <i class="material-icons align-middle" style="color: aqua;">check_circle </i> {{'ReviewFor' | translate}} :{{value}}
+    </p>
+    <p *ngIf="!value" class="text-overflow text-dark-black text-on-surface">
+        <i class="material-icons align-middle">cancel </i>  {{'DoNotRequireReview' | translate}}
+    </p>
+    <ng-template #popContent>
+        <div class=" mar-y10 d-flex"><span class="text-on-surface f-14 text-dark-black">{{'ReviewRequired' | translate}}</span>
+            <label class="switch switch-alignment-wrapper align-top custom-switch-wrapper filters-switch-wrapper bst-switch-wrapper center-align">
+                <input type="checkbox"  name="override" (change)="enableListBlock($event)" [value]="revieweSwitchEnableDisable"
+                [(ngModel)]="revieweSwitchEnableDisable" [disabled]="disableReviewer" [checked]="revieweSwitchEnableDisable"/>
+                <span class="slider round"></span>
+            </label>
+        </div>
+        <div *ngIf="showStatusListBlock">
+          <div class="custom-scroll-wrapper mxh-200 overflow-auto custom-reviewer-scrollbar">
+              <span *ngFor="let list of currentRow.reviewerData;trackBy:trackByDisplayName" class="position-relative text-white d-block">
+
+                  <mat-checkbox
+                  *ngIf="(list.displayName.toLowerCase() != 'identity approved, needed review') && (list.displayName.toLowerCase() != 'identity rejected, needed review') && (list.displayName.toLowerCase() != 'approved, needed review') && (list.displayName.toLowerCase() != 'rejected, needed review')"
+                  [value]="list.displayName" [(ngModel)]="list.isShowList"  [checked]="list.isShowList" (change)="getSelectedOptions($event,list)"> <span class="text-dark-black">{{list.displayName}} </span></mat-checkbox>
+              </span>
+          </div>
+          <div class="ag-theme-balham custom-filter-button background-wrapper">
+              <div class="ag-filter">
+                  <div class="ag-filter-apply-panel">
+                  <div class="ag-filter-apply-panel">
+                      <button (click)="cancelReview();closePop.close();" type="button" id="cancelButton" class="button-wrapper button-wrapper light-theme-btn secondary-btn theme-text-capitalize">{{'CANCEL' | translate}}</button>
+                      <button (click)="svaeOrUpdateReview();closePop.close();" type="button" id="applyButton" class="button-wrapper button-wrapper light-theme-btn primary-btn theme-text-capitalize">{{'APPLY' | translate}}</button>
+                  </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+  </ng-template>
+</div>
+<div *ngIf="tableName == 'Alert list view'">
+  <mat-form-field [ngClass]="{'c-ban':disableOptionForNotRequired}">
+    <mat-select [(ngModel)]="selectedItem" [ngClass]="{'disable pe-none':disableOptionForNotRequired}"
+      [disabled]="disableOptionForNotRequired">
+      <mat-option *ngFor="let item of groupList; trackBy:trackByLabel" [(value)]="item.label"
+        [ngClass]="{'disable c-ban' : (item.disable != 'undefined' && item.disable ) }"
+        [disabled]="item.disable != 'undefined' && item.disable"
+        (click)="(item.disable != 'undefined' && item.disable ) ? '' : getSelectedItem($event,item)">
+        <span *ngIf="item && item.label" class="initial-name-wrapper">{{item.label.charAt(0).toUpperCase()}}{{item.label.charAt(1)}}</span>
+        {{item.label}}
+      </mat-option>
+      <mat-select-trigger>
+        {{selectedItem}}
+      </mat-select-trigger>
+    </mat-select>
+  </mat-form-field>
+</div>

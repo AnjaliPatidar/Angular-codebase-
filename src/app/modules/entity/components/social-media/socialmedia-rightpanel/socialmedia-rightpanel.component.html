@@ -1,0 +1,109 @@
+<!-- Twitter Tag Words Starts -->
+<div
+    class="pad-mrg-10 height-100 details-panel-wrapper panel custom-panel-wrapper bst_panel_wrapper  c-details-tabs-wrapper">
+
+    <div class="header-content-entry person-bar-graph progress-bar-wrapper">
+        <h3>Risk Score </h3>
+        <div class="rightRiskScore">
+            <div class="risk-progressbar-holder">
+                <div class="progress-wrapper">
+                    <div class="inline">DR</div>
+                    <div class="progress progress-gradient-grey">
+                        <div class="progress-bar  progress-gradient-curious-blue" role="progressbar"
+                            attr.aria-valuenow="{{scaledNumArr[1]}}%" attr.aria-valuemin="0" attr.aria-valuemax="100"
+                            [ngStyle]="{'width':scaledNumArr[1]+'%'}">
+                        </div>
+                    </div>
+                    <div class="progress-percent" *ngIf="scaledNumArr && scaledNumArr.length > 0 && scaledNumArr[1].toFixed(2)">{{scaledNumArr[1].toFixed(2)}}
+                        <span *ngIf="scaledNumArr && scaledNumArr.length > 0 && scaledNumArr[1].toFixed(2)">%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="risk-progressbar-holder">
+                <div class="progress-wrapper">
+                    <div class="inline">IR</div>
+                    <div class="progress progress-gradient-grey">
+                        <div class="progress-bar  progress-gradient-curious-blue" role="progressbar"
+                            attr.aria-valuenow="{{scaledNumArr[0]}}%" attr.aria-valuemin="0" attr.aria-valuemax="100"
+                            [ngStyle]="{'width':scaledNumArr[0]+'%'}"></div>
+                    </div>
+                    <div class="progress-percent" *ngIf="scaledNumArr && scaledNumArr.length > 0 && scaledNumArr[1].toFixed(2)">{{scaledNumArr[0].toFixed(2)}}
+                        <span *ngIf="scaledNumArr[0].toFixed(2)">%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="risk-progressbar-holder">
+                <div class="progress-wrapper">
+                    <div class="inline">TR</div>
+                    <div class="progress progress-gradient-grey">
+                        <div class="progress-bar  progress-gradient-curious-blue" role="progressbar"
+                            attr.aria-valuenow="{{scaledNumArr[2]}}%" attr.aria-valuemin="0" attr.aria-valuemax="100"
+                            [ngStyle]="{'width':scaledNumArr[2]+'%'}"></div>
+                    </div>
+                    <div class="progress-percent" *ngIf="scaledNumArr && scaledNumArr.length > 0">{{scaledNumArr[2].toFixed(2)}}
+                        <span *ngIf="scaledNumArr[0].toFixed(2)">%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <button (click)="openRiskScore(content)">click to open risk score</button> -->
+    <div class="c100 mar-t10 p{{cumulativeRisk| number: 0}} orange radial" [class.c-pointer]="cumulativeRisk" (click)="(cumulativeRisk) ? openRiskScoreModal(content) : '' ">
+        <span class="inner-number riskScoreTooltip">{{cumulativeRisk | number : 0}}%
+        </span>
+        <div class="slice">
+            <div class="bar"></div>
+            <div class="fill"></div>
+        </div>
+    </div>
+
+    <ng-template #content let-modal>
+        <div class="modal-header pb-3">
+          <h4 class="modal-title">SCORING VISUALISATION</h4>
+          <button type="button" class="close mr-2" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span class="material-icons f-23">close</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <div *ngIf="!noData" id="chartContentDiv" class="text-center ml-5 pl-5"></div>
+            <div style="position: absolute;margin-left: 36%;bottom: 10%;" *ngIf="!noData">
+                <span class="text-white">Aggregation Type ({{aggregationType}})</span>
+            </div>
+            <span *ngIf="noData" class="text-dark-red no-data">No Data Found</span>
+
+        </div>
+    </ng-template>
+
+
+    <!-- Twitter Tag Words Ends -->
+
+   
+    <div class="entity-item activity-location-wrapper pad-top-15">
+        <h3>Activity Locations</h3>
+        <div class="activity-location-chart-wrapper">
+            <div id="twitter-locations-chart"></div>
+        </div>
+    </div>
+
+    <div class="entity-item twitter-tag-wrapper">
+        <h3>Twitter Tag Words</h3>
+        <div class="twitter-tag-chart-wrapper">
+            <div id="tagcloudCompanyTwitterTags"></div>
+        </div>
+    </div>
+     <div class="entity-item twitter-tag-wrapper">
+    <h3>Interaction Ratio</h3>
+    <div class="twitter-tag-chart-wrapper" *ngIf="entitySearchResult.list['follower_following_count'].length > 0">
+        <div id="interaction-ratio"></div>
+    </div>
+    <div class="right-section-item alert-message-wrapper dittoBlurChart-wrapper business-outlook-right"
+        *ngIf="entitySearchResult.list['follower_following_count'].length == 0">
+        <div class="alert-message loading-message" *ngIf="entitySearchResult.is_data_not_found.is_interactionration">
+            Loading...</div>
+        <div class="alert-message-wrapper alert-message"
+            *ngIf="!entitySearchResult.is_data_not_found.is_interactionration">Data Not Found</div>
+    </div>
+</div>
+</div>

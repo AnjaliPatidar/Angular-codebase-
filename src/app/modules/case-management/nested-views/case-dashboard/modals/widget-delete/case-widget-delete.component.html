@@ -1,0 +1,35 @@
+<div>
+  <div class="modal-header">
+    <h4 class="pb-0 mb-0 text-dark-black light-theme-border-bottom">
+      <span *ngIf="data.ctype && data.ctype == 'widget_delete'">{{
+        "Areyousure" | translate
+      }}</span>
+    </h4>
+  </div>
+  <div class="modal-body pad-x15">
+    <div class="row">
+      <div class="col-sm-12">
+        <p id="mainData" class="text-left text-cream text-dark-black">
+          <span
+            *ngIf="data.message && data.ctype && data.ctype == 'widget_delete'"
+          >
+            {{ "Delete" | translate }} {{ data.message }}
+            {{ "From_Canvas" | translate }} ?</span
+          >
+        </p>
+      </div>
+      <div class="btn-group width-100 mt-5 d-flex justify-content-end">
+        <button
+          class="grad-button mr-3 light-theme-btn primary-btn gotham-medium font-medium"
+          type="button"
+          (click)="onConfirm()"
+        >{{ 'Yes' | translate }}</button>
+        <button
+          class="bordered-button light-theme-btn secondary-btn gotham-medium font-medium"
+          type="button"
+          (click)="onDismiss()"
+        >{{ 'No' | translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>

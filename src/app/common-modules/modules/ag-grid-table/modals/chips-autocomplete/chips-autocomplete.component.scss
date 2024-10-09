@@ -1,0 +1,97 @@
+@import "../../../../../../assets/scss/theme/common/variable";
+
+::ng-deep .bst-form-field {
+    .mat-form-field-flex {
+        height: auto;
+        padding: 2em 0.75em 0 0.75em;          
+    }
+
+    .mat-chip-list-wrapper {
+        padding: 5px 0;
+    }
+
+    .mat-form-field-label-wrapper {
+        margin-top: 0;
+    }
+}
+
+.bst-form-field {
+  min-height: 52px;
+  height    : auto;
+  width     : 100%;
+
+  &:not(.mat-form-field-should-float) {
+      .mat-form-field-flex {
+          .mat-form-field-prefix+.mat-form-field-infix {
+              position: relative;
+              top     : -9px;
+          }
+      }
+  }
+
+  &.disabled {
+      .mat-select-value-text,
+      .mat-select-arrow {
+          color: rgba(255, 255, 255, 0.38) !important;
+      }
+  }
+
+  &--select {
+    &__autocomplete {
+        .mat-form-field-infix {
+            position: relative;
+            top     : -8px;
+        }
+
+        &--multiSelectChips {
+            &__input {
+                position: relative;
+                top     : -1px;
+            }
+
+            &__list {
+                .mat-chip-list-wrapper {
+                    position     : relative;
+                    top          : 12px;
+                    margin-bottom: 4px;
+                }
+
+                .mat-chip {
+                    height          : 20px;
+                    min-height      : 20px;
+                    padding         : 0px 7px 0px 12px;
+                    border-radius   : 4px;
+                    background-color: $primary-color;
+                    color           : $text-on-primary;
+                    margin-top      : 0px;
+                }
+            }
+
+            .mat-form-field-infix {
+                .mat-form-field-label-wrapper {
+                    margin-top: 8px;
+
+                    .text-label {
+                        position: relative;
+                        top     : 2px;
+                    }
+                }
+            }
+        }
+    }
+
+    &__auto-complete-input {
+        position: relative;
+        top     : 10px;
+        cursor  : pointer;
+    }    
+
+    .mat-form-field-suffix {
+        .mat-icon {
+            position: relative;
+            top     : 6px;
+            right   : -4px;
+        }
+    }
+}
+}

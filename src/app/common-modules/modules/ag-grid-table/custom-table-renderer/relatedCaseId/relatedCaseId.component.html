@@ -1,0 +1,2 @@
+<span *ngIf="relatedCaseId; else pending" [ngClass]="{'case-id-link linked-text c-pointer' : caseDetailsPermission && caseDetailsPermission !== 'none'}" (click)="openCase(relatedCaseId)">{{ relatedCaseId }}</span>
+<ng-template #pending><span class="text_align"> - </span></ng-template>

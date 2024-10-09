@@ -1,0 +1,34 @@
+<div class="rf-grid">
+    <ng-container *ngFor="let riskFlag of riskFlagsToShow; let i = index;trackBy:trackByRiskFlag">
+        <app-case-risk-flag-item *ngIf="riskFlag && riskFlag.riskFlag" [riskFlag]="riskFlag.riskFlag" [flagName]="riskFlag.name" [color]="riskFlag.color"></app-case-risk-flag-item>
+        <span *ngIf="!riskFlag.riskFlag">N/A</span>
+    </ng-container>
+
+    <span *ngIf="!(riskFlags && riskFlags.length)">N/A</span>
+
+    <ng-container *ngIf="riskFlags && riskFlags.length && riskFlags.length > 2">
+        <span class="risk-flag-expand"  mat-button [matMenuTriggerFor]="menu">
+          +{{ riskFlags.length - riskFlagsToShow.length }}
+        </span>
+    </ng-container>
+</div>
+
+<mat-menu #menu="matMenu" class="custom-scroll-wrapper hidden-flag-menu">
+  <div class="menu-header">
+    <span>{{'Risk Flags' | translate}} ({{ riskFlags ? riskFlags.length : 0 }})</span>
+    <button type="button" class="header-close">
+      <i class="material-icons header-close-button">close</i>
+    </button>
+  </div>
+  <div class="hidden-flag-wrapper">
+    <div class="tag-input-wrapper">
+      <div class="selected-flags-wrapper">
+        <div class="selected-flags">
+          <span *ngFor="let flag of riskFlags; trackBy:trackByRiskFlag"  class="hidden-tag">
+            <app-case-risk-flag-item *ngIf="flag && flag.riskFlag" [riskFlag]="flag.riskFlag" [flagName]="flag.name" [color]="flag.color"></app-case-risk-flag-item>
+          </span>
+        </div>
+      </div>
+  </div>
+  </div>
+</mat-menu>

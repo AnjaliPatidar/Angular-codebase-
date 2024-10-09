@@ -1,0 +1,26 @@
+<video autoplay="true" [loop]="false" [muted]="true" id="loginVideo">
+    <source src="./assets/clip/BlackSwan_Trim.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+</video>
+
+<div id="shadowWrapper"></div>
+
+<div id="mainContainer" *ngIf="showVisuals()">
+
+    <p class="bst-caption-typo" id="version">{{"version" | translate}} 1.7.0</p>
+
+    <div id="tagLine">
+        <img [src]="logoImage" alt="logo" id="logo"/>
+        <h1 class="bst-headline4">{{"headline" | translate }}</h1>
+    </div>
+
+    <div class="bstLoginWrapper dp-8 bst-subtitle2">
+        <app-username-password-login *ngIf="view == 'LOGIN'" (onNavigation)="changeView($event)"></app-username-password-login>
+        <app-password-recovery *ngIf="view == 'PASSWORD_RECOVERY'" (onNavigation)="changeView($event)"></app-password-recovery>
+        <app-recovery-success *ngIf="view == 'RECOVERY_SUCCESS'" (onNavigation)="changeView($event)"></app-recovery-success>
+        <app-login-error *ngIf="view == 'ERROR'" (onNavigation)="changeView($event)"></app-login-error>
+        <app-logout *ngIf="view == 'LOGOUT'" (onNavigation)="changeView($event)"></app-logout>
+        <app-login-problem *ngIf="view == 'PROBLEM'" (onNavigation)="changeView($event)" [problemCode]="problemCode"></app-login-problem>
+    </div>
+
+</div>

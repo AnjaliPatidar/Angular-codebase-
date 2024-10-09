@@ -1,0 +1,206 @@
+	
+{
+	"internalId" : "ALL000004",
+	"clientName" : "VDT Touristik GmbH",
+	"clientSince" : "2015-04-22",
+	"products":
+	[
+		{
+		"productName" : "Building Insurance",
+		"startDate" : "2020-04-22",
+		"expirationDate" : "2021-04-22",
+		"price" : "100€"
+		},
+		{
+		"productName": "Legal protection",
+		"startDate" : "2020-04-22",
+		"expirationDate" : "2021-04-22",
+		"price" : "200€"
+		},
+		{
+		"productName": "Financial Loss Liability",
+		"startDate" : "2020-02-22",
+		"expirationDate" : "2021-02-22",
+		"price" : "200€"
+		}
+		],	
+	"potentialFurtherProducts" : ["Business content insurance", "Cyber Insurance"],
+	"currentPremium" :"400€",
+	"additionalPremiumPotential" : "3000€",
+	"remainingContractTerm":"9 months",
+	"recentChanges":"recently extened the offer for trips to USA",
+	"ownerPrivetelyInsured" : "No",
+	"numberOfClaims" : "1",
+	"Green Sustainability Score":"4/10",
+	"existingSimilarCompanies":[
+	{
+	"internalId" : "AL0000026",
+	"companyName" : "Logo Reisen Schenk & Co. OHG",
+	"address" : "Franz-Stenzer-Str. 55 12679 Berlin",
+	"products": 
+	[
+		{
+		"productName" : "Building Insurance",
+		"startDate" : "2020-02-20",
+		"expirationDate" : "2021-02-20",
+		"price" : "250€"
+		},
+		{
+		"productName" : "Legal Protection",
+		"startDate" : "2020-02-20",
+		"expirationDate" : "2021-02-20",
+		"price" : "50€"
+		},
+		{
+		"productName" : "Business content insurance",
+		"startDate" : "2020-03-20",
+		"expirationDate" : "2021-03-20",
+		"price" : "150€"
+		}
+	]
+	},
+	{
+	"internalId" : "AL000093",
+	"companyName" : "Eich Touristik Service e.K.",
+	"address" : "Finowstr. 27 10247 Berlin",
+	"products" :
+	[
+		{
+		"productName" : "Legal Protection",
+		"startDate" : "2020-03-29",
+		"expirationDate": "2021-03-29",
+		"price" : "50€"
+		},
+		{
+		"productName" : "Cyber Insurance",
+		"startDate" : "2020-04-29",
+		"expirationDate": "2021-04-29",
+		"price" : "50€"
+		}
+	]
+	},
+	{
+	"internalId" : "ALL000257",
+	"companyName" : "Vital Tours GmbH",
+	"address" : "Pettenkoferstr. 43 10247 Berlin",
+	"products" :
+	[
+		{
+		"productName" : "Building Insurance",
+		"startDate" : "2019-11-20",
+		"expirationDate" : "2020-11-20",
+		"price" : "250€"
+		}
+	]
+	},
+	{
+	"internalId" : "ALL000237",
+	"companyName" : "Reisebüro KDS, Nachf.",
+	"address" : "Frankfurter Allee 35-37 10247 Berlin",
+	"products" : 
+	[
+		{
+		"productName" : "Financial Loss Liability",
+		"startDate" : "2020-02-27",
+		"expirationDate" : "2021-02-27",
+		"price" : "150€"
+		}
+	]
+	},
+	{
+	"internalId" : "ALL009903",
+	"companyName" : "TAM Reise und Logistik GmbH c/o NTD Trade",
+	"address" : "Herzbergstr. 33-34 10365 Berlin",
+	"products" : 
+	[
+		{
+		"productName" : "Building Insurance",
+		"startDate" : "2019-11-26",
+		"expirationDate" : "2020-11-26",
+		"price" : "130€"
+		},
+		{
+		"productName" : "Financial Loss Liability",
+		"startDate" : "2019-11-26",
+		"expirationDate" : "2020-11-26",
+		"price" : "130€"
+		}
+	]
+	},
+	{
+	"internalId" : "ALL009904",
+	"companyName" : "Reisestudio 2000 Touristik GmbH",
+	"address" : "Franz-Jacob-Str. 2 B 10369 Berlin",
+	"products" : 
+	[
+		{
+		"productName" : "Financial Loss Liability",
+		"startDate" : "2020-03-30",
+		"expirationDate" : "2021-03-30",
+		"price" : "70€"
+		}
+	]
+	},
+	{
+	"internalId" : "ALL009905",
+	"companyName" : "Korona-ReisenLothar Schulz",
+	"address" : "Erich-Weinert-Str. 133 10409 Berlin",
+	"products" :
+	[
+		{
+		"productName" : "Building Insurance",
+		"startDate" : "2020-03-30",
+		"expirationDate" : "2021-03-30",
+		"price" : "250€"
+		}
+	]
+	},
+	{
+	"internalId" : "ALL009906",
+	"companyName" : "Flugcontact Reisen GmbH",
+	"address" : "Coppistr. 11 10365 Berlin",
+	"products" :[
+		{
+		"productName" : "Financial Loss Liability",
+		"startDate" : "2020-01-03",
+		"expirationDate" : "2021-01-03",
+		"price" : "250€"
+		},
+		{
+		"productName" : "Building Insurance",
+		"startDate" : "2020-01-03",
+		"expirationDate" : "2021-01-03",
+		"price" : "250€"
+		}
+	]
+	},
+	{
+	"internalId" : "ALL009907",
+	"companyName" : "Eastline UG",
+	"address" : "Kreutzigerstr. 20 10247 Berlin",
+	"products" :
+	[
+		{
+		"productName" : "Financial Loss Liability",
+		"startDate" : "2020-05-02",
+		"expirationDate" : "2021-05-02",
+		"price" : "330€"
+		},
+		{
+		"productName" : "Financial Loss Liability",
+		"startDate" : "2020-05-02",
+		"expirationDate" : "2021-05-02",
+		"price" : "130€"
+		},
+		{
+		"productName" : "Cyber Insurance",
+		"startDate" : "2020-02-02",
+		"expirationDate" : "2021-02-02",
+		"price" : "30€"
+		}
+	]
+	}
+]
+	}
+	
+			

@@ -1,0 +1,38 @@
+
+.mnh-125{
+  min-height: 125px !important;
+}
+.white{
+  color: white;
+}
+  .user-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: rgba(251, 251, 251, 0.08);
+    display: block;
+    position: absolute;
+    left: 1.5rem;
+    span {
+      font-size: 16px;
+      text-align: center;
+      line-height: 50px;
+      width: 100%;
+      color: white !important;
+    }
+  }
+  .pad-btm-15 {
+    padding-bottom: 15px;
+  }
+  .rw-position {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+  }
+  .f-11 {
+    font-size: 11px;
+  }
+  .f-13{
+    font-size: 13px;
+  }
+

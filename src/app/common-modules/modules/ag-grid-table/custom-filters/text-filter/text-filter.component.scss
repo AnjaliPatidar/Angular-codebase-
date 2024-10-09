@@ -1,0 +1,21 @@
+@import "../../../../../../assets/scss/theme/common/variable";
+.input-filter {
+  height: 35px;
+  //background: var(--inputGroup);
+  background-color: $input-color-bg;
+  border: none;
+  padding: 8px 30px 8px 10px;
+  font-size: 16px;
+  letter-spacing: 0.15px;
+  font-family: "Roboto Regular";
+  font-weight: normal;
+
+  &::placeholder {
+    color: rgba($white, 0.6);
+    font-size: 16px;
+    letter-spacing: 0.15px;
+    transform: translatey(1.5px);
+    font-family: "Roboto Regular";
+    font-weight: 400;
+  }
+}

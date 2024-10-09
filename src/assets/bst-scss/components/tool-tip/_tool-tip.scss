@@ -1,0 +1,174 @@
+/*Tool Tip Style*/
+
+$tt-bg-color  : $color-gray-20;
+$tt-box-shadow: $shadow-90;
+
+$a-btn-tool-tip-min-width: 80px !default;
+$a-btn-tool-tip-max-width: 400px !default;
+
+$tooltip-bg-color : $color-black;
+
+.bst-icon-tool-tip {
+  position: relative;
+  display : inline-block;
+
+  .tt-bottom-left {
+    left   : -14px;
+    bottom : -69px;
+    z-index: 99999;
+  }
+
+  .tt-bottom-left:after {
+    right       : 60%;
+    bottom      : 100%;
+    border-color: transparent transparent $color-gray-20 transparent;
+  }
+
+  .tt-bottom-center {
+    left   : -31px;
+    bottom : -69px;
+    z-index: 99999;
+  }
+
+  .tt-bottom-center:after {
+    right       : 40%;
+    bottom      : 100%;
+    border-color: transparent transparent $tt-bg-color transparent;
+  }
+
+  .tt-bottom-right {
+    left   : -50px;
+    bottom : -69px;
+    z-index: 99999;
+  }
+
+  .tt-bottom-right:after {
+    right       : 20%;
+    bottom      : 100%;
+    border-color: transparent transparent $tt-bg-color transparent;
+  }
+
+  .tt-top-left {
+    left   : -15px;
+    bottom : 160%;
+    z-index: 99999;
+  }
+
+  .tt-top-left:after {
+    left        : 20%;
+    top         : 100%;
+    border-color: $tt-bg-color transparent transparent transparent;
+  }
+
+  .tt-top-center {
+    left   : -32px;
+    bottom : 160%;
+    z-index: 99999;
+  }
+
+  .tt-top-center:after {
+    left        : 38%;
+    top         : 100%;
+    border-color: $tt-bg-color transparent transparent transparent;
+  }
+
+  .tt-top-right {
+    left   : -52px;
+    bottom : 160%;
+    z-index: 99999;
+  }
+
+  .tt-top-right:after {
+    left        : 60%;
+    top         : 100%;
+    border-color: $tt-bg-color transparent transparent transparent;
+  }
+
+  .tt-center-right {
+    left   : 40px;
+    top    : -13px;
+    z-index: 99999;
+  }
+
+  .tt-center-right:after {
+    border-color: rgba(0, 0, 0, 0) #5f5f5f rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    left        : -22%;
+    top         : 28%;
+  }
+
+  .tt-center-left {
+    right  : 40px;
+    top    : -12px;
+    z-index: 99999;
+  }
+
+  .tt-center-left:after {
+    border-color: rgba(0, 0, 0, 0)rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #5f5f5f;
+    right       : -22%;
+    top         : 28%;
+  }
+
+  &:hover {
+    .bst-icon-tool-tip__block {
+      opacity: 1;
+      display: block;
+    }
+  }
+}
+
+
+.bst-icon-tool-tip__block {
+  opacity      : 0;
+  color        : $color-white;
+  min-width    : 80px;
+  max-width    : 400px;
+  background   : $tt-bg-color;
+  padding      : 0 5px;
+  text-align   : center;
+  position     : absolute;
+  border-radius: 6px;
+  transition   : opacity 1s;
+  font-size    : 12px;
+  font-family  : "Roboto", sans-serif;
+  white-space  : normal;
+  word-break   : normal;
+  height       : 50px;
+  display      : none;
+  box-shadow   : $tt-box-shadow;
+
+  &:after {
+    content     : '';
+    border-width: 10px;
+    position    : absolute;
+    border-style: solid;
+  }
+}
+
+.bst-icon-tool-tip__text {
+  display        : flex !important;
+  align-items    : center;
+  justify-content: center;
+  height         : 50px !important;
+  min-height     : 50px;
+  min-width      : 80px;
+  max-width      : 400px;
+  word-wrap      : break-word;
+  white-space    : pre-wrap;
+  width          : max-content;
+  margin         : 3px 0;
+}
+
+
+.bst-tooltip-top {
+  top             : 10px;
+  background-color: $tooltip-bg-color !important;
+  border-radius   : 4px;
+  padding         : 8px;
+  position        : relative;
+  font-family     : "Roboto Regular";
+  font-size       : 12px;
+  font-stretch    : normal;
+  font-style      : normal;
+  line-height     : 1.71;
+  letter-spacing  : 0.1px;
+}

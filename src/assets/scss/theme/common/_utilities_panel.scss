@@ -1,0 +1,1617 @@
+/*==============================================================================
+*******************  Utilities Panel Styles For The Site  **********************
+==============================================================================*/
+
+/*--  Main Dashboard Bg Styles  --*/
+
+.bg-enrich {
+    background-color: rgba(241, 80, 52, 0.8) !important;
+}
+
+.bg-discover {
+    background-color: rgba(155, 101, 203, 0.8) !important;
+}
+
+.bg-act {
+    background-color: rgba(179, 173, 53, 0.8) !important;
+}
+
+.bg-predict {
+    background-color: rgba(62, 110, 176, 0.8) !important;
+}
+
+.bg-manage {
+    background-color: rgba(34, 178, 155, 0.8) !important;
+}
+
+/*--  Discover Dashboard Bg Styles  --*/
+
+.bg-discover-light {
+    background-color: #ae7cda;
+}
+
+.bg-discover-medium {
+    background-color: #bb8ae6;
+}
+
+.bg-discover-dark {
+    background-color: #c797f1;
+}
+
+/*--  Enrich Dashboard Bg Styles  --*/
+
+.bg-enrich-light {
+    background-color: #f55538;
+}
+
+.bg-enrich-medium {
+    background-color: #fd6246;
+}
+
+.bg-enrich-dark {
+    background-color: #fd6246;
+}
+
+/*--  Act Dashboard Bg Styles  --*/
+
+.bg-act-light {
+    background-color: #d5c04a;
+}
+
+.bg-act-medium {
+    background-color: #ddc851;
+}
+
+.bg-act-dark {
+    background-color: #e6d261;
+}
+
+/*--  Manage Dashboard Bg Styles  --*/
+
+.bg-manage-light {
+    background-color: #2fbfa2;
+}
+
+.bg-manage-medium {
+    background-color: #3bcaad;
+}
+
+.bg-manage-dark {
+    background-color: #48d9bc;
+}
+
+/*--  Utilities Panel Wrapper Styles  --*/
+
+.utilities-panel-wrapper {
+    color: $white;
+    width: 100%;
+    height: 55px;
+    .breadcrumb.breadcrumb-wrapper {
+        li.breadcrumb-item.active {
+            pointer-events: none;
+        }
+    }
+    /*--  Utility Group Styles  --*/
+    .utility-group {
+        @extend .pull-left;
+        width: auto;
+        height: 100%; 
+        /*--  Dropdown Toggle Styles  --*/
+        .dropdown-toggle {
+            @extend .text-uppercase;
+            @extend .text-center;
+            @include square(100%);
+            @include padding(13px 50px 13px 15px);
+            color: $white; 
+            cursor: pointer;
+            min-width: 108px;
+            position: relative;
+            border-right: 1px solid $white;
+            strong {
+                font-family: $francois-one-regular;
+                font-size: ($font-size-large + 4);
+                line-height: ($line-height-computed * 1.5);
+                font-weight: bold;
+                text-shadow: none;
+            }
+            .icon-right {
+                @include padding(0);
+                @include translateX(-50%);  
+                @include translateY(-50%);
+                font-size: ($font-size-large + 12);
+                position: absolute;
+                right: 15px;
+                top: 50%;
+            }
+        }
+        &.open {
+            .dropdown-toggle {
+                @include box-shadow(none);
+            }
+            .dropdown-menu {
+                @include box-shadow(none);
+                opacity: 1;
+                height: auto !important;
+            }
+        }
+        /*--  Dropdown Menu Styles  --*/
+        .dropdown-menu {
+            @include margin(0);
+            @include padding(0);
+            @include transition(all 0.3s ease-in-out);
+            @include border-radius(0);
+            display: block !important;
+            top: 55px;
+            width: auto;
+            height: 0;
+            /* min-height: calc(100vh - 110px); */
+            opacity: 0;
+            position: absolute;
+            overflow: hidden;
+            min-width: 251px !important;
+            border: 0;
+            z-index: 1001;
+            li {
+                .ng-isolate-scope {
+                    @extend .clearfix;
+                }
+                /*--  Nav Tabs Styles  --*/
+                .nav-tabs {
+                    @extend .pull-left;
+                    @include padding(0);
+                    width: 56px;
+                    border: 0;
+                    min-height: calc(100vh - 115px);
+                    >li {
+                        display: block;
+                        float: none;
+                        &.list-item-enrich {
+                            >a {
+                                background-color: $bg-enrich;
+                            }
+                        }
+                        &.list-item-discover {
+                            >a {
+                                background-color: $bg-discover;
+                            }
+                        }
+                        &.list-item-act {
+                            >a {
+                                background-color: $bg-act;
+                            }
+                        }
+                        &.list-item-predict {
+                            >a {
+                                background-color: $bg-predict;
+                            }
+                        }
+                        &.list-item-manage {
+                            a {
+                                background-color: $bg-manage;
+                            }
+                        }
+                        >a {
+                            @extend .text-center;
+                            @extend .text-uppercase;
+                            @include padding(20px 15px);
+                            @include border-radius(0);
+                            background-color: transparent;
+                            color: $white;
+                            font-family: $francois-one-regular;
+                            font-size: ($font-size-base * 1.5);
+                            cursor: pointer;
+                            border: 0;
+                            font-weight: normal;
+                            &:hover,
+                            &:focus {
+                                background-color: transparent;
+                                color: $white;
+                            }
+                            .icon {
+                                display: block;
+                                font-size: ($font-size-base * 1.5);
+                            }
+                        }
+                        &.active {
+                            >a {
+                                background-color: transparent;
+                                color: $white;
+                                cursor: pointer;
+                                border: 0;
+                            }
+                        }
+                        &.disabled {
+                            >a {
+                                cursor: no-drop;
+                                opacity: 0.6;
+                                &:hover,
+                                &:focus {
+                                    cursor: no-drop;
+                                    opacity: 0.6;
+                                }
+                            }
+                        }
+                    }
+                }
+                /*--  Tab Content Styles  --*/
+                .tab-content {
+                    @extend .pull-left;
+                    @include padding(0);
+                    width: 195px !important;
+                    .tab-pane {
+                        @include padding(0);
+                        min-height: calc(100vh - 115px);
+                        h3 {
+                            @include margin(0);
+                            @include padding(0);
+                            color: $ivory;
+                            font-family: $francois-one-regular;
+                            font-size: ($font-size-small * 2);
+                            line-height: 28px;
+                            font-weight: normal;
+                            letter-spacing: 1px;
+                            &.submenu-title {
+                                @include padding(10px);
+                            }
+                        }
+                        .list-submenu {
+                            @extend .clearfix;
+                            @include margin(0);
+                            @include padding(0);
+                            li {
+                                @extend .pull-left;
+                                @extend .text-center;
+                                @include padding(0);
+                                display: block;
+                                width: 50%;
+                                a {
+                                    @extend .text-uppercase;
+                                    @include padding(10px 5px);
+                                    color: $ivory;
+                                    // font-family: $roboto-regular;
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-regular);
+                                      }
+                                    font-size: ($font-size-base - 4);
+                                    cursor: pointer;
+                                    display: inline-block;
+                                    width: 100%;
+                                    height: 95px;
+                                    min-height: 95px;
+                                    overflow: hidden;
+                                    line-height: 15px;
+                                    font-weight: normal;
+                                    letter-spacing: 1px;
+                                    .icon {
+                                        @include margin(0 0 5px);
+                                        display: block;
+                                        font-size: ($font-size-base * 2);
+                                    }
+                                }
+                                a[disabled] {
+                                    cursor: not-allowed;
+                                    opacity: 0.5;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            /*--  Discover Sub Menu Styles  --*/
+            &.bg-discover {
+                /*--  Discover List Submenu Styles  --*/
+                .list-submenu {
+                    li {
+                        a {
+                            background-color: $bg-discover-btn;
+                            .icon {
+                                color: #d6b2f6;
+                            }
+                            &:hover,
+                            &:focus {
+                                background-color: $bg-discover-btn-hover;
+                            }
+                            &.light {
+                                background-color: #ae7cda;
+                            }
+                            &.medium {
+                                background-color: #bb8ae6;
+                            }
+                            &.dark {
+                                background-color: #c797f1;
+                            }
+                        }
+                    }
+                }
+                /*--  Tab Content Styles  --*/
+                .tab-content {
+                    .tab-pane {
+                        &.bg-discover {
+                            .list-submenu {
+                                li {
+                                    a {
+                                        background-color: $bg-discover-btn;
+                                        .icon {
+                                            color: #d6b2f6 !important;
+                                        }
+                                    }
+                                    &:nth-last-child(1) {
+                                        a {
+                                            @extend .bg-discover-light;
+                                        }
+                                    }
+                                    &:nth-last-child(2) {
+                                        a {
+                                            @extend .bg-discover-medium;
+                                        }
+                                    }
+                                    &:nth-last-child(3) {
+                                        a {
+                                            @extend .bg-discover-dark;
+                                        }
+                                    }
+                                    &:nth-last-child(4) {
+                                        a {
+                                            @extend .bg-discover-light;
+                                        }
+                                    }
+                                    &:nth-last-child(5) {
+                                        a {
+                                            @extend .bg-discover-medium;
+                                        }
+                                    }
+                                    &:nth-last-child(6) {
+                                        a {
+                                            @extend .bg-discover-dark;
+                                        }
+                                    }
+                                    &:nth-last-child(7) {
+                                        a {
+                                            @extend .bg-discover-light;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            /*--  Enrich Sub Menu Styles  --*/
+            &.bg-enrich {
+                /*--  Enrich List Submenu Styles  --*/
+                .list-submenu {
+                    li {
+                        a {
+                            background-color: $bg-enrich-btn;
+                            &:hover,
+                            &:focus {
+                                background-color: $bg-enrich-btn-hover;
+                            }
+                            .icon {
+                                color: #fb8975 !important;
+                            }
+                            &.light {
+                                background-color: #f55538;
+                            }
+                            &.medium {
+                                background-color: #fd6246;
+                            }
+                            &.dark {
+                                background-color: #fd6246;
+                            }
+                        }
+                    }
+                }
+                /*--  Tab Content Styles  --*/
+                .tab-content {
+                    .tab-pane {
+                        &.bg-enrich {
+                            .list-submenu {
+                                li {
+                                    &:nth-last-child(1) {
+                                        a {
+                                            @extend .bg-enrich-light;
+                                        }
+                                    }
+                                    &:nth-last-child(2) {
+                                        a {
+                                            @extend .bg-enrich-medium;
+                                        }
+                                    }
+                                    &:nth-last-child(3) {
+                                        a {
+                                            @extend .bg-enrich-dark;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            /*--  Act Sub Menu Styles  --*/
+            &.bg-act {
+                /*--  Act List Submenu Styles  --*/
+                .list-submenu {
+                    li {
+                        a {
+                            background-color: $bg-act-btn;
+                            .icon {
+                                color: #f3eeae !important;
+                            }
+                            &:hover,
+                            &:focus {
+                                background-color: $bg-act-btn-hover;
+                            }
+                            &.light {
+                                background-color: #d5c04a;
+                            }
+                            &.medium {
+                                background-color: #ddc851;
+                            }
+                            &.dark {
+                                background-color: #e6d261;
+                            }
+                        }
+                    }
+                }
+                /*--  Tab Content Styles  --*/
+                .tab-content {
+                    .tab-pane {
+                        &.bg-act {
+                            .list-submenu {
+                                li {
+                                    &:nth-last-child(1) {
+                                        a {
+                                            @extend .bg-act-light;
+                                        }
+                                    }
+                                    &:nth-last-child(2) {
+                                        a {
+                                            @extend .bg-act-medium;
+                                        }
+                                    }
+                                    &:nth-last-child(3) {
+                                        a {
+                                            @extend .bg-act-dark;
+                                        }
+                                    }
+                                    &:nth-last-child(4) {
+                                        a {
+                                            @extend .bg-act-light;
+                                        }
+                                    }
+                                    &:nth-last-child(5) {
+                                        a {
+                                            @extend .bg-act-medium;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            /*--  Manage Sub Menu Styles  --*/
+            &.bg-manage {
+                /*--  Manage List Submenu Styles  --*/
+                .list-submenu {
+                    li {
+                        a {
+                            background-color: $bg-manage-btn;
+                            .icon {
+                                color: #9cf7e5 !important;
+                            }
+                            &:hover,
+                            &:focus {
+                                background-color: $bg-manage-btn-hover;
+                            }
+                            &.light {
+                                background-color: #2fbfa2;
+                            }
+                            &.medium {
+                                background-color: #3bcaad;
+                            }
+                            &.dark {
+                                background-color: #48d9bc;
+                            }
+                        }
+                    }
+                }
+                /*--  Tab Content Styles  --*/
+                .tab-content {
+                    .tab-pane {
+                        &.bg-manage {
+                            .list-submenu {
+                                li {
+                                    &:nth-last-child(1) {
+                                        a {
+                                            @extend .bg-manage-light;
+                                        }
+                                    }
+                                    &:nth-last-child(2) {
+                                        a {
+                                            @extend .bg-manage-medium;
+                                        }
+                                    }
+                                    &:nth-last-child(3) {
+                                        a {
+                                            @extend .bg-manage-dark;
+                                        }
+                                    }
+                                    &:nth-last-child(4) {
+                                        a {
+                                            @extend .bg-manage-light;
+                                        }
+                                    }
+                                    &:nth-last-child(5) {
+                                        a {
+                                            @extend .bg-manage-medium;
+                                        }
+                                    }
+                                    &:nth-last-child(6) {
+                                        a {
+                                            @extend .bg-manage-dark;
+                                        }
+                                    }
+                                    &:nth-last-child(7) {
+                                        a {
+                                            @extend .bg-manage-light;
+                                        }
+                                    }
+                                    &:nth-last-child(8) {
+                                        a {
+                                            @extend .bg-manage-medium;
+                                        }
+                                    }
+                                    &:nth-last-child(9) {
+                                        a {
+                                            @extend .bg-manage-dark;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            /*--  Predict Sub Menu Styles  --*/
+            &.bg-predict {
+                /*--  Predict List Submenu Styles  --*/
+                .list-submenu {
+                    li {
+                        a {
+                            background-color: $bg-predict-btn;
+                            .icon {
+                                color: #7da6da;
+                            }
+                            &:hover,
+                            &:focus {
+                                background-color: $bg-predict-btn-hover;
+                            }
+                            &.light {
+                                background-color: $bg-enrich-btn;
+                            }
+                            &.medium {
+                                background-color: $bg-enrich-btn;
+                            }
+                            &.dark {
+                                background-color: $bg-enrich-btn;
+                            }
+                        }
+                    }
+                }
+                /*--  Tab Content Styles  --*/
+                .tab-content {
+                    .tab-pane {
+                        &.bg-predict {
+                            .list-submenu {
+                                li {
+                                    &:nth-last-child(1) {                                      
+                                        a {
+                                            background-color: #4778bb;
+                                        }
+                                    }
+                                    &:nth-last-child(2) { 
+                                        a {
+                                            background-color: #2a5085;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    /*--  Utilities Panel Contents Wrapper Styles  --*/
+    .utilities-panel-contents-wrapper {
+        @include padding(0 15px);
+        color: $ivory;
+        width: auto;
+        float: none !important;
+        overflow: hidden;
+        .mcsb_container {
+            display: flex;
+            height: 100%;
+        }
+    }
+    /*--  Utilities Panel Background Styles  --*/
+    &.db-util-background-discover,
+    &.db-util-background-isracard {
+        background-color: $bg-discover-panel;
+        .utility-group {
+            .dropdown-menu {
+                background-color: $bg-discover-panel;
+            }
+        }
+        /*--  Discover Sub Menu Styles  --*/
+        .dropdown-menu {
+            /*--  Tab Content Styles  --*/
+            .tab-content {
+                .tab-pane {
+                    .list-submenu {
+                        li {
+                            a {
+                                .icon {
+                                    color: #d6b2f6;
+                                }
+                            }
+                            &:nth-last-child(1) {
+                                a {
+                                    @extend .bg-discover-light;
+                                }
+                            }
+                            &:nth-last-child(2) {
+                                a {
+                                    @extend .bg-discover-medium;
+                                }
+                            }
+                            &:nth-last-child(3) {
+                                a {
+                                    @extend .bg-discover-dark;
+                                }
+                            }
+                            &:nth-last-child(4) {
+                                a {
+                                    @extend .bg-discover-light;
+                                }
+                            }
+                            &:nth-last-child(5) {
+                                a {
+                                    @extend .bg-discover-medium;
+                                }
+                            }
+                            &:nth-last-child(6) {
+                                a {
+                                    @extend .bg-discover-dark;
+                                }
+                            }
+                            &:nth-last-child(7) {
+                                a {
+                                    @extend .bg-discover-light;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        /*-- Generate Button Styles--*/
+    }
+    &.db-util-background2-discover {
+        background-color: $scampi;
+        .dropdown-toggle {
+            border-right: 1px solid $matisse;
+        }
+        .utility-group {
+            .dropdown-menu {
+                background-color: $scampi;
+            }
+        }
+        /*--  Discover Sub Menu Styles  --*/
+        .dropdown-menu {
+            /*--  Tab Content Styles  --*/
+            .tab-content {
+                .tab-pane {
+                    .list-submenu {
+                        li {
+                            a {
+                                .icon {
+                                    color: #d6b2f6;
+                                }
+                            }
+                            &:nth-last-child(1) {
+                                a {
+                                    @extend .bg-discover-light;
+                                }
+                            }
+                            &:nth-last-child(2) {
+                                a {
+                                    @extend .bg-discover-medium;
+                                }
+                            }
+                            &:nth-last-child(3) {
+                                a {
+                                    @extend .bg-discover-dark;
+                                }
+                            }
+                            &:nth-last-child(4) {
+                                a {
+                                    @extend .bg-discover-light;
+                                }
+                            }
+                            &:nth-last-child(5) {
+                                a {
+                                    @extend .bg-discover-medium;
+                                }
+                            }
+                            &:nth-last-child(6) {
+                                a {
+                                    @extend .bg-discover-dark;
+                                }
+                            }
+                            &:nth-last-child(7) {
+                                a {
+                                    @extend .bg-discover-light;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.db-util-background-act {
+        background-color: $bg-act-panel;
+        .utility-group {
+            .dropdown-menu {
+                background-color: $bg-act-panel;
+            }
+        }
+        /*--  Act Sub Menu Styles  --*/
+        .dropdown-menu {
+            /*--  Tab Content Styles  --*/
+            .tab-content {
+                .tab-pane {
+                    .list-submenu {
+                        li {
+                            a {
+                                .icon {
+                                    color: #f3eeae;
+                                }
+                            }
+                            &:nth-last-child(1) {
+                                a {
+                                    @extend .bg-act-light;
+                                }
+                            }
+                            &:nth-last-child(2) {
+                                a {
+                                    @extend .bg-act-medium;
+                                }
+                            }
+                            &:nth-last-child(3) {
+                                a {
+                                    @extend .bg-act-dark;
+                                }
+                            }
+                            &:nth-last-child(4) {
+                                a {
+                                    @extend .bg-act-light;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.db-util-background-enrich {
+        background-color: $bg-enrich-panel;
+        .utility-group {
+            .dropdown-menu {
+                background-color: $bg-enrich-panel;
+            }
+        }
+        /*--  Enrich Sub Menu Styles  --*/
+        .dropdown-menu {
+            /*--  Tab Content Styles  --*/
+            .tab-content {
+                .tab-pane {
+                    .list-submenu {
+                        li {
+                            a {
+                                .icon {
+                                    color: #fb8975;
+                                }
+                            }
+                            &:nth-last-child(1) {
+                                a {
+                                    @extend .bg-enrich-light;
+                                }
+                            }
+                            &:nth-last-child(2) {
+                                a {
+                                    @extend .bg-enrich-medium;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.db-util-background-predict {
+        background-color: $bg-predict-panel;
+        .utility-group {
+            .dropdown-menu {
+                background-color: $bg-predict-panel;
+            }
+        }
+        /*--  Predict Sub Menu Styles  --*/
+        .dropdown-menu {
+            /*--  Tab Content Styles  --*/
+            .tab-content {
+                .tab-pane {
+                    .list-submenu {
+                        li {
+                            &:nth-last-child(1) {                             
+                                a {
+                                    background-color: #4778bb;
+                                }
+                            }
+                            &:nth-last-child(2) {
+                                a {
+                                    background-color: #2a5085;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.db-util-background-manage {
+        background-color: $bg-manage-panel;
+        .utility-group {
+            .dropdown-menu {
+                background-color: $bg-manage-panel;
+            }
+        }
+        /*--  Manage Sub Menu Styles  --*/
+        .dropdown-menu {
+            /*--  Tab Content Styles  --*/
+            .tab-content {
+                .tab-pane {
+                    .list-submenu {
+                        li {
+                            a {
+                                .icon {
+                                    color: #9cf7e5;
+                                }
+                            }
+                            &:nth-last-child(1) {
+                                a {
+                                    @extend .bg-manage-light;
+                                }
+                            }
+                            &:nth-last-child(2) {
+                                a {
+                                    @extend .bg-manage-medium;
+                                }
+                            }
+                            &:nth-last-child(3) {
+                                a {
+                                    @extend .bg-manage-dark;
+                                }
+                            }
+                            &:nth-last-child(4) {
+                                a {
+                                    @extend .bg-manage-light;
+                                }
+                            }
+                            &:nth-last-child(5) {
+                                a {
+                                    @extend .bg-manage-medium;
+                                }
+                            }
+                            &:nth-last-child(6) {
+                                a {
+                                    @extend .bg-manage-dark;
+                                }
+                            }
+                            &:nth-last-child(7) {
+                                a {
+                                    @extend .bg-manage-light;
+                                }
+                            }
+                            &:nth-last-child(8) {
+                                a {
+                                    @extend .bg-manage-medium;
+                                }
+                            }
+                            &:nth-last-child(9) {
+                                a {
+                                    @extend .bg-manage-dark;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.db-util-background-entityCompany {
+        background-color: $bg-enrich-panel;
+        .utility-group {
+            .dropdown-menu {
+                background-color: $bg-enrich-panel;
+            }
+        }
+    }
+    /*--  Discover Bar Styles  --*/
+    .discover-bar {
+        width: calc(100% - 357px);
+        float: left;
+        margin: 0;
+        height: 55px;
+        ul {
+            overflow: hidden;
+            background-color: $scampi;
+            li {
+                float: left;
+                font-weight: bolder;
+                padding: 0 22px;
+                display: flex;
+                align-items: center;
+                span.counter-label {
+                    font-size: 12px;
+                    line-height: 14px;
+                    text-align: left;
+                    font-weight: 600;
+                    margin: 16px 0;
+                }
+                span.counter-value {
+                    font-size: 38px;
+                    line-height: 60px;
+                    font-weight: 400;
+                    margin: auto;
+                    padding: 0 10px;
+                    font-family: $francois-one-regular;
+                }
+            }
+        }
+    }
+    /*--  Utility Process Tab Mip Styles  --*/
+    .utility-mip-wrapper {
+        /* width: 85%; */
+    }
+    /*--  Utility Discover Wrapper Styles  --*/
+    .utility-discover-wrapper {
+        @include padding(0);
+        &.mip-search-heading-wrapper {
+            @include padding(11px 15px);
+            .custom-heading-btn {
+                @extend .btn-blue-bordered;
+            }
+        }
+        .discover-bar-list {
+            width: 100%;
+            margin: 0;
+            height: 55px;
+            .mTSWrapper {
+                height: 100%;
+                display: block;
+                min-width: 750px;
+                ul {
+                    li {
+                        float: left;
+                        font-weight: bolder;
+                        padding: 0px 22px;
+                        display: flex;
+                        align-items: center;
+                        span {
+                            &.counter-label {
+                                font-size: 12px;
+                                line-height: 14px;
+                                text-align: left;
+                                font-weight: 600;
+                                margin: 12px 0;
+                            }
+                            &.counter-value {
+                                font-size: 38px;
+                                line-height: 55px;
+                                font-weight: normal;
+                                margin: auto;
+                                padding: 0px 10px;
+                                font-family: $francois-one-regular;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .work-diary-dropdown-wrapper {
+            height: 55px;
+            z-index: 9;
+            float: right;
+            position: static;
+        }
+        .generate-button-wrapper {
+            border-radius: $sm-comp-corner-radius;
+            border: 1px solid rgba(255, 255, 255, .5);
+        }
+    }
+    /*--  Utility Process Tab Act Styles  --*/
+    .utility-act-wrapper {
+        .row-fluid {
+            width: 100%;
+        }
+        /*--  Case List Wrapper Styles  --*/
+        .case-list-wrapper {
+            .case-list {
+                @extend .clearfix;
+                .case-list-item {
+                    @include padding(10px 0);
+                    font-family: $francois-one-regular;
+                    font-size: $font-size-small;
+                    min-width: auto;
+                    overflow: hidden;
+                    float: left;
+                    white-space: nowrap;
+                    margin-right: 20px;
+                    text-overflow: ellipsis;
+                    div {
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        &:first-child {
+                            @include padding(0 0 5px);
+                        }
+                        span {
+                            &:first-of-type {
+                                @extend .text-uppercase;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        /*--  Upload Buttons Wrapper Styles  --*/
+        .upload-buttons-wrapper {
+            .upload-buttons {
+                @include padding(0);
+                li {
+                    .btn {
+                        @extend .btn-yellow-bordered;
+                        @extend .text-uppercase;
+                        background-color: rgba(179, 173, 53, 0.8);
+                        &:hover,
+                        &:focus,
+                        &:active,
+                        &:active:focus {
+                            background-color: rgba(179, 173, 53, 1);
+                        }
+                    }
+                    a {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+    /*--  Utility Enrich Wrapper Styles  --*/
+    .utility-enrich-wrapper {
+        @include padding(10px 15px);
+        .search-text {
+            font-family: $francois-one-regular;
+            font-weight: bold;
+            font-size: ($font-size-base + 4);
+            line-height: ($line-height-computed * 1.7);
+        }
+        .btn-onboarding-wrapper {
+            @extend .text-right;
+            .btn-onboarding {
+                @extend .btn-red-bordered;
+                @include padding(7px 12px);
+            }
+        }
+    }
+    /*--  Utility Predict Wrapper Styles  --*/
+    .utility-predict-wrapper {
+        @include padding(0 10px);
+    }
+    /*--  Utility Manage Wrapper Styles  --*/
+    .utility-manage-wrapper {
+        @include padding(0 10px);
+    }
+}
+
+/*--  Work Diary Dropdown Wrapper Styles  --*/
+
+.work-diary-dropdown-wrapper {
+    @include size(357px, 100%);
+    background-color: $persian-green2;
+    cursor: pointer;
+    #work-diary-dropdown-button {
+        @include padding(14px 48px 13px);
+        position: relative;
+        .work-diary-dropdown-button-text {
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            font-size: $font-size-base;
+            display: inline-block;
+        }
+        .small {
+            padding-top: 0;
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            font-size: $font-size-small;
+        }
+        >span:last-child {
+            @include translateY(-50%);
+            position: absolute;
+            top: 50%;
+            right: 5px;
+            .fa {
+                font-size: ($font-size-base * 1.5);
+            }
+        }
+        >span:first-child {
+            @include translateY(-50%);
+            position: absolute;
+            left: 5px;
+            top: 50%;
+        }
+    }
+    .icon-left {
+        display: inline-block;
+        vertical-align: top;
+    }
+    .fa-rss {
+        @include padding(8px 5px);
+        font-size: ($font-size-base * 3);
+    }
+    .work-diary-dropdown-menu-panel {
+        @include padding(5px);
+        @include border-radius(0);
+        background-color: $persian-green2;
+        position: absolute;
+        overflow: hidden;
+        margin-top: -5px;
+        z-index: 9;
+        border: 0;
+        top: 120px;
+        width: 357px;
+        min-height: 630px;
+        height: auto;
+        left: auto;
+        right: 0;
+        ul {
+            padding: 0;
+        }
+        #createCaseWrapper {
+            .mCustomScrollBox,
+            .mTSWrapper {
+                overflow: hidden;
+                .mCSB_container {
+                    @include padding(0 0 150px);
+                    overflow: hidden;
+                }
+            }
+        }
+        #work-diary-create-case,
+        #work-diary-onboarding {
+            @include size(100%, 40px);
+            @include margin(10px 5px 10px 0);
+            @include border-radius(0);
+            background-color: $atomic38;
+            color: $white;
+            border: 0;
+        }
+        #work-diary-create-case {
+            #work-diary-onboarding-text {
+                padding-top: 0;
+            }
+        }
+        #work-diary-create-case-text,
+        #work-diary-onboarding-text {
+            @extend .text-center;
+            @include margin(0 0 0 -20px);
+            @include padding(12px 0 0 0);
+            font-family: $francois-one-regular;
+            font-size: $font-size-large;
+        }
+        #work-diary-create-case-text {
+            @include padding(0);
+        }
+        #work-diary-create-case-icon {
+            @include margin(4px 0 0);
+            color: $persian-green2;
+            font-family: $francois-one-regular;
+            font-size: $font-size-large;
+        }
+        #work-diary-onboarding-icon {
+            @include padding(8px 0 0 10px);
+            color: $persian-green2;
+            font-family: $francois-one-regular;
+            font-size: $font-size-large;
+        }
+        #work-diary-count-case {
+            @include margin(0 5px 10px 0);
+            width: 100%;
+            min-height: 40px;
+            background-color: $persian-green2;
+        }
+        #work-diary-count-case-text {
+            @include margin(0);
+            @include padding(0);
+            color: $atomic38;
+            font-family: $francois-one-regular;
+            font-size: $font-size-base;
+            position: absolute;
+        }
+        #work-diary-count-case-num {
+            @include padding(2px 5px 0 0);
+            color: $atomic38;
+            font-family: $francois-one-regular;
+            font-size: ($font-size-small * 2);
+        }
+        #work-diary-sub-menu {
+            @include size(100%, 40px);
+            @include margin(0);
+            background-color: $persian-green2;
+            font-family: $francois-one-regular;
+            font-size: $font-size-small;
+            border-top: 1px dashed #06e6db;
+        }
+        #work-diary-sub-menu-share {
+            @include margin(0);
+            @include padding(8px 5px 0 5px);
+            color: $atomic38;
+            font-family: $francois-one-regular;
+            font-size: $font-size-small;
+            height: 35px;
+        }
+        #work-diary-sub-menu-download,
+        #work-diary-sub-menu-camera,
+        #work-diary-sub-menu-filter {
+            @include padding(8px 5px 0 5px);
+            color: $atomic38;
+            font-family: $francois-one-regular;
+            font-size: $font-size-small;
+            height: 35px;
+        }
+        .work-diary-case-list {
+            @include margin(0 0 10px 0);
+            @include padding(0 0 20px 0);
+            background-color: $atomic38;
+            width: 100%;
+            overflow: visible;
+            position: relative;
+            /*--  Work Diary Case List Description Styles  --*/
+            .work-diary-case-list-description {
+                @include padding(10px 10px 0 10px);
+                p {
+                    @include margin(0 0 10px);
+                    color: $silver;
+                    // font-family: $roboto-regular;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-regular);
+                      }
+                    font-size: ($font-size-base - 3);
+                    height: 40px;
+                    overflow: hidden;
+                }
+                /*--  Case Risk Profile Styles  --*/
+                .caseriskprofile {
+                    .risk-progressbar-holder {
+                        @extend .clearfix;
+                        @include margin(0 0 5px);
+                        .inline {
+                            @extend .pull-left;
+                            color: $silver;
+                            // font-family: $roboto-regular;
+                            @include fontFamily($fonts) {
+                                font-family: fonted(font-regular);
+                              }
+                            font-size: ($font-size-base - 3);
+                            width: 25px;
+                        }
+                        .progress {
+                            @extend .pull-left;
+                            @include margin(0 5px);
+                            @include border-radius(20px);
+                            width: calc(100% - 70px);
+                            height: 8px;
+                            background-color: #425661;
+                            .progress-bar {
+                                @include border-radius(20px);
+                            }
+                        }
+                        .progressdr {
+                            background: $risk-dr;
+                        }
+                        .progresstr {
+                            background: $risk-ir;
+                        }
+                        .progresscr {
+                            background: $risk-tr;
+                        }
+                    }
+                }
+            }
+        }
+        .work-diary-case-list-index {
+            @extend .text-center;
+            @include size(35px, 25px);
+            @include margin(0 0 10px 0);
+            @include padding(5px);
+            background-color: $blue-bayoux1;
+            color: $silver;
+            font-family: $francois-one-regular;
+            font-size: $font-size-base;
+            display: inline-block;
+            span {
+                font-family: $francois-one-regular;
+            }
+        }
+        .work-diary-case-list-name {
+            @include margin(0);
+            @include padding(5px 10px);
+            background-color: $atomic38;
+            color: $persian-green2;
+            // font-family: $roboto-bold;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-bold);
+              }
+            font-size: $font-size-base;
+            display: inline-block;
+        }
+        .work-diary-case-list-others {
+            @include margin(0);
+            @include padding(5px 0 2px 10px);
+            display: relative;
+            background-color: $atomic38;
+            color: $silver;
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            font-size: ($font-size-small - 1);
+        }
+        .work-diary-case-list-dropdown {
+            @include margin(5px 0 0 10px);
+            @include padding(8px 0 0 0);
+            position: relative;
+            background-color: $atomic38;
+            color: $white;
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            font-size: $font-size-small;
+            width: 70px;
+            .work-diary-case-list-button-panel {
+                /*--  Act Btn Styles  --*/
+                .act-btn {
+                    @include padding(3px 10px);
+                    // font-family: $roboto-medium;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-medium);
+                      }
+                    line-height: 18px;
+                    .icon {
+                        @include margin(0 0 0 5px);
+                        font-size: $font-size-large;
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+        .fa-angle-down {
+            @include margin(0 10px 0 0);
+            @include padding(0);
+        }
+        .work-diary-case-list-risk-text {
+            @extend .text-right;
+            @include margin(0);
+            @include padding(0 20px 0 0);
+            background-color: $atomic38;
+            color: $silver;
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            font-size: $font-size-small;
+            line-height: ($line-height-computed * 2.25);
+        }
+        .work-diary-case-list-risk-graph {
+            @include margin(0 auto);
+            @include padding(0);
+            background-color: $atomic38;
+            color: $silver;
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            font-size: $font-size-small;
+            display: block;
+            .progress-radial {
+                @include margin(10px 20px 0 0);
+                @include square(80px);
+                .overlay {
+                    margin-left: 10px;
+                    margin-top: 10px;
+                    font-size: $font-size-base;
+                }
+            }
+            .c100 {
+                @include margin(10px 0 0);
+                font-size: 110px;
+                cursor: default;
+                >span {
+                    font-size: 0.16em;
+                    line-height: 6.3em;
+                    margin: 0 auto;
+                    display: block;
+                    width: 100%;
+                }
+                &:hover {
+                    >span {
+                        line-height: 5em;
+                        font-size: .20em;
+                    }
+                }
+            }
+        }
+        .work_diary_act_dropdown_div {
+            @include margin(1px 0 0 5px);
+            background-color: $endeavour;
+            min-width: 100px;
+            position: absolute;
+            z-index: 1;
+            border: 1px solid $venice-blue;
+        }
+        .work_diary_act_dropdown_list {
+            @extend .text-left;
+            @include padding(0);
+            list-style: none;
+            text-align: left;
+            margin-left: 0;
+            clear: left;
+            li {
+                &:nth-child(odd) a {
+                    background-color: $endeavour;
+                }
+                &:nth-child(even) a {
+                    background-color: $endeavour1;
+                }
+            }
+            a {
+                @include padding(5px 20px);
+                // font-family: $roboto-regular;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                  }
+                font-size: $font-size-small;
+                color: $white;
+                line-height: 1.42857143;
+                font-weight: 400;
+                white-space: nowrap;
+                display: block;
+                &.work_diary_act_dropdown_not_active {
+                    color: $light-blue4;
+                    font-family: $francois-one-regular;
+                    font-size: $font-size-small;
+                    cursor: default;
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+}
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+
+@media (min-width:$screen-lg) {}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
+    .utilities-panel-wrapper {
+        .utility-group {
+            font-size: ($font-size-base + 2);
+        }
+        .counter {
+            padding: 0;
+        }
+        .counter-value {
+            font-size: ($font-size-base * 1.5);
+        }
+        .counter-label {
+            font-size: $font-size-small;
+        }
+    }
+    /*--  Work Diary Dropdown Styles  --*/
+    .work-diary-dropdown-wrapper {
+        #work-diary-dropdown-button {
+            .work-diary-dropdown-button-text {
+                .small {
+                    font: ($font-size-base - 1);
+                }
+            }
+        }
+        .fa-rss {
+            @include padding(13px 0);
+            font-size: ($font-size-base * 1.5);
+            display: inline-block;
+            position: relative;
+        }
+        #work-diary-dropdown-menu-panel {
+            #work-diary-count-case-text {
+                font: ($font-size-base - 1);
+            }
+        }
+    }
+}
+
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+    .utilities-panel-wrapper {
+        margin: 0;
+        .counter {
+            padding: 0;
+        }
+        .counter-value {
+            font-size: ($font-size-base * 1.5);
+        }
+        .counter-label {
+            font-size: $font-size-small;
+        }
+    }
+    .work-diary-dropdown-wrapper {
+        font-size: ($font-size-base - 2);
+        #work-diary-dropdown-button {
+            @include padding(10px 48px 10px);
+        }
+    }
+    /*--  Work Diary Dropdown Styles  --*/
+    .work-diary-dropdown-wrapper {
+        .fa-rss {
+            @include padding(5px 5px);
+            font-size: ($font-size-small * 2);
+        }
+        #work-diary-dropdown-button {
+            .work-diary-dropdown-button-text {
+                @include padding(3px 0);
+                display: inline-block;
+            }
+            .small {
+                font: ($font-size-base - 2);
+            }
+            .fa-angle-down {
+                @include margin(3px 5px 0 0);
+                font-size: ($font-size-large + 2);
+            }
+        }
+        #work-diary-dropdown-menu-panel {
+            #work-diary-count-case-text {
+                font: $font-size-base;
+            }
+            .work-diary-case-list-others {
+                font: ($font-size-base - 2);
+                line-height: ($line-height-computed * .6);
+            }
+        }
+    }
+}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {}

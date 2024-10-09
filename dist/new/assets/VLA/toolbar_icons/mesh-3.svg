@@ -1,0 +1,18 @@
+<svg  xmlns="http://www.w3.org/2000/svg" width="24" height="23" viewBox="0 0 24 23">
+    <g fill="none" fill-rule="evenodd">
+        <path stroke="#FFF" stroke-linecap="round" stroke-width="1.5" d="M9.062 20.205L21.538 9.395" transform="translate(-3 -3) rotate(-30 15.3 14.8)"/>
+        <g>
+            <path stroke="#FFF" stroke-linecap="round" stroke-width="1.5" d="M3.263 9.642L7.263 2.714" transform="translate(-3 -3) rotate(-45 17.596 -11.096) rotate(-30 4.799 6.58)"/>
+            <path stroke="#FFF" stroke-linecap="round" stroke-width="1.5" d="M4.112 8.127L11.482 7.763" transform="translate(-3 -3) rotate(-45 17.596 -11.096) rotate(-30 7.951 7.781)"/>
+            <path stroke="#FFF" stroke-linecap="round" stroke-width="1.5" d="M6.482 0.897L9.678 7.361" transform="translate(-3 -3) rotate(-45 17.596 -11.096) rotate(-30 7.799 4.214)"/>
+            <path fill="#FBFBFB" d="M11 8c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM5 4c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM5 12c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" transform="translate(-3 -3) rotate(-45 17.596 -11.096)"/>
+        </g>
+        <g>
+            <path stroke="#FFF" stroke-linecap="round" stroke-width="1.5" d="M3.263 9.642L7.263 2.714" transform="translate(-3 -3) rotate(135 4.596 13.904) rotate(-30 4.799 6.58)"/>
+            <path stroke="#FFF" stroke-linecap="round" stroke-width="1.5" d="M4.112 8.127L11.482 7.763" transform="translate(-3 -3) rotate(135 4.596 13.904) rotate(-30 7.951 7.781)"/>
+            <path stroke="#FFF" stroke-linecap="round" stroke-width="1.5" d="M6.482 0.897L9.678 7.361" transform="translate(-3 -3) rotate(135 4.596 13.904) rotate(-30 7.799 4.214)"/>
+            <path fill="#FBFBFB" d="M11 8c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM5 4c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM5 12c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" transform="translate(-3 -3) rotate(135 4.596 13.904)"/>
+        </g>
+        <path fill="#FFF" d="M17.828 17.828c1.562-1.562 1.562-4.094 0-5.656-1.562-1.563-4.094-1.563-5.656 0-1.563 1.562-1.563 4.094 0 5.656 1.562 1.563 4.094 1.563 5.656 0z" transform="translate(-3 -3)"/>
+    </g>
+</svg>

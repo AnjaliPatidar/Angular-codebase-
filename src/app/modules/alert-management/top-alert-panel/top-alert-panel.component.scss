@@ -1,0 +1,112 @@
+@import "../../../../assets/scss/theme/common/variable";
+@import "../../../../assets/scss/theme/common/custom_scroll_wrapper";
+
+
+.top-panel-charts-wrapper {
+  .chart-details-wrapper {
+    .custom-card {
+      max-height: 200px;
+      margin-top: 8px;
+      padding: 16px 24px;
+      min-height: 20rem;
+
+      p {
+        letter-spacing: 0.15px;
+        color: $text-on-surface;
+      }
+
+      &:nth-of-type(1) {
+
+        width: 33.33%;
+        margin-left: 8px;
+      }
+
+      &:nth-of-type(2) {
+        margin-right: 8px;
+        margin-left: 8px;
+        flex-grow: 1;
+        width: 33.33%;
+
+        #groupBarChart {
+          @extend .custom-scroll-wrapper;
+          // @extend .overflow-a;
+          overflow-x: auto !important;
+          overflow-y: hidden;
+          width: 100%;
+          //max-width:50rem;
+        }
+      }
+
+      &:nth-of-type(3) {
+        margin-right: .8rem;
+        width: 33.33%;
+
+        #heatMapChart {
+          @extend .custom-scroll-wrapper;
+          // @extend .overflow-a;
+          overflow-x: auto !important;
+          overflow-y: hidden;
+          width: 100%;
+          //max-width:50rem;
+        }
+      }
+
+      &:nth-of-type(4) {
+        margin-right: .8rem;
+        width: 33.33%;
+      }
+    }
+
+    .chart-status {
+      max-height: 72%;
+      overflow: auto;
+      padding-right: 13px;
+      margin-top: -5px;
+
+      &::-webkit-scrollbar-track {
+        background-color: rgba(255, 255, 255, 0.12);
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.12);
+      }
+    }
+  }
+}
+
+.data-content {
+  display: inline-flex;
+  line-height: 1.2;
+
+  span {
+    line-height: 1.4;
+  }
+}
+
+.chart-container {
+  // position: absolute;
+  // right: 0;
+  // top: 50%;
+  // transform: translateY(-50%);
+  position: relative;
+  right: -40px;
+  top: -15px;
+  margin-left: 50%;
+}
+
+.data-not-found {
+  top: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: red;
+  font-size: 14px;
+}
+
+::ng-deep {
+  .cdk-global-scrollblock {
+    &.bst_element {
+      position: static !important;
+      overflow-y: inherit !important;
+    }
+  }
+}

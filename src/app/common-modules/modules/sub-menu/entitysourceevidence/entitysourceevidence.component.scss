@@ -1,0 +1,42 @@
+::ng-deep {
+  .custom-table.scroll-table tbody {
+    &.table-scroll-evidence {
+      &.height-400 {
+        height: 400px;
+        overflow: auto !important;
+      }
+
+      .custom-list {
+        min-width: 118px;
+        justify-content: space-between;
+
+        li {
+          i {
+            font-size: 17px;
+            color: rgba(251, 251, 251, 0.6) !important;
+            vertical-align: middle;
+
+          }
+
+          &>span {
+            line-height: 8px !important;
+          }
+
+          img {
+            vertical-align: initial;
+          }
+        }
+
+      }
+    }
+  }
+
+  .modal-backdrop.fade.show.custom-backdrop {
+    z-index: 1060 !important;
+  }
+
+  .custom-modal.upload-media-modal.fromScreenShot {
+    z-index: 1061;
+  }
+
+}

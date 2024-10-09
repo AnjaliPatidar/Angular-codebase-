@@ -1,0 +1,356 @@
+/*==============================================================================
+****************  Entity Company Page Styles For The Site  *********************
+==============================================================================*/
+
+/*--  Entity Company Due Tab Wrapper Styles  --*/
+         
+.autodesk-tab-wrapper {
+    &.right-leadership-wrapper {
+        padding: 10px 15px;
+    }
+
+    .custom-row {
+        &.top-row {
+            .panel-heading {
+                h4 {
+                    @extend .f-10;
+                    @extend .width-70;
+                    @extend .d-ib;
+                    line-height: 18px;
+                    color: #fbfbfb;
+                    // font-family: $roboto-light;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-light);
+                      }
+
+                    strong {
+                        @extend .f-18;
+                        line-height: 18px;
+                        font-weight: bolder;
+                        font-family: $francois-one-regular;
+                        color: #fbfbfb;
+                    }
+                }
+
+                .select-group {
+                    select {
+                       color:$text-color-default;
+                        max-width: 100px;
+                    }
+
+                    &.multiple {
+                        position: absolute;
+                        left: 60%;
+                        top: 3%;
+                        z-index: 9999;
+
+                        select {
+                            border-radius: 0 !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .autodesk-details-top {
+            h4 {
+                @extend .f-11;
+                color: rgba($text-color-default, .6);
+                line-height: 12px;
+            }
+        }
+
+        .autodesk-details-list {
+            .autodesk-details {
+                // @extend .border-dark-grey-thin-b;
+                @extend .pad-y10;
+                @extend .pad-x10;
+
+                .details {
+                    @extend .text-overflow;
+                    @extend .f-12;
+                    @extend .mar-b0;
+                    color: #88979f;
+                }
+
+                a {
+                    @extend .f-11;
+                    @extend .text-uppercase;
+                    color: #4383bb;
+                }
+            }
+        }
+
+        .select-group {
+            @extend .pad-0;
+
+            select {
+                @extend .pad-0;
+                @extend .mar-0;
+                @extend .border-blue-thin;
+                outline: none;
+                max-width: 100px;
+            }
+        }
+
+        .panel {
+            // @extend .bg-transparent;
+            @extend .mar-b0;
+            @extend .p-rel;
+
+            .panel-heading {
+                @extend .bg-transparent;
+
+                h3 {
+                    //  @extend .f-12;
+                    line-height: 18px;
+                    color: #fbfbfb;
+                    // font-family: $roboto-light;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-light);
+                      }
+                }
+            }
+            .panel-body {
+                @extend .pad-x15;
+                @extend .pad-y0;
+                @extend .p-rel;
+                min-height: 180px;
+
+                &.pad-r0 {
+                    padding-right: 0 !important;
+                }
+
+                &.pad-x0 {
+                    padding-right: 0 !important;
+                    padding-left: 0 !important;
+                }
+            }
+
+            &.border-t {
+                border-top: 1px solid #2E424B !important;
+            }
+        }
+
+        .progressbar-list {
+            .left-col {
+                @extend .f-11;
+                @extend .ws-normal;
+                width: 120px;
+                line-height: 12px;
+                // font-family: $roboto-medium;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-medium);
+                  }
+                color: rgba($text-color-default, .6);
+                text-transform :capitalize!important;
+            }
+
+            .progress {
+                width: calc(100% - 120px);
+                height: 8px;
+            }
+        }
+    }
+
+    .panel {
+        @extend .border-0;
+
+        .remote-filters-wrapper {
+            height: 30px;
+        }
+
+        &.border-dark-grey-thin-b {
+            border-bottom: 1px solid #2E424B !important;
+        }
+
+        .height-1435 {
+              height: 146.5rem;
+            overflow: hidden;
+        }
+    }
+
+    .autodesk-details-list {
+        max-height: 1420px;
+        @extend .p-rel;
+    }
+
+  
+
+    .select-industry-class #industriesList .progressbar-list-item {
+        padding-bottom: 3px;
+    }
+
+    .badge {
+        margin: 3px;
+    }
+
+    .info-badge-class {
+        background-color: #b2d9ff;
+        color: #6787ae;
+        border-radius: $sm-comp-corner-radius;
+        float: left;
+        margin-left: 1%;
+        padding: 4px 7px;
+    }
+
+    .primary-badge-class {
+        background-color: #c1b9f2;
+        color: #7368ad;
+        border-radius: $sm-comp-corner-radius;
+        padding: 4px 7px;
+        float: left;
+        margin-left: 1%;
+    }
+
+    .warning-badge-class {
+        background-color: #f7c70b;
+        color: #745400;
+        border-radius: $sm-comp-corner-radius;
+        float: left;
+        margin-left: 1%;
+        padding: 4px 7px;
+    }
+
+    .customScrollForSelect {
+        width: 40%;
+
+        .multiselect-parent {
+            @extend .width-100;
+
+            button,
+            ul {
+                @extend .width-100;
+            }
+
+            ul {
+                left: unset;
+                right: 0;
+                max-width: none;
+            }
+        }
+    }
+
+    .select-width-class {
+        width: 100px;
+    }
+
+    .popover {
+        background: #1E2F37 !important;
+    }
+
+    .popover .popover-top .arrow:after {
+        background: #1E2F37 !important;
+    }
+
+    .pagination.news-pagination-wrapper {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin: 0;
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,.2), 0 1px 10px 0 rgba(0,0,0,.12), 0 4px 5px 0 rgba(0,0,0,.14);
+    li{
+        >a{
+            background-color: #424242;
+            color: rgba(251,251,251,.8);
+            }
+        }
+      }
+
+    .autodesk-alert-class {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: rgb(241, 80, 52);
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    .autodesk-alert-top60 {
+        top: 60% !important;
+    }
+
+    .autodesk-alert-top90 {
+        top: 90% !important;
+    }
+
+    .autodesk-alert-top85 {
+        top: 85% !important;
+    }
+
+    .autodesk-alert-top30 {
+        top: 30% !important;
+    }
+
+    .autodesk-alert-left90 {
+        left: 90% !important;
+    }
+
+    .row.top-row.custom-list.width-a.h-160.pad-left-tab.custom-row .autodesk-newslist-border-class {
+        padding: 5px 10px !important;
+        border: 1px solid #60747d !important;
+        border-radius: $sm-comp-corner-radius;
+        margin-top: -1%;
+        margin-right: -6%;
+    }
+
+    .custom-panel-wrapper.autodesk-panel-wrapper .panel-body .mTSWrapper {
+        width: 100%
+    }
+    .select-industry-class .panel .panel-body{
+        height:180px;
+    }
+    .select-industry-class .mTSWrapper.mTS_vertical {
+        width: 100% !important;
+    }
+
+    .select-industry-class .list-unstyled.progressbar-list {
+       // min-height: 336px;
+        overflow: visible !important;
+    }
+
+    .panel.custom-panel-wrapper.bg-transparent.autodesk-panel-wrapper .list-unstyled.progressbar-list {
+        min-height: 170px;
+        overflow: visible !important;
+    }
+
+    .border-dark-grey-thin-l.select-industry-class .panel-body.right-panel-body {
+        height: 340px;
+        overflow: hidden;
+    }
+
+    /*.progress-lightpink
+            {
+                background:#D44A88;
+            }*/
+}
+
+.risk-score-panel .panel.custom-panel-wrapper.bg-transparent.autodesk-panel-wrapper .mTSWrapper.mTS_vertical {
+
+    width: 100%;
+}
+
+h3.top-details-heading.text-center.f-12 {
+    text-align: center;
+}    
+.overflow-visible{
+    .mTSWrapper.mTS_vertical{
+        overflow: visible !important; 
+        width:100%;  
+    }      
+}
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+
+@media (min-width:$screen-lg) {}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {}
+
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {}

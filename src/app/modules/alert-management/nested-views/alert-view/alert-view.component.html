@@ -1,0 +1,24 @@
+<div class="d-flex fd-c alert-list mt-4 alert-data-container">
+  <app-alert-metadata *ngIf="isLoaded" [alertData]="alertView"></app-alert-metadata>
+  <app-alert-entity-details *ngIf="isLoaded"
+    [alertData]="alertView.alert_entity_information"></app-alert-entity-details>
+
+  <section class="alert-details-wrap" *ngIf="isLoaded">
+    <div class="container-fluid">
+      <div class="row w-100">
+        <div class="col-md-3 alt-border-right">
+
+          <app-alert-hit-details (userSelectedData)="selectedItem($event)"
+            [alertData]="alertView"></app-alert-hit-details>
+        </div>
+        <div class="col-md-9">
+          <app-alert-hit-wrapper [alertData]="alertView" *ngIf="!showAdverseMedia"></app-alert-hit-wrapper>
+          <app-alert-adverse-media [alertData]="alertView" *ngIf="showAdverseMedia"></app-alert-adverse-media>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="alert-loader" *ngIf="!isLoaded">
+    <i class="fa fa-spinner txt-on-surface-06 fa-pulse" style="font-size: 4rem"></i>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+@import "../../../../../../assets/theme-builder/theme_builder";
+::ng-deep {
+  .multi-select-dropdown {
+    position: relative;
+    padding-bottom: 60px;
+    min-width: 264px !important;
+    transform: none !important;
+
+    .custom-filter-button {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      // background-color: #424242;
+      background-color: $surface;
+      // width: 264px;
+    }
+  }
+}
+
+::ng-deep .user-managment-table {
+  .mat-form-field-infix {
+    // padding: 0.8rem 0 1rem 0;
+
+    .mat-form-field-label-wrapper {
+      // top: -0.9rem !important;
+    }
+  }
+
+  .mat-form-field-flex {
+    height: 35px;
+  }
+}
+
+.edit-icon{
+    // color: rgba(255, 255, 255, 0.4);
+    color: $text-on-surface;
+    font-size: 16px;
+}
+.mxw-70{
+    max-width: 70%;
+}
+.w-60{
+    width:60px;
+}
+
+.cancelIcon{
+    color: #ef5350;
+}
+.saveIcon{
+    color:$primary-color;
+}
+
+::ng-deep .text-select-wrapper .mat-form-field-infix {
+  display: inherit;
+}
+
+::ng-deep .ag-theme-balham .ag-floating-filter-full-body input:disabled {
+  color: rgba(0, 0, 0, 0.38);
+  background-color: #0a0a0a00;
+}
+
+.filter-input{
+  display: block;
+}
+
+.input-text-disabled{
+  color:rgb(241, 241, 241) !important;
+  font-size: 14px;
+  margin-top: 4px;
+}

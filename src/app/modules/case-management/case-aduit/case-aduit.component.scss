@@ -1,0 +1,396 @@
+@import "../../../../assets/scss/theme/common/variable";
+
+.single-audit-info {
+  margin-top: 16px;
+}
+.audit-left-panel {
+  height: calc(100vh - 118px);
+  position: fixed;
+  top: 118px;
+  right: 0;
+  width: 0;
+  background-color: $surface;
+  box-shadow: 0 1.1rem 1.5rem -0.7rem rgba($black, 0.2),
+    0 0.9rem 4.6rem 0.8rem rgba($black, 0.12),
+    0 2.4rem 3.8rem 0.3rem rgba($black, 0.14);
+  z-index: 100;
+  transition: all 0.3s ease;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar-thumb {
+    width: 4px !important;
+    background: rgba($white, 0.12) !important;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background: rgba($white, 0.12) !important;
+  }
+}
+::ng-deep .audit-sideBar-open {
+  .case-pannel-width {
+    transition: all 0.3s ease;
+    width: calc(100% - 310px);
+  }
+  .case_management_dashboard .ag-paging-panel.ag-unselectable {
+    // right: 3.5% !important;
+    right: 198px !important;
+  }
+}
+
+.clr-p87 {
+  color: rgba($white, 0.87);
+}
+
+.clr-p54 {
+  color: rgba($white, 0.54);
+}
+
+.panel-open {
+  width: 304px !important;
+  padding: 16px 24px;
+}
+
+.audit-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba($white, 0.12);
+
+  .title {
+    font-size: 20px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.2;
+    letter-spacing: 0.15px;
+  }
+  .close-icon {
+    font-size: 24px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.search-input {
+  height: 40px;
+  width: 100%;
+  background-color: rgba($white, 0.08);
+  padding: 0 30px 0 52px;
+  border: none;
+  border-radius: $sm-comp-corner-radius;
+  color: $text-on-surface;
+  font-size: 16px;
+  letter-spacing: 0.15px;
+
+  &::placeholder {
+    font-size: 16px;
+    letter-spacing: 0.15px;
+    color: $text-on-surface;
+    opacity: 0.6;
+  }
+
+  &:focus,
+  &:active {
+    border: none;
+    box-shadow: none;
+  }
+}
+
+.search-icon {
+  top: 50%;
+  transform: translateY(-50%);
+  left: 16px;
+  color: rgba(255,255,255,.6);
+}
+
+.loading-audit {
+  height: calc(100vh - 118px);
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: $surface;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.audit-info {
+  width: 100%;
+  height: auto;
+  margin-top: 16px;
+}
+
+.day-title {
+  width: 100%;
+  border-bottom: 1px solid rgba($white, 0.12);
+  padding-bottom: 16px;
+  font-size: 10px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.6;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+::ng-deep .case-accordion {
+  .mat-expansion-panel-spacing {
+    margin: 0 !important;
+  }
+  .mat-expansion-panel {
+    border-radius: unset !important;
+  }
+  .mat-expansion-panel-header {
+    padding: 0px;
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+    padding-bottom: 8px;
+    padding-top: 8px;
+
+    .mat-content {
+      flex: unset;
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.75;
+      letter-spacing: 0.15px;
+      color: rgba($white, 0.87);
+      width: -webkit-fill-available;
+
+      .mat-expansion-panel-header-title {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-right: 0;
+      }
+
+      .action-count {
+        font-size: 12px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.67;
+        letter-spacing: -0.5px;
+        text-align: right;
+        color: rgba($text-on-surface, 0.6);
+      }
+    }
+
+    .mat-expansion-indicator {
+      margin-right: 13px !important;
+      margin-top: -2px;
+      &::after {
+        font-family: "Material Icons Round";
+        transform: rotate(-40deg) translateY(-1px);
+        color: $text-on-surface;
+        opacity: 0.54;
+      }
+    }
+  }
+  .mat-expanded {
+    .mat-expansion-indicator {
+      margin-left: 2px !important;
+      &::after {
+        transform: rotate(225deg) translateY(-1px) !important;
+      }
+    }
+  }
+
+  .mat-expansion-panel {
+    background-color: transparent;
+    box-shadow: none;
+  }
+  .mat-expansion-panel-body {
+    padding-right: 0;
+  }
+}
+
+.case-audit-content {
+  &:not(:first-child) {
+    margin-top: 24px;
+  }
+  &:not(:last-child) {
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba($white, 0.12);
+  }
+  .case-update-header {
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: -0.5px;
+  }
+  .case-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    .user-wrapper,
+    span {
+      display: inline-block;
+    }
+    .case-update-time {
+      margin-left: auto;
+      text-transform: uppercase;
+    }
+    .case-update-description {
+      margin-left: 8px;
+      width: 50%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .user-wrapper {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $grey;
+      overflow: hidden;
+      font-size: 11px;
+      color: rgba($white, 0.87);
+    }
+  }
+}
+
+.case-risk-transfer-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+
+  .case-override-divider {
+    margin: 0 5px;
+    color: rgba($white, 0.5);
+    font-size: 20px;
+    width: 24px;
+    text-align: center;
+  }
+  .override-type {
+    margin-left: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: -0.5px;
+    text-align: left;
+    color: rgba($white, 0.87);
+  }
+}
+
+.case-light-green {
+  color: $light-green;
+}
+.case-red {
+  color: $error-state;
+}
+.clr-p6 {
+  color: rgba($white, 0.6);
+}
+.description-info {
+  margin-top: 16px;
+}
+.list-img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+}
+.clear-icon {
+  font-size: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+  color: $text-on-surface;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+.overflow-eclips {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+.audit-risk-icon {
+  height: unset;
+  width: unset;
+  margin-right: 6px;
+  font-size: 20px;
+}
+.custom-card {
+  padding: 15px 24px;
+  border-radius: $sm-comp-corner-radius !important;
+
+  .card-header {
+    padding: 8px 0 10px;
+    border-bottom: 1px solid $case-aduit;
+
+    h3 {
+      font-size: 20px;
+      font-weight: 550;
+      padding-bottom: 3px;
+    }
+  }
+}
+
+.card-details {
+  background-color: rgba(255,255,255,.08);
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  margin: 15px 0px 10px;
+  margin-bottom: 12px;
+  display: flex;
+  .header-dt {
+    .initial-name-wrapper {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: $initial-name-wrapper;
+      font-size: 27px;
+      margin-right: 5px;
+      line-height: 1.9;
+      text-align: center;
+    }
+  }
+  p {
+    color: $form-field-focused-text-color;
+    line-height: 1.5;
+    font-size: 1.4rem;
+  }
+
+  .label {
+    color: rgba(255,255,255,.6);
+    word-break: break-all;
+    min-width: 55px;
+    margin-top: 2px;
+  }
+
+  .labelData {
+    word-break: break-all;
+  }
+}
+.clr-none-state{
+  color: $carrot-orange;
+}
+
+.bst-color-ty {
+  color: rgba(255,255,255,.87);
+}
+
+.bst-mat-divider {
+  margin: 16px 0 0 !important;
+}

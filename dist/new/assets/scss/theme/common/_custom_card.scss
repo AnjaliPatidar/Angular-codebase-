@@ -1,0 +1,84 @@
+/*
+================================================================================
+**********************  Custom Card Styles For The Site  ***********************
+================================================================================
+*/
+.custom-card {
+  @include padding(15px);
+  background-color: $surface;
+  border: 0;
+  border-radius: $lg-comp-corner-radius;
+  position: relative;
+  .card-header {
+    background-color: transparent;
+    border: 0;
+    position: relative;
+    padding: 0 0 10px;
+
+    i,
+    span,
+    svg {
+      color: $text-on-surface;
+
+    }
+
+    button {
+      @extend .bg-transparent;
+    }
+
+    h3 {
+      @extend .mar-b0;
+      @extend .roboto-light;
+      @extend .text-unset;
+      font-size: 1.8rem;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.33;
+      letter-spacing: -0.3px;
+      color: $text-on-surface;
+    }
+
+    &:after {
+      content: "";
+      height: 1px;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-image: linear-gradient(to left, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12))
+    }
+  }
+
+  .card-body {
+    @extend .text-cream;
+    min-height: 10rem;
+    position: relative;
+    padding: 10px 0 10px;
+    position: relative;
+  }
+
+  &.sm-cards {
+    .card-header {
+      font-size: 1.4rem;
+
+      &:after {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+
+@media (min-width:$screen-lg) {}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {}
+
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {}

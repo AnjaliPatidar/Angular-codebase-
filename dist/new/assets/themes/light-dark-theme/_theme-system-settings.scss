@@ -1,0 +1,232 @@
+.settings-dashboard {
+  margin-top: 8px;
+    &.general-settings-wrapper {
+      // .settings-wrapper {
+        .side-remain {
+          .panel-body {
+            .sub-heading {
+              &:after {
+                background-image: none;
+                background: $input-border-color;
+              }
+            }
+            .fa-plus {
+              background-image: none !important;
+              background: $theme-yellow-color;
+            }
+            .width-48 {
+              &.settings-toggle-wrapper{
+                &>select{
+                  background: $theme-input-bg;
+                  border-radius: 0;
+                  border-color: $input-border-color;
+  
+                }
+                & > span {
+                  font-family: 'gotham-regular',sans-serif !important;
+                              }
+              }
+            }
+          }
+        }
+      // }
+    }
+    .side-remain {
+      .main-panel {
+        .panel-body-wrapper{
+          .plus-icon {
+          background-color: $theme-yellow-color;
+          }
+        }
+      }
+    }
+  }
+  .user-mgt-section {
+    #user-mgt-regulation {
+      &+.custom-select-wrapper {
+        .select-group {
+          input {
+            background-color: $theme-input-bg;
+            border-radius: 0;
+            border-color: $input-border-color;
+          }
+        }
+      }
+      .custom-col-table {
+        thead {
+          tr {
+            border-radius: 0 !important;
+          }
+        }
+        tbody {
+          tr {
+            background: $theme-bg-color !important;
+          }
+        }
+      
+      }
+    }
+  }
+  
+  .light-theme {
+    .panel-default {
+      &>.panel-heading{
+        border-bottom: 1px solid $input-border-color !important;
+    }
+  
+    }
+  }
+  .table.scroll-table {
+    .mCSB_scrollTools_vertical  {
+      right: 0;
+    }
+  } 
+  .theme-wrapper {
+    .new-theme{
+      background :$theme-input-bg;
+    }
+    .theme{
+      &.active {
+        border-color: $theme-yellow-color;
+      }
+      .theme-body {
+          .theme-header {
+              .theme-name {
+                  .material-icons {
+                    color: $theme-yellow-color;
+                }
+              }
+          }
+      }
+  
+    }
+  }
+  
+  .modal {
+      &.bst_modal {
+          .modal-content {
+              .modal-header {
+                  padding: 0 0 5px;
+              }
+          }
+      }
+  }
+  
+  .custom-cloud-wrapper {
+      .fa-cloud-upload {
+          -webkit-text-fill-color: rgba(0, 0, 0, 0.2) !important;
+      }
+  }
+  
+  .settings-dashboard {
+      &.general-settings-wrapper {
+          .settings-wrapper {
+              .side-remain {
+                  .panel-body {
+                      #customer_logo {
+                          border-radius: 0px !important;
+                      }
+                  }
+              }
+          }
+      }
+  }
+  
+  .bordered-button {
+      &.sm-btns {
+          padding: 0.5em 0.8em!important;
+      }
+  }
+  
+
+.custom-data-table-wrapper {
+  .table {
+      &.scroll-table {
+          thead {
+              tr {
+                  background: $theme-yellow-color !important;
+                  border-radius: 0 !important;
+                  box-shadow: none !important;
+                  th {
+                      color: $theme-black-color;
+                      text-transform: capitalize;
+                      font-weight: bold;
+                      font-family: "gotham-bold", sans-serif;
+                      font-size: 14px;
+                      span {
+                          color: $theme-black-color;
+                      }
+                  }
+              }
+          }
+          tbody {
+              tr {
+                  border-radius: 0;
+                  margin: 0;
+                  box-shadow: none !important;
+                  &:nth-of-type(odd) {
+                      // background: transparent !important;
+                      background: rgba(0, 0, 0, 0.04) !important;
+                      box-shadow: none !important;
+                  }
+                  td {
+                      color: $theme-black-color;
+                      span {
+                          color: $theme-black-color;
+                          font-weight: normal;
+                          font-size: 12px;
+                          border-radius: 0;
+                      }
+                  }
+              }
+          }
+      }
+  }
+  .table.table-striped-z {
+    tbody {
+        background-color: $theme-white-color !important;
+        tr {
+            &:nth-of-type(even) {
+                background-color: $theme-white-color !important;
+            }
+        }
+    }
+}
+}
+
+.bordered-button {
+  border: 1px solid $theme-black-color !important;
+  border-radius: 0 !important;
+  color: $theme-black-color !important;
+}
+.grad-button {
+  background-image: none;
+  background: $theme-yellow-color !important;
+  border-radius: 0 !important;
+  color: $theme-black-color !important;
+  font-weight: normal;
+  &#signIn,
+  &#twoWaySignIn {
+      width: 120px;
+      height: 36px;
+  }
+  &#backToLogin {
+      padding: 0 15px !important;
+  }
+}
+.custom-select-dropdown {
+  .dropdown-menu {
+    .dropdown-item {
+      background-color: #eaeaea;
+      &.active {
+        background-color: $theme-yellow-color;
+      }
+    }
+
+  }
+}
+
+.tag-no-data {
+  color: rgb(45 40 40 / 79%);
+}
+

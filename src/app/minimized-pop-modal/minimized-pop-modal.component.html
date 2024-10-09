@@ -1,0 +1,34 @@
+<div class="minimized-screening-modal">
+    <div class="header">
+        <h4 class="header-heading"> {{ screeningResponse?.status ? 'Screening Completed' : 'Screening Entities' }} </h4>
+        <i class="fa fa-angle-down icon-size" (click)="toogleDetails()" *ngIf="enableDetailsView"></i>
+        <i class="fa fa-angle-up icon-size" (click)="toogleDetails()" *ngIf="!enableDetailsView"></i>
+    </div>
+    <ng-container *ngIf="enableDetailsView">
+        <ng-container *ngIf="!screeningResponse.status;else screeningCompleted">
+            <div class="body">
+                <p class="processing-enitties"> Processing Screening: {{entitesCount}} Entities </p>
+                <div class="progress-procesing-bar">
+                    <div class="progress-bar-value"></div>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #screeningCompleted>
+            <div class="screening-completed-screen" appBindCssVariable [bindCssVariableValue]="uploadScreenReasult">
+                <i class="{{ uploadScreenReasult?.icon }} reasult-icon">{{ uploadScreenReasult?.iconText}}</i>
+                <div class="error-description">
+                    <div class="error-text">
+                        <ng-container *ngFor="let data of uploadScreenReasult?.text">
+                            <p> {{ data }} </p>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        <div class="view-btn d-flex jc-fe">
+            <button mat-raised-button class="view-detaiks-btn" (click)="viewDetails()">
+                <span class="next-text">{{'View Details' | translate}}</span>
+            </button>
+        </div>
+    </ng-container>
+</div> 

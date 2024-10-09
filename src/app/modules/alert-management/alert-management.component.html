@@ -1,0 +1,5 @@
+<div class="alert_management_dashboard dashboard_wrapper d-flex position-relative">
+  <app-left-panel class="b-0 l-0"></app-left-panel>
+    <router-outlet></router-outlet>
+    <app-minimized-pop-modal *ngIf="enablePopWindow"></app-minimized-pop-modal>
+</div>

@@ -1,0 +1,44 @@
+
+/*==============================================================================
+****************  Entity Company Page Styles For The Site  *********************
+==============================================================================*/
+
+/*--  Entity Company Due Tab Wrapper Styles  --*/
+.due-tab-wrapper{
+    .custom-row{    
+        .custom-col{
+            .industry-col{
+                .alert-message-wrapper{
+                    position: relative;
+                } 
+            }
+        }    
+    }
+}
+.recent-pep-wrapper{
+    .entity-result-item{   
+        &.entity-result-item-lg{ 
+            height: 250px;
+        }
+    }
+}
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+@media (min-width:$screen-lg){
+
+}
+@media (min-width: $screen-md) and (max-width: $screen-md-max){
+
+}
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max){
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max){
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs){
+
+}
+

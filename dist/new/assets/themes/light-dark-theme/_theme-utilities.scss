@@ -1,0 +1,60 @@
+/*  
+=======================================================================================
+************************  GothamBook Fonts For The Theme  ****************************
+=======================================================================================
+*/
+/** Loading Gotham Book Regular Font **/
+@font-face {
+    font-family: 'gotham-regular';
+    src: url('src/assets/fonts/gotham-book/Gotham-regular.otf');
+    src: url('src/assets/fonts/gotham-book/Gotham-regular.ttf') format('truetype');
+  }
+  
+  /** Loading Gotham Book Medium Font **/
+  @font-face { 
+    font-family: 'gotham-medium';
+    src: url('src/assets/fonts/gotham-book/Gotham_Medium.otf');
+    src: url('src/assets/fonts/gotham-book/Gotham_Medium.ttf') format('truetype');
+  }
+
+  /** Loading Gotham Book Bold Font **/
+  @font-face { 
+    font-family: 'gotham-bold';
+    src: url('src/assets/fonts/gotham-book/Gotham-Bold.otf');
+    src: url('src/assets/fonts/gotham-book/Gotham-Bold.ttf') format('truetype');
+  }
+  
+  /*  
+  =======================================================================================
+  ************************ Creating Color Variables For Themeing ************************
+  =======================================================================================
+  */
+  
+  $theme-black-color: #000;
+  $theme-text-color : #333;
+  $theme-heading-color: #000;
+  $theme-bg-color: #eaeaea;
+  $theme-yellow-color: #ffcc33;
+  $theme-white-color : #fff;
+  $theme-light-color: #858585;
+  $header-bg-color : #ffcc33;
+  $header-icons-color : #000;
+  $breadcrumb-text-color : #b7b7b7;
+  $submenu-bg-color : #333;
+  $charts-bg-color : #fff;
+  $right-panel-bg : #fff;
+  $right-panel-hover-bg : #fea317;
+  // $right-panel-card : #f4f4f4;
+  $ag-body-bg:#d1d2d224;
+  $right-panel-card : #fea317;
+  $left-panel-bg : #333;
+  $left-panel-active-border: #ffcc33;
+  $pagination-dropdown-color : rgba(0, 0, 0, 0.12);
+  $table-filter-border-color : #eaeaea;
+  $table-bg-color: #fff;
+  $table-headers-bg: #f4f4f4;
+  $submenu-border-color : #8661c6;
+  $input-border-color : #c1c1c1;
+  $theme-light-black : rgba(0, 0, 0, 0.6);
+  $theme-light-black-bg : rgba(0, 0, 0, 0.2);
+  $theme-input-bg:rgba(0,0,0,0.1);

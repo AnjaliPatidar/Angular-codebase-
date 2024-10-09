@@ -1,0 +1,488 @@
+<app-utilities-panel
+  [class.d-none]="!displayUtilityPanel"
+  [displayUtilityPanel]="displayUtilityPanel"
+  (ParentHidePanel)="onParentHidePanel($event)"
+></app-utilities-panel>
+
+<div
+  class="submenu-wrapper ai-c d-flex"
+  [ngClass]="
+    currentState && currentState[2] == 'entity'
+      ? 'discover-background'
+      : currentState && currentState[2] == 'alert-management'
+      ? 'discover-background'
+      : currentState && currentState[2] == 'case-management'
+      ? 'discover-background'
+      : currentState && currentState[2] == 'system-monitoring'
+      ? 'manage-background'
+      : currentState && currentState[2] == 'user-management'
+      ? 'manage-background'
+      : currentState && currentState[2] == 'systemSettings'
+      ? 'manage-background'
+      : currentState && currentState[2] == 'list-management'
+      ? 'manage-background'
+      : ''
+  "
+>
+  <!--  Utility Group Starts  -->
+  <div class="btn-group utility-group z-999 d-flex" uib-dropdown>
+    <a
+      id="single-button"
+      *ngIf="
+        currentState &&
+        currentState[2] &&
+        (currentState[2] == 'alert-management' ||
+          currentState[2] == 'case-management')
+      "
+      (click)="displayPanel()"
+      class="pad-x10 d-flex ai-c text-dark-black discover-border"
+      uib-dropdown-toggle
+      [class.border-0]="isLightTheme"
+    >
+      <i class="fas fa-bars icon-left d-none visible-xs"></i>
+      <strong class="hidden-xs discover-text" *ngIf="!isLightTheme">{{
+        "Discover" | translate
+      }}</strong>
+      <i
+        class="material-icons w-50 text-center f-24 border-right border-0 text-dark-black"
+        *ngIf="isLightTheme"
+      >
+        menu
+      </i>
+      <i
+        class="fa fa-angle-down mar-l10 f-23 discover-icon"
+        *ngIf="!isLightTheme"
+      ></i>
+    </a>
+    <a
+      id="single-button"
+      *ngIf="
+        currentState &&
+        currentState[2] &&
+        (currentState[2] == 'enrich' ||
+          currentState[2] == 'entity' ||
+          currentState[2] == 'entityCompany' ||
+          currentState[2] == 'entityCompanyNew' ||
+          currentState[2] == 'social-live-feed' ||
+          currentState[2] == 'entityCompanyStatic')
+      "
+      (click)="displayPanel()"
+      class="pad-x10 d-flex ai-c text-dark-black"
+      uib-dropdown-toggle
+    >
+      <i class="fas fa-bars icon-left d-none visible-xs"></i>
+      <strong class="hidden-xs enrich-text">Enrich</strong>
+      <i class="fa fa-angle-down mar-l10 f-23 text-white enrich-icon"></i>
+    </a>
+    <a
+      id="single-button"
+      *ngIf="
+        currentState &&
+        currentState[2] &&
+        (currentState[2] == 'system-monitoring' ||
+          currentState[2] == 'user-management' ||
+          currentState[2] == 'list-management' ||
+          currentState[2] == 'systemSettings')
+      "
+      (click)="displayPanel()"
+      class="pad-x10 d-flex ai-c text-dark-black manage-border"
+      uib-dropdown-toggle
+    >
+      <i class="fas fa-bars icon-left d-none visible-xs"></i>
+      <strong class="hidden-xs manage-text">{{ "Manage" | translate }} </strong>
+      <i class="fa fa-angle-down mar-l10 f-23 manage-icon"></i>
+    </a>
+    <ul
+      class="dropdown-menu bg-"
+      uib-dropdown-menu
+      role="menu"
+      aria-labelledby="single-button"
+    >
+      <li>
+        <a class="dropdown-toggle bg-transparent border-0 ai-c d-flex">
+          <img class="square-40" />
+          <span class="f-21 mar-l10">{{ dashboardName }}</span>
+          <i class="fa fa-times icon-right"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!--  Utility Group Ends  -->
+  <!-- BreadCrumbs By Anil -->
+  <ul class="list-unstyled d-flex mb-0 w-100 px-3 bg-transparent border-0">
+    <!--  <li *ngFor="let breadcrumb of listUrl" routerLinkActive="active" [routerLink]="breadcrumb.url"><span>{{breadcrumb.name}}-</span></li> -->
+    <li class="d-flex align-items-center justify-content-between w-100">
+      <app-breadcrumb [InitialModuleName]="route"></app-breadcrumb>
+      <div>
+        <button
+          disabled
+          *ngIf="
+            screeningOptions['ods']['disable'] &&
+            currentUrl.indexOf('alert-management/alertsList') != -1
+          "
+          (click)="openAlertOndemandModal()"
+          class="discover-btn_search radius-0 btn d-inline-flex align-items-center btn-default bg-transparent upload-file-btn upload-header-button mr-3"
+          permission
+          [domainPermission]="permisionIds['Perform ODS']"
+        >
+          <i class="material-icons mr-3 f-18">search</i>
+          <span class="f-15"> {{ "Search" | translate }}</span>
+        </button>
+        <button
+          *ngIf="
+            !screeningOptions['ods']['disable'] &&
+            currentUrl.indexOf('alert-management/alertsList') != -1
+          "
+          (click)="openAlertOndemandModal()"
+          class="discover-btn_search radius-0 btn d-inline-flex align-items-center btn-default bg-transparent upload-file-btn upload-header-button mr-3"
+          permission
+          [domainPermission]="permisionIds['Perform ODS']"
+        >
+          <i class="material-icons mr-3 f-18">search</i>
+          <span class="f-15"> {{ "Search" | translate }}</span>
+        </button>
+        <button
+          *ngIf="
+            screeningOptions['ssb']['show'] == true &&
+            currentUrl.indexOf('alert-management/alertsList') != -1
+          "
+          (click)="openScreeningBatchFileModal()"
+          class="discover-btn_search radius-0 btn btn-default d-inline-flex align-items-centert bg-transparent upload-file-btn upload-header-button"
+          permission
+          [domainPermission]="permisionIds['Submit SSB']"
+        >
+          <i class="material-icons mr-3 f-18">cloud_upload</i>
+          <span class="f-15 text-capitalize"> {{ "Upload" | translate }}</span>
+        </button>
+
+        <button
+          *ngIf="
+            !(screeningOptions['ssb']['show'] == true) &&
+            currentUrl.indexOf('alert-management/alertsList') != -1
+          "
+          (click)="openSSBStatusBar()"
+          class="discover-btn_search radius-0 btn btn-default d-inline-flex align-items-centert bg-transparent upload-file-btn upload-header-button"
+          permission
+          [domainPermission]="permisionIds['Submit SSB']"
+        >
+          <i class="material-icons mr-3 f-18">{{
+            screeningOptions["ssb"]["icon"]
+          }}</i>
+          <span class="f-15">
+            {{ screeningOptions["ssb"]["text"] | translate }}</span
+          >
+        </button>
+      </div>
+    </li>
+  </ul>
+  <!--  Enrich Panel Wrapper Starts  -->
+  <div
+    class="utilities-panel-contents-wrapper utility-enrich-wrapper pull-right ml-3"
+    style="width: 100%"
+    *ngIf="
+      currentState &&
+      currentState[2] &&
+      (currentState[2] == 'enrich' ||
+        currentState[2] == 'entity' ||
+        currentState[2] == 'entityCompany' ||
+        currentState[2] == 'entityCompanyNew' ||
+        currentState[2] == 'social-live-feed' ||
+        currentState[2] == 'entityCompanyStatic')
+    "
+  >
+    <div class="row d-flex ai-c">
+      <div class="col-xs-12 btn-onboarding-wrapper d-flex ai-c jc-fe pr-5">
+        <div id="generateReportMainDiv" class="" style="margin-right: 1%">
+          <div
+            class="btn-group"
+            *ngIf="currentState[3].split('?')[0] == 'compliance'"
+          >
+            <span
+              class="text-cream mar-l5"
+              placement="bottom"
+              [ngbPopover]="popContent"
+              popoverClass="custom-popover"
+              popoverTitle="Sources"
+              container="body"
+              [autoClose]="false"
+            >
+              <i class="fa mar-x10 f-28 c-pointer fa-link"></i>
+            </span>
+            <ng-template #popContent>
+              <app-entitysourceevidence></app-entitysourceevidence>
+            </ng-template>
+            <!-- here we are using  app-entitysourceevidence  component for popupData-->
+          </div>
+          <div
+            class="btn-group"
+            *ngIf="
+              currentState && currentState[3].split('?')[0] == 'compliance'
+            "
+            id="entityClipboard"
+          >
+            <a (click)="entityClipboard(true)" class="px-3">
+              <span class="fa f-28 mar-r10 text-cream fa-paperclip"></span>
+            </a>
+          </div>
+          <div
+            class="btn-group d-if ai-c mar-b0 bst-checkbox-wrapper"
+            *ngIf="
+              currentState && currentState[3].split('?')[0] == 'compliance'
+            "
+          >
+            <div class="custom-checkbox d-ib d-none">
+              <div
+                class="mar-r5 checkbox-inline"
+                popover-placement="top-left"
+                uib-popover-template="'approveAll.html'"
+                popover-class="top-popover-wrapper approval-popover old-approval"
+                popover-append-to-body="true"
+              >
+                <input
+                  type="checkbox"
+                  ng-model="checkAll"
+                  (click)="markAllWidgets(checkAll)"
+                  class="mar-l0 d-block z-99 c-pointer op-0"
+                />
+                <span class="mar-r0" style="border-color: #fbfbfb !important">
+                  <i
+                    class="fa l-1- fa-check"
+                    style="color: #fbfbfb !important"
+                  ></i
+                ></span>
+              </div>
+            </div>
+            <button
+              id="generateReport"
+              (click)="generateReport()"
+              href
+              class="bordered-button grey-bordered sm-btns d-flex ai-c px-3 btn-onboarding c-ban"
+            >
+              <span style="white-space: nowrap">GENERATE REPORT</span>
+            </button>
+          </div>
+        </div>
+        <div
+          class="btn-group"
+          style="margin-right: 1%"
+          *ngIf="
+            currentState[2] &&
+            currentState[2] == 'entity' &&
+            currentState &&
+            currentState[3].split('?')[0] !== 'overview'
+          "
+        >
+          <a
+            href="javascript:void(0)"
+            (click)="displayIDVQuestionnaire()"
+            class="bordered-button grey-bordered sm-btns d-flex ai-c px-3 btn-onboarding"
+          >
+            <span>CHECKLIST</span>
+          </a>
+        </div>
+        <div
+          class="btn-group"
+          *ngIf="
+            currentState[2] &&
+            currentState[2] == 'entity' &&
+            currentState &&
+            currentState[3].split('?')[0] !== 'overview'
+          "
+        >
+          <a
+            href="{{ onBoarding }}"
+            target="_blank"
+            class="bordered-button grey-bordered sm-btns d-flex ai-c px-3 btn-onboarding"
+          >
+            <span>ONBOARDING</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  Enrich Panel Wrapper ends -->
+  <div class="popup-position" *ngIf="showMyEntityClipboard">
+    <app-entity-clipboard></app-entity-clipboard>
+  </div>
+  <!-- BreadCrumbs By Anil -->
+  <div class="mar-autol">
+    <button
+      class="btn text-capitalize grad-button ng-star-inserted px-3 theme-f-15 mar-15"
+      id="addSource"
+      type="button"
+      (click)="openAddSourceModal()"
+      *ngIf="showAddSource"
+      permission
+      [domainPermission]="
+        newSourceManagementPermissionJSON | getPermissionId: 'addSource'
+      "
+    >
+      Add source
+    </button>
+    <div *ngIf="displaySearch" class="bst_input_group input-group">
+      <span class="input-group-prepend">
+        <i class="fas fa-search"></i>
+      </span>
+      <input type="text" class="custom-input form-control" />
+    </div>
+  </div>
+  <span style="display: inherit" *ngIf="displayCustomizeLayout">
+    <div
+      permission
+      [IsHideRemoveBothEnabled]="true"
+      [domainPermission]="
+        caseDashboardPermissionJSON | getPermissionId: 'addNewWidget'
+      "
+    >
+
+    <button mat-button class="bst-mat-btn bst-mat-btn-light-bg--secondary mr-3" 
+    *ngIf="isCustomize" [disabled]="disableAddWidget$ | async" (click)="addNewWidget()"
+    [ngClass]="
+    (disableAddWidget$ | async)
+      ? 'disabled-p'
+      : currentState && currentState[2] == 'entity'
+      ? 'discover-btn_search'
+      : currentState && currentState[2] == 'alert-management'
+      ? 'discover-btn_search'
+      : currentState && currentState[2] == 'case-management'
+      ? 'discover-btn_search'
+      : currentState && currentState[2] == 'system-monitoring'
+      ? 'manage-btn_search'
+      : currentState && currentState[2] == 'user-management'
+      ? 'manage-btn_search'
+      : currentState && currentState[2] == 'systemSettings'
+      ? 'manage-btn_search'
+      : currentState && currentState[2] == 'list-management'
+      ? 'manage-btn_search'
+      : ''
+  ">
+        <mat-icon class="bst-mat-btn-icon u-mr-4">add_circle</mat-icon>
+        <span>{{"ADDNEW" | translate}}</span>
+    </button>
+
+      <!-- <button
+        *ngIf="isCustomize"
+        [disabled]="disableAddWidget$ | async"
+        [ngClass]="
+          (disableAddWidget$ | async)
+            ? 'disabled-p'
+            : currentState && currentState[2] == 'entity'
+            ? 'discover-btn_search'
+            : currentState && currentState[2] == 'alert-management'
+            ? 'discover-btn_search'
+            : currentState && currentState[2] == 'case-management'
+            ? 'discover-btn_search'
+            : currentState && currentState[2] == 'system-monitoring'
+            ? 'manage-btn_search'
+            : currentState && currentState[2] == 'user-management'
+            ? 'manage-btn_search'
+            : currentState && currentState[2] == 'systemSettings'
+            ? 'manage-btn_search'
+            : currentState && currentState[2] == 'list-management'
+            ? 'manage-btn_search'
+            : ''
+        "
+        class="radius-2 btn d-inline-flex align-items-center btn-default bg-transparent upload-file-btn upload-header-button mr-3"
+      >
+        <i class="material-icons mr-3 f-18">add_circle</i>
+        <span class="f-15" (click)="addNewWidget()">
+          {{"ADDNEW" | translate}}</span>
+      </button> -->
+    </div>
+
+
+
+    <button mat-button class="bst-mat-btn bst-mat-btn-light-bg--secondary mr-3"
+    (click)="customizeLayout()"
+    
+    [ngClass]="
+    currentState && currentState[2] == 'entity'
+      ? 'discover-btn_search'
+      : currentState && currentState[2] == 'alert-management'
+      ? 'discover-btn_search'
+      : currentState && currentState[2] == 'case-management'
+      ? 'discover-btn_search'
+      : currentState && currentState[2] == 'system-monitoring'
+      ? 'manage-btn_search'
+      : currentState && currentState[2] == 'user-management'
+      ? 'manage-btn_search'
+      : currentState && currentState[2] == 'systemSettings'
+      ? 'manage-btn_search'
+      : currentState && currentState[2] == 'list-management'
+      ? 'manage-btn_search'
+      : ''
+  "
+  permission
+  >
+      <mat-icon *ngIf="!isCustomize" class="bst-mat-btn-icon u-mr-4">settings</mat-icon>
+      <mat-icon *ngIf="isCustomize" class="bst-mat-btn-icon u-mr-4">exit_to_app</mat-icon>
+      <span *ngIf="!isCustomize">{{"CUSTOMIZE LAYOUT" | translate}}</span>
+      <span *ngIf="isCustomize">{{"EXIT CUSTOMIZATION MODE" | translate}}</span>
+    </button>
+
+    <!-- <button
+      (click)="customizeLayout()"
+      class="radius-2 btn d-inline-flex align-items-center btn-default bg-transparent upload-file-btn upload-header-button mr-3"
+      [ngClass]="
+        currentState && currentState[2] == 'entity'
+          ? 'discover-btn_search'
+          : currentState && currentState[2] == 'alert-management'
+          ? 'discover-btn_search'
+          : currentState && currentState[2] == 'case-management'
+          ? 'discover-btn_search'
+          : currentState && currentState[2] == 'system-monitoring'
+          ? 'manage-btn_search'
+          : currentState && currentState[2] == 'user-management'
+          ? 'manage-btn_search'
+          : currentState && currentState[2] == 'systemSettings'
+          ? 'manage-btn_search'
+          : currentState && currentState[2] == 'list-management'
+          ? 'manage-btn_search'
+          : ''
+      "
+      permission
+    >
+      <i *ngIf="!isCustomize" class="material-icons mr-3 f-18">settings</i>
+      <i *ngIf="isCustomize" class="material-icons mr-3 f-18">exit_to_app</i>
+
+      <span *ngIf="!isCustomize" class="f-15">{{
+"CUSTOMIZE LAYOUT" | translate
+      }}</span>
+      <span *ngIf="isCustomize" class="f-15">{{
+        "EXIT CUSTOMIZATION MODE" | translate
+      }}</span>
+    </button> -->
+  </span>
+
+  <div class="bst-menu" *ngIf="showGenerateCaseReportButton">
+    <button
+      mat-button
+      [matMenuTriggerFor]="menu"
+      #trigger="matMenuTrigger"
+      class="bst-mat-btn-custom-light-bg bst-mat-btn-custom-light-bg--secondary"
+      permission
+      [IsHideRemoveBothEnabled]="true"
+      [domainPermission]="
+        caseWorkBenchPermissionJSON | getPermissionId: 'generateCaseReport'
+      "
+    >
+      <span>{{ "Generate" | translate }}</span>
+      <mat-icon *ngIf="!trigger.menuOpen" class="bst-mat-btn-custom-icon"
+        >arrow_drop_down</mat-icon
+      >
+      <mat-icon *ngIf="trigger.menuOpen" class="bst-mat-btn-custom-icon"
+        >arrow_drop_up</mat-icon
+      >
+    </button>
+    <mat-menu #menu="matMenu" class="bst-popover">
+      <button mat-menu-item (click)="generateCaseTimeInStatusReport()">
+        <mat-icon>timer</mat-icon>
+        <span translate>{{ "Time in Status" | translate }}</span>
+      </button>
+    </mat-menu>
+  </div>
+</div>
+
+<ng-container *ngIf="(this._sharedService.isDisplayNotificationBar$ | async)?.isShow">
+  <app-notification-bar #notificationBar></app-notification-bar>
+</ng-container>

@@ -1,0 +1,89 @@
+/*-- Bst Custom Checkbox Styles  --*/
+.bst-checkbox-wrapper {
+    @include margin(0 0 5px);
+    cursor: pointer;
+  
+    .checkbox-inline {
+      @include padding(0);
+      outline: none;
+  
+      input[type="checkbox"] {
+  
+        // display: none;
+        &:checked+span {
+          background-color: transparent;
+          border: 1px solid rgba(251, 251, 251, .2) !important;
+          border-radius: 3px;
+  
+          svg,
+          i {
+            opacity: 1;
+          }
+        }
+  
+        +span {
+          //    @extend .text-center;
+          @include square(15px);
+          border: 1px solid rgba(251, 251, 251, .2) !important;
+          @include margin(0 10px 0 0);
+          @include padding(3px);
+          @include transition(all 0.3s ease-in-out);
+          border-radius: 3px;
+          background-color: transparent;
+          line-height: 12px;
+          vertical-align: middle;
+          cursor: pointer;
+          display: inline-block;
+          position: relative;
+  
+          svg,
+          i {
+            @include margin(-4px auto);
+            @include transition(all 0.3s ease-in-out);
+            color: rgba(251, 251, 251, .2) !important;
+            font-size: ($font-size-base - 4);
+            font-weight: 400;
+            display: block;
+            width: 10px;
+            position: relative;
+            left: 0;
+            top: 2px;
+            opacity: 0;
+            overflow: visible;
+          }
+        }
+      }
+    }
+  
+    +span {
+      //    @extend .text-center;
+      @include square(15px);
+      border: 1px solid rgba(251, 251, 251, .2) !important;
+      @include margin(0 10px 0 0);
+      @include padding(3px);
+      @include transition(all 0.3s ease-in-out);
+      border-radius: 3px;
+      background-color: transparent;
+      line-height: 12px;
+      vertical-align: middle;
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+  
+      svg,
+      i {
+        @include margin(-4px auto);
+        @include transition(all 0.3s ease-in-out);
+        color: rgba(251, 251, 251, .2) !important;
+        font-size: ($font-size-base - 4);
+        font-weight: 400;
+        display: block;
+        width: 10px;
+        position: relative;
+        left: 0;
+        top: 2px;
+        opacity: 0;
+        overflow: visible;
+      }
+    }
+  }

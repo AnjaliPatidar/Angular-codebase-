@@ -1,0 +1,268 @@
+/* Common Color Utils */
+
+$color-error-typo      : $color-red-10;
+$color-warning-typo    : $color-warning;
+$color-success-typo    : $color-green-20;
+$color-link            : $primary-color;
+$color-high-emphasis   : $color-white-87;
+$color-medium-emphasis : $color-white-60;
+
+.bst-color-surface {
+  background-color: $surface;
+}
+
+.bst-color-background {
+  background-color: $color-background;
+}
+
+.bst-color-accent {
+  background-color: $primary-color;
+}
+
+//WHITE Colors
+.bst-color-white {
+  background-color: $color-white;
+}
+
+//Gray Colors
+.bst-color-gray-20 {
+  background-color: $color-gray-20;
+}
+
+//Blue Colors
+.bst-color-info {
+  background-color: $color-info;
+}
+
+.bst-color-blue-10 {
+  background-color: $color-blue-10;
+}
+
+.bst-color-blue-10-ic {
+  color: $color-blue-10;
+}
+
+.bst-color-blue-20 {
+  background-color: $color-blue-20;
+}
+
+//Green Colors
+.bst-color-success {
+  background-color: $color-success;
+}
+
+.bst-color-green-10 {
+  background-color: $color-green-20;
+}
+
+.bst-color-cyan-10 {
+  background-color: $color-cyan-10;
+}
+
+.bst-color-cyan-10-ic {
+  color: $color-cyan-10;
+}
+
+.bst-color-cyan-20 {
+  background-color: $color-cyan-20;
+}
+
+Yellow Colors
+.bst-color-yellow-10 {
+  background-color: $color-yellow-10;
+}
+
+.bst-color-yellow-10-ic {
+  color: $color-yellow-10;
+}
+
+.bst-color-yellow-20 {
+  background-color: $color-yellow-20;
+}
+
+//Purple Colors
+
+.bst-color-deeppurple-10 {
+  background-color: $color-deeppurple-10;
+}
+
+.bst-color-deeppurple-10-ic {
+  color: $color-deeppurple-10;
+}
+
+.bst-color-deeppurple-20 {
+  background-color: $color-deeppurple-20;
+}
+
+.bst-color-purple-10 {
+  background-color: $color-purple-10;
+}
+
+.bst-color-purple-10-ic {
+  color: $color-purple-10;
+}
+
+.bst-color-purple-20 {
+  background-color: $color-purple-20;
+}
+
+//Red Colors
+.bst-color-red-10 {
+  background-color: $color-red-10;
+}
+
+.bst-color-red-10-ic {
+  color: $color-red-10;
+}
+
+.bst-color-error {
+  background-color: $color-error;
+}
+
+//Orange Colors
+.bst-color-orange-10 {
+  background-color: $color-warning;
+}
+
+.bst-color-warning {
+  background-color: $color-warning;
+}
+
+//RGBA Common Class
+.bst-color-icon {
+  background-color: $color-icon-enabled;
+}
+
+.bst-color-icon-ic {
+  color: $color-icon-enabled;
+}
+
+.bst-color-accent-ic {
+  color: $primary-color;
+}
+
+.bst-color-white-12 {
+  background-color: $color-white-12;
+}
+
+.bst-color-white-12-ic {
+  color: $color-white-12;
+}
+
+.bst-color-white-12 {
+  background-color: $color-white-12;
+}
+
+.bst-color-white-24 {
+  background-color: $color-white-24;
+}
+
+.bst-color-white-08 {
+  background-color: $color-white-08;
+}
+
+.bst-color-white-32 {
+  background-color: $color-white-32;
+}
+
+.bst-color-accent-24 {
+  background-color: $color-accent-24;
+}
+
+.bst-color-accent-08 {
+  background-color: $color-accent-08;
+}
+
+.bst-color-accent-32 {
+  background-color: $color-accent-32;
+}
+
+.bst-color-white-12 {
+  background-color: $color-white-12;
+}
+
+.bst-color-white-36 {
+  background-color: $color-white-36;
+}
+
+.bst-color-white-24 {
+  background-color: $color-white-24;
+}
+
+.bst-color-white-04 {
+  background-color: $color-white-04;
+}
+
+.bst-color-white {
+  background-color: $color-white;
+}
+
+//Color Variables Class
+
+.bst-color-skyblue-20 {
+  color: $color-skyblue-20;
+}
+
+.bst-color-skyblue-20-n {
+  color: $color-skyblue-20;
+}
+
+.bst-color--orange-n {
+  color: $color-warning !important;
+}
+
+.bst-color--green-n {
+  color: $color-green-20 !important;
+}
+
+// Highlight text for search results
+.highlighted-text {
+  background-color: $color-yellow-10;
+  color: $color-black-87;
+}
+
+// typo element colors
+.bst-color-ty {
+  color: $color-white-87;
+}
+
+.bst-color-ty-link {
+  color: $color-link;
+}
+
+.bst-color-ty-er {
+  color: $color-error-typo;
+}
+
+.bst-color-ty-warn {
+  color: $color-warning-typo;
+}
+
+.bst-color-ty-sc {
+  color: $color-success-typo;
+}
+
+.bst-color-ty-emp-h {
+  color: $color-high-emphasis;
+}
+
+.bst-color-ty-emp-m {
+  color: $color-medium-emphasis;
+}
+
+.bst-color-ty-dis {
+  color: $color-icon-disabled;
+}
+
+.bst-color-ty-link-emp-h {
+  color: $color-link;
+}
+
+.bst-color-ty {
+  &.mat-option {
+    color: $color-white-87;
+  }
+  .bst-color-ty-link-emp-h {
+    color: $primary-color;
+  }
+}

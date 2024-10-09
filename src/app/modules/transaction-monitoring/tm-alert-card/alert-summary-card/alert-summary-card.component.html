@@ -1,0 +1,69 @@
+<div class="card custom-card sm-cards">
+    <div class="card-header border-0 mb-3 row">
+
+        <div class="col align-items-center mr-auto">
+            <span class="f-20 lh-20 text-on-surface d-inline-flex align-items-center">{{ 'Alert Summary' | translate }}</span>
+        </div>
+
+        <div class="col d-flex justify-content-end">
+
+            <div class="assignee-info mr-4">
+                <span class="material-icons mr-1">account_circle</span>
+                <span>{{ 'Assignee' | translate }}: analyst</span>
+            </div>
+
+            <div class="status">
+                <!-- <span class="header-dropdown-label" translate>Status:</span> -->
+                <mat-form-field [style.backgroundColor]="getBgColor(statusFormCtrl?.value?.colorCode)">
+                    <mat-select [formControl]="statusFormCtrl" class="status-mat-select" >
+                      <mat-option *ngFor="let status of alertStatusList; trackBy: trackByText" [(value)]="status">
+                        <span>
+                          <i class="material-icons mr-4" style="font-size: 19px;" [ngStyle]="{'color':getColor(status.colorCode)}">{{ status.icon }}</i>
+                        </span>
+                        <span>{{status.text}}</span>
+                        <div style="width: 29%;">
+                          <i *ngIf="status.displayName == statusFormCtrl?.value?.displayName" class="material-icons active-icon" style="float:right;position: relative; display: inline-flex;" aria-hidden="true">done</i>
+                        </div>
+                      </mat-option>
+                      <mat-select-trigger>
+                       <i class="material-icons f-24 mr-2 align-middle"  [ngStyle]="{'color':getColor(statusFormCtrl?.value?.colorCode)}">{{statusFormCtrl?.value?.icon}}</i>
+                       <span class="mr-2">{{statusFormCtrl?.value?.text | translate}}</span>
+                      </mat-select-trigger>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="d-flex w-100">
+
+        <div class="details-column col-margin">
+            <span class="mr-2"> {{ 'Alert ID' | translate }}: </span>
+            <span> {{ alertCardData?.alertId || '-'}} </span>
+
+            <span class="mr-2"> {{ 'Created Date' | translate }}: </span>
+            <span> {{ (alertCardData?.createdDate | date) || '-' }} </span>
+
+            <span class="mr-2"> {{ 'Focal Point' | translate }}: </span>
+            <span> {{ alertCardData?.focalPoint || '-' }} </span>
+        </div>
+
+        <div class="details-column col-margin">
+            <span class="mr-2"> {{ 'Entity/Person Name' | translate }}: </span>
+            <span> {{ alertCardData?.entityName || '-'}} </span>
+
+            <span class="mr-2"> {{ 'Tenant ID' | translate }}: </span>
+            <span> {{ alertCardData?.tenantId || '-'}} </span>
+
+            <span class="mr-2"> {{ 'Alert Type' | translate }}: </span>
+            <span> {{ alertCardData?.alertType || '-'}} </span>
+        </div>
+
+        <div class="d-flex flex-column align-items-center justify-content-center col-margin">
+            <span class="numerical-count-label">{{ 'Total Score' | translate }}</span>
+            <span class="numerical-count total-score-count">{{ alertCardData?.totalScore || 0}}</span>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,5704 @@
+/*==============================================================================
+**********************  CompanyNew - Dummy Image Starts  ***********************
+===============================================================================*/
+.enrich-error-message {             
+    @extend .text-uppercase;
+    @include translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    color: #cc371d;
+    position: absolute;
+    font-size: $font-size-base;
+}  
+     
+#accordianTopicId {
+    span.ng-binding {
+        display: block;
+    }
+}
+        
+.alert-message-wrapper {
+    &.right-section-item {
+        height: 200px;
+        position: relative;
+    }
+
+    .mCSB_inside>.mCSB_container {
+        height: 100%;
+    }
+
+    .alert-message {
+        @extend .text-center;
+        @extend .text-uppercase;
+        @include center-position();
+        width: 100%;
+        color: $light-red1;
+        font-size: ($font-size-base - 2);
+
+        &.loading-message {
+            @extend .text-uppercase;
+            color: $curious-blue10;
+        }
+    }
+}
+
+.details-wrapper {
+    line-height: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    height: 34px;
+    text-overflow: ellipsis;
+    color: rgb(136, 151, 159);
+    overflow: hidden;
+}
+
+#threadsClassificationChart rect {
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.analyze-panel-wrapper .action-icon-list li+.popover {
+    max-width: 276px !important;
+}
+
+#threadsClassificationChart .chart {
+    display: block;
+    margin: auto;
+}
+
+#threadsClassificationChart .parent .label {
+    color: #FFFFFF;
+    text-shadow: .1rem .1rem .1rem rgba(0, 0, 0, 0.3);
+    -webkit-text-shadow: .1rem .1rem .1rem rgba(0, 0, 0, 0.3);
+    -moz-text-shadow: .1rem .1rem .1rem rgba(0, 0, 0, 0.3);
+}
+
+#threadsClassificationChart .labelbody {
+    background: transparent;
+    padding: .5rem !important;
+}
+
+#threadsClassificationChart .label {
+    margin: 2px;
+    white-space: pre;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: .1rem .1rem .1rem rgba(0, 0, 0, 0.3);
+    -webkit-text-shadow: .1rem .1rem .1rem rgba(0, 0, 0, 0.3);
+    -moz-text-shadow: .1rem .1rem .1rem rgba(0, 0, 0, 0.3);
+}
+
+#threadsClassificationChart .child .label {
+    white-space: pre-wrap;
+    text-align: center;
+    text-overflow: ellipsis;
+    color: #b5aaaa !important;
+    text-transform: uppercase;
+}
+
+#threadsClassificationChart .cell {
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.generate_report_table {
+    border-collapse: collapse !important;
+    margin: auto;
+    border-bottom: .1rem solid #000;
+    border-right: .1rem solid #000;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+
+.generate_report_table th {
+    border: .1rem solid #000;
+    text-align: center;
+    padding: .5rem;
+    border-bottom: none;
+    border-right: none;
+    font-weight: bold;
+    font-size: 14px;
+    color: #000;
+}
+
+.generate_report_table td {
+    border-left: .1rem solid #000;
+    border-top: .1rem solid #000;
+    border-bottom: none;
+    border-right: none;
+    text-align: left;
+    padding: .5rem;
+    font-weight: normal;
+    font-size: 14px;
+    color: #000;
+}
+
+.entity-item.news-wrapper .panel-group .panel {
+    border-radius: 0px;
+    background-color: transparent;
+    border-bottom: none;
+}
+
+.entity-item.news-wrapper .panel-group .panel-heading+.panel-collapse>.panel-body {
+    border-top: none !important;
+    border: none !important;
+}
+
+.entity-item.news-wrapper .panel-group .panel-default {
+    border: none !important;
+    border-color: transparent !important;
+}
+
+.entity-item.news-wrapper .panel-group .panel-heading .panel-title {
+    border-radius: 0px;
+    color:$text-dark;
+    font-size: 1.3rem;
+    border-bottom: 2px solid rgba($text-color-default, .2);
+}
+
+.entity-item.news-wrapper .panel-default .panel-heading {
+    color:$text-dark !important;
+    background-color: transparent !important;
+    padding: 0px !important;
+}
+
+.entity-item.news-wrapper a.accordion-toggle {
+    width: 100%;
+    height: 27px;
+}
+
+.txt-met {
+    color: #63b844 !important;
+}
+
+.txt-unmet {
+    color: #e13b6d !important;
+}
+
+.txt-underachieved {
+    color: #3B7BBC !important;
+}
+
+.txt-overachieved {
+    color: #d48c10 !important;
+}
+
+.none_pointer_events {
+    pointer-events: none;
+    cursor: not-allowed !important;
+}
+
+.read-more {
+    @extend .text-uppercase;
+    @include padding(0 .5rem);
+    font-size: ($font-size-base - 3);
+    color: $curious-blue10;
+    right: 2rem;
+    bottom: 1rem;
+    z-index: 9;
+    position: absolute;
+}
+
+.dittoBlurChart-wrapper {
+    @include padding(0 !important);
+    z-index: 0;
+    background-size: contain !important;
+
+    // &.overviewline-chart-ditto {
+    //     background: url(../../../images/blurimages/bloom-chart.png) no-repeat center;
+    //     height: 290px !important;
+    // }
+
+    // &.vla-chart-ditto {
+    //     background: url(../../../images/blurimages/vla-opc.png) no-repeat center;
+    //     height: 290px !important;
+    // }
+
+    // &.overview-social-media-ditto {
+    //     background: url(../../../images/blurimages/overview-social-media.png) no-repeat center;
+    //     height: 290px !important;
+    // }
+
+    // &.cloud-tag-ditto {
+    //     background: url(../../../images/blurimages/cloud-tag.png) no-repeat center;
+    // }
+
+    // &.business-outlook {
+    //     background: url(../../../images/blurimages/business-outlook.png) no-repeat center;
+    //     height: 150px !important
+    // }
+
+    // &.line-chart {
+    //     background: url(../../../images/blurimages/line-chart.png) no-repeat center;
+    // }
+
+    // &.financialline-chart-ditto {
+    //     background: url(../../../images/blurimages/bloom-chart.png) no-repeat center;
+    //     height: 475px !important;
+    // }
+
+    // &.line-chart-financial {
+    //     background: url(../../../images/blurimages/line-chart.png) no-repeat center;
+    //     height: 190px !important;
+    // }
+
+    // &.line-chart-rightside {
+    //     background: url(../../../images/blurimages/line-chart.png) no-repeat center;
+    // }
+
+    // &.business-outlook-right {
+    //     background: url(../../../images/blurimages/business-outlook.png) no-repeat center;
+    // }
+
+    // &.associated-locations {
+    //     background: url(../../../images/blurimages/associated-locations.png) no-repeat center;
+    // }
+
+    // &.social-media-updates {
+    //     background: url(../../../images/blurimages/social-media-updates.png) no-repeat center;
+    // }
+
+    // &.related-entries {
+    //     background: url(../../../images/blurimages/related-entities.png) no-repeat center;
+    // }
+
+    // &.career-progression {
+    //     background: url(../../../images/blurimages/career-progression.png) no-repeat center;
+    // }
+
+    // &.role-ratio {
+    //     background: url(../../../images/blurimages/role-ratio.png) no-repeat center;
+    // }
+
+    // &.professional-connections {
+    //     background: url(../../../images/blurimages/prefessional-connections.png) no-repeat center;
+    // }
+
+    // &.political-donations {
+    //     background: url(../../../images/blurimages/political-donations.png) no-repeat center;
+    // }
+
+    // &.competitor-compensation {
+    //     background: url(../../../images/blurimages/competitor-compensation.png) no-repeat center;
+    // }
+
+    // &.assets-trends {
+    //     background: url(../../../images/blurimages/assets-trends.png) no-repeat center;
+    // }
+
+    // &.assets-ratio {
+    //     background: url(../../../images/blurimages/assets-ratio.png) no-repeat center;
+    // }
+
+    // &.popular-tags {
+    //     background: url(../../../images/blurimages/popular-tags.png) no-repeat center;
+    // }
+}
+
+/*==============================================================================
+************************  CompanyNew - Dummy Image Ends  ***********************
+===============================================================================*/
+
+.modal-scroll {
+    min-height: 400px;
+    overflow: auto; // .mCSB_container {
+    //      width: 100%; 
+    //      height: 100%;
+    // }
+}
+
+/*==============================================================================
+**********************  CompanyNew - TOP SECTION Starts  ***********************
+===============================================================================*/
+
+.relative {
+    position: relative;
+}
+
+.entity-company-wrapper {
+    padding-left: 60px !important;
+
+    .entity-company-intro.entity-company-new-intro {
+        @include padding-left(110px !important);
+        position: relative;
+        max-height: none;
+        border-bottom: 0;
+        .entity-company-image {
+            @include padding(0);
+            width: 65px;
+            height: 65px;
+            border-radius: 50px;
+            background-color: rgba(251, 251, 251, 0.08);
+            display: block;
+            position: absolute;
+            left: 1.5rem;
+            &.static-logo-img {
+                @include translateY(-50%);
+                top: 50%;
+            }
+
+            >a {
+                @include border-radius(0);
+                @include translate(-50%, -50%); // height: auto;
+                // width: auto;
+                // border: 0;
+                // border-radius: 0;
+                // background-color: transparent;
+                height: 100%;
+                width: 100%;
+                border: 0;
+                background-color: transparent;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                vertical-align: middle;
+
+                >img {
+                    position: absolute;
+                    top: 50%;
+                    left: auto;
+                    transform: translateY(-50%);
+                }
+
+                >i {
+                    font-size: 29px;
+                    text-align: center;
+                    line-height: 68px;
+                    width: 100%;
+                    color: white !important;
+                }
+            }
+        }
+
+        .entity-company-description {
+            @include padding(1rem 0);
+            position: static;
+            min-height: auto;
+            flex: 1 0 75%;         
+            .header{
+                display: inline-flex;
+                width: 100%;
+                justify-content: space-between;
+                h2 {
+                    // @include margin(0 0 1rem);
+                    font-size: ($line-height-computed * 1.5);
+                    line-height: ($line-height-computed * 1.5);
+                    text-transform: capitalize !important;
+                }
+                .rating-header{
+                    margin-right:3rem
+                }
+            }
+            .sub-header{
+                color:white !important;
+                margin-bottom: 1rem;
+            }
+            .main-content-description {
+                .highlighting-info-wrapper {
+                    .read-more {
+                        @extend .text-uppercase;
+                        @include padding(0 .5rem);
+                        font-size: ($font-size-base - 3);
+                        position: absolute;
+                        right: 1.5rem;
+                        bottom: 1.5rem;
+                        z-index: 9;
+                        color: $curious-blue10;
+                    }
+
+                    >ul {
+                        @include margin-bottom(0);
+
+                        >li {
+                            width: 20%;
+                        }
+                    }
+
+                    .highlighting-list {
+                        @extend .pull-left;
+                        // @include margin(0 18px 0 0);
+                        position: relative;
+                         // shravani :16-5-20 No need of side vertical line
+                        // &:not(:last-child) {
+                        //     &:after {
+                        //         content: "";
+                        //         display: inline-block;
+                        //         height: 70px;
+                        //         width: .1rem;
+                        //         position: absolute;
+                        //         background-color: rgba(251, 251, 251, .6);
+                        //         right: -10px;
+                        //         top: 0;
+                        //     }
+                        // }
+
+                        .highlighting-info {
+                            @include margin(0 0 1.5rem);
+                            overflow: hidden;
+                            height: auto;
+                            width: auto;
+                            max-height: 100%;
+
+                            p {
+                                // @extend .text-dark-cream;
+                                color: white;
+                                @include margin(0);
+                                font-size: ($font-size-base - 4);
+                                // font-family: $roboto-light;
+                                @include fontFamily($fonts) {
+                                    font-family: fonted(font-light);
+                                  }
+                                line-height: ($font-size-small + 2);
+                                overflow: hidden;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                text-transform: capitalize;
+                                display: flex;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .entity-contents-wrapper {
+        h3 {
+            color:$text-dark;
+        }
+    }
+
+    .custom-list li {
+        cursor: unset;
+    }
+
+    .c100:hover {
+        cursor: pointer;
+    }
+}
+
+.innerSidebarToggle {
+    .entity-contents-wrapper {
+        >div {
+            .row.custom-row {
+                @include margin(0);
+            }
+        }
+    }
+}
+
+.border-top-none {
+    border-top: 0 !important;
+}
+
+.pad-left-tab {
+    @include padding-left(60px !important);
+}
+
+/*==============================================================================
+***********************  CompanyNew - TOP SECTION Ends  ************************
+===============================================================================*/
+
+/*==============================================================================
+****************  CompanyNew - left side navigation Tabs Starts  ***************
+===============================================================================*/
+
+.innerSidebarToggle {
+    /* @include margin-top(1rem); */
+    @include padding-left(0px);
+    position: relative;
+    // border-top: .1rem solid $big-stone1;
+}
+
+.entity-tabs-wrapper {
+    position: fixed;
+    left: 61px;
+    min-width: 60px;
+    padding-top: 293px;
+    top: 0;
+    height: 1200px;
+    bottom: 0;
+    /* height: 100%; */
+    z-index: 1000;
+    background-color: #2d2d2d;
+    transform: translate(-61px, -173px);
+}
+
+.entity-results-wrapper {
+    .entity-company-new-desc {
+        @include margin(0);
+    }
+
+    .entity-tabs-wrapper.custom-col {
+        @include margin(1rem 0 0);
+        @include padding(0);
+    }
+
+    .entity-tabs-wrapper {
+        .tabs-section {
+            ul {
+                @include padding(0 25px);
+                @include padding(0);
+                border-bottom: .1rem solid $atomic17;
+                border: 0;
+
+                li {
+                    float: none;
+
+                    a {
+                        @extend .text-center;
+                        @include border-radius(0);
+                        @include transition(all .3s ease-in-out);
+                        @include margin-right(0);
+                        padding:0!important;
+                        font-size: ($font-size-base - 3);
+                        color: $text-color-default;
+                        background-color:  rgba(45,45,45,.95);;
+                        // font-family: $roboto-medium;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-medium);
+                          }
+                        font-weight: 400;
+                        text-transform: uppercase;
+                        border: 0;
+                        //  border-bottom: .1rem solid $tarawera2 !important;
+
+                        &:hover {
+                            border-color: transparent;
+                            color: #4294D9;
+                        }
+
+                        i {
+                            font-size: ($font-size-base * 1.5);
+                            line-height: ($line-height-computed + 1);
+                            display: block;
+                            background-color: #2d2d2d;
+                         }
+
+                        span {
+                            position: absolute;
+                            text-align: left;
+                            left: -171px;
+                            transition: left 0.3s ease-in-out;
+                            background-color: rgba(45, 45, 45, 0.95);
+                            @include padding(14px 1rem 14px);
+                            bottom: -1px;
+                            line-height: ($line-height-computed - 3);
+                            display: block;
+                            white-space: nowrap;
+                            width: 170px;
+                            height: 45px;
+                            font-size: ($font-size-base - 4);
+                            // font-family: $roboto-light;
+                            @include fontFamily($fonts) {
+                                font-family: fonted(font-light);
+                              }
+                            // border-bottom: .1rem solid #283c45 !important;
+                        }
+                    }
+
+                    &:first-child {
+                        a {
+                            @include margin-top(-1px);
+                        }
+                    }
+                }
+
+                li.active {
+                    a {
+                        color: #4294D9;
+                        background-color: transparent;
+
+                        &:hover {
+                            border-color: #465B65;
+                        }
+                    }
+                }
+
+                &:hover {
+                    li {
+                        a {
+                            span {
+                                left: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*==============================================================================
+****************  CompanyNew - left side navigation Tabs ENDS  *****************
+===============================================================================*/
+
+/*==============================================================================
+**********************  CompanyNew - Counters CSS Starts  **********************
+===============================================================================*/
+
+.entity-item-submmenu {
+
+    .item-submmenu-list,
+    .boardMembers-item-submmenu-list {
+        @include margin-left(0);
+    }
+
+    li {
+        .submmenu-list {
+            @extend .text-center;
+        }
+
+        &:not(:last-child) {
+            .submmenu-list {
+                position: relative;
+                @extend .text-center;
+                @include margin-right(20px);
+
+                &:after {
+                    content: "";
+                    display: inline-block;
+                    height: 100%;
+                    width: .1rem;
+                    position: absolute;
+                    background-color: rgba($text-color-default, .2);
+                    right: -10px;
+                    top: 0;
+                }
+            }
+        }
+    }
+
+    .submmenu-list.scroll-list-wrapper {
+        h5 {
+            @include margin(0);
+            @include padding(0);
+            @include margin-right(1rem);
+            position: relative;
+            max-width: 100px;
+            font-size: ($font-size-base - 3);
+            // font-family: $roboto-medium;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-medium);
+              }
+            font-weight: normal;
+            color:$text-dark;
+            max-height: 30px;
+            min-height: 30px;
+            overflow: hidden;
+            word-break: normal !important;
+
+            strong {
+                font-size: ($font-size-base + 10);
+                color:$text-dark;
+                font-weight: normal;
+                font-family: $francois-one-regular;
+                position: relative;
+                transform: none;
+            }
+        }
+    }
+}
+
+.associated-locations-wrapper {
+    position: relative;
+
+    .entity-item-submmenu {
+        position: absolute;
+        top: 8px;
+        right: 0;
+
+        .submmenu-list {
+            h5 {
+                // font-family: $roboto-light;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-light);
+                  }
+            }
+        }
+    }
+}
+
+.social-media-wrapper {
+    .entity-item-submmenu {
+        .submmenu-list {
+            h5 {
+                max-width: 125px;
+                @include margin-right(0);
+            }
+        }
+    }
+}
+
+.entity-results-wrapper {
+    .entity-contents-wrapper {
+        .entity-item.leadership-status-wrapper {
+            height: 80px;
+            min-height: auto;
+            max-height: none;
+            @include padding(20px 1rem);
+
+            .leader-top-list {
+                li {
+                    width: 18%;
+                }
+            }
+
+            h5 {
+                @include margin-right(0);
+                // font-family:  $roboto-light;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-light);
+                  }
+                color: rgba($text-color-default, .6);
+                min-height: 20px;
+                max-width: none;
+                padding: 0;
+            }
+
+            strong {
+                font-size: 24px;
+                color:$text-dark;
+                font-weight: 400;
+                font-family: "Francois One Regular";
+            }
+        }
+    }
+
+    .dual-office-location {
+        .listing-item {
+            @include margin(0 auto);
+
+            .genderRatioChart-wrapper {
+                .person-circle-graph {
+                    .radial {
+                        .inner-number {
+                            width: auto;
+                            font-family: $francois-one-regular;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*==============================================================================
+***********************  CompanyNew - Counters CSS Ends  ***********************
+===============================================================================*/
+
+/*==============================================================================
+**********************  CompanyNew - Overview Tab Starts  **********************
+===============================================================================*/
+
+.entity-company-content-inner-wrapper.entityCompanyNew-inner-wrapper {
+    display: block !important;
+    position: relative !important;
+
+    &.padding-0 {
+        padding-right: 0 !important
+    }
+
+    .entity-company-content-left {
+        width: calc(100%) !important;
+        display: block !important;
+    }
+
+    .entity-company-risk {
+        .c100 {
+            &:hover {
+                .inner-number {
+
+                    line-height: 1.1em;
+                    font-size: 4.5rem;
+                    left: .4em;
+                    top: .55em;
+                }
+
+                .inner-text {
+                    font-size: 1.4rem;
+                    top: 55%;
+                    left: 20%;
+                    width: auto;
+                }
+            }
+
+            .inner-number {
+                font-size: 3.5rem;
+                line-height: 1.2em;
+                left: .5em;
+                top: .9em;
+            }
+
+            .inner-text {
+                font-size: 1.2rem;
+                top: 54%;
+                left: 24%;
+                position: absolute;
+            }
+        }
+
+        .highlighting-info {
+            a {
+                @extend .d-flex;
+                @extend .ai-c;
+                @extend .text-dark-grey2;
+                font-size: 14px;
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.43;
+                letter-spacing: -0.2px;
+
+                i {
+                    font-size: 16px;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: normal;
+                    letter-spacing: 0.3px;
+                    text-align: center;
+                    margin-right: 1.5rem;
+                }
+
+                span {
+                    font-size: 16px;
+                    font-weight: bold;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.25;
+                    letter-spacing: normal;
+                    text-align: right;
+                    margin-left: auto;
+                }
+            }
+        }
+    }
+
+    .entity-company-content-right {
+        border-radius: 1rem;
+        width: 325px !important;
+        display: block !important;
+        background-color: #2d2d2d !important;
+        height: calc(100% - 3.2rem) !important;
+        overflow: hidden !important;
+        position: absolute;
+        right: .8rem;
+        top: 1.6rem;
+        bottom: 0;
+
+        &.d-none {
+            display: none !important;
+        }
+
+        .panel {
+            background-color: transparent !important;
+        }
+    }
+
+    .overview-tab-wrapper {
+        .url-analysis-main-wrapper {
+            min-height: 28rem;
+            height: 28rem;
+            max-height: 28rem;
+
+            h3 {
+                position: relative;
+
+                .url-domain-details {
+                    display: inline-block;
+                    position: absolute;
+                    top: 50%;
+                    font-size: ($font-size-base + 2);
+                    transform: translateY(-50%);
+                    @include padding-left(.5rem);
+                    line-height: ($line-height-computed * 0.2);
+
+                    small {
+                        color: rgba($text-color-default, .6);
+                        text-transform: uppercase;
+                        line-height: ($line-height-computed * 0.45);
+                        display: inline-block;
+                    }
+                }
+            }
+
+            .url-analysis-main-list {
+                .url-analysis-heading {
+                    @include margin(0 0 1rem 0);
+                    display: grid;
+                    grid-template-columns: repeat(4, 25%);
+                    grid-template-rows: repeat(1, auto);
+
+                    .url-analysis-heading-content {
+                        &:not(:last-child) {
+                            border-right: .1rem solid rgba($text-color-default, .2);
+                            @include margin-right(1rem);
+                        }
+
+                        &:not(:first-child) {
+                            @include padding-left(10%);
+                        }
+
+                        p {
+                            @include margin(0);
+                            @extend .text-uppercase;
+                            color: rgba($text-color-default, .6);
+                            display: block;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            font-size: 11px;
+                            color:$text-dark;
+                            // font-family: "Roboto Medium";
+                            @include fontFamily($fonts) {
+                                font-family: fonted(font-medium);
+                              }
+                        }
+                    }
+                }
+            }
+
+            .url-analysis-wrapper {
+                .url-analysis-content {
+                    .url-analysis-chart {
+                        h4 {
+                            font-size: ($font-size-base - 2);
+                            @include margin-bottom(.5rem);
+                            color:$text-dark;
+                            line-height: ($line-height-computed * 0.7);
+                            display: block;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                        }
+
+                        .entity-result-item {
+                            @include padding(0);
+                            height: 160px;
+
+                            &.url-analysis-chart-content {
+                                .url-analysis-address-content {
+                                    ul {
+                                        li {
+                                            &:not(:last-child) {
+                                                @include padding-bottom(1.3rem);
+                                                border-bottom: .1rem solid #657F8B;
+                                                @include margin-bottom(1.3rem);
+                                            }
+
+                                            .url-company-contact-details {
+                                                p {
+                                                    white-space: normal;
+                                                    word-break: break-all;
+                                                    @include margin-bottom(.5rem);
+                                                    line-height: ($line-height-computed * 0.7);
+
+                                                    .key {
+                                                        color:$text-dark;
+                                                        text-transform: capitalize;
+                                                    }
+
+                                                    .value {
+                                                        color: rgba($text-color-default, .6);
+                                                        text-transform: capitalize;
+                                                        letter-spacing: .1rem;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.entity-results-wrapper {
+    .entity-contents-wrapper {
+        .entity-item {
+            height: 420px;
+            overflow: hidden;
+        }
+
+        .entity-item.who-are-we-wrapper {
+            max-height: 270px;
+            overflow: hidden;
+            min-height: auto;
+            height: 270px;
+
+            .whoweare-result-item {
+                p {
+                    // height: 214px;
+                    // overflow: hidden;
+                    color: #849fab;
+                }
+            }
+        }
+
+        .entity-item.related-person-main-wrapper {
+            max-height: 270px;
+            overflow: hidden;
+            height: 270px;
+
+            .entity-item-submmenu {
+                .submmenu-list {
+                    h5 {
+                        max-width: 112px;
+                    }
+                }
+            }
+
+            .entity-result-item {
+                height: 154px !important;
+            }
+
+            .media {
+                @include margin-top(15px);
+                min-height: 58px;
+                max-height: 58px;
+
+                .media-left {
+                    a {
+                        border: 0;
+                        // height: 4rem;
+                        // width: 4rem;
+                        width: 40px;
+                        height: 40px;
+                        @include padding(0);
+                        border: 4px solid rgba(251, 251, 251, .2);
+                        position: relative;
+
+                        img {
+                            border-radius: 50%;
+                            height: 4rem;
+                            width: 4rem;
+                            object-fit: cover;
+                            max-width: 100%;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            -o-transform: translate(-50%, -50%);
+                            -moz-transform: translate(-50%, -50%);
+                            -webkit-transform: translate(-50%, -50%);
+                        }
+                    }
+                }
+
+                .media-body {
+                    max-width: 180px;
+
+                    .media-heading {
+                        display: block;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        @include margin(0);
+                    }
+
+                    .progress-text {
+                        width: 100%;
+
+                        span {
+                            display: block;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            color:$text-dark;
+
+                            &:first-child {
+                                @extend .text-capitalize;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .entity-item.entity-performance {
+            height: 360px;
+            min-height: 320px;
+        }
+
+        .entity-item.overview-network-wrapper {
+            height: 360px;
+            min-height: 320px;
+
+            .visual-link-overview:hover {
+                color: $curious-blue10;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.related-company-main-wrapper {
+    h3 {
+        position: relative;
+    }
+
+    .associated-person-counter {
+        li {
+            h5 {
+                @include padding-top(4px);
+                @include padding-bottom(4px);
+            }
+
+            &:nthchild(3) {
+                h5 {
+                    min-width: 135px;
+                    @include margin-right(30px);
+                }
+            }
+        }
+    }
+
+    .entity-item-submmenu {
+        .item-submmenu-list {
+            @include margin(0);
+        }
+
+        .submmenu-list {
+            h5 {
+                max-width: 130px;
+                @include margin(0);
+            }
+        }
+    }
+
+    .entity-result-item {
+        height: 28rem !important;
+        @include margin-top(0);
+        @include padding(1rem 0);
+
+        .company-table-wrapper {
+            .table {
+                tbody {
+                    tr {
+                        border-bottom: .1rem solid #354a53;
+
+                        td {
+                            color: rgba($text-color-default, .6);
+                            font-size: ($font-size-base - 4);
+                            word-break: break-all;
+                            text-align: left;
+                            // font-family: $roboto-light;
+                            @include fontFamily($fonts) {
+                                font-family: fonted(font-light);
+                              }
+                            text-transform: uppercase;
+                        }
+                    }
+                }
+
+                &.associated-table {
+                    tr {
+                        td {
+                            word-break: initial;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.associated-persons {
+        min-height: auto !important;
+        height: 28rem !important;
+
+        .entity-result-item {
+            height: 200px !important;
+            @include margin(0);
+            @include padding(1rem 0 0 0);
+        }
+
+        .entity-item-submmenu {
+            .item-submmenu-list {
+                @include margin(0);
+            }
+
+            .submmenu-list {
+                h5 {
+                    @include margin(0);
+                    max-width: 110px;
+                    white-space: normal;
+                    word-break: break-word;
+                    @include padding-right(40px);
+                }
+            }
+        }
+    }
+}
+
+.overview-network-wrapper {
+    .networkGraphOverviewMain {
+        width: 100%;
+        position: relative;
+
+        #networkGraphOverview {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 28rem;
+            position: absolute;
+        }
+    }
+}
+
+.entity-item.entity-performance {
+    // @include padding-left(30px);
+}
+
+/*==============================================================================
+***********************  CompanyNew - Overview Tab ENDS  ***********************
+===============================================================================*/
+
+/*==============================================================================
+**********************  CompanyNew - Due Tab Starts  **********************
+===============================================================================*/
+
+.due-tab-wrapper {
+    .custom-row {
+        border-bottom: .1rem solid $atomic17;
+
+        .custom-col {
+            height: 100%;
+            border-right: .1rem solid $atomic17;
+
+            .source-button-wrapper {
+                background-color: transparent;
+                border-radius: 100px;
+                max-height: 22px;
+
+                &:hover,
+                &.active {
+                    background-color: rgba(251, 251, 251, .1);
+                }
+            }
+
+            .first-tab-panel {
+                padding: 0 0 0 5rem !important;
+            }
+
+            .details-panel-wrapper {
+                //  background-color: transparent;
+                border: 0;
+
+                .panel-heading {
+                    background-color: transparent;
+
+                    &.panel-heading-right {
+                        height: auto;
+                        background-color: transparent;
+                    }
+
+                    .top-details-heading {
+                        @extend .text-uppercase;
+                        color:$text-dark;
+                        font-size: 14px;
+                        line-height: normal;
+                        // font-family: $roboto-medium;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-medium);
+                          }
+                        margin-bottom: 0;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+
+                        .button-list {
+                            // position: absolute;
+                            /* border: .1rem solid #333; */
+                            border-radius: .5rem;
+                            // width: 22%;
+
+                            /* padding: 3px 0px; */
+                            // left: 41%;
+                            // top: 16px; 
+                            // width: 27%;
+                            li {
+                                padding: 0;
+                                margin: 0 .5rem 0 0;
+                                width: 33%;
+                                min-width: 60px;
+
+                                .badges {
+                                    padding: 0% 10% !important;
+                                    font-size: 11px !important;
+                                    background-color: #545454;
+                                    border-radius: .5rem;
+                                    text-align: center;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .panel-body {
+                    padding: 0 1.5rem;
+                    max-height: 250px;
+
+                    #chart-container-scroll {
+                        height: 438px;
+
+                        .mCSB_scrollTools_horizontal {
+                            bottom: -12px !important;
+                        }
+                    }
+
+                    &.right-panel-body {
+                        max-height: none;
+                        height: calc(100% - 35px);
+
+                        .media-list {
+                            &.list-scroll-2 {
+                                height: 190px;
+
+                                .media-heading {
+                                    margin-top: 7px !important;
+                                }
+                            }
+
+                            &.media-list-scroll {
+                                height: 250px;
+                            }
+                        }
+                    }
+
+                    .company-details {
+                        .company-details-wrapper {
+                            @extend .clearfix;
+
+                            .left {
+                                @extend .pull-left;
+                                display: inline-block;
+                                width: 150px;
+
+                                p {
+                                    color: rgba($text-color-default, .6);
+                                    font-size: 12px;
+                                    line-height: 16px;
+                                    // font-family: $roboto-light;
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-light);
+                                      }
+                                    margin-bottom: .5rem;
+                                    padding: 0 1rem 0 0;
+
+                                    span {
+                                        // position: absolute;
+                                        // top: 0%;
+                                        // left: 93.5%;
+                                        // transform: translate(-93.5%, 0);
+                                    }
+                                }
+                            }
+
+                            .center {
+                                @extend .pull-left;
+                                width: calc(100% - 150px);
+                                display: inline-block;
+
+                                span {
+                                    color: rgba($text-color-default, .6);
+                                    font-size: 12px;
+                                    line-height: 16px;
+                                    // font-family: $roboto-light;
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-light);
+                                      }
+
+                                }
+                            }
+
+                            // .right {
+                            //     @extend .pull-left;
+                            //     width: 70px;
+                            //     display: inline-block;
+                            //     strong {
+                            //         color: #4294d9;
+                            //         &:nth-of-type(2) {
+                            //             color: #fb63eb
+                            //         }
+                            //     }
+                            // }
+                        }
+                    }
+
+                    &.height-280px {
+                        max-height: none;
+                        height: 256px;
+                    }
+
+                    // &.mxh-none {
+                    //     max-height: none !important;
+                    //     height: auto;
+                    //     height: calc(100% - 4rem);
+                    // }
+                }
+            }
+        }
+
+        /*--  Common Styles  --*/
+        &.top-row {
+            height: 300px;
+
+            .panel {
+                padding-left: 0;
+                padding-top: 0;
+            }
+
+            &.screening-table-h {
+                height: 480px;
+            }
+
+            &.screening-chart-row {
+                height: 500px;
+            }
+        }
+
+
+        &.center-row {
+            height: 350px;
+
+            .panel-h-scroll {
+                width: 99%;
+            }
+        }
+
+        &.center-row1 {
+            height: 350px;
+
+            .tab-pane {
+                height: 250px;
+            }
+        }
+
+        &.bottom-row {
+            height: 400px;
+        }
+
+        .corporate-details-wrapper {
+            @extend .text-uppercase;
+            color:$text-dark;
+            font-size: 12px;
+            line-height: 14px;
+
+            span {
+                color: #4294d9;
+
+                &:nth-of-type(2) {
+                    color: #fb63eb
+                }
+            }
+        }
+
+        .count-title {
+            @extend .text-uppercase;
+            display: inline;
+            color:$text-dark;
+            font-size: 11px;
+            line-height: 1.3rem;
+        }
+
+        .count-value {
+            display: inline-block;
+            margin-top: -15px;
+            color:$text-dark;
+            font-size: 24px;
+            line-height: 26px;
+        }
+    }
+}
+
+/*==============================================================================
+**********************  CompanyNew - Due Tab Starts  **********************
+===============================================================================*/
+
+/*==============================================================================
+*****************  CompanyNew - Right Panel Overview Tab ENDS  *****************
+===============================================================================*/
+
+.entity-company-content-right.entity-company-new-right {
+    .mCSB_container {
+        min-height: 200px;
+    }
+
+    .progress-bar-wrapper {
+        h3 {
+            color: $text-color-default;
+            font-size: ($font-size-base - 2);
+            text-transform: uppercase;
+            line-height: ($line-height-computed + 1);
+            @include margin(0 0 1rem);
+            // font-family: "Roboto Medium", sans-serif;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-medium);
+              }
+        }
+
+        .rightRiskScore {
+            .risk-progressbar-holder {
+                .progress-wrapper {
+                    display: block;
+                    position: relative;
+                    @include padding(7px 4rem 7px 20px);
+
+                    .inline {
+                        @include translateY(-50%);
+                        text-transform: uppercase;
+                        font-size: ($font-size-base - 4);
+                        line-height: ($font-size-base - 4);
+                        color:$text-dark;
+                        left: 0;
+                        top: 50%;
+                        width: 20px;
+                        margin: 0;
+                        position: absolute;
+                        max-width: 60px;
+                        max-height: 20px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    .progress {
+                        background-image: linear-gradient(to left, rgba(249, 249, 249, 0.2), rgba(250, 250, 250, 0.5));
+                        height: 8px;
+                        border-radius: 1.5rem;
+                        width: 100%;
+                        margin: 0;
+
+                        .progress-bar {
+                            border-radius: 20px;
+
+                            &.progressdr {
+                                background-color: $risk-dr !important;
+                            }
+
+                            &.progressir {
+                                background-color: $risk-ir !important;
+                            }
+
+                            &.progresstr {
+                                background-color: $risk-tr !important;
+                            }
+
+                            &.progress-gradient-curious-blue {
+                                background-image: linear-gradient(to right, #5ad8e7, #0097a7);
+                                border-radius: 5px !important;
+                            }
+                        }
+                    }
+
+                    .progress-percent {
+                        @extend .text-right;
+                        position: absolute;
+                        right: 8px;
+                        top: 50%;
+                        max-width: 30px;
+                        white-space: nowrap;
+                        @include translateY(-50%);
+                    }
+                }
+            }
+        }
+    }
+
+    .risk-score-panel {
+        >div {
+            >div {
+                @include margin-bottom(2.5rem);
+            }
+        }
+
+        .contact-address-wrapper {
+            h3 {
+                font-size: ($font-size-base - 2);
+                font-weight: 400;
+                color: $text-color-default;
+            }
+
+            .contact-address {
+                @include margin-bottom(12px);
+
+                h5 {
+                    font-size: ($font-size-base - 2);
+                    color: rgba($text-color-default, .6);
+                    @include margin(1rem 0 2px);
+
+                    i {
+                        color: #435a64;
+                    }
+                }
+
+                p {
+                    font-size: ($font-size-base - 3);
+                    // font-family: $roboto-light;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-light);
+                      }
+                    color: rgba($text-color-default, .6);
+                    @include margin-bottom(1rem);
+                }
+            }
+        }
+
+        .related-company-main-wrapper {
+            h3 {
+                color: #f2f2f2;
+                font-size: ($font-size-base - 2);
+            }
+        }
+
+        .associated-locations-wrapper {
+            h3 {
+                color: $text-color-default;
+                font-size: ($font-size-base - 2);
+            }
+        }
+
+        .news-wrapper {
+            >h3 {
+                color: $text-color-default;
+                font-size: ($font-size-base - 2);
+            }
+
+            .media-heading {
+                font-size: ($font-size-base - 2);
+                // font-family: $roboto-light;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-light);
+                  }
+                text-transform: capitalize;
+            }
+
+            .post {
+                span {
+                    color:$text-dark;
+                }
+            }
+
+            .btn-circle {
+                height: auto;
+                width: auto;
+                background-color: transparent;
+                line-height: ($line-height-computed * 0.75);
+            }
+
+            .description {
+                color: rgba($text-color-default, .6);
+                overflow: hidden;
+                font-size: ($font-size-base - 3);
+                max-height: 42px;
+                line-height: ($line-height-computed * 0.7);
+                // font-family: $roboto-light;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-light);
+                  }
+            }
+        }
+
+        .associated-industries-wrapper {
+            h3 {
+                color: $text-color-default;
+                font-size: ($font-size-base - 2);
+            }
+
+            .riskscoreprogress {
+                .risk-progressbar-holder {
+                    .progress-wrapper {
+                        display: block;
+                        position: relative;
+                        @include padding(7px 30px 7px 70px);
+
+                        .inline {
+                            @include translateY(-50%);
+                            text-transform: uppercase;
+                            font-size: ($font-size-base - 4);
+                            line-height: ($font-size-base - 4);
+                            color:$text-dark;
+                            left: 0;
+                            top: 50%;
+                            width: 60px;
+                            margin: 0;
+                            position: absolute;
+                            max-width: 60px;
+                            max-height: 20px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+
+                        .progress {
+                            background-image: linear-gradient(to left, rgba(249, 249, 249, 0.2), rgba(250, 250, 250, 0.5));
+                            border-radius: 1.5rem;
+                            width: 100%;
+                            margin: 0;
+
+                            .progressdr {
+                                background-image: linear-gradient(to right, #5ad8e7, #0097a7);
+                                background: #3d87c3 !important;
+                                border-radius: 20px;
+                            }
+
+                            .progress-gradient-curious-blue {
+                                background-image: linear-gradient(to right, #5ad8e7, #0097a7);
+                                border-radius: 5px !important;
+                            }
+                        }
+
+                        .progress-percent {
+                            @extend .text-right;
+                            position: absolute;
+                            right: 0px;
+                            top: 50%;
+                            max-width: 30px;
+                            @include translateY(-50%);
+                        }
+                    }
+                }
+            }
+        }
+
+        .risk-rating-wrapper {
+            h3 {
+                color: $text-color-default;
+                font-size: ($font-size-base - 2);
+            }
+
+            .riskscoreprogress {
+                .risk-progressbar-holder {
+                    .progress-wrapper {
+                        display: block;
+                        position: relative;
+                        @include padding(7px 0px 7px 70px);
+
+                        .inline {
+                            @include translateY(-50%);
+                            text-transform: uppercase;
+                            font-size: ($font-size-base - 4);
+                            line-height: ($font-size-base - 4);
+                            color:$text-dark;
+                            left: 0;
+                            top: 50%;
+                            width: 60px;
+                            margin: 0;
+                            position: absolute;
+                            max-width: 60px;
+                            max-height: 20px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                        }
+
+                        .progress {
+                            background-image: linear-gradient(to left, rgba(249, 249, 249, 0.2), rgba(250, 250, 250, 0.5));
+                            border-radius: 1.5rem;
+                            width: 100%;
+                            margin: 0;
+
+                            .progressdr {
+                                background: $persian-green !important;
+                                border-radius: 20px;
+                            }
+
+                            .progress-gradient-curious-blue {
+                                background-image: linear-gradient(to right, #5ad8e7, #0097a7);
+                                border-radius: 5px !important;
+                            }
+                        }
+
+                        .progress-percent {
+                            @extend .text-right;
+                            position: absolute;
+                            right: 8px;
+                            top: 50%;
+                            max-width: 30px;
+                            @include translateY(-50%);
+                        }
+                    }
+                }
+            }
+
+            /*.riskscoreprogress {
+                .inline {
+                    width: 25%;
+                    text-transform: uppercase;
+                    font-size: ($font-size-base - 4);
+                    color: #5f7a86;
+                    @include margin-top(-1px);
+                }
+                .progress {
+                    background-color: #475b67;
+                    border-radius: 1.5rem;
+                }
+            }
+            .progress {
+                .progressdr {
+                    background: #0cb299 !important;
+                }
+            }*/
+        }
+
+        .general-info-wrapper {
+            border: 0;
+            @include margin-bottom(20px);
+        }
+
+        .latest-news-section {
+            .latest-news-section-item {
+                height: 27.5rem;
+                overflow: hidden;
+            }
+        }
+
+        &.adverse-news-panel {
+            .mCSB_container {
+                min-height: 28rem;
+            }
+        }
+    }
+
+}
+
+/*==============================================================================
+*****************  CompanyNew - Right Panel Overview Tab ENDS  *****************
+===============================================================================*/
+
+/*==============================================================================
+*********************  CompanyNew - Leadership Tab ENDS  ***********************
+===============================================================================*/
+
+/*  founding-wrapper  */
+
+.founding-wrapper {
+    @include padding-right(0);
+
+    .entity-item {
+        &:first-child {
+            border-left: 0;
+        }
+
+        &.commitee-tabs {
+            .custom-commitee-tabs {
+                .nav-tabs {
+                    position: static;
+                    margin-bottom: 1rem;
+
+                    li {
+                        a {
+                            .main-nav-texts {
+                                font-size: 1.3rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .entity-result-item {
+                height: 27.5rem !important;
+            }
+        }
+
+        h3 {
+            @include margin-bottom(1rem);
+        }
+
+        h4 {
+            font-size: ($font-size-base);
+            @include margin-bottom(.5rem);
+            @include padding-bottom(.5rem);
+            color:$text-dark;
+
+            &.border-bottom {
+                border-bottom: .1rem solid $big-stone1;
+            }
+        }
+
+        .office-location-wrapper {
+            h5 {
+                color: rgba(251, 251, 251, .6);
+                @include margin-bottom(0);
+
+                a {
+                    // font-family: $roboto-light;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-light);
+                      }
+                    font-size: ($font-size-base - 2);
+                    line-height: ($line-height-computed * 0.7);
+                    @include margin(0 0 .5rem);
+                    display: block;
+                    text-transform: uppercase;
+                }
+            }
+
+            p {
+                text-transform: uppercase;
+                // font-family: $roboto-light;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-light);
+                  }
+                font-size: ($font-size-base - 3);
+                line-height: ($line-height-computed * 0.7);
+                @include margin(0 0 1.5rem);
+                color: rgba($text-color-default, .6);
+                max-height: none;
+            }
+        }
+
+        .entity-result-item {
+            @include padding(0);
+            height: 31rem !important;
+
+            .media-list {
+                .media {
+                    .media-left {
+                        a {
+                            // height: 4rem;
+                            // width: 4rem;
+                            width: 40px;
+                            height: 40px;
+                            position: relative;
+                            overflow: hidden;
+                            cursor: initial;
+
+                            >* {
+                                font-size: ($font-size-base * 2.429);
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                -o-transform: translate(-50%, -50%);
+                                -moz-transform: translate(-50%, -50%);
+                                -webkit-transform: translate(-50%, -50%);
+                            }
+                        }
+                    }
+
+                    .media-body {
+                        >h4 {
+                            // font-family: $roboto-light;
+                            @include fontFamily($fonts) {
+                                font-family: fonted(font-light);
+                              }
+                            font-size: ($font-size-base - 2);
+                            line-height: ($font-size-base);
+                            @include margin(0 0 0 0);
+                            @include padding-bottom(.2rem);
+                            color: rgba(251, 251, 251, .6);
+                            display: block;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+
+                        >h5 {
+                            // font-family: $roboto-light;
+                            @include fontFamily($fonts) {
+                                font-family: fonted(font-light);
+                              }
+                            font-size: ($font-size-base - 3);
+                            line-height: ($font-size-small);
+                            @include margin(0 0 .5rem 0);
+                            color: rgba($text-color-default, .6);
+                            max-height: 35px;
+                            overflow: hidden;
+                        }
+
+                        >p {
+                            @extend .text-uppercase;
+                            // font-family: $roboto-light;
+                            @include fontFamily($fonts) {
+                                font-family: fonted(font-light);
+                              }
+                            font-size: ($font-size-base - 4);
+                            width: 100%;
+                            color: #909a9e;
+                            display: block;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*  top-listing-wrapper  */
+
+.top-listing-wrapper {
+    @include padding-right(0);
+
+    .entity-item {
+        &.listing-entity-item {
+            .entity-result-item {
+                &.people-viewed {
+                    @include padding(0);
+                    height: 14rem !important;
+                }
+
+                .media-list {
+                    .media {
+                        .media-body {
+                            max-width: 165px;
+
+                            >h4 {
+                                white-space: normal;
+                                word-break: break-all;
+                                line-height: ($line-height-computed * 0.7);
+                            }
+
+                            >a {
+                                white-space: normal;
+                                word-break: break-all;
+                                line-height: ($line-height-computed * 0.7);
+                                @include margin-bottom(.5rem);
+                            }
+
+                            >p {
+                                white-space: normal;
+                                word-break: break-all;
+                                line-height: ($line-height-computed * 0.7);
+                                max-height: 4.2rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &:first-child {
+            border-left: 0;
+        }
+
+        h3 {
+            @include margin-bottom(2.5rem);
+        }
+
+        .entity-result-item {
+            &.people-viewed {
+                @include padding(0);
+                height: 14rem !important;
+            }
+
+            .media-list {
+                .media {
+                    .media-left {
+                        a {
+                            // height: 5rem;
+                            // width: 5rem;
+                            width: 50px;
+                            height: 50px;
+                            position: relative;
+                            overflow: hidden;
+
+                            >* {
+                                @include translate(-50%, -50%);
+                                font-size: ($font-size-base * 2.429);
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                            }
+                        }
+                    }
+
+                    .media-body {
+                        vertical-align: middle;
+                        max-width: 165px;
+
+                        >h4 {
+                            // font-family: $roboto-light;
+                            @include fontFamily($fonts) {
+                                font-family: fonted(font-light);
+                              }
+                            font-size: ($font-size-base - 2);
+                            line-height: ($font-size-base);
+                            @include margin(0 0 .5rem 0);
+                            color: #b0bbbf;
+                            display: block;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+
+                        >h5 {
+                            // font-family: $roboto-light;
+                            @include fontFamily($fonts) {
+                                font-family: fonted(font-light);
+                              }
+                            font-size: ($font-size-base - 3);
+                            line-height: ($font-size-base);
+                            @include margin(0 0 .5rem 0);
+                            color: #909a9e;
+                            max-height: 2.8rem;
+                            overflow: hidden;
+                        }
+
+                        >p {
+                            @extend .text-uppercase;
+                            // font-family: $roboto-light;
+                            @include fontFamily($fonts) {
+                                font-family: fonted(font-light);
+                              }
+                            font-size: ($font-size-base - 4);
+                            width: 100%;
+                            color: #909a9e;
+                            display: block;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*  top-listing-wrapper  */
+
+.top-listing-wrapper {
+    min-height: 21rem;
+    @include padding(0);
+    overflow: hidden;
+
+    .listing-entity-item {
+        @include padding(1rem);
+        border: .1rem solid $big-stone1;
+        min-height: 200px !important;
+        max-height: 200px !important;
+
+        .top-listings {
+            h3 {
+                @include margin-bottom(1rem);
+                color: rgba(251 ,251 ,251 ,.8); 
+                font-weight: normal;
+                // font-family: $roboto-medium;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-medium);
+                  }
+                font-size: ($font-size-base - 2);
+            }
+            .entity-result-item {
+                @include padding(0);
+                height: 150px !important;
+            }
+
+            .listing-item {
+                .top-university-wrapper {
+                    height: 110px;
+                    max-height: 110px;
+                    overflow: hidden;
+                    width: 100%;
+                    text-align: center;
+                    @include margin-bottom(16px);
+
+                    i {
+                        font-size: ($font-size-base * 7.86);
+                    }
+
+                    img {}
+                }
+
+                h5 {
+                    color: #63818f;
+                    font-weight: bold;
+                    // font-family: $roboto-medium;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-medium);
+                      }
+                    font-size: ($font-size-base - 2);
+                    @include margin(0);
+                    text-align: center;
+                }
+
+                .riskscoreprogress {
+                    .risk-progressbar-holder {
+                        .progress-wrapper {
+                            display: block;
+
+                            .inline {
+                                @extend .text-uppercase;
+                                color:$text-dark;
+                                font-size: ($font-size-base - 5);
+                                // font-family: $roboto-light;
+                                @include fontFamily($fonts) {
+                                    font-family: fonted(font-light);
+                                  }
+                                display: block;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                            }
+
+                            .progress {
+                                @include margin(0 0 18px 0);
+                                border-radius: 18px;
+                                height: 9px;
+                                @include padding(0);
+                                background-color: transparent;
+                                box-shadow: none;
+
+                                .progress-bar {
+                                    border-radius: 1.5rem;
+
+                                    &.progress-gradient-curious-blue {
+                                        background-image: linear-gradient(to right, #5ad8e7, #0097a7);
+                                        border-radius: 5px !important;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .office-location-wrapper {
+                    &.dual-office {
+                        h5 {
+                            @extend .text-left;
+                        }
+                    }
+
+                    @include margin-bottom(1rem);
+
+                    h5 {
+                        color: rgba(251, 251, 251, .6);
+                        font-size: ($font-size-base - 2);
+                        // font-family: $roboto-light;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-light);
+                          }
+                        line-height: ($line-height-computed * 0.7);
+                        @include margin(0 0 .5rem);
+                    }
+
+                    p {
+                        @extend .text-uppercase;
+                        color: rgba($text-color-default, .6);
+                        font-size: ($font-size-base - 5);
+                        // font-family: $roboto-light;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-light);
+                          }
+                        @include margin(0);
+                        line-height: ($line-height-computed * 0.55);
+                        max-height: 22px;
+                        overflow: hidden;
+                    }
+                }
+
+                .genderRatioChart-wrapper {}
+            }
+
+            &.near-by-companies {
+                h5 {
+                    color: rgba(251, 251, 251, .6);
+                    font-size: ($font-size-base - 2);
+                    // font-family: $roboto-light;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-light);
+                      }
+                    line-height: 18px;
+                    @include margin(0);
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    display: block;
+                }
+
+                p {
+                    color: rgba($text-color-default, .6);
+                    font-size: ($font-size-base - 4);
+                    // font-family: $roboto-light;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-light);
+                      }
+                    @include margin(0 0 1rem 0);
+                    line-height: ($line-height-computed * 0.6);
+                    max-height: none;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+}
+
+/*  top-investors-wrapper  */
+
+.top-investing-wrapper {
+    max-height: 29rem;
+    @include padding(0);
+    overflow: hidden;
+
+    .investing-entity-item {
+        @include padding(1rem);
+        border: .1rem solid $big-stone1;
+        min-height:28rem !important;
+        max-height:28rem !important;
+
+        .entity-result-item {
+            @include padding(0px);
+            height: 230px !important;
+        }
+
+        .top-investings {
+            h3 {
+                @include margin-bottom(1rem);
+                color: rgba(251,251,251,.8);
+                font-weight: normal;
+                // font-family: $roboto-medium;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-medium);
+                  }
+                font-size: ($font-size-base - 2);
+            }
+
+            .entity-result-item {
+                @include padding(0);
+                height: 220px !important;
+            }
+
+            .investing-item {
+                .office-location-wrapper {
+                    @include margin-bottom(16px);
+
+                    h5 {
+                        color: rgba(251, 251, 251, .6);
+                        font-size: ($font-size-base - 2);
+                        // font-family: $roboto-light;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-light);
+                          }
+                        line-height: ($line-height-computed * 0.9);
+                        @include margin(0 0 .5rem);
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        display: block;
+                    }
+
+                    p {
+                        @extend .text-uppercase;
+                        color: rgba($text-color-default, .6);
+                        font-size: ($font-size-base - 4);
+                        // font-family: $roboto-light;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-light);
+                          }
+                        @include margin(0);
+                        line-height: ($line-height-computed * 0.7);
+                        max-height: none;
+                        overflow: hidden;
+                    }
+
+                    a {
+                        font-size: ($font-size-base - 3);
+                        text-transform: unset;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        display: block;
+                    }
+                }
+
+                .hierarchyVla-wrapper {}
+            }
+        }
+
+        .associated-persons-wrapper {
+            .company-table-wrapper {
+                .table {
+                    tr {
+                        td {
+                            text-align: left;
+                            color: #b0bbbf;
+                            font-size: ($font-size-base - 2);
+                            // font-family: $roboto-light;
+                            @include fontFamily($fonts) {
+                                font-family: fonted(font-light);
+                              }
+                            line-height: ($line-height-computed * 0.9);
+                            @include margin(0 0 .5rem);
+                            display: block;
+                        }
+                    }
+                }
+            }
+
+            .associated-persons {
+                .entity-result-item {
+                    height: 225px;
+                }
+            }
+        }
+    }
+}
+
+/*  Near By Companies Wrapper */
+
+/*==============================================================================
+**********************  CompanyNew - Leadership Tab ENDS  **********************
+===============================================================================*/
+
+/*==============================================================================
+***************  CompanyNew - Right Panel Leadership Tab Starts  ***************
+===============================================================================*/
+
+.entity-company-content-right.entity-company-new-right {
+    .risk-score-panel {
+        .employee-strength-wrapper {
+            @include margin-bottom(2.5rem);
+
+            >h3 {
+                font-size: ($font-size-base - 2);
+                font-weight: 400;
+                color: $text-color-default;
+            }
+
+            .employee-strength-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+
+        .employee-distribution-wrapper {
+            @include margin-bottom(2.5rem);
+
+            h3 {
+                font-size: ($font-size-base - 4);
+                font-weight: 400;
+                color: $text-color-default;
+            }
+
+            .person-circle-graph {
+                .radial {
+                    .inner-number {
+                        width: auto;
+                        font-family: $francois-one-regular;
+                    }
+                }
+            }
+
+            .employee-inbound-chart-wrapper {
+                height: 150px;
+                max-height: 150px;
+                overflow: hidden;
+            }
+
+            .employee-distribution-chart-wrapper {
+                height: 150px;
+                max-height: 150px;
+                overflow: hidden;
+            }
+        }
+
+        .employee-hiring-wrapper {
+            @include margin-bottom(2.5rem);
+
+            >h3 {
+                font-size: ($font-size-base - 2);
+                font-weight: 400;
+                color: $text-color-default;
+            }
+
+            .employee-hiring-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+
+        .top-influencers {
+            @include margin-bottom(2.5rem);
+
+            >h3 {
+                font-size: ($font-size-base - 2) !important;
+                font-weight: 400;
+                color: $text-color-default;
+            }
+        }
+
+        .employee-academics-wrapper {
+            @include margin-bottom(2.5rem);
+
+            h3 {
+                font-size: ($font-size-base - 2) !important;
+                font-weight: 400;
+                color: $text-color-default;
+            }
+
+            .employee-academics-chart-wrapper {
+                @include padding(0);
+                height: 27.5rem;
+
+                .media-list {
+                    .media {
+                        .recent-linkedin {
+                            .linkedin-content {
+                                p {
+                                    font-size: ($font-size-base - 2);
+                                    line-height: ($line-height-computed * 0.6);
+                                    // font-family: $roboto-light;
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-light);
+                                      }
+                                    color: rgba(251, 251, 251, .6);
+                                    text-transform: capitalize;
+                                    @include margin(0 0 .5rem);
+                                    max-height: 56px;
+                                    overflow: hidden;
+
+                                    &.post {
+                                        @include margin(0);
+
+                                        span {
+                                            @extend .text-capitalize;
+                                            color: rgba($text-color-default, .6);
+                                            font-size: ($font-size-base - 4);
+                                            line-height: ($font-size-base - 3);
+                                            // font-family: $roboto-light;
+                                            @include fontFamily($fonts) {
+                                                font-family: fonted(font-light);
+                                              }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .corporate-governance-wrapper {
+            @include margin-bottom(2.5rem);
+
+            >h3 {
+                font-size: ($font-size-base - 2);
+                font-weight: 400;
+                color: $text-color-default;
+            }
+
+            .investing-item {
+                .office-location-wrapper {
+                    @include margin-bottom(16px);
+
+                    h5 {
+                        color: rgba(251, 251, 251, .6);
+                        font-size: ($font-size-base - 2);
+                        // font-family: $roboto-light;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-light);
+                          }
+                        line-height: ($line-height-computed * 0.9);
+                        @include margin(0 0 .5rem);
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        display: block;
+                    }
+
+                    p {
+                        @extend .text-uppercase;
+                        color: rgba($text-color-default, .6);
+                        font-size: ($font-size-base - 4);
+                        // font-family: $roboto-light;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-light);
+                          }
+                        @include margin(0);
+                        line-height: ($line-height-computed * 0.7);
+                        max-height: none;
+                        overflow: hidden;
+                    }
+
+                    a {
+                        font-size: ($font-size-base - 3);
+                        text-transform: unset;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*==============================================================================
+****************  CompanyNew - Right Panel Leadership Tab ENDS  ****************
+===============================================================================*/
+
+/*==============================================================================
+*******************  CompanyNew - Social Media Tab Starts  *********************
+===============================================================================*/
+
+.entity-item-submmenu {
+    &.submenu-finance-list-wrapper {
+        height: 4rem;
+
+        ul {
+            width: 100%;
+            height: 35px;
+
+            li {
+                width: auto !important;
+
+                h5 {
+                    @include padding-right(0);
+                    max-width: none; //  padding-right: 105px!important;
+
+                    strong {
+                        @extend .text-overflow;
+                        position: relative;
+                        display: inline-block;
+                        transform: translateY(0);
+                        -o-transform: translateY(0);
+                        -moz-transform: translateY(0);
+                        -webkit-transform: translateY(0); //  width:100px !important;   
+                    }
+
+                    span {
+                        margin-right: 8px;
+                        line-height: 30px;
+                        vertical-align: text-bottom;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.border-l-thin-grey {
+    border-left: .1rem solid rgba($text-color-default, .2);
+}
+
+.social-media-tab-wrapper {
+    .twitter-counter-wrapper {
+        max-height: 6rem !important;
+        min-height: auto !important;
+        overflow: hidden;
+
+        .entity-item-submmenu {
+            ul {
+                @include margin-bottom(0);
+
+                li {
+                    h5 {
+                        max-width: 190px;
+                        @include padding-left(50px);
+                        @include padding-right(68px);
+                        @include margin-right(0);
+
+                        i {
+                            @include translateY(-50%);
+                            color:$text-dark;
+                            position: absolute;
+                            left: 0;
+                            font-size: ($font-size-base * 2.572);
+                            top: 50%;
+                        }
+
+                        strong {}
+                    }
+                }
+            }
+        }
+    }
+
+    .activity-feed-wrapper {
+        height: 14rem !important;
+        max-height: 14rem !important;
+        min-height: auto !important;
+        overflow: hidden;
+
+        h3 {
+            @include margin-bottom(15px);
+            position: relative;
+
+            select {
+                background-color: transparent;
+                border: 0;
+                border-radius: 0;
+                text-transform: uppercase;
+                color:$text-dark;
+                font-size: ($font-size-base - 3);
+            }
+
+            .custom-activity-feed {
+                @include translateY(-50%);
+                position: absolute;
+                @include margin(0);
+                right: 0;
+                top: 50%;
+
+                a {
+                    // font-family: $roboto-light;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-light);
+                      }
+                    font-size: ($font-size-base - 4);
+                    display: block;
+
+                    &.heart {
+                        color: rgba($text-color-default, .6);
+                    }
+
+                    &.refresh {
+                        color: rgba($text-color-default, .6);
+                    }
+
+                    &.linkedIn-time-line {
+                        color: #5d97c9;
+                    }
+                }
+            }
+        }
+    }
+
+    .twitter-feed-wrapper {
+        max-height: 325px !important;
+        min-height: auto !important;
+        @include padding-right(0);
+
+        .entity-item {
+            max-height: 325px !important;
+            min-height: auto !important;
+            height: 325px;
+
+            &:first-child {
+                border-left: 0;
+            }
+
+            h3 {
+                @include margin-bottom(15px);
+            }
+
+            .entity-result-item {
+                @include padding(0);
+                height: 270px;
+
+                .media-list.instagram-posts {
+                    .media {
+                        .recent-linkedin {
+                            @include padding-left(45px);
+                            position: relative;
+
+                            .linkedin-content-left {
+                                height: 4rem !important;
+                                overflow: hidden;
+                                position: absolute;
+                                width: 100%;
+                                border-radius: 50%;
+                                top: 0%;
+                                left: 0%;
+                                border: 4px solid rgba(251, 251, 251, .2);
+                                // width: 4rem !important;
+                                width: 40px;
+
+                                .img-section-wrapper {
+                                    width: 100%;
+                                    height: 100%;
+
+                                    img {
+                                        width: 100%;
+                                        overflow: hidden;
+                                        height: 100%;
+                                    }
+                                }
+                            }
+
+                            .linkedin-content {
+                                p {
+                                    font-size: ($font-size-base - 2);
+                                    line-height: ($line-height-computed * 0.65);
+                                    // font-family: $roboto-light;
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-light);
+                                      }
+                                    color: rgba(251, 251, 251, .6);
+                                    text-transform: capitalize;
+                                    @include margin(0 0 .5rem);
+                                    max-height: 52px;
+                                    overflow: hidden;
+
+                                    .badge {
+                                        @extend .text-capitalize;
+                                        color: $body-color;
+                                        background-color: rgba(251, 251, 251, .6);
+                                        font-size: ($font-size-base - 2);
+                                        // font-family: $roboto-light;
+                                        @include fontFamily($fonts) {
+                                            font-family: fonted(font-light);
+                                          }
+                                    }
+
+                                    small {
+                                        color: rgba($text-color-default, .6);
+                                    }
+                                }
+
+                                .posted-img {
+                                    padding-right: .5rem !important;
+                                    width: 100%;
+                                    overflow: hidden;
+                                    height: 100%;
+                                    max-height: none;
+
+                                    img {}
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .media-list.facebook-social {
+                    .media {
+                        @include margin-top(.5rem);
+
+                        .recent-linkedin {
+                            @include padding-left(45px);
+                            position: relative;
+
+                            .linkedin-content-left {
+                                height: 4rem !important;
+                                overflow: hidden;
+                                position: absolute;
+                                width: 100%;
+                                border-radius: 50%;
+                                top: 0%;
+                                left: 0%;
+                                border: 4px solid rgba(251, 251, 251, .2);
+                                // width: 4rem !important;
+                                width: 40px;
+
+                                .img-section-wrapper {
+                                    width: 100%;
+                                    height: 100%;
+
+                                    img {
+                                        width: 100%;
+                                        overflow: hidden;
+                                        height: 100%;
+                                    }
+                                }
+                            }
+
+                            .linkedin-content {
+                                min-height: 4rem;
+
+                                p {
+                                    font-size: ($font-size-base - 2);
+                                    line-height: ($line-height-computed * 0.65);
+                                    // font-family: $roboto-light;
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-light);
+                                      }
+                                    color: rgba($text-color-default, .6);
+                                    text-transform: capitalize;
+                                    @include margin(0 0 .5rem);
+                                    max-height: 52px;
+                                    overflow: hidden;
+
+                                    span {
+                                        @extend .text-capitalize;
+                                        color: rgba(251, 251, 251, .6);
+                                        display: block;
+                                        font-size: ($font-size-base - 2);
+                                        word-break: break-all;
+                                        // font-family: $roboto-light;
+                                        @include fontFamily($fonts) {
+                                            font-family: fonted(font-light);
+                                          }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .entity-result-item {
+                @include padding(0);
+                height: 270px;
+
+                .media-list {
+                    .media {
+                        .recent-tweet {
+                            .tweet-bio {
+                                position: relative;
+                                @include padding-left(45px);
+                                @include margin-bottom(0px);
+                                height: 4rem;
+
+                                .tweet-bio-dp {
+                                    @include translateY(-50%);
+                                    @include border-radius(50%);
+                                    // height: 4rem;
+                                    // width: 4rem;
+                                    width: 40px;
+                                    height: 40px;
+                                    position: absolute;
+                                    left: 0;
+                                    top: 50%;
+                                    overflow: hidden;
+                                    border: 0;
+
+                                    img {
+                                        @include border-radius(50%);
+                                        width: 100%;
+                                        border: 4px solid rgba(251, 251, 251, .2);
+                                    }
+                                }
+
+                                .tweet-bio-details {
+                                    min-height: 25px;
+
+                                    h5 {
+                                        font-size: ($font-size-base - 2);
+                                        // font-family: $roboto-light;
+                                        @include fontFamily($fonts) {
+                                            font-family: fonted(font-light);
+                                          }
+                                        color: rgba(251, 251, 251, .6);
+                                        text-transform: capitalize;
+                                        @include margin(0 0 0px);
+                                        line-height: ($line-height-computed * 0.6);
+                                    }
+
+                                    p {
+                                        color: rgba($text-color-default, .6);
+                                        font-size: ($font-size-base - 4);
+                                        // font-family: $roboto-light;
+                                        @include fontFamily($fonts) {
+                                            font-family: fonted(font-light);
+                                          }
+                                        text-transform: unset;
+                                        @include margin(0);
+                                        line-height: ($line-height-computed * 0.65);
+                                    }
+                                }
+                            }
+
+                            .tweet-content {
+                                p {
+                                    font-size: ($font-size-base - 2);
+                                    line-height: ($line-height-computed * 0.65);
+                                    // font-family: $roboto-light;
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-light);
+                                      }
+                                    color: rgba(251, 251, 251, .6);
+                                    text-transform: capitalize;
+                                    @include margin(0 0 .5rem);
+                                    height: 2.8rem;
+                                    overflow: hidden;
+                                }
+                            }
+
+                            .tweet-count {
+                                ul {
+                                    @include margin-bottom(0);
+
+                                    span {
+                                        font-size: ($font-size-base - 2);
+                                        color: rgba(251, 251, 251, .6);
+
+                                        i {
+                                            color: rgba($text-color-default, .6);
+                                            @include margin-right(.5rem);
+
+                                            &.fa-heart {}
+
+                                            &.fa-retweet {}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .linkedin-feed-wrapper {
+        @include padding(0);
+
+        .entity-item {
+            max-height: 325px !important;
+            min-height: auto !important;
+            height: 325px;
+
+            h3 {
+                @include margin-bottom(15px);
+            }
+
+            .entity-result-item {
+                @include padding(0);
+                height: 27.5rem;
+
+                .media-list {
+                    .media {
+                        .recent-linkedin {
+                            .linkedin-content {
+                                p {
+                                    font-size: ($font-size-base - 2);
+                                    line-height: ($line-height-computed * 0.65);
+
+                                    // font-family: $roboto-light;
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-light);
+                                      }
+                                    color: rgba($text-color-default, .6);
+
+                                    text-transform: capitalize;
+                                    @include margin(0 0 .5rem);
+                                    max-height: 52px;
+                                    overflow: hidden;
+                                }
+
+                                span {
+                                    @extend .text-capitalize;
+                                    font-size: ($font-size-base - 2);
+                                    color: rgba(251, 251, 251, .6);
+                                    // font-family: $roboto-light;
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-light);
+                                      }
+                                }
+                            }
+
+                            .linkedin-count {
+                                @include margin-top(.5rem);
+
+                                ul {
+                                    @include margin-bottom(0);
+
+                                    span {
+                                        font-size: ($font-size-base - 2);
+                                        color: rgba(251, 251, 251, .6);
+
+                                        i {
+                                            color: rgba($text-color-default, .6);
+                                            @include margin-right(.5rem);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .recent-linkedin-wrapper {
+                &.google-plus-post {
+                    ul {
+                        li {
+                            .media-left {
+                                a {
+                                    @include padding(0);
+                                    // height: 4rem;
+                                    // width: 4rem;
+                                    width: 40px;
+                                    height: 40px;
+
+                                    img {
+                                        width: 100%;
+                                        overflow: hidden;
+                                        height: 100%;
+                                        border-radius: 50%;
+                                        -o-border-radius: 50%;
+                                        -moz-border-radius: 50%;
+                                        -webkit-border-radius: 50%;
+                                    }
+                                }
+                            }
+
+                            .media-body {
+                                .media-heading {
+                                    @include margin-bottom(.5rem);
+                                    line-height: ($line-height-computed * 0.7);
+                                }
+
+                                p {
+                                    width: 100%;
+
+                                    span {
+                                        display: block;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .linkedIn-media-list {
+            li {
+                .media-left {
+                    a {
+                        // width: 4rem;
+                        // height: 4rem;
+                        width: 40px;
+                        height: 40px;
+                        @include margin(0);
+
+                        img {
+                            // width: 4rem;
+                            // height: 4rem;
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            @include margin(-4px 0 0 -9px);
+                        }
+                    }
+                }
+
+                .media-body {
+                    h3 {
+                        @include margin-bottom(0);
+                    }
+                }
+            }
+        }
+    }
+
+
+}
+
+
+.latest-news-tab-wrapper,
+.leadership-tab-wrapper,
+.social-media-tab-wrapper,
+.risk-alerts-tab-wrapper,
+.financial-growth-tab-wrapper {
+    .bst_row_wrapper {
+        display: grid;
+        margin: .8rem 0 0rem!important;
+        grid-template-columns: repeat(3, 33.3333333%);
+
+        .span-3 {
+            grid-column: span 3;
+            .entity-item {
+                &.col-sm-4 {
+                    max-width: 33%;
+                }
+
+                &.col-sm-3 {
+                    max-width: 24.25%;
+                }
+
+                &.col-sm-8 {
+                    max-width: 65.9%;
+                }
+
+                &.col-sm-6 {
+                    max-width: 49.54%;
+                }
+
+            }
+        }
+    }
+}
+
+.leadership-tab-wrapper {
+    .bst_row_wrapper {
+        .span-3 {
+            .entity-item {
+                margin: 0 .8rem .8rem 0;
+                &.col-sm-3 {
+                    max-width: 24.33%!important;
+                } 
+
+                &.col-sm-4 {
+                     max-width: 32.759%!important;
+                }
+
+                &.col-sm-6 {
+                    max-width: 49.5% !important;
+                }
+
+            }
+        }
+    }
+}
+
+.risk-alerts-tab-wrapper {
+    .bst_row_wrapper {
+        .span-3 {
+            .entity-item {
+                &.col-sm-6 {
+                    max-width: 48.85% !important;
+                } &.col-sm-4 {
+                    max-width: 32.7% !important;
+                }
+
+            }
+        }
+    }
+}
+
+.financial-growth-tab-wrapper {
+    .bst_row_wrapper {
+        .span-3 {
+            .entity-item {
+                
+                &.col-sm-4 {
+                    width: 32.7%;
+                }
+
+                &.col-sm-8 {
+                    width: 66.2%;
+                    margin-right: 0;
+                    max-width: none;
+                }
+
+            }
+        }
+    }
+}
+
+.autodesk-tab-wrapper {
+    .bst_row_wrapper {
+        .col-sm-6 {
+            max-width: 50.9%!important;
+            width: 49.5%!important;
+        }
+    }
+}
+
+.social-media-tab-wrapper {
+    .bst_row_wrapper {
+        .span-3 {
+            .entity-item {
+                &.col-sm-4 {
+                    max-width: 32.7%;
+                }
+            }
+        }
+    }
+}
+
+/*==============================================================================
+********************  CompanyNew - Social Media Tab ENDS  **********************
+===============================================================================*/
+
+/*==============================================================================
+***************  CompanyNew - Social Media Right Panel Starts  *****************
+===============================================================================*/
+
+.entity-company-content-right.entity-company-new-right {
+    .right-socialmedia-wrapper {
+        .activity-location-wrapper {
+            @include margin-bottom(2.5rem);
+
+            >h3 {
+                font-size: ($font-size-base - 2);
+                font-weight: 400;
+
+                color: $text-color-default;
+                // font-family: $roboto-light;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-light);
+                  }
+            }
+
+            .activity-location-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+
+        .twitter-tag-wrapper {
+            @include margin-bottom(2.5rem);
+
+            >h3 {
+                font-size: ($font-size-base - 2);
+                font-weight: 400;
+                color: $text-color-default;
+                // font-family: $roboto-light;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-light);
+                  }
+            }
+
+            .twitter-tag-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+
+        .top-contributors-wrapper {
+            @include margin-bottom(2.5rem);
+
+            >h3 {
+                font-size: ($font-size-base - 2);
+                font-weight: 400;
+                color: $text-color-default;
+                // font-family: $roboto-light;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-light);
+                  }
+            }
+
+            .entity-result-item {
+                @include padding(0);
+
+                /*height: 200px;*/
+                .media-list {
+                    .media {
+                        .total-contributors {
+                            .contributors-bio {
+                                position: relative;
+                                @include padding-left(50px);
+                                @include margin-bottom(7px);
+
+                                .contributors-bio-dp {
+                                    // height: 4rem;
+                                    // width: 4rem;
+                                    width: 40px;
+                                    height: 40px;
+                                    position: absolute;
+                                    left: 0;
+                                    top: 0%;
+                                    border-radius: 50%;
+                                    -o-border-radius: 50%;
+                                    -moz-border-radius: 50%;
+                                    -webkit-border-radius: 50%;
+                                    overflow: hidden;
+                                    border: 0;
+
+                                    img {
+                                        width: 100%;
+                                    }
+                                }
+
+                                .contributors-bio-details {
+                                    h5 {
+                                        font-size: ($font-size-base - 2);
+                                        // font-family: $roboto-light;
+                                        @include fontFamily($fonts) {
+                                            font-family: fonted(font-light);
+                                          }
+                                        color: rgba($text-color-default, .8);
+                                        text-transform: uppercase;
+                                        @include margin(0 0 .5rem);
+                                        line-height: ($line-height-computed * 0.6);
+                                    }
+
+                                    span {
+                                        font-size: ($font-size-base - 2);
+                                        @include margin-right(1rem);
+
+                                        &.tweets-count {
+                                            color: rgba($text-color-default, .6);
+                                        }
+
+                                        &.mentions-count {
+                                            color: $text-color-default;
+                                        }
+
+                                        &.retweets-count {
+                                            color: rgba($text-color-default, .6);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .sentiments-wrapper {
+            @include margin-bottom(2.5rem);
+
+            >h3 {
+                font-size: ($font-size-base - 2);
+                font-weight: 400;
+                color: $text-color-default;
+            }
+
+            .sentiments-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+/*==============================================================================
+****************  CompanyNew - Social Media Right Panel ENDS  ******************
+===============================================================================*/
+
+/*==============================================================================
+********************  CompanyNew - Latest news Tab Starts  *********************
+===============================================================================*/
+
+.latest-news-tab-wrapper {
+    .latestnews-counter-wrapper {
+        max-height: 75px !important;
+        min-height: auto !important;
+        overflow: hidden;
+
+        .entity-item-submmenu {
+            ul {
+                @include margin-bottom(0);
+
+                li {
+                    h5 {
+                        // font-family: $roboto-light;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-light);
+                          }
+                        color: rgba($text-color-default, 1);
+                        max-width: 125px;
+                        @include margin-right(0px);
+                        @include padding-right(40px);
+                        min-height: 25px;
+                    }
+                }
+            }
+        }
+    }
+
+    .overall-sentiment-wrapper {
+        height: 14rem !important;
+        max-height: 14rem !important;
+        min-height: auto !important;
+        overflow: hidden;
+
+        h3 {
+            @include margin-bottom(15px);
+            position: relative;
+
+            select {
+                background-color: transparent;
+                border: 0;
+                border-radius: 0;
+                text-transform: uppercase;
+                color: rgba($text-color-default, .6);
+                font-size: ($font-size-base - 3);
+            }
+
+            .custom-sentiment-feed {
+                position: absolute;
+                @include margin(0);
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                -o-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -webkit-transform: translateY(-50%);
+
+                a {
+                    // font-family: $roboto-light;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-light);
+                      }
+                    font-size: ($font-size-base - 4);
+                    display: block;
+
+                    &.heart {
+                        color: rgba($text-color-default, .6);
+                    }
+
+                    &.refresh {
+                        color: rgba($text-color-default, .6);
+                    }
+                }
+            }
+        }
+    }
+
+    .press-release-wrapper {
+        @include padding(0);
+
+        .entity-item {
+            max-height: 325px !important;
+            min-height: auto !important;
+            height: 325px;
+
+            &:first-child {
+                border-left: 0;
+            }
+
+            h3 {
+                @include margin-bottom(15px);
+            }
+
+            .entity-result-item {
+                @include padding(0);
+                height: 270px;
+
+                &.latest-social-news .post button {
+                    @include padding(0);
+                    background-color: transparent;
+                    box-shadow: none;
+                }
+
+                &.latest-releases {
+                    .latest-sub-title {
+                        max-height: 14px;
+                        overflow: hidden;
+                        display: block;
+                    }
+                }
+
+                .media-list {
+                    .media {
+                        .recent-linkedin {
+                            .linkedin-content {
+                                p {
+                                    font-size: ($font-size-base - 2);
+                                    line-height: ($line-height-computed * 0.65);
+                                    // font-family: $roboto-light;
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-light);
+                                      }
+                                    text-transform: capitalize;
+                                    color: rgba($text-color-default, .6);
+                                    @include margin(0 0 .5rem);
+                                    max-height: 52px;
+                                    overflow: hidden;
+
+                                    &.press-release-title {
+                                        color: rgba(251, 251, 251, .6);
+                                    }
+
+                                    &.press-release-body {
+                                        color: rgba($text-color-default, .6);
+                                    }
+                                }
+
+                                span {
+                                    @extend .text-capitalize;
+                                    font-size: ($font-size-base - 2);
+                                    color: rgba(251, 251, 251, .6);
+                                    // font-family: $roboto-light;
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-light);
+                                      }
+                                }
+                            }
+
+                            .linkedin-count {
+                                @include margin-top(.5rem);
+
+                                ul {
+                                    @include margin-bottom(0);
+
+                                    span {
+                                        font-size: ($font-size-base - 2);
+                                        color: rgba($text-color-default, .8);
+
+                                        i {
+                                            color: rgba($text-color-default, .6);
+                                            @include margin-right(.5rem);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .social-media-trending {
+        @include padding(0);
+
+        .entity-item {
+            max-height: 325px !important;
+            min-height: auto !important;
+            height: 325px;
+
+            h3 {
+                @include margin-bottom(15px);
+            }
+
+            .entity-result-item {
+                @include padding(0);
+                height: 27.5rem;
+
+                .media-list {
+                    .media {
+                        .media-body {
+                            p {
+                                font-size: ($font-size-base - 2);
+                                line-height: ($line-height-computed * 0.65);
+                                // font-family: $roboto-light;
+                                @include fontFamily($fonts) {
+                                    font-family: fonted(font-light);
+                                  }
+                                color: rgba($text-color-default, .6);
+                                text-transform: capitalize;
+                                @include margin(0 0 .5rem);
+                                max-height: 52px;
+                                overflow: hidden;
+                            }
+
+                            span {
+                                @extend .text-capitalize;
+                                font-size: ($font-size-base - 2);
+                                color: rgba($text-color-default, .6);
+                                // font-family: $roboto-light;
+                                @include fontFamily($fonts) {
+                                    font-family: fonted(font-light);
+                                  }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*==============================================================================
+*********************  CompanyNew - Latest news Tab ENDS  **********************
+===============================================================================*/
+
+/*==============================================================================
+**************  CompanyNew - Right Panel Latest News Tab Starts  ***************
+===============================================================================*/
+
+.entity-company-content-right.entity-company-new-right {
+    .right-latestnews-wrapper {
+        .general-sentiments-wrapper {
+            @include margin-bottom(2.5rem);
+
+            >h3 {
+                font-size: ($font-size-base - 2);
+                font-weight: 400;
+                color: $text-color-default;
+            }
+
+            .general-sentiments-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+
+        .popular-tags-wrapper {
+            @include margin-bottom(2.5rem);
+
+            >h3 {
+                font-size: ($font-size-base - 2);
+                font-weight: 400;
+                color: $text-color-default;
+            }
+
+            .popular-tags-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+
+        .news-locations-wrapper {
+            @include margin-bottom(2.5rem);
+
+            >h3 {
+                font-size: ($font-size-base - 2);
+                font-weight: 400;
+                color: $text-color-default;
+            }
+
+            .news-locations-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+/*==============================================================================
+***************  CompanyNew - Right Panel Latest News Tab Ends  ****************
+===============================================================================*/
+
+/*==============================================================================
+*******************  CompanyNew - Risky Alerts Tab Starts  *********************
+===============================================================================*/
+
+.risk-alerts-tab-wrapper {
+    .risky-alerts-counter-wrapper {
+        max-height: 75px !important;
+        min-height: auto !important;
+        overflow: hidden;
+
+        .entity-item-submmenu {
+            ul {
+                @include margin-bottom(0);
+
+                li {
+                    h5 {
+                        // font-family: $roboto-light;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-light);
+                          }
+                        color: rgba($text-color-default, 1);
+                        @include margin-right(0 !important);
+                        @include padding-right(40px);
+                    }
+                }
+            }
+        }
+    }
+
+    .alert-timeline-wrapper {
+        height: 14rem !important;
+        max-height: 14rem !important;
+        min-height: auto !important;
+        overflow: hidden;
+
+        h3 {
+            @include margin-bottom(15px);
+            position: relative;
+
+            select {
+                background-color: transparent;
+                border: 0;
+                border-radius: 0;
+                text-transform: uppercase;
+                color: rgba($text-color-default, .6);
+                font-size: ($font-size-base - 3);
+            }
+
+            .custom-sentiment-feed {
+                position: absolute;
+                @include margin(0);
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                -o-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -webkit-transform: translateY(-50%);
+
+                a {
+                    // font-family: $roboto-light;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-light);
+                      }
+                    font-size: ($font-size-base - 4);
+                    display: block;
+
+                    &.heart {
+                        color: rgba($text-color-default, .6);
+                    }
+
+                    &.refresh {
+                        color: rgba($text-color-default, .6);
+                    }
+
+                    &.sanctions {
+                        color: rgba($text-color-default, .6)
+                    }
+
+                    &.cyber {
+                        color: rgba($text-color-default, .6);
+                    }
+
+                    &.adverseNews {
+                        color: rgba($text-color-default, .6);
+                    }
+                }
+            }
+        }
+    }
+
+    .pep-fraud-wrapper {
+        @include padding(0);
+
+        .entity-item {
+            max-height: 325px !important;
+            min-height: auto !important;
+            height: 325px;
+
+            &:first-child {
+                border-left: 0;
+            }
+
+            &.fraud-alerts-tabs {
+                .custom-fraud-tabs {
+                    .nav-tabs {
+                        position: static;
+                        margin-bottom: 1rem;
+
+                        li {
+                            a {
+                                .main-nav-texts {
+                                    font-size: 1.3rem;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .entity-result-item {
+                    height: 235px !important;
+
+                    .media-list {
+                        .media {
+                            .recent-linkedin {
+                                .linkedin-content {
+                                    p {
+                                        &:first-child {
+                                            font-size: ($font-size-small + 1);
+                                            text-transform: uppercase;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            h3 {
+                @include margin-bottom(0px);
+            }
+
+            .entity-result-item {
+                @include padding(0);
+                height: 27.5rem;
+
+                .media-list {
+                    .media {
+                        .recent-linkedin {
+                            .linkedin-content {
+                                p {
+                                    font-size: ($font-size-base - 2);
+                                    line-height: ($line-height-computed * 0.65);
+                                    // font-family: $roboto-light;
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-light);
+                                      }
+                                    color: rgba($text-color-default, .6);
+                                    text-transform: capitalize;
+                                    @include margin(0 0 .5rem);
+                                    max-height: 52px;
+                                    overflow: hidden;
+                                }
+
+                                span {
+                                    @extend .text-capitalize;
+                                    font-size: ($font-size-base - 2);
+                                    color: rgba($text-color-default, .6);
+                                    // font-family: $roboto-light;
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-light);
+                                      }
+                                }
+
+                                .sex-offender {
+                                    font-size: ($font-size-base - 1);
+                                    color:$text-dark;
+                                }
+                            }
+
+                            .linkedin-count {
+                                @include margin-top(.5rem);
+
+                                ul {
+                                    @include margin-bottom(0);
+
+                                    span {
+                                        font-size: ($font-size-base - 2);
+                                        color: rgba($text-color-default, .8);
+
+                                        i {
+                                            color: rgba($text-color-default, .6);
+                                            @include margin-right(.5rem);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .entity-item {
+            .media-body {
+
+                /*width: 100%;*/
+                /*display: block;*/
+                .key {
+                    width: 40%;
+                    float: left;
+                }
+
+                .value {
+                    width: 60%;
+                    float: left;
+                }
+
+                p {
+                    width: 100%;
+                    overflow: visible;
+                    white-space: normal;
+                    text-overflow: unset;
+                }
+            }
+        }
+    }
+
+    .sanctioned-list-wrapper {
+        @include padding(0);
+
+        .entity-item {
+            max-height: 325px !important;
+            min-height: auto !important;
+            height: 325px;
+
+            h3 {
+                @include margin-bottom(15px);
+            }
+
+            .entity-result-item {
+                @include padding(0);
+                height: 27.5rem;
+
+                .media-list {
+                    .media {
+                        .recent-linkedin {
+                            .linkedin-content {
+                                p {
+                                    font-size: ($font-size-base - 2);
+                                    line-height: ($line-height-computed * 0.65);
+                                    // font-family: $roboto-light;
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-light);
+                                      }
+                                    color: rgba($text-color-default, .6);
+                                    text-transform: capitalize;
+                                    @include margin(0 0 .5rem);
+                                    max-height: 52px;
+                                    overflow: hidden;
+                                }
+
+                                span {
+                                    @extend .text-capitalize;
+                                    font-size: ($font-size-base - 2);
+                                    color: rgba($text-color-default, .6);
+                                    // font-family: $roboto-light;
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-light);
+                                      }
+                                }
+                            }
+
+                            .linkedin-count {
+                                @include margin-top(.5rem);
+
+                                ul {
+                                    @include margin-bottom(0);
+
+                                    span {
+                                        font-size: ($font-size-base - 2);
+                                        color: rgba($text-color-default, .8);
+
+                                        i {
+                                            color: rgba($text-color-default, .6);
+                                            @include margin-right(.5rem);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .suppliers-black-list {
+        @include padding(0);
+
+        .entity-item {
+            max-height: 325px !important;
+            min-height: auto !important;
+            height: 325px;
+
+            &:first-child {
+                border-left: 0;
+            }
+
+            h3 {
+                @include margin-bottom(0px);
+            }
+
+            .entity-result-item {
+                @include padding(0);
+                height: 270px;
+
+                .media-list {
+                    .media {
+                        .recent-linkedin {
+                            .linkedin-content {
+                                p {
+                                    font-size: ($font-size-base - 2);
+                                    line-height: ($line-height-computed * 0.65);
+                                    // font-family: $roboto-light;
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-light);
+                                      }
+                                    color: rgba($text-color-default, .8);
+                                    text-transform: capitalize;
+                                    @include margin(0 0 .5rem);
+                                    max-height: 52px;
+                                    overflow: hidden;
+                                }
+
+                                span {
+                                    @extend .text-capitalize;
+                                    font-size: ($font-size-base - 2);
+                                    color: rgba($text-color-default, .8);
+                                    // font-family: $roboto-light;
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-light);
+                                      }
+                                }
+
+                                .sex-offender {
+                                    font-size: ($font-size-base - 1);
+                                    color:$text-dark;
+                                }
+                            }
+
+                            .linkedin-count {
+                                @include margin-top(.5rem);
+
+                                ul {
+                                    @include margin-bottom(0);
+
+                                    span {
+                                        font-size: ($font-size-base - 2);
+                                        color: rgba($text-color-default, .8);
+
+                                        i {
+                                            color: rgba($text-color-default, .6);
+                                            @include margin-right(.5rem);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .criminal-records-wrapper {
+            a {
+                @include padding(0 !important);
+
+                i {
+                    @include padding-top(4px);
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        .entity-item {
+            .media-body {
+
+                /*width: 100%;*/
+                /*display: block;*/
+                .key {
+                    width: 40%;
+                    float: left;
+                    color: rgba(251, 251, 251, .6);
+                    text-transform: capitalize;
+                }
+
+                .value {
+                    width: 60%;
+                    float: left;
+                    color: rgba($text-color-default, .6);
+                    text-transform: capitalize;
+                }
+
+                p {
+                    width: 100%;
+                    overflow: visible;
+                    white-space: normal;
+                    text-overflow: unset;
+                }
+            }
+        }
+    }
+ 
+    .dark-web-list {
+        @include padding(0);
+
+        .entity-item {
+            max-height: 325px !important;
+            min-height: auto !important;
+            height: 325px;
+
+            &:first-child {
+                border-left: 0;
+            }
+
+            h3 {
+                @include margin-bottom(0px);
+
+                a {
+                    display: block;
+                }
+
+                span {
+                    display: block;
+                    color: rgba(251, 251, 251, .6);
+                    text-transform: capitalize;
+                }
+            }
+
+            .entity-result-item {
+                @include padding(0);
+                height: 270px;
+
+                .media-heading {
+                    a {}
+
+                    span {}
+                }
+
+                .media-body {
+                    p.progress-text {
+                        width: 100%;
+                        color: rgba($text-color-default, .6);
+                        overflow: visible;
+                        white-space: normal;
+                        text-overflow: unset;
+                    }
+                }
+            }
+        }
+    }
+}
+.custom-data-table-wrapper{
+     position:relative;
+     .add-screening-button{
+        position:absolute;
+        bottom:0px;
+        right:15px;
+        width: 57px;
+        height: 56px;
+        border-radius:50%;
+        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 6px 10px 0 rgba(0, 0, 0, 0.14);
+        background-image: linear-gradient(to bottom, #79c9ff, #009eff);
+        z-index:10;
+        border:0;
+     }
+ }
+
+/*==============================================================================
+********************  CompanyNew - Risky Alerts Tab ENDS  **********************
+===============================================================================*/
+
+/*==============================================================================
+**************  CompanyNew - Right Panel Risky Alerts Tab Starts  **************
+===============================================================================*/
+
+.entity-company-content-right.entity-company-new-right {
+    .right-riskalerts-wrapper {
+        .political-donations-wrapper {
+            @include margin-bottom(2.5rem);
+
+            >h3 {
+                font-size: ($font-size-base - 2);
+                font-weight: 400;
+                color: $text-color-default;
+            }
+
+            .political-donations-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+
+            .political-contributions-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+
+        .ratios-ratio-wrapper {
+            @include margin-bottom(2.5rem);
+
+            &.interlocks-wrapper {
+                .interlocks-content {
+                    p {
+                        span {
+                            &.key {
+                                width: 40%;
+                                float: left;
+                                color: rgba(251, 251, 251, .6);
+                                font-size: 11px;
+                                text-transform: uppercase;
+                            }
+
+                            &.value {
+                                width: 60%;
+                                float: left;
+                                color: rgba($text-color-default, .6);
+                            }
+                        }
+                    }
+                }
+            }
+
+            >h3 {
+                font-size: ($font-size-base - 2);
+                font-weight: 400;
+                color: $text-color-default;
+            }
+
+            .ratios-ratio-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+/*==============================================================================
+***************  CompanyNew - Right Panel Risky Alerts Tab Ends  ***************
+===============================================================================*/
+
+/*==============================================================================
+*******************  CompanyNew - Financial gr Tab Starts  *********************
+===============================================================================*/
+
+.financial-growth-tab-wrapper {
+    .financial-counter-wrapper {
+        max-height: 75px !important;
+        min-height: auto !important;
+        overflow: hidden;
+
+        .entity-item-submmenu {
+            ul {
+                @include margin-bottom(0);
+
+                li {
+                    width: 25%;
+                    float: left;
+
+                    h5 {
+                        // font-family: $roboto-light;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-light);
+                          }
+                        color: rgba($text-color-default, 1);
+                        @include margin-right(0px);
+                        @include padding-right(100px);
+                        max-width: 175px;
+
+                        strong {
+                            white-space: nowrap;
+                            width: auto;
+                            overflow: hidden;
+                            line-height: ($line-height-computed * 1.2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .bloomberg-line-chart-wrapper {
+        .bloomberg-stock-detail-wrapper {
+            .read-more {
+                right: 1.5rem;
+            }
+
+            .bloomberg-stock-inner-wrapper {
+                @include margin(0);
+                max-height: 520px;
+            }
+
+            p {
+                span {
+                    width: 100%;
+
+                    &.col-sm-4 {
+                        color: rgba(251, 251, 251, .6);
+                        // font-family: $roboto-light;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-light);
+                          }
+                        font-size: ($font-size-base - 4);
+                    }
+
+                    &.col-sm-8 {
+                        @include margin(0 0 1.5rem);
+                        color: rgba($text-color-default, .6);
+                        // font-family: $roboto-light;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-light);
+                          }
+                        font-size: $font-size-large;
+                    }
+                }
+            }
+
+            .range-wrapper,
+            .open-wrapper,
+            .volume-wrapper {
+                padding: 30px 1rem 1rem 1.5rem;
+                height: 100%;
+                display: table-cell;
+                float: none;
+            }
+
+            .open-wrapper {
+                background-color: $big-stone3;
+            }
+
+            .volume-wrapper {
+                background-color: $big-stone4;
+            }
+        }
+    }
+
+    .pep-fraud-wrapper {
+        @include padding(0);
+
+        .entity-item {
+            max-height: 360px !important;
+            min-height: auto !important; // height: 360px;
+
+            &:first-child {
+                border-left: 0;
+            }
+
+            .read-more {
+                right: 1.5rem;
+                bottom: 1.5rem;
+            }
+
+            h3 {
+                @include margin-bottom(15px);
+            }
+
+            select {
+                background-color: transparent;
+                border: 0;
+                border-bottom: .1rem solid #276966;
+                box-shadow: none;
+                border-radius: 0;
+                @include margin-bottom(20px);
+            }
+
+            .entity-result-item {
+                @include padding(0);
+                height: 191px;
+
+                .media-list {
+                    .media-body {
+                        p {
+                            font-size: ($font-size-base - 2);
+                            line-height: ($line-height-computed * 0.65);
+                            // font-family: $roboto-light;
+                            @include fontFamily($fonts) {
+                                font-family: fonted(font-light);
+                              }
+                            color: rgba($text-color-default, .8);
+                            text-transform: capitalize;
+                            @include margin(0 0 .5rem);
+                            max-height: 52px;
+                            overflow: hidden;
+                            width: 100%;
+                            white-space: normal;
+                        }
+
+                        span {
+                            @extend .text-capitalize;
+                            font-size: ($font-size-base - 2);
+                            color: rgba($text-color-default, .8);
+                            // font-family: $roboto-light;
+                            @include fontFamily($fonts) {
+                                font-family: fonted(font-light);
+                              }
+                            @include margin-bottom(20px);
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .sanctioned-list-wrapper {
+        @include padding(0);
+
+        .pep-relationship-wrapper {
+            .share-holder-analysis {}
+        }
+
+        .entity-item {
+            max-height: 325px !important;
+            min-height: auto !important;
+            height: 325px;
+
+            h3 {
+                @include margin-bottom(15px);
+            }
+
+            .read-more {
+                right: 1.5rem;
+                bottom: 1.5rem;
+            }
+
+            select {
+                background-color: transparent;
+                border: 0;
+                border-bottom: .1rem solid #276966;
+                box-shadow: none;
+                border-radius: 0;
+                @include margin-bottom(20px);
+                @include margin-left(15px);
+            }
+
+            .entity-result-item {
+                @include padding(0);
+                height: 27.5rem;
+
+                .media-list {
+                    .media {
+                        .recent-linkedin {
+                            .linkedin-content {
+                                p {
+                                    font-size: ($font-size-base - 2);
+                                    line-height: ($line-height-computed * 0.65);
+                                    // font-family: $roboto-light;
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-light);
+                                      }
+                                    color: rgba($text-color-default, .8);
+                                    text-transform: capitalize;
+                                    @include margin(0 0 .5rem);
+                                    max-height: 52px;
+                                    overflow: hidden;
+                                }
+
+                                span {
+                                    @extend .text-capitalize;
+                                    font-size: ($font-size-base - 2);
+                                    color: rgba($text-color-default, .8);
+                                    // font-family: $roboto-light;
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-light);
+                                      }
+                                }
+                            }
+
+                            .linkedin-count {
+                                @include margin-top(.5rem);
+
+                                ul {
+                                    @include margin-bottom(0);
+
+                                    span {
+                                        font-size: ($font-size-base - 2);
+                                        color: rgba($text-color-default, .8);
+
+                                        i {
+                                            color: rgba($text-color-default, .6);
+                                            @include margin-right(.5rem);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .financial-statements-wrapper {
+        .entity-result-item {
+            @include padding(0);
+            height: 31rem;
+            @include margin(0);
+
+            .company-table-wrapper {
+                .table thead tr th {
+                    color: rgba(251, 251, 251, .6);
+                }
+
+                .table tbody tr {
+                    td {
+                        color: rgba($text-color-default, .6);
+
+                        &:first-child {
+                            color: rgba(251, 251, 251, .6);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*==============================================================================
+********************  CompanyNew - Financial gr Tab ENDS  **********************
+===============================================================================*/
+
+/*==============================================================================
+**************  CompanyNew - Right Panel Financial Tab Starts  *****************
+===============================================================================*/
+
+.entity-company-content-right.entity-company-new-right {
+    .right-financial-wrapper {
+        .earning-trends-wrapper {
+            @include margin-bottom(2.5rem);
+
+            >h3 {
+                font-size: ($font-size-base - 2);
+                font-weight: 400;
+                color: $text-color-default;
+            }
+
+            .earning-trends-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+
+        .investment-trends-wrapper {
+            @include margin-bottom(2.5rem);
+
+            >h3 {
+                font-size: ($font-size-base - 2);
+                font-weight: 400;
+                color: $text-color-default;
+            }
+
+            .investment-trends-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+
+        .investor-sentiments-wrapper {
+            @include margin-bottom(2.5rem);
+
+            >h3 {
+                font-size: ($font-size-base - 2);
+                font-weight: 400;
+                color: $text-color-default;
+            }
+
+            .investor-sentiments-chart-wrapper {
+                height: 300px;
+                max-height: 300px;
+                overflow: hidden;
+            }
+        }
+
+        .major-holders-wrapper {
+            @include margin-bottom(2.5rem);
+
+            >h3 {
+                font-size: ($font-size-base - 2);
+                font-weight: 400;
+                color: $text-color-default;
+            }
+
+            .major-holders-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+#politicalOrgsWrapper {
+    max-height: 200px;
+    overflow: hidden;
+}
+
+/*==============================================================================
+***************  CompanyNew - Right Panel Financial gr Tab Ends  ***************
+===============================================================================*/
+
+/*==============================================================================
+***************  CompanyNew - Right Panel Financial gr Tab Ends  ***************
+===============================================================================*/
+
+/*==============================================================================
+*****************  CompanyNew - Left Panel Medias Tab Starts  *****************
+===============================================================================*/
+
+.medias-tab-wrapper {
+    @include padding(15px);
+    background: #2d2d2d;
+    border-radius: 1rem;
+    margin-top: .8rem;
+
+    &.upload-questionnaire {
+        @include padding(15px 0 1.5rem 5rem);
+    }
+
+    .media-custom-scroll {
+        max-height: 495px;
+        overflow: hidden;
+    }
+
+    .mCSB_scrollTools .mCSB_dragger {
+        &:hover {
+            .mCSB_dragger_bar {
+                background-color: $dark-grey1;
+            }
+        }
+
+        .mCSB_dragger_bar {
+            background-color: $dark-grey1;
+        }
+    }
+
+    h3 {
+        color: rgba($text-color-default, .6);
+        font-size: ($font-size-base + 4);
+        @include margin-top(1rem);
+        border-bottom: .1rem solid$text-dark;
+        @include padding-bottom(6px);
+        @include margin-bottom(15px);
+    }
+
+    .medias-wrapper {
+        @include padding-left(0);
+        @include padding-right(1rem);
+        @include margin-bottom(20px);
+
+        ul {    display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            &.pdf-list {
+                li {
+                    .thumb-wrapper {
+                        @include padding(1rem 0);
+                        width: 216px;
+                        height: 216px;
+                        position: relative;
+                        border-radius: 2px;
+
+                        img {
+                            width: auto;
+                            display: block;
+                            @include margin(0 auto);
+                        }
+                    }
+
+                    h6 {
+                        span {
+                            display: inline-block;
+                            // width: calc(100% - 4rem);
+                            width: calc(100% - 40px);
+                            @include padding(0);
+                            vertical-align: top;
+
+                            &.glyphicon-download-alt {
+                                display: inline-block;
+                                width: 25px;
+                                @include margin(0 1rem 0 0);
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.image-list {
+                li {
+                    .thumb-wrapper {
+                        width: 216px;
+                        height: 216px;
+                    }
+                }
+            }
+
+            &.doc-list {
+                li {
+                    .thumb-wrapper {
+                        position: relative;
+                        border-radius: 2px;
+                        @include padding(1rem 0);
+
+                        img {
+                            width: auto;
+                            display: block;
+                            @include margin(0 auto);
+                        }
+                    }
+
+                    h6 {
+                        span {
+                            display: inline-block;
+                            width: calc(100% - 4rem);
+                            @include padding(0);
+                            vertical-align: top;
+
+                            &.glyphicon-download-alt {
+                                display: inline-block;
+                                width: 25px;
+                                @include margin(0 1rem 0 0);
+                            }
+                        }
+                    }
+                }
+            }
+
+            li {
+                max-width: 24%;
+                flex: 1 0 24%; 
+                @include padding(0 6px);
+                vertical-align: top;
+
+                .thumb-wrapper {
+                    position: relative;
+                    border-radius: 2px;
+
+                    .icon-overlay {
+                        @include center-position();
+                        color: $curious-blue10;
+                        font-size: ($font-size-base * 2.858);
+                        width: 100%;
+                        height: 100%;
+                        text-align: center;
+                        line-height: ($line-height-computed * 8);
+
+                        &:after {
+                            @include square(100%);
+                            @include center-position();
+                            background-color: rgba(0, 0, 0, 0.6);
+                            content: "";
+                        }
+                    }
+
+                    span {
+                        position: absolute;
+                        bottom: .5rem;
+                        right: .5rem;
+                    }
+
+                    i {
+                        position: absolute;
+                        font-size: ($font-size-base * 2.286);
+                        color: rgba($text-color-default, .8);
+                        top: 50%;
+                        left: 50%;
+                        z-index: 99;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+
+                img {
+                    width: 100%;
+                    border-radius: 2px;
+                }
+
+                h6 {
+                    color: rgba($text-color-default, .8);
+                    display: block;
+                    font-size: ($font-size-base);
+                    font-weight: 500;
+                    line-height: ($line-height-computed * 0.8);
+                    @include margin-bottom(.5rem);
+                    opacity: .8;
+                    position: relative;
+
+                    small {
+                        color: $text-color-default;
+                        display: inline-block;
+                        @include margin-top(15px);
+                        font-size: ($font-size-base - 2);
+                        opacity: .8;
+                    }
+
+                    span {
+                        display: block;
+                        min-height: 32px;
+                        overflow: hidden;
+                        width: 100%;
+                        @include padding-right(2.5rem);
+                    }
+
+                    a {
+                        position: absolute;
+                        right: -20px;
+                        top: .1rem;
+                    }
+                }
+
+                p {
+                    color: $text-color-default;
+                    display: block;
+                    @include margin-top(1rem);
+                    font-size: ($font-size-base - 2);
+                    max-height: 110px;
+                    overflow: hidden;
+                }
+
+                &:hover {
+                    h6 {
+                        opacity: 1;
+
+                        small {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            &.pdf-list {
+                li {
+                    a {
+                        img {
+                            height: 130px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*==============================================================================
+**************  CompanyNew - Right Panel Medias Tab Starts  ********************
+===============================================================================*/
+
+.entity-company-content-right.entity-company-new-right {
+    .right-medias-wrapper {
+        .earning-trends-wrapper {
+            @include margin-bottom(2.5rem);
+
+            >h3 {
+                font-size: ($font-size-base - 2);
+                font-weight: 400;
+                color: $text-color-default;
+            }
+
+            .earning-trends-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+
+        .investment-trends-wrapper {
+            @include margin-bottom(2.5rem);
+
+            >h3 {
+                font-size: ($font-size-base - 2);
+                font-weight: 400;
+                color: $text-color-default;
+            }
+
+            .investment-trends-chart-wrapper {
+                height: 200px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+
+        .investor-sentiments-wrapper {
+            @include margin-bottom(2.5rem);
+
+            >h3 {
+                font-size: ($font-size-base - 2);
+                font-weight: 400;
+                color: $text-color-default;
+            }
+
+            .investor-sentiments-chart-wrapper {
+                height: 300px;
+                max-height: 200px;
+                overflow: hidden;
+            }
+        }
+    }
+
+    .person-circle-graph {
+        &.custom-person-circle-graph {
+            .radial {
+                @include margin(0 auto !important);
+                float: none !important;
+
+                &:hover {
+                    .inner-number {
+                        font-size: 52px;
+
+                        .inner-text {
+                            font-size: ($font-size-base - 1);
+                            @include margin-top(15px);
+                        }
+                    }
+                }
+
+                .inner-number {
+                    @include margin(40px auto 0);
+                    font-size: .28em;
+                    display: block;
+                    line-height: ($line-height-computed * 1.5);
+                    width: 100%;
+                    font-family: $francois-one-regular;
+
+                    .inner-text {
+                        @include margin(.5rem auto);
+                        @include transition(all 0.3s ease-in-out);
+                        display: block;
+                        width: 80px;
+                        word-break: break-word;
+                        white-space: normal;
+                        font-size: ($font-size-base - 1);
+                        line-height: ($line-height-computed * 0.65);
+                        // font-family: $roboto-light;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-regular);
+                          }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.employee-inbound-chart-wrapper,
+.employee-distribution-chart-wrapper {
+    .c100 {
+        >span {
+            transition: all .3s ease-in-out;
+            font-size: ($font-size-base * 1.929);
+            line-height: ($line-height-computed * 1.1);
+            color: $curious-blue10;
+            text-align: center;
+            white-space: nowrap;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            width: auto;
+            @include margin(0 auto);
+
+            .inner-text {
+                display: block;
+                font-size: ($font-size-base - 4);
+            }
+        }
+    }
+
+    .radial:hover,
+    .radial:focus {
+        &.c100 {
+            >span {
+                font-size: ($font-size-base * 2.715);
+                line-height: ($line-height-computed * 1.4);
+
+                .inner-text {
+                    display: block;
+                    font-size: ($font-size-base - 2);
+                }
+            }
+        }
+    }
+}
+
+#networkGraphLeadersips,
+#networkGraphFinancialGrowth,
+#networkGraphLatestNews,
+#networkGraphRiskAlerts,
+#networkGraphLeadersips,
+#networkGraphSocialMedia {
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.genderRatioChart-wrapper {
+    .inner-number {
+        @include center-position();
+        text-align: center;
+        color: $curious-blue10;
+        font-size: ($font-size-base * 2);
+    }
+
+    .radial:hover,
+    .radial:focus {
+        .inner-number {
+            @include center-position();
+            color: $curious-blue10;
+            font-size: ($font-size-base * 2.572);
+            text-align: center;
+            display: block;
+            width: auto;
+        }
+    }
+}
+
+.gender-ratio-info {
+    li {
+        color: $pale-sky2;
+        font-size: ($font-size-base);
+        @include margin(.5rem 0);
+        @include padding-left(160px);
+
+        &:first-child {
+            color: $curious-blue10;
+        }
+
+        &:last-child {
+            color: rgba(251,251,251,.8);
+        }
+    }
+}
+
+.political-donations-chart-wrapper,
+relationshipNews-chart-wrapper,
+recent-linkedin-wrapper,
+.political-contributions-chart-wrapper,
+.alertTimeLineChart-wrapper,
+.recent-linkedin,
+.office-location-wrapper,
+.entity-item,
+.ratios-ratio-chart-wrapper {
+    position: relative;
+}
+
+.center-abs {
+    @include center-position();
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    color: $light-red1;
+    font-size: ($font-size-base - 2);
+}
+
+.associated-table-wrapper {
+    max-height: 330px;
+}
+
+.holders-table-wrapper {
+    max-height: 330px;
+}
+
+.associated-table {
+    width: 100%;
+
+    tr {
+        border-bottom: .1rem solid $big-stone1;
+
+        td {
+            @include padding(1rem .5rem);
+            font-size: ($font-size-base - 3);
+        }
+    }
+}
+
+.financial-tbl {
+    &.associated-table {
+        tr {
+            td {
+                @include padding(1rem 2px);
+                font-size: ($font-size-base + 2);
+                color: rgba($text-color-default, .6);
+            }
+        }
+
+        p {
+            @include margin-bottom(0);
+            font-size: ($font-size-base - 2);
+            color: rgba(251, 251, 251, .6);
+
+            small {
+                display: block;
+            }
+        }
+    }
+}
+
+.balance-data {
+    h5 {
+        color: rgba($text-color-default, .6);
+        font-size: ($font-size-base + 1);
+
+        small {
+            display: block;
+            color: rgba(251, 251, 251, .6);
+            font-size: ($font-size-base - 5);
+            @include margin(.5rem 0);
+        }
+    }
+}
+
+.entity-result-item {
+    h3 {
+        font-size: $font-size-small;
+    }
+}
+
+/*==============================================================================
+******************  Leadership More Info Styles For The Site  ******************
+==============================================================================*/
+
+.social-media-info {
+    .media {
+        max-height: 52px;
+        overflow: hidden;
+        @include margin-top(15px !important);
+
+        .media-left a {
+            @include padding(0 !important);
+
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                -o-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -webkit-border-radius: 50%;
+            }
+        }
+
+        .media-body {
+            .media-heading {
+                @include margin-bottom(.2rem !important);
+                line-height: ($line-height-computed * 0.7) !important;
+                color: rgba(251,251,251,.8) !important;
+            }
+        }
+    }
+}
+
+.domain-source-list {
+    .entity-item {
+        >h3 {
+            @include margin(15px 0 0 !important);
+            font-size: ($font-size-base) !important;
+
+            >span {
+                color: rgba(251,251,251,.8);
+            }
+        }
+
+        &.company-domian-list {
+            .company-leadership-name {
+                color: rgba(251,251,251,.8);
+                text-transform: uppercase;
+                font-size: ($font-size-base - 1);
+                @include margin(0 0 .5rem);
+            }
+
+            .company-leadership-details {
+                font-size: ($font-size-base - 2);
+                text-transform: uppercase;
+            }
+        }
+
+        &.company-source-list {
+            .media {
+                @include margin-top(15px);
+            }
+
+            .domainsCompany {
+                >ul {
+                    @include padding(0 1.5rem);
+                }
+            }
+        }
+    }
+}
+
+/*.finance-modal{
+        .modal-dialog{
+                height: 430px !important;
+        }
+        .custom-financial-modal{
+                max-height: 350px;	
+        }
+}*/
+
+.stock-entity-modal {
+    .mCSB_scrollTools .mCSB_dragger {
+        &:hover {
+            .mCSB_dragger_bar {
+                background-color: $dark-grey1;
+            }
+        }
+
+        .mCSB_dragger_bar {
+            background-color: $dark-grey1;
+        }
+    }
+}
+
+.balance-sheet-modal {
+    .modal-dialog {
+        height: auto !important;
+    }
+
+    .entity-contents-wrapper {
+        @include padding(0 !important);
+
+        .balance-sheet-content {
+            max-height: 350px;
+
+            .progress-text {
+                display: block;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+        }
+    }
+}
+
+.entity-contents-wrapper {
+
+    .social-media-tab-wrapper,
+    .risk-alerts-tab-wrapper,
+    .financial-growth-tab-wrapper,
+    .latest-news-tab-wrapper,
+    .leadership-tab-wrapper {
+        .entity-item {
+            @include padding(1rem);
+            //border: .1rem solid $big-stone1;
+            min-height: 420px;
+
+            border-radius: 1rem;
+            background: #2d2d2d;
+            /* border: .1rem solid #2e424b; */
+            margin: 0 .8rem .8rem 0;
+        }
+    }
+}
+
+.income-sheet-modal {
+    .modal-dialog {
+        height: auto !important;
+    }
+
+    .entity-contents-wrapper {
+        @include padding(0 !important);
+
+        .income-sheet-content {
+            max-height: 350px;
+
+            .progress-text {
+                display: block;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+        }
+    }
+}
+
+.cashflow-sheet-modal {
+    .modal-dialog {
+        height: auto !important;
+    }
+
+    .cashflow-sheet-wrapper {
+        @include padding(0 !important);
+
+        .income-sheet-content {
+            max-height: 350px;
+
+            .progress-text {
+                display: block;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+        }
+    }
+}
+
+.evaluationHideShow {
+    display: none !important;
+}
+
+.isoHeadingDropdownBtn {
+    color: #fff !important;
+    border-radius: inherit !important;
+    width: 100% !important;  
+    border-color: transparent !important;
+}
+
+.evaluationPadForBtn {
+    padding: 0px !important;
+}
+
+.text-info {
+    color: rgba($text-color-default, .6);
+}
+
+.text-applicable {
+    color: rgba($text-color-default, .6);
+}
+
+.preventClickOnDisabled {
+    pointer-events: none !important;
+}
+
+.cursorForDisabledBanSymble {
+    cursor: not-allowed !important;
+}
+
+.customDisabled {
+    cursor: not-allowed !important;
+    opacity: 0.5;
+}
+
+.custom-colon-section>span {
+    position: relative;
+}
+
+.custom-colon-section>span .custom-colon {
+    position: absolute;
+    left: .5rem;
+    font-size: ($font-size-base - 3);
+    top: 0;
+}
+
+.custom-vla-icon {
+    &:before {
+        content: "";
+        position: absolute;
+        top: -11px;
+        font-size: 6px;
+        right: -4.8px;
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: -2px;
+        font-size: 6px;
+        right: -1.5px;
+    }
+
+    i {
+        &:before {
+            content: "";
+            font-size: 4px;
+            top: -5px;
+            position: absolute;
+        }
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: -2px;
+            font-size: 6px;
+            right: -8.8px;
+        }
+    }
+}
+
+.pulseVisualizerText-wrapper {
+
+    mark[data-entity]::after {
+        box-sizing: border-box;
+        content: attr(data-entity);
+        font-size: .6em;
+        padding: .35em;
+        border-radius: .35em;
+        text-transform: uppercase;
+        vertical-align: middle;
+        margin: 0 0 .1rem .5rem;
+      }
+    //   mark[data-entity=person]::after {
+    //     color: #fbfbfb;
+    //     background-color: #009F59;
+    //     border-radius: 1rem;
+    //   }
+    .text-captalise.text-justify mark {
+        color: $text-color-default;
+    }
+
+    [data-entity][data-entity=organization] {
+        // color: rgba($text-color-default, 1);
+        color: rgba($white,60%);
+        border-color:  transparent;
+        background-color: rgba( #2db7c7,.2);  
+        border-radius: 1rem;
+    }
+
+    [data-entity][data-entity=organization]::after {
+        // color: rgba($text-color-default, 1);
+        color: rgba($white,100%);
+        border-radius: 1rem;
+        background-color: rgba( #2db7c7,1);       
+    }
+
+    [data-entity][data-entity=title] {
+        // color: rgba($text-color-default, 1);
+        color: rgba($white,60%);
+        border-color:  transparent;
+        background-color: rgba(0, 159, 89, 0.2);  
+        border-radius: 1rem;
+    }
+
+    [data-entity][data-entity=title]::after {
+        // color: rgba($text-color-default, 1);
+        color: rgba($white,100%);
+        border-radius: 1rem;
+        background-color:  rgba(0, 159, 89, 1); ;       
+    }
+    [data-entity][data-entity=event] {
+        // color: rgba($text-color-default, 1);
+        color: rgba($white,60%);
+        border-color:  transparent;
+        background-color: rgba(#5232f0, 0.2);  
+        border-radius: 1rem;
+    }
+
+    [data-entity][data-entity=event]::after {
+        // color: rgba($text-color-default, 1);
+        color: rgba($white,100%);
+        border-radius: 1rem;
+        background-color:  rgba(#5232f0, 1); ;       
+    }
+    [data-entity][data-entity=location]::after {
+        // color: rgba($text-color-default, 1);
+        color: rgba($white,100%);
+        background-color: #4c7cff;
+        border-radius: 1rem;
+    }
+
+    [data-entity][data-entity=location] {
+        // color: rgba($text-color-default, 1);
+        color: rgba($white,60%);
+        border-color: transparent;
+        background-color: rgba(#4c7cff ,.2);
+
+        border-radius: 1rem;
+    }
+
+    [data-entity][data-entity=person] {
+        // color: rgba($text-color-default, 1);
+        color: rgba($white,60%);
+        border-color: transparent;
+        background-color: rgba(#8661c6 ,.2);
+        border-radius: 1rem;
+    }
+
+    [data-entity][data-entity=person]::after {
+
+        // color: rgba($text-color-default, 1) !important;
+        color: rgba($white,100%);
+        background-color: #8661c6;
+        border-radius: 1rem;
+    } 
+    [data-entity][data-entity=other]::after { 
+        // color: rgba($text-color-default, 1);
+        color: rgba($white,100%);
+        background-color: #9c27b0;
+        border-radius: 1rem;
+    }
+
+    [data-entity][data-entity=other] {
+        // color: rgba($text-color-default, 1);
+        color: rgba($white,60%);
+        border-color: transparent;
+        border-radius: 1rem;
+
+        background-color: rgba(#9c27b0, .2);
+    }  
+
+    [data-entity][data-entity=commercial_item]::after {
+        // color: rgba($text-color-default, 1);
+        color: rgba($white,100%);
+        background-color: #009F59;
+        border-radius: 1rem;
+    } 
+    [data-entity][data-entity=commercial_item] { 
+        // color: rgba($text-color-default, 1);
+        color: rgba($white,60%);
+        border-color:transparent;
+        border-radius: 1rem;
+        background-color: rgba(#009F59, .2);
+    }
+
+    [data-entity][data-entity=date]::after {
+        // color: rgba($text-color-default, 1);
+        color: rgba($white,100%);
+        background-color: #f28618;
+        border-radius: 1rem;
+    } 
+
+    [data-entity][data-entity=date] { 
+        // color: rgba($text-color-default, 1);
+        color: rgba($white,60%);
+        border-color: transparent;
+        border-radius: 1rem;
+        background-color: rgba(#f28618,.2);
+    }
+
+    [data-entity][data-entity=quantity]::after {
+        // color: rgba($text-color-default, 1);
+        color: rgba($white,100%);
+        background-color: #ef5350;
+        border-radius: 1rem;
+    } 
+
+    [data-entity][data-entity=quantity] { 
+        // color: rgba($text-color-default, 1);
+        color: rgba($white,60%);
+        border-color: transparent; 
+        border-radius: 1rem;
+        background-color: rgba(#ef5350,.2);
+    }
+
+}
+
+.right-panel-body {
+    .company-details {
+        .count-list {
+            li {
+                &:after {
+                    content: "";
+                    display: inline-block;
+                    height: 80%;
+                    width: .1rem;
+                    position: absolute;
+                    background-color: #1a2734;
+                    right: 0;
+                    top: 0;
+                }
+
+                &:nth-last-of-type(1) {
+                    &:after {
+                        content: "";
+                        width: 0;
+                        height: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.w-30.h-2_4.d-ib.input-group-mat.left {
+    margin-right: 30px;
+    position: relative;
+}
+
+.border-r3.input-group-mat {
+    border-radius: .3em .3em 0 0;
+}
+
+.slider-ownership-wrapper {
+    &:after {
+        height: 1.5rem;
+        width: 1.5rem;
+        position: absolute;
+        content: "";
+        background: $text-color-default;
+        border-radius: 50%;
+        left: 18%;
+        top: -5px;
+    }
+
+    &:before {
+        // height: 1.5rem;
+        // width: 1.5rem;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        content: "";
+        background: $text-color-default;
+        border-radius: 50%;
+        right: 18%;
+        top: -5px;
+    }
+}
+
+.w-30.h-2_4.d-ib.input-group-mat.left:after {
+    position: absolute;
+    content: "";
+    left: 30px;
+    height: .1rem;
+    top: 50%;
+    width: 30px;
+    background-color: #eee;
+}
+
+.balance-data-scroll {
+    width: 100%;
+    height: 60px;
+    overflow-y: hidden;
+
+    li {
+        list-style-type: none;
+
+        h5 {
+            min-width: 120px;
+        }
+    }
+}
+
+.line-border {
+    &:after {
+        content: "";
+        display: inline-block;
+        height: 80%;
+        width: .1rem;
+        position: absolute;
+        background-color: #1a2734;
+        right: 0;
+        top: 0;
+    }
+}
+
+/*==============================================================================
+******************  Leadership More Info Styles For The Site  ******************
+==============================================================================*/
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+
+@media (min-width:$screen-lg) {}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {}
+
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {}

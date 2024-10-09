@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="136" height="44" viewBox="0 0 136 44">
+    <defs>
+        <filter id="prefix__a" width="257.3%" height="274.9%" x="-23.4%" y="-34%" filterUnits="objectBoundingBox">
+            <feOffset dy="8" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="5"/>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"/>
+            <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
+            <feMorphology in="SourceAlpha" operator="dilate" radius="2.5" result="shadowSpreadOuter2"/>
+            <feOffset dy="6" in="shadowSpreadOuter2" result="shadowOffsetOuter2"/>
+            <feGaussianBlur in="shadowOffsetOuter2" result="shadowBlurOuter2" stdDeviation="15"/>
+            <feComposite in="shadowBlurOuter2" in2="SourceAlpha" operator="out" result="shadowBlurOuter2"/>
+            <feColorMatrix in="shadowBlurOuter2" result="shadowMatrixOuter2" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0"/>
+            <feMorphology in="SourceAlpha" operator="dilate" radius="1" result="shadowSpreadOuter3"/>
+            <feOffset dy="16" in="shadowSpreadOuter3" result="shadowOffsetOuter3"/>
+            <feGaussianBlur in="shadowOffsetOuter3" result="shadowBlurOuter3" stdDeviation="12"/>
+            <feComposite in="shadowBlurOuter3" in2="SourceAlpha" operator="out" result="shadowBlurOuter3"/>
+            <feColorMatrix in="shadowBlurOuter3" result="shadowMatrixOuter3" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.14 0"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"/>
+                <feMergeNode in="shadowMatrixOuter2"/>
+                <feMergeNode in="shadowMatrixOuter3"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+    </defs>
+    <g fill="#00CAB1" fill-rule="evenodd" filter="url(#prefix__a)" transform="translate(-16 -18)">
+        <g>
+            <path d="M38.94 13.75h-6.282v4.308H40V20H30V6h9.926v1.962h-7.268v3.865h6.281v1.923zm5.551 4.308H51V20h-9V6h2.491v12.058zM61.94 13.75h-6.281v4.308H63V20H53V6h9.926v1.962h-7.268v3.865h6.281v1.923zM68.293 6l4.217 10.73L76.717 6H80v14h-2.53v-4.615l.25-6.173L73.405 20h-1.818L67.28 9.221l.251 6.164V20H65V6h3.293zm22.646 7.75h-6.281v4.308H92V20H82V6h9.926v1.962h-7.268v3.865h6.281v1.923zM105 20h-2.41l-6.18-9.933V20H94V6h2.41l6.2 9.971V6H105v14zm14-12.038h-4.324V20h-2.39V7.962H108V6h11v1.962zM12.142 1.247c.526-.294 1.175-.294 1.702 0l9.253 5.164c.526.293.85.835.85 1.423 0 .587-.323 1.13-.849 1.423l-9.255 5.172c-.527.294-1.176.294-1.703 0l-6.502-3.634c-.037-.02-.083-.02-.12 0-.036.02-.06.058-.06.1v6.242c0 .043.025.083.063.104l7.29 4.074c.113.063.251.063.364 0l7.311-4.085c.038-.022.062-.061.062-.104v-.576c0-.909.76-1.645 1.7-1.645.45 0 .883.173 1.201.481.32.309.498.727.498 1.164v1.605c0 .588-.324 1.133-.851 1.427l-9.255 5.172c-.525.293-1.171.293-1.696 0l-9.24-5.164c-.528-.295-.852-.838-.852-1.427V7.837c0-.59.324-1.134.851-1.428l9.238-5.162zM7.345 7.738c-.036.02-.059.059-.059.1 0 .04.023.078.06.099l5.465 3.055c.113.063.25.063.363 0l5.462-3.052c.037-.02.06-.058.06-.1 0-.04-.023-.078-.06-.098l-5.462-3.059c-.112-.062-.25-.062-.363 0L7.345 7.738z" transform="translate(24 19)"/>
+        </g>
+    </g>
+</svg>

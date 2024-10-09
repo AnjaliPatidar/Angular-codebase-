@@ -1,0 +1,33 @@
+@import "../../../../../assets/scss/theme/common/variable";
+
+ ::ng-deep .feed-list {
+    .pagination-dropdown {
+      // right: 570px;
+      // top: 16px;
+    }
+
+    .ag-table-wrapper .ag-paging-panel {
+      // right: 220px;
+      // top: -5.3rem;
+      right:20%;
+      top: -43px;
+    }
+
+    .export-button {
+      position: absolute;
+      right: 60px;
+      // top: 30px;
+      top: 38px;
+      z-index: 9;
+      border-color: $primary-color;
+      line-height: 1.14;
+      letter-spacing: 1.25px;
+      border-radius: $sm-comp-corner-radius;
+      padding: 7px 11px;
+      border-style: groove;
+      color:$primary-color;
+    }
+  }
+  .feed-list {
+    margin-left: 72px;
+  }

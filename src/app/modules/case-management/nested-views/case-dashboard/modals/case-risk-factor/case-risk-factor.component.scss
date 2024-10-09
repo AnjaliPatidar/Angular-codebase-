@@ -1,0 +1,238 @@
+@import "../../../../../../../assets/scss/theme/common/variable";
+
+.riskFactorWrap {
+ width: 100%;
+ display: flex;
+ flex-direction:row;
+ margin-bottom: 10px;
+ gap: 25px;
+}
+
+.meter {
+ height: 24px;
+ width: 100%;
+ position: relative;
+}
+
+.meter-background {
+ position: absolute;
+ width: 100%;
+ height: 24px;
+ flex-grow: 0;
+ padding: 0 134.8px 0 0;
+ opacity: 0.2;
+ border-radius: 4px;
+ background-color: #cb323c;
+}
+
+.meter-filled {
+ position: absolute;
+ height: 24px;
+ flex-grow: 0;
+ border-radius: 4px;
+ background-color: #cb323c;
+}
+
+.lable-val {
+ width: 468px;
+ height: 24px;
+ flex-grow: 0;
+ font-family: Roboto;
+ font-size: 14px;
+ font-weight: 500;
+ font-stretch: normal;
+ font-style: normal;
+ line-height: 1.71;
+ letter-spacing: 0.1px;
+ color: rgba($white, 0.87);
+ text-align: center;
+ position: absolute;
+}
+
+.riskFactor-lable {
+ width: 200px;
+ display: inline-block;
+ min-height: 24px;
+ flex-grow: 0;
+ font-family: Roboto;
+ font-size: 14px;
+ font-weight: normal;
+ font-stretch: normal;
+ font-style: normal;
+ line-height: 1.71;
+ letter-spacing: 0.1px;
+ color: rgba($white, 0.87);
+}
+
+.fullRiskWrapper {
+ width: 100%;
+}
+
+
+.fullRiskWrapper:not(:first-of-type) {
+ margin-top: 8px;;
+}
+
+/* this class is already exist edit it there */
+.risk-factor-popover {
+ width: 670px !important;
+}
+
+.riskBadge {
+ width: 24px;
+ height: 20px;
+ font-family: Roboto;
+ font-size: 12px;
+ font-weight: 500;
+ font-stretch: normal;
+ font-style: normal;
+ line-height: 1.67;
+ letter-spacing: -0.5px;
+ text-align: center;
+ color: rgba($white, 0.87);
+ margin: 2px 0 2px 8px;
+ border-radius: 4px;
+ background-color: #cb323c;
+}
+
+.categoriesHeaderWrap {
+ display: flex;
+ flex-direction: row;
+ height: 35px;
+ align-self: stretch;
+ flex-grow: 0;
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ /* align-items: center; */
+ padding: 0 8px 0px 0;
+}
+
+.categoriesHeader {
+ width: 41px;
+ height: 28px;
+ flex-grow: 0;
+ font-family: Roboto;
+ font-size: 16px;
+ font-weight: normal;
+ font-stretch: normal;
+ font-style: normal;
+ line-height: 1.75;
+ letter-spacing: 0.15px;
+ text-align: left;
+ color: #ffffff;
+}
+
+.categoriesValuesWrap {
+ width: 55%;
+ height: 24px;
+ flex-grow: 0;
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ align-items: flex-start;
+ gap: 16px;
+ padding: 0
+}
+
+.categoriesValue {
+ height: 24px;
+ flex-grow: 0;
+ font-family: Roboto;
+ font-size: 14px;
+ font-weight: 500;
+ font-stretch: normal;
+ font-style: normal;
+ line-height: 1.71;
+ letter-spacing: 0.1px;
+ text-align: left;
+ color: #dd7eff;
+}
+
+.accodienArrow {
+ color: rgba($white, 0.5);
+ font-size: 24px;
+ line-height: 1;
+//  margin-left: 16px;
+}
+
+.categoriesWrap {
+ border-bottom: 1px solid rgba($white, 0.24);
+ margin-bottom: 0px;
+}
+
+.scrollWrapper{
+ overflow: scroll;
+ overflow-x: hidden;
+ overflow-y: auto;
+ background-color: #383838;
+ max-height: 372px;
+ padding-right: 8px;
+}
+
+.risk_body_new {
+ padding: 24px 24px 24px 24px;
+ background-color: #383838;
+}
+
+.faa {
+ top: 195px;
+ right: 33px;
+ color: #424242;
+}
+
+.fa-caret-up {
+ position: absolute;
+ margin-top: 20px;
+}
+
+.scrollWrapper::-webkit-scrollbar, .popover.bottom-pop-wrapper.pop_source-financial .custom-panel-wrapper .panel-body::-webkit-scrollbar, .popover.bottom-pop-wrapper.setting-icons-popover::-webkit-scrollbar, .bst_input_group ul::-webkit-scrollbar, .bst_input_group .multiselect-parent ul li .dropdown-header ul::-webkit-scrollbar, .input-group-mat .custom-input ~ ul::-webkit-scrollbar, .input-group-mat .bst_input_group ul li .dropdown-header input.form-control ~ ul::-webkit-scrollbar, .bst_input_group ul li .dropdown-header .input-group-mat input.form-control ~ ul::-webkit-scrollbar, .input-group-mat .editStaging-entity-modal .editStaging-wrapper .saveDetailsWrapper.widget-header .custom-input ~ ul::-webkit-scrollbar, .editStaging-entity-modal .editStaging-wrapper .saveDetailsWrapper.widget-header .input-group-mat .custom-input ~ ul::-webkit-scrollbar, .custom-modal-body.modal-open .modal.bst_modal.setting-icons-modal::-webkit-scrollbar, .custom-modal.decision-modal .modal-dialog .modal-body .fixed-button .typehead-dropdown-wrapper ul::-webkit-scrollbar, .sm-dashboard-wrapper .source-tabs-wrapper .myGrid .ui-grid-viewport::-webkit-scrollbar, .sm-dashboard-wrapper .source-tabs-wrapper .myGrid .ui-grid-menu-items::-webkit-scrollbar, .multisourceGrid .ui-grid-viewport::-webkit-scrollbar, .multisourceGrid .ui-grid-menu-items::-webkit-scrollbar {
+ width: 6px;
+ height: 5px; }
+
+.scrollWrapper::-webkit-scrollbar-track, .popover.bottom-pop-wrapper.pop_source-financial .custom-panel-wrapper .panel-body::-webkit-scrollbar-track, .popover.bottom-pop-wrapper.setting-icons-popover::-webkit-scrollbar-track, .bst_input_group ul::-webkit-scrollbar-track, .bst_input_group .multiselect-parent ul li .dropdown-header ul::-webkit-scrollbar-track, .input-group-mat .custom-input ~ ul::-webkit-scrollbar-track, .input-group-mat .bst_input_group ul li .dropdown-header input.form-control ~ ul::-webkit-scrollbar-track, .bst_input_group ul li .dropdown-header .input-group-mat input.form-control ~ ul::-webkit-scrollbar-track, .input-group-mat .editStaging-entity-modal .editStaging-wrapper .saveDetailsWrapper.widget-header .custom-input ~ ul::-webkit-scrollbar-track, .editStaging-entity-modal .editStaging-wrapper .saveDetailsWrapper.widget-header .input-group-mat .custom-input ~ ul::-webkit-scrollbar-track, .custom-modal-body.modal-open .modal.bst_modal.setting-icons-modal::-webkit-scrollbar-track, .custom-modal.decision-modal .modal-dialog .modal-body .fixed-button .typehead-dropdown-wrapper ul::-webkit-scrollbar-track, .sm-dashboard-wrapper .source-tabs-wrapper .myGrid .ui-grid-viewport::-webkit-scrollbar-track, .sm-dashboard-wrapper .source-tabs-wrapper .myGrid .ui-grid-menu-items::-webkit-scrollbar-track, .multisourceGrid .ui-grid-viewport::-webkit-scrollbar-track, .multisourceGrid .ui-grid-menu-items::-webkit-scrollbar-track {
+background: rgba($white, 0.12); }
+
+.scrollWrapper:hover::-webkit-scrollbar-track, .popover.bottom-pop-wrapper.pop_source-financial .custom-panel-wrapper .panel-body:hover::-webkit-scrollbar-track, .popover.bottom-pop-wrapper.setting-icons-popover:hover::-webkit-scrollbar-track, .bst_input_group ul:hover::-webkit-scrollbar-track, .bst_input_group .multiselect-parent ul li .dropdown-header ul:hover::-webkit-scrollbar-track, .input-group-mat .custom-input ~ ul:hover::-webkit-scrollbar-track, .input-group-mat .bst_input_group ul li .dropdown-header input.form-control ~ ul:hover::-webkit-scrollbar-track, .bst_input_group ul li .dropdown-header .input-group-mat input.form-control ~ ul:hover::-webkit-scrollbar-track, .input-group-mat .editStaging-entity-modal .editStaging-wrapper .saveDetailsWrapper.widget-header .custom-input ~ ul:hover::-webkit-scrollbar-track, .editStaging-entity-modal .editStaging-wrapper .saveDetailsWrapper.widget-header .input-group-mat .custom-input ~ ul:hover::-webkit-scrollbar-track, .custom-modal-body.modal-open .modal.bst_modal.setting-icons-modal:hover::-webkit-scrollbar-track, .custom-modal.decision-modal .modal-dialog .modal-body .fixed-button .typehead-dropdown-wrapper ul:hover::-webkit-scrollbar-track, .sm-dashboard-wrapper .source-tabs-wrapper .myGrid .ui-grid-viewport:hover::-webkit-scrollbar-track, .sm-dashboard-wrapper .source-tabs-wrapper .myGrid .ui-grid-menu-items:hover::-webkit-scrollbar-track, .multisourceGrid .ui-grid-viewport:hover::-webkit-scrollbar-track, .multisourceGrid .ui-grid-menu-items:hover::-webkit-scrollbar-track {
+background: rgba($white, 0.12); }
+
+.scrollWrapper::-webkit-scrollbar-thumb, .popover.bottom-pop-wrapper.pop_source-financial .custom-panel-wrapper .panel-body::-webkit-scrollbar-thumb, .popover.bottom-pop-wrapper.setting-icons-popover::-webkit-scrollbar-thumb, .bst_input_group ul::-webkit-scrollbar-thumb, .bst_input_group .multiselect-parent ul li .dropdown-header ul::-webkit-scrollbar-thumb, .input-group-mat .custom-input ~ ul::-webkit-scrollbar-thumb, .input-group-mat .bst_input_group ul li .dropdown-header input.form-control ~ ul::-webkit-scrollbar-thumb, .bst_input_group ul li .dropdown-header .input-group-mat input.form-control ~ ul::-webkit-scrollbar-thumb, .input-group-mat .editStaging-entity-modal .editStaging-wrapper .saveDetailsWrapper.widget-header .custom-input ~ ul::-webkit-scrollbar-thumb, .editStaging-entity-modal .editStaging-wrapper .saveDetailsWrapper.widget-header .input-group-mat .custom-input ~ ul::-webkit-scrollbar-thumb, .custom-modal-body.modal-open .modal.bst_modal.setting-icons-modal::-webkit-scrollbar-thumb, .custom-modal.decision-modal .modal-dialog .modal-body .fixed-button .typehead-dropdown-wrapper ul::-webkit-scrollbar-thumb, .sm-dashboard-wrapper .source-tabs-wrapper .myGrid .ui-grid-viewport::-webkit-scrollbar-thumb, .sm-dashboard-wrapper .source-tabs-wrapper .myGrid .ui-grid-menu-items::-webkit-scrollbar-thumb, .multisourceGrid .ui-grid-viewport::-webkit-scrollbar-thumb, .multisourceGrid .ui-grid-menu-items::-webkit-scrollbar-thumb {
+background-color: rgba($gray-placeholder, 0.3);
+border-radius: 10px;
+}
+
+.scrollWrapper:hover::-webkit-scrollbar-thumb, .popover.bottom-pop-wrapper.pop_source-financial .custom-panel-wrapper .panel-body:hover::-webkit-scrollbar-thumb, .popover.bottom-pop-wrapper.setting-icons-popover:hover::-webkit-scrollbar-thumb, .bst_input_group ul:hover::-webkit-scrollbar-thumb, .bst_input_group .multiselect-parent ul li .dropdown-header ul:hover::-webkit-scrollbar-thumb, .input-group-mat .custom-input ~ ul:hover::-webkit-scrollbar-thumb, .input-group-mat .bst_input_group ul li .dropdown-header input.form-control ~ ul:hover::-webkit-scrollbar-thumb, .bst_input_group ul li .dropdown-header .input-group-mat input.form-control ~ ul:hover::-webkit-scrollbar-thumb, .input-group-mat .editStaging-entity-modal .editStaging-wrapper .saveDetailsWrapper.widget-header .custom-input ~ ul:hover::-webkit-scrollbar-thumb, .editStaging-entity-modal .editStaging-wrapper .saveDetailsWrapper.widget-header .input-group-mat .custom-input ~ ul:hover::-webkit-scrollbar-thumb, .custom-modal-body.modal-open .modal.bst_modal.setting-icons-modal:hover::-webkit-scrollbar-thumb, .custom-modal.decision-modal .modal-dialog .modal-body .fixed-button .typehead-dropdown-wrapper ul:hover::-webkit-scrollbar-thumb, .sm-dashboard-wrapper .source-tabs-wrapper .myGrid .ui-grid-viewport:hover::-webkit-scrollbar-thumb, .sm-dashboard-wrapper .source-tabs-wrapper .myGrid .ui-grid-menu-items:hover::-webkit-scrollbar-thumb, .multisourceGrid .ui-grid-viewport:hover::-webkit-scrollbar-thumb, .multisourceGrid .ui-grid-menu-items:hover::-webkit-scrollbar-thumb {
+background-color: rgba($gray-placeholder, 0.8);
+border-radius: 10px;
+}
+
+.scrollWrapper:hover::-webkit-scrollbar-corner, .popover.bottom-pop-wrapper.pop_source-financial .custom-panel-wrapper .panel-body:hover::-webkit-scrollbar-corner, .popover.bottom-pop-wrapper.setting-icons-popover:hover::-webkit-scrollbar-corner, .bst_input_group ul:hover::-webkit-scrollbar-corner, .bst_input_group .multiselect-parent ul li .dropdown-header ul:hover::-webkit-scrollbar-corner, .input-group-mat .custom-input ~ ul:hover::-webkit-scrollbar-corner, .input-group-mat .bst_input_group ul li .dropdown-header input.form-control ~ ul:hover::-webkit-scrollbar-corner, .bst_input_group ul li .dropdown-header .input-group-mat input.form-control ~ ul:hover::-webkit-scrollbar-corner, .input-group-mat .editStaging-entity-modal .editStaging-wrapper .saveDetailsWrapper.widget-header .custom-input ~ ul:hover::-webkit-scrollbar-corner, .editStaging-entity-modal .editStaging-wrapper .saveDetailsWrapper.widget-header .input-group-mat .custom-input ~ ul:hover::-webkit-scrollbar-corner, .custom-modal-body.modal-open .modal.bst_modal.setting-icons-modal:hover::-webkit-scrollbar-corner, .custom-modal.decision-modal .modal-dialog .modal-body .fixed-button .typehead-dropdown-wrapper ul:hover::-webkit-scrollbar-corner, .sm-dashboard-wrapper .source-tabs-wrapper .myGrid .ui-grid-viewport:hover::-webkit-scrollbar-corner, .sm-dashboard-wrapper .source-tabs-wrapper .myGrid .ui-grid-menu-items:hover::-webkit-scrollbar-corner, .multisourceGrid .ui-grid-viewport:hover::-webkit-scrollbar-corner, .multisourceGrid .ui-grid-menu-items:hover::-webkit-scrollbar-corner {
+background: rgba($white, 0.12); }
+
+.scrollWrappers::-webkit-scrollbar-corner, .popover.bottom-pop-wrapper.pop_source-financial .custom-panel-wrapper .panel-body::-webkit-scrollbar-corner, .popover.bottom-pop-wrapper.setting-icons-popover::-webkit-scrollbar-corner, .bst_input_group ul::-webkit-scrollbar-corner, .bst_input_group .multiselect-parent ul li .dropdown-header ul::-webkit-scrollbar-corner, .input-group-mat .custom-input ~ ul::-webkit-scrollbar-corner, .input-group-mat .bst_input_group ul li .dropdown-header input.form-control ~ ul::-webkit-scrollbar-corner, .bst_input_group ul li .dropdown-header .input-group-mat input.form-control ~ ul::-webkit-scrollbar-corner, .input-group-mat .editStaging-entity-modal .editStaging-wrapper .saveDetailsWrapper.widget-header .custom-input ~ ul::-webkit-scrollbar-corner, .editStaging-entity-modal .editStaging-wrapper .saveDetailsWrapper.widget-header .input-group-mat .custom-input ~ ul::-webkit-scrollbar-corner, .custom-modal-body.modal-open .modal.bst_modal.setting-icons-modal::-webkit-scrollbar-corner, .custom-modal.decision-modal .modal-dialog .modal-body .fixed-button .typehead-dropdown-wrapper ul::-webkit-scrollbar-corner, .sm-dashboard-wrapper .source-tabs-wrapper .myGrid .ui-grid-viewport::-webkit-scrollbar-corner, .sm-dashboard-wrapper .source-tabs-wrapper .myGrid .ui-grid-menu-items::-webkit-scrollbar-corner, .multisourceGrid .ui-grid-viewport::-webkit-scrollbar-corner, .multisourceGrid .ui-grid-menu-items::-webkit-scrollbar-corner {
+background: rgba($white, 0.12); }
+
+.risk_header {
+ width: 100%;
+ height: 48px;
+ background-color: rgba($white,.1);
+ padding: 16px;
+ justify-content: space-between;
+ display: flex;
+ margin: 2px 0px 0px 0px;
+}
+.risk_header_agr{
+ background-color: rgba($white,.1) !important;
+ padding: 0px 0px 20px 15px;
+}
+.risk_header_text {
+    height: 23px;
+    font-size: 20px;
+    font-weight: bolder;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.25px;
+    text-align: left;
+    color: var(--white);
+}

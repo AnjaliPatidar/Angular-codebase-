@@ -1,0 +1,5 @@
+<ng-container *ngIf="hasTooltip; else noHover">
+    <div class="link-content" [matTooltip]="'To learn more visit Entity Page'">{{ value }}</div>
+</ng-container>
+
+<ng-template #noHover>{{ value }}</ng-template>

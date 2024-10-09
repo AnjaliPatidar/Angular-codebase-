@@ -1,0 +1,90 @@
+<!-- <pre>{{relationData | json}}</pre> -->
+<div class="toolbox">
+    <div class="entities-content-wrapper mt-0">
+        <div class="d-flex align-items-center">
+            <div class="mesh-view-options">
+                <p class="mb-0 entities-content-text" id="entitiesAndAttributes">0 {{ 'entities' | translate }}, 0 Screens, 0 {{ 'attributes' | translate }}</p>
+            </div>
+            <div class="mesh-view-options">
+                <div class="modal-search position-relative m-0 mb-3">
+                    <input type="text" #entityAttr placeholder="{{ 'search' | translate }}" [(ngModel)]="searchEntityAndAttributes" (input)="searchEntityAttr(entityAttr.value)" class="modal-input border-0" style="  opacity: 0.2;height: 26px; width: 100%;padding: 0px; color: black;position: relative; top: 4px;">
+                    <!-- <button class="modal-serch-icon position-absolute transparent border-0"><span
+                            class="material-icons"> search </span></button> -->
+                </div>
+
+            </div>
+            <div class="ml-auto d-flex align-items-strech custom-scroll-wrapper overflow-a">
+
+                <div class="d-flex mesh-view-options align-items-center">
+                    <div title="Set Circle layout " class="mesh-view-img cursor" (click)="callToMakeLayout('circle')">
+                        <!-- <img src="../../../../../../assets/VLA/toolbar_icons/mesh-1.svg" alt="mesh" class="img-fluid" /> -->
+                        <div [ngClass]="(circle==true)?'circle':'tool-icon'">
+                            <svg width="24" height="22" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <image href="data:image/svg+xml;base64,PHN2ZyAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAiIGhlaWdodD0iMjEiIHZpZXdCb3g9IjAgMCAyMCAyMSI+DQogICAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4NCiAgICAgICAgPHBhdGggc3Ryb2tlPSIjRkZGIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41IiBkPSJNNC42MzEgNC45ODFMMTYuNjI1IDE2Ljk3NE00LjYzMSA0Ljk4MUwxOC43NzcgOS45NzFNNC42MzEgNC45ODFMMi43OTkgMTYuODRNNC42MzEgNC45ODFMMTYuNTkgMy45ODZNNC42MzEgNC45ODFMOS4yIDE5LjI2OCIvPg0KICAgICAgICA8cGF0aCBmaWxsPSIjRkJGQkZCIiBkPSJNMTYgNmMxLjEwNSAwIDItLjg5NSAyLTJzLS44OTUtMi0yLTItMiAuODk1LTIgMiAuODk1IDIgMiAyek0xOCAxMmMxLjEwNSAwIDItLjg5NSAyLTJzLS44OTUtMi0yLTItMiAuODk1LTIgMiAuODk1IDIgMiAyek0xNi4yMDQgMTguNDJjMS4xMDQgMCAyLS44OTYgMi0yIDAtMS4xMDUtLjg5Ni0yLTItMi0xLjEwNSAwLTIgLjg5NS0yIDIgMCAxLjEwNC44OTUgMiAyIDJ6TTkuNTQzIDIwLjkyNGMxLjA2Mi0uMyAxLjY4MS0xLjQwNCAxLjM4MS0yLjQ2Ni0uMy0xLjA2My0xLjQwNC0xLjY4Mi0yLjQ2Ny0xLjM4Mi0xLjA2Mi4zLTEuNjgxIDEuNDA0LTEuMzgxIDIuNDY3LjMgMS4wNjIgMS40MDQgMS42ODEgMi40NjcgMS4zODF6TTIuNjggMTcuOTc0YzEuMDkuMTc3IDIuMTE3LS41NjQgMi4yOTQtMS42NTQuMTc3LTEuMDktLjU2NC0yLjExNy0xLjY1NC0yLjI5NC0xLjA5LS4xNzctMi4xMTcuNTY0LTIuMjk0IDEuNjU0LS4xNzcgMS4wOS41NjQgMi4xMTcgMS42NTQgMi4yOTR6Ii8+DQogICAgICAgIDxwYXRoIGZpbGw9IiNGRkYiIGQ9Ik03LjQ2IDcuMTg4YzEuNTYyLTEuNTYyIDEuNTYyLTQuMDk1IDAtNS42NTctMS41NjMtMS41NjItNC4wOTUtMS41NjItNS42NTcgMEMuMjQgMy4wOTMuMjQgNS42MjYgMS44MDMgNy4xODhjMS41NjIgMS41NjIgNC4wOTUgMS41NjIgNS42NTcgMHoiLz4NCiAgICA8L2c+DQo8L3N2Zz4NCg==" height="22" width="22"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div title="Set Cose layout " class="mesh-view-img cursor" (click)="callToMakeLayout('cose')">
+                        <!-- <img src="../../../../../../assets/VLA/toolbar_icons/mesh-2.svg" alt="mesh" class="img-fluid" /> -->
+                        <div [ngClass]="(cose==true)?'cose':'tool-icon'">
+                            <svg width="24" height="22" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <image href="data:image/svg+xml;base64,PHN2ZyAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjQiIGhlaWdodD0iMjIiIHZpZXdCb3g9IjAgMCAyNCAyMiI+DQogICAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4NCiAgICAgICAgPGc+DQogICAgICAgICAgICA8cGF0aCBzdHJva2U9IiNGRkYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiIGQ9Ik0xMiAyTDIyIDIiIG9wYWNpdHk9Ii41IiB0cmFuc2Zvcm09InJvdGF0ZSg5MCAxMy41IDEyLjUpIHJvdGF0ZSgtMzAgMzQuMzkyIDgpIi8+DQogICAgICAgICAgICA8cGF0aCBmaWxsPSIjRkZGIiBkPSJNMiA0YzEuMTA1IDAgMi0uODk1IDItMnMtLjg5NS0yLTItMi0yIC44OTUtMiAyIC44OTUgMiAyIDJ6TTIyIDRjMS4xMDUgMCAyLS44OTUgMi0ycy0uODk1LTItMi0yLTIgLjg5NS0yIDIgLjg5NSAyIDIgMnoiIHRyYW5zZm9ybT0icm90YXRlKDkwIDEzLjUgMTIuNSkgcm90YXRlKC0zMCAzNC4zOTIgOCkiLz4NCiAgICAgICAgPC9nPg0KICAgICAgICA8Zz4NCiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTcgMC4zNEwyIDkgMjIgOSIgb3BhY2l0eT0iLjUiIHRyYW5zZm9ybT0icm90YXRlKDkwIDEzLjUgMTIuNSkgcm90YXRlKDMwIDIuNjcgMTEuNSkiLz4NCiAgICAgICAgICAgIDxwYXRoIGZpbGw9IiNGRkYiIGQ9Ik0yIDExYzEuMTA1IDAgMi0uODk1IDItMnMtLjg5NS0yLTItMi0yIC44OTUtMiAyIC44OTUgMiAyIDJ6TTIyIDExYzEuMTA1IDAgMi0uODk1IDItMnMtLjg5NS0yLTItMi0yIC44OTUtMiAyIC44OTUgMiAyIDJ6IiB0cmFuc2Zvcm09InJvdGF0ZSg5MCAxMy41IDEyLjUpIHJvdGF0ZSgzMCAyLjY3IDExLjUpIi8+DQogICAgICAgIDwvZz4NCiAgICAgICAgPGc+DQogICAgICAgICAgICA8cGF0aCBzdHJva2U9IiNGRkYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiIGQ9Ik0yIDlMMjIgOU0xNyAxNy42NkwyMiA5IDE3IC4zNCIgb3BhY2l0eT0iLjUiIHRyYW5zZm9ybT0icm90YXRlKDkwIDEzLjUgMTIuNSkgcm90YXRlKDkwIDkuNSAxMS41KSIvPg0KICAgICAgICAgICAgPHBhdGggZmlsbD0iI0ZGRiIgZD0iTTIgMTFjMS4xMDUgMCAyLS44OTUgMi0ycy0uODk1LTItMi0yLTIgLjg5NS0yIDIgLjg5NSAyIDIgMnpNMjIgMTFjMS4xMDUgMCAyLS44OTUgMi0ycy0uODk1LTItMi0yLTIgLjg5NS0yIDIgLjg5NSAyIDIgMnoiIHRyYW5zZm9ybT0icm90YXRlKDkwIDEzLjUgMTIuNSkgcm90YXRlKDkwIDkuNSAxMS41KSIvPg0KICAgICAgICA8L2c+DQogICAgICAgIDxwYXRoIGZpbGw9IiNGRkYiIGQ9Ik0xNC44MjggMTYuODI4YzEuNTYyLTEuNTYyIDEuNTYyLTQuMDk0IDAtNS42NTYtMS41NjItMS41NjMtNC4wOTQtMS41NjMtNS42NTYgMC0xLjU2MyAxLjU2Mi0xLjU2MyA0LjA5NCAwIDUuNjU2IDEuNTYyIDEuNTYzIDQuMDk0IDEuNTYzIDUuNjU2IDB6IiB0cmFuc2Zvcm09InJvdGF0ZSg5MCAxMy41IDEyLjUpIi8+DQogICAgPC9nPg0KPC9zdmc+DQo=" height="22" width="22"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div title="Set Grid layout " class="mesh-view-img cursor" (click)="callToMakeLayout('grid')">
+                        <!-- <img src="../../../../../../assets/VLA/toolbar_icons/mesh-3.svg" alt="mesh" class="img-fluid" /> -->
+                        <div [ngClass]="(grid==true)?'grid':'tool-icon'">
+                            <svg width="24" height="22" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <image href="data:image/svg+xml;base64,PHN2ZyAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjQiIGhlaWdodD0iMjMiIHZpZXdCb3g9IjAgMCAyNCAyMyI+DQogICAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4NCiAgICAgICAgPHBhdGggc3Ryb2tlPSIjRkZGIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41IiBkPSJNOS4wNjIgMjAuMjA1TDIxLjUzOCA5LjM5NSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTMgLTMpIHJvdGF0ZSgtMzAgMTUuMyAxNC44KSIvPg0KICAgICAgICA8Zz4NCiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTMuMjYzIDkuNjQyTDcuMjYzIDIuNzE0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMyAtMykgcm90YXRlKC00NSAxNy41OTYgLTExLjA5Nikgcm90YXRlKC0zMCA0Ljc5OSA2LjU4KSIvPg0KICAgICAgICAgICAgPHBhdGggc3Ryb2tlPSIjRkZGIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41IiBkPSJNNC4xMTIgOC4xMjdMMTEuNDgyIDcuNzYzIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMyAtMykgcm90YXRlKC00NSAxNy41OTYgLTExLjA5Nikgcm90YXRlKC0zMCA3Ljk1MSA3Ljc4MSkiLz4NCiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTYuNDgyIDAuODk3TDkuNjc4IDcuMzYxIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMyAtMykgcm90YXRlKC00NSAxNy41OTYgLTExLjA5Nikgcm90YXRlKC0zMCA3Ljc5OSA0LjIxNCkiLz4NCiAgICAgICAgICAgIDxwYXRoIGZpbGw9IiNGQkZCRkIiIGQ9Ik0xMSA4YzEuMTA1IDAgMi0uODk1IDItMnMtLjg5NS0yLTItMi0yIC44OTUtMiAyIC44OTUgMiAyIDJ6TTUgNGMxLjEwNSAwIDItLjg5NSAyLTJzLS44OTUtMi0yLTItMiAuODk1LTIgMiAuODk1IDIgMiAyek01IDEyYzEuMTA1IDAgMi0uODk1IDItMnMtLjg5NS0yLTItMi0yIC44OTUtMiAyIC44OTUgMiAyIDJ6IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMyAtMykgcm90YXRlKC00NSAxNy41OTYgLTExLjA5NikiLz4NCiAgICAgICAgPC9nPg0KICAgICAgICA8Zz4NCiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTMuMjYzIDkuNjQyTDcuMjYzIDIuNzE0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMyAtMykgcm90YXRlKDEzNSA0LjU5NiAxMy45MDQpIHJvdGF0ZSgtMzAgNC43OTkgNi41OCkiLz4NCiAgICAgICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTQuMTEyIDguMTI3TDExLjQ4MiA3Ljc2MyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTMgLTMpIHJvdGF0ZSgxMzUgNC41OTYgMTMuOTA0KSByb3RhdGUoLTMwIDcuOTUxIDcuNzgxKSIvPg0KICAgICAgICAgICAgPHBhdGggc3Ryb2tlPSIjRkZGIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41IiBkPSJNNi40ODIgMC44OTdMOS42NzggNy4zNjEiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0zIC0zKSByb3RhdGUoMTM1IDQuNTk2IDEzLjkwNCkgcm90YXRlKC0zMCA3Ljc5OSA0LjIxNCkiLz4NCiAgICAgICAgICAgIDxwYXRoIGZpbGw9IiNGQkZCRkIiIGQ9Ik0xMSA4YzEuMTA1IDAgMi0uODk1IDItMnMtLjg5NS0yLTItMi0yIC44OTUtMiAyIC44OTUgMiAyIDJ6TTUgNGMxLjEwNSAwIDItLjg5NSAyLTJzLS44OTUtMi0yLTItMiAuODk1LTIgMiAuODk1IDIgMiAyek01IDEyYzEuMTA1IDAgMi0uODk1IDItMnMtLjg5NS0yLTItMi0yIC44OTUtMiAyIC44OTUgMiAyIDJ6IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMyAtMykgcm90YXRlKDEzNSA0LjU5NiAxMy45MDQpIi8+DQogICAgICAgIDwvZz4NCiAgICAgICAgPHBhdGggZmlsbD0iI0ZGRiIgZD0iTTE3LjgyOCAxNy44MjhjMS41NjItMS41NjIgMS41NjItNC4wOTQgMC01LjY1Ni0xLjU2Mi0xLjU2My00LjA5NC0xLjU2My01LjY1NiAwLTEuNTYzIDEuNTYyLTEuNTYzIDQuMDk0IDAgNS42NTYgMS41NjIgMS41NjMgNC4wOTQgMS41NjMgNS42NTYgMHoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0zIC0zKSIvPg0KICAgIDwvZz4NCjwvc3ZnPg0K" height="22" width="22"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div title="Set Breadth-first layout " class="mesh-view-img cursor" (click)="callToMakeLayout('breadthfirst')">
+                        <!-- <img src="../../../../../../assets/VLA/toolbar_icons/mesh-4.svg" alt="mesh" class="img-fluid" /> -->
+                        <div [ngClass]="(breadthfirst==true)?'breadthfirst':'tool-icon'">
+                            <svg width="24" height="22" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <image href="data:image/svg+xml;base64,PHN2ZyAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjIiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMiAyMCI+DQogICAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4NCiAgICAgICAgPGcgc3Ryb2tlPSIjRkZGIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41Ij4NCiAgICAgICAgICAgIDxwYXRoIGQ9Ik0uNSA5TC41IDE1TTkuNSA5TDkuNSAwTS41IDlMMTguNSA5TTEyLjUgOUwxMi41IDE1TTYuNSA5TDYuNSAxNU0xOC41IDlMMTguNSAxNSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMS41IDMpIi8+DQogICAgICAgIDwvZz4NCiAgICAgICAgPHBhdGggZmlsbD0iI0ZCRkJGQiIgZD0iTTIwIDIwYzEuMTA1IDAgMi0uODk1IDItMnMtLjg5NS0yLTItMi0yIC44OTUtMiAyIC44OTUgMiAyIDJ6TTE0IDIwYzEuMTA1IDAgMi0uODk1IDItMnMtLjg5NS0yLTItMi0yIC44OTUtMiAyIC44OTUgMiAyIDJ6TTguNTQzIDE5LjkyNGMxLjA2Mi0uMyAxLjY4MS0xLjQwNCAxLjM4MS0yLjQ2Ni0uMy0xLjA2My0xLjQwNC0xLjY4Mi0yLjQ2Ny0xLjM4Mi0xLjA2Mi4zLTEuNjgxIDEuNDA0LTEuMzgxIDIuNDY3LjMgMS4wNjIgMS40MDQgMS42ODEgMi40NjcgMS4zODF6TTEuNjggMTkuOTc0YzEuMDkuMTc3IDIuMTE3LS41NjQgMi4yOTQtMS42NTQuMTc3LTEuMDktLjU2NC0yLjExNy0xLjY1NC0yLjI5NEMxLjIzIDE1Ljg1LjIwMyAxNi41OS4wMjYgMTcuNjhjLS4xNzcgMS4wOS41NjQgMi4xMTcgMS42NTQgMi4yOTR6Ii8+DQogICAgICAgIDxwYXRoIGZpbGw9IiNGRkYiIGQ9Ik0xMy44MjggNi44MjhjMS41NjItMS41NjIgMS41NjItNC4wOTQgMC01LjY1Ni0xLjU2Mi0xLjU2My00LjA5NC0xLjU2My01LjY1NiAwLTEuNTYzIDEuNTYyLTEuNTYzIDQuMDk0IDAgNS42NTYgMS41NjIgMS41NjMgNC4wOTQgMS41NjMgNS42NTYgMHoiLz4NCiAgICA8L2c+DQo8L3N2Zz4NCg==" height="22" width="22"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div title="Set Dagre layout " class="mesh-view-img cursor" (click)="callToMakeLayout('dagre')">
+                        <!-- <img src="../../../../../../assets/VLA/toolbar_icons/mesh-5.svg" alt="mesh" class="img-fluid" /> -->
+                        <div [ngClass]="(dagre==true)?'dagre':'tool-icon'">
+                            <svg width="24" height="22" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <image href="data:image/svg+xml;base64,PHN2ZyAgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjYiIGhlaWdodD0iMjYiIHZpZXdCb3g9IjAgMCAyNiAyNiI+DQogICAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4NCiAgICAgICAgPHBhdGggc3Ryb2tlPSIjRkZGIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMS41IiBkPSJNMTIuOTk4IDcuNDA0TDI0LjQwNCAxMy4wMDIiIHRyYW5zZm9ybT0icm90YXRlKDkwIDE4LjcwMSAxMC4yMDMpIi8+DQogICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTEzLjAxNSAtMy40ODNMMTMuNTE3IDEyLjk4NSIgdHJhbnNmb3JtPSJyb3RhdGUoOTAgMTMuMjY2IDQuNzUpIi8+DQogICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTEzLjAxMyAxMi41MTJMMjkuNTEzIDEyLjk4OCIgdHJhbnNmb3JtPSJyb3RhdGUoOTAgMjEuMjYzIDEyLjc1KSIvPg0KICAgICAgICA8cGF0aCBzdHJva2U9IiNGRkYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiIGQ9Ik0xMy4wMTcgMS4yNjhMMTguMjY4IDEyLjk4MyIgdHJhbnNmb3JtPSJyb3RhdGUoOTAgMTUuNjQzIDcuMTI1KSIvPg0KICAgICAgICA8cGF0aCBmaWxsPSIjRkZGIiBkPSJNMTguNjcyIDcuMzI4YzEuNTYyIDEuNTYyIDQuMDk0IDEuNTYyIDUuNjU2IDAgMS41NjMtMS41NjIgMS41NjMtNC4wOTQgMC01LjY1Ni0xLjU2Mi0xLjU2My00LjA5NC0xLjU2My01LjY1NiAwLTEuNTYzIDEuNTYyLTEuNTYzIDQuMDk0IDAgNS42NTZ6Ii8+DQogICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTTEuMjY4IDEyLjk4M0wxMy4wMTcgMTguMjY4IiB0cmFuc2Zvcm09InJvdGF0ZSgtOTAgNy4xNDMgMTUuNjI1KSIvPg0KICAgICAgICA8cGF0aCBzdHJva2U9IiNGRkYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiIGQ9Ik0xMi41MTIgMTIuOTg4TDEzLjAxMiAyOS41MTIiIHRyYW5zZm9ybT0icm90YXRlKC05MCAxMi43NjIgMjEuMjUpIi8+DQogICAgICAgIDxwYXRoIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjEuNSIgZD0iTS0zLjQ4MyAxMi45ODRMMTMuMDE1IDEzLjUxOCIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDQuNzY2IDEzLjI1KSIvPg0KICAgICAgICA8cGF0aCBzdHJva2U9IiNGRkYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxLjUiIGQ9Ik03LjQwNCAxMy4wMDJMMTIuOTk4IDI0LjQwNCIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDEwLjIwMSAxOC43MDMpIi8+DQogICAgICAgIDxwYXRoIGZpbGw9IiNGRkYiIGQ9Ik03LjMyOCAxOC42NzJjLTEuNTYyLTEuNTYyLTQuMDk0LTEuNTYyLTUuNjU2IDAtMS41NjMgMS41NjItMS41NjMgNC4wOTQgMCA1LjY1NiAxLjU2MiAxLjU2MyA0LjA5NCAxLjU2MyA1LjY1NiAwIDEuNTYzLTEuNTYyIDEuNTYzLTQuMDk0IDAtNS42NTZ6Ii8+DQogICAgICAgIDxwYXRoIGZpbGw9IiNGQkZCRkIiIGQ9Ik01IDdjMS4xMDUgMCAyLS44OTUgMi0ycy0uODk1LTItMi0yLTIgLjg5NS0yIDIgLjg5NSAyIDIgMnpNOC41NzEgMTEuNGMuNzgxLjc4IDIuMDQ3Ljc4IDIuODI5IDAgLjc4LS43ODIuNzgtMi4wNDggMC0yLjgyOS0uNzgyLS43ODEtMi4wNDgtLjc4MS0yLjgyOSAwLS43ODEuNzgxLS43ODEgMi4wNDcgMCAyLjgyOHpNMTQuNjY1IDE3LjM4N2MuOTYzLjU0IDIuMTgyLjE5NiAyLjcyMi0uNzY4LjU0LS45NjMuMTk2LTIuMTgyLS43NjgtMi43MjEtLjk2My0uNTQtMi4xODItLjE5Ni0yLjcyMS43NjctLjU0Ljk2My0uMTk2IDIuMTgyLjc2NyAyLjcyMnpNMjAuNjggMjIuOTc0YzEuMDkuMTc3IDIuMTE3LS41NjQgMi4yOTQtMS42NTQuMTc3LTEuMDktLjU2NC0yLjExNy0xLjY1NC0yLjI5NC0xLjA5LS4xNzctMi4xMTcuNTY0LTIuMjk0IDEuNjU0LS4xNzcgMS4wOS41NjQgMi4xMTcgMS42NTQgMi4yOTR6Ii8+DQogICAgPC9nPg0KPC9zdmc+DQo=" height="22" width="22"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex view-options align-items-center">
+
+                    <div class="view-item cursor" (click)="callZoomIn($event)">
+                        <span class="material-icons"> zoom_out </span>
+                    </div>
+                    <div class="view-item cursor" (click)="callZoomOut($event)">
+                        <span class="material-icons"> zoom_in </span>
+                    </div>
+
+                    <div class="view-item cursor" (click)="callFitToScreen($event)">
+                        <span class="material-icons"> aspect_ratio </span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12 tabcontent" id="vla">
+    <!-- <div class="col-md-12"> -->
+    <!-- <div class="h-100 position-relative vla" permission[domainPermission]="permissionIdsList | getPermissionId : 'visual Link Analysis'"> -->
+
+    <div class="h-100 position-relative vla">
+
+        <div id="VLA" class="w-100 h-100">
+            <ng2-cytoscape #chart *ngIf="showVla" [elements]="entityNetworkData"></ng2-cytoscape>
+        </div>
+    </div>
+
+</div>

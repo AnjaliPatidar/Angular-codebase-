@@ -1,0 +1,320 @@
+    <div class="risk-overview-modal-wrapper">
+                    <div class="modal-header pad-b5 position-relative">
+                        <button type="button" class="closePulseModal width-5 text-cream  pad-x0 pull-right" (click)="addNewCompanyOwnership(false)" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title width-95 text-overflow">
+                            <span id="articleHeader">Add Person/Company</span>
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                            <div class="bst-ngb-tab-wrapper pad-0 source-ownership-wrapper source-tabs-wrapper">
+                                    <ngb-tabset (tabChange)="addEntitytabChange($event)" #entitytabSet="ngbTabset"
+                                      class="custom-ngb-tabset">
+                                        <ngb-tab id="person"  (tabChange)="addEntitytabChange('person')">
+                                                <ng-template ngbTabTitle><b>Add Person</b> </ng-template>
+                                                <ng-template ngbTabContent>
+                                                <form class="form pad-r0" autocomplete="no-display" name="personInfoForm" #personInfoForm = "ngForm" autocomplete="off">
+                                                    <div class="d-flex mar-b20 ai-c">
+                                                        <div class=" p-rel first-name-icon mar-b0 mar-r5 bst_input_group  width-30">                    
+                                                            <input type="text" autocomplete="no-display" class="custom-input text-cream pad-t15 pad-x15 f-12 height-100" name ="name" placeholder="First Name" [(ngModel)] = "addOwnershipPerson.firstName">
+                                                            <span class="label">First Name*</span>
+                                                            <p class=" width-100  text-left text-coral-red f-11 mar-t5 ng-scope" *ngIf="!addOwnershipPerson.firstName" >*Please Enter First Name</p>
+                                                        </div>
+                                                        <div class=" mar-b0 bst_input_group  width-20 p-rel ">                      
+                                                                <input type="text" name ="lastname" autocomplete="no-display" class="custom-input text-cream pad-x15 pad-t15 f-12 height-100" placeholder="Last Name"  [(ngModel)] ="addOwnershipPerson.lastName">
+                                                                <span class="label"> Last Name</span>
+                                                                <p class=" width-100 d-none mar-xauto d-ib text-center text-dark-cream f-10 mar-b0 ng-scope" *ngIf="enterName">*Required Field</p>
+                                                            </div> 
+                                                            <div class=" mar-b0 mar-x15 bst_input_group  width-20 p-rel " *ngIf="showallFields">                      
+                                                                    <input type="text"
+                                                                    name ="Sharesdetail" autocomplete="no-display"  placeholder=" Number Of Shares" class="custom-input text-cream pad-x15 pad-t15 f-12 height-100" maxlength="7" [(ngModel)] ="addOwnershipCompany.numberOfShares">
+                                                                    <span class="label"> Number Of Shares</span>
+                                                                    <p class=" width-100 d-none mar-xauto d-ib text-center text-dark-cream f-10 mar-b0 ng-scope" *ngIf="enterName">*Required Field</p>
+                                                            </div>
+                                                            <div class="custom-range-wrapper mar-t0 width-20 entity-range-bar" *ngIf="showDirectIndirectPercentagePerson && showallFields">
+                                                                    <h3 class="font-light text-capitalize mar-b10 mar-t0 text-dark-cream f-12 c-arrow">Direct Ownership
+                                                                    </h3>
+                                                                    <input type="range" min="0" max="100" step="any" name="persoDirectpercentage" [(ngModel)]="addOwnershipCompany.totalPercentage" >
+                                                            </div>
+                                                                 <div class="w-40 mar-l5 mar-t15 h-2_4 bst_input_group d-ib mar-b0 border-r3" *ngIf="showDirectIndirectPercentagePerson  && showallFields">
+                                                                                    <input type="number" max= "100"  name="personTotalpercentage"   step="any" [(ngModel)]="addOwnershipCompany.totalPercentage" class="custom-input f-12 h-2_4 pad-5"
+                                                                                        id="">
+                                                                                </div>
+                                                        </div>
+                                                        <div class="d-flex mar-b20 ai-c"> 
+                                                            <!-- <div class="width-45 flag-icon jurisdiction-screening bst_input_group p-rel d-block" [ngClass]="{'modal-pad-left': customSelectedAddPerson }" id="input_container">
+                                                                <input type="text" name = "jursictionSelected" autocomplete="off" [(ngModel)]="customSelectedAddPerson" placeholder="" uib-typeahead="state as state.jurisdictionOriginalName for state in countryNames" typeahead-template-url="customTemplate.html" class="custom-input pad-b5 pad-t15 pad-x15 mar-t0 bg-transparent typehead-dropdown" typeahead-show-hint="true" typeahead-min-length="0" typeahead-on-select="countrySelected($label,$item,'AddPerson')" id="input">
+                                                                <img *ngIf="customSelectedAddPerson" src="{{SelectedFlagSourceAddPerson}}" id="input_img">
+                                                                <span class="label p-abs t-0 flag_select_label" style="color:rgba(251,251,251,.6)">Country Name </span>
+                                                                </div>     -->
+                                                                <ng-template #rt let-r="result" let-t="term">
+                                                                        <span class = "flag-icon flag-icon-squared flag-icon-{{r.jurisdictionName}}"></span>
+                                                                        <ngb-highlight [result]="r.jurisdictionOriginalName" [term]="t"></ngb-highlight>
+                                                                      </ng-template>
+                                                                                  <div class="width-45 flag-icon bst_input_group">
+                                                                                <span class="flag-icon flag-icon-squared placeholder-icon  flag-icon-{{customSelectedAddPerson.jurisdictionName}}"></span>
+                                                                    <input id="typeahead-template" type="text" placeholder="Country Name" class="form-control custom-input-control width-45 custom-input pt-3 pl-4" [(ngModel)]="customSelectedAddPerson" name = "countryautocomplete"[ngbTypeahead]="searchCountry" [resultTemplate]="rt"
+                                                                        [inputFormatter]="selectedCountry" />
+                                                                           <span class="label">Country Name  </span>
+                                                                        </div>
+                                                                      <!-- <hr> -->
+                                                                   <div class="dropdown bst_input_group mar-x15 width-25 height-100 p-rel">
+                                                                     
+                                                                        <select [(ngModel)]="addModelClassification.personRoleModel" name= "classificationselect" class="selectBoxWidget custom-input custom-input_select custom-select height-100 pad-t15 pad-b5 pad-x15 text-cream bg-transparent border-0 ng-pristine ng-untouched ng-valid ng-empty" id="addPersonRole" style="-webkit-appearance: menulist !important;">
+                                                                                <option *ngFor ="let v of addModelClassification.personRoleData" (selected)="editModelClassification.editRoleModel == v.label" value="{{v.label}}">{{v.label}}</option>
+                                                                        </select>
+                                                                        <span class="label p-abs t-0 flag_select_label" style="color:rgba(251,251,251,.6)">Role</span>
+                                                                    </div>
+                                                                    <div class="custom-range-wrapper mar-t0 width-20 entity-range-bar" *ngIf="showDirectIndirectPercentagePerson && showallFields" >
+                                                                            <h3 class="font-light text-capitalize mar-b5 mar-t0 text-dark-cream f-12 c-arrow">InDirect Ownership
+                                                                            </h3>
+                                                                            <input type="range" min="0" max="100" step="any" class="bg-transparent pad-y5" 
+                                                                            name ="personIndirect" [(ngModel)]="addOwnershipCompany.indirectPercentage" >
+                                                                        </div>
+                                                                             <div class="w-40 mar-l5 mar-t15 h-2_4 bst_input_group mar-l24perc d-ib mar-b0 border-r3" *ngIf="showDirectIndirectPercentagePerson && showallFields">
+                                                                                    <input type="number" max= "100" step="any" name="totalPercentage" [(ngModel)]="addOwnershipCompany.indirectPercentage" class="custom-input f-12 h-2_4 pad-5"
+                                                                                        id="">
+                                                                                </div>
+                                                                </div>
+                                                                    <div class="d-flex mar-b20 ai-c">
+                                                            <div class="width-45 mar-b0 calender-icon bst_input_group  p-rel d-block mr-4">                          
+                                                                <input type="text" autocomplete="no-display"  name ="dob" placeholder="Dob" #dateofbirth = "ngModel" pattern="/^\d{4}-\d{2}-\d{2}$/" class="custom-input text-cream pad-x15 pad-t15 f-12 height-100" [(ngModel)] ="addOwnershipCompany.date_of_birth">
+                                                                <span class="label">Date Of Birth</span>
+                                                            <p class=" mar-xauto d-ib text-left text-coral-red f-10 mar-b0 ng-scope" *ngIf="dateofbirth.invalid">*Please Enter Date in YYYY-MM-DD format</p>
+                                                            </div>
+                                                            <!-- <div ng-dropdown-multiselect=""
+                                                             class="bst_input_group width-25 mar-l20 mar-r15 addPerson_CompanyClassification"
+                                                              options="addModelClassification.personListData" 
+                                                              selected-model="addModelClassification.personModel"
+                                                               events= "selectPersonListData" 
+                                                               extra-settings="personSettings" 
+                                                               translation-texts="example5customTexts"></div> -->
+                                                               <ng-multiselect-dropdown 
+                                                               name ="personClasification"
+                                                               [placeholder]="'Classifications'"
+                                                               [data]="addModelClassification.personListData"
+                                                               [(ngModel)]="addModelClassification.personModel"
+                                                               [settings]="personSettings"
+                                                               (onSelect)="onclassificationItemSelect($event)"
+                                                               (onDeSelect)="onclassificationItemSelect($event)"
+                                                               (onSelectAll)="onclassificationItemSelect($event)"
+                                                               (onDeSelectAll)="onclassificationItemSelect($event)"
+                                                               >
+                                                             </ng-multiselect-dropdown>
+                                                            <div class="width-20 mar-l20 d-flex ai-c" *ngIf="showallFields">
+                                                                <span class="text-cream f-14">Mark as UBO</span>
+                                                                <label class="switch mar-autol custom-switch-wrapper override-switch bst-switch-wrapper">
+                                                                        <input type="checkbox" #override ="ngModel" name="override"  
+                                                                                [(ngModel)]="overrideValue"/> 
+                                                                        <span class="slider round">
+                                                                        </span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex mar-b20 ai-c bst_border_t">
+                                                                <div class="width-45 source-icon bst_input_group p-rel d-block" *ngIf="showallFields">
+                                                                    <div class="select-box-wrapper  height-100" >
+                                                                        <input 
+                                                                        class="custom-input pad-x10 pad-t15 lh-18 height-a mar-r10"
+                                                                        autocomplete="no-display" placeholder="addSource"
+                                                                        (keyup)="sourceSearchInput(addsourceInput.searchedSourceInputPerson,'Person',$event)"
+                                                                        [(ngModel)]="addsourceInput.searchedSourceInputPerson"
+                                                                        (focus)="getNewSources()"
+                                                                        name ="selectSource"
+                                                                        [value]="searchedSourceInputValPerson">
+                                                                        <span class="label">Source</span>
+                                                                    <ul class="custom-list searchSource z-99 mxh-140 l-0 pad-10px p-abs item-1"
+                                                                        *ngIf="showfiteredSourceList && addsourceInput.searchedSourceInputPerson && (fiteredSourceList && fiteredSourceList.length > 0)">
+                                                                        <li class="" *ngFor="let sourceNameSearched of fiteredSourceList"
+                                                                            (click)="fillSourceSearchedInput(sourceNameSearched,'Person')">
+                                                                            {{sourceNameSearched}}</li>
+                                                                    </ul>
+                                                                     <!-- <ul class="custom-list z-99 mxh-140 l-0 pad-10px p-abs item-1"
+                                                                        *ngIf="showAddNew && (fiteredSourceList && fiteredSourceList.length == 0)">
+                                                                        <li class="" (click)="addSource()">Add new
+                                                                        </li>
+                                                                    </ul>  -->
+                                                                <p class=" width-100  text-left text-coral-red f-10 mar-t5 " *ngIf="addsourceInput.searchedSourceInputCompany === '' && addsourceInput.searchedSourceInputPerson === ''">*Please Enter Source </p>
+                                                                </div>
+                                                            </div>
+                                                                <div class="width-30 mar-b0 mar-x15  bst_input_group  p-rel d-block" *ngIf="showallFields">                           
+                                                                    <input type="text" autocomplete="no-display"
+                                                                     class="custom-input text-cream pad-x15 pad-t15 f-12 height-100"
+                                                                     placeholder="sourceURL" 
+                                                                     #sourceURL ="ngModel" 
+                                                                     [value]="searchedSourceURLValuePerson" 
+                                                                     [(ngModel)]="entitySearchResult.list.searchedSourceURLPerson" 
+                                                                     pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" 
+                                                                      name="sourceURL" >
+                                                                    <span class="label">Source URL</span>
+                                                                    <span *ngIf="sourceURL.invalid"
+                                                                     class="width-100 text-left text-coral-red f-10 mar-t5">Please enter valid url</span> 
+                                                                </div>
+                                                                <div class="width-25 mar-b0  bst_input_group bst_input_group_r  p-rel d-block" *ngIf="showallFields"> 
+                                                                        <span class="input-group-prepend f-14 text-dark-cream fa fa-calendar"></span>
+                                                                          <input type="text"
+                                                                           autocomplete="no-display"
+                                                                            placeholder="Published Date"
+                                                                            name ="Publisheddates"
+                                                                              [(ngModel)]="addOwnershipCompany.from" (change)="dateFormatValidate(addOwnershipCompany.from)"  class="custom-input  pad-b10 pad-t15 text-cream f-12 height-100" >
+                                                                    <span class="label">Published Date</span>
+                                                                    <span class="width-100 text-left text-coral-red f-10 mar-t5" *ngIf="dateFormatError">Invalid format (yyyy-MM-dd)</span>                              
+                                                                </div>
+                                                            </div>
+                                                        <div class="d-flex jc-fe">
+                                                            
+                                                            <button type="button" class="bordered-button lh-18 f-14 height-a pull-right" *ngIf ="!addEntityfrommodal" (click)="NgbActiveModal.dismiss(false)">Cancel</button>
+                                                            <button type="button" class="bordered-button lh-18 f-14 height-a pull-right" *ngIf ="addEntityfrommodal"  (click)="NgbActiveModal.dismiss(false)">Cancel</button>
+                                                            <button type="button" class="grad-button mar-l10 f-14 lh-20 height-a pull-right"  *ngIf ="!addEntityfrommodal" [disabled]="disabling(addOwnershipPerson.firstName,'customSelectedAddPerson')" (click) ="addNewCompanyOwnership(true, searchedSourceInputValPerson)">Add</button>
+                                                            <button type="button" class="grad-button mar-l10 f-14 lh-20 height-a pull-right"  *ngIf ="addEntityfrommodal" (click) ="addNewCompanyOwnershipFromModal(true,countryJurisdiction.jurisdictionOriginalName,searchedSourceInputValPerson)">Add</button>
+                                                        </div>
+                                                    </form>
+                                                    </ng-template>
+                                        </ngb-tab>
+                                        <ngb-tab  id="organization"  (tabChange)="addEntitytabChange('organization')">
+                                                <ng-template ngbTabTitle><b>Add Company</b> </ng-template>
+                                                <ng-template ngbTabContent>
+                                                <form class="form pad-r0" autocomplete="no-display" name="personForm" #personForm="ngForm" autocomplete="off">
+                                                        <div class="d-flex mar-b20 ai-c">
+                                                            <div class=" p-rel company-icon mar-b0 bst_input_group  width-45 ">                 
+                                                                <input type="text"  autocomplete="off" name = "companyName" class="custom-input text-cream pad-t15 pad-x15 f-12 height-100" [(ngModel)]="addOwnershipCompany.name"  placeholder=" ">
+                                                                <span class="label">Company Name</span>
+                                                                <p class=" width-100  text-left text-coral-red f-10 mar-t5 " *ngIf="addOwnershipCompany.name === '' ">*Please Enter Company Name</p>
+                                                            </div>
+                                                                <div class=" mar-b0 mar-x15 bst_input_group  width-25 p-rel " *ngIf="showallFields">                      
+                                                                        <input type="text" autocomplete="no-display" name = "Shares" placeholder=" Number Of Shares" class="custom-input text-cream pad-x15 pad-t15 f-12 height-100"  maxlength="7" [(ngModel)]="addOwnershipCompany.numberOfShares" placeholder=" " >
+                                                                        <span class="label"> Number Of Shares</span>
+                                                                        <p class=" width-100 d-none mar-xauto d-ib text-left text-dark-cream f-10 mar-b0" >*Required Field</p>
+                                                                </div>
+                                                                <div class="custom-range-wrapper mar-t0 width-20 entity-range-bar" *ngIf="showDirectIndirectPercentageCompany && showallFields ">
+                                                                        <h3 class="font-light text-capitalize mar-b5 mar-t0 text-dark-cream f-12 c-arrow">indirect ownership
+                                                                        </h3>
+                                                                        <input type="range" min="0" max="100" step="any"  name ="indirect" [(ngModel)]="addOwnershipCompany.indirectPercentage"  class="bg-transparent pad-y5">
+                                                                    </div>
+                                                                   <div class="w-40 mar-l5 mar-t15 h-2_4 bst_input_group d-ib mar-b0 border-r3" *ngIf="showDirectIndirectPercentageCompany && showallFields">
+                                                                                    <input type="number" max= "100" step="any" name ="indirectper" [(ngModel)]="addOwnershipCompany.indirectPercentage" class="custom-input f-12 h-2_4 pad-5"
+                                                                                        id="">
+                                                                 </div>
+                                                        </div>
+                                                            <div class="d-flex mar-b20 ai-c"> 
+                                                                <div class="width-45 flag-icon jurisdiction-screening bst_input_group p-rel d-block" ng-class="{'modal-pad-left': customSelectedAddCompany }" id="input_container">
+                                                                    <!-- <input type="text" autocomplete="off" name ="clasificationcompany" [(ngModel)]="customSelectedAddCompany" placeholder="" uib-typeahead="state as state.jurisdictionOriginalName for state in countryNames" typeahead-template-url="customTemplate.html" class="custom-input pad-b5 pad-t15 pad-x15 mar-t0 bg-transparent typehead-dropdown" typeahead-show-hint="true" typeahead-min-length="0" typeahead-on-select="countrySelected($label,$item,'AddCompany')" id="input">
+                                                                    <img *ngIf="customSelectedAddCompany" src="{{SelectedFlagSourceAddCompany}}" id="input_img"> -->
+                                                                    <ng-template #rt let-r="result" let-t="term">
+                                                                        <span class = "flag-icon flag-icon-squared flag-icon-{{r.jurisdictionName}}"></span>
+                                                                        <ngb-highlight [result]="r.jurisdictionOriginalName" [term]="t"></ngb-highlight>
+                                                                      </ng-template>
+
+                                                                      <span class ="flag-icon flag-icon-squared placeholder-icon  flag-icon-{{customSelectedAddPerson.jurisdictionName}}"></span>
+                                                                    <input id="typeahead-template" type="text" class="form-control custom-input pt-2 pl-4" [(ngModel)]="customSelectedAddPerson" placeholder="Country Name" name = "countryautocomplete"[ngbTypeahead]="searchCountry" [resultTemplate]="rt"
+                                                                        [inputFormatter]="selectedCountry" />
+                                                                    <span class="label">Country Name  </span>
+                                                                        <!-- <p class=" width-45  mar-xauto d-ib text-center text-dark-red f-11 mar-t5 ng-scope" *ngIf="!customSelectedAddCompany">*Required Field</p> -->
+                                                                </div>    
+                                                                        <div class="width-25 mar-x15 bst_input_group p-rel d-block" *ngIf="showallFields">
+                                                                            <div class="select-box-wrapper  height-100">
+                                                                                <div class="dropdown height-100 p-rel">
+                                                                                    <select class="selectBoxWidget height-100 pad-x15 bg-transparent border-0 custom-input text-cream custom-select pad-t15 pad-b5" id="addCompanyEntityType" 
+                                                                                        [(ngModel)]="addOwnershipCompany.entityType" name="entityType">
+                                                                                        <option *ngFor ="let  v of addEntityTypeList">{{v.entityType}}</option>
+                                                                                    </select>
+                                                                                    <span class="label p-abs t-0 flag_select_label" style="color:rgba(251,251,251,.6)">Entity Type</span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <p class=" width-25 d-none mar-xauto d-ib text-center text-dark-cream f-10 mar-b0 ng-scope" *ngIf="enterName">*Required Field</p>
+                                                                        </div>
+                                                                        <div class="custom-range-wrapper mar-t0 width-20 entity-range-bar" *ngIf="showDirectIndirectPercentageCompany && showallFields">
+                                                                                <h3 class="font-light text-capitalize mar-b5 mar-t0 text-dark-cream f-12 c-arrow">Direct Ownership
+                                                                                </h3>
+                                                                                <input type="range" min="0" max="100" step="any"  name = "totalPerce" [(ngModel)]="addOwnershipCompany.totalPercentage" class="bg-transparent pad-y5"
+                                                                                    >
+                                                                            </div>
+                                                                            <div class="w-40 mar-l5 mar-t15 h-2_4 bst_input_group d-ib mar-b0 border-r3" *ngIf="showDirectIndirectPercentageCompany && showallFields"> 
+                                                                                    <input type="number" max= "100" step="any" name = "totalPerceslider"  [(ngModel)]="addOwnershipCompany.totalPercentage" class="custom-input f-12 h-2_4 pad-5"
+                                                                                        id="">
+                                                                                </div>
+                                                            </div>
+                                                            <div class="d-flex mar-b20 ai-c">
+                                                                <div class="width-45 mar-b0 mar-r10 website-icon bst_input_group  p-rel d-block">                           
+                                                                    <input type="text" autocomplete="no-display" placeholder="Website" name="website" #website="ngModel" pattern="/(http(s)?:\\)?([\w-]+\.)+[\w-]+(\[\?%&=]*)?/" class="custom-input text-cream pad-x15 pad-t15 f-12 height-100" [(ngModel)] ="addOwnershipCompany.hasURL">
+                                                                    <span class="label">Website</span>
+                                                                    <p class="mar-xauto d-ib text-left text-coral-red f-10 mar-b0 ng-scope" *ngIf="website.invalid">*Please Enter Website In Valid Format</p>
+                                                                </div>
+                                                                <!-- <div ng-dropdown-multiselect="" class="bst_input_group mar-x5 width-25 addPerson_CompanyClassification"
+                                                                     options="addModelClassification.companyListData" selected-model="addModelClassification.companyModel" events="selectCompanyListData" extra-settings="companySettings" translation-texts="example5customTexts"></div> -->
+                                                                <ng-multiselect-dropdown
+                                                                name = "classficiatioCompany"
+                                                                [placeholder]="'classifications'"
+                                                                [data]="addModelClassification.companyListData"
+                                                                [(ngModel)]="addModelClassification.companyModel"
+                                                                [settings]="personSettings"
+                                                                (onSelect)="onclassificationItemSelect($event)"
+                                                                (onDeSelect)="onclassificationItemSelect($event)"
+                                                                (onSelectAll)="onclassificationItemSelect($event)"
+                                                               (onDeSelectAll)="onclassificationItemSelect($event)"
+                                                                [ngStyle]="{width:'45% !important'}"   
+                                                              >
+                                                              </ng-multiselect-dropdown>
+                                                            </div>
+                                                            <div class="d-flex mar-b20 ai-c bst_border_t" *ngIf="showallFields">
+                                                                    <div class="width-45 source-icon bst_input_group p-rel d-block">
+                                                                        <div class="select-box-wrapper  height-100">
+                                                                            <input 
+                                                                            class="custom-input pad-x10 pad-t15 lh-18 height-a mar-r10"
+                                                                            autocomplete="no-display" placeholder="addSource"
+                                                                            name= "addsource"
+                                                                            (keyup)="sourceSearchInput(addsourceInput.searchedSourceInputCompany,'Company',$event)"
+                                                                            [(ngModel)]="addsourceInput.searchedSourceInputCompany"
+                                                                            (focus)="getNewSources()"
+                                                                            [value]="searchedSourceInputValCompany">
+
+                                                                            <span class="label">Source</span>
+                                                                        <ul class="custom-list searchSource z-99 mxh-140 l-0 pad-10px p-abs item-1"
+                                                                            *ngIf="showfiteredSourceList && addsourceInput.searchedSourceInputCompany && (fiteredSourceList && fiteredSourceList.length > 0)">
+                                                                            <li class="" *ngFor="let sourceNameSearched of fiteredSourceList "
+                                                                                (click)="fillSourceSearchedInput(sourceNameSearched,'Company')">
+                                                                                {{sourceNameSearched}}</li>
+                                                                                <!-- //track by $index -->
+                                                                        </ul>
+                                                                        <!--  <ul class="custom-list z-99 mxh-140 l-0 pad-10px p-abs item-1"
+                                                                            *ngIf="showAddNew && (fiteredSourceList && fiteredSourceList.length == 0)">
+                                                                            <li class=""  (click)="addSource()">Add new
+                                                                            </li>
+                                                                        </ul> -->
+                                                                <p class=" width-100  text-left text-coral-red f-10 mar-t5 " *ngIf="addsourceInput.searchedSourceInputCompany === '' && addsourceInput.searchedSourceInputPerson === ''">*Please Enter Source </p>
+                                                                    </div>
+                                                                </div>
+                                                                    <div class="width-25 mar-b0 mar-x15  bst_input_group  p-rel d-block" *ngIf="showallFields">                           
+                                                                        <input type="text" autocomplete="no-display" placeholder="sourceURL"  
+                                                                          #sourceURLcompany = "ngModel"
+                                                                          [value]="searchedSourceURLValueCompany"
+                                                                          [(ngModel)]="entitySearchResult.list.searchedSourceURLCompany" 
+                                                                          name="sourceURL" 
+                                                                          pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" 
+                                                                          class="custom-input text-cream pad-x15 pad-t15 f-12 height-100" >
+                                                                        <span class="label">Source URL</span>
+                                                                         <p *ngIf="sourceURLcompany.invalid"
+                                                                           class="width-100  text-left text-coral-red f-10 mar-t5 ">
+                                                                           Please enter valid url</p>
+                                                                    </div>
+                                                                    <div class="width-25 mar-b0  bst_input_group bst_input_group_r  p-rel d-block" *ngIf="showallFields"> 
+                                                                            <span class="input-group-prepend f-14 text-dark-cream fa fa-calendar"></span>
+                                                                              <input type="text" autocomplete="no-display" placeholder="website" [(ngModel)]="addOwnershipCompany.from" (change)="dateFormatValidate(addOwnershipCompany.from)" name="dateofbirth" class="custom-input text-cream  pad-b10 pad-t15  f-12 height-100"  >
+                                                                        <span class="label">Published Date</span>
+                                                                        <p
+                                                                          class="width-100  text-left text-coral-red f-10 mar-t5 "
+                                                                          *ngIf="dateFormatError">Invalid format
+                                                                          (yyyy-MM-dd)</p>
+                                                                    </div>
+                                                                </div>
+                                                            <div class="d-flex jc-fe">
+                                                                <button type="button" class="bordered-button lh-18 f-14 height-a pull-right" *ngIf ="!addEntityfrommodal" (click)="NgbActiveModal.dismiss(false)">Cancel</button>
+                                                                <button type="button" class="bordered-button lh-18 f-14 height-a pull-right" *ngIf ="addEntityfrommodal" (click)="NgbActiveModal.dismiss(false)">Cancel</button>
+                                                                <button type="submit" class="grad-button mar-l10 f-14 lh-20 height-a pull-right" *ngIf ="!addEntityfrommodal" [disabled]="disabling(addOwnershipCompany.name,'customSelectedAddCompany')" (click)="addNewCompanyOwnership(true, searchedSourceInputValCompany)">Add</button>
+                                                                <button type="submit" class="grad-button mar-l10 f-14 lh-20 height-a pull-right" *ngIf ="addEntityfrommodal" [disabled]="disabling()" (click)="addNewCompanyOwnershipFromModal(true,countryJurisdiction.jurisdictionOriginalName,searchedSourceInputValCompany)">Add</button>
+                                                            </div>
+                                                        </form>
+                                                </ng-template>
+                                                </ngb-tab>
+                                    </ngb-tabset>                   
+                    </div>
+                </div>

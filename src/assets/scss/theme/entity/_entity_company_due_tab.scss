@@ -1,0 +1,237 @@
+/*==============================================================================
+****************  Entity Company Page Styles For The Site  *********************
+==============================================================================*/
+
+/*--  Entity Company Due Tab Wrapper Styles  --*/
+
+.due-tab-wrapper {
+    .custom-row {
+        .custom-col {
+            .details-panel-wrapper {
+                .panel-body {
+                    &.right-panel-body {
+                        .panel-group {
+                            height: 200px;
+                            .panel-heading {
+                                padding: 0;
+                            }
+                        }
+                    }
+                    .custom-data-table-wrapper {
+                        &.height-200px {
+                            position: relative;
+                            .panel-scroll {
+                                height: 165px;
+                            }
+                        }
+                    }
+                }
+                &.screening-table-panel {
+                    background-color: #2d2d2d;
+                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 4px 5px 0 rgba(0, 0, 0, 0.14);
+                    border-radius: 10px;
+                    .panel-heading {
+                        h4 {
+                            @extend .text-capitalize;
+                            @extend .roboto-light;
+                            @extend .text-cream;
+                            font-size: 18px;
+                            font-weight: 300;
+                            font-style: normal;
+                            font-stretch: normal;
+                            line-height: 1.33;
+                            letter-spacing: normal;
+                        }
+                    }
+                    .panel-body p{
+                        @extend .roboto-light;
+                        @extend .text-cream;
+                        font-size: 14px;
+                        font-weight: normal;
+                        font-style: normal;
+                        font-stretch: normal;
+                        line-height: 1.43;
+                        letter-spacing: -0.2px;
+                    }
+                }
+            }
+        }
+    &.screening-row{
+        background-color: #545454;
+        border:0;
+        .custom-col{
+            padding: 10px;
+            border:0;
+        }
+    }
+    &.filters-row-wrapper{
+        height: 450px;
+        .table{
+            display:table!important;
+        }
+    }
+    }
+
+}
+
+.recent-linkedin-wrapper {
+    .recent-linkedin {
+        &.entity-result-item {
+            height: 300px; 
+        }
+    }
+} 
+
+.social-media-trending {
+    .media-list {
+        .media {
+            .linkedin-content {
+                p {
+                    &:last-of-type {
+                        height: 65px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.evaluationHideShow {
+    display: none !important;
+}
+
+.isoHeadingDropdownBtn {
+    color: #fff !important;
+    border-radius: inherit !important;
+    width: 100% !important; 
+    border-color: transparent !important;
+}
+
+.panel.custom-panel-wrapper.bg-transparent.autodesk-panel-wrapper .mTSWrapper.mTS_vertical {
+    overflow: visible !important;
+    width: 100%;
+}
+ 
+.ownership-vla .modal-content {
+    display: flex;
+    width: 100%; 
+    max-height: 85vh!important; 
+    overflow: hidden;
+   background-color: #2d2d2d;
+   border:0;
+   border-radius:10px;
+}
+ 
+.custom-modal.capture-modal.ownership-vla .modal-dialog {
+    width: 95%;  
+}
+ 
+.entity-company-wrapper h3.riskScoreColor {
+    color: #657f8b !important;
+}
+
+.evaluationPadForBtn {
+    padding: 0px !important;
+}
+
+.text-info {
+    color: #667f8b;
+}
+
+.text-applicable {
+    color: #667f8b;
+}
+
+.preventClickOnDisabled {
+    pointer-events: none !important;
+}
+
+.scrollbar {
+    overflow-y: scroll !important;
+    height: 100px !important;
+}
+
+.wrapperScroll {
+    text-align: center !important;
+    margin: auto !important;
+}
+
+/*
+*  STYLE 1
+*/
+
+.style-1::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, .3);
+    border-color: rgba(0, 0, 0, .3) !important;
+}
+
+.style-1::-webkit-scrollbar {
+    width: 7px;
+    background-color: rgba(0, 0, 0, .3);
+    border-color: rgba(0, 0, 0, .3) !important;
+}
+
+.style-1::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .2);
+    background-color: #9fa4a9;
+}
+
+.cursorForDisabledBanSymble {
+    cursor: not-allowed !important;
+}
+
+.pad-70 {
+    padding-top: 70px !important;
+}
+
+.text-caption {
+    color: #657f8b !important;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+#chart-container {
+    position: relative;
+    display: inline-block;
+    top: 10px;
+    left: 10px;
+    height: 420px;
+    width: calc(100% - 24px);
+    /*   width:300px; */
+    border: 0;
+    border-radius: $sm-comp-corner-radius;
+    text-align: center;
+}
+
+#chart-container .svg-container {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    /* aspect ratio */
+    vertical-align: top;
+    overflow: hidden;
+}
+
+#chart-container .svg-content-responsive {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+
+@media (min-width:$screen-lg) {}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {}
+
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {}

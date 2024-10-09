@@ -1,0 +1,85 @@
+::ng-deep :root {
+    --avatar-size: 50px;
+}
+
+.interest-container {
+    padding: 20px 0 !important;
+}
+
+.circle {
+    background-color: #047165;
+    border-radius   : 50%;
+    height          : var(--avatar-size);
+    text-align      : center;
+    width           : var(--avatar-size);
+}
+
+.initials {
+    font-size     : calc(var(--avatar-size) / 2);
+    /* 50% of parent */
+    line-height   : 1;
+    position      : relative;
+    top           : calc(var(--avatar-size) / 4);
+    /* 25% of parent */
+    line-height   : 1 !important;
+    letter-spacing: 1 !important;
+}
+
+// .interest-element p {
+//     all: revert;
+// }
+.interest-element {
+    margin-bottom: 35px;
+}
+
+.interest-element .profile-image {
+    width        : 150%;
+    border-radius: 50%;
+    border       : #c1c1c191 solid 2px;
+}
+
+.interest-element .interest-name p {
+    font-weight   : 46px !important;
+    text-transform: capitalize !important;
+    color         : #FFFFFF;
+}
+
+.interest-element .interest-relation {
+    font-weight: 12px;
+    color      : #999999;
+    font-style : normal;
+    font-family: 'Roboto Light' !important;
+}
+
+.interest-element .interest-description {
+    font-style : normal;
+    font-family: 'Roboto Light' !important;
+    margin-top : 14px;
+    height     : 65px;
+}
+
+.status-message {
+    margin    : auto;
+    width     : 60%;
+    border    : 3px solid #9121ad;
+    padding   : 10px;
+    text-align: center !important;
+}
+
+.status-message p {
+    text-align: center !important;
+}
+
+.panel-body .interest-job {
+    font-size    : 15px;
+    color        : #a29e9e !important;
+    margin-bottom: 5px;
+    font-family  : 'Roboto Light' !important;
+}
+
+.circle {
+    .profile-image {
+        width : 100%;
+        border: 0;
+    }
+}

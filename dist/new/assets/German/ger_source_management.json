@@ -1,0 +1,17 @@
+{
+    "Source": "Quelle",
+    "Jurisdiction": "Zuständigkeit",
+    "Industry": "Industrie",
+    "Update": "Aktualisieren",
+    "Cancel": "Stornieren",
+    "PrioritizeInformation":"Priorisieren Sie Informationen aus einer Quelle für jede Kategorie",
+    "Media": "Medien",
+    "Add": "Hinzufügen",
+    "Save": "speichern",
+    "ResetToDefault":"Zurücksetzen",
+    "ExportData":"Tabellendaten",
+    "Sources" : "Quellen",
+    "General" : "General",
+    "News" : "News",
+    "Index" : "Index"
+}

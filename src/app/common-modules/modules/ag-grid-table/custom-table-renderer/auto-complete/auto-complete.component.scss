@@ -1,0 +1,35 @@
+.example-form {
+    min-width: 75px;
+    max-width: 150px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+::ng-deep .cdk-overlay-pane {
+      min-width:80px;
+}
+
+/** styles for assignee dropdown list */
+.autocomplete-placeholder{
+  color: rgba(255, 255, 255, 0.6);
+ }
+::ng-deep .assignee-list{
+  border-radius: var(--smComponentCornerRadius);
+  min-width: 392px !important;
+  padding: 10px 20px;
+  .dropdown-option{
+    padding: 10px;
+    height: 56px;
+    border-bottom: 1px solid rgba(#fafafa,0.2);
+    span{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      i{
+        color: rgba(255, 255, 255, 0.54);
+      }
+    }
+  }
+}

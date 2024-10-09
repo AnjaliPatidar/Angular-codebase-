@@ -1,0 +1,219 @@
+/*==============================================================================
+***********************  Wrapper Styles For The Site  **************************
+==============================================================================*/
+
+.dashboard-wrapper {
+    .leaflet-top {
+        top: 50px;
+    }
+    .map-info-wrapper {
+        @include size(100%, 45px);
+        background-color: rgba(53, 92, 125, 0.9);
+        line-height: 45px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        span {
+            @extend .text-uppercase;
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+            }
+            font-size: $font-size-base;
+            color: #c2c9d1;
+            display: inline-block;
+            vertical-align: middle;
+            &.count {
+                font-family: $francois-one-regular;
+                font-size: $font-size-large;
+            }
+        }
+    }
+    #hottopics {
+        min-height: 100%;
+        position: relative;
+    }
+    .hottopictag {
+        color: $black;
+        text-decoration: none;
+        font-size: 75px;
+        font-weight: bold;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        &:hover {
+            border: 1px solid $dim-grey;
+        }
+    }
+    .yourCaseMetrics {
+        height: 100%;
+        * {
+            @extend .text-uppercase;
+        }
+        h4 {
+            @include margin(0);
+            font-size: $font-size-small;
+            font-weight: normal;
+            &.text-grey {
+                @include margin(0 0 15px);
+                position: relative;
+                width: 210px;
+            }
+        }
+        .upper {
+            @include padding(10px);
+            color: $heather;
+            min-height: 60%;
+            #caseMetricsGraph {
+                min-height: 150px;
+                position: relative;
+            }
+        }
+        .lower {
+            @include padding(10px 0);
+            background-color: $big-stone;
+            color: $lynch;
+        }
+        ol {
+            @include margin(0);
+            @include padding(0);
+            li {
+                color: $silver;
+                font-size: ($font-size-base - 4);
+            }
+        }
+        #yourCaseMetricsWidget {
+            width: 100%;
+            height: 70px;
+            overflow: hidden !important;
+        }
+    }
+    .caseFocus-header {
+        @include padding(4px 0);
+        background-color: $big-stone;
+        border-color: $big-stone;
+    }
+    .case-diary-pagination {
+        @include margin(0);
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        z-index: 999;
+    }
+    /*--  Case Diary List Styles  --*/
+    .case-diary-list {
+        tr {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        .caseseed,
+        .casename,
+        .caseriskprofile {
+            @extend .text-center;
+        }
+        .casepriority {
+            .low {
+                color: $apple;
+            }
+            .medium {
+                color: $yellow;
+            }
+            .high {
+                color: $red;
+            }
+        }
+        .caseseed {  
+            span {
+                @include padding(4px);
+                background-color: $arsenic;
+                color: $persian-green;
+                font-size: $font-size-small;
+                vertical-align: top;
+            }
+        }
+        .casename {
+            @extend .text-left;
+            span {
+                @extend .text-left;
+                @include margin(0 0 0 5px);
+                width: 80px;
+                font-size: 10px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                color: $westar;
+            }
+        }
+        .casepreview {
+            color: $fiord;
+            font-size: ($font-size-base + 2);
+        }
+        .casestatus span {
+            @include padding(5px 10px);
+            @include border-radius(100px);
+            background-color: $fiord;
+        }
+        .caseriskprofile {
+            @extend .clearfix;
+            .risk-progressbar-holder {
+                @extend .pull-left;
+                width: 100%;
+                border: 1px solid transparent;
+            }
+            .inline {
+                @extend .pull-left;
+                font-size: ($font-size-base - 4);
+                width: 20px;
+            }
+            .progress {
+                @include margin(3px 0);
+                @include border-radius(20px);
+                height: 5px;
+                background-color: #425661;
+                .progress-bar {
+                    @include border-radius(20px);
+                }
+            }
+            .progressdr {
+                background: $risk-dr;
+            }
+            .progresstr {
+                background: $risk-ir;
+            }
+            .progresscr {
+                background: $risk-tr;
+            }
+        }
+        .casecumulativerisk {
+            .radial {
+                font-size: ($font-size-large * 2);
+                cursor: pointer;
+                margin: 0 auto;
+                display: block;
+                float: none !important;
+                span {
+                    @include padding(0 2px 0 0);
+                    @include center-position();
+                    font-size: ($font-size-base - 4);
+                }
+            }
+        }
+    }
+}
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+
+@media (min-width:$screen-lg) {}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {}
+
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {}

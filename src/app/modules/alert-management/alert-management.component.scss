@@ -1,0 +1,28 @@
+@import "../../../assets/scss/theme/common/variable";
+app-alerts-list{
+    width: 100%;
+}
+app-tabular-view{
+    width: calc(100% - 280px);
+}
+
+.dashboard_wrapper{
+    background-color: $bg-color;
+    padding: 0;
+
+}
+.alert_management_dashboard{
+    >app-alerts-list{
+        flex-grow:1;
+    }
+}
+
+::ng-deep #body.light-dark-theme app-left-panel {
+    background-color: $alert-left-panel !important;
+}
+
+app-left-panel {
+z-index: 1000 !important;
+}
+
+

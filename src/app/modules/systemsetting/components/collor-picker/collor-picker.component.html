@@ -1,0 +1,60 @@
+<button mat-button class="color-picker-btn" [matMenuTriggerFor]="menu" #languageMenuTrigger="matMenuTrigger"></button>
+<mat-menu class="color-picker-wrapper custom-scroll-wrapper" #menu="matMenu" yPosition="below">
+  <div class="wrapper tag-menu" (click)="$event.stopPropagation()">
+    <div class="top-header menu-header">
+      {{'Tag Color' | translate}}
+    </div>
+    <div class="color-pickers">
+      <div>
+        <button type="button" class="add-new" (click)="openMultiColor()">
+          <i class="material-icons close-icon">add</i>
+        </button>
+        <button type="button" class="colors" *ngFor="let color of colorList.data; trackBy: trackById" [style.backgroundColor]="color.color" [class.active-color]="activeColorId === color.id"
+          (click)="defaultColorsSwiper(color)">
+          <span class="material-icons active-icon">done</span>
+        </button>
+      </div>
+    </div>
+
+  <div class="sub-mat-menu" *ngIf="showColorSelection">
+    <div (click)="$event.stopPropagation()" class="color-picker-menu">
+      <div class="wrapper">
+        <color-photoshop [color]="state" (onChangeComplete)="handleColorComplete($event)"></color-photoshop>
+      </div>
+    </div>
+  </div>
+
+    <div class="selected-color">
+      <div class="content">
+        <div class="tag-input">
+          <span class="colors input-colour" [style.background]="state"></span>
+          <mat-form-field class="color-form-field" appearance="fill">
+            <mat-label>{{'Selected color' | translate}}</mat-label>
+            <input matInput type="text" [(ngModel)]="state" (ngModelChange)="colorSwipeFromInput($event)" [attr.readOnly] = "isEditMode ? null : true">
+            <div class="input-action-column">
+              <button type="button" (click)="openMultiColor()" *ngIf="!isEditMode">
+                <span class="material-icons action-icon">mode_edit</span>
+              </button>
+              <button type="button" (click)="onSaveColor()" *ngIf="isEditMode">
+                <span class="material-icons action-icon">done</span>
+              </button>
+              <button type="button" (click)="onDeleteColor()">
+                <span class="material-icons text-coral-red">delete</span>
+              </button>
+            </div>
+          </mat-form-field>
+        </div>
+        <div class="single-color-action"></div>
+      </div>
+      <div class="button-wrapper">
+        <button type="butotn" (click)="onCancel()">
+          {{"Cancel" | uppercase | translate }}
+        </button>
+
+        <button type="butotn" (click)="onSaveColor()">
+          {{"Save" | uppercase | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</mat-menu>

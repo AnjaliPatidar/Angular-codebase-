@@ -1,0 +1,27 @@
+<div class="entity-info-st">
+    <div class="table-responsive custom-scroll-wrapper custom-table" tabindex="1">
+        <table class="table" aria-describedby="general-des">
+            <thead>
+                <tr>
+                    <th class="text-dark-black px-5">
+                        {{'Attribute' | translate}}
+                    </th>
+                    <th class="text-dark-black">
+                        {{'Record Information' | translate}}
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody class="alternate-row-colors left-content-wrap">
+                <tr *ngFor="let item of watchlistData | keyvalue">
+                    <td class="text-dark-black text-capitalize">
+                        {{ item.key | translate }}
+                    </td>
+                    <td class="text-dark-black hover_column">
+                        <div>{{ item.value | translate}}</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

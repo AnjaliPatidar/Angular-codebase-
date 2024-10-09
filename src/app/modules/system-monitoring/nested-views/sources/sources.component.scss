@@ -1,0 +1,111 @@
+@import "../../../../../assets/theme-builder/theme_builder";
+.sources-list {
+  display: block;
+  margin-left: 80px;
+  margin-right: 315px;
+}
+
+.grad-button {
+  top: 33px;
+}
+
+::ng-deep .response-popover {
+  width: 814px !important;
+
+  .popover-body {
+    display: flex;
+    max-width: 100% !important;
+  }
+}
+
+.export-button {
+  // top: 30px;
+  // right: 35px;
+  right: -5px;
+  top: 33px;
+  border-color: $primary-color;
+  line-height: 1.14;
+  letter-spacing: 1.25px;
+  border-radius: $sm-comp-corner-radius;
+  padding: 10px 12px;
+  border-style: groove;
+  color:$primary-color;
+}
+
+::ng-deep {
+  .source-monitoring-table {
+    .ag-paging-row-summary-panel {
+      // background-color: rgba(255, 255, 255, 0.08) !important;
+      background-color : $input-group !important;
+      height: 40px;
+      border-radius: $sm-comp-corner-radius;
+      display: flex;
+      min-width: 90px;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0 7px;
+
+      span:last-of-type {
+        margin-left: 3px;
+      }
+
+      span:nth-of-type(2) {
+        margin-right: 3px;
+      }
+    }
+
+    // #dropdown-multiselect-wrapper {
+    //   float: unset;
+    //   transform: none;
+    //   left: unset;
+    // }
+
+    .ag-paging-panel.ag-unselectable {
+      // right: 200px;
+      right: 180px;
+      top: -48px;
+    }
+
+    .pagination-dropdown {
+      // right: 405px;
+      top: 18px;
+      right: -20%;
+    }
+    #dropdown-multiselect-wrapper{
+      float: unset;
+      left: 320px;
+      top: unset;
+      transform: none;
+      right: unset;
+      .dropdown-btn span:last-of-type span:after{
+        content: '\f013';
+        font-weight: 400;
+        left: 0px;
+        color: rgba(255, 255, 255, 0.54);
+      }
+    }
+    // #dropdown-multiselect-wrapper .dropdown-btn span:last-of-type span:after {
+    //   content: "\f013";
+    //   color: rgba(255, 255, 255, 0.54);
+    // }
+  }
+  .custom-popup.bs-popover-right.align-popup {
+    left: 8px !important;
+    // width: 26%;
+  }
+  ngb-popover-window.bs-popover-right.custom-popup.align-popup .arrow {
+    top: 50%;
+    margin-top: -.5rem;
+    transform: rotate(90deg);
+    left: -8px !important;
+    margin-top: -14px;
+  }
+  // .custom-popup .pt-4 .py-4{
+  //   margin-left: -30px;
+  // }
+  // ngb-popover-window.has-right-arrow.custom-popup.align-popup .arrow{
+    // transform: rotate(90deg);
+    // left: -12px !important;
+  
+  // }
+}

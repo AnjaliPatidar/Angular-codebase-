@@ -1,0 +1,53 @@
+<h1 mat-dialog-title class="d-flex align-items-center justify-content-between pb-4 mb-5 title  bottom-border text-dark-black fw-500">{{'Add Users To the' |translate}} {{nameOfGroup ? nameOfGroup:''}} <i class="material-icons c-pointer f-16" (click)="dialogRef.close()">close</i></h1>
+
+<div class="custom-scroll-wrapper">
+    <mat-form-field class="multi-select-combo-box">
+        <i class="material-icons add-icon mr-3 text-dark-black">
+      person_add
+    </i>
+        <mat-chip-list #chipList>
+            <mat-chip *ngFor="let user of users; trackBy: trackByValue" [selectable]="selectable" [removable]="removable" (removed)="remove(user)">
+                {{user.value}}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <input type="text"
+                    pattern="{{get_pattern(userInput)}}"
+                    name="username"
+                    #inputControl="ngModel"
+                    placeholder="" #userInput
+                    [(ngModel)]="userCtrl"
+                    (keydown)="onInputKeyboardNavigation($event,inputControl)"
+                    (ngModelChange)="search($event,inputControl)"
+                    [matAutocomplete]="auto"
+                    [matChipInputFor]="chipList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                    [matChipInputAddOnBlur]="addOnBlur"
+                    (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+
+        <mat-autocomplete #auto="matAutocomplete" class="custom-scroll-wrapper">
+            <ng-container *ngIf="inputControl.valid">
+                <mat-selection-list #userSelectionList (keydown)="onListKeyboardNavigation($event)" class="p-0">
+                    <mat-list-option [id]="'multi-select-mat-list-option-'+ user.value.toLowerCase()" (click)="onUserSelectionChange(user,i)" *ngFor="let user of filteredUser;let i =index; trackBy:trackByValue" [selected]="isUserSelected(user)" [value]="user.value">
+                        <span *ngIf="user.icon" class="initial-name large mr-4 text-dark-black"> {{user.icon}}</span>
+                        <img *ngIf="user.img" class="initial-name large mr-4 text-dark-black" src="{{user.img}}">
+                        <span class="text-overflow mxw-180">{{user.value}}</span>
+                    </mat-list-option>
+                    <mat-option [style.display]="'none'"></mat-option>
+                </mat-selection-list>
+            </ng-container>
+        </mat-autocomplete>
+
+    </mat-form-field>
+
+    <span *ngIf="inputControl.touched && inputControl.invalid" class="d-block text-coral-red mt-2 gotham-regular">
+        <span *ngIf="inputControl.hasError('pattern')"> {{ get_pattern_error('text') }} </span>
+    </span>
+
+    <div class="btn-group width-100 d-flex ai-c jc-fe">
+        <button class="user-btn mr-3 border-0 light-theme-btn secondary-btn p-3 gotham-medium fw-500" type="button" (click)="dialogRef.close()">{{'Cancel' | translate}}</button>
+        <button class="user-btn mr-3 border-0 light-theme-btn primary-btn p-3 gotham-medium fw-500" type="button" (click)="advancedSearchUserTable()">{{'Advanced' | translate}}
+      Search</button>
+        <button class="user-btn border-0 light-theme-btn primary-btn p-3 gotham-medium fw-500" type="button" (click)="addUsersList(users)">{{'AddUser' | translate}}</button>
+    </div>
+</div>

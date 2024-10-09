@@ -1,0 +1,423 @@
+<!-- shravani:23-10-2020 :Person overview page -->
+<div class="overview-panel-container top-row custom-row bst_row_wrapper ">
+
+    <div class="col-sm-12 pad-b0 custom-col">
+        <div class="panel custom-panel-wrapper bst_panel_wrapper details-panel-wrapper height-100 light-theme-bg-white">
+            <div class="panel-heading  d-flex ai-c">
+                <h4 class="f-18 lh-1_2 top-details-heading mar-b0 text-dark-black">
+                    About
+                </h4>
+            </div>
+
+            <div *ngIf="isProfileSummaryAvailable" class="overview-panel-body mnh-235 h-25r p-rel panel-body panel-scroll" malihu-scrollbar>
+                <div class="main-content-description main-information-content p-rel">
+                    <div class="highlighting-info-wrapper">
+                        <div class="row">
+                          <div class="col-12">
+                               <span class="f-14 text-dark-black">{{this.profileSummary}}</span>
+                          </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="!isProfileSummaryAvailable" class="not-found mnh-150">
+              <p class="error text-center">Data Not Found</p>
+          </div>
+
+        </div>
+    </div>
+
+    <!-- Customer information of a person -->
+    <div class="col-sm-6 pad-b0 custom-col">
+        <div class="panel custom-panel-wrapper bst_panel_wrapper details-panel-wrapper height-100 light-theme-bg-white">
+            <div class="panel-heading  d-flex ai-c">
+                <h4 class="f-18 lh-1_2 top-details-heading mar-b0 text-dark-black">
+                    Customer Information
+                </h4>
+            </div>
+
+            <!-- <div *ngIf="customerInfoDataAvailable" class="overview-panel-body mnh-235 h-25r p-rel panel-body panel-scroll" malihu-scrollbar>
+                <div class="main-content-description main-information-content p-rel">
+                    <div class="highlighting-info-wrapper">
+                        <div class="row" *ngFor="let custInfo of customerInfoResultSet.data;trackBy:trackByKey">
+                            <div class="col-md-4 highlighting-info header-width d-inline-flex ai-c">
+                                <span class="f-14 text-dark-black">
+                                    <span>{{custInfo.key}}</span>
+                                </span>
+                            </div>
+                            <div class="col-md-4 highlighting-info header-width d-inline-flex ai-c">
+                                <span class="f-14 text-dark-black">
+                                    <span class="d-inline-flex align-items-center"
+                                        tooltipClass="attribute_tooltip light-theme-tooltip"> -->
+                                        <!-- <span *ngIf="custInfo.verified" class="material-icons f-23 primaryLink mr-10">check_circle</span> -->
+                                <!-- <span class="text-capitalize limitText">Unknown</span>
+                                </span>
+                                </span>
+                            </div> -->
+                            <!-- <div class="col-md-1 highlighting-info header-width d-inline-flex ai-c">
+                                <span class="f-14 width-100 d-inline-flex ai-c jc-sa c-pointer" [options]="myOptions"
+                                    [tooltip]="HtmlContent" tooltip-class="tool_tip" content-type="template"
+                                    (mouseover)="onMouseHover($event, custInfo)" (mouseout)="onMouseOut($event)"
+                                    (click)="openPersonInfoModal(custInfo, custInfo)"
+                                    [ngClass]="{'active' : openRating === true,'notactive':openRating === false}">
+                                    <span class="material-icons f-23 primaryLink">insert_link</span>
+                                <span class="primaryLink">{{custInfo.primiarySources.length}}</span>
+                                <span class="material-icons f-23 secondaryLink">insert_link</span>
+                                <span class="text-dark-black">{{custInfo.secondarySources.length}}</span>
+                                <span class="material-icons f-18 secondaryLink">edit</span>
+                                </span>
+                            </div> -->
+                        <!-- </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <div *ngIf="!customerInfoDataAvailable" class="not-found mnh-150">
+                <p class="error text-center">Data Not Found</p>
+            </div>
+            <!-- <span class="custom-spinner full-page-spinner" style="height: 100%;" *ngIf="pageLoader">
+                <i class="fa fa-spinner txt-on-surface-06 fa-spin fa-4x"></i>
+            </span> -->
+        </div>
+    </div>
+
+    <!--Home location for of a person -->
+    <div class="col-sm-6 pad-b0 custom-col">
+        <div class="panel custom-panel-wrapper bst_panel_wrapper details-panel-wrapper height-100 light-theme-bg-white">
+            <div class="panel-heading  d-flex ai-c">
+                <h4 class="f-18 lh-1_2 top-details-heading mar-b0 text-dark-black">
+                    Home Location
+                </h4>
+            </div>
+            <app-home-location-map [homeLocationData]='this.overviewUtiltyObject.personSearchResult["home_location"]'></app-home-location-map>
+            <!-- <div class="overview-panel-body mnh-235 h-25r p-rel panel-body panel-scroll " malihu-scrollbar [scrollbarOptions]="scrollbarOptions">
+
+        </div> -->
+            <!-- <div *ngIf="true" class="not-found mnh-150">
+                <p class="error text-center">Data Not Found</p>
+            </div>
+            <span class="custom-spinner full-page-spinner" style="height: 100%;" *ngIf="pageLoader">
+                <i class="fa fa-spinner txt-on-surface-06 fa-spin fa-4x"></i>
+            </span> -->
+        </div>
+    </div>
+</div>
+
+<div class="overview-panel-container top-row custom-row bst_row_wrapper ">
+    <!--  Education -->
+    <div class="col-sm-6 pad-b0 custom-col">
+        <div class="panel custom-panel-wrapper bst_panel_wrapper details-panel-wrapper height-100 light-theme-bg-white">
+            <div class="panel-heading  d-flex ai-c">
+                <h4 class="f-18 lh-1_2 top-details-heading mar-b0 text-dark-black">
+                    Education
+                </h4>
+            </div>
+            <div class="overview-panel-body mnh-235 h-25r p-rel panel-body panel-scroll " malihu-scrollbar  *ngIf="overviewUtiltyObject.finalEducationObj &&  overviewUtiltyObject.finalEducationObj.length>0">
+                <div class="row education-info-row p-1" *ngFor="let eduInfo of overviewUtiltyObject.finalEducationObj;let i=index;">
+                    <div class="col-sm-1 d-flex ai-c">
+                        <img class="img-responsive radius-circle" [src]="eduInfo.image" (error)="imgError($event,'education')" *ngIf="eduInfo.image && !overviewUtiltyObject.educationImageBroke" />
+                        <div class="user-icon " *ngIf="eduInfo.image=='' || eduInfo.image == null|| overviewUtiltyObject.educationImageBroke">
+                            <span class="material-icons f-24 width-100 light-theme-light-black">school</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 d-flex ai-c">
+                        <span class="d-ig ai-c" tooltipClass="attribute_tooltip light-theme-tooltip" ngbTooltip="{{eduInfo.address}}">
+                            <span class="f-14 text-dark-black roboto-medium gotham-medium"
+                                *ngIf="eduInfo.name">{{eduInfo.name}}</span>
+                        <span class="f-12 text-dark-black roboto-regular gotham-regular" *ngIf="eduInfo.degreeName">{{eduInfo.degreeName}} </span>
+                        </span>
+                    </div>
+                    <div class="col-sm-2 d-flex ai-c">
+                        <div class="d-ig ai-c text-nowrap width-100 text-center">
+                            <span class="text-dark-black f-12 roboto-regular gotham-regular" *ngIf="(eduInfo.startDate && eduInfo.startDate !='') && (eduInfo.endDate && eduInfo.endDate !='')">
+                                <span>{{eduInfo.startDate}} - </span> <span>{{eduInfo.endDate}}</span>
+                            </span>
+                            <span class="text-dark-black f-12 roboto-regular gotham-regular" *ngIf="(eduInfo.startDate !='' && eduInfo.endDate =='')">
+                                <span>{{eduInfo.startDate}} </span>
+                            </span>
+                            <span class="text-center f-12 text-dark-black roboto-regular gotham-regular" *ngIf="eduInfo.period">{{eduInfo.period}}</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 d-flex ai-c">
+                        <span class="pl-3 f-12 text-dark-cream roboto-regular gotham-regular" *ngIf="eduInfo.address" tooltipClass="attribute_tooltip light-theme-tooltip" ngbTooltip="{{eduInfo.address?.addressLocality||'N/A'}}">
+                            <span class="material-icons f-14 width-100 light-theme-light-black">room</span>
+                        </span>
+                    </div>
+                    <div class="col-sm-2 d-flex ai-c">
+                        <!-- modal on hover -->
+                        <ng-template #popItem>
+                            <div [innerHTML]="getHoverModalTemplate(eduInfo, i)">
+                            </div>
+                        </ng-template>
+
+                        <!-- modal on click -->
+                        <ng-template #content let-modal>
+                            <app-person-info-edit [modalInstance]='modal' [modalData]='overviewUtiltyObject.formattedWorkEduInfo' [statickeys]='overviewUtiltyObject.statickey'>
+                            </app-person-info-edit>
+                        </ng-template>
+
+                        <button class="source-button-wrapper border-0  mnw-80" [ngbPopover]="popItem" triggers="mouseenter:mouseleave" placement="left-top" (click)="open(content,eduInfo,i,'eduInfo')" container="body" popoverClass="custom-popover custom-scroll-wrapper">
+                            <span class="text-dark-pastal-green mar-r5" style="cursor: pointer;">
+                                <i class="fa f-10 fa-link"></i>
+                                {{eduInfo.primarySourceLength || 0}}
+                            </span>
+                            <span class="text-dark-cream text-dark-black mar-r5 c-pointer">
+                                <i class="fa f-10 fa-link"></i>
+                                {{eduInfo.secondarySourceLength || 0}}
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="overviewUtiltyObject.finalEducationObj?.length === 0 " class="not-found mnh-150">
+                <p class="error text-center">Data Not Found</p>
+            </div>
+            <!-- <span class="custom-spinner full-page-spinner" style="height: 100%;" *ngIf="pageLoader">
+                <i class="fa fa-spinner txt-on-surface-06 fa-spin fa-4x"></i>
+            </span> -->
+        </div>
+    </div>
+
+    <!--  Works for -->
+    <div class="col-sm-6 pad-b0 custom-col">
+        <div class="panel custom-panel-wrapper bst_panel_wrapper details-panel-wrapper height-100 light-theme-bg-white">
+            <div class="panel-heading  d-flex ai-c">
+                <h4 class="f-18 lh-1_2 top-details-heading mar-b0 text-dark-black">
+                    Works for
+                </h4>
+            </div>
+            <div class="overview-panel-body mnh-235 h-25r p-rel panel-body panel-scroll " malihu-scrollbar *ngIf="overviewUtiltyObject.finalWorkObj &&  overviewUtiltyObject.finalWorkObj.length>0">
+                <div class="row education-info-row p-1" *ngFor="let workDetails of overviewUtiltyObject.finalWorkObj;let i=index;">
+                    <div class="col-sm-1 ai-c">
+                        <img class="img-responsive radius-circle" [src]="workDetails.image" (error)="imgError($event,'work_for')" *ngIf="workDetails.image && !overviewUtiltyObject.workforImageBroke" />
+                        <div class="user-icon " *ngIf="workDetails.image=='' || workDetails.image == null ||overviewUtiltyObject.workforImageBroke">
+                            <span class="material-icons f-24 width-100 light-theme-light-black">domain</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-9 d-flex ai-c">
+                        <span class="d-ig width-80">
+                            <span class="d-ig">
+                                <span class="f-14 text-dark-black roboto-medium gotham-medium"
+                                *ngIf="workDetails.name">{{workDetails.name}}</span>
+                        <span class="f-14 text-dark-black roboto-regular gotham-regular" *ngIf="workDetails.jobTitle">{{workDetails.jobTitle}}</span>
+                        </span>
+                        <span class="f-12 text-dark-black roboto-regular gotham-regular" *ngIf="workDetails.jobSummary && workDetails.jobSummary !='' ">{{workDetails.jobSummary}}</span>
+                        </span>
+                        <div class="d-flex ai-c text-center width-10">
+                            <span class="pl-3 f-12 text-dark-cream roboto-regular gotham-regular" *ngIf="workDetails.address && workDetails.address.addressLocality " tooltipClass="attribute_tooltip light-theme-tooltip address-tooltip" ngbTooltip="{{workDetails.address?.addressLocality||'N/A'}}">
+                                <span class="material-icons f-14 width-100 light-theme-light-black">room</span>
+                            </span>
+                        </div>
+                        <div class="d-ig ai-c text-nowrap text-center">
+                            <span class="spanWidth text-dark-black f-12 roboto-regular gotham-regular" *ngIf="(workDetails.startDate && workDetails.startDate !='') && (workDetails.endDate && workDetails.endDate !='')">
+                                <span>{{workDetails.startDate}} - </span> <span>{{workDetails.endDate}}</span>
+                            </span>
+                            <span class="spanWidth text-dark-black f-12 roboto-regular gotham-regular" *ngIf="(workDetails.startDate !='' && workDetails.endDate =='')">
+                                <span>{{workDetails.startDate}} </span>
+                            </span>
+                            <span class="spanWidth text-dark-black f-12 roboto-regular gotham-regular" *ngIf="workDetails.period">{{workDetails.period}}</span>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-2 d-flex ai-c">
+                        <div class="d-flex ai-c text-center width-10">
+                            <!-- modal on hover -->
+                            <ng-template #popItem>
+                                <div [innerHTML]="getHoverModalTemplate(workDetails, -1)">
+                                </div>
+                            </ng-template>
+
+                            <!-- modal on click -->
+                            <ng-template #content let-modal>
+                                <app-person-info-edit [modalInstance]='modal' [modalData]='overviewUtiltyObject.formattedWorkEduInfo' [statickeys]='overviewUtiltyObject.statickey'>
+                                </app-person-info-edit>
+                            </ng-template>
+
+                            <button class="source-button-wrapper border-0  mnw-80" [ngbPopover]="popItem" triggers="mouseenter:mouseleave" placement="left-top" (click)="open(content,workDetails,i,'workDetails')" container="body" popoverClass="custom-popover custom-scroll-wrapper">
+
+                                <span class="text-dark-pastal-green mar-r5" style="cursor: pointer;">
+                                    <i class="fa f-10 fa-link"></i>
+                                    {{workDetails.primarySourceLength || 0}}
+                                </span>
+                                <span class="text-dark-cream text-dark-black mar-r5 c-pointer">
+                                    <i class="fa f-10 fa-link"></i>
+                                    {{workDetails.secondarySourceLength || 0}}
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="overviewUtiltyObject.finalWorkObj?.length === 0 " class="not-found mnh-150">
+                <p class="error text-center">Data Not Found</p>
+            </div>
+            <!-- <span class="custom-spinner full-page-spinner" style="height: 100%;" *ngIf="pageLoader">
+                <i class="fa fa-spinner txt-on-surface-06 fa-spin fa-4x"></i>
+            </span> -->
+        </div>
+    </div>
+</div>
+
+<!-- Relations of a person -->
+<div class="overview-panel-container relationship-panel top-row custom-row bst_row_wrapper">
+    <div class="col-sm-12 pad-b0 pad-x0 custom-col">
+        <div class="panel custom-panel-wrapper bst_panel_wrapper details-panel-wrapper height-100 light-theme-bg-white">
+            <div class="panel-heading  d-flex ai-c">
+                <h4 class="f-18 lh-1_2 top-details-heading mar-b0 text-dark-black">Relations
+                </h4>
+            </div>
+            <div class="overview-panel-body mnh-auto h-100 p-rel panel-scroll " malihu-scrollbar>
+                <app-relation-map [relationData]="this.overviewUtiltyObject"></app-relation-map>
+            </div>
+            <!-- <div *ngIf="true" class="not-found mnh-150">
+               <p class="error text-center">Data Not Found</p>
+
+            </div> -->
+
+
+
+            <!-- <span class="custom-spinner full-page-spinner" style="height: 100%;" *ngIf="pageLoader">
+                <i class="fa fa-spinner txt-on-surface-06 fa-spin fa-4x"></i>
+            </span> -->
+        </div>
+    </div>
+</div>
+
+<div *ngIf="this.screeningSelectedCount>0" class="overview-panel-container custom-row top-row bst_row_wrapper filter_row">
+  <div class="col-md-12 pad-b0 pad-x0 custom-col">
+      <div class="panel custom-panel-wrapper bst_panel_wrapper details-panel-wrapper height-100 light-theme-bg-white">
+          <div class="panel-heading  d-flex ai-c">
+              <h4 class="f-18 lh-1_2 top-details-heading mar-b0 text-dark-black">Screening Configurations:</h4>
+          </div>
+          <div class="panel-body">
+              <div class="row mt-2">
+                  <div class="col-md-3">
+                      <div class="row">
+                          <div class="col-md-12 text-dark-black">
+                              PEP Alerts Confident Level Between <span class="badge badge-secondary">{{sliderPepValue}}%</span> and <span class="badge badge-secondary">{{sliderPepHighValue}}%</span>
+                          </div>
+                          <div class="col-md-12 mt-2">
+                              <ngx-slider [(value)]="sliderPepValue" [(highValue)]="sliderPepHighValue" [options]="sliderPepOptions"></ngx-slider>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                      <div class="row">
+                          <div class="col-md-12  text-dark-black">
+                              Sanctions Confident Level Between <span class="badge badge-secondary">{{sliderSanValue}}%</span> and <span class="badge badge-secondary">{{sliderSanHighValue}}%</span>
+                          </div>
+                          <div class="col-md-12 mt-2">
+                              <ngx-slider [(value)]="sliderSanValue" [(highValue)]="sliderSanHighValue" [options]="sliderSanOptions"></ngx-slider>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                      <div class="row">
+                          <div class="col-md-12  text-dark-black">
+                              News Period (Years) Between <span class="badge badge-secondary">{{sliderNewsPeriodValue}}</span> and <span class="badge badge-secondary">{{sliderNewsPeriodHighValue}}</span>
+                          </div>
+                          <div class="col-md-12 mt-2">
+                              <ngx-slider [(value)]="sliderNewsPeriodValue" [(highValue)]="sliderNewsPeriodHighValue" [options]="sliderNewsPeriodOptions"></ngx-slider>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-3">
+                      <div class="light-theme-no-radius mt-5 justify-content-end">
+                          <button type="button" (click)="CallActivatePersonScreening()" style="background: #3eb6ff;" class="btn btn-primary theme-button-bg text-dark-black light-theme">{{ "Activate Screening" | translate }}</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Screening candidates of a person -->
+<div class="overview-panel-container top-row bst_row_wrapper screening-container" >
+    <div class="col-sm-12 pad-b0 pad-x0 custom-col">
+        <div class="panel custom-panel-wrapper bst_panel_wrapper details-panel-wrapper height-100 light-theme-bg-white">
+            <div class="panel-heading  d-flex ai-c">
+                <h4 class="f-18 lh-1_2 top-details-heading mar-b0 text-dark-black">Screening Candidates
+                </h4>
+            </div>
+            <div class="overview-panel-body h-25r p-rel panel-body" >
+                <div class="ag-table-wrapper data-table-wrapper screening-candidates mar-t0" style="flex:1;margin-top:0%">
+                    <app-ag-grid-table [personScreeningNotifier]="personScreeningNotifier"  (personSelectionEventDispatcher)="personSelectionEventHandler($event)" class="alertList-table mar-t10 person-screening" [tableData]="overviewUtiltyObject.gridOptions"></app-ag-grid-table>
+                </div>
+                <div class="screen-spinner z-99 w-100 h-100 position-absolute" *ngIf="overviewUtiltyObject.showDownloadLoader" [class.loader-bg]="overviewUtiltyObject.showDownloadLoader">
+                    <i class="fa fa-spinner txt-on-surface-06 fa-pulse position-absolute f-25 mnh-auto no-data"></i>
+                </div>
+            </div>
+            <!-- <div *ngIf="false" class="not-found mnh-150">
+                <p class="error text-center">Data Not Found</p>
+            </div> -->
+            <!-- <span class="custom-spinner full-page-spinner" style="height: 100%;" *ngIf="pageLoader">
+                <i class="fa fa-spinner txt-on-surface-06 fa-spin fa-4x"></i>
+            </span> -->
+        </div>
+    </div>
+</div>
+
+<!-- Recommendations of the person -->
+<!-- this section have been moved to personality tab ~ charith ~11/12/2020 -->
+<!-- <div class="overview-panel-container custom-row top-row bst_row_wrapper recommendation-panel">
+    <div class="col-md-12 pad-b0 pad-x0 custom-col">
+        <div class="panel custom-panel-wrapper bst_panel_wrapper details-panel-wrapper height-100 light-theme-bg-white">
+            <div class="panel-heading  d-flex ai-c">
+                <h4 class="f-18 lh-1_2 top-details-heading mar-b0 text-dark-black">Recommendations</h4>
+            </div>
+            <div class="overview-panel-body mnh-auto h-100 p-rel">
+                <app-recommendations [personName]="this.overviewUtiltyObject.personSearchResult['name'].value[0]"></app-recommendations>
+            </div>
+
+        </div>
+    </div>
+</div> -->
+
+<ng-template #HtmlContent>
+    <div class="col-12 popup-container">
+        <div class="row heading pad-x20 pad-y15 mar-b10 radius-5">
+            <div class="pop-heading fw-500 f-14 text-capitalize text-dark-black roboto-medium gotham-medium">Sources
+            </div>
+        </div>
+        <div class="primary-source pad-b5" *ngIf="overviewUtiltyObject.PrimarySource && overviewUtiltyObject.PrimarySource.length > 0">
+            <div class="d-flex jc-sb pb-2">
+                <span class="f-12 fw-500 text-capitalize text-dark-black roboto-medium gotham-medium">Primary
+                    Source</span>
+                <span class="d-inline-flex ai-c">
+                    <span class="material-icons f-20 primaryLink light-theme-light-black pad-r2">insert_link</span>
+                <span class="primaryLink">{{overviewUtiltyObject.PrimarySource.length}}</span>
+                </span>
+            </div>
+            <div class="row lh-24" *ngFor="let primary of overviewUtiltyObject.PrimarySource;let i=index;">
+                <div class="col-10 text-left text-capitalize text-dark-black roboto-regular gotham-regular">
+                    {{primary.source}}</div>
+                <div class="col-2" *ngIf="primary.source == selectedSource">
+                    <span class="material-icons f-20 light-theme-light-black">check</span></div>
+            </div>
+        </div>
+        <div class="pad-b5" *ngIf="overviewUtiltyObject.PrimarySource && overviewUtiltyObject.PrimarySource.length == 0">
+            <span class="error"> No primary Source available</span>
+        </div>
+        <div class="secondary-source pad-y10" *ngIf="overviewUtiltyObject.SecondarySource && overviewUtiltyObject.SecondarySource.length > 0">
+            <div class="d-flex jc-sb pb-2">
+                <span class="f-12 fw-500 text-capitalize text-dark-black roboto-medium gotham-medium">Secondary
+                    Source</span>
+                <span class="d-inline-flex ai-c">
+                    <span class="material-icons f-20 secondaryLink light-theme-light-black pad-r2">insert_link</span>
+                <span class="text-dark-black">{{overviewUtiltyObject.SecondarySource.length}}</span>
+                </span>
+            </div>
+            <div class="row lh-24" *ngFor="let secondary of overviewUtiltyObject.SecondarySource">
+                <div class="col-10 text-left text-capitalize text-dark-black roboto-regular gotham-regular">
+                    {{secondary.source}}</div>
+                <div class="col-2" *ngIf="secondary.source == selectedSource"><span class="material-icons f-20 light-theme-light-black">check</span></div>
+            </div>
+        </div>
+        <div class="pad-b10" *ngIf="overviewUtiltyObject.SecondarySource && overviewUtiltyObject.SecondarySource.length == 0">
+            <span class="error"> No Secondary Source available</span>
+        </div>
+    </div>
+</ng-template>

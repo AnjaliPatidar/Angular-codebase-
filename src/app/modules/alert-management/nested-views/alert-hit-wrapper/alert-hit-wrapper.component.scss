@@ -1,0 +1,58 @@
+@import "../../../../../assets/scss/theme/common/variable";
+
+.text-on-surface {
+  color: inherit !important;
+}
+
+.text-on-surface {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  color: $text-light-gray;
+}
+
+.custom-mat-tab .mat-tab-labels .mat-tab-label-active {
+  color: $link-color !important;
+}
+
+
+ .alert-toggle {
+   position: relative;
+   top: 15px;
+
+   .match-slider {
+     padding-top: 15px;
+     padding-right: 10px;
+     justify-content: end;
+     align-items: center;
+   }
+
+   .mat-tab-label-content {
+     text-transform: uppercase;
+   }
+
+   .custom-switch-wrapper.bst-switch-wrapper input:checked+.slider {
+     background: $light-blue12;
+   }
+
+   .custom-switch-wrapper input:checked+.slider:before {
+     background: $link-color !important;
+   }
+
+   .custom-switch-wrapper.bst-switch-wrapper.filters-switch-wrapper .slider:before {
+     background: $dark-grey16 !important;
+     height: 20px !important;
+     width: 20px !important;
+   }
+
+   .custom-switch-wrapper.bst-switch-wrapper.filters-switch-wrapper {
+     height: 20px;
+   }
+
+   .custom-switch-wrapper.bst-switch-wrapper.filters-switch-wrapper .slider:before {
+     background: $color-gray-20;
+   }
+ }

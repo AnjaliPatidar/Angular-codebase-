@@ -1,0 +1,30 @@
+<div class="header-wrapper">
+
+
+<!--  Sticky Notes Starts  -->
+<div cdkDrag class="panel custom-panel-wrapper sticky-panel-wrapper  panel-info " id="stickyNotes">
+  <div class="panel-heading pad-b0">
+      <div class="custom-input-group d-flex">
+          <input type="text" class="width-100 pad-l10 " id="documentTitle" autocomplete="off">
+          <ul class="top-icon-list input-group-addon pull-right pad-0 pad-t5 d-flex">
+              <li class="pad-t5">
+                  <a>
+                      <i class="fa fa-cog text-cream"></i>
+                  </a>
+              </li>
+              <li class="pad-t5 pad-r5">
+                  <a>
+                      <i class="fa fa-times text-cream" (click)="closeSticky()"></i>
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <div class="panel-body">
+      <textarea ng-if="permissionDocument == 'Read Only'" id="documentText" rows="9" class="textarea-scrollbar scrollbar-outer" ng-keyup="stickyAutoSave($event, $index)">
+      </textarea>
+  </div>
+</div>
+
+</div>
+<!--  Sticky Notes Ends  -->

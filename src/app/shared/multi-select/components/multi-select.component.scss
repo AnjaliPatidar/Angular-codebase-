@@ -1,0 +1,40 @@
+.core-multi-select {
+  .bst-form-field .mat-form-field-infix .mat-form-field-label-wrapper {
+    margin-top: 0;
+
+    .text-label {
+      line-height: 1;
+    }
+  }
+  
+}
+
+.bst-select-panel.mat-select-panel {
+  .core-multi-select-panel
+    .select-container__search-wrap
+    .bst-form-field--small
+    .mat-form-field-wrapper
+    .mat-form-field-flex {
+    padding-top: 16px;
+    align-items: center;
+  }
+
+  .select-container__search-wrap {
+    .bst-form-field--small {
+      width: 100%;
+      padding: 0 16px;
+    }
+
+    .a-mat-icon {
+      margin-right: 10px;
+    }
+  }
+
+  .select-check-all-wrapper {
+    margin-left: 16px;
+  }
+
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background: var(--primary) !important;
+  }
+}

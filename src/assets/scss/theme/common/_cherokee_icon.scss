@@ -1,0 +1,118 @@
+
+/*==============================================================================
+***********************  Custom Icons Styles For The Site  *********************
+==============================================================================*/
+.main-wrapper,
+.popover .people-select .simple-list{
+    .icon {
+        position: relative;
+        top: 1px;
+        display: inline-block;
+        font-family: 'cherokee-regular';
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    .icon-user-add:before {
+        content: "\e008";
+    }
+    
+    .icon-comment-add:before {
+        content: "\e111";
+    }
+    
+    .icon-diagram:before {
+        content: "\e011";
+    }
+    
+    .icon-caret-down:before {
+        content: "\e114";
+    }
+    
+    .icon-caret-left:before {
+        content: "\e115";
+    }
+    
+    .icon-caret-right:before {
+        content: "\e116";
+    }
+    
+    .icon-remove:before {
+        content: "\e117";
+    }
+    
+    .icon-pencil:before {
+        content: "\270f";
+    }
+    
+    .icon-caret-up:before {
+        content: "\e118";
+    }
+    
+    .icon-user:before {
+        content: "\e119";
+    }
+    
+    .icon-choice:before {
+        content: "\e120";
+    }
+    
+    .icon-move:before {
+        content: "\e121";
+    }
+    
+    .icon-mail:before {
+        content: "\e122";
+    }
+    
+    .icon-clock:before {
+        content: "\e123";
+    }
+    
+    .icon-download:before {
+        content: "\e124";
+    }
+    
+    .icon-word:before {
+        content: "\e125";
+    }
+    
+    .icon-excel:before {
+        content: "\e126";
+    }
+    
+    .icon-powerpoint:before {
+        content: "\e127";
+    }
+    
+    .icon-pdf:before {
+        content: "\e128";
+    }
+    
+    .icon-content:before {
+        content: "\e129";
+    }
+    
+    .icon-folder:before {
+        content: "\e130";
+    }
+    
+    .icon-image:before {
+        content: "\e131";
+    }
+    
+    .icon-bpmn-stencil:before {
+        content: "\e132";
+    }
+    
+    .icon-kickstart-stencil:before {
+        content: "\e133";
+    }
+    
+    .icon-form-stencil:before {
+        content: "\e134";
+    }
+}

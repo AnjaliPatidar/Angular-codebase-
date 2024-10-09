@@ -1,0 +1,69 @@
+{
+  "id": 29173,
+  "type": {
+    "id": 892,
+    "code": "New",
+    "display_name": "New"
+  },
+  "originator": "terrancy",
+  "assignee": "ammshathwan",
+  "status": {
+    "key": "completeWithWaiver",
+    "value": "Complete with Waiver"
+  },
+  "risk_indicator": {
+    "id": 897,
+    "code": "Low",
+    "display_name": "Low"
+  },
+  "risk_override": {
+    "id": 897,
+    "display_name": "Low",
+    "reason": "qeqeqe"
+  },
+  "comment_count": 1,
+  "remediation_date": "18-Jan-2027",
+  "name": "adidas ag",
+  "priority": {
+    "id": 897,
+    "code": "Low",
+    "display_name": "Low"
+  },
+  "created_on": "2022-01-18T10:01:28",
+  "jurisdiction_code": "DE",
+  "modified_on": "from case  tabl--->products",
+  "products": [
+    {
+      "id": 472565,
+      "code": "Pro 1",
+      "display_name": "Pro 1"
+    },
+    {
+      "id": 472566,
+      "code": "Pro 2",
+      "display_name": "Pro 2"
+    }
+  ],
+  "region_uplift": {
+    "id": 897,
+    "code": "RU2",
+    "display_name": "RU2"
+  },
+  "status_reasons": [
+    29132
+  ],
+  "entity": {
+    "entity_id": "7",
+    "entity_url": "https://yd89jp4mk3.execute-api.eu-west-1.amazonaws.com/staging/organizations/DE000A1EWWW0/f37db2e3dbec3f78a1e97be29856927c/select?client_id=LUfryA5m",
+    "entity_info": "eyJ2Y2FyZDpvcmdhbml6YXRpb24tbmFtZSI6ImFkaWRhcyBhZyIsImlzRG9taWNpbGVkSW4iOiJERSIsImJzdDpidXNpbmVzc0NsYXNzaWZpZXIiOnsiY29kZSI6IiIsImRlc2NyaXB0aW9uIjoiIiwibGFiZWwiOiJTaGFyZXMifSwiQHNvdXJjZS1pZCI6InJvY2xlYXIucm8iLCJoYXNBY3Rpdml0eVN0YXR1cyI6IkFjdGl2ZSIsInNvdXJjZUNhdGVnb3J5IjoiUmVndWxhdG9ycyIsInJlZ3VsYXRvckFkZHJlc3MiOnsiY291bnRyeSI6IlJvbWFuaWEiLCJjaXR5IjoiQnVjaGFyZXN0IiwiZnVsbEFkZHJlc3MiOiIzNCAtIDM2IENhcm9sIEkgQm91bGV2YXJkIDAyMDkyMiwgRmxvb3JzIDMsIDggYW5kIDksIEJ1Y2hhcmVzdCAyLCBSb21hbmlhIn0sImlkZW50aWZpZXJzIjp7ImludGVybmF0aW9uYWxfc2VjdXJpdGllc19pZGVudGlmaWVyIjoiREUwMDBBMUVXV1cwIiwibGVnYWxfZW50aXR5X2lkZW50aWZpZXIiOiI1NDkzMDBKU1gwWjRDVzBWNTAyMyIsIm90aGVyX2NvbXBhbnlfaWRfbnVtYmVyIjoiQURJREFTIEFHL0FLVCBPLk4uIn0sInJlZ3VsYXRvcl9uYW1lIjoiRGVwb3ppdGFydWwgQ2VudHJhbCBSb21hbmlhIiwibWRhYXM6UmVnaXN0ZXJlZEFkZHJlc3MiOnsiY291bnRyeSI6Ikdlcm1hbnkiLCJmdWxsQWRkcmVzcyI6IkFkaS1EYXNzbGVyLVN0cmFzc2UgMSwgOTEwNzQgSGVyem9nZW5hdXJhY2gsIEdlcm1hbnkifSwicmVndWxhdGlvblN0YXR1c0VmZmVjdGl2ZURhdGUiOiIyMDExLTA4LTMxIiwia2V5IjozLCJpZGVudGlmaWVyIjoiREUwMDBBMUVXV1cwIiwic2VsZWN0X2VudGl0eSI6ImYzN2RiMmUzZGJlYzNmNzhhMWU5N2JlMjk4NTY5MjdjIiwic2VsZWN0X2VudGl0eV91cmwiOiJodHRwczovL3lkODlqcDRtazMuZXhlY3V0ZS1hcGkuZXUtd2VzdC0xLmFtYXpvbmF3cy5jb20vc3RhZ2luZy9vcmdhbml6YXRpb25zL0RFMDAwQTFFV1dXMC9mMzdkYjJlM2RiZWMzZjc4YTFlOTdiZTI5ODU2OTI3Yy9zZWxlY3Q/Y2xpZW50X2lkPUxVZnJ5QTVtIiwiaGFzVVJMIjoiIn0="
+  },
+  "requested_date": "2022-01-18T10:01:28",
+  "customer_internal_id": "ASHENTEST2",
+  "status_reason_history": "[{\"Date\":\"2021-07-19 11:43:33\",\"User\":\"Admin\", \"ReasonName\":\"Reason 1\"}]",
+  "previous_status_reasons": null,
+  "business_priority": {
+    "id": 873,
+    "code": "V1",
+    "display_name": "V1"
+  }
+}

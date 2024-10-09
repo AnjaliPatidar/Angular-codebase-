@@ -1,0 +1,83 @@
+<div class="theme-wrapper pad-t20">
+  <div
+    *ngFor="let theme of themeBuilderService.getThemesOfUser() | async; trackBy: trackByThemeName">
+    <div class="theme c-pointer pos-rel"
+      [ngClass]="{active: theme.themeName == (themeBuilderService.getAppliedThemeName() | async)}"
+      (click)="applyTheme(theme)"
+      permission
+      [domainPermission]="permissionIds | getPermissionId: theme.themeName"
+      [ViewOnly]="true">
+      <div class="theme-img-container theme-light">
+        <img
+          src="./assets/images/layout-light.webp"
+          alt="layout-light"
+          class="img-fluid d-block mar-autox"
+        />
+      </div>
+      <div class="theme-body">
+        <div class="theme-header jc-sb ai-c d-flex">
+          <span
+            class="theme-name float-left lh-27 d-flex ai-c f-14 w-100 light-text"
+          >
+            <span class="text-overflow width-75"
+            >{{ theme.themeName | translate }}
+            </span>
+            <span
+              *ngIf="theme.themeName == (themeBuilderService.getAppliedThemeName() | async)"
+              class="material-icons mar-l10 primary-color light-text"
+            >{{ "check" }}</span
+            >
+          </span>
+          <button
+            mat-icon-button
+            [matMenuTriggerFor]="aboveMenu"
+            class="bg-transparent border-0 float-right light-text"
+            aria-label="Example icon-button with a menu"
+            (click)="$event.stopPropagation()"
+          >
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #aboveMenu="matMenu" yPosition="above">
+            <button
+              (click)="applyTheme(theme)"
+              mat-menu-item
+              class="d-flex ai-c text-on-surface"
+            >
+              <i class="material-icons mar-r10">done</i>
+              {{ "Apply Theme" | translate }}
+            </button>
+            <button
+              mat-menu-item
+              (click)="navigateToThemeBuilder(theme)"
+              class="d-flex ai-c text-on-surface"
+              *ngIf="
+                theme.themeName != 'Dark Theme' &&
+                theme.themeName != 'Light Theme'">
+              <i class="material-icons mar-r10" aria-hidden="true"
+              >format_paint</i
+              >{{ "Theme Builder" | translate }}
+            </button>
+            <button
+              mat-menu-item
+              (click)="deleteTheme(theme)"
+              class="d-flex ai-c text-on-surface"
+              *ngIf="
+                theme.themeName != 'Dark Theme' &&
+                theme.themeName != 'Light Theme'">
+              <i class="material-icons mar-r10" aria-hidden="true">delete</i>
+              {{ "Delete" | translate }}
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="theme new-theme d-flex jc-c ai-c radius-10 c-pointer mar-4">
+    <a href="javascript:void(0);" class="f-14 d-flex ai-c text-on-surface"
+       (click)="navigateToThemeBuilder()">
+      <span class="material-icons text-dark-black"> add </span>
+      <span class="mar-l5 text-uppercase font-medium text-dark-black">
+        {{ "Create New Theme" | translate }}
+      </span></a>
+  </div>
+</div>

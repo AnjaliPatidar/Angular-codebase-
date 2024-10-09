@@ -1,0 +1,9 @@
+<div class="d-flex fd-c alert-list">
+<h1 mat-dialog-title class="d-flex align-items-center justify-content-between pb-4 mb-0 title">{{'Logon failures' | translate}}
+
+    <i class="material-icons c-pointer" (click)="dialogRef.close()">close</i>
+  </h1>
+  <div class="ag-table-wrapper data-table-wrapper" style="flex:1;height: 100vh;margin-top:0%" >
+<app-ag-grid-table class="mar-t10" [tableData]="gridOptions"></app-ag-grid-table>
+</div>
+</div>

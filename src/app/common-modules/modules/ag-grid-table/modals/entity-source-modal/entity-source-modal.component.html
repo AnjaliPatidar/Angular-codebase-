@@ -1,0 +1,37 @@
+<button class="d-flex align-items-center titlle-source-link" [matMenuTriggerFor]="menu" #trigger="matMenuTrigger" [ngClass]="{'c-ban': !sourceData.length}" [disabled]="!sourceData.length" matTooltipPosition="above" [matTooltip]='"Sources" | translate'>
+  <span class="material-icons-round fnt-24 clr-p6 source-icon">link</span>
+  <span class="text-on-surface source-count">{{sourceData && sourceData.length ? sourceData.length : 0}}</span>
+</button>
+
+<!-- modal -->
+<mat-menu #menu="matMenu" class="entity-dialog-container custom-scroll-wrapper" yPosition="above">
+  <div (click)="$event.stopPropagation()">
+    <section class="entity-source-wrapper">
+      <div class="source-header">
+        <h6>{{'Sources' | translate}}</h6>
+        <div class="d-flex align-items-center">
+          <span class="d-flex align-items-center source-link">
+            <span class="material-icons-round clr-p6 source-icon">link</span>
+            <span class="text-on-surface source-count">{{sourceData && sourceData.length ? sourceData.length : 0}}</span>
+          </span>
+          <span class="material-icons-round clr-p6 c-pointer" (click)="close()" matTooltipPosition="above" [matTooltip]='"close" | translate'>close</span>
+        </div>
+      </div>
+
+      <div class="source-body d-flex flex-column justify-content-center" [ngClass]="{'custom-body-height': sourceData.length && sourceData.length == 1}">
+        <div class="row source-row p-0 mx-0" *ngFor="let sourceObj of sourceData">
+          <div class="col-8 px-0">
+            <span class="content text-on-surface" matTooltipPosition="above" [matTooltip]='sourceObj.source ? sourceObj.source : "N/A"'>
+              {{sourceObj.source ? sourceObj.source : "N/A"}}
+            </span>
+          </div>
+          <div class="col-4 px-0 pl-3">
+            <span class="content text-on-surface" matTooltipPosition="above" [matTooltip]='sourceObj.name ? sourceObj.name : "N/A"'>
+              {{sourceObj.name ? sourceObj.name : "N/A"}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</mat-menu>

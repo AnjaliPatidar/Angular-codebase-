@@ -1,0 +1,303 @@
+
+/*==============================================================================
+*******************        Form Wrapper Styles For The Site    *****************
+==============================================================================*/
+.form{  	
+    .form-title{
+        @extend .text-center;
+        @include margin(40px 0 40px);
+        // font-family: $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        color: $black;
+        font-size: (font-size-base + 12);
+        font-weight: normal;
+        span{
+            color: $black;  
+            display: block;  
+        }  
+    }
+    p{
+        &.error{
+            @include margin(5px 0 0);
+            color: $light-red !important;
+            font-size: $font-size-base;
+            // font-family:  $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+        }
+    }
+    .form-group{
+        @include margin(0 -15px 10px);  
+        .control-label{    
+            @extend .text-uppercase;          
+            @include margin(0 0 8px);
+            color: $white;    
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            font-size: $font-size-base;
+            line-height: ($line-height-computed *.75);
+            font-weight: normal; 
+            sup{
+                font-size: (font-size-base + 12);
+                line-height: 1;
+                top: 4px;
+                color: $red;
+            }
+        }
+        .form-control{
+            @include padding(5px 15px);
+            @include border-radius(0 5px 5px 0);
+            @include transition(border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s);
+            background-color: $white;
+            color: $light-black;
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            font-size: $font-size-base;
+            line-height: ($line-height-computed * .75);
+            border: 1px solid $lighter-grey2;              
+            &:focus{  
+                @include border-radius(0 5px 0 0);
+                @include box-shadow(none);
+                border: 1px solid $light-grey1;
+            }
+            &::-webkit-input-placeholder{
+                // font-family:  $roboto-regular;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                  }
+                color: $input-placeholder-color;
+                opacity: 1;
+            }
+            &:-moz-placeholder{
+                // font-family:  $roboto-regular;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                  }
+                color: $input-placeholder-color;
+                opacity: 1;
+            }
+            &::-moz-placeholder{
+                // font-family:  $roboto-regular;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                  }
+                color: $input-placeholder-color;
+                font-size: $font-size-base;
+                opacity: 1;   
+            }
+            &::-ms-input-placeholder{
+                // font-family:  $roboto-regular;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                  }
+                color: $input-placeholder-color;
+                opacity: 1;
+            }
+            &.error{
+                border-color: $light-red ;
+            }
+        }
+
+        /*--  Change Autocomplete Styles in Chrome  --*/
+        input:-webkit-autofill,
+            input:-webkit-autofill:hover, 
+            input:-webkit-autofill:focus,
+            input:-webkit-autofill, 
+            textarea:-webkit-autofill,
+            textarea:-webkit-autofill:hover,
+            textarea:-webkit-autofill:focus,
+            select:-webkit-autofill,
+            select:-webkit-autofill:hover,
+            select:-webkit-autofill:focus{
+            @include transition(background-color 5000s ease-in-out 0s);
+            /*@include box-shadow(0 0 0px 1000px $white inset);*/
+            -webkit-text-fill-color: $mid-grey;
+        }	
+        textarea{
+            &.form-control{    
+                height: auto;
+            }   
+        }
+        .radio,.checkbox{ 
+            .control-label{
+                display: inline-block;
+                line-height: $line-height-computed;
+            }
+        }       
+        .input-group{
+            width: 100%;
+            .input-group-addon{
+                @extend .text-center;
+                @include padding(5px 10px);   
+                @include border-radius(5px 0 0 5px);
+                background-color: $white;
+                color: $lighter-grey3;
+                font-size: (font-size-base + 2);
+                font-weight: normal;
+                line-height: $line-height-computed;
+                width: ($base-width * 2);
+                border: 1px solid $lighter-grey2;
+                border-right: 0;
+                i{
+                    @include margin(0);
+                    font-size: $font-size-large;
+                    vertical-align: middle;
+                    color: $lighter-grey3;
+                }
+                span{
+                    @include margin(0 0 0 5px);
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+        }            
+    }
+    .change-password-link{
+        @extend .text-uppercase;
+        @include margin(15px 0 0);
+        color: $light-red;       
+        // font-family: $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        font-size: (font-size-base + 2);
+        line-height: ($line-height-computed *.75);
+        font-weight: normal;
+        text-decoration: none; 
+        display: inline-block;
+    }
+    .forgot-password-link{
+        @extend .text-capitalize;
+        @include margin(5px 0 0);
+        @include box-shadow(none);
+        background-color: transparent;
+        color: $dark-grey5;
+        // font-family:  $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        font-size: $font-size-small;
+        font-weight: normal;
+        &:hover,&:focus{    
+            @include box-shadow(none);
+            background-color: transparent;
+            color: $light-white;
+        }     
+    }
+    .register-here-link {  
+        @include margin(15px 0 0);
+        // font-family:  $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        text-align: center;
+        span{
+            @include margin(0 5px 0 0);
+            color:$dark-grey5;
+        }
+        a,.btn{  
+            @extend .text-capitalize;
+            @include box-shadow(none);
+            background-color: transparent;
+            color: $curious-blue10;       
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            font-size: $font-size-small;
+            font-weight: normal;
+            &:hover,&:focus{
+                @include box-shadow(none);
+                background-color: transparent;
+                color: $light-white;
+            }
+        }
+    }
+    .btn-submit{
+        @extend .text-uppercase;
+        @include margin(5px 0 0);
+        @include transition(all 0.3s ease-in-out);
+        background-color: $steel-blue1;
+        color: $light-white;
+        // font-family:  $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        border-color: $steel-blue1;
+        &:hover,&:focus{
+            background-color: $dark-blue1;
+            color: $light-white;  
+            border-color: $dark-blue1;
+        }  
+        i{
+            @include translate(-50%,-50%);  
+            font-size: $font-size-large;
+            position: absolute;
+            top: 50%;
+        }
+        &.icon-left{
+            @include padding(20px 20px 20px 30px);
+            i{
+
+                left: 10px;
+                right: auto;
+            }
+        }
+        &.icon-right{
+            @include padding(20px 30px 20px 20px);
+            i{
+                left: auto;
+                right: 10px;
+            }
+        }
+    }  
+}
+
+/*--  Time Picker  --*/
+.bootstrap-timepicker-widget{
+    table{
+        td{
+            a{
+                @include transition(all 0.3s ease-in-out);
+                border: 0;
+                padding: 0;
+                &:hover{
+                    background-color: transparent;
+                    border: 0;
+                    color: $light-red;
+                }
+            }
+            input{
+                @include size(40px, 30px);
+                @include border-radius(0);
+                border: 1px solid $dark-grey4;
+            }
+        }
+    }
+}  
+
+/*==============================================================================
+**********************        Media Styles For The Site    *********************
+==============================================================================*/
+@media (min-width:$screen-lg){
+
+}
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
+
+}
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {
+
+}

@@ -1,0 +1,21 @@
+.details-panel-wrapper {
+    margin-top: 0.5rem;
+    .amenities {
+        p {
+            i {
+                color: #9E9E9E
+            }
+        }
+    }
+}
+
+::ng-deep {
+    .mCustomScrollBox {
+        position: relative;
+        overflow: hidden;
+        height: 95%;
+        max-width: 100%;
+        outline: none;
+        direction: ltr;
+    }
+}

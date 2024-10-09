@@ -1,0 +1,6 @@
+<div class="d-flex">
+    <input matInput [matDatepicker]="picker" [min]="todayDate" name="nextRequestDate"  autocomplete="off"
+    (focus)="picker.open()" #ref="" class="text-dark-black gotham-regular hidden-input placeholder-transparent mb-3" (dateInput)="onDateSelected(ref.value)" readonly>
+    <p (click)="picker.open()" class="c-pointer dots-text w-100 position-absolute t-20 l-10 text-dark-black">{{selectedDate | date}}</p>
+</div>
+<mat-datepicker #picker panelClass="user-datepicker" class="text-dark-black"></mat-datepicker>

@@ -1,0 +1,20 @@
+<div>
+    <!--Multi select start-->
+    <div class="no-pink-form">
+      <!-- [domainPermission]="permissionIdsList | getPermissionId : headerName" id="{{headerName}}" -->
+      <mat-form-field permission  >
+        <mat-select placeholder="{{'Select' | translate}}" multiple [(ngModel)]="selectedOptions" (selectionChange)="getSelectedOptions($event)" [disabled]="disable">
+          <ngx-mat-select-search  [noEntriesFoundLabel]="'No matching found'" [placeholderLabel]="placeholderLabel" ngModel (ngModelChange)="filterMyOptions($event)" [clearSearchInput]="clearSearchInput"></ngx-mat-select-search>
+          <div cdkDropList (cdkDropListDropped)="drop($event)" class="custom-scroll-wrapper">
+            <span *ngFor="let list of rendererObject.multiSelectOptions; trackBy:trackByLabel" class="position-relative" cdkDrag>
+                <span class="drag-icon c-pointer" cdkDragHandle><i class="fa fa-bars text-dark-black"></i></span>
+              <mat-option [value]="list.label" class="mxw-80-percent d-block">
+                {{list.label}}
+              </mat-option>
+            </span>
+          </div>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <!--Multi select end-->
+</div>

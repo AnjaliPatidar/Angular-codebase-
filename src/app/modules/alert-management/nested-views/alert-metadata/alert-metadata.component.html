@@ -1,0 +1,248 @@
+<div class="top-panel-alert-metadata-wrapper">
+    <div class="card custom-card sm-cards d-flex">
+        <div class="card-header">
+            <!-- <h5 class="bst-subtitle1 bst-color-ty title-text-on-surface">{{alertMetaData.entityName}}</h5> -->
+            <h5 class="bst-subtitle1 bst-color-ty title-text-on-surface">{{alertData.alert_entity_information.entity_name ? alertData.alert_entity_information.entity_name : 'N/A'}}
+            </h5>
+
+
+            <div class="d-flex">
+                <div class="bst-comment-icon-wrapper icon_seperate" (click)="onCommentClick();">
+                    <span class="bst-mat-icon bst-mat-icon__comment material-icons-round">
+                        comment
+                    </span>
+                    <span class="bst-comment-icon-wrapper__count">2</span>
+                </div>
+                <div class="bst-audit-icon icon_seperate" (click)="onAuditClick();">
+                    <span class="bst-audit-icon__audit bst-mat-icon material-icons-round">
+                        history
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex gap-45">
+            <div class="col-3 pl-0">
+                <ul class="txt-on-surface pl-0 list-unstyled f-14 text-dark-black">
+                    <li>
+                        <div class="row">
+                            <div class="col-3">
+                                <span class="txt-on-surface-06 mr-4 mnw-90 text-dark-black f-13">
+                                    Alert ID:
+                                </span>
+                            </div>
+                            <div class="col-9">
+                                <span class="text-on-surface-87 overflow span-h-15">
+                                    {{ data?.alertId }}
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-3">
+                                <span class="txt-on-surface-06 mr-4 mnw-90 text-dark-black f-13">
+                                    Created:
+                                </span>
+                            </div>
+                            <div class="col-9">
+                                <span class="text-on-surface-87 overflow span-h-15">
+                                    {{ data?.created ? (data?.created | date: 'M.d.y, hh:mm a') : 'N/A'}}
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-3">
+                                <span class="txt-on-surface-06 mr-4 mnw-90 text-dark-black f-13">
+                                    Alert type:
+                                </span>
+                            </div>
+                            <div class="col-9">
+                                <span class="text-on-surface-87 overflow span-h-15">
+                                    {{ data?.alertType }}
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="row">
+                            <div class="col-3">
+                                <span class="txt-on-surface-06 mr-4 mnw-90 text-dark-black f-13">
+                                    Tenant:
+                                </span>
+                            </div>
+                            <div class="col-9">
+                                <span class="text-on-surface-87 overflow span-h-15">
+                                    {{ data?.tenant }}
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-3">
+                <ul class="txt-on-surface pl-0 list-unstyled f-14 text-dark-black">
+                    <li>
+                        <div class="row">
+                            <div class="col-3">
+                                <span class="txt-on-surface-06 mr-4 mnw-90 text-dark-black f-13">
+                                    Case:
+                                </span>
+                            </div>
+                            <div class="col-9">
+                                <!-- TODO - add permissons  -->
+                                <span class="text-on-surface-87 overflow span-h-15 rc-name-cell" [ngClass]="{'rc-name-cell':data?.caseId}"
+                                    (click)="navigateToCasePage()">
+                                    {{ data?.caseId ? data?.caseId : 'N/A'}}
+                                </span>
+                            </div>
+                        </div>
+                    </li>
+                    <li *ngIf="data?.caseId">
+                        <div class="row row-align">
+                            <div class="col-3">
+                                <span class="txt-on-surface-06 mr-4 mnw-90 text-dark-black f-13">
+                                    Assignee:
+                                </span>
+                            </div>
+                            <div class="col-9 alert-select-wrapper">
+                                <mat-form-field class="bst-form-field bst-form-field--select select-prefix basic-with-icon small"
+                                appearance="fill">
+                                <mat-label class="text-label">{{data.assignee}}</mat-label>
+                                <mat-icon matPrefix [ngStyle]="{'color': selectedIconColorBasicSingleSelect_S01}">
+                                    {{'error'}}</mat-icon>
+                                <mat-select [(value)]="selected10_S01" class="bst-select-wrapper" [formControl]="selectControl10_S01" [disabled]="true"
+                                    panelClass="bst-select-panel bst-select-panel--single">
+                                    <mat-select-trigger class="bst-select-wrapper__trigger">
+                                        <span class="bst-select-wrapper__trigger--label">{{selectedIconNameBasicSingleSelect_S01}}</span>
+                                    </mat-select-trigger>
+                                    <mat-option class="bst-select-wrapper__option bst-body1 bst-color-ty" *ngFor="let item of status10_values_S1"
+                                        value="{{item.value}}" (click)="getSelectedItem_S01(item)">
+                                        <mat-icon matPrefix class="material-icons-round" [ngStyle]="{'color': item.color}">{{item.icon}}
+                                        </mat-icon>
+                                        <span>{{item.name}}</span>
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        </div>
+                    </li>
+                    <li *ngIf="data?.caseId">
+                        <div class="row row-align">
+                            <div class="col-3">
+                                <span class="txt-on-surface-06 mr-4 mnw-90 text-dark-black f-13">
+                                    Priority:
+                                </span>
+                            </div>
+                            <div class="col-9 alert-select-wrapper">
+                                <mat-form-field class="bst-form-field bst-form-field--select select-prefix basic-with-icon small"
+                                    appearance="fill">
+                                    <mat-label class="text-label">{{data.priority}}</mat-label>
+                                    <mat-icon matPrefix [ngStyle]="{'color': data.priorityColour}">
+                                        {{ data.priorityIcon}}</mat-icon>
+                                    <mat-select [(value)]="selected10_S01" class="bst-select-wrapper" [formControl]="selectControl10_S01"
+                                    [disabled]="true"
+                                        panelClass="bst-select-panel bst-select-panel--single">
+                                        <mat-select-trigger class="bst-select-wrapper__trigger">
+                                            <span class="bst-select-wrapper__trigger--label">{{selectedIconNameBasicSingleSelect_S01}}</span>
+                                        </mat-select-trigger>
+                                        <mat-option class="bst-select-wrapper__option bst-body1 bst-color-ty" *ngFor="let item of status10_values_S1"
+                                            value="{{item.value}}" (click)="getSelectedItem_S01(item)">
+                                            <mat-icon matPrefix class="material-icons-round" [ngStyle]="{'color': item.color}">{{item.icon}}
+                                            </mat-icon>
+                                            <span>{{item.name}}</span>
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-3">
+                <ul class="txt-on-surface pl-0 list-unstyled f-14 text-dark-black">
+                    <!-- <li>
+                        <div class="row">
+                            <div class="col-3">
+                                <span class="txt-on-surface-06 mr-4 mnw-90 text-dark-black f-13">
+                                    Case:
+                                </span>
+                            </div>
+                            <div class="col-9">
+                                <span class="text-on-surface-87 overflow span-h-15 rc-name-cell">
+                                    {{ data?.caseId }}
+                                </span>
+                            </div>
+                        </div>
+                    </li> -->
+                    <li *ngIf="data?.caseId">
+                        <div class="row row-align">
+                            <div class="col-3">
+                                <span class="txt-on-surface-06 mr-4 mnw-90 text-dark-black f-13">
+                                    Status:
+                                </span>
+                            </div>
+                            <div class="col-9 alert-select-wrapper">
+                                <mat-form-field class="bst-form-field bst-form-field--select select-prefix basic-with-icon small"
+                                appearance="fill">
+                                <mat-label class="text-label">{{data.status}}</mat-label>
+                                <mat-icon matPrefix [ngStyle]="{'color': data.statusColour}">
+                                    {{ data.statusIcon}}</mat-icon>
+                                <mat-select [(value)]="selected10_S01" class="bst-select-wrapper" [formControl]="selectControl10_S01" [disabled]="true"
+                                    panelClass="bst-select-panel bst-select-panel--single">
+                                    <mat-select-trigger class="bst-select-wrapper__trigger">
+                                        <span class="bst-select-wrapper__trigger--label">{{selectedIconNameBasicSingleSelect_S01}}</span>
+                                    </mat-select-trigger>
+                                    <mat-option class="bst-select-wrapper__option bst-body1 bst-color-ty" *ngFor="let item of status10_values_S1"
+                                        value="{{item.value}}" (click)="getSelectedItem_S01(item)">
+                                        <mat-icon matPrefix class="material-icons-round" [ngStyle]="{'color': item.color}">{{item.icon}}
+                                        </mat-icon>
+                                        <span>{{item.name}}</span>
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        </div>
+                    </li>
+                    <li *ngIf="data?.caseId">
+                        <div class="row row-align">
+                            <div class="col-3">
+                                <span class="txt-on-surface-06 mr-4 mnw-90 text-dark-black f-13">
+                                    Status Reason: 
+                                </span>
+                            </div>
+                            <div class="col-9 alert-select-wrapper">
+                                <mat-form-field class="bst-form-field bst-form-field--select select-prefix basic-with-icon small"
+                                    appearance="fill">
+                                    <mat-label class="text-label">{{data.status_reason}}</mat-label>
+                                    <mat-icon matPrefix [ngStyle]="{'color': data.statusReasonColour }">
+                                        {{ data.statusReasonIcon}}</mat-icon>
+                                    <mat-select [(value)]="selected10_S01" class="bst-select-wrapper" [formControl]="selectControl10_S01"
+                                    [disabled]="true"
+                                        panelClass="bst-select-panel bst-select-panel--single">
+                                        <mat-select-trigger class="bst-select-wrapper__trigger">
+                                            <span class="bst-select-wrapper__trigger--label">{{selectedIconNameBasicSingleSelect_S01}}</span>
+                                        </mat-select-trigger>
+                                        <mat-option class="bst-select-wrapper__option bst-body1 bst-color-ty" *ngFor="let item of status10_values_S1"
+                                            value="{{item.value}}" (click)="getSelectedItem_S01(item)">
+                                            <mat-icon matPrefix class="material-icons-round" [ngStyle]="{'color': item.color}">{{item.icon}}
+                                            </mat-icon>
+                                            <span>{{item.name}}</span>
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <app-comment-list *ngIf="isOpenComment" [isOpen]="isOpenComment"
+        (isOpenChangedComment)="isOpenCommentChangedHandler($event)"></app-comment-list>
+
+    <app-auditing-list *ngIf="isOpenAudit" [isOpen]="isOpenAudit"
+        (isOpenChangedAudit)="isOpenAuditChangedHandler($event)"></app-auditing-list>
+
+</div>

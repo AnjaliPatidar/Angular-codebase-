@@ -1,0 +1,220 @@
+/*--  Top Filters Styles  --*/
+
+.custom-filters-wrapper {
+    .top-filters-wrapper {
+        height: 200px;
+        background-color: #253740;
+        overflow: hidden;
+        &.segment-filters-wrappers {
+            border-top: 1px solid rgb(40, 60, 70);
+            .top-filter-navigation {
+                @include padding(12px 0);
+                height: 100%;
+                width: 100%;
+                .top-filter-lists {
+                    @include padding(0);
+                    @include size(auto, auto);
+                    border-right: 0;
+                    overflow: visible;
+                    font-family: $roboto-regular;
+                    height: 100%;
+                    .top-filters {
+                        // font-family: $roboto-regular;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-regular);
+                        }
+                        color: $bismark6;
+                        position: relative;
+                        height: 100%;
+                        min-width: 220px;
+                        width: auto;
+                        max-width: 240px;
+                        .filters-panel-wrapper {
+                            background-color: transparent;
+                            border: 0;
+                            height: 100%;
+                            padding: 0;
+                            margin: 0;
+                            min-width: 200px;
+                            .panel-heading {
+                                background-color: transparent;
+                                padding: 0 15px;
+                                height: 20%;
+                                .top-filter-heading {
+                                    @extend .text-uppercase;
+                                    font-size: ($font-size-small);
+                                    color: #6d8fa0;
+                                    // font-family: $roboto-regular;
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-regular);
+                                    }
+                                }
+                            }
+                            .panel-body {
+                                padding: 0 15px;
+                                height: 80%;
+                                border-right: 2px solid #283b44;
+                                .list-notations {
+                                    ul {
+                                        @include padding(0);
+                                        list-style-type: none;
+                                        padding-top: 25px;
+                                        .notation-list {
+                                            @extend .text-uppercase;
+                                            @include margin (4px 0);
+                                            color: #778c96;
+                                            font-size: ($font-size-small - 2);
+                                            // font-family: $roboto-medium;
+                                            @include fontFamily($fonts) {
+                                                font-family: fonted(font-medium);
+                                            }
+                                            width: 100%;
+                                            overflow: hidden;
+                                            white-space: nowrap;
+                                            text-overflow: ellipsis;
+                                            .icon-left {
+                                                margin-right: 10px;
+                                            }
+                                            &:nth-of-type(1) {
+                                                .icon-left {
+                                                    color: #2783b7;
+                                                }
+                                            }
+                                            &:nth-of-type(2) {
+                                                .icon-left {
+                                                    color: #a862e0;
+                                                }
+                                            }
+                                            &:nth-of-type(3) {
+                                                .icon-left {
+                                                    color: #7859d3;
+                                                }
+                                            }
+                                            &:nth-of-type(4) {
+                                                .icon-left {
+                                                    color: #a456e0;
+                                                }
+                                            }
+                                            &:nth-of-type(5) {
+                                                .icon-left {
+                                                    color: #c34ca9;
+                                                }
+                                            }
+                                            &:nth-of-type(6) {
+                                                .icon-left {
+                                                    color: #ed5797;
+                                                }
+                                            }
+                                            &:nth-of-type(7) {
+                                                .icon-left {
+                                                    color: #ed6574;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .company-filters-wrapper {
+                                    margin-top: 7px;
+                                    width: 100%;
+                                    height: auto;
+                                    background-color: transparent;
+                                    .remote-filters-list-wrapper {
+                                        @include margin(0);
+                                        .remote-filters-list {
+                                            @include padding(0);
+                                            .remote-filter {
+                                                @include border-radius(15px);
+                                                @include padding(8px 30px 8px 10px);
+                                                @include margin(3px);
+                                                @include transition(all 0.3s ease);
+                                                color: #4d7ea7;
+                                                position: relative;
+                                                font-size: $font-size-small;
+                                                text-transform: uppercase;
+                                                background-color: #325c80;
+                                                span {
+                                                    color: #89989F;
+                                                    position: relative;
+                                                    font-size: 12px;
+                                                    line-height: 12px;
+                                                    text-transform: uppercase;
+                                                    background-color: #325c80;
+                                                    margin-right: 0;
+                                                }
+                                                i {
+                                                    @include transition(all 0.3s ease);
+                                                    @include translateY(-50%);
+                                                    @include margin(0);
+                                                    top: 50%;
+                                                    right: 12px;
+                                                    position: absolute;
+                                                    &:hover {
+                                                        opacity: 0.8;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .pie-charts-wrapper {
+                                    display: inline-block;
+                                    min-height: 80px;
+                                    min-width: 80px;
+                                    position: absolute;
+                                    top: 50%;
+                                    transform: translateY(-50%);
+                                    left: 42%;
+                                    margin-top: 15px;
+                                }
+                                .progress-bar-wrapper {
+                                    .progressbar-list {
+                                        .progressbar-list-item {
+                                            margin-bottom: 5px;
+                                            .right-col-pink {
+                                                font-family: $francois-one-regular;
+                                                color: #4a6570;
+                                                margin-top: 0;
+                                                display: inline-block;
+                                            }
+                                            .progress {
+                                                @include border-radius(0);
+                                                min-width: 87px;
+                                                .progress-bar {
+                                                    @include border-radius(0);
+                                                }
+                                            }
+                                            .left-col {
+                                                @extend .text-uppercase;
+                                                // font-family: $roboto-medium;
+                                                @include fontFamily($fonts) {
+                                                    font-family: fonted(font-medium);
+                                                }
+                                                margin-top: 0;
+                                                padding-left: 0;
+                                                min-width: 90px;
+                                                color: #778c96;
+                                            }
+                                        }
+                                    }
+                                }
+                                .top-filters-value {
+                                    @include margin-top(14px);
+                                    color: #3d5c6e;
+                                    font-size: ($font-size-small * 3);
+                                    font-family: $francois-one-regular;
+                                    font-weight: 300;
+                                    letter-spacing: -1.5px;
+                                }
+                            }
+                            #subhead-scroll {
+                                .mCSB_dragger {
+                                    min-height: 10px !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

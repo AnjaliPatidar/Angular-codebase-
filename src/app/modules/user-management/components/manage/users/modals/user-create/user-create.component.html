@@ -1,0 +1,401 @@
+<h1 mat-dialog-title class="d-flex align-items-center justify-content-between pb-4 mb-0 title gotham-medium text-dark-black txt-on-surface light-theme-border-bottom text-on-surface bottom-border">
+  {{incomingdata.operation == 'add' ? ('NewUser' | translate) : (userDetails.screenName | translate)}}
+
+  <i id="userCreateClose" class="material-icons c-pointer" (click)="dialogRef.close()">close</i>
+</h1>
+<form id="userForm" #userForm='ngForm' class="no-pink-form" autocomplete="off">
+  <div mat-dialog-content class="custom-scroll-wrapper overflow-x-hidden">
+    <div class="app-spinner" *ngIf="userCreateSpinner">
+      <mat-spinner></mat-spinner>
+    </div>
+    <div class="file-uploader mb-4 light-theme-border-bottom">
+      <div class="py-4" *ngIf="incomingdata.operation == 'add' ">
+        <div class="profile-image  d-flex align-items-center" *ngIf="profileImage">
+        <img class="img img-circle img-fluid"  [src]="profileImage"  id="profile-image">
+        <i id="userCreateOpenUploadImageModel1" class="fa fa-pencil c-pointer text-dark-black"  (click)="openUploadImageModel()"></i>
+        </div>
+        <p *ngIf="!profileImage" class="mr-4 d-inline-block text-dark-black f-14 text-on-surface">{{'Upload photo' | translate}}</p>
+        <button id="userCreateOpenUploadImageModel2" type="button" class="btn btn-primary f-13 light-theme-btn primary-btn gotham-medium fw-500 font-medium"  *ngIf="!profileImage" (click)="openUploadImageModel()">{{'Choose file' | translate}}</button>
+      </div>
+      <div class="py-3 d-flex justify-content-between align-items-center" *ngIf="incomingdata.operation == 'edit' ">
+        <div>
+          <img *ngIf="updateManually && profileImage" class="img img-circle" mat-button [src]="profileImage"
+            height="100" id="profile-image">
+          <img *ngIf="!updateManually && profileImage" [matMenuTriggerFor]="menu" class="img img-circle" mat-button
+            [src]="profileImage" height="100" id="profile-image">
+
+          <mat-menu #menu="matMenu">
+            <button id="userCreateOpenUploadImageModel3" mat-menu-item (click)="openUploadImageModel()"><span
+                class="material-icons color-gray align-middle f-20 mr-3 text-dark-black">cloud_upload</span>{{'Upload new photo' | translate}}</button>
+            <button id="userCreateEditCurrentPhoto" mat-menu-item (click)="editCurrentPhoto()"><span
+                class="material-icons color-gray align-middle f-20 mr-3 text-dark-black">edit</span>{{'Edit picture' | translate}}</button>
+            <button id="userCreateDeleteUserImage" mat-menu-item (click)="deleteUserImage()" class="border-item position-relative"><span
+                class="material-icons color-gray align-middle f-20 mr-3 text-dark-black">delete</span>{{'Remove picture' | translate}}</button>
+          </mat-menu>
+          <div id="userCreateOpenUploadImageModel4" *ngIf="!profileImage" (click)="openUploadImageModel()"
+            class="profile-name c-pointer overflow-hidden position-relative d-flex align-items-center justify-content-center light-theme-bg-light">
+            <div>
+              <!-- {{userDetails['firstName'].charAt(0)+userDetails['lastName'].charAt(0)}} -->
+              <i class="material-icons text-dark-black">person</i>
+              <span id="userCreateOpenUploadButton" class="f-12 position-absolute w-100 text-center text-dark-black txt-on-surface">{{'Upload' | translate}}</span>
+            </div>
+            <!-- <button type="button" (click)="openUploadImageModel()"><i class="fa fa-pencil"></i></button> -->
+
+          </div>
+        </div>
+        <div>
+          <div class="d-flex justify-content-between">
+            <div *ngIf="statusAttributes.length > 0 && incomingdata.operation == 'edit' && showUserStatus"
+              class="mr-3">
+              <mat-form-field class="no-arrow status-dropdown rounded text-uppercase blue-btn light-theme-no-radius">
+                <mat-select panelClass="status-icons" name="userStatus" [(ngModel)]="userDetails.userStatus"
+                  [disabled]="updateManually">
+                  <mat-select-trigger>
+                    <span class="fa f-20 fa-{{statusSelected?.icon?.toLowerCase()}} mx-2 align-middle"
+                      [ngStyle]="{'color':statusSelected?.colorCode}"></span>
+                    <!-- <mat-icon class="f-20 material-icons mx-2 align-middle"> {{statusSelectedIcon}}</mat-icon> -->
+                    <span class="font-medium fw-500 text-on-primary">&nbsp;{{statusSelected.displayName | translate}}</span>
+                  </mat-select-trigger>
+                  <ng-container *ngFor="let statusAttribute of statusAttributes; trackBy:trackByListItemId">
+                    <mat-option (click)="statusAlert(statusAttribute.displayName,statusAttribute)"
+                      [value]="statusAttribute.listItemId" [ngClass]="{'c-ban pe-none' : statusAttribute.disabled}"
+                      [disabled]="statusAttribute.disabled">
+                      <!-- <mat-icon class="f-20 material-icons mx-2 align-middle {{statusAttribute.icon}}">
+                        {{statusAttribute.icon}}
+                      </mat-icon> -->
+                      <span class="fa f-20 fa-{{statusAttribute.icon}} mx-2 align-middle"
+                        [ngStyle]="{'color':statusAttribute.colorCode}"></span>
+                      <span class="font-medium fw-500 text-on-primary">{{statusAttribute.displayName | translate}}</span>
+                    </mat-option>
+                  </ng-container>
+                </mat-select>
+
+                <button class="border-0 bg-transparent text-dark-black" type="button" matSuffix mat-button>
+                  <i class="material-icons align-sub">
+                    arrow_drop_down
+                  </i>
+                </button>
+              </mat-form-field>
+
+            </div>
+            <div class="reset-button">
+              <a  target="_blank" mat-button (click)="forgotPassword()"
+                class="btn text-uppercase blue-btn f-14 d-flex align-items-center  text-dark-black light-theme-no-radius fw-500 font-medium">
+                <i class="material-icons f-19 mr-3 text-dark-black">
+                  vpn_key
+                </i>
+                {{'Reset Password' | translate}}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row mt-5 mb-2">
+
+
+      <div class="col-md-6">
+
+        <h3 class="content-title mb-4 pb-3 text-dark-black gotham-medium text-on-surface"><i class="material-icons align-sub f-28">
+            assignment_ind
+          </i>  <span class="title-text-on-surface">{{'Details' | translate}}</span></h3>
+        <div class="d-flex mb-3 ">
+          <div class="mr-3 flex-one custom-user-input ">
+            <mat-form-field>
+              <input id="userCreateFirstName" matInput type="text"  #element  pattern="{{get_pattern(element)}}"   required maxlength="60" autocomplete="off" placeholder="{{'First Name' | translate}}" name="firstName"
+                [(ngModel)]="userDetails.firstName" #firstName="ngModel" [disabled]="updateManually" class="text-overflow">
+
+            </mat-form-field>
+            <span *ngIf="firstName.touched" class="d-block text-coral-red mt-2"
+              [class.error-msg]="firstName.invalid">
+              <span *ngIf="firstName.hasError('required')" class="mb-2">This field is required</span>
+              <span *ngIf="firstName.hasError('maxlength')" class="mb-2">Max allowed charaters are 60</span>
+              <span *ngIf="firstName.hasError('pattern')" class="mb-2">{{ get_pattern_error('text') }} </span>
+            </span>
+          </div>
+          <div class="custom-user-input mr-3 flex-one">
+          <mat-form-field >
+            <input id="userCreateMiddleName" matInput type="text" #element  pattern="{{get_pattern(element)}}"   maxlength="60" placeholder="{{'Middle Name' | translate}}" name="middleName" autocomplete="off"
+              [(ngModel)]="userDetails.middleName" #middleName="ngModel" [disabled]="updateManually" class="text-overflow">
+            <span *ngIf="middleName.touched" class="d-block text-coral-red mt-2"
+              [class.error-msg]="middleName.invalid">
+              <span *ngIf="middleName.hasError('maxlength')" class="mb-2">Max allowed charaters are 60</span>
+              <span *ngIf="middleName.hasError('pattern')" class="mb-2">{{ get_pattern_error('text') }} </span>
+            </span>
+          </mat-form-field>
+          </div>
+          <div class="flex-one custom-user-input">
+            <mat-form-field>
+              <input id="userCreateLastName" matInput type="text"  #element pattern="{{get_pattern(element)}}"  required maxlength="60" placeholder="{{'Last Name' | translate}}" name="lastName" autocomplete="off"
+                [(ngModel)]="userDetails.lastName" #lastName="ngModel" [disabled]="updateManually" class="text-overflow">
+
+            </mat-form-field>
+            <span *ngIf="lastName.touched" class="d-block text-coral-red mt-2"
+              [class.error-msg]="lastName.invalid">
+              <span *ngIf="lastName.hasError('required')" class="mb-2">This field is required</span>
+              <span *ngIf="lastName.hasError('maxlength')" class="mb-2">Max allowed charaters are 60</span>
+              <span *ngIf="lastName.hasError('pattern')" class="mb-2">{{ get_pattern_error('text') }} </span>
+            </span>
+          </div>
+        </div>
+        <div class="mb-3 custom-user-input">
+          <mat-form-field>
+            <input id="userCreateScreenNameInput" matInput type="text"  #element pattern="{{get_pattern(element)}}"  required maxlength="100" [disabled]="incomingdata.operation == 'edit' || updateManually"
+              autocomplete="off" placeholder="{{'Username' | translate}}" name="screenName" #screenName="ngModel"
+              [(ngModel)]="userDetails.screenName" class="text-overflow">
+
+          </mat-form-field>
+          <span *ngIf="screenName.touched" class="d-block text-coral-red mt-2"
+            [class.error-msg]="screenName.invalid">
+            <span *ngIf="screenName.hasError('required')" class="mb-2">This field is required</span>
+            <span *ngIf="screenName.hasError('maxlength')" class="mb-2">Max allowed charaters are 100</span>
+            <span *ngIf="screenName.hasError('pattern')" class="mb-2">{{ get_pattern_error('text') }} </span>
+          </span>
+        </div>
+        <div class="mb-3 custom-user-input">
+          <mat-form-field>
+            <mat-select id="userCreateCountrySelect" placeholder="{{'Country' | translate}}" name="country" #country="ngModel" [(ngModel)]="userDetails.country"
+              [disabled]="updateManually" required>
+              <mat-select-trigger>
+                <span class="fa fa-icon "></span>
+                <i
+                  class="flag-icon w-25 pad-r3 flag-icon-squared flag-icon-{{countrySelected['icon']}}"></i>{{countrySelected['name']}}
+              </mat-select-trigger>
+              <ngx-mat-select-search name="search" [placeholderLabel]="placeholderLabel" ngModel
+                (ngModelChange)="countriesFilter($event)" [clearSearchInput]="true"></ngx-mat-select-search>
+
+              <ng-container *ngFor="let country of countries; trackBy: trackByListItemId">
+                <!-- <mat-option *ngIf="country.displayName.toLowerCase().trim() != 'all' " [value]="country.listItemId"
+                  (click)="countrySelected['icon'] = country.code.toLowerCase() ; countrySelected['name'] = country.displayName"> -->
+                                  <mat-option  [value]="country.listItemId"
+                  (click)="countrySelected['icon'] = country.code.toLowerCase() ; countrySelected['name'] = country.displayName">
+                  <span class="fa fa-icon "></span><i
+                    class="flag-icon w-25 pad-r3 flag-icon-squared flag-icon-{{country.code.toLowerCase()}}"></i>{{country.displayName}}
+                </mat-option>
+              </ng-container>
+            </mat-select>
+          </mat-form-field>
+          <span *ngIf="country.touched" class="d-block text-coral-red mt-2"
+            [class.error-msg]="country.hasError('required')">
+            <span *ngIf="country.hasError('required')" class="mb-2">This field is required</span>
+          </span>
+        </div>
+        <div class="mb-3 custom-user-input">
+          <mat-form-field>
+            <input id="userCreateDob" matInput  #dob ="ngModel" readonly ="true" [matDatepicker]="picker" name="dateOfBirth"   [max]="dateOfBirthRanges.max" autocomplete="off"
+              (click)="picker.open()" (focus)="picker.open()"
+              [(ngModel)]="userDetails.dob" placeholder="{{'DateOfBirth' | translate}}" [disabled]="updateManually" class="text-overflow">
+              <!-- [min]="dateOfBirthRanges.min" -->
+            <mat-datepicker-toggle id="datePick" matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker panelClass="user-datepicker"></mat-datepicker>
+          </mat-form-field>
+          <span *ngIf="dob.touched" class="d-block text-coral-red mt-2"
+          [class.error-msg]="dob.hasError('pattern')">
+          <span *ngIf="dob.hasError('pattern')" class="mb-2">Invalid date of birth</span>
+        </span>
+        </div>
+
+        <div class="mb-3 custom-user-input">
+          <mat-form-field>
+            <input id="userCreateJobTitle" matInput type="text" #element pattern="{{get_pattern(element)}}"   maxlength="60" placeholder="{{'JobTitle' | translate}}"  name="jobTitle" #jobTitle="ngModel"
+              autocomplete="off" [(ngModel)]="userDetails.jobTitle" [disabled]="updateManually" class="text-overflow">
+
+          </mat-form-field>
+          <span *ngIf="jobTitle.touched" class="d-block text-coral-red mt-2"
+          [class.error-msg]="jobTitle.invalid">
+            <span *ngIf="jobTitle.hasError('maxlength')" class="mb-2">Max allowed charaters are 60</span>
+            <span *ngIf="jobTitle.hasError('pattern')" class="mb-2">{{ get_pattern_error('text') }} </span>
+          </span>
+        </div>
+        <div class="mb-3 custom-user-input">
+          <mat-form-field>
+            <input id="userCreateDepartment" matInput  type="text" #element pattern="{{get_pattern(element)}}"  maxlength="60" placeholder="{{'Department' | translate}}" name="department" #department="ngModel"
+              autocomplete="off" [(ngModel)]="userDetails.department" [disabled]="updateManually" class="text-overflow">
+
+          </mat-form-field>
+          <span *ngIf="department.touched" class="d-block text-coral-red mt-2"
+          [class.error-msg]="department.invalid">
+            <span *ngIf="department.hasError('maxlength')" class="mb-2">Max allowed charaters are 60</span>
+            <span *ngIf="department.hasError('pattern')" class="mb-2">{{ get_pattern_error('text') }} </span>
+          </span>
+        </div>
+        <div class="mb-3 custom-user-input">
+          <mat-form-field>
+            <input id="userCreateEmailAddress" matInput required maxlength="100" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.+-]+\.[a-zA-Z]{0,100}$"
+              autocomplete="off" placeholder="{{'Email' | translate}}"  [disabled]="incomingdata.operation == 'edit' || updateManually"
+              name="email*" #emailAddress="ngModel" [(ngModel)]="userDetails.emailAddress" class="text-overflow">
+
+          </mat-form-field>
+          <span *ngIf="emailAddress.touched" class="d-block text-coral-red mt-2"
+            [class.error-msg]="emailAddress.hasError('required') || emailAddress.hasError('maxlength') || emailAddress.hasError('pattern')">
+            <span *ngIf="emailAddress.hasError('required')" class="mb-2">This field is required</span>
+            <span *ngIf="emailAddress.hasError('maxlength')" class="mb-2">Max allowed charaters are 100</span>
+            <span *ngIf="emailAddress.hasError('pattern')" class="mb-2">Invalid email</span>
+          </span>
+        </div>
+        <div class="d-flex mb-3">
+
+          <div class="mr-3 custom-user-input w-100">
+            <mat-form-field class="mr-4">
+              <input id="userCreatePhoneNumber" type="number" #phNumber  matInput maxlength="20" pattern="{{get_pattern(phNumber)}}" placeholder="{{'PhoneNumber' | translate}}" name="phoneNumber"
+                autocomplete="off" [(ngModel)]="userDetails.phoneNumber" #phoneNumber="ngModel"
+                [disabled]="updateManually" class="text-overflow">
+
+            </mat-form-field>
+            <span *ngIf="phoneNumber.touched" class="d-block text-coral-red mt-2"
+              [class.error-msg]="phoneNumber.hasError('maxlength') || phoneNumber.hasError('pattern')">
+              <span *ngIf="phoneNumber.hasError('maxlength')" class="mb-2">Max allowed charaters are 20</span>
+              <span *ngIf="phoneNumber.hasError('pattern')" class="mb-2">Invalid phone number</span>
+            </span>
+
+          </div>
+          <div class="custom-user-input">
+          <mat-form-field>
+
+            <input id="userCreateExtention" matInput type="number" #extension pattern="{{get_pattern(extension)}}"  maxlength="10" placeholder="{{'Extention' | translate}}"  name="extension" [(ngModel)]="userDetails.extension"
+              autocomplete="off" #extension="ngModel" [disabled]="updateManually" class="text-overflow">
+
+          </mat-form-field>
+          </div>
+          <span *ngIf="extension.touched" class="d-block text-coral-red mt-2"
+          [class.error-msg]="extension.invalid">
+            <span *ngIf="extension.hasError('maxlength')" class="mb-2 ">Max allowed charaters are 10</span>
+            <span *ngIf="extension.hasError('pattern')" class="mb-2">{{ get_pattern_error('text') }} </span>
+          </span>
+        </div>
+        <div class="mb-3 custom-user-input">
+          <mat-form-field>
+            <mat-select id="userCreateLanguage" placeholder="{{'language' | translate}}"  name="language" #language="ngModel" [(ngModel)]="userDetails.language">
+              <mat-option value="english ">English</mat-option>
+              <mat-option value="german ">German</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-6">
+            <h3 class="content-title mb-4 pb-3 text-dark-black gotham-medium text-on-surface"><i class="material-icons align-sub f-28">
+                people
+              </i> <span class="title-text-on-surface">{{'Roles' | translate}} </span></h3>
+            <!-- <button (click)="newRoleObj.display = true">Add new role</button> -->
+            <ul class="list-unstyled dynamic-list mb-0">
+              <li *ngFor="let role of userDetails.roles"
+                class="mb-4 f-14 d-flex align-items-center justify-content-between light-theme-no-radius">
+                <span class="d-flex align-items-center"> <mat-icon  [ngStyle]="{'color':getRoleColor(role)}"> {{ role | getValueByRefKey : allRoles: 'id' : 'icon' }} </mat-icon>
+                  <span class="ml-3 text-overflow mxw-150 text-dark-black txt-on-surface">{{ role | getValueByRefKey : allRoles: 'id' : 'value' }} </span>
+                </span> <span id="userCreateRemoveRoleIcon" class="fa fa-times c-pointer text-dark-black txt-on-surface" (click)="removeRole(role)" [ngClass]="{'c-ban pe-none' : role | getValueByRefKey : allRoles: 'id' : 'isDeletable'}" *ngIf="!updateManually"></span>
+              </li>
+            </ul>
+
+            <div class="add-role-btn position-relative mb-3 add-btns" *ngIf="!updateManually">
+              <button matPrefix type="button"
+                class="f-20 p-0 c-pointer pr-2 align-middle text-on-surface bg-transparent border-0 position-absolute z-9 add-button text-dark-black">
+                <i id="userCreateAddRoleIcon" class="material-icons users-roles-plus-icon" (click)="newRoleObj.display = true;">
+                  add_circle
+                </i>
+              </button>
+              <div class="custom-user-input">
+              <mat-form-field class="no-arrow" *ngIf="rolesSelect">
+                <mat-select id="userCreateRoleSelect" placeholder="{{'Add a Role' | translate}}" multiple name="roles" [(ngModel)]="userDetails.roles"  panelClass="user-create overflow-x-hidden custom-scroll-wrapper">
+                  <mat-select-trigger>
+                    <span>
+                      {{ getSelectedRoleNames() }}
+                    </span>
+                  </mat-select-trigger>
+                  <mat-option id="userCreateRoleOption{{role.value}}" value="option" *ngFor="let role of allRoles; trackBy:trackById" [ngClass]="{'c-ban pe-none' : role.isDeletable}"
+                    (click)="allowRemove($event,userDetails.roles,role,'role')" [value]="role.id">
+                    <span class="material-icons mr-2" [ngStyle]="{'color':role.color}">{{role.icon}}</span>
+                    <span class="text-overflow">{{role.value}}</span>
+                  </mat-option>
+                </mat-select>
+
+                <span matSuffix
+                  class="f-20 p-0 r-0 left-auto c-pointer  align-middle text-on-surface bg-transparent border-0 text-dark-black">
+                  <i class="material-icons m-0">
+                    arrow_drop_down
+                  </i>
+                </span>
+              </mat-form-field>
+              </div>
+
+            </div>
+            <div class="custom-user-input" *ngIf="newRoleObj.display">
+            <mat-form-field>
+              <input id="userCreateAddNewRoleInput" matInput  type="text" #element  pattern="{{get_pattern(element)}}"  placeholder="{{'Role Name' | translate}}" name="newRole" [(ngModel)]="newRoleObj.value" #newRole="ngModel"
+                autocomplete="off" (keyup)="addNewRole($event)">
+              <!-- <span matSuffix mat-icon-button class="align-middle c-pointer f-14">
+                <i class="material-icons" (click)="newRoleObj.display = true">
+                  close
+                </i>
+              </span> -->
+            </mat-form-field>
+            <span *ngIf="newRole.touched" class="d-block text-coral-red mt-2"
+            [class.error-msg]="newRole.invalid">
+            <span *ngIf="newRole.hasError('pattern')" class="mb-2">{{ get_pattern_error('text') }}</span>
+          </span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h3 class="content-title mb-4 pb-3 text-dark-black gotham-medium text-on-surface"><i class="material-icons align-sub f-28">
+                folder
+              </i> <span class="title-text-on-surface">{{'Groups' | translate}}</span></h3>
+            <ul class="dynamic-list list-unstyled mb-0 light-theme-no-radius">
+              <ng-container *ngFor="let group of userDetails.groups">
+                <li *ngIf="getGroupName(group)" class="mb-4 f-14 d-flex align-items-center  justify-content-between light-theme-no-radius">
+                    <span class="d-flex align-items-center"><mat-icon [ngStyle]="{'color':getGroupColor(group)}"> {{ group | getValueByRefKey : allGroups: 'id' : 'icon' }} </mat-icon> <span class="ml-3 text-overflow mxw-150 text-dark-black">{{ group | getValueByRefKey : allGroups: 'id' : 'value' }}
+                  </span></span> <span id="userCreateRemoveGroupIcon" class="fa fa-times c-pointer text-dark-black" (click)="removeGroup(group)"
+                    *ngIf="!updateManually"></span>
+                </li>
+
+              </ng-container>
+
+            </ul>
+
+            <div class="add-btns position-relative mb-3 custom-user-input" *ngIf="groupsSelect && !updateManually">
+
+              <mat-form-field class="no-arrow">
+
+                <mat-select id="userCreateGroupSelect" placeholder="{{'Add a Group' | translate}}" multiple name="groups" [(ngModel)]="userDetails.groups" panelClass="user-create overflow-x-hidden custom-scroll-wrapper">
+                    <mat-select-trigger>
+                        <span>
+                          {{ getSelectedGroupsNames() }}
+                        </span>
+                    </mat-select-trigger>
+                  <mat-option id="userCreateGroupOption{{group.value}}" value="option" *ngFor="let group of allGroups"
+                    (click)="allowRemove($event,userDetails.groups,group,'group')" [value]="group.id">
+                    <span class="material-icons mr-2" [ngStyle]="{'color':group.color}">{{group.icon}}</span>
+                    <span class="text-overflow">{{group.value}}</span>
+                  </mat-option>
+
+                </mat-select>
+
+                <span matSuffix
+                  class="f-20 p-0 r-0 left-auto c-pointer  align-middle text-on-surface bg-transparent border-0 text-dark-black">
+                  <i class="material-icons m-0">
+                    arrow_drop_down
+                  </i>
+                </span>
+              </mat-form-field>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button id="userCreateCloseButton" type="button" (click)="dialogRef.close()" class="light-theme-btn secondary-btn gotham-medium font-medium fw-500">{{'Cancel' | translate}}</button>
+
+    <button id="userCreateUserButton" *ngIf="incomingdata.operation == 'add'" (click)="createUser()" type="button"
+      [ngClass]="{'c-ban btn-disable':userForm.invalid}" [disabled]="userForm.invalid" class="light-theme-btn primary-btn gotham-medium font-medium fw-500"
+      cdkFocusInitial>{{submitButtonName | translate}}</button>
+
+    <button id="userCreateSubmitButton" *ngIf="incomingdata.operation == 'edit'" (click)="createUser()" type="button"
+      [ngClass]="{'c-ban btn-disable':userForm.invalid}" [disabled]="userForm.invalid || updateManually " class="light-theme-btn primary-btn gotham-medium font-medium fw-500"
+      cdkFocusInitial>{{submitButtonName | translate}}</button>
+
+  </div>
+</form>

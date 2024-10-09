@@ -1,0 +1,99 @@
+@import "../../../../../assets/scss/theme/common/variable";
+
+.alert-adverse-wrap {
+    .adverse-title {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0.15px;
+        text-align: left;
+        color: $heading-cream;
+        padding-bottom: 15px;
+    }
+}
+
+.custom-card {
+    border: 1px solid $grey-border;
+    border-radius: 10px;
+    padding: 16px 24px;
+
+    .sm-title {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 24px;
+        letter-spacing: 0.1px;
+        color: $white;
+        margin-bottom: 16px;
+        margin-top: 0;
+    }
+
+    .information-block {
+        .list-content-wrap {
+            padding: 0;
+            list-style: none;
+            display: block;
+            margin-bottom: 0;
+
+            .list {
+                display: inline-block;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 28px;
+                letter-spacing: -0.5px;
+                color: $title-color;
+            }
+
+            .list.txt-mute {
+                min-width: 115px;
+                padding-right: 8px;
+            }
+
+            .txt-mute {
+                color: $text-light-gray;
+            }
+
+            .icon-box {
+                width: 72px;
+                height: 30px;
+                background: $lighyt-black-bg;
+                border-radius: 4px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: $text-light-gray;
+
+                .material-icons {
+                    cursor: pointer;
+                }
+
+                .success-bg {
+                    color: $success-color;
+                }
+
+                .danger-bg {
+                    color: $error-state;
+                }
+                
+                .disable-cursor{
+                    cursor: not-allowed;
+                }
+            }
+
+            .popover-text {
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 28px;
+                letter-spacing: -0.5px;
+                color: $link-color;
+                cursor: pointer;
+            }
+
+            .popover-list {
+                color: $heading-cream;
+            }
+        }
+    }
+}

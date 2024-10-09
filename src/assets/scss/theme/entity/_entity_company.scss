@@ -1,0 +1,2318 @@
+
+/*--  Entity Company Wrapper Styles  --*/
+.entity-company-wrapper{
+	.entity-page{
+	    display: table;
+	    width: 100%;
+	    table-layout: fixed;
+	    .entity-company-content-inner-wrapper{
+	        display: table-row;
+	        .entity-company-content-left{
+	            //@include padding(0);
+	            width: calc(100% - 325px);
+	            height: 100%;
+	            display: table-cell;
+	          
+	        }
+	        .entity-company-content-right{
+	            background-color: $tangaroa1;
+	            width: 325px;
+	            height: 100%;
+	            display: table-cell;
+	            overflow: hidden;
+	        }
+	    }
+	}
+
+    .custom-rightbar{
+        @extend .pull-left;
+        @include padding(1rem);
+        width: 82%;
+        .breadcrumbs{
+            @include margin(1rem 0);
+            a{
+                @include margin(0 1rem 0 0);
+                color: $white;
+                cursor: pointer;
+                &:hover, &:focus{
+                    @include margin(0 1rem 0 0);
+                    color: $white;
+                    cursor: pointer;
+                }
+                &:last-of-type{
+                    cursor: default;
+                }
+            }
+        }
+    }
+    .overview-tab-wrapper{
+    	h3{
+    		color: $bali-hai6;
+    	}
+	}
+    h2{
+        @extend .text-left;
+        @extend .text-uppercase;
+        @include margin(0 0 1rem);
+        color: $curious-blue;
+        // font-family: $roboto-medium;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-medium);
+        }
+        font-size: ($font-size-base * 1.5);
+        line-height: ($line-height-computed * 1.05);
+    }
+    h3{
+        @extend .text-left;
+        @extend .text-uppercase;
+        @include margin(0 0 1rem);
+        color: $curious-blue;
+        // font-family: $roboto-medium;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-medium);
+        }
+        font-size: $font-size-base;
+        line-height: ($line-height-computed * 1.05);
+    }    
+    h4{
+        @extend .text-left;
+        @extend .text-uppercase;
+        color: $curious-blue;
+        // font-family: $roboto-medium;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-medium);
+        }
+        font-size: ($font-size-base + 2);
+        line-height: ($line-height-computed * 1.05);
+    }
+    h5{
+        @extend .text-left;
+        @extend .text-uppercase;
+        color: $casper1;
+        // font-family: $roboto-medium;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-medium);
+        }
+        font-size: ($font-size-base + 2);
+        line-height: ($line-height-computed * 1.05);
+    }
+    p{
+        @extend .text-left;
+        color: $grey-chateau;
+        // font-family: $roboto-light; 
+        @include fontFamily($fonts) {
+            font-family: fonted(font-light);
+        } 
+        font-size: $font-size-small;
+        line-height: ($line-height-computed * .9);
+    }
+    h3.company-title{
+        color: blue;
+        font-size: 3.2rem; 
+        margin-top: 1rem;
+    }
+    #entity-page-content{
+        .entity-results-wrapper{
+            .entity-item{ 
+                &.social-media-wrapper{
+                    .nav-tabs{
+                        top: 0;
+                    }
+                }
+            }
+        }
+        .content-wrapper{
+            .info-panel{
+                @include padding(0);
+                .info-panel-title{
+                    @include margin(0 0 1rem);
+                    font-size: $font-size-base;
+                }
+            }
+        }
+
+    }
+    .entity-company-intro{
+    	.entity-company-image{
+            @extend .pull-left;
+            @include padding(1rem 1rem 1rem 0);
+            width: 21%;
+            display: block;
+        }
+        .entity-company-description{
+            @include padding(1rem 0);
+            position: relative;
+            min-height: 18.5rem;
+            .btn-more-reviews{
+                position: absolute;
+                right: 0;
+                bottom: .5rem;
+                @include margin(0);
+                @include padding(0 .5rem); 
+            }
+            h2{
+                @include margin(0 0 1rem);
+            }
+            .main-content-description{
+                @extend .text-justify;
+                p{
+                    @include margin(0);
+                }
+            }
+        }
+    	&.entity-company-new-intro{
+    		position: relative;
+		    padding-left: 16.5rem !important;
+		    max-height: 15rem;
+		    border-bottom: 0;
+	        .entity-company-image{
+	            @extend .pull-left;
+	            @include padding(1rem);
+	            width: 15rem;
+	            max-height: 15rem;
+	            display: block;
+			    position: absolute; 
+			    left: 1.5rem;
+	        }
+	        .entity-company-description{
+	            @include padding(1rem 0);
+	            min-height: auto;
+	            .btn-more-reviews{
+	                @include margin(0);
+	                @include padding(0 .5rem);
+	                position: absolute;
+	                right: 1rem;
+	                bottom: .5rem;
+	            }
+	            h2{
+	                @include margin(0 0 1rem);
+	                font-size: ($line-height-computed * 1.5);
+	            }
+	            .main-content-description{
+	                .highlighting-info-wrapper{
+	                	.highlighting-list{
+	                		@extend .pull-left; 
+    						@include margin(0 18px 0 0);
+	                		position: relative;
+	                		// &:not(:last-child):after{
+                            //     background-color: rgba($text-color-default2,.6);
+	                		// 	display: inline-block;
+	                		// 	width: 1px;
+	                		// 	height: ($line-height-computed * 1.8);
+	                		// 	position: absolute;
+	                		// 	content: "";
+	                		// 	right: -.1rem;
+	                		// 	top: 0;
+	                		// }
+	                		.highlighting-info{
+		                		@include margin(0 0 1.5rem);
+		                		height: ($line-height-computed * 1.8);
+		                		max-height: ($line-height-computed * 1.8);
+		                		overflow: hidden; 
+		                		p{
+		                			@extend .text-uppercase;
+								    color: $gothic1;
+                                    // font-family: $roboto-light;
+                                    @include fontFamily($fonts) {
+                                        font-family: fonted(font-light);
+                                    }
+								    font-size: ($line-height-computed * 0.5); 
+		                			overflow: hidden;
+								    white-space: nowrap;
+								    text-overflow: ellipsis;
+		                		}
+		                	}
+	                	}
+	                }
+	                p{
+	                    @include margin(0);
+	                }
+	            }
+	        }
+		}
+    }
+    .bloomberg-event-checkbox{
+        @include margin(1rem 0);
+        @include padding(3px);
+        background-color: transparent;
+        color: $white;
+        // font-family: $roboto-light;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-light);
+        }
+        font-size: $font-size-small;
+        display: inline-block;
+        font-weight: normal;
+        cursor: pointer;
+        span{
+            @include margin(0 .5rem);
+            @include padding(5px 0);
+            @include transition(all 0.3s ease-in-out);
+            color: $bali-hai5;
+            border-bottom: 2px solid transparent;
+            &:hover, &.active{
+                color: $picton-blue1;
+                border-bottom: 2px solid $picton-blue1;
+            }
+        }
+    }
+    .bloomberg-line-chart-wrapper h3{
+        display: inline-block;
+        @include margin(1rem 0);
+    }
+}
+.entity-company-intro{
+    @include padding(1rem);
+    overflow: hidden;
+    border-bottom: 1px solid $big-stone1;
+    .entity-company-description{
+        h3{
+            @include padding(5px 0);
+            @include margin(0);
+        }
+        .main-content-description{
+            @extend .text-justify;
+        }
+    }
+}
+.general-info-wrapper{
+    border-bottom: 1px solid $big-stone1;
+    max-height: 420px;
+    overflow: hidden; 
+    .btn-more-reviews{
+        @include margin(1rem 0);
+    }
+}
+.btn-more-reviews{
+    @include padding(4px 12px);
+    @include box-shadow(none);
+    @include transition(all 0.3s ease-in-out);
+    @include border-radius(20px);
+    background-color: $atomic;
+    color: $blue-bayoux;
+    font-size: $font-size-small;
+    &:hover, &:focus{
+        background-color: $bahama-blue;
+        color: $heather1;
+    }
+}
+
+/*--  Social Media Styles  --*/
+.social-media-results-wrapper{
+    &.entity-results-wrapper{
+        .entity-contents-wrapper{
+            @include padding(1rem);
+            .entity-result-item{
+                &.custom-result-item{
+                    height: 420px;
+                }
+            }
+        }
+    }
+}
+
+/*--  Entity Results Wrapper Styles  --*/
+.entity-results-wrapper{
+    @include padding(1.6rem);
+    width: 100%;
+    .entity-tabs-wrapper{
+    	&.custom-col{
+	    	@include margin(1rem 0 0);
+	    	@include padding(0);
+		}
+    	.tabs-section{
+    		ul{
+    			@include padding(0 2.5rem);
+    			border-bottom: 1px solid $atomic17;
+    			li{
+    				&.active{
+    					a{
+    						background-color: $body-color;
+    						border-color: $san-juan5;
+    						color: $picton-blue2;
+    						&:hover{
+    							border-color: $san-juan5;
+    						}
+    					}
+    				}
+    				a{
+    					@extend .text-uppercase;
+    					@include border-radius(0);
+    					@include transition(all 0.3s ease-in-out);
+    					background-color: transparent;
+    					color: $bismark;
+                        // font-family: $roboto-medium;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-medium);
+                        }
+    					font-size: ($line-height-computed * 0.55);
+    					font-weight: normal;
+    					&:hover{
+    						border-color: transparent;
+    						color: $picton-blue2;
+    					}
+    				}
+    			}
+    		}
+    	}
+    }
+    .entity-contents-wrapper{
+	    .overview-tab-wrapper{
+	    	.entity-item{
+		    	&.general-info-wrapper{
+		    		border-top: 0!important;
+   				    min-height: 420px !important;
+				    overflow: hidden;
+				    height: 420px !important;
+				    min-height: auto;    
+		    	}
+			}
+	    }
+	    .entity-item{
+	    	&.domainServersDetails{
+	    		.entity-result-item{
+	    			@include margin(0);
+	    			@include padding(0);
+		    		.media-list{
+		    			.media-body{
+		    				display: block;
+	    					width: 100%;
+	    					p{
+							    width: 100% !important;
+							    white-space: normal !important;
+							    word-break: break-all;
+							}
+		    			}
+		    		}
+				}
+	    	}		
+	    	&.reddit-social-wrapper{
+	    		.viewMoreReplies{ 
+	    			margin-left: 1rem;
+		    		p{
+			    		&.description{
+			    			height: 55px;
+		    				overflow: hidden;
+			    		}
+		    		}
+				}
+	    	}
+	    }
+    }
+    .entity-item.news-wrapper .entity-result-item{
+        @include padding(0);
+        .media-list{
+            .media-body{
+                .media-heading{
+                    @include margin(0 0 .5rem);
+                    font-size: ($font-size-base - 1);
+                    line-height: 1.5rem;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    width: 405px;
+                    a{
+                        @include transition(all 0.3s ease-in-out);
+                        color: $curious-blue;
+                        &:hover{
+                            opacity: .8;
+                        }
+                    }
+                }
+                p{
+                    @include margin(0 0 1rem);
+                    font-size: $font-size-small;
+                    line-height: ($line-height-computed * .9);
+                    white-space: normal;
+                    &.post{
+                        @extend .text-uppercase;
+                        color: $rainee;
+                        // font-family: $roboto-medium;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-medium);
+                        }
+                        font-size: ($font-size-base - 4);
+                        line-height: ($line-height-computed * .65);
+                        .btn-circle{
+                            @include transition(all 0.3s ease-in-out);
+                            background-color: transparent;
+                            color: $rainee;
+                            font-size: 8px;
+                            width: 2.5rem;
+                            height: 2.5rem;
+                            line-height: 27px;
+                            &:hover{
+                                color: $curious-blue;
+                            }
+                        }
+                    }
+                    &.progress-text{
+                        .date{
+                            @include margin(0 1rem 0 0);
+                        }
+                        .icon{
+                            @include margin(0 .5rem 0);
+                            @include transition(all 0.3s ease-in-out);
+                            color: $rainee;
+                            vertical-align: middle;
+                            display: inline-block;
+                            width: auto;
+                            height: 20px;
+                            position: relative;
+                            overflow: hidden;
+                            img{
+                                @include square(20px);
+                                @include transition(all 0.3s ease-in-out);
+                                @include center-position();
+                                &.img-default{
+                                    opacity: 1;
+                                    z-index: 2;
+                                }
+                                &.img-hover{
+                                    opacity: 0;
+                                    z-index: 1;
+                                }
+                            }
+                            &:hover{
+                                color: $curious-blue;
+                                img{
+                                    &.img-default{
+                                        opacity: 0;
+                                        z-index: 1;
+                                    }
+                                    &.img-hover{
+                                        opacity: 1;
+                                        z-index: 2;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &.description{
+                        @include padding(0);
+                        height: 35px;
+                        width: 100%;
+                        position: relative;
+                        .btn-read-more{
+                            @include margin(0);
+                            @include padding(0);
+                            @include box-shadow(none);
+                            color: $curious-blue;
+                            font-size: $font-size-small;
+                            position: absolute;
+                            bottom: -3px;
+                            right: 1rem;
+                            &:hover{
+                                color: $curious-blue;
+                            }
+                        }
+                    }
+                    &.post{
+                        a{
+                            color: $curious-blue;
+                            &:hover, &:focus{
+                                color: $curious-blue;
+                            }
+                        }
+                    }
+                    &.progress-text{
+                        span{
+                            display: inline-block;
+                            vertical-align: middle;
+                        }
+                        .badge{
+                            @include margin(0 .5rem);
+                            background-color: $curious-blue;
+                            color: $heather1;
+                            font-size: ($font-size-base - 4);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .related-person-main-wrapper{
+        .related-person-inner-wrapper{
+            @include margin(0 0 1.5rem);
+            @include padding(1rem);
+            background-color: $big-stone2;
+            min-height: 300px;
+            border: 1px solid $san-juan4;
+            .description{
+                font-size: ($font-size-base - 4);
+            }
+        }
+    }
+    .entity-item{
+        &.social-media-wrapper{
+            .nav-tabs{
+                position: absolute;
+                right: 1rem;
+                top: 1rem;
+            }
+        }
+        .nav-tabs{
+            @include margin(0);
+            position: absolute;
+            border: 0;
+            right: 1rem;
+            li{
+                a{
+                    @include margin(0 .5rem);
+                    @include padding(5px 0);
+                    @include transition(all 0.3s ease-in-out);
+                    @extend .text-uppercase;
+                    color: $blue-bayoux;
+                    // font-family: $roboto-light;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-light);
+                    }
+                    font-size: ($font-size-base - 4);
+                    line-height: ($line-height-computed * .6);
+                    font-weight: normal;
+                    position: relative;
+                    border: 0;
+                    &:hover,&:focus{
+                   		background-color: transparent;
+                        color: $curious-blue;
+                        border: 0;
+                    }
+                }
+                &.active a{
+                	background-color: transparent;
+                    color: $curious-blue;
+                    border: 0;
+                    &:hover,&:focus{
+                    	background-color: transparent;
+                        color: $curious-blue;
+                    }
+                }
+                a{
+                    &:after{
+                        @include transition(all 0.3s ease-in-out);
+                        background-color: transparent;
+                        position: absolute;
+                        content: "";
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 2px;
+                    }
+                    &:hover:after{
+                        background-color: $curious-blue;
+                    }
+                }
+                &.active a:after{
+                    background-color: $curious-blue;
+                }
+            }
+        }
+    }
+    .entity-result-item{
+        @include margin(1rem 0);
+        @include padding(15px);
+        height: 330px;
+        background-color: transparent;
+    }
+    .general-info-wrapper{
+        .entity-result-item{
+            height: 318px;
+        }
+    }
+    .entity-contents-wrapper{
+        .entity-result-item{
+            &.custom-result-item{
+                height: 330px;
+                @include margin(0);
+            }
+        }
+    }
+   
+    .custom-col{
+     //   @include padding(0 1rem);
+    }
+    .entity-result-item h5{
+        color: $curious-blue;
+        font-size: $font-size-large;
+    }
+    .entity-item{
+        &.news-wrapper .entity-result-item .media-list{
+            @include padding(0 1.5rem 0 0);
+        }
+        &.social-media-wrapper{
+            .social-media-title{
+                @include padding(0 0 0 1.5rem);
+            }
+        }
+         .mCSB_scrollTools{
+             .mCSB_draggerRail{
+                 background-color: rgba(0, 0, 0, 0.4);
+             }
+             .mCSB_dragger{
+                 .mCSB_dragger_bar{
+                     background-color: $dark-grey1;
+                 }
+             }
+             opacity: 0.75;
+         }
+        &.news-wrapper{
+            .entity-result-item{
+                .media-list{
+                    .media-left{
+                        a{
+                            @include square(65px);
+                            @include padding(0);
+                            overflow: hidden;
+                            position: relative;
+                            img{
+                                @include square(65px);
+                                @include center-position();
+                                margin: 0 auto;
+                                display: block;
+                                float: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .entity-contents-wrapper{
+        .general-info-wrapper{
+            .entity-result-item{
+                @include padding(0);
+            }
+        }
+        .related-person-main-wrapper{
+            .entity-result-item{
+                @include padding(0);
+                &.custom-result-item{
+                    height: 330px;
+                }
+            }
+        }
+        .btn-more-reviews{
+            @include margin(0);
+            @include padding(0 .5rem);
+            position: absolute;
+            right: 1rem;
+            bottom: .5rem;
+            &.btn-live-feed{
+                right: 90px;
+                &.right-10{
+                    right: 1rem;
+                }
+                i{
+                    @include margin(0 .5rem 0 0);
+                }
+            }
+        }
+    }
+    .entity-result-item{
+        .media-list{
+            .media-left{
+                a{
+                    @include square(30px);
+                    @extend .text-center;
+                    @include padding(1px 4px);
+                    @include border-radius(50%);
+                    display: inline-block;
+                    color: #545454;
+                    font-size: $font-size-base;
+                    line-height: $line-height-computed;
+                    border: 4px solid #545454;
+                }
+            }
+        }
+    }
+    .entity-contents-wrapper{       
+        .mCSB_inside{
+            > .mCSB_container{
+                @include margin(0);
+                @include padding(0 .5rem 0 0);
+            }
+        }
+        .mCSB_scrollTools{
+            right: -6px;
+        }
+    }
+    .entity-contents-wrapper{
+        .entity-item{
+          
+            &.bloomberg-line-chart-wrapper{
+                @include padding(0 1rem);
+               // min-height: 420px;
+                max-height: 100%;
+                .bloomberg-stock-detail-wrapper{
+                	min-height: 100%;
+                	max-height: 520px;  
+                }
+            }   
+            &.top-finance-entity{
+                @include padding(1rem 1rem .5rem); 
+            }
+        }
+        .general-info-wrapper .entity-item{
+            @include padding(0 1rem);
+            min-height: 400px;
+        }
+        .related-person-main-wrapper .entity-result-item{
+            @include padding(1rem 0);
+            .media-list{
+                @include margin(0 0 1.5rem);
+            }
+        }
+        .bloomberg-stock-detail-wrapper .entity-result-item{
+            @include padding(0);
+        }
+    }
+    .entity-item{
+        &.bloomberg-line-chart-wrapper{
+            .entity-item{
+                @include padding(0 1.5rem);
+                min-height: 400px;
+                   select{
+	                background-color: transparent;
+	                border: 0;
+	                border-radius: 0;
+	                text-transform: uppercase;
+	                color: $bismark11;  
+	                font-size: 11px;
+	            }
+            }
+        }  
+    }
+    .entity-contents-wrapper{
+        .media-list{
+            .media-body{
+                p{
+                    @include margin(0 30px 0 0);
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    width: 75%;
+                    position: relative;
+                }
+            }
+        }
+    }
+}
+
+/*--  Bloomberg Styles  --*/
+.bloomberg-stock-detail-wrapper{
+    .bs_linegrid{
+        .tick line{
+            stroke: $storm-grey;
+            opacity: 1;
+        }
+        path{
+            stroke: $storm-grey;
+        }
+    }
+    .domain{  
+        stroke: $storm-grey;
+    }
+    .tick line{
+        stroke: $cello4;
+    }
+    .bloomberg-stock-inner-wrapper{
+        @include margin(0);
+    }
+    .bs_linegrid{
+        .tick line{
+            stroke: $storm-grey;
+            opacity: 1;
+        }
+        path{
+            stroke: $storm-grey;
+        }
+    }
+    .domain{
+        stroke: $storm-grey;
+    }
+    .tick line{
+        stroke: $cello4;
+    }
+    p{
+        span{
+            width: 100%;
+            &.col-sm-4{
+                color: $bali-hai5;
+                // font-family: $roboto-light;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-light);
+                }
+                font-size: ($font-size-base - 4);
+            }
+            &.col-sm-8{
+                @include margin(0 0 1.5rem);
+                color: $bali-hai5;
+                // font-family: $roboto-light;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-light);
+                }
+                font-size: $font-size-large;
+            }
+        }
+    }
+    .range-wrapper, .open-wrapper, .volume-wrapper{
+        padding: 30px 1rem 1rem 1.5rem;
+	    height: 100%;
+	    display: table-cell;
+	    float: none;
+    }
+    .open-wrapper{
+        background-color: $big-stone3;
+    }
+    .volume-wrapper{
+        background-color: $big-stone4;
+    }
+    #bloomberg-line-chart{
+        @include margin(0);
+    }     
+    .profilepic{
+        @include square(60px);
+        @include margin(0 0 1rem);
+    }
+}
+
+/*--  Risk Score Panel Styles  --*/
+.entity-company-content-right{
+	&.entity-company-new-right{
+		.risk-score-panel{
+		    .contact-address-wrapper{
+		    	@include margin(0 0 20px);
+		    	h3{
+		    		font-size: ($font-size-base - 2);
+		    		font-weight: normal;
+		    		color: $text-color-default;
+		    	}
+		    	.contact-address{
+		    		@include margin(0 0 12px);
+		    		h5{
+		    			@include margin(1rem 0 2px);
+		    			color: $bermuda-grey1;
+		    			font-size: ($font-size-base - 2);
+		    			i{
+		    				color: $san-juan6;
+		    			}
+		    		}
+		    		p{
+		    			@include margin(0 0 1rem);
+		    			color: $bermuda-grey1;
+                        // font-family: $roboto-light;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-light);
+                        }
+		    			font-size: ($font-size-base - 3);
+		    		}
+		    	}
+		    }
+		    .general-info-wrapper{
+		    	@include margin(0 0 20px);
+		    	overflow: hidden;
+		    	border-bottom: 0;
+		    	h3{
+		    		color: $text-color-default;
+		    		font-size: ($font-size-base - 2);
+		    	}
+		    }
+		    .news-wrapper{
+		    	> h3{
+		    		@include margin(0 0 .5rem);
+		    		color: $text-color-default;
+		    		font-size: ($font-size-base - 2);
+		    	}
+		    	.media-heading{
+		    		@extend .text-capitalize;
+		    		@include margin(0 0 .5rem);
+                    // font-family: $roboto-light;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-light);
+                    }
+		    		font-size: ($font-size-base - 2);
+		    		> a{
+		    			line-height: ($line-height-computed * .9);
+		    		}
+		    	}
+		    	.post{
+		    		@include margin(0 0 .5rem);
+		    		button{
+		    			@include padding(0);
+		    			background-color: transparent;
+		    			box-shadow: none;
+		    		}
+		    	}
+		    	.description{
+   					color: $bermuda-grey;
+                       // font-family: $roboto-light;
+                       @include fontFamily($fonts) {
+                        font-family: fonted(font-light);
+                    }
+		    		font-size: ($font-size-base - 3);
+		    		max-height: 92px;
+   					overflow: hidden;
+		    	}
+		    }
+		}	
+	}
+}
+.risk-score-panel{
+    @include padding(1rem);
+    position: relative;
+    .inline{
+        @extend .pull-left;
+        font-size: ($font-size-base - 3);
+        width: 80px;
+    }
+    .progress{
+        @include border-radius(0);
+        height: 1rem;
+        .progress-footer{
+            width: 10%;
+        }
+    }
+    .riskscoreprogress{
+        .progress-wrapper{
+            display: flex;
+            width: 100%;
+        }
+        .inline{
+            width: 10%;
+        }
+        .progress{
+            width: 80%;
+
+        }
+    }
+    .associated-risk-wrapper{
+        @include margin(1rem 0 0);
+        .inline{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+    .sidebar-panel{
+        .first-col,.second-col,.third-col{
+            display: inline-block;
+            font-size: $font-size-small;
+            line-height: ($line-height-computed * .6);
+            vertical-align: middle;
+        }
+    }
+    .progressdr{
+        background: $picton-blue1;
+    }
+    .first-panel{
+        @extend .text-center;
+        height: 25%;
+        h4{
+            @extend .text-center;
+            @include margin(25px 0);
+        }
+        .progress-footer{
+            @include margin(0 0 0 .5rem);
+            width: 35px;
+        }
+        .riskscoreprogress{
+            .progress{
+                width: calc(100% - 35px);
+            }
+        }
+    }
+    .second-panel{
+        height: 30%;
+    }
+    .third-panel{
+        height: 25%;
+        p{
+            font-style: italic;
+        }
+    }
+    .fourth-panel{
+        @include padding(20px 0 0);
+        height: 10%;
+    }
+    .fifth-panel{
+        height: 10%;
+        .media-list{
+            .media-left{
+                a{
+                    @include square(45px);
+                    @extend .text-center;
+                    @include border-radius(50%);
+                    color: #545454;
+                    font-size: ($font-size-base * 1.5);
+                    line-height: 35px;
+                    display: inline-block;
+                    border: 4px solid #545454;
+                }
+            }
+            .media-body{
+                .progress{
+                    @include margin(1rem 0 0);
+                    height: 1rem;
+                    .progress-text{
+                        color: $fiord9;
+                        i{
+                            font-size: ($font-size-base + 2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.evaluationHideShow {
+    display: none !important;
+}
+
+.isoHeadingDropdownBtn {
+    color: #fff !important;
+    border-radius: inherit !important;
+    width: 100% !important;
+    font-size: 9px !important;
+    border-color: transparent !important;
+}
+
+
+.risk-score-panel .panel.custom-panel-wrapper.bg-transparent.autodesk-panel-wrapper .mTSWrapper.mTS_vertical {
+    overflow: visible !important; 
+    width:100%;  
+} 
+
+.ownership-vla .modal-content {
+    height: 85vh !important;
+}
+
+.custom-modal.capture-modal.ownership-vla .modal-dialog {
+    width: 80%;
+    height: 100%;
+}
+
+.entity-company-wrapper h3.riskScoreColor {
+    color: #657f8b !important;
+}
+
+.evaluationPadForBtn {
+    padding: 0px !important;
+}
+
+.text-info {
+    color: #667f8b;
+}
+
+.text-applicable {
+    color: #667f8b;
+}
+
+.preventClickOnDisabled {
+    pointer-events: none !important;
+}
+
+.scrollbar {
+    overflow-y: scroll !important;
+    height: 100px !important;
+}
+
+.wrapperScroll {
+    text-align: center !important;
+    margin: auto !important;
+}
+
+/*
+            *  STYLE 1
+            */
+
+.style-1::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, .3);
+    border-color: rgba(0, 0, 0, .3) !important;
+}
+
+.style-1::-webkit-scrollbar {
+    width: 7px;
+    background-color: rgba(0, 0, 0, .3);
+    border-color: rgba(0, 0, 0, .3) !important;
+}
+
+.style-1::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .2);
+    background-color: #9fa4a9;
+}
+
+.cursorForDisabledBanSymble {
+    cursor: not-allowed !important;
+}
+
+.pad-70 {
+    padding-top: 70px !important;
+}
+
+.text-caption {
+    color: #657f8b !important;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+@media (min-width:$screen-lg){
+
+}
+@media (min-width: $screen-md) and (max-width: $screen-md-max){
+
+}
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max){
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max){
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs){
+
+}
+
+/*==============================================================================
+****************  Entity Company Page Styles For The Site  *********************
+==============================================================================*/
+
+/*--  Entity Company Wrapper Styles  --*/
+.entity-company-wrapper{
+	.entity-page{
+	    display: table;
+	    width: 100%;
+	    table-layout: fixed;
+	    .entity-company-content-inner-wrapper{
+	        display: table-row;
+	        .entity-company-content-left{
+	            //@include padding(0);
+	            width: calc(100% - 325px);
+	            height: 100%;
+	            display: table-cell;
+	          
+	        }
+	        .entity-company-content-right{
+	            background-color: $tangaroa1;
+	            width: 325px;
+	            height: 100%;
+	            display: table-cell;
+	            overflow: hidden;
+	        }
+	    }
+	}
+
+    .custom-rightbar{
+        @extend .pull-left;
+        @include padding(1rem);
+        width: 82%;
+        .breadcrumbs{
+            @include margin(1rem 0);
+            a{
+                @include margin(0 1rem 0 0);
+                color: $white;
+                cursor: pointer;
+                &:hover, &:focus{
+                    @include margin(0 1rem 0 0);
+                    color: $white;
+                    cursor: pointer;
+                }
+                &:last-of-type{
+                    cursor: default;
+                }
+            }
+        }
+    }
+    .overview-tab-wrapper{
+    	h3{
+    		color: $bali-hai6;
+    	}
+	}
+    h2{
+        @extend .text-left;
+        @extend .text-uppercase;
+        // @include margin(0 0 1rem);
+        // color: $curious-blue;
+        font-family: $roboto-medium;
+        font-size: ($font-size-base * 1.5);
+        line-height: ($line-height-computed * 1.05);
+    }
+    h3{
+        @extend .text-left;
+        @extend .text-uppercase;
+        @include margin(0 0 1rem);
+        color: $curious-blue;
+        font-family: $roboto-medium;
+        font-size: $font-size-base;
+        line-height: ($line-height-computed * 1.05);
+    }    
+    h4{
+        @extend .text-left;
+        @extend .text-uppercase;
+        color: $curious-blue;
+        font-family: $roboto-medium;
+        font-size: ($font-size-base + 2);
+        line-height: ($line-height-computed * 1.05);
+    }
+    h5{
+        @extend .text-left;
+        @extend .text-uppercase;
+        color: $casper1;
+        font-family: $roboto-medium;
+        font-size: ($font-size-base + 2);
+        line-height: ($line-height-computed * 1.05);
+    }
+    p{
+        @extend .text-left;
+        color: $white;
+        font-family: $roboto-light;  
+        font-size: $font-size-small;
+        line-height: ($line-height-computed * .9);
+    }
+    h3.company-title{
+        color: $white;
+        font-size: 3.2rem; 
+        margin-top: 1rem;
+    }
+    #entity-page-content{
+        .entity-results-wrapper{
+            .entity-item{ 
+                &.social-media-wrapper{
+                    .nav-tabs{
+                        top: 0;
+                    }
+                }
+            }
+        }
+        .content-wrapper{
+            .info-panel{
+                @include padding(0);
+                .info-panel-title{
+                    @include margin(0 0 1rem);
+                    font-size: $font-size-base;
+                }
+            }
+        }
+
+    }
+    .entity-company-intro{
+    	.entity-company-image{
+            @extend .pull-left;
+            @include padding(1rem 1rem 1rem 0);
+            width: 21%;
+            display: block;
+        }
+        .entity-company-description{
+            @include padding(1rem 0);
+            position: relative;
+            min-height: 18.5rem;
+            .btn-more-reviews{
+                position: absolute;
+                right: 0;
+                bottom: .5rem;
+                @include margin(0);
+                @include padding(0 .5rem); 
+            }
+            h2{
+                margin-bottom: 0px !important;
+                // @include margin(0 0 1rem);
+            }
+            .main-content-description{
+                @extend .text-justify;
+                p{
+                    @include margin(0);
+                }
+            }
+        }
+    	&.entity-company-new-intro{
+    		position: relative;
+		    padding-left: 16.5rem !important;
+		    max-height: 15rem;
+		    border-bottom: 0;
+	        .entity-company-image{
+	            @extend .pull-left;
+	            @include padding(1rem);
+	            width: 15rem;
+	            max-height: 15rem;
+	            display: block;
+			    position: absolute; 
+			    left: 1.5rem;
+	        }
+	        .entity-company-description{
+	            @include padding(1rem 0);
+	            min-height: auto;
+	            .btn-more-reviews{
+	                @include margin(0);
+	                @include padding(0 .5rem);
+	                position: absolute;
+	                right: 1rem;
+	                bottom: .5rem;
+	            }
+	            h2{
+	                // @include margin(0 0 1rem);
+	                font-size: ($line-height-computed * 1.5);
+	            }
+	            .main-content-description{
+	                .highlighting-info-wrapper{
+	                	.highlighting-list{
+	                		@extend .pull-left; 
+    						// @include margin(0 18px 0 0);
+                            position: relative;
+                            // shravani :16-5-20 No need of side vertical line
+	                		// &:not(:last-child):after{
+                            //     background-color: rgba($text-color-default2,.6);
+	                		// 	display: inline-block;
+	                		// 	width: 1px;
+	                		// 	height: ($line-height-computed * 1.8);
+	                		// 	position: absolute;
+	                		// 	content: "";
+	                		// 	right: -.1rem;
+	                		// 	top: 0;
+	                		// }
+	                		.highlighting-info{
+		                		@include margin(0 0 1.5rem);
+		                		height: ($line-height-computed * 1.8);
+		                		max-height: ($line-height-computed * 1.8);
+		                		overflow: hidden; 
+		                		p{
+		                			@extend .text-uppercase;
+								    color: $gothic1;
+								    font-family: $roboto-light;
+								    font-size: ($line-height-computed * 0.5); 
+		                			overflow: hidden;
+								    white-space: nowrap;
+								    text-overflow: ellipsis;
+		                		}
+		                	}
+	                	}
+	                }
+	                p{
+	                    @include margin(0);
+	                }
+	            }
+	        }
+		}
+    }
+    .bloomberg-event-checkbox{
+        @include margin(1rem 0);
+        @include padding(3px);
+        background-color: transparent;
+        color: $white;
+        font-family: $roboto-light;
+        font-size: $font-size-small;
+        display: inline-block;
+        font-weight: normal;
+        cursor: pointer;
+        span{
+            @include margin(0 .5rem);
+            @include padding(5px 0);
+            @include transition(all 0.3s ease-in-out);
+            color: $bali-hai5;
+            border-bottom: 2px solid transparent;
+            &:hover, &.active{
+                color: $picton-blue1;
+                border-bottom: 2px solid $picton-blue1;
+            }
+        }
+    }
+    .bloomberg-line-chart-wrapper h3{
+        display: inline-block;
+        @include margin(1rem 0);
+    }
+}
+.entity-company-intro{
+    @include padding(1rem);
+    overflow: hidden;
+    border-bottom: 1px solid $big-stone1;
+    .entity-company-description{
+        h3{
+            @include padding(5px 0);
+            @include margin(0);
+        }
+        .main-content-description{
+            @extend .text-justify;
+        }
+    }
+}
+.general-info-wrapper{
+    border-bottom: 1px solid $big-stone1;
+    max-height: 420px;
+    overflow: hidden; 
+    .btn-more-reviews{
+        @include margin(1rem 0);
+    }
+}
+.btn-more-reviews{
+    @include padding(4px 12px);
+    @include box-shadow(none);
+    @include transition(all 0.3s ease-in-out);
+    @include border-radius(20px);
+    background-color: $atomic;
+    color: $blue-bayoux;
+    font-size: $font-size-small;
+    &:hover, &:focus{
+        background-color: $bahama-blue;
+        color: $heather1;
+    }
+}
+
+/*--  Social Media Styles  --*/
+.social-media-results-wrapper{
+    &.entity-results-wrapper{
+        .entity-contents-wrapper{
+            @include padding(1rem);
+            .entity-result-item{
+                &.custom-result-item{
+                    height: 420px;
+                }
+            }
+        }
+    }
+}
+
+/*--  Entity Results Wrapper Styles  --*/
+.entity-results-wrapper{
+    @include padding(1.6rem);
+    width: 100%;
+    .entity-tabs-wrapper{
+    	&.custom-col{
+	    	@include margin(1rem 0 0);
+	    	@include padding(0);
+		}
+    	.tabs-section{
+    		ul{
+    			@include padding(0 2.5rem);
+    			border-bottom: 1px solid $atomic17;
+    			li{
+    				&.active{
+    					a{
+    						background-color: $body-color;
+    						border-color: $san-juan5;
+    						color: $picton-blue2;
+    						&:hover{
+    							border-color: $san-juan5;
+    						}
+    					}
+    				}
+    				a{
+    					@extend .text-uppercase;
+    					@include border-radius(0);
+    					@include transition(all 0.3s ease-in-out);
+    					background-color: transparent;
+    					color: $bismark;
+    					font-family: $roboto-medium;
+    					font-size: ($line-height-computed * 0.55);
+    					font-weight: normal;
+    					&:hover{
+    						border-color: transparent;
+    						color: $picton-blue2;
+    					}
+    				}
+    			}
+    		}
+    	}
+    }
+    .entity-contents-wrapper{
+	    .overview-tab-wrapper{
+	    	.entity-item{
+		    	&.general-info-wrapper{
+		    		border-top: 0!important;
+   				    min-height: 420px !important;
+				    overflow: hidden;
+				    height: 420px !important;
+				    min-height: auto;    
+		    	}
+			}
+	    }
+	    .entity-item{
+	    	&.domainServersDetails{
+	    		.entity-result-item{
+	    			@include margin(0);
+	    			@include padding(0);
+		    		.media-list{
+		    			.media-body{
+		    				display: block;
+	    					width: 100%;
+	    					p{
+							    width: 100% !important;
+							    white-space: normal !important;
+							    word-break: break-all;
+							}
+		    			}
+		    		}
+				}
+	    	}		
+	    	&.reddit-social-wrapper{
+	    		.viewMoreReplies{ 
+	    			margin-left: 1rem;
+		    		p{
+			    		&.description{
+			    			height: 55px;
+		    				overflow: hidden;
+			    		}
+		    		}
+				}
+	    	}
+	    }
+    }
+    .entity-item.news-wrapper .entity-result-item{
+        @include padding(0);
+        .media-list{
+            .media-body{
+                .media-heading{
+                    @include margin(0 0 .5rem);
+                    font-size: ($font-size-base - 1);
+                    line-height: 1.5rem;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    width: 405px;
+                    a{
+                        @include transition(all 0.3s ease-in-out);
+                        color: $curious-blue;
+                        &:hover{
+                            opacity: .8;
+                        }
+                    }
+                }
+                p{
+                    @include margin(0 0 1rem);
+                    font-size: $font-size-small;
+                    line-height: ($line-height-computed * .9);
+                    white-space: normal;
+                    &.post{
+                        @extend .text-uppercase;
+                        color: $rainee;
+                        font-family: $roboto-medium;
+                        font-size: ($font-size-base - 4);
+                        line-height: ($line-height-computed * .65);
+                        .btn-circle{
+                            @include transition(all 0.3s ease-in-out);
+                            background-color: transparent;
+                            color: $rainee;
+                            font-size: 8px;
+                            width: 2.5rem;
+                            height: 2.5rem;
+                            line-height: 27px;
+                            &:hover{
+                                color: $curious-blue;
+                            }
+                        }
+                    }
+                    &.progress-text{
+                        .date{
+                            @include margin(0 1rem 0 0);
+                        }
+                        .icon{
+                            @include margin(0 .5rem 0);
+                            @include transition(all 0.3s ease-in-out);
+                            color: $rainee;
+                            vertical-align: middle;
+                            display: inline-block;
+                            width: auto;
+                            height: 20px;
+                            position: relative;
+                            overflow: hidden;
+                            img{
+                                @include square(20px);
+                                @include transition(all 0.3s ease-in-out);
+                                @include center-position();
+                                &.img-default{
+                                    opacity: 1;
+                                    z-index: 2;
+                                }
+                                &.img-hover{
+                                    opacity: 0;
+                                    z-index: 1;
+                                }
+                            }
+                            &:hover{
+                                color: $curious-blue;
+                                img{
+                                    &.img-default{
+                                        opacity: 0;
+                                        z-index: 1;
+                                    }
+                                    &.img-hover{
+                                        opacity: 1;
+                                        z-index: 2;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &.description{
+                        @include padding(0);
+                        height: 35px;
+                        width: 100%;
+                        position: relative;
+                        .btn-read-more{
+                            @include margin(0);
+                            @include padding(0);
+                            @include box-shadow(none);
+                            color: $curious-blue;
+                            font-size: $font-size-small;
+                            position: absolute;
+                            bottom: -3px;
+                            right: 1rem;
+                            &:hover{
+                                color: $curious-blue;
+                            }
+                        }
+                    }
+                    &.post{
+                        a{
+                            color: $curious-blue;
+                            &:hover, &:focus{
+                                color: $curious-blue;
+                            }
+                        }
+                    }
+                    &.progress-text{
+                        span{
+                            display: inline-block;
+                            vertical-align: middle;
+                        }
+                        .badge{
+                            @include margin(0 .5rem);
+                            background-color: $curious-blue;
+                            color: $heather1;
+                            font-size: ($font-size-base - 4);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .related-person-main-wrapper{
+        .related-person-inner-wrapper{
+            @include margin(0 0 1.5rem);
+            @include padding(1rem);
+            background-color: $big-stone2;
+            min-height: 300px;
+            border: 1px solid $san-juan4;
+            .description{
+                font-size: ($font-size-base - 4);
+            }
+        }
+    }
+    .entity-item{
+        &.social-media-wrapper{
+            .nav-tabs{
+                position: absolute;
+                right: 1rem;
+                top: 1rem;
+            }
+        }
+        .nav-tabs{
+            @include margin(0);
+            position: absolute;
+            border: 0;
+            right: 1rem;
+            li{
+                a{
+                    @include margin(0 .5rem);
+                    @include padding(5px 0);
+                    @include transition(all 0.3s ease-in-out);
+                    @extend .text-uppercase;
+                    color: $blue-bayoux;
+                    font-family: $roboto-light;
+                    font-size: ($font-size-base - 4);
+                    line-height: ($line-height-computed * .6);
+                    font-weight: normal;
+                    position: relative;
+                    border: 0;
+                    &:hover,&:focus{
+                   		background-color: transparent;
+                        color: $curious-blue;
+                        border: 0;
+                    }
+                }
+                &.active a{
+                	background-color: transparent;
+                    color: $curious-blue;
+                    border: 0;
+                    &:hover,&:focus{
+                    	background-color: transparent;
+                        color: $curious-blue;
+                    }
+                }
+                a{
+                    &:after{
+                        @include transition(all 0.3s ease-in-out);
+                        background-color: transparent;
+                        position: absolute;
+                        content: "";
+                        bottom: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 2px;
+                    }
+                    &:hover:after{
+                        background-color: $curious-blue;
+                    }
+                }
+                &.active a:after{
+                    background-color: $curious-blue;
+                }
+            }
+        }
+    }
+    .entity-result-item{
+        @include margin(1rem 0);
+        @include padding(15px);
+        height: 330px;
+        background-color: transparent;
+    }
+    .general-info-wrapper{
+        .entity-result-item{
+            height: 318px;
+        }
+    }
+    .entity-contents-wrapper{
+        .entity-result-item{
+            &.custom-result-item{
+                height: 330px;
+                @include margin(0);
+            }
+        }
+    }
+   
+    .custom-col{
+     //   @include padding(0 1rem);
+    }
+    .entity-result-item h5{
+        color: $curious-blue;
+        font-size: $font-size-large;
+    }
+    .entity-item{
+        &.news-wrapper .entity-result-item .media-list{
+            @include padding(0 1.5rem 0 0);
+        }
+        &.social-media-wrapper{
+            .social-media-title{
+                @include padding(0 0 0 1.5rem);
+            }
+        }
+         .mCSB_scrollTools{
+             .mCSB_draggerRail{
+                 background-color: rgba(0, 0, 0, 0.4);
+             }
+             .mCSB_dragger{
+                 .mCSB_dragger_bar{
+                     background-color: $dark-grey1;
+                 }
+             }
+             opacity: 0.75;
+         }
+        &.news-wrapper{
+            .entity-result-item{
+                .media-list{
+                    .media-left{
+                        a{
+                            @include square(65px);
+                            @include padding(0);
+                            overflow: hidden;
+                            position: relative;
+                            img{
+                                @include square(65px);
+                                @include center-position();
+                                margin: 0 auto;
+                                display: block;
+                                float: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .entity-contents-wrapper{
+        .general-info-wrapper{
+            .entity-result-item{
+                @include padding(0);
+            }
+        }
+        .related-person-main-wrapper{
+            .entity-result-item{
+                @include padding(0);
+                &.custom-result-item{
+                    height: 330px;
+                }
+            }
+        }
+        .btn-more-reviews{
+            @include margin(0);
+            @include padding(0 .5rem);
+            position: absolute;
+            right: 1rem;
+            bottom: .5rem;
+            &.btn-live-feed{
+                right: 90px;
+                &.right-10{
+                    right: 1rem;
+                }
+                i{
+                    @include margin(0 .5rem 0 0);
+                }
+            }
+        }
+    }
+    .entity-result-item{
+        .media-list{
+            .media-left{
+                a{
+                    @include square(30px);
+                    @extend .text-center;
+                    @include padding(1px 4px);
+                    @include border-radius(50%);
+                    display: inline-block;
+                    color: #545454;
+                    font-size: $font-size-base;
+                    line-height: $line-height-computed;
+                    border: 4px solid #545454;
+                }
+            }
+        }
+    }
+    .entity-contents-wrapper{       
+        .mCSB_inside{
+            > .mCSB_container{
+                @include margin(0);
+                @include padding(0 .5rem 0 0);
+            }
+        }
+        .mCSB_scrollTools{
+            right: -6px;
+        }
+    }
+    .entity-contents-wrapper{
+        .entity-item{
+          
+            &.bloomberg-line-chart-wrapper{
+                @include padding(0 1rem);
+               // min-height: 420px;
+                max-height: 100%;
+                .bloomberg-stock-detail-wrapper{
+                	min-height: 100%;
+                	max-height: 520px;  
+                }
+            }   
+            &.top-finance-entity{
+                @include padding(1rem 1rem .5rem); 
+            }
+        }
+        .general-info-wrapper .entity-item{
+            @include padding(0 1rem);
+            min-height: 400px;
+        }
+        .related-person-main-wrapper .entity-result-item{
+            @include padding(1rem 0);
+            .media-list{
+                @include margin(0 0 1.5rem);
+            }
+        }
+        .bloomberg-stock-detail-wrapper .entity-result-item{
+            @include padding(0);
+        }
+    }
+    .entity-item{
+        &.bloomberg-line-chart-wrapper{
+            .entity-item{
+                @include padding(0 1.5rem);
+                min-height: 400px;
+                   select{
+	                background-color: transparent;
+	                border: 0;
+	                border-radius: 0;
+	                text-transform: uppercase;
+	                color: $bismark11;  
+	                font-size: 11px;
+	            }
+            }
+        }  
+    }
+    .entity-contents-wrapper{
+        .media-list{
+            .media-body{
+                p{
+                    @include margin(0 30px 0 0);
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    width: 75%;
+                    position: relative;
+                }
+            }
+        }
+    }
+}
+
+/*--  Bloomberg Styles  --*/
+.bloomberg-stock-detail-wrapper{
+    .bs_linegrid{
+        .tick line{
+            stroke: $storm-grey;
+            opacity: 1;
+        }
+        path{
+            stroke: $storm-grey;
+        }
+    }
+    .domain{  
+        stroke: $storm-grey;
+    }
+    .tick line{
+        stroke: $cello4;
+    }
+    .bloomberg-stock-inner-wrapper{
+        @include margin(0);
+    }
+    .bs_linegrid{
+        .tick line{
+            stroke: $storm-grey;
+            opacity: 1;
+        }
+        path{
+            stroke: $storm-grey;
+        }
+    }
+    .domain{
+        stroke: $storm-grey;
+    }
+    .tick line{
+        stroke: $cello4;
+    }
+    p{
+        span{
+            width: 100%;
+            &.col-sm-4{
+                color: $bali-hai5;
+                font-family: $roboto-light;
+                font-size: ($font-size-base - 4);
+            }
+            &.col-sm-8{
+                @include margin(0 0 1.5rem);
+                color: $bali-hai5;
+                font-family: $roboto-light;
+                font-size: $font-size-large;
+            }
+        }
+    }
+    .range-wrapper, .open-wrapper, .volume-wrapper{
+        padding: 30px 1rem 1rem 1.5rem;
+	    height: 100%;
+	    display: table-cell;
+	    float: none;
+    }
+    .open-wrapper{
+        background-color: $big-stone3;
+    }
+    .volume-wrapper{
+        background-color: $big-stone4;
+    }
+    #bloomberg-line-chart{
+        @include margin(0);
+    }     
+    .profilepic{
+        @include square(60px);
+        @include margin(0 0 1rem);
+    }
+}
+
+/*--  Risk Score Panel Styles  --*/
+.entity-company-content-right{
+	&.entity-company-new-right{
+		.risk-score-panel{
+		    .contact-address-wrapper{
+		    	@include margin(0 0 20px);
+		    	h3{
+		    		font-size: ($font-size-base - 2);
+		    		font-weight: normal;
+		    		color: $text-color-default;
+		    	}
+		    	.contact-address{
+		    		@include margin(0 0 12px);
+		    		h5{
+		    			@include margin(1rem 0 2px);
+		    			color: $bermuda-grey1;
+		    			font-size: ($font-size-base - 2);
+		    			i{
+		    				color: $san-juan6;
+		    			}
+		    		}
+		    		p{
+		    			@include margin(0 0 1rem);
+		    			color: $bermuda-grey1;
+		    			font-family: $roboto-light;
+		    			font-size: ($font-size-base - 3);
+		    		}
+		    	}
+		    }
+		    .general-info-wrapper{
+		    	@include margin(0 0 20px);
+		    	overflow: hidden;
+		    	border-bottom: 0;
+		    	h3{
+		    		color: $text-color-default;
+		    		font-size: ($font-size-base - 2);
+		    	}
+		    }
+		    .news-wrapper{
+		    	> h3{
+		    		@include margin(0 0 .5rem);
+		    		color: $text-color-default;
+		    		font-size: ($font-size-base - 2);
+		    	}
+		    	.media-heading{
+		    		@extend .text-capitalize;
+		    		@include margin(0 0 .5rem);
+		    		font-family: $roboto-light;
+		    		font-size: ($font-size-base - 2);
+		    		> a{
+		    			line-height: ($line-height-computed * .9);
+		    		}
+		    	}
+		    	.post{
+		    		@include margin(0 0 .5rem);
+		    		button{
+		    			@include padding(0);
+		    			background-color: transparent;
+		    			box-shadow: none;
+		    		}
+		    	}
+		    	.description{
+   					color: $bermuda-grey;
+   					font-family: $roboto-light;
+		    		font-size: ($font-size-base - 3);
+		    		max-height: 92px;
+   					overflow: hidden;
+		    	}
+		    }
+		}	
+	}
+}
+.risk-score-panel{
+    @include padding(1rem);
+    position: relative;
+    .inline{
+        @extend .pull-left;
+        font-size: ($font-size-base - 3);
+        width: 80px;
+    }
+    .progress{
+        @include border-radius(0);
+        height: 1rem;
+        .progress-footer{
+            width: 10%;
+        }
+    }
+    .riskscoreprogress{
+        .progress-wrapper{
+            display: flex;
+            width: 100%;
+        }
+        .inline{
+            width: 10%;
+        }
+        .progress{
+            width: 80%;
+
+        }
+    }
+    .associated-risk-wrapper{
+        @include margin(1rem 0 0);
+        .inline{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+    .sidebar-panel{
+        .first-col,.second-col,.third-col{
+            display: inline-block;
+            font-size: $font-size-small;
+            line-height: ($line-height-computed * .6);
+            vertical-align: middle;
+        }
+    }
+    .progressdr{
+        background: $picton-blue1;
+    }
+    .first-panel{
+        @extend .text-center;
+        height: 25%;
+        h4{
+            @extend .text-center;
+            @include margin(25px 0);
+        }
+        .progress-footer{
+            @include margin(0 0 0 .5rem);
+            width: 35px;
+        }
+        .riskscoreprogress{
+            .progress{
+                width: calc(100% - 35px);
+            }
+        }
+    }
+    .second-panel{
+        height: 30%;
+    }
+    .third-panel{
+        height: 25%;
+        p{
+            font-style: italic;
+        }
+    }
+    .fourth-panel{
+        @include padding(20px 0 0);
+        height: 10%;
+    }
+    .fifth-panel{
+        height: 10%;
+        .media-list{
+            .media-left{
+                a{
+                    @include square(45px);
+                    @extend .text-center;
+                    @include border-radius(50%);
+                    color: #545454;
+                    font-size: ($font-size-base * 1.5);
+                    line-height: 35px;
+                    display: inline-block;
+                    border: 4px solid #545454;
+                }
+            }
+            .media-body{
+                .progress{
+                    @include margin(1rem 0 0);
+                    height: 1rem;
+                    .progress-text{
+                        color: $fiord9;
+                        i{
+                            font-size: ($font-size-base + 2);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.evaluationHideShow {
+    display: none !important;
+}
+
+.isoHeadingDropdownBtn {
+    color: #fff !important;
+    border-radius: inherit !important;
+    width: 100% !important;
+    font-size: 9px !important;
+    border-color: transparent !important;
+}
+
+
+.risk-score-panel .panel.custom-panel-wrapper.bg-transparent.autodesk-panel-wrapper .mTSWrapper.mTS_vertical {
+    overflow: visible !important; 
+    width:100%;  
+} 
+
+.ownership-vla .modal-content {
+    height: 85vh !important;
+}
+
+.custom-modal.capture-modal.ownership-vla .modal-dialog {
+    width: 80%;
+    height: 100%;
+}
+
+.entity-company-wrapper h3.riskScoreColor {
+    color: #657f8b !important;
+}
+
+.evaluationPadForBtn {
+    padding: 0px !important;
+}
+
+.text-info {
+    color: #667f8b;
+}
+
+.text-applicable {
+    color: #667f8b;
+}
+
+.preventClickOnDisabled {
+    pointer-events: none !important;
+}
+
+.scrollbar {
+    overflow-y: scroll !important;
+    height: 100px !important;
+}
+
+.wrapperScroll {
+    text-align: center !important;
+    margin: auto !important;
+}
+
+/*
+            *  STYLE 1
+            */
+
+.style-1::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, .3);
+    border-color: rgba(0, 0, 0, .3) !important;
+}
+
+.style-1::-webkit-scrollbar {
+    width: 7px;
+    background-color: rgba(0, 0, 0, .3);
+    border-color: rgba(0, 0, 0, .3) !important;
+}
+
+.style-1::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .2);
+    background-color: #9fa4a9;
+}
+
+.cursorForDisabledBanSymble {
+    cursor: not-allowed !important;
+}
+
+.pad-70 {
+    padding-top: 70px !important;
+}
+
+.text-caption {
+    color: #657f8b !important;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+@media (min-width:$screen-lg){
+
+}
+@media (min-width: $screen-md) and (max-width: $screen-md-max){
+
+}
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max){
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max){
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs){
+
+}
+

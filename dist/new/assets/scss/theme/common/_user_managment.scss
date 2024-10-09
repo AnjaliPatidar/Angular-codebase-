@@ -1,0 +1,175 @@
+//  Custom Styles For Quick Search
+.quick-search {
+    margin: 10px 15px;
+    .mat-form-field-flex {
+      background:$input-group;
+      border-radius: $sm-comp-corner-radius;
+      padding: 0 1.5rem;
+      height: 40px;
+      align-items: center;
+      margin-bottom: 5px;
+  
+      .mat-form-field-infix {
+        width: 240px;
+        margin-top: 3px;
+      }
+    }
+  
+    .mat-form-field-label-wrapper {
+      left: .5rem;
+      top: -1.8rem;
+      font-size: 1.6rem;
+  
+      label {
+        color: $text-on-surface !important;
+      }
+    }
+  
+    &.position-absolute {
+      top: -9px;
+    }
+    right: 0;
+    top: -6px;
+  }
+  app-groups{
+    .quick-search{
+      top: -5px !important;
+   }
+  }
+  app-groups-assigned-users,app-roles-assigned-users {
+    .quick-search{
+    // top: 14.5% !important;
+      margin-top: 14rem !important;
+    }
+  }
+  i {
+    font-size: 24px;
+  }
+  .roles-section {
+    padding: 15px 0px;
+  }
+  .roles-section {
+    .col-xs-12,
+    .col-sm-6,
+    .col-md-4 {
+      padding: 0px 8px !important;
+    }
+    .outline-none {
+      &:focus {
+        outline: none !important;
+      }
+    }
+  }
+  
+  .create-role {
+    background-color: rgba(251, 251, 251, 0.1);
+  
+  
+    h5 {
+      // font-family: 'Roboto Medium', sans-serif;
+      @include fontFamily($fonts) {
+        font-family: fonted(font-medium);
+      }
+      font-weight: 500;
+      color: $text-on-surface;
+      opacity: 0.6;
+      line-height: 1.14;
+      letter-spacing: 1.25px;
+    }
+  }
+  
+  .role {
+    height: 229px;
+    background-color:$surface;
+    padding: 15px;
+    border-radius: $lg-comp-corner-radius;
+    h5 {
+      // font-family: 'Roboto Medium', sans-serif;
+      @include fontFamily($fonts) {
+        font-family: fonted(font-medium);
+      }
+      font-weight: 500;
+      letter-spacing: 0.25px;
+    }
+  
+    .menu {
+      color: rgba(255, 255, 255, 0.54);
+    }
+  }
+  
+  .role-header {
+    border-bottom: 1px solid #424242;
+  
+    .custom-input {
+      border: 0;
+      border-bottom: 1px solid;
+    }
+  
+    h5 {
+      font-weight: 500;
+      letter-spacing: 0.25px;
+      flex-grow: 2;
+      margin-bottom: 0;
+    }
+  }
+  
+  .role-content {
+    padding-top: 25px;
+  
+    ul {
+      //  padding: 0px !important;
+      width: 100%;
+    }
+  
+    ul li {
+      text-decoration: none;
+      list-style-type: none;
+    }
+  
+    span.f-34 {
+      font-size: 34px;
+    }
+  
+    li {
+      letter-spacing: 0.25px;
+      margin-bottom: 10px;
+    }
+  }
+  
+  button.mat-menu-item i {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+
+.card-row-title {
+  opacity: 0.6;
+  font-family: $roboto;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  text-align: left;
+}
+ 
+.card-row-value {
+  opacity: 0.87;
+  font-family: $roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 24px;
+  letter-spacing: -0.5px;
+  text-align: left;
+}
+ 
+.width-20 {
+  width: 20px !important;
+}
+ 
+.op-87 {
+  opacity: 0.87;
+}

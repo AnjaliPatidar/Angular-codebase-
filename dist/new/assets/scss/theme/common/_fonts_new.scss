@@ -1,0 +1,283 @@
+/* Text styles */
+
+@mixin WhiteLeftHeader_h1 {
+    font-family: Roboto;
+    font-size: 32px;
+    font-weight: bold;
+    color: $white;
+}
+
+@mixin BlackLeftHeader_h1 {
+    font-family: Roboto;
+    font-size: 32px;
+    font-weight: bold;
+    color: #212121;
+}
+
+@mixin WhiteRightHeader_h1 {
+    font-family: Roboto;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: right;
+    color: $white;
+}
+
+@mixin WhiteCenterHeader_h1 {
+    font-family: Roboto;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    color: $white;
+}
+
+@mixin WhiteLeftHeader_h2 {
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: bold;
+    color: $white;
+}
+
+@mixin WhiteCenterHeader_h2 {
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: $white;
+}
+
+@mixin BlackLeftHeader_h2_left {
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: bold;
+    color: #212121;
+}
+
+@mixin WhiteRightHeader_h2 {
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: right;
+    color: $white;
+}
+
+@mixin WhiteCenterHeader_h3 {
+    font-family: Roboto;
+    font-size: 24px;
+    text-align: center;
+    color: $white;
+}
+
+@mixin WhiteRightHeader_h3 {
+    font-family: Roboto;
+    font-size: 24px;
+    text-align: right;
+    color: $white;
+}
+
+@mixin BlackLeftHeader_h3_left {
+    font-family: Roboto;
+    font-size: 24px;
+    color: #212121;
+}
+
+@mixin WhiteLeftHeader_h3 {
+    font-family: Roboto;
+    font-size: 24px;
+    color: $white;
+}
+
+@mixin WhiteLeftSub_Header {
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: bold;
+    color: $white;
+}
+
+@mixin WhiteLeftHeader_h4 {
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 300;
+    color: $white;
+}
+
+@mixin BlackLeftHeader_h4_left {
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 300;
+    color: #212121;
+}
+
+@mixin WhiteRightHeader_h4 {
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: right;
+    color: $white;
+}
+
+@mixin WhiteCenterHeader_h4 {
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 300;
+    text-align: center;
+    color: $white;
+}
+
+@mixin WhiteCenterHeader_h5 {
+    font-family: Roboto;
+    font-size: 16px;
+    text-align: center;
+    color: $white;
+}
+
+@mixin BlackCenterHeader_h5 {
+    font-family: Roboto;
+    font-size: 16px;
+    text-align: center;
+    color: #212121;
+}
+
+@mixin WhiteLeftHeader_h5 {
+    font-family: Roboto;
+    font-size: 16px;
+    color: $white;
+}
+
+@mixin BlackLeftHeader_h5-_left_uppercase {
+    font-family: Roboto;
+    font-size: 16px;
+    color: #212121;
+}
+
+@mixin WhiteRightHeader_h5 {
+    font-family: Roboto;
+    font-size: 16px;
+    letter-spacing: -0.4px;
+    text-align: right;
+    color: $dodger-blue;
+}
+
+@mixin BlackLeftParagraph_1 {
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 1.29;
+    color: #212121;
+}
+
+@mixin WhiteCenterParagraph_1 {
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 1.29;
+    text-align: center;
+    color: $white;
+}
+
+@mixin WhiteRightParagraph_2 {
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 1.29;
+    text-align: right;
+    color: $white;
+}
+
+@mixin BlackLeftParagraph_2 {
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 1.29;
+    color: #212121;
+}
+
+@mixin WhiteLeftParagraph_2 {
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 1.29;
+    color: $white;
+}
+
+@mixin WhiteCenterParagraph_1 {
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 1.29;
+    text-align: center;
+    color: $white;
+}
+
+@mixin WhiteLeftParagraph_1 {
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 1.29;
+    color: $white;
+}
+
+@mixin WhiteRight-Paragraph_1 {
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 1.29;
+    text-align: right;
+    color: #f1f1f1;
+}
+
+@mixin BlackRightParagraph_1 {
+    font-family: Roboto;
+    font-size: 14px;
+    line-height: 1.14;
+    text-align: right;
+    color: #212121;
+}
+
+@mixin WhiteCenterSmall-Text_2 {
+    font-family: Roboto;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 1.09;
+    letter-spacing: 0.1px;
+    text-align: center;
+    color: $white;
+}
+
+@mixin WhiteLeftSmall-Text_2 {
+    font-family: Roboto;
+    font-size: 11px;
+    font-weight: bold;
+    line-height: 1.09;
+    letter-spacing: 0.1px;
+    color: $white;
+}
+
+@mixin WhiteLeftSmall-text_2 {
+    font-family: Roboto;
+    font-size: 10px;
+    line-height: 1.4;
+    color: $white;
+}
+
+@mixin WhiteRightSmall-text_1 {
+    font-family: Roboto;
+    font-size: 10px;
+    line-height: 1.4;
+    text-align: right;
+    color: $white;
+}
+
+@mixin BlackLeftSmall-text_1 {
+    font-family: Roboto;
+    font-size: 10px;
+    line-height: 1.2;
+    color: $black;
+}
+
+@mixin WhiteLeftSmall-text_1 {
+    font-family: Roboto;
+    font-size: 10px;
+    line-height: 1.4;
+    color: $white;
+}
+
+@mixin WhiteCenterSmall-Text_1 {
+    font-family: Roboto;
+    font-size: 10px;
+    line-height: 1.2;
+    letter-spacing: -0.1px;
+    text-align: center;
+    color: $white;
+}

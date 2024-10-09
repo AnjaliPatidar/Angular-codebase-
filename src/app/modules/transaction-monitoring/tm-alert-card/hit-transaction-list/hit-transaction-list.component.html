@@ -1,0 +1,26 @@
+<div class="hit-transactions-main position-relative p-0">
+
+  <div class="hit-transactions-header light-theme-border-bottom border-thin-dark-cream-b">
+    <h2 class="upload-file text-dark-black font-medium text-on-surface" translate>{{ title }}</h2>
+
+    <i class="material-icons c-pointer color-image text-dark-black text-on-surface" (click)="dialogRef.close()">close</i>
+  </div>
+
+  <div class="hit-transactions-body hit-transaction-list d-flex">
+
+    <div class="ag-table-wrapper data-table-wrapper" style="flex:1;margin-top:0%">
+
+      <div class="d-flex justify-content-center align-items-center loader-container text-on-surface" *ngIf="!(gridOptions && gridOptions.rowData && gridOptions.rowData.length)">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+
+      <app-ag-grid-table
+        *ngIf="(gridOptions && gridOptions.rowData && gridOptions.rowData.length)"
+        [fromComponent]="componentName" class="hitTransaction-table mar-t10"
+        [tableData]="gridOptions" (updateClientSideRowModelTable)="getTransactionList()">
+      </app-ag-grid-table>
+    </div>
+  </div>
+</div>

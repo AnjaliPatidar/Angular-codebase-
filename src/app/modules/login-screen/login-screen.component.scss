@@ -1,0 +1,292 @@
+#loginVideo {
+  position: fixed;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  object-fit: fill;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+#shadowWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: .6;
+  background-image: linear-gradient(to top,rgba(45,45,45,0),rgba(45,45,45,.06) 20%,rgba(45,45,45,.86) 72%,#2d2d2d);
+}
+
+#mainContainer {
+  box-sizing: unset !important;
+  margin: auto;
+  max-width: 1300px;
+  min-height: 600px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: 12em;
+  padding-bottom: 8em;
+  padding-left: 6em;
+  padding-right: 6em;
+}
+
+#tagLine {
+  max-width: 40em;
+  display: inline-block;
+}
+
+#version {
+  position: absolute;
+  bottom: 6em;
+  left: 6em;
+}
+
+.bstLoginWrapper {
+  font-size: 14px;
+  box-sizing: unset !important;
+  background-color: rgba(45,45,45,.95);
+  float: right;
+  width: 400px;
+  border-radius: 10px;
+  padding: 2.5em;
+  position: relative;
+  display: inline-block;
+}
+
+:host ::ng-deep .login-header {
+  text-align: center;
+  padding-bottom: 16px;
+}
+
+:host ::ng-deep .login-form-text {
+  display: block;
+  padding-bottom: 8px;
+}
+
+/* ============== Extracted from stylebook styles =============== */
+
+:host ::ng-deep h5 {
+  margin: 0 !important;
+  margin-top: 0px !important;
+  margin-right: 0px !important;
+  margin-bottom: 0px !important;
+  margin-left: 0px !important;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+:host ::ng-deep .bst-headline5 {
+  text-transform: none !important;
+  font-family: "Roboto" !important;
+  font-size: 24px !important;
+  font-weight: normal !important;
+  line-height: normal !important;
+  letter-spacing: normal !important;
+  color: rgba(255,255,255,.87) !important;
+}
+
+:host ::ng-deep .bst-headline4 {
+  font-family: "Roboto" !important;
+  font-size: 34px !important;
+  font-weight: normal !important;
+  line-height: normal !important;
+  letter-spacing: .25px !important;
+  color: rgba(255,255,255,.87) !important;
+}
+
+:host ::ng-deep pre, .bst-success-typo, .bst-warning-typo, .bst-error-typo, .bst-link-typo, .bst-overline-typo, .bst-caption-typo, .bst-button-typo, .bst-mat-btn-custom-light-bg, .bst-mat-btn-custom, .bst-subtitle2, .bst-subtitle1, .bst-body2, .bst-body1, .bst-headline6, .bst-headline5, .bst-headline4, .bst-headline3, .bst-headline2, .bst-headline1 {
+  font-stretch: normal;
+  font-style: normal;
+}
+
+:host ::ng-deep .mat-button, :host ::ng-deep .mat-flat-button, :host ::ng-deep .mat-icon-button, :host ::ng-deep .mat-stroked-button {
+  box-sizing: border-box;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  outline: 0;
+  outline-color: initial;
+  outline-style: initial;
+  outline-width: 0px;
+  border: none;
+  border-top-color: initial;
+  border-top-style: none;
+  border-top-width: initial;
+  border-right-color: initial;
+  border-right-style: none;
+  border-right-width: initial;
+  border-bottom-color: initial;
+  border-bottom-style: none;
+  border-bottom-width: initial;
+  border-left-color: initial;
+  border-left-style: none;
+  border-left-width: initial;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  -webkit-tap-highlight-color: transparent;
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: baseline;
+  text-align: center;
+  margin: 0;
+  min-width: 64px;
+  line-height: 36px;
+  padding: 0 16px;
+  border-radius: var(--smComponentCornerRadius);
+  overflow: visible;
+}
+
+:host ::ng-deep .bst-mat-btn-custom--primary {
+  background-color: #42b7ff !important;
+  color: #fff !important;
+  border: 1px solid rgba(0,0,0,0);
+  border-top-color: rgba(0, 0, 0, 0);
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-right-color: rgba(0, 0, 0, 0);
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-bottom-color: rgba(0, 0, 0, 0);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-color: rgba(0, 0, 0, 0);
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 20%), 0 2px 1px 0 rgb(0 0 0 / 12%), 0 1px 1px 0 rgb(0 0 0 / 14%);
+}
+
+:host ::ng-deep .mat-button.mat-accent[disabled], :host ::ng-deep .mat-button.mat-primary[disabled], :host ::ng-deep .mat-button.mat-warn[disabled], :host ::ng-deep .mat-button[disabled][disabled], :host ::ng-deep .mat-icon-button.mat-accent[disabled], :host ::ng-deep .mat-icon-button.mat-primary[disabled], :host ::ng-deep .mat-icon-button.mat-warn[disabled], :host ::ng-deep .mat-icon-button[disabled][disabled], :host ::ng-deep .mat-stroked-button.mat-accent[disabled], :host ::ng-deep .mat-stroked-button.mat-primary[disabled], :host ::ng-deep .mat-stroked-button.mat-warn[disabled], :host ::ng-deep .mat-stroked-button[disabled][disabled] {
+  color: rgba(255,255,255,.3);
+}
+
+:host ::ng-deep .mat-button[disabled], :host ::ng-deep .mat-flat-button[disabled], :host ::ng-deep .mat-icon-button[disabled], :host ::ng-deep .mat-stroked-button[disabled] {
+  cursor: default;
+}
+
+:host ::ng-deep .bst-mat-btn-custom--primary.disabled {
+  background-color: rgba(255,255,255,.12) !important;
+  color: rgba(255,255,255,.38) !important;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+:host ::ng-deep .bst-button-typo, :host ::ng-deep .bst-mat-btn-custom-light-bg, :host ::ng-deep .bst-mat-btn-custom {
+  font-family: "Roboto" !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  letter-spacing: 1.25px !important;
+  color: rgba(255,255,255,.87) !important;
+  text-transform: uppercase !important;
+}
+
+:host ::ng-deep bst-form-field .input-wrapper__text-input {
+  height: 24px;
+  position: relative;
+  top: 10px;
+  color: #fff;
+}
+
+:host ::ng-deep input:-webkit-autofill {
+  transition: all 0s 50000s;
+}
+
+:host ::ng-deep .cdk-text-field-autofill-monitored:not(:-webkit-autofill) {
+ -webkit-animation-name: cdk-text-field-autofill-end;
+ animation-name: cdk-text-field-autofill-end;
+}
+
+:host ::ng-deep input.mat-input-element {
+ margin-top: -0.0625em;
+}
+
+:host ::ng-deep .mat-input-element, .mat-input-element::-webkit-search-cancel-button, .mat-input-element::-webkit-search-decoration, .mat-input-element::-webkit-search-results-button, .mat-input-element::-webkit-search-results-decoration {
+ -webkit-appearance: none;
+}
+
+:host ::ng-deep .mat-input-element {
+ font: inherit;
+ background: 0 0;
+ color: currentColor;
+ border: none;
+ outline: 0;
+ padding: 0;
+ margin: 0;
+ width: 100%;
+ max-width: 100%;
+ vertical-align: bottom;
+ text-align: inherit;
+}
+
+:host ::ng-deep .mat-input-element {
+ caret-color: #c2185b;
+}
+
+:host ::ng-deep .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon, .mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon {
+  display: block;
+}
+
+:host ::ng-deep .mat-form-field-prefix .mat-icon, .mat-form-field-suffix .mat-icon {
+ font-size: 150%;
+ line-height: 1.125;
+}
+
+:host ::ng-deep .mat-icon {
+ background-repeat: no-repeat;
+ display: inline-block;
+ fill: currentColor;
+ height: 24px;
+ width: 24px;
+}
+
+:host ::ng-deep .bst-mat-icon {
+ cursor: pointer;
+ color: rgba(255,255,255,.54);
+ font-size: 24px !important;
+}
+
+:host ::ng-deep .bst-mat-icon {
+ color: rgba(255,255,255,.54);
+}
+
+:host ::ng-deep .bst-link-typo {
+  font-family: "Roboto" !important;
+  font-size: 14px !important;
+  font-weight: normal !important;
+  line-height: 2 !important;
+  letter-spacing: -0.5px !important;
+  color: #3eb6ff !important;
+  text-decoration: underline !important;
+  cursor: pointer;
+}
+
+:host ::ng-deep .mat-form-field {
+  display: inline-block !important;
+  position: relative !important;
+  text-align: left !important;
+}
+
+:host ::ng-deep .bst-subtitle2 {
+  font-family: "Roboto" !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 1.71 !important;
+  letter-spacing: .1px !important;
+  color: rgba(255,255,255,.87) !important;
+}

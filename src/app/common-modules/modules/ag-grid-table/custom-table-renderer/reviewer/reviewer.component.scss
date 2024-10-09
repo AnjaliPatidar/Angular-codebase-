@@ -1,0 +1,56 @@
+@import "../../../../../../assets/theme-builder/theme_builder";
+::ng-deep app-reviewer{
+    max-width: 100%;
+}
+.background-wrapper{
+    background-color: transparent !important;
+}
+.switch-alignment-wrapper{
+    margin-left: 8.5rem !important;
+}
+.button-wrapper{
+    background: none !important;
+    border: none !important;
+    color: $primary-color !important;
+    font-family: monospace;
+    letter-spacing: 1px !important;
+}
+.close-button-wrapper{
+    position: relative;
+    top: 6px;
+}
+.custom-scroll-align{
+    height: 133px;
+    overflow-y: scroll;
+    width: 211px;
+}
+.check-circle-button-wrapper{
+    position: relative;
+    top: 6px;
+}
+// .switch-design-wrapper.bst-switch-wrapper.filters-switch-wrapper .slider:before{
+//     bottom: -4px !important;
+//     transform: translateX(16px) !important;
+// }
+// .switch-height-wrapper{
+//     height: 11px !important;
+// }
+
+.custom-switch-wrapper.bst-switch-wrapper.filters-switch-wrapper {
+    height: 12px !important;
+}
+.custom-switch-wrapper.bst-switch-wrapper.filters-switch-wrapper .slider:before{
+    bottom: -3px !important;
+}
+.custom-switch-wrapper.bst-switch-wrapper.filters-switch-wrapper .slider:before{
+    background:$primary-color !important;
+}
+::ng-deep app-reviewer .feed-popup-bg{
+    // background: rgba(251, 251, 251, 0.12);
+    background: $input-group;
+    border-radius: $sm-comp-corner-radius;
+    padding: 7px 2px 4px 2px;
+}
+.custom-reviewer-scrollbar{
+    min-width: 250px;
+}

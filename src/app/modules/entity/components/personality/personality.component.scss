@@ -1,0 +1,19 @@
+.row {
+   display: revert !important;
+}
+
+.panel-body{
+padding:1rem 1rem 1rem 1rem;
+}
+
+.custom-panel-wrapper.bst_panel_wrapper .panel-heading {
+  padding: 15px 0 0 15px;
+}
+
+.accomplishments, .skills{
+  height: 500px !important;
+}
+
+::ng-deep .recommendation-panel {
+  height: 500px !important;
+}

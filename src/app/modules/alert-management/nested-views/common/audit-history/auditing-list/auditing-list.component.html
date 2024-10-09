@@ -1,0 +1,43 @@
+<div class="bst-sidebar audit" [class.bst-right-panel-open]="isOpen" >
+    <header class="bst-sidebar__header bst-headline6 bst-color-ty">
+        <span class="bst-sidebar__header--title">
+            Auditing
+        </span>
+        <span class="bst-sidebar__header--close material-icons-round bst-mat-icon" (click)="close()">close</span>
+    </header>
+    <mat-divider class="bst-mat-divider"></mat-divider>
+    <div class="bst-sidebar__body bst-body1 bst-color-ty">
+        <div class="bst-audit">
+            <div class="bst-audit__description">
+                <div class="flex">
+                    <span class="label bst-body2 bst-color-ty u-mt-5">Alert ID: </span>
+                    <span class="labelData bst-subtitle1 bst-color-ty">12345678 </span>
+                </div>
+                <div class="flex">
+                    <span class="label bst-body2 bst-color-ty u-mt-5">Entity: </span>
+                    <span class="labelData bst-subtitle1 bst-color-ty">Entity Name</span>
+                </div>
+            </div>
+            <div class="bst-audit__search">
+                <mat-form-field class="bst-form-field bst-form-field--small text-prefix" appearance="fill">
+                    <mat-icon class="bst-mat-icon material-icons-round" matPrefix>search</mat-icon>
+                    <mat-label class="text-label">Search</mat-label>
+                    <div class="input-wrapper">
+                        <input class="input-wrapper__text-input subtitle1" [(ngModel)]="searchField" name="searchField"
+                            matInput type="text" (keyup)="onKey($event.target.value)"
+                            (keydown)="$event.stopPropagation()" autocomplete="off"
+                            [formControl]="searchTextboxControl">
+                        <span class="input-wrapper__close material-icons-round pointer" matSuffix *ngIf="searchField"
+                            (click)="searchField = ''; clearSearch($event)">close</span>
+                    </div>
+                </mat-form-field>
+            </div>
+            <div class="bst-audit__list-wrapper">
+                <mat-divider class="bst-mat-divider"></mat-divider>
+
+            <div class="bst-audit-list">
+                <app-auditing-list-item [audit_list]="audit_list"></app-auditing-list-item>
+            </div>
+        </div>
+    </div>
+</div>

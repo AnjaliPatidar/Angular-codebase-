@@ -1,0 +1,158 @@
+/*==============================================================================
+***********************  Wrapper Styles For The Site  **************************
+==============================================================================*/
+
+app-acc-view {
+  flex-grow: 1;
+}
+
+.bst_custom_accordian {
+  .accordion {
+    .card {
+      @include padding(15px);
+      background-color: #2d2d2d;
+      border: 0;
+      border-radius: 10px;
+      margin-bottom: 5px;
+      .collapse {
+        position: relative;
+        &:after {
+          content: "";
+          height: 0;
+          width: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+          background-image: linear-gradient(to left, rgba(249, 249, 249, 0.2), rgba(250, 250, 250, 0.5))
+        }
+        &.show {
+          &:after {
+            height: 1px;
+          }
+        }
+      }
+
+      .card-header {
+        background-color: transparent;
+        border: 0;
+        position: relative;
+        padding: 0 ;
+
+        button {
+          @extend .mar-b0;
+          @extend .roboto-light;
+          @extend .text-cream;
+          @extend .text-unset;
+          font-size: 1.8rem;
+          font-weight: 300;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.33;
+          letter-spacing: -0.3px;
+        }
+
+
+      }
+    }
+  }
+
+  &.alert-management-acc {
+
+    .card-header {
+      button {
+        @extend .width-100;
+        @extend .pad-x0;
+
+        .panel-title {
+          h3 {
+            @extend .roboto-light;
+            @extend .d-flex;
+            @extend .ai-c;
+            @extend .text-cream;
+            margin-bottom: 0;
+            font-size: 18px;
+            font-weight: 300;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.33;
+            letter-spacing: -0.3px;
+            flex: 1 0 10%;
+
+            span {
+              @extend .text-cream;
+              @extend .mar-r5;
+              font-size: 3.2rem;
+              font-weight: normal;
+              font-style: normal;
+              font-stretch: normal;
+              line-height: normal;
+              letter-spacing: normal;
+              text-align: center;
+            }
+          }
+
+          p {
+            @extend .text-dark-cream;
+            font-size: 1.4rem;
+            font-weight: normal;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.43;
+            letter-spacing: -0.2px;
+            flex: 1 0 33%;
+          }
+
+          .record-wrapper {
+            .c-level {
+              @extend .text-dark-cream;
+              @extend .roboto-light;
+              font-size: 1.2rem;
+              font-weight: normal;
+              font-style: normal;
+              font-stretch: normal;
+              line-height: 1.33;
+              letter-spacing: -0.5px;
+
+              strong {
+                @extend .text-cream;
+                font-size: 2.4rem;
+                font-weight: bold;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1;
+                letter-spacing: normal;
+                text-align: right;
+              }
+            }
+
+            .conflicts-icon {
+              height: 32px;
+              width: 32px;
+              border-radius: $sm-comp-corner-radius;
+
+            }
+          }
+        }
+      }
+    }
+
+    .card-body {
+      padding: 10px 0
+    }
+
+  }
+}
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+
+@media (min-width:$screen-lg) {}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {}
+
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {}

@@ -1,0 +1,31 @@
+<div *ngIf="templateClass == 'Operations-icon'">
+    <button class="bg-transparent border-0 mr-3" (click)="downloadDocument(rowSelectedValDocID)">
+        <i class="material-icons f-20">cloud_download</i>
+    </button>
+    <button class="bg-transparent border-0 op-05 mr-3 c-ban">
+        <i class="material-icons f-20">edit</i>    
+    </button>
+    <!-- <button class="bg-transparent border-0 mr-3">
+        <i class="material-icons f-20">history</i>    
+    </button> -->
+    <button class="bg-transparent border-0 op-05-p" [ngClass]="{ 'c-ban': !canDeleteAttachments }" [disabled]="!canDeleteAttachments"
+        (click)="deleteDocument(rowSelectedValDocID)">
+            <i class="material-icons text-coral-red f-20">delete</i>    
+    </button>
+</div>
+<div *ngIf="templateClass == 'region-flags'" class="w-100 custom-scroll-wrapper">
+  <!-- <ng-container *ngFor="let img of value"> -->
+    <!-- <img class="mr-3" style="width:20px;" *ngIf="img.label != 'ANY'" [src]="img.label" /> -->
+    <!-- <span *ngIf="img.label == 'ANY'">{{'Any' | translate}}</span> -->
+  <!-- </ng-container> -->
+  <span
+  class="mar-r5 flag-icon flag-icon-squared placeholder-icon  flag-icon-{{state.code.toLowerCase()}}" *ngIf="state && state.code"></span>
+<span class="text-dark-black">{{state && state.displayName?state.displayName:"N/A"}}</span>
+</div>
+
+<div *ngIf="templateClass == 'Operations-icon-related' && showDeleteCaseRelatedEntity && deleteButtonPermission">
+    <button class="bg-transparent border-0 op-05-p mar-l-20" (click)='removeCaseRelatedEntity()' permission [PemissionHide]="true" [ViewOnly]="true"
+    [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'relatedEntities'">
+            <i class="material-icons text-coral-red f-20" matTooltip= "{{ 'Exclude related Entity from Case' | translate }}">delete</i>    
+    </button>
+</div>

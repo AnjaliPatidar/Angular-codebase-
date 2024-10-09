@@ -1,0 +1,620 @@
+$title-color                      : $color-white-87;
+$form-field-bg-color              : $color-white-08;
+$form-field-hover-bg-color        : $color-white-12;
+$form-field-disabled-bg-color     : $color-white-04;
+$form-field-bottom-border-color   : $color-white-12;
+$form-field-autofill-control-color: $color-gray-30;
+$form-field-focused-color         : $primary-color;
+$form-field-focused-text-color    : $primary-color;
+$label-color                      : $color-white-60;
+$label-disabled-color             : $color-icon-disabled;
+$error-color                      : $color-red-10;
+$mandatory-error-color            : $color-red-10;
+$success-color                    : $color-green-20;
+$input-font-color                 : $color-white;
+$input-close-icon-color           : $color-icon-enabled;
+$scrollbar-thumb                  : $color-white-12;
+$scrollbar-thumb-hover            : $color-white-08;
+
+.bst-form-field {
+    min-height: 56px;
+    height    : auto;
+    width     : 100%;
+
+    .mat-form-field-appearance-fill .mat-form-field-infix {
+        padding-bottom: 0 !important;
+    }
+
+    .mat-form-field-infix {
+        border: none;
+    }
+
+    &--textarea {
+        &.mat-form-field-appearance-fill .mat-form-field-flex {
+            padding-right: 2px;
+            padding-top  : 0px;
+
+            .mat-form-field-infix {
+                padding-bottom: 0px;
+                margin-top    : 10px;
+
+                .input-wrapper {
+                    .expand-icon-wrapper {
+                        display: none;
+                        z-index: 2;
+                    }
+
+                    &__textarea {
+                        resize     : none;
+                        caret-color: $primary-color !important;
+                    }
+                }
+            }
+
+            .mat-form-field-prefix+.mat-form-field-infix {
+                position: relative;
+                top     : 0px;
+            }
+
+            .input-wrapper {
+                margin-top: 11px;
+                height    : 25px;
+                display   : table;
+                width     : 100%;
+                overflow  : auto;
+                position  : relative;
+            }
+
+            &:hover {
+                .expand-icon-wrapper {
+                    .text-area-icon {
+                        background-color: $color-white-60;
+                    }
+                }
+            }
+
+            .mat-form-field-label-wrapper {
+                margin-top: 9px;
+            }
+
+            .mat-form-field-prefix {
+                top: 3px;
+            }
+        }
+
+        &.mat-form-field-should-float {
+            .mat-form-field-flex {
+                max-height   : fit-content;
+                padding-right: 2px !important;
+
+                .mat-form-field-infix {
+                    .input-wrapper {
+                        .expand-icon-wrapper {
+                            display: block;
+                        }
+
+                        &__textarea {
+                            resize: vertical;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.with-count {
+            .mat-form-field-wrapper {
+                position: relative;
+
+                .mat-form-field-subscript-wrapper {
+                    justify-content: flex-end;
+                    display        : flex;
+
+                    .mat-form-field-hint-wrapper {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        .text-area-suffix {
+            position: absolute;
+            right   : 10px;
+            top     : -20px;
+        }
+    }
+
+    &.mat-form-field-appearance-fill:not(.mat-form-field-should-float) {
+        .mat-form-field-flex {
+            border-bottom: none;
+            border-radius: 4px;
+        }
+    }
+
+    &.text-prefix {
+        .mat-form-field-prefix+.mat-form-field-infix {
+            position: relative;
+            top     : -5px;
+        }
+    }
+
+    .mat-form-field-wrapper {
+        padding: 0px;
+
+        .mat-form-field-underline {
+            display: none !important;
+        }
+    }
+
+    &--small {
+        height    : 40px;
+        min-height: 40px;
+
+        &.mat-form-field-appearance-fill .mat-form-field-flex {
+            min-height                : 40px !important;
+            max-height                : 40px;
+            padding                   : 8px 16px;
+            border-bottom             : none !important;
+            border-bottom-left-radius : 4px;
+            border-bottom-right-radius: 4px;
+        }
+
+        .mat-form-field-prefix {
+            top: 0px !important;
+        }
+
+        .input-wrapper {
+            &__text-input {
+                top: -3px !important;
+            }
+
+            &__close {
+                top     : -3px !important;
+                position: relative;
+            }
+        }
+
+        .mat-form-field-label-wrapper {
+            margin-top: 4px !important;
+        }
+
+        &.mat-form-field-should-float {
+            .text-label {
+                display: none;
+            }
+        }
+
+        .caption-typo {
+            color      : $label-color !important;
+            display    : flex;
+            margin-left: 7px;
+        }
+    }
+
+    .input-wrapper {
+        &__input-error-icon {
+            display : none;
+            color   : $error-color;
+            position: relative;
+            top     : 3px;
+        }
+
+        &__input-success-icon {
+            display : none;
+            color   : $success-color;
+            position: relative;
+            top     : 3px;
+        }
+
+        &__close {
+            color: $input-close-icon-color;
+        }
+    }
+
+    &.text-success-indicator {
+        .text-success-msg {
+            display: none;
+        }
+    }
+
+    .mat-form-field-flex {
+        border-bottom: 2px solid $form-field-bottom-border-color;
+    }
+
+    .mat-form-field-autofilled {
+        .input-wrapper {
+            &__text-input {
+                .mat-form-field-autofill-control {
+                    background-color: $form-field-autofill-control-color !important;
+                }
+            }
+        }
+    }
+
+    .input-wrapper {
+        display: flex;
+
+
+        &__text-input {
+            height  : 24px;
+            position: relative;
+            top     : 9px;
+            color   : $input-font-color;
+        }
+
+        &__input-icon {
+            position: relative;
+            top     : 3px;
+            color   : $input-font-color;
+            opacity : 0.54;
+            margin  : 0px 0px 0px 12px;
+        }
+
+        &__input-error-icon,
+        &__input-success-icon {
+            margin: 0px 0px 0px 12px;
+        }
+
+        &__textarea {
+            height       : 26px;
+            top          : 10px;
+            position     : sticky;
+            flex         : 1 1 0%;
+            margin-bottom: 1px;
+            min-height   : 26px;
+            display      : table-row;
+            overflow     : auto;
+        }
+
+        .expand-icon-wrapper {
+            position      : absolute;
+            height        : 14px;
+            width         : 13px;
+            right         : 0;
+            bottom        : 0;
+            z-index       : 1;
+            pointer-events: none;
+
+            .text-area-icon {
+                height          : 100%;
+                width           : 100%;
+                background-color: $color-gray-40;
+                position        : relative;
+                display         : block;
+
+                &::after {
+                    height          : 0.5px;
+                    width           : 87%;
+                    background-color: $color-gray-10;
+                    content         : "";
+                    display         : block;
+                    position        : absolute;
+                    top             : 50%;
+                    left            : 50%;
+                    transform       : translate(-50%, -50%) rotate(-45deg);
+                }
+
+                &::before {
+                    height          : 0.5px;
+                    width           : 35%;
+                    background-color: $color-gray-10;
+                    content         : "";
+                    display         : block;
+                    position        : absolute;
+                    top             : 65%;
+                    left            : 65%;
+                    transform       : translate(-50%, -50%) rotate(-45deg);
+                }
+            }
+
+        }
+
+    }
+
+    .mat-form-field-empty .text-label {
+        font-size     : 16px;
+        font-weight   : normal;
+        line-height   : 1.5;
+        letter-spacing: 0.15px;
+        height        : 24px;
+        margin        : 56px 0 28px;
+    }
+
+    .text-label {
+        color: $label-color;
+
+        &__mandatory {
+            color: $mandatory-error-color;
+        }
+    }
+
+    .mat-form-field-label-wrapper {
+        margin-top: 10px;
+    }
+
+    .mat-form-field-subscript-wrapper {
+        position: relative;
+        top     : 0px;
+    }
+
+    &.mat-form-field-invalid:not(.mat-focused) {
+        .text-label {
+            color: $error-color;
+        }
+
+        .mat-form-field-flex {
+            border-bottom: 2px solid $error-color;
+        }
+
+        .input-wrapper {
+            &__input-icon {
+                display: none;
+            }
+
+            &__input-error-icon {
+                display: block;
+            }
+        }
+
+        .text-error {
+            &.caption-typo {
+                color: $error-color !important;
+            }
+        }
+
+    }
+
+    &.disabled {
+        cursor: not-allowed;
+
+        input {
+            cursor: not-allowed;
+        }
+
+        .mat-form-field-flex {
+            border-bottom   : none !important;
+            background-color: $form-field-disabled-bg-color !important;
+
+            .mat-select-placeholder {
+                cursor: not-allowed;
+            }
+        }
+
+        .text-label,
+        .caption-typo,
+        .material-icons-round,
+        .text-hint {
+            color: $label-disabled-color;
+        }
+    }
+
+    .caption-typo {
+        font-size     : 12px;
+        font-weight   : normal;
+        font-stretch  : normal;
+        font-style    : normal;
+        line-height   : 1.33;
+        letter-spacing: 0.4px;
+    }
+
+    &.mat-form-field-should-float {
+
+        &.disabled {
+
+            .text-label,
+            .caption-typo,
+            .material-icons-round,
+            .mat-form-field-prefix {
+                color: $label-disabled-color !important;
+            }
+
+            .input-wrapper {
+                &__text-input {
+                    color: $label-disabled-color !important;
+                }
+            }
+
+            .mat-form-field-flex {
+                border-bottom   : none !important;
+                background-color: $form-field-disabled-bg-color !important;
+            }
+
+            &.mat-form-field-invalid:not(.mat-focused),
+            &.ng-valid:not(.mat-focused) {
+
+                .text-label,
+                .caption-typo {
+                    color: $label-color;
+                }
+
+                .mat-form-field-flex {
+                    border-bottom: 2px solid $form-field-bottom-border-color;
+                }
+
+                .input-wrapper {
+                    &__input-icon {
+                        display: block;
+                    }
+
+                    &__input-error-icon,
+                    &__input-success-icon {
+                        display: none;
+                    }
+                }
+            }
+
+        }
+
+        &.mat-form-field-invalid {
+            .mat-focused {
+                display: none !important;
+            }
+        }
+
+        &.mat-form-field-invalid:not(.mat-focused) {
+
+            .text-label {
+                color: $error-color;
+            }
+
+            .mat-form-field-flex {
+                div:not(.mat-form-field-prefix) {
+                    .bst-mat-icon {
+                        color: $error-color;
+                    }
+                }
+            }
+
+
+            .mat-form-field-flex {
+                border-bottom: 2px solid $error-color;
+            }
+
+            .input-wrapper {
+                &__input-icon {
+                    display: none;
+                }
+
+                &__input-error-icon {
+                    display: block;
+                }
+            }
+        }
+
+        &.text-success-indicator {
+            &.ng-valid:not(.mat-focused) {
+                .mat-form-field-flex {
+                    border-bottom: 2px solid $success-color;
+                }
+
+                .text-label,
+                .caption-typo {
+                    color: $success-color;
+                }
+
+                .text-success-msg {
+                    display: block;
+                    color  : $success-color;
+                }
+
+                .text-hint {
+                    display: none;
+                }
+
+                .input-wrapper {
+                    &__input-success-icon {
+                        display: block;
+                        color  : $success-color;
+                    }
+
+                    &__input-icon {
+                        display: none;
+                    }
+                }
+            }
+
+            &.ng-valid {
+                &.mat-focused {
+                    .text-hint {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .text-error {
+            &.caption-typo {
+                color: $form-field-focused-color !important;
+            }
+        }
+
+        &.mat-focused {
+            .mat-form-field-flex {
+                border-bottom: 2px solid $form-field-focused-color;
+
+                .mat-form-field-infix {
+                    .input-wrapper {
+                        &__text-input {
+                            caret-color: $form-field-focused-color;
+                        }
+                    }
+                }
+            }
+
+            .caption-typo,
+            .text-success-msg,
+            .text-label {
+                color: $form-field-focused-text-color;
+            }
+        }
+
+        .caption-typo,
+        .text-success-msg,
+        .text-label {
+            font-size     : 12px;
+            font-weight   : normal;
+            font-stretch  : normal;
+            font-style    : normal;
+            line-height   : 1.33;
+            letter-spacing: 0.4px;
+
+            &.text-label-error {
+                color: $error-color;
+            }
+        }
+
+        .mat-form-field-flex {
+            div:not(.mat-form-field-prefix) {
+                .bst-mat-icon {
+                    &--close {
+                        color: $input-close-icon-color;
+                    }
+                }
+            }
+        }
+
+    }
+
+    .assistive-text-with-icon {
+        position: relative;
+        top     : 1px;
+    }
+
+    .mat-form-field-prefix {
+        position: relative;
+        top     : 5px;
+
+        mat-icon {
+            margin-right: 13px;
+            font-size   : 24px;
+        }
+    }
+
+    &.mat-form-field-appearance-fill .mat-form-field-flex {
+        min-height      : 56px;
+        height          : auto;
+        padding-left    : 16px;
+        padding-right   : 16px;
+        background-color: $form-field-bg-color;
+
+        &:hover {
+            background-color: $form-field-hover-bg-color;
+
+            input:-webkit-autofill {
+                -webkit-box-shadow: 0 0 0 30px $color-gray-50 inset;
+            }
+
+            .expand-icon-wrapper {
+                .text-area-icon {
+                    background-color: $color-gray-50;
+                }
+            }
+        }
+    }
+
+
+    input:-webkit-autofill {
+        -webkit-text-fill-color: $input-font-color !important;
+        -webkit-box-shadow     : 0 0 0 30px $color-gray-40 inset;
+    }
+
+}

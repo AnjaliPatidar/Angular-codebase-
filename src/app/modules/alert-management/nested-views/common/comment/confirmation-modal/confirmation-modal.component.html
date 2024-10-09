@@ -1,0 +1,15 @@
+<div class="bst-confirmation-modal">
+    <div class="mat-dialog-header">
+        <h2 mat-dialog-title>{{data.title}}</h2>
+        <mat-icon class="bst-mat-icon" [mat-dialog-close]="true">close</mat-icon>
+    </div>
+    <mat-dialog-content>
+        <div class="bst-subtitle1 bst-color-ty">{{data.description}}</div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button class="bst-mat-btn bst-mat-btn--secondary"
+            [mat-dialog-close]="true"><span>{{data.cancelBtnText}}</span></button>
+        <button mat-button class="bst-mat-btn bst-mat-btn--primary" [mat-dialog-close]="true"
+            (click)="onConfirmDelete()" cdkFocusInitial><span>{{data.okBtnText}}</span></button>
+    </mat-dialog-actions>
+</div>

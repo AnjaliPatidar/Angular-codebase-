@@ -1,0 +1,62 @@
+@import "../../../../../assets/scss/theme/common/variable";
+
+.main-title-hit {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    color: $title-color;
+    margin-bottom: 17px;
+    text-transform: capitalize;
+}
+
+.custom-card {
+    border: 1px solid $grey-border;
+    border-radius: 10px;
+    padding: 16px 24px;
+}
+
+.sm-title {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+    color: $white;
+    margin-bottom: 16px;
+    margin-top: 0;
+}
+
+.information-block {
+    .list-content-wrap {
+        padding: 0;
+        list-style: none;
+        display: block;
+        margin-bottom: 0;
+
+        .list {
+            display: inline-block;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 28px;
+            letter-spacing: -0.5px;
+            color: $title-color;
+        }
+
+        .list.txt-mute {
+            min-width: 115px;
+            padding-right: 8px;
+        }
+
+        .txt-mute {
+            color: $text-light-gray;
+        }
+
+        .txt-percent {
+            color: $light-purple;
+            font-size: 34px;
+            line-height: 40px;
+            letter-spacing: 0.25px;
+            text-align: left;
+        }
+    }
+}

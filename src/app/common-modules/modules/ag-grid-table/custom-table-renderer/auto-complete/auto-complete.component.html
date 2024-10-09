@@ -1,0 +1,14 @@
+<form class="example-form" autocomplete="off">
+  <mat-form-field class="example-full-width">
+    <input type="text" aria-label="Assignee" matInput [formControl]="myControl" [matAutocomplete]="auto" (click)="getAssigneeData($event,this)">
+    <mat-placeholder class="autocomplete-placeholder">Assignee</mat-placeholder>
+    <mat-autocomplete #auto="matAutocomplete" class="assignee-list custom-scroll-wrapper" [displayWith]="displayFn" (optionSelected)='getSelectedValueInAssignee($event.option.value)'>
+      <mat-option class="dropdown-option" *ngFor="let option of filteredOptions | async; trackBy:trackByLabel" [value]="option">
+        {{option.label}}
+       <i class="material-icons" *ngIf="option.label === myControl.value.label">
+          done
+          </i>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

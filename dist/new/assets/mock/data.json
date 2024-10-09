@@ -1,0 +1,138 @@
+{
+    "result":[{
+        "queueList":[
+            {
+                "queueId":100,
+                "queueName":"queue1",
+                "color":"#9db2f6",
+                "status":"open",
+                "createdDate":"Dec 4, 2018, 12:03 PM",
+                "alertsAssigned":10
+            },
+            {
+                "queueId":101,
+                "queueName":"queue2",
+                "color":"#5232f0",
+                "status":"closed",
+                "createdDate":"Sep 4, 2017, 10:30 PM",
+                "alertsAssigned":24
+            },
+            {
+                "queueId":103,
+                "queueName":"queue3",
+                "color":"#3eb6ff",
+                "status":"open",
+                "createdDate":"Jan 4, 2019, 08:03 PM",
+                "alertsAssigned":20
+            },
+            {
+                "queueId":104,
+                "queueName":"queue4",
+                "color":"#9db2f6",
+                "status":"closed",
+                "createdDate":"May 5, 2016, 11:03 PM",
+                "alertsAssigned":40
+            },
+            {
+                "queueId":105,
+                "queueName":"queue5",
+                "color":"#9db2f6",
+                "status":"open",
+                "createdDate":"Jan 4, 2019, 08:03 PM",
+                "alertsAssigned":60
+            },
+            {
+                "queueId":106,
+                "queueName":"queue6",
+                "color":"#2db7c7",
+                "status":"closed",
+                "createdDate":"Mar 5, 2017, 08:03 PM",
+                "alertsAssigned":43
+            },
+            {
+                "queueId":107,
+                "queueName":"queue7",
+                "color":"#3eb6ff",
+                "status":"open",
+                "createdDate":"April 7, 2016, 05:45 PM",
+                "alertsAssigned":16
+            },
+            {
+                "queueId":108,
+                "queueName":"queue8",
+                "color":"#e6ae20",
+                "status":"open",
+                "createdDate":"Jan 4, 2019, 08:03 PM",
+                "alertsAssigned":30
+            },
+            {
+                "queueId":109,
+                "queueName":"queue9",
+                "color":"#3eb6ff",
+                "status":"closed",
+                "createdDate":"Nov 4, 2019, 08:03 PM",
+                "alertsAssigned":80
+            },
+            {
+                "queueId":110,
+                "queueName":"queue10",
+                "color":"#f28618",
+                "status":"open",
+                "createdDate":"Jan 4, 2019, 08:03 PM",
+                "alertsAssigned":10
+            }
+        ],
+        "colorList":[
+            {
+                "color":"red",
+                "colorCode":"ef5350"
+            },
+            {
+                "color":"orange",
+                "colorCode":"f28618"
+            },
+            {
+                "color":"yellow",
+                "colorCode":"e6ae20"
+            },
+            {
+                "color":"green",
+                "colorCode":"009f59"
+            },
+            {
+                "color":"cyan",
+                "colorCode":"2db7c7"
+            },
+            {
+                "color":"light blue",
+                "colorCode":"9db2f6"
+            },
+            {
+                "color":"blue",
+                "colorCode":"4c7cff"
+            },
+            {
+                "color":"indigo",
+                "colorCode":"5232f0"
+            },
+            {
+                "color":"purple",
+                "colorCode":"9c27b0"
+            },
+            {
+                "color":"pink",
+                "colorCode":"8661c6"
+            }
+        ],
+        "statusList":[
+            {
+                "status":"open",
+                "count":6
+            },
+            {
+                "status":"closed",
+                "count":4
+            }
+        ]
+    }]
+}

@@ -1,0 +1,38 @@
+<!-- @uthor:shravani
+     Date:21-5-2020
+     Purpose: To show all the Media Information 
+-->
+<div class="media-container top-row custom-row bst_row_wrapper">
+    <div class="col-sm-12 pad-b0 pad-x0 custom-col">
+        <div class="panel custom-panel-wrapper bst_panel_wrapper details-panel-wrapper height-100">
+            <div class="panel-heading  d-flex ai-c">
+                <h4 class="f-18 lh-1_2 top-details-heading mar-b0">Media
+                    <select class="filter pull-right text-capitalize mar-0 c-pointer h-2_4 custom-select-box f-12">
+                        Sort by:
+                        <option *ngFor="let filter of filterObj" [ngValue]="filter">
+                            {{filter}}</option>
+                    </select>
+                    <div class="search-bar pull-right ai-c d-flex light-theme-no-bottom-border">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        <input type="text" class="custom-input input-control light-theme-bg-transparent"
+                            placeholder="Search media" [(ngModel)]="searchInfo">
+                    </div>
+                </h4>
+            </div>
+            <div class="image-body panel-body panel-scroll" malihu-scrollbar [scrollbarOptions]="scrollbarOptions"
+                *ngIf="mediaInfo">
+                <div class="row media-row mr-2">
+                    <div class="image col-sm-3 d-flex ai-c" *ngFor="let media of mediaInfo | textFilter:searchInfo">
+                        <img class="img-responsive" src="{{media}}" width="100%" height="80%">
+                    </div>
+                </div>
+            </div>
+            <div class="mnh-150 image-body panel-body panel-scroll not-found"  *ngIf="mediaInfo === undefined ">
+                <p style="text-align:center;color:red !important;">Data Not Found</p>
+            </div>
+            <span class="custom-spinner full-page-spinner" style="height: 100%;" *ngIf="pageLoader">
+                <i class="fa fa-spinner txt-on-surface-06 fa-spin fa-4x"></i>
+            </span>
+        </div>
+    </div>
+</div>

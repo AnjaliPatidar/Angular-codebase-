@@ -1,0 +1,35 @@
+
+  <!-- <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>column -1</th>
+        <th>column- 2</th>
+        <th>column- 3</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let value of looper;let i = index;trackBy:userByName">
+            <th>{{i}}</th>
+            <th>column- 2</th>
+            <th>column- 3</th>
+          </tr>
+    </tbody>
+  </table> -->
+ 
+  
+  <button type="button" class="btn btn-outline-secondary" ngbPopover="You see, I show up on hover!" triggers="mouseenter:mouseleave" popoverTitle="Pop title">
+    Hover over me!
+  </button>
+  
+<div *ngFor="let value of looper;let i = index;trackBy:userByName">
+  <ng-template #popContent>Hello,{{i}} <b></b>!</ng-template>
+<button type="button" class="btn btn-secondary" [ngbPopover]="popContent" triggers="mouseenter:mouseleave" popoverTitle="Fancy content">
+  I've got markup and bindings in my popover!
+</button>
+</div>
+  
+  
+ 
+<div class="pull-right" >
+  <app-latestnews-rightpanel></app-latestnews-rightpanel>
+</div>

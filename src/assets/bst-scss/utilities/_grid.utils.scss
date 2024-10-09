@@ -1,0 +1,23 @@
+/* Grid panel layout mechanics */
+
+// .grid-c1{
+//   @include grid-d('grid-template-columns', '1fr auto', 8px, null);
+//   align-items: center;
+// }
+
+.grid-c2 {
+  @include grid-d('grid-template-columns', '1fr 1fr', 15px, null);
+  align-items: center;
+}
+
+// .grid-c3 {
+//   @include grid-d('grid-template-columns', '135px 135px auto', 5px, null);
+//   align-items: center;
+// }
+
+
+.grid-c5 {
+  @include grid-d('grid-template-columns', '1fr 1fr 1fr 1fr 1fr', 10px, null);
+  align-items: baseline;
+}
+

@@ -1,0 +1,5 @@
+<div *ngIf="risk !== ''" class="d-flex align-items-center">
+    {{ risk | translate }}
+    <span #caseRiskIcon class="material-icons info-icon c-pointer ml-3" (mouseenter)="showRiskOverriderideInfo()"
+        (mouseleave)="hideRiskOverriderideInfo()" (mousehover)="caseinforClicked()">error</span>
+</div>

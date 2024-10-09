@@ -1,0 +1,150 @@
+<div class="right-panel-charts-wrapper custom-scroll-wrapper h-100">
+  <!-- Charts Details for the entiies -->
+  <!-- <div class="chart-details-wrapper" [hidden]="showEntityUser">
+    <div class="card custom-card">
+      <div class="card-header">
+        <h3>PEP / Sanctions Trend</h3>
+      </div>
+      <div class="card-body" id="pepChart"></div>
+    </div>
+    <div class="card custom-card">
+      <div class="card-header">
+        <h3>Number of Alerts by Queue</h3>
+      </div>
+      <div class="card-body" id="queueChart"></div>
+    </div>
+    <div class="card custom-card">
+      <div class="card-header">
+        <h3>Number of Alerts by Action</h3>
+      </div>
+      <div class="card-body" id="actionChart"></div>
+    </div>
+  </div> -->
+
+
+  <!-- List Details for the Entities -->
+  <div class="list-details-wrapper">
+    <div class="card custom-card light-theme-bg-white panel-header">
+      <div class="card-header border-0 light-theme-border-bottom">
+
+        <h3 class="d-flex ai-c theme-f-20" *ngIf="hideShowHeadersForBulk"><span
+            class="text-dark-black font-medium text-on-surface" *ngIf="nameOfAudit">{{'Alerts' | translate}}
+            {{'Auditing' | translate}}</span> <span class="text-dark-black font-medium text-on-surface"
+            *ngIf="nameOfUser">{{'User' | translate}} {{'Auditing' | translate}}</span><span
+            class="text-dark-black font-medium text-on-surface" *ngIf="!nameOfAudit">Feed {{'Auditing' | translate}}
+          </span><span class="mar-autol" (click)="removeRightPanel()">
+            <!-- <i class="fa fa-times c-pointer"></i> -->
+
+            <i class="material-icons c-pointer text-dark-black">close</i>
+          </span></h3>
+        <h3 class="d-flex ai-c" *ngIf="!hideShowHeadersForBulk"><span style="width: 221px;"
+            class="text-dark-black font-medium text-on-surface"> {{'BulkAuditing' | translate}}</span> <span
+            class="mar-autol" (click)="removeRightPanel()">
+            <i class="material-icons c-pointer text-dark-black">close</i>
+          </span></h3>
+
+      </div>
+    </div>
+    <div class="card custom-card card-details flex-row light-theme-no-radius" *ngIf="hideShowHeadersForBulk">
+      <div *ngIf="nameOfUser" class="header-dt">
+        <span *ngIf="!imagePath" class="initial-name-wrapper">{{profileIcon}}</span>
+        <img *ngIf="imagePath" src="{{imagePath}}" class="img-rounded" height="50px;">
+      </div>
+      <div class="text-overflow">
+        <p class="theme-f-14 d-flex"><span *ngIf="nameOfAudit" class="text-nowrap">{{'AlertId' | translate}} :
+          </span><span *ngIf="!nameOfAudit" class="text-nowrap">{{'FeedId' | translate}} :</span> <span class="ml-3">
+            {{auditId}} </span></p>
+        <p class="theme-f-14 d-flex"><span *ngIf="nameOfAudit" class="text-nowrap">{{'EntityName' | translate}} :
+          </span><span *ngIf="!nameOfAudit" class="text-nowrap">{{'FeedName' | translate}} :</span> <span
+            class="ml-3 text-overflow"> {{auditName}}</span></p>
+      </div>
+    </div>
+    <!-- <div class="position-relative search-container" *ngIf="rightPanelData.length">
+        <i class="material-icons search-icon position-absolute text-white">
+          search
+        </i>
+        <input type="text" #name="ngModel" name="filterargsName" [(ngModel)]="searchAuditText" placeholder="Search"
+          class="form-control mt-0 mb-3 search-input">
+      </div> -->
+    <div class="position-relative search-container" *ngIf="rightPanelData.length">
+      <i class="material-icons search-icon position-absolute  text-dark-black text-on-surface">
+        search
+      </i>
+      <input type="text" #name="ngModel" name="filterargsName" [(ngModel)]="searchAuditText" placeholder="{{'Search' | translate}}"
+        class="form-control mt-0 mb-3 search-input input-control light-theme-no-radius light-theme-no-shadow">
+    </div>
+    <div class="custom-scroll-wrapper ml-3 pl-1 custom-panel-height">
+
+      <ng-container
+        *ngFor="let alerts of rightPanelData | textFilter:searchAuditText | TimeStampSort: '-key';index as i;trackBy:trackByKey">
+        <div class="card custom-card pt-0 pb-0 bg-transparent">
+          <div class="card-header border-0" [class.border-0]="i === 0">
+            <h3>{{alerts.key | translate}}</h3>
+          </div>
+        </div>
+        <ng-container
+          *ngFor="let alertval of alerts.values | textFilter:searchAuditText| TimeStampSort: '-key'  ; let x = index;trackBy:trackByKey">
+          <div class="card custom-card card-hover light-theme-bg-transparent light-theme-no-radius c-pointer"
+            (click)="alertInfo(alertval)" data-toggle="collapse" [attr.href]="'#'+alerts.key+x" role="button"
+            aria-expanded="false" [attr.aria-controls]="alerts.key+x">
+            <div class="date-wrapper text-dark-black">
+              <span class="fa " [ngClass]="{'fa-angle-right':!alertval.toggle, 'fa-angle-down':alertval.toggle}"></span>
+              {{alertval.key | dateTranslated:dateFormat.ShortDateFormat | async}}
+            </div>
+            <ul class="list-unstyled user-details-wrapper mb-0">
+              <li class="media pl-0" *ngFor="let alertlst of alertval.values ">
+                <div class="media-body audit-body f-14">
+                  <h5 class="mt-0 mb-0">
+                    <!-- {{alertlst.key}}({{alertlst.values.length}}) -->
+                    <!-- <ng-container *ngFor="let data of alertlst.values; let i = index"><span  *ngIf="i==0" class="time-list">{{data.timestamp | date :'hh:mm a'}}</span></ng-container> -->
+                  </h5>
+                  <ng-container *ngFor="let data of alertlst.values  | TimeStampSort: '-logId'; trackBy:trackByTimestamp">
+                    <div class="collapse mt-3 position-relative" id="{{alerts.key}}{{x}}">
+                      <div class="d-flex pl-5">
+                        <h5 class="mt-0 mb-3 pr-2 text-dark-black">
+                          <span *ngIf="!profileImage" class="list-name">{{userName}}</span>
+                          <img *ngIf="profileImage" class="list-img" src="{{profileImage}}" alt="">
+                          <span class="text-dark-black gotham-regular"> {{data.description}}</span>
+                        </h5>
+                        <span
+                          class="time-list gotham-regular light-theme-light-color">{{data.timestamp | date :'hh:mm a'}}</span>
+                      </div>
+                    </div>
+                  </ng-container>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+
+
+    <!-- <div class="card custom-card">
+      <div class="card-header">
+        <h3>Number of Alerts by Action</h3>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled user-details-wrapper">
+          <li class="media"> -->
+    <!-- <div class="list-img"></div> -->
+    <!-- <img class="list-img" src="../../../../assets/images/icon/usericon" alt="Generic placeholder image">
+            <div class="media-body">
+              <h5 class="pt-1 ">Assigned Entity Name<span class="time-list">09:26 PM</span></h5>
+              <div class="media mt-3">
+                <a class="pr-1 pl-2" href="#">
+                  <span class="list-ico"></span>
+                </a>
+                <div class="media-body">
+                  <h5 class="mt-1 ">Assigned To mannagers queue</h5>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div> -->
+
+  </div>
+
+  <script src="../../../shared/charts/lineChart.js"></script>

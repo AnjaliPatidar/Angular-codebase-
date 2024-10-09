@@ -1,0 +1,18 @@
+::ng-deep .confirmMe {
+  .modal-dialog {
+    width: auto !important;
+    .modal-content {
+      width: auto !important;
+      height: auto !important;
+      app-confirmation {
+        // height: 100%;
+        .modal-header{
+            height: 20%;
+        }
+        .modal-body{
+            height: 45%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<nav mat-tab-nav-bar class="custom-navbar my-3 light-theme-border-bottom">
+  <a mat-tab-link class="text-uppercase theme-text-capitalize" routerLink="/element/user-management/manage/users" routerLinkActive
+    #user="routerLinkActive" [active]="user.isActive">
+    {{ 'Users' | translate }}
+  </a>
+  <a mat-tab-link class="text-uppercase theme-text-capitalize" routerLink="/element/user-management/manage/roles" routerLinkActive
+    #roles="routerLinkActive" [active]="roles.isActive">
+    {{ 'Roles' | translate }}
+  </a>
+  <a mat-tab-link class="text-uppercase theme-text-capitalize" routerLink="/element/user-management/manage/groups" routerLinkActive
+    #groups="routerLinkActive" [active]="groups.isActive">
+    {{ 'Groups' | translate }}
+  </a>
+  <a mat-tab-link class="text-uppercase theme-text-capitalize" disabled="true" routerLink="/element/user-management/manage/policies" routerLinkActive
+    #policies="routerLinkActive" [active]="policies.isActive">
+    {{ 'Policies' | translate }}
+  </a>
+</nav>
+
+
+<router-outlet></router-outlet>

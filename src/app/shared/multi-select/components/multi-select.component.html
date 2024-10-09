@@ -1,0 +1,75 @@
+<mat-form-field class="bst-form-field bst-form-field--select">
+    <mat-label class="text-label">{{ label | translate }}</mat-label>
+    <mat-select
+        #matSelect
+        [formControl]="selectControl"
+        class="bst-select-wrapper--multiple"
+        panelClass="bst-select-panel bst-select-panel--multiple"
+        [compareWith]="compareWithFn"
+        multiple
+    >
+        <mat-select-trigger>
+            <div class="values-wrapper">
+                <span> {{ isAllChecked ? ('All Watchlists selected. All new future watchlists will be selected automatically' | translate) : selectControl.value.length +' '+ ('selected' | translate) }} </span>
+            </div>
+        </mat-select-trigger>
+
+        <div class="select-container core-multi-select-panel">
+            <div class="select-container__search-wrap">
+                <mat-form-field class="bst-form-field bst-form-field--small">
+                    <mat-icon class="a-mat-icon material-icons-round" matPrefix> search </mat-icon>
+                    <mat-label class="text-label">{{ 'Search' | translate }}</mat-label>
+                    <div class="input-wrapper">
+                        <input
+                            class="input-wrapper__text-input bst-subtitle1"
+                            [formControl]="searchControl"
+                            #searchWithIcon
+                            autocomplete="off"
+                            [placeholder]="'Search' | translate"
+                            aria-label="Search"
+                            matInput
+                        />
+                        <mat-icon
+                            class="input-wrapper__input-close-icon material-icons-round pointer"
+                            matSuffix
+                            *ngIf="searchWithIcon.value"
+                            (click)="searchControl.reset()"
+                        >
+                            close
+                        </mat-icon>
+                    </div>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="select-container__select-option-set-wrapper">
+            <div class="select-check-all-wrapper" *ngIf="!searchWithIcon.value">
+                <mat-checkbox
+                    [indeterminate]="isIndeterminate"
+                    [checked]="isAllChecked"
+                    (click)="$event.stopPropagation()"
+                    (change)="selectAll($event)"
+                >
+                    {{ 'Select all' | translate }}
+                </mat-checkbox>
+            </div>
+            <mat-divider></mat-divider>
+            <div class="bst-select-wrapper bst-select-wrapper__option-wrap">
+                <div class="bst-select-wrapper bst-select-wrapper__option-wrap bst-select-wrapper__option-wrap--inner">
+                    <mat-option
+                        *ngFor="let item of allItems; trackBy: trackById"
+                        [hidden]="isItemHidden(item)"
+                        [value]="item"
+                        class="bst-select-wrapper__option-wrap--inner__option bst-body1"
+                    >
+                        <!-- TODO: make possible to add icons -->
+                        {{ item.displayName }}
+                    </mat-option>
+                </div>
+            </div>
+        </div>
+    </mat-select>
+    <!-- <mat-error *ngIf="selectControl.hasError('required')" class="text-error caption-typo">
+        {{ 'This field is required' | translate }}
+    </mat-error> -->
+</mat-form-field>

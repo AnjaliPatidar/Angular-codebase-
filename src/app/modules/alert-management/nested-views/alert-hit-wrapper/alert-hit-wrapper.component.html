@@ -1,0 +1,33 @@
+<app-alert-hit-information [alertData]="data"></app-alert-hit-information>
+
+<div class="alert-toggle" *ngIf="selectedIndex == 0">
+    <div class="d-flex match-slider">
+        <p class="d-inline-block f-14 mr-4 text-dark-black">{{'ShowMatchType' | translate}}</p>
+        <label
+            class="switch ml-2 custom-switch-wrapper filters-switch-wrapper bst-switch-wrapper">
+            <input name="override" type="checkbox" [checked]="showMatchType" (change)="showMatchType = !showMatchType">
+            <span class="slider round"></span>
+        </label>
+    </div>
+</div>
+
+<mat-tab-group animationDuration="0ms" class="pt-4 custom-mat-tab" (selectedTabChange)="onTabChange($event)">
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span class="text-on-surface">{{'GeneralAttributes' | translate}}</span>
+        </ng-template>
+        <app-alert-general-info [showMatchTypeColumn]="showMatchType"></app-alert-general-info>
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span class="text-on-surface">{{'WatchlistAttributes' | translate}}</span>
+        </ng-template>
+        <app-alert-watchlist-info></app-alert-watchlist-info>
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span class="text-on-surface">{{'CustomerInformation' | translate}}</span>
+        </ng-template>
+        <app-alert-customer-info></app-alert-customer-info>
+    </mat-tab>
+</mat-tab-group>

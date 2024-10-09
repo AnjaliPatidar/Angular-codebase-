@@ -1,0 +1,1520 @@
+[
+    {
+        "jurisdictionId": 732,
+        "jurisdictionName": "AD",
+        "jurisdictionOriginalName": "Andorra",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 741,
+        "jurisdictionName": "AE",
+        "jurisdictionOriginalName": "United Arab Emirates",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 783,
+        "jurisdictionName": "AF",
+        "jurisdictionOriginalName": "Afghanistan",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 773,
+        "jurisdictionName": "AG",
+        "jurisdictionOriginalName": "Antigua and Barbuda",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 821,
+        "jurisdictionName": "AI",
+        "jurisdictionOriginalName": "Anguilla",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 872,
+        "jurisdictionName": "AL",
+        "jurisdictionOriginalName": "Albania",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 764,
+        "jurisdictionName": "AM",
+        "jurisdictionOriginalName": "Armenia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 881,
+        "jurisdictionName": "ANY",
+        "jurisdictionOriginalName": "ANY",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 801,
+        "jurisdictionName": "AO",
+        "jurisdictionOriginalName": "Angola",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24600,
+        "jurisdictionName": "AQ",
+        "jurisdictionOriginalName": "Antarctica",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 712,
+        "jurisdictionName": "AR",
+        "jurisdictionOriginalName": "Argentina",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24602,
+        "jurisdictionName": "AS",
+        "jurisdictionOriginalName": "American Samoa",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 860,
+        "jurisdictionName": "AT",
+        "jurisdictionOriginalName": "Austria",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 753,
+        "jurisdictionName": "AU",
+        "jurisdictionOriginalName": "Australia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 759,
+        "jurisdictionName": "AW",
+        "jurisdictionOriginalName": "Ascension Island",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 795,
+        "jurisdictionName": "AX",
+        "jurisdictionOriginalName": "Zimbabwe",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 746,
+        "jurisdictionName": "AZ",
+        "jurisdictionOriginalName": "Azerbaijan",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 693,
+        "jurisdictionName": "All",
+        "jurisdictionOriginalName": "All",
+        "selected": true
+    },
+    {
+        "jurisdictionId": 763,
+        "jurisdictionName": "BA",
+        "jurisdictionOriginalName": "Bosnia And Herzegovina",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 895,
+        "jurisdictionName": "BB",
+        "jurisdictionOriginalName": "Barbados",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 894,
+        "jurisdictionName": "BD",
+        "jurisdictionOriginalName": "Bangladesh",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 698,
+        "jurisdictionName": "BE",
+        "jurisdictionOriginalName": "Belgium",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 857,
+        "jurisdictionName": "BF",
+        "jurisdictionOriginalName": "Burkina Faso",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 737,
+        "jurisdictionName": "BG",
+        "jurisdictionOriginalName": "Bulgaria",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 717,
+        "jurisdictionName": "BH",
+        "jurisdictionOriginalName": "Bahrain",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 784,
+        "jurisdictionName": "BI",
+        "jurisdictionOriginalName": "Burundi",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 800,
+        "jurisdictionName": "BJ",
+        "jurisdictionOriginalName": "Benin",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 906,
+        "jurisdictionName": "BL",
+        "jurisdictionOriginalName": "Saint Helena",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 829,
+        "jurisdictionName": "BM",
+        "jurisdictionOriginalName": "Bermuda",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 803,
+        "jurisdictionName": "BN",
+        "jurisdictionOriginalName": "Brunei Darussalam",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 880,
+        "jurisdictionName": "BO",
+        "jurisdictionOriginalName": "Bolivia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 787,
+        "jurisdictionName": "BQ",
+        "jurisdictionOriginalName": "British Antarctic Territory",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 767,
+        "jurisdictionName": "BR",
+        "jurisdictionOriginalName": "Brazil",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 705,
+        "jurisdictionName": "BS",
+        "jurisdictionOriginalName": "Bahamas",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 789,
+        "jurisdictionName": "BT",
+        "jurisdictionOriginalName": "Bhutan",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24620,
+        "jurisdictionName": "BV",
+        "jurisdictionOriginalName": "Bouvet Island",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 898,
+        "jurisdictionName": "BW",
+        "jurisdictionOriginalName": "Botswana",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 870,
+        "jurisdictionName": "BY",
+        "jurisdictionOriginalName": "Belarus",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 715,
+        "jurisdictionName": "BZ",
+        "jurisdictionOriginalName": "Belize",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 823,
+        "jurisdictionName": "CA",
+        "jurisdictionOriginalName": "Canada",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24593,
+        "jurisdictionName": "CC",
+        "jurisdictionOriginalName": "Cocos (Keeling) Islands",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24594,
+        "jurisdictionName": "CD",
+        "jurisdictionOriginalName": "Congo, the Democratic Republic of the",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 830,
+        "jurisdictionName": "CF",
+        "jurisdictionOriginalName": "Central African Republic",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 718,
+        "jurisdictionName": "CG",
+        "jurisdictionOriginalName": "Congo",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 852,
+        "jurisdictionName": "CH",
+        "jurisdictionOriginalName": "Switzerland",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 740,
+        "jurisdictionName": "CI",
+        "jurisdictionOriginalName": "Côte d'Ivoire",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24614,
+        "jurisdictionName": "CK",
+        "jurisdictionOriginalName": "Cook Islands",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 816,
+        "jurisdictionName": "CL",
+        "jurisdictionOriginalName": "Chile",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 756,
+        "jurisdictionName": "CM",
+        "jurisdictionOriginalName": "Cameroon",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 786,
+        "jurisdictionName": "CN",
+        "jurisdictionOriginalName": "China",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 774,
+        "jurisdictionName": "CO",
+        "jurisdictionOriginalName": "Colombia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 844,
+        "jurisdictionName": "CR",
+        "jurisdictionOriginalName": "Costa Rica",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 747,
+        "jurisdictionName": "CU",
+        "jurisdictionOriginalName": "Cuba",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 770,
+        "jurisdictionName": "CV",
+        "jurisdictionOriginalName": "Cabo Verde",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24610,
+        "jurisdictionName": "CW",
+        "jurisdictionOriginalName": "Curaçao",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24603,
+        "jurisdictionName": "CX",
+        "jurisdictionOriginalName": "Christmas Island",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 758,
+        "jurisdictionName": "CY",
+        "jurisdictionOriginalName": "Cyprus",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 877,
+        "jurisdictionName": "CZ",
+        "jurisdictionOriginalName": "Czechia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 1779,
+        "jurisdictionName": "DA",
+        "jurisdictionOriginalName": "",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 696,
+        "jurisdictionName": "DE",
+        "jurisdictionOriginalName": "Germany",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 744,
+        "jurisdictionName": "DJ",
+        "jurisdictionOriginalName": "Djibouti",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 900,
+        "jurisdictionName": "DK",
+        "jurisdictionOriginalName": "Denmark",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 798,
+        "jurisdictionName": "DM",
+        "jurisdictionOriginalName": "Dominica",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 901,
+        "jurisdictionName": "DO",
+        "jurisdictionOriginalName": "Dominican Republic",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 769,
+        "jurisdictionName": "DZ",
+        "jurisdictionOriginalName": "Algeria",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 775,
+        "jurisdictionName": "EC",
+        "jurisdictionOriginalName": "Ecuador",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 859,
+        "jurisdictionName": "EE",
+        "jurisdictionOriginalName": "Estonia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 878,
+        "jurisdictionName": "EG",
+        "jurisdictionOriginalName": "Egypt",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24619,
+        "jurisdictionName": "EH",
+        "jurisdictionOriginalName": "Western Sahara",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 726,
+        "jurisdictionName": "ER",
+        "jurisdictionOriginalName": "Eritrea",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 854,
+        "jurisdictionName": "ES",
+        "jurisdictionOriginalName": "Spain",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 876,
+        "jurisdictionName": "ET",
+        "jurisdictionOriginalName": "Ethiopia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 722,
+        "jurisdictionName": "FI",
+        "jurisdictionOriginalName": "Finland",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 834,
+        "jurisdictionName": "FJ",
+        "jurisdictionOriginalName": "Fiji",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 713,
+        "jurisdictionName": "FK",
+        "jurisdictionOriginalName": "Falkland Islands",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 904,
+        "jurisdictionName": "FM",
+        "jurisdictionOriginalName": "Micronesia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24590,
+        "jurisdictionName": "FO",
+        "jurisdictionOriginalName": "Faroe Islands",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 697,
+        "jurisdictionName": "FR",
+        "jurisdictionOriginalName": "France",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 765,
+        "jurisdictionName": "GA",
+        "jurisdictionOriginalName": "Gabon",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 694,
+        "jurisdictionName": "GB",
+        "jurisdictionOriginalName": "United Kingdom",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 805,
+        "jurisdictionName": "GD",
+        "jurisdictionOriginalName": "Grenada",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 723,
+        "jurisdictionName": "GE",
+        "jurisdictionOriginalName": "Georgia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24601,
+        "jurisdictionName": "GF",
+        "jurisdictionOriginalName": "French Guiana",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 750,
+        "jurisdictionName": "GG",
+        "jurisdictionOriginalName": "Guernsey",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 820,
+        "jurisdictionName": "GH",
+        "jurisdictionOriginalName": "Ghana",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 757,
+        "jurisdictionName": "GI",
+        "jurisdictionOriginalName": "Gibraltar",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24624,
+        "jurisdictionName": "GL",
+        "jurisdictionOriginalName": "Greenland",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 886,
+        "jurisdictionName": "GM",
+        "jurisdictionOriginalName": "Gambia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 836,
+        "jurisdictionName": "GN",
+        "jurisdictionOriginalName": "Guinea",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24589,
+        "jurisdictionName": "GP",
+        "jurisdictionOriginalName": "Guadeloupe",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 842,
+        "jurisdictionName": "GQ",
+        "jurisdictionOriginalName": "Equatorial Guinea",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 807,
+        "jurisdictionName": "GR",
+        "jurisdictionOriginalName": "Greece",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 729,
+        "jurisdictionName": "GS",
+        "jurisdictionOriginalName": "South Georgia and the South Sandwich Islands",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 813,
+        "jurisdictionName": "GT",
+        "jurisdictionOriginalName": "Guatemala",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24618,
+        "jurisdictionName": "GU",
+        "jurisdictionOriginalName": "Guam",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 719,
+        "jurisdictionName": "GW",
+        "jurisdictionOriginalName": "Guinea-Bissau",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 814,
+        "jurisdictionName": "GY",
+        "jurisdictionOriginalName": "Guyana",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 835,
+        "jurisdictionName": "HK",
+        "jurisdictionOriginalName": "Hong Kong",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24608,
+        "jurisdictionName": "HM",
+        "jurisdictionOriginalName": "Heard Island and McDonald Islands",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 779,
+        "jurisdictionName": "HN",
+        "jurisdictionOriginalName": "Honduras",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 848,
+        "jurisdictionName": "HR",
+        "jurisdictionOriginalName": "Croatia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 782,
+        "jurisdictionName": "HT",
+        "jurisdictionOriginalName": "Haiti",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 868,
+        "jurisdictionName": "HU",
+        "jurisdictionOriginalName": "Hungary",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 799,
+        "jurisdictionName": "ID",
+        "jurisdictionOriginalName": "Indonesia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 888,
+        "jurisdictionName": "IE",
+        "jurisdictionOriginalName": "Ireland",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 752,
+        "jurisdictionName": "IL",
+        "jurisdictionOriginalName": "Israel",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24609,
+        "jurisdictionName": "IM",
+        "jurisdictionOriginalName": "Isle of Man",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 822,
+        "jurisdictionName": "IN",
+        "jurisdictionOriginalName": "India",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 796,
+        "jurisdictionName": "IO",
+        "jurisdictionOriginalName": "British Indian Ocean Territory",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 815,
+        "jurisdictionName": "IQ",
+        "jurisdictionOriginalName": "Iraq",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 811,
+        "jurisdictionName": "IR",
+        "jurisdictionOriginalName": "Iran",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 761,
+        "jurisdictionName": "IS",
+        "jurisdictionOriginalName": "Iceland",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 780,
+        "jurisdictionName": "IT",
+        "jurisdictionOriginalName": "Italy",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 772,
+        "jurisdictionName": "JE",
+        "jurisdictionOriginalName": "Jersey",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 831,
+        "jurisdictionName": "JM",
+        "jurisdictionOriginalName": "Jamaica",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 736,
+        "jurisdictionName": "JO",
+        "jurisdictionOriginalName": "Jordan",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 869,
+        "jurisdictionName": "JP",
+        "jurisdictionOriginalName": "Japan",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 743,
+        "jurisdictionName": "KE",
+        "jurisdictionOriginalName": "Kenya",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 788,
+        "jurisdictionName": "KG",
+        "jurisdictionOriginalName": "Kyrgyzstan",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 701,
+        "jurisdictionName": "KH",
+        "jurisdictionOriginalName": "Cambodia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 843,
+        "jurisdictionName": "KI",
+        "jurisdictionOriginalName": "Kiribati",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 721,
+        "jurisdictionName": "KM",
+        "jurisdictionOriginalName": "Comoros",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 724,
+        "jurisdictionName": "KN",
+        "jurisdictionOriginalName": "Saint Kitts and Nevis",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24595,
+        "jurisdictionName": "KP",
+        "jurisdictionOriginalName": "Korea, Democratic People's Republic of, North Korea",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 739,
+        "jurisdictionName": "KR",
+        "jurisdictionOriginalName": "Republic of Korea",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 846,
+        "jurisdictionName": "KW",
+        "jurisdictionOriginalName": "Kuwait",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 808,
+        "jurisdictionName": "KY",
+        "jurisdictionOriginalName": "Cayman Islands",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 702,
+        "jurisdictionName": "KZ",
+        "jurisdictionOriginalName": "Kazakhstan",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 711,
+        "jurisdictionName": "LA",
+        "jurisdictionOriginalName": "Laos",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 745,
+        "jurisdictionName": "LB",
+        "jurisdictionOriginalName": "Lebanon",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 748,
+        "jurisdictionName": "LC",
+        "jurisdictionOriginalName": "Saint Lucia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 734,
+        "jurisdictionName": "LI",
+        "jurisdictionOriginalName": "Liechtenstein",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 849,
+        "jurisdictionName": "LK",
+        "jurisdictionOriginalName": "Sri Lanka",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 855,
+        "jurisdictionName": "LR",
+        "jurisdictionOriginalName": "Liberia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 864,
+        "jurisdictionName": "LS",
+        "jurisdictionOriginalName": "Lesotho",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 890,
+        "jurisdictionName": "LT",
+        "jurisdictionOriginalName": "Lithuania",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 766,
+        "jurisdictionName": "LU",
+        "jurisdictionOriginalName": "Luxembourg",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 810,
+        "jurisdictionName": "LV",
+        "jurisdictionOriginalName": "Latvia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 728,
+        "jurisdictionName": "LY",
+        "jurisdictionOriginalName": "Libya",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 812,
+        "jurisdictionName": "MA",
+        "jurisdictionOriginalName": "Morocco",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 863,
+        "jurisdictionName": "MC",
+        "jurisdictionOriginalName": "Monaco",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 776,
+        "jurisdictionName": "MD",
+        "jurisdictionOriginalName": "Moldova",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 797,
+        "jurisdictionName": "ME",
+        "jurisdictionOriginalName": "Montenegro",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24612,
+        "jurisdictionName": "MF",
+        "jurisdictionOriginalName": "Saint Martin (French part)",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 727,
+        "jurisdictionName": "MG",
+        "jurisdictionOriginalName": "Madagascar",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 708,
+        "jurisdictionName": "MH",
+        "jurisdictionOriginalName": "Marshall Islands",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 875,
+        "jurisdictionName": "MK",
+        "jurisdictionOriginalName": "Macedonia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 709,
+        "jurisdictionName": "ML",
+        "jurisdictionOriginalName": "Mali",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 755,
+        "jurisdictionName": "MM",
+        "jurisdictionOriginalName": "Myanmar",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 809,
+        "jurisdictionName": "MN",
+        "jurisdictionOriginalName": "Mongolia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24623,
+        "jurisdictionName": "MO",
+        "jurisdictionOriginalName": "Macao",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24598,
+        "jurisdictionName": "MP",
+        "jurisdictionOriginalName": "Northern Mariana Islands",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24604,
+        "jurisdictionName": "MQ",
+        "jurisdictionOriginalName": "Martinique",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 749,
+        "jurisdictionName": "MR",
+        "jurisdictionOriginalName": "Mauritania",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 707,
+        "jurisdictionName": "MS",
+        "jurisdictionOriginalName": "Montserrat",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 882,
+        "jurisdictionName": "MT",
+        "jurisdictionOriginalName": "Malta",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 871,
+        "jurisdictionName": "MU",
+        "jurisdictionOriginalName": "Mauritius",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 824,
+        "jurisdictionName": "MV",
+        "jurisdictionOriginalName": "Maldives",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 731,
+        "jurisdictionName": "MW",
+        "jurisdictionOriginalName": "Malawi",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 903,
+        "jurisdictionName": "MX",
+        "jurisdictionOriginalName": "Mexico",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 760,
+        "jurisdictionName": "MY",
+        "jurisdictionOriginalName": "Malaysia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 861,
+        "jurisdictionName": "MZ",
+        "jurisdictionOriginalName": "Mozambique",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 720,
+        "jurisdictionName": "NA",
+        "jurisdictionOriginalName": "Namibia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24607,
+        "jurisdictionName": "NC",
+        "jurisdictionOriginalName": "New Caledonia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 892,
+        "jurisdictionName": "NE",
+        "jurisdictionOriginalName": "Niger",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 806,
+        "jurisdictionName": "NF",
+        "jurisdictionOriginalName": "North Korea",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 847,
+        "jurisdictionName": "NG",
+        "jurisdictionOriginalName": "Nigeria",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 896,
+        "jurisdictionName": "NI",
+        "jurisdictionOriginalName": "Nicaragua",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 699,
+        "jurisdictionName": "NL",
+        "jurisdictionOriginalName": "Netherlands",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 897,
+        "jurisdictionName": "NO",
+        "jurisdictionOriginalName": "Norway",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 817,
+        "jurisdictionName": "NP",
+        "jurisdictionOriginalName": "Nepal",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 781,
+        "jurisdictionName": "NR",
+        "jurisdictionOriginalName": "Nauru",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24617,
+        "jurisdictionName": "NU",
+        "jurisdictionOriginalName": "Niue",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 873,
+        "jurisdictionName": "NZ",
+        "jurisdictionOriginalName": "New Zealand",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 762,
+        "jurisdictionName": "OM",
+        "jurisdictionOriginalName": "Oman",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 710,
+        "jurisdictionName": "PA",
+        "jurisdictionOriginalName": "Panama",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 832,
+        "jurisdictionName": "PE",
+        "jurisdictionOriginalName": "Peru",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24596,
+        "jurisdictionName": "PF",
+        "jurisdictionOriginalName": "French Polynesia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 700,
+        "jurisdictionName": "PG",
+        "jurisdictionOriginalName": "Papua New Guinea",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 792,
+        "jurisdictionName": "PH",
+        "jurisdictionOriginalName": "Philippines",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 884,
+        "jurisdictionName": "PK",
+        "jurisdictionOriginalName": "Pakistan",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 735,
+        "jurisdictionName": "PL",
+        "jurisdictionOriginalName": "Poland",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24605,
+        "jurisdictionName": "PM",
+        "jurisdictionOriginalName": "Saint Pierre and Miquelon",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 866,
+        "jurisdictionName": "PN",
+        "jurisdictionOriginalName": "Pitcairn, Henderson, Ducie and Oeno Islands",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24591,
+        "jurisdictionName": "PR",
+        "jurisdictionOriginalName": "Puerto Rico",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24613,
+        "jurisdictionName": "PS",
+        "jurisdictionOriginalName": "Palestine, State of",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 804,
+        "jurisdictionName": "PT",
+        "jurisdictionOriginalName": "Portugal",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 858,
+        "jurisdictionName": "PW",
+        "jurisdictionOriginalName": "Palau",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 703,
+        "jurisdictionName": "PY",
+        "jurisdictionOriginalName": "Paraguay",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 887,
+        "jurisdictionName": "QA",
+        "jurisdictionOriginalName": "Qatar",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 893,
+        "jurisdictionName": "RE",
+        "jurisdictionOriginalName": "Rwanda",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 790,
+        "jurisdictionName": "RO",
+        "jurisdictionOriginalName": "Romania",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 891,
+        "jurisdictionName": "RS",
+        "jurisdictionOriginalName": "Serbia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 695,
+        "jurisdictionName": "RU",
+        "jurisdictionOriginalName": "Russia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 22454,
+        "jurisdictionName": "RW",
+        "jurisdictionOriginalName": "Rwanda",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 883,
+        "jurisdictionName": "SA",
+        "jurisdictionOriginalName": "Saudi Arabia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 706,
+        "jurisdictionName": "SB",
+        "jurisdictionOriginalName": "Solomon Islands",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 714,
+        "jurisdictionName": "SC",
+        "jurisdictionOriginalName": "Seychelles",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 802,
+        "jurisdictionName": "SD",
+        "jurisdictionOriginalName": "Sudan",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 730,
+        "jurisdictionName": "SE",
+        "jurisdictionOriginalName": "Sweden",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 785,
+        "jurisdictionName": "SG",
+        "jurisdictionOriginalName": "Singapore",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 733,
+        "jurisdictionName": "SH",
+        "jurisdictionOriginalName": "Saint Helena, Ascension and Tristan da Cunha",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 771,
+        "jurisdictionName": "SI",
+        "jurisdictionOriginalName": "Slovenia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24592,
+        "jurisdictionName": "SJ",
+        "jurisdictionOriginalName": "Svalbard and Jan Mayen",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 889,
+        "jurisdictionName": "SK",
+        "jurisdictionOriginalName": "Slovakia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 879,
+        "jurisdictionName": "SL",
+        "jurisdictionOriginalName": "Sierra Leone",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 751,
+        "jurisdictionName": "SM",
+        "jurisdictionOriginalName": "San Marino",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 874,
+        "jurisdictionName": "SN",
+        "jurisdictionOriginalName": "Senegal",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 838,
+        "jurisdictionName": "SO",
+        "jurisdictionOriginalName": "Somalia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 905,
+        "jurisdictionName": "SR",
+        "jurisdictionOriginalName": "Suriname",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 867,
+        "jurisdictionName": "SS",
+        "jurisdictionOriginalName": "South Sudan",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 840,
+        "jurisdictionName": "ST",
+        "jurisdictionOriginalName": "Sao Tome and Principe",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 862,
+        "jurisdictionName": "SV",
+        "jurisdictionOriginalName": "El Salvador",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24621,
+        "jurisdictionName": "SX",
+        "jurisdictionOriginalName": "Sint Maarten (Dutch part)",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 704,
+        "jurisdictionName": "SY",
+        "jurisdictionOriginalName": "Syria",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 778,
+        "jurisdictionName": "SZ",
+        "jurisdictionOriginalName": "Eswatini",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 768,
+        "jurisdictionName": "TC",
+        "jurisdictionOriginalName": "Turks and Caicos Islands",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 839,
+        "jurisdictionName": "TD",
+        "jurisdictionOriginalName": "Chad",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24622,
+        "jurisdictionName": "TF",
+        "jurisdictionOriginalName": "French Southern Territories",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 791,
+        "jurisdictionName": "TG",
+        "jurisdictionOriginalName": "Togo",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 841,
+        "jurisdictionName": "TH",
+        "jurisdictionOriginalName": "Thailand",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 754,
+        "jurisdictionName": "TJ",
+        "jurisdictionOriginalName": "Tajikistan",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24611,
+        "jurisdictionName": "TK",
+        "jurisdictionOriginalName": "Tokelau",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 851,
+        "jurisdictionName": "TL",
+        "jurisdictionOriginalName": "Timor-Leste",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 833,
+        "jurisdictionName": "TM",
+        "jurisdictionOriginalName": "Turkmenistan",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 738,
+        "jurisdictionName": "TN",
+        "jurisdictionOriginalName": "Tunisia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 865,
+        "jurisdictionName": "TO",
+        "jurisdictionOriginalName": "Tonga",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 825,
+        "jurisdictionName": "TR",
+        "jurisdictionOriginalName": "Turkey",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 827,
+        "jurisdictionName": "TT",
+        "jurisdictionOriginalName": "Trinidad and Tobago",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 742,
+        "jurisdictionName": "TV",
+        "jurisdictionOriginalName": "Tuvalu",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 826,
+        "jurisdictionName": "TW",
+        "jurisdictionOriginalName": "Taiwan",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 818,
+        "jurisdictionName": "TZ",
+        "jurisdictionOriginalName": "Tanzania",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 819,
+        "jurisdictionName": "UA",
+        "jurisdictionOriginalName": "Ukraine",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 902,
+        "jurisdictionName": "UG",
+        "jurisdictionOriginalName": "Uganda",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24599,
+        "jurisdictionName": "UM",
+        "jurisdictionOriginalName": "United States Minor Outlying Islands",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 837,
+        "jurisdictionName": "US",
+        "jurisdictionOriginalName": "United States",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 850,
+        "jurisdictionName": "UY",
+        "jurisdictionOriginalName": "Uruguay",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 793,
+        "jurisdictionName": "UZ",
+        "jurisdictionOriginalName": "Uzbekistan",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24606,
+        "jurisdictionName": "VA",
+        "jurisdictionOriginalName": "Holy See (Vatican City State)",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 899,
+        "jurisdictionName": "VC",
+        "jurisdictionOriginalName": "Saint Vincent and the Grenadines",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 856,
+        "jurisdictionName": "VE",
+        "jurisdictionOriginalName": "Venezuela",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 794,
+        "jurisdictionName": "VG",
+        "jurisdictionOriginalName": "British Virgin Islands",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24615,
+        "jurisdictionName": "VI",
+        "jurisdictionOriginalName": "Virgin Islands, U.S.",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 845,
+        "jurisdictionName": "VN",
+        "jurisdictionOriginalName": "Vietnam",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 777,
+        "jurisdictionName": "VU",
+        "jurisdictionOriginalName": "Vanuatu",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24616,
+        "jurisdictionName": "WF",
+        "jurisdictionOriginalName": "Wallis and Futuna",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 853,
+        "jurisdictionName": "WS",
+        "jurisdictionOriginalName": "Samoa",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 885,
+        "jurisdictionName": "XK",
+        "jurisdictionOriginalName": "Kosovo",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 725,
+        "jurisdictionName": "YE",
+        "jurisdictionOriginalName": "Yemen",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 24597,
+        "jurisdictionName": "YT",
+        "jurisdictionOriginalName": "Mayotte",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 828,
+        "jurisdictionName": "ZA",
+        "jurisdictionOriginalName": "South Africa",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 716,
+        "jurisdictionName": "ZM",
+        "jurisdictionOriginalName": "Zambia",
+        "selected": false
+    },
+    {
+        "jurisdictionId": 22453,
+        "jurisdictionName": "ZW",
+        "jurisdictionOriginalName": "Zimbabwe",
+        "selected": false
+    }
+]

@@ -1,0 +1,21 @@
+<div class="tag-color-wrapper" [class.error-state] = "isEditMode" [class.tag-non-edit]="!isEditMode">
+  <mat-form-field class="example-chip-list" appearance="fill">
+    <mat-chip-list #chipList>
+      <mat-chip *ngIf="!isEditMode" class="tag remove-effect" matTooltip="{{tag?.entity_count && tag?.entity_count  ? tag?.entity_count : 0}} {{'Documents have this Tag' | translate}}"
+      matTooltipPosition="above">
+        <span [style.backgroundColor]="tag?.color_code" class="tag-span">{{tag?.content}} ({{tag?.entity_count && tag?.entity_count  ? tag?.entity_count : 0}})</span>
+      </mat-chip>
+      <input #tagInput id="tag-input-id" *ngIf="isEditMode" class="input-box" placeholder="{{'Add Tags' | translate}}" [(ngModel)]="tagNew.content"
+	         (ngModelChange)="handleInputChange()" [matChipInputFor]="chipList" type="text" (click)="inputFocus()">
+      <i *ngIf="isInputError" class="material-icons error-icon">error</i>
+      <span *ngIf="isInputError" class="error-message">{{inputErrorMesage | translate}}</span>
+    </mat-chip-list>
+  </mat-form-field>
+
+  <div class="color-picker-wrapper">
+    <button *ngIf="isEditMode" class="color-picker" [style.background]="selectedColor"
+    (click)="openColorPicker(selectedColor)"></button>
+  </div>
+</div>
+
+<app-collor-picker [color]="selectedColor" (colorSaved)="handleColorChange($event)"></app-collor-picker>

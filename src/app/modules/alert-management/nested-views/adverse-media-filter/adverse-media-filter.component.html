@@ -1,0 +1,43 @@
+<div class="hit-details-wrap adverse-media-wrap">
+  <div class="filter-box-wrap">
+    <span class="filter-label">
+      Keywords
+    </span>
+    <div class="bst-menu">
+      <label class="switch ml-2 custom-switch-wrapper filters-switch-wrapper bst-switch-wrapper">
+        <input name="override" type="checkbox" [checked]="showkeywords" (change)="showkeywords = !showkeywords">
+        <span class="slider round"></span>
+      </label>
+    </div>
+  </div>
+  <ng-container *ngIf="showkeywords">
+    <div class="custom-search">
+      <i class="material-icons text-dark-black mr-1 search-keyword">search</i>
+      <div class="form-outline">
+        <input class="form-control" type="text" placeholder="Search Keywords" [(ngModel)]="searchQuery"
+          (ngModelChange)="searchKeywordsEvent()">
+      </div>
+    </div>
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let data of adverseKeyword | searchFilter : searchQuery; let i = index" [expanded]="i==0">
+        <mat-expansion-panel-header class="custom-header">
+          <mat-panel-title>
+            <mat-checkbox class="bst-checkbox" [(ngModel)]="data.completed" [indeterminate]="someComplete(data)"
+              (change)="setAll(data, $event.checked)" (click)="$event.stopPropagation()">
+              <span class="custom-checkbox-label"> {{data.hit_producer_category}}</span>
+            </mat-checkbox>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-panel-description>
+          <mat-list>
+            <mat-list-item *ngFor="let item of data.hit_generated">
+              <mat-checkbox [(ngModel)]="item.completed" class="bst-checkbox" (ngModelChange)="updateAllComplete(data)">
+                <span class="custom-checkbox-label"> {{ item.name }}</span>
+              </mat-checkbox>
+            </mat-list-item>
+          </mat-list>
+        </mat-panel-description>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </ng-container>
+</div>

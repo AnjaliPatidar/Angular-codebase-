@@ -1,0 +1,105 @@
+<ng-container>
+  <ul *ngIf="moduleName != 'user-management'">
+    <li
+      *ngFor="let breadcrumb of breadcrumbs;trackBy:trackByPath"
+      [ngClass]="
+        breadcrumb.parent == 'Discover'
+          ? 'textDiscover'
+          : breadcrumb.parent == 'Act'
+          ? 'textAct'
+          : breadcrumb.parent == 'Enrich'
+          ? 'textEnrich'
+          : breadcrumb.parent == 'Manage'
+          ? 'textManage'
+          : breadcrumb.parent == 'Predict'
+          ? 'textPredict'
+          : ''
+      "
+    >
+      <span *ngIf="singleBreadcrumb"
+        ><i class="fa mar-r5 fa-{{ breadcrumb.icon }}"></i
+      ></span>
+      <!-- <a [routerLink]="breadcrumb.path" > <span class="f-20 font-medium" *ngIf='isLightTheme'>Discover</span>
+        <span class="mx-4" *ngIf='isLightTheme'> <i class="fa fa-angle-right f-17 light-text"></i> </span> <span class="light-text"> {{breadcrumb.name}}</span> <span class="mx-4"> <i class="fa fa-angle-right f-17 light-text"></i>  </span> <span class="light-text"> {{childBreadCrum}} </span></a> -->
+      <a
+        [routerLink]="breadcrumb.path"
+        [ngClass]="{ 'link-clickable': isLinkCLickable }"
+      >
+        <span
+          class="f-20 text-white gotham-medium font-weight-normal text-dark-black"
+          *ngIf="breadcrumb.parent"
+        >
+          {{ breadcrumb?.parent }}</span
+        >
+        <i
+          class="fa fa-angle-right mx-4 f-17 light-text text-dark-black"
+          *ngIf="breadcrumb.parent"
+        ></i>
+        <span class="light-text text-dark-black">
+          {{ breadcrumb.name | translate }}</span
+        >
+        <span class="mx-4">
+          <i
+            *ngIf="childBreadCrum"
+            class="fa fa-angle-right f-17 light-text text-dark-black"
+          ></i>
+        </span>
+        <span class="light-text text-dark-black">
+          {{ childBreadCrum }}
+        </span></a
+      >
+    </li>
+  </ul>
+</ng-container>
+
+<ul *ngIf="moduleName == 'user-management'">
+  <!-- <li>
+     <a *ngFor="let link of Links" routerLink="link.link">{{link.value}}</a>
+  </li> -->
+
+  <li>
+    <span *ngIf="singleBreadcrumb">
+      <i class="fa  mx-4 f-17 light-text fa-{{ breadcrumb.icon }}"></i>
+    </span>
+    <span
+      class="f-20 text-white font-medium gotham-medium fw-500 text-dark-black"
+      >{{ "Manage" | translate }}</span
+    >
+    <span class="mt-1 d-flex text-dark-black">
+      <span
+        class="c-pointer d-flex align-items-center p-0"
+        routerLink="/element/user-management"
+      >
+        <i class="fa mx-4 f-17 light-text fa-angle-right"></i>
+        <span class="theme-align">{{ "UserManagement" | translate }}</span>
+      </span>
+      <ng-container *ngIf="lastChild != 'user-management'">
+        <span
+          *ngFor="let user of links;trackBy:trackByName"
+          class="mar-r5 text-capitalize d-flex align-items-center"
+        >
+          <ng-container *ngIf="user.name != 'undefined'">
+            <i class="fa mx-4 f-17 light-text fa-angle-right"></i>
+            <span
+              *ngIf="user.link"
+              class="c-pointer theme-align"
+              routerLink="{{ user.link }}"
+              >{{ user?.name | translate }}</span
+            >
+            <span *ngIf="!user.link" class="theme-align">{{
+              user?.name === "newrole"
+                ? ("New Role" | translate)
+                : user?.name === "newgroup"
+                ? ("New Group" | translate)
+                : (user?.name | translate)
+            }}</span>
+          </ng-container>
+        </span>
+      </ng-container>
+    </span>
+  </li>
+</ul>
+
+<!-- Breadcrumb for case management module starts -->
+
+<!-- Breadcrumb for case management module ends -->

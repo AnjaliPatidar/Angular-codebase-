@@ -1,0 +1,154 @@
+<div mat-dialog-title
+    class="d-flex align-items-center justify-content-between pb-4 mb-0 title gotham-medium text-dark-black light-theme-border-bottom text-on-surface bottom-border">
+    <div class="profile-image  d-flex align-items-center" *ngIf="profileImage">
+        <img class="img img-circle img-fluid"  [src]="profileImage"  id="profile-image">
+    </div>
+    <p class="f-12 gotham-regular"> {{'LastLogin' | translate}}: {{data.lastLoginDate}} </p>
+    <button class="grad-button" (click)="updatePreferences()"> {{'Change' | translate}} </button>
+</div>
+<form class="no-pink-form" autocomplete="off">
+    <div mat-dialog-content class="custom-scroll-wrapper overflow-x-hidden">
+        <div class="app-spinner" *ngIf="userCreateSpinner">
+            <mat-spinner></mat-spinner>
+        </div>
+            <div class="col-md-12">
+                <h4 class="font-medium gotham-medium f-20 mar-t20 text-dark-black"><i class="fa fa-info" ></i> {{'Details'| translate}}</h4>
+
+                <div class="d-flex mb-4 ">
+                    <div class="mr-4 flex-one custom-user-input">
+                        <mat-form-field>
+                            <input matInput required maxlength="60" autocomplete="off" placeholder="{{'First Name' | translate}}"
+                                name="firstName" [(ngModel)]="userDetails.firstName" #firstName="ngModel"
+                                [disabled]="true" class="text-overflow">
+
+                        </mat-form-field>
+                        <span *ngIf="firstName.touched" class="d-block text-coral-red mt-2"
+                            [class.error-msg]="firstName.hasError('required') || firstName.hasError('maxlength') ">
+                            <span *ngIf="firstName.hasError('required')" class="mb-2">This field is required</span>
+                            <span *ngIf="firstName.hasError('maxlength')" class="mb-2">Max allowed charaters are
+                                60</span>
+                        </span>
+                    </div>
+
+                    <div class="flex-one custom-user-input">
+                        <mat-form-field>
+                            <input matInput required maxlength="60" placeholder="{{'Last Name' | translate}}" name="lastName"
+                                autocomplete="off" [(ngModel)]="userDetails.lastName" #lastName="ngModel"
+                                [disabled]="true" class="text-overflow">
+
+                        </mat-form-field>
+                        <span *ngIf="lastName.touched" class="d-block text-coral-red mt-2"
+                            [class.error-msg]="lastName.hasError('required') || lastName.hasError('maxlength')">
+                            <span *ngIf="lastName.hasError('required')" class="mb-2">This field is required</span>
+                            <span *ngIf="lastName.hasError('maxlength')" class="mb-2">Max allowed charaters are
+                                60</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="d-flex mb-4 ">
+                    <div class="mr-4 flex-one custom-user-input">
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="picker" name="dateOfBirth" [max]="dateOfBirthRanges.max"
+                                autocomplete="off" (click)="picker.open()" (focus)="picker.open()"
+                                [(ngModel)]="userDetails.dob" placeholder="{{'DateOfBirth' | translate}}" [disabled]="true"
+                                class="text-overflow" readonly>
+                            <!-- [min]="dateOfBirthRanges.min" -->
+                            <mat-datepicker-toggle id="datePick" matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker panelClass="user-datepicker"></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="flex-one custom-user-input">
+                        <mat-form-field>
+                            <mat-select id="countrySelect" placeholder="{{'Country' | translate}}" name="country" #country="ngModel"
+                                [(ngModel)]="userDetails.country" [disabled]="true" required>
+                                <mat-select-trigger>
+                                    <span class="fa fa-icon "></span>
+                                    <i
+                                        class="flag-icon w-25 pad-r3 flag-icon-squared flag-icon-{{countrySelected['icon']}}"></i>{{countrySelected['name']}}
+                                </mat-select-trigger>
+                                <ngx-mat-select-search name="search" [placeholderLabel]="placeholderLabel" ngModel
+                                    (ngModelChange)="countriesFilter($event)" [clearSearchInput]="true">
+                                </ngx-mat-select-search>
+
+                                <ng-container *ngFor="let country of countries;trackBy:trackByListItemId">
+                                    <mat-option *ngIf="country.displayName.toLowerCase().trim() != 'all' "
+                                        [value]="country.listItemId"
+                                        (click)="countrySelected['icon'] = country.code.toLowerCase() ; countrySelected['name'] = country.displayName">
+                                        <span class="fa fa-icon "></span><i
+                                            class="flag-icon w-25 pad-r3 flag-icon-squared flag-icon-{{country.code.toLowerCase()}}"></i>{{country.displayName}}
+                                    </mat-option>
+                                </ng-container>
+                            </mat-select>
+                        </mat-form-field>
+                        <span *ngIf="country.touched" class="d-block text-coral-red mt-2"
+                            [class.error-msg]="country.hasError('required')">
+                            <span *ngIf="country.hasError('required')" class="mb-2">This field is required</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="mb-4 width-50">
+                    <div class="mr-2 custom-user-input">
+                        <mat-form-field>
+                            <input matInput required maxlength="100"
+                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.+-]+\.[a-zA-Z]{0,100}$" autocomplete="off"
+                                placeholder="{{'Email' | translate}}" [disabled]="true" name="email*" #emailAddress="ngModel"
+                                [(ngModel)]="userDetails.emailAddress" class="text-overflow">
+
+                        </mat-form-field>
+                        <span *ngIf="emailAddress.touched" class="d-block text-coral-red mt-2"
+                            [class.error-msg]="emailAddress.hasError('required') || emailAddress.hasError('maxlength') || emailAddress.hasError('pattern')">
+                            <span *ngIf="emailAddress.hasError('required')" class="mb-2">This field is required</span>
+                            <span *ngIf="emailAddress.hasError('maxlength')" class="mb-2">Max allowed charaters are
+                                100</span>
+                            <span *ngIf="emailAddress.hasError('pattern')" class="mb-2">Invalid email</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <h4 class="font-medium gotham-medium f-20 mar-t20 text-dark-black"><i class="fa fa-sliders" aria-hidden="true"></i> {{'Preferences' | translate}}</h4>
+                <div class="d-flex mb-4 ">
+
+                    <div class="mr-4 flex-one custom-user-input">
+                        <mat-form-field>
+                            <mat-select placeholder="{{'language' | translate}}" name="language" #language="ngModel"
+                                [(ngModel)]="userDetails.language">
+                                <mat-option value="english">English</mat-option>
+                                <mat-option value="german">German</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="mr-3 flex-one custom-user-input">
+                        <mat-form-field>
+                            <mat-select placeholder="{{'Default Module' | translate}}" name="defaultModule" #defaultModule="ngModel"
+                                [(ngModel)]="userDetails.defaultModule">
+                                <mat-option *ngFor="let module of modulesList;trackBy:trackByAttributeValue" [value]="module.attributeValue">{{module.attributeName}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="mb-4 width-50">
+                    <div class="mr-4  custom-user-input">
+                        <mat-form-field>
+                            <mat-select placeholder="{{'Default Theme' | translate}}" name="defaultTheme" #defaultTheme="ngModel"
+                                [(ngModel)]="userDetails.defaultTheme">
+                                <mat-option *ngFor="let theme of themes; trackBy:trackByThemeId" [value]="theme.themeName"
+                                            (click)="changeTheme(theme.themeName, theme.themeId)">{{theme.themeName}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <h4 class="font-medium gotham-medium f-20 mar-t20 text-dark-black"><i class="fa fa-id-card" aria-hidden="true"></i> {{'Your Roles' | translate}}</h4>
+                <div class="mb-3 ">
+                    <p *ngFor="let role of userRoles;trackBy:trackByRoleName" class="ml-5 mb-3 text-dark-black">
+                        <i class="fa fa-folder-open" aria-hidden="true"></i>  {{role.roleName}}
+                    </p>
+                </div>
+            </div>
+    </div>
+</form>

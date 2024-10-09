@@ -1,0 +1,11 @@
+<div class="d-flex">
+    <div class="spinner-border spinner-border-sm mr-2 clr-light-green align-self-center" role="status" *ngIf="isLoading">
+        <span class="sr-only">{{ 'loading' | translate }}</span>
+    </div>
+
+    <ng-container *ngIf="tooltip; else noHover">
+        <div class="link-content" [matTooltip]="tooltip">{{ value }}</div>
+    </ng-container>
+</div>
+
+<ng-template #noHover>{{ value }}</ng-template>

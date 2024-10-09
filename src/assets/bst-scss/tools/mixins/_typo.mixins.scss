@@ -1,0 +1,12 @@
+/* Truncate text Mixins */
+
+@mixin typo-colors($font-size, $font-color) {
+  font-size: $font-size;
+  color: $font-color;
+}
+
+/* Usage */
+//@include typo-colors(32px,$color-accent);
+
+
+

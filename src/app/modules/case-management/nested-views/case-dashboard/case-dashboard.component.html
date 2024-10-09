@@ -1,0 +1,805 @@
+<!-- case mgt dashboard starts -->
+<div class="case-mgt-dashboard">
+  <!-- Top panel starts -->
+  <div
+    class="d-grid top-panel-wrapper grid-c-4 four-column-grid mnh-120px grid-y25 mt-3"
+  >
+    <div class="new-card d-flex radius-10">
+      <div
+        class="w-120 radius-10 radius-top-right-0 radius-bottom-right-0 icon-transparent-bg d-inline-flex align-items-center justify-content-center text-white mr-3"
+      >
+        <i class="material-icons f-40">notifications</i>
+      </div>
+      <div class="d-inline-flex justify-content-center fd-c">
+        <p class="f-20 mb-3">{{ 'New' | translate }}</p>
+        <p class="f-34 lh-normal">
+          {{ caseTypesList && caseTypesList.New ? caseTypesList.New : 0 }}
+        </p>
+      </div>
+    </div>
+    <div class="refresh-card d-flex radius-10">
+      <div
+        class="w-120 radius-10 radius-top-right-0 radius-bottom-right-0 icon-transparent-bg d-inline-flex align-items-center justify-content-center text-white mr-3"
+      >
+        <i class="material-icons f-40">refresh</i>
+      </div>
+      <div class="d-inline-flex justify-content-center fd-c">
+        <p class="f-20 mb-3">{{ 'Refresh' | translate }}</p>
+        <p class="f-34 lh-normal">
+          {{
+            caseTypesList && caseTypesList.Refresh ? caseTypesList.Refresh : 0
+          }}
+        </p>
+      </div>
+    </div>
+    <div class="rework-card d-flex radius-10">
+      <div
+        class="w-120 radius-10 radius-top-right-0 radius-bottom-right-0 icon-transparent-bg d-inline-flex align-items-center justify-content-center text-white mr-3"
+      >
+        <i class="material-icons f-40">work</i>
+      </div>
+      <div class="d-inline-flex justify-content-center fd-c">
+        <p class="f-20 mb-3">{{ 'Re-Work' | translate }}</p>
+        <p class="f-34 lh-normal">
+          {{
+            caseTypesList && caseTypesList["Re_work"]
+              ? caseTypesList["Re_work"]
+              : 0
+          }}
+        </p>
+      </div>
+    </div>
+    <div class="trigger-event-card d-flex radius-10">
+      <div
+        class="w-120 radius-10 radius-top-right-0 radius-bottom-right-0 icon-transparent-bg d-inline-flex align-items-center justify-content-center text-white mr-3"
+      >
+        <i class="material-icons f-40">event</i>
+      </div>
+      <div class="d-inline-flex justify-content-center fd-c">
+        <p class="f-20 mb-3">{{ 'Trigger Event' | translate }}</p>
+        <p class="f-34 lh-normal">
+          {{
+            caseTypesList && caseTypesList["Trigger_Event"]
+              ? caseTypesList["Trigger_Event"]
+              : 0
+          }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- Top panel ends -->
+  <div class="d-grid grid-two-column chart-panels-wrapper grid-y20 mt-4">
+    <div
+      id="chartPanel_{{ widget.widget_id }}"
+      class="chart-panel d-chart mnh-300 p-4 mb-4 radius-10 position-relative light-theme-bg-white light-theme-no-radius h-auto"
+      *ngFor="
+        let widget of widgetChartInfoGblObject.allWidgetInstanceOfUser;
+        let index = index
+      "
+    >
+      <div class="chart-title border-thin-dark-cream-b mb-4 d-flex jc-sb ai-c" [class.pb-15]="!widget.editTitle">
+        <h3
+          *ngIf="
+            widgetChartInfoGblObject.allWidgetInstanceOfUser[index].widgetName
+          "
+          class="text-capitalize mb-0 f-20 mr-2 dots-text gotham-medium text-dark-black"
+        >
+          <span *ngIf="widget.editTitle" class="lh-normal title-text-on-surface">
+            {{
+              widgetChartInfoGblObject.allWidgetInstanceOfUser[index].widgetName
+            }}</span
+          >
+          <span *ngIf="widget.editTitle"
+            ><i
+              data-html2canvas-ignore="true"
+              class="fa fa-pencil f-24 mar-l15 c-pointer text-on-surface"
+              (click)="editWidgetName(index)"
+            ></i
+          ></span>
+        </h3>
+
+        <div class="widget-edit width-70 no-theme-border" *ngIf="!widget.editTitle">
+          <div
+            class="input-group custom-input-group custom-select-dropdown inner-element mar-b0 text-dark-black d-inline-block"
+            [ngClass]="{ 'c-ban': widget.editTitle }"
+          >
+            <input
+              type="text"
+              maxlength="200"
+              class="custom-input widtheight-100 text-dark-black"
+              [(ngModel)]="
+                widgetChartInfoGblObject.allWidgetInstanceOfUser[index].widgetName
+              "
+              [ngClass]="{ 'pe-none': widget.editTitle }"
+            />
+          </div>
+          <!-- <span> -->
+            <mat-icon class="text-dark-cream c-pointer text-dark-black checkIcon" (click)="saveWidgetName(index)">check</mat-icon>
+          <!-- </span>
+          <span> -->
+            <mat-icon  class="text-dark-cream c-pointer text-dark-black closeIcon"  (click)="cancelEditWidgetName(index)">close</mat-icon>
+          <!-- </span> -->
+        </div>
+
+
+        <div class="d-flex">
+        <!-- ASHEN - Period details -->
+          <mat-chip-list
+            style="display: contents"
+            class="mat-chip-widget-filters mr-auto"
+          >
+            <mat-chip
+              color="widgetFilterChips"
+              *ngIf="getPeriodDetailsInSettings(widget.user_settings_json) != ''"
+              selected
+            >
+              <div>
+                <div matLine>
+                  {{ getPeriodDetailsInSettings(widget.user_settings_json) }}
+                </div>
+              </div>
+            </mat-chip>
+          </mat-chip-list>
+
+          <span
+            class="p-2"
+            [ngClass]="{
+              'primary-color':
+                widget.displayWidgetFilterData &&
+                widget.displayWidgetFilterData.length > 0
+            }"
+            ><i
+              (click)="filterWidgetSettings(widget, index)"
+              class="material-icons c-pointer menu text-dark-black"
+              permission [PemissionHide]="true"
+              [domainPermission]="
+                caseWorkBenchPermissionJSON
+                  | getPermissionId: 'widget Filtering'
+              "
+              >filter_list</i
+            ></span
+          >
+          <span class="p-2"><i (click)="triggerWidgetSettings(widget, index)"
+              class="material-icons c-pointer menu text-dark-black"  permission [PemissionHide]="true" [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId: 'widget Settings'">settings</i></span>
+
+          <span data-html2canvas-ignore="true" class="p-2">
+            <i
+              [matMenuTriggerFor]="menu"
+              class="material-icons c-pointer menu text-dark-black"
+              permission
+              [domainPermission]="
+                caseWorkBenchPermissionJSON
+                  | getPermissionId: 'widget Exporting'
+              "
+              >more_vert</i
+            >
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item [matMenuTriggerFor]="exportMenu">
+                <span class="material-icons align-middle mr-3">
+                  cloud_download
+                </span>
+                {{ 'Export as' | translate }}
+              </button>
+              <mat-divider *ngIf="customizeStatus"></mat-divider>
+              <button
+                mat-menu-item
+                *ngIf="customizeStatus"
+                (click)="deleteWidget(widget, index)"
+              >
+                <span class="material-icons align-middle mr-3">delete</span>
+                {{ 'Remove' | translate }}
+              </button>
+            </mat-menu>
+            <mat-menu #exportMenu="matMenu" yPosition="below">
+              <button
+                (click)="
+                  exportChart(
+                    widget.widget_id,
+                    widgetChartInfoGblObject.allWidgetInstanceOfUser[index]
+                      .widgetName,
+                    'PNG'
+                  )
+                "
+                mat-menu-item
+              >
+                PNG
+              </button>
+              <button
+                (click)="
+                  exportChart(
+                    widget.widget_id,
+                    widgetChartInfoGblObject.allWidgetInstanceOfUser[index]
+                      .widgetName,
+                    'PDF'
+                  )
+                "
+                mat-menu-item
+              >
+                PDF
+              </button>
+            </mat-menu>
+          </span>
+        </div>
+      </div>
+
+      <div class="mat-chip-list-widget-filters">
+        <mat-chip-list
+          style="display: contents"
+          class="mat-chip-widget-filters mr-auto"
+          *ngIf="
+            widget.WidgetFilterDataObj &&
+            !isEmptyObject(widget.WidgetFilterDataObj)
+          "
+        >
+          <mat-chip
+            color="widgetFilterChips"
+            *ngFor="let item of widget.WidgetFilterDataObj | keyvalue; trackBy:trackByKey"
+            selected
+          >
+            <div>
+              <div class="text-capitalize" matLine>
+                {{ item.key }}:
+                <span *ngFor="let selecteditems of item.value; let last = last;trackBy:trackByDisplayName">
+                  {{ selecteditems.displayName | translate }}{{ last ? "" : "," }}
+                </span>
+              </div>
+            </div>
+            <mat-icon
+              (click)="clearWidgetFilters(index, 'SINGLE', item.key)"
+              data-html2canvas-ignore="true"
+              matChipRemove
+              >cancel</mat-icon
+            >
+          </mat-chip>
+
+          <mat-chip
+            class="primary-color"
+            color="clearfilter"
+            data-html2canvas-ignore="true"
+            (click)="clearWidgetFilters(index, 'ALL')"
+          >
+            <div>
+              <div matLine>{{ 'CLEAR FILTERS' | translate }}</div>
+            </div>
+          </mat-chip>
+        </mat-chip-list>
+      </div>
+
+      <div
+        class=""
+        id="politicaldonations_{{ widget.widget_id }}"
+        *ngIf="
+          !widgetChartInfoGblObject.allWidgetInstanceOfUser[index].widgetSpinner
+        "
+      ></div>
+      <div
+        class="d-flex justify-content-center align-items-center mnh-300"
+        *ngIf="
+          widgetChartInfoGblObject.allWidgetInstanceOfUser[index].widgetSpinner
+        "
+      >
+        <i
+          class="fa fa-spinner fa-pulse text-dark-black"
+          style="font-size: 2.5rem"
+        ></i>
+      </div>
+      <span
+        class="data-not-found no-data mnh-auto"
+        *ngIf="
+          widget.data['data'].length == 0 &&
+          !widgetChartInfoGblObject.allWidgetInstanceOfUser[index].widgetSpinner
+        "
+        >{{ 'Data Not Found' | translate }}</span
+      >
+    </div>
+  </div>
+  <!-- widget settings side panel starts here -->
+  <div
+    class="chart-panels-wrapper widget-settings light-theme-bg-white p-3"
+    [class.hide-widget-settings]="!widgetChartInfoGblObject.widgetpanel"
+  >
+    <div *ngIf="widgetChartInfoGblObject.widgetSettingsFlag">
+      <div
+        class="chart-title border-thin-dark-cream-b d-flex justify-content-between align-items-center h-40"
+      >
+        <h3
+          class="text-capitalize mb-0 f-17 mr-2 dots-text gotham-medium text-dark-black"
+        >
+          {{ 'Widget Settings' | translate }}
+        </h3>
+        <button
+          type="button"
+          class="bg-transparent border-0 closeMe"
+          aria-label="Close"
+          (click)="close()"
+        >
+          <i class="material-icons f-25 text-on-surface text-dark-black"
+            >close</i
+          >
+        </button>
+      </div>
+      <div
+        class="widget-body pt-4 overflow-auto custom-scroll-wrapper"
+        *ngIf="
+          showWidgetSettingsTabFeilds(widgetChartInfoGblObject.settingsObj)">
+        <mat-tab-group animationDuration="0ms">
+          <mat-tab [label]="'STRUCTURE' | translate">
+            <div  permission [disabled]="isWidgetSettingViewPermissionEnabled"
+              class="custom-scroll-wrapper"
+              style="height: 55vh; overflow: auto"
+            >
+              <div
+                class="mt-3 mb-4 custom-user-input"
+                *ngIf="
+                  widgetChartInfoGblObject.widgetgraphTypeList &&
+                  widgetChartInfoGblObject.widgetgraphTypeList.length
+                "
+              >
+                <mat-form-field
+                  appearance="fill"
+                  [ngClass]="{ 'c-ban': true }"
+                  class="text-dark-black"
+                >
+                  <mat-label class="text-dark-black">{{ 'Widget Type' | translate }}</mat-label>
+                  <mat-select
+                    [(ngModel)]="widgetChartInfoGblObject.selectedGraphType"
+                    disabled
+                    (selectionChange)="onChangeSelectedGraphType()"
+                  >
+                    <mat-option
+                      *ngFor="
+                        let graphType of widgetChartInfoGblObject.widgetgraphTypeList;trackBy:trackByValue
+                      "
+                      [value]="graphType.value"
+                      ngDefaultControl
+                    >
+                      {{ graphType.value | translate }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+
+              <div
+                class="mb-4 custom-user-input"
+                *ngIf="
+                  widgetChartInfoGblObject.entityTypeList &&
+                  widgetChartInfoGblObject.entityTypeList.length
+                "
+              >
+                <mat-form-field
+                  appearance="fill"
+                  [ngClass]="{ 'c-ban': true }"
+                  class="text-dark-black"
+                >
+                  <mat-label class="text-dark-black">{{ 'Entity Type' | translate }}</mat-label>
+                  <mat-select
+                    class="text-capitalize"
+                    [(ngModel)]="widgetChartInfoGblObject.selectedEntityType"
+                    disabled
+                    (selectionChange)="onChangeSelectedEntityType()"
+                  >
+                    <mat-option
+                      *ngFor="
+                        let entityType of widgetChartInfoGblObject.entityTypeList;trackBy:trackByValue
+                      "
+                      [value]="entityType && entityType.value"
+                      ngDefaultControl
+                    >
+                      {{ (entityType && entityType.value) | translate }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="xaxis mt-4">
+                <div
+                  class="mb-4 custom-user-input"
+                  *ngIf="
+                    widgetChartInfoGblObject.xAxisPeriodData &&
+                    widgetChartInfoGblObject.xAxisPeriodData.length
+                  "
+                >
+                  <mat-form-field appearance="fill" class="text-dark-black">
+                    <mat-label class="text-dark-black">{{ 'X-Axis' | translate }}</mat-label>
+                    <mat-select
+                      [(ngModel)]="widgetChartInfoGblObject.selectedPeriod"
+                      class="text-capitalize"
+                      (selectionChange)="onChangexAxisPeriod()"
+                    >
+                      <mat-option
+                        class="text-capitalize"
+                        *ngFor="
+                          let periodInfo of widgetChartInfoGblObject.xAxisPeriodData;trackBy:trackByValue
+                        "
+                        [value]="periodInfo.value"
+                        ngDefaultControl
+                      >
+                        {{ periodInfo.value | translate }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+
+                <div
+                  class="mb-4 custom-user-input"
+                  *ngIf="
+                    widgetChartInfoGblObject.selectedPeriod ===
+                    ('period' || 'Period')
+                  "
+                >
+                  <mat-form-field appearance="fill" class="text-dark-black">
+                    <mat-label class="text-dark-black">{{ 'Period Type' | translate }}</mat-label>
+                    <mat-select
+                      class="text-capitalize"
+                      [(ngModel)]="widgetChartInfoGblObject.selectedPeriodType"
+                      (selectionChange)="onChangeSelectedPeriodType()"
+                    >
+                      <mat-option
+                        class="text-capitalize"
+                        *ngFor="
+                          let periodType of widgetChartInfoGblObject.xAxisPeriodType;trackBy:trackByValue
+                        "
+                        [value]="periodType.value"
+                        ngDefaultControl
+                      >
+                        <span class="text-capitalize">
+                          {{ periodType?.value ? (periodType?.value | translate) : (periodType?.showText | translate) }}
+                        </span>
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+
+                <div
+                  class="mb-4"
+                  *ngIf="
+                    widgetChartInfoGblObject.selectedPeriod ===
+                      ('period' || 'Period') &&
+                      (widgetChartInfoGblObject?.periodSliderValidations?.showText ?  widgetChartInfoGblObject?.periodSliderValidations?.showText : '') != ''"
+                >
+                  <div class="text-center">
+                    <mat-label class="text-dark-black"
+                      >{{ 'Missing Period Settings' | translate }}</mat-label
+                    >
+                  </div>
+                </div>
+
+                <div
+                  class="mb-4"
+                  *ngIf="
+                    widgetChartInfoGblObject.selectedPeriod ===
+                      ('period' || 'Period')
+                  "
+                >
+                  <div class="d-flex jc-sb">
+                    <mat-label class="text-dark-black"
+                      >{{ 'Number of Periods' | translate }}</mat-label
+                    >
+                    <div
+                      class="f-14 text-on-surface text-dark-black text-capitalize"
+                    >
+                      {{ widgetChartInfoGblObject.numberOfPeriodsFilter }}
+                       {{
+                        widgetChartInfoGblObject?.periodSliderValidations?.showText ?  widgetChartInfoGblObject?.periodSliderValidations?.showText : ''
+                      }}
+                    </div>
+                  </div>
+
+                   <mat-slider
+                    [max]="
+                    (widgetChartInfoGblObject?.periodSliderValidations?.periodMax ?  widgetChartInfoGblObject?.periodSliderValidations?.periodMax : '') != ''
+                    "
+                    [min]="
+                    (widgetChartInfoGblObject?.periodSliderValidations?.periodMin ?  widgetChartInfoGblObject?.periodSliderValidations?.periodMin : '') != ''
+                    "
+                    [step]="1"
+                    [value]="0"
+                    [thumbLabel]="true"
+                    [(ngModel)]="widgetChartInfoGblObject.numberOfPeriodsFilter"
+                    class="mt-4 width-100"
+                  ></mat-slider>
+                </div>
+              </div>
+              <div class="yaxis mt-4">
+                <div
+                  class="mb-4 custom-user-input"
+                  *ngIf="
+                    widgetChartInfoGblObject.yAxisList &&
+                    widgetChartInfoGblObject.yAxisList.length
+                  "
+                >
+                  <mat-form-field appearance="fill" class="text-dark-black">
+                    <mat-label class="text-dark-black">{{ 'Y-Axis' | translate }}</mat-label>
+                    <mat-select
+                      [(ngModel)]="
+                        widgetChartInfoGblObject.selectedYAxisattribute
+                      "
+                      class="text-capitalize"
+                      (selectionChange)="onChangeSelectedYAttribute()"
+                    >
+                      <mat-option
+                        class="text-capitalize"
+                        *ngFor="let attr of widgetChartInfoGblObject.yAxisList; trackBy:trackByValue"
+                        [value]="attr.value"
+                        ngDefaultControl
+                      >
+                        {{ attr.value | translate }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div
+                  class="mb-4 custom-user-input"
+                  *ngIf="
+                    widgetChartInfoGblObject.aggregationList &&
+                    widgetChartInfoGblObject.aggregationList.length
+                  "
+                >
+                  <mat-form-field
+                    appearance="fill"
+                    class="text-dark-black"
+                    [ngClass]="{ 'c-ban': true }"
+                  >
+                    <mat-label class="text-dark-black"
+                      >{{ 'Aggregation Type' | translate }}</mat-label
+                    >
+                    <mat-select
+                      class="text-capitalize"
+                      [(ngModel)]="
+                        widgetChartInfoGblObject.selectedAggrigateType
+                      "
+                      disabled
+                      (selectionChange)="onChangeSelectedYAttribute()"
+                    >
+                      <mat-option
+                        class="text-capitalize"
+                        *ngFor="
+                          let aggType of widgetChartInfoGblObject.aggregationList;trackBy:trackByValue
+                        "
+                        [value]="aggType.value"
+                        ngDefaultControl
+                      >
+                        {{ aggType.value | translate }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+          <mat-tab [label]="'LAYOUT' | translate">
+            <div  permission [disabled]="isWidgetSettingViewPermissionEnabled"
+              class="custom-scroll-wrapper overflow-auto overflow-x-hidden"
+              style="height: 55vh"
+            >
+              <span class="mt-4 text-dark-black f-14">{{ 'Chart and Axis Titles' | translate }}</span>
+              <div class="mt-3 mb-3 custom-user-input">
+                <mat-form-field appearance="fill">
+                  <mat-label class="text-dark-black">{{ 'Widget Title' | translate }}</mat-label>
+                  <input
+                    matInput
+                    class="text-dark-black pt-2"
+                    [maxLength]="50"
+                    autocomplete="off"
+                    [(ngModel)]="
+                      widgetChartInfoGblObject.widgetsideBargraphTitle
+                    "
+                    ngDefaultControl
+                  />
+                </mat-form-field>
+              </div>
+              <div class="d-flex jc-sb ai-c mt-3 mb-3">
+                <mat-label class="text-dark-black f-14">{{ 'Show X-Axis Title' | translate }}</mat-label>
+                <mat-slide-toggle
+                  style="float: right"
+                  [(ngModel)]="widgetChartInfoGblObject.showXsubTitleIndicator"
+                >
+                </mat-slide-toggle>
+              </div>
+              <div
+                class="mt-3 mb-3 custom-user-input"
+                *ngIf="widgetChartInfoGblObject.showXsubTitleIndicator"
+              >
+                <mat-form-field appearance="fill">
+                  <mat-label class="text-dark-black f-14">{{ 'X-Axis Title' | translate }}</mat-label>
+                  <input
+                    matInput
+                    class="text-dark-black pt-2"
+                    maxlength="50"
+                    name="showXsubTitle"
+                    autocomplete="off"
+                    [(ngModel)]="widgetChartInfoGblObject.showXsubTitle"
+                    ngDefaultControl
+                    #showXsubTitle="ngModel"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="d-flex jc-sb ai-c mt-3 mb-3">
+                <mat-label class="text-dark-black f-14">{{ 'Show Y-Axis Title' | translate }}</mat-label>
+                <mat-slide-toggle
+                  [(ngModel)]="widgetChartInfoGblObject.showYsubTitleIndicator"
+                ></mat-slide-toggle>
+              </div>
+              <div
+                class="mt-3 mb-3 custom-user-input"
+                *ngIf="widgetChartInfoGblObject.showYsubTitleIndicator"
+              >
+                <mat-form-field appearance="fill">
+                  <mat-label class="text-dark-black f-14">{{ 'Y-Axis Title' | translate }}</mat-label>
+                  <input
+                    matInput
+                    class="text-dark-black pt-2"
+                    [maxLength]="50"
+                    autocomplete="off"
+                    [(ngModel)]="widgetChartInfoGblObject.showYsubTitle"
+                    ngDefaultControl
+                  />
+                </mat-form-field>
+              </div>
+              <span class="text-dark-black f-14">{{ 'Chart Style' | translate }}</span>
+              <div
+                class="mt-3 mb-3 custom-user-input"
+                *ngIf="
+                  widgetChartInfoGblObject.themeList &&
+                  widgetChartInfoGblObject.themeList.length
+                "
+              >
+                <mat-form-field
+                  appearance="fill"
+                  class="text-dark-black"
+                  [ngClass]="{ 'c-ban': true }"
+                >
+                  <mat-label class="text-dark-black">{{ 'Theme' | translate }}</mat-label>
+                  <mat-select
+                    class="text-capitalize"
+                    [(ngModel)]="widgetChartInfoGblObject.selectedTheme"
+                    disabled
+                  >
+                    <mat-option
+                      class="text-capitalize"
+                      *ngFor="let theme of widgetChartInfoGblObject.themeList;trackBy:trackByValue"
+                      [value]="theme.value"
+                      ngDefaultControl
+                    >
+                      {{ theme.value | translate }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+    <div class="height-100" *ngIf="widgetChartInfoGblObject.widgetFilterFlag">
+      <div
+        class="chart-title border-thin-dark-cream-b d-flex justify-content-between align-items-center h-40"
+      >
+        <h3
+          class="text-capitalize mb-0 f-17 mr-2 dots-text gotham-medium text-dark-black"
+        >
+          {{ 'Widget Filter' | translate }}
+        </h3>
+        <button
+          type="button"
+          class="bg-transparent border-0 closeMe"
+          aria-label="Close"
+          (click)="close()"
+        >
+          <i class="material-icons f-25 text-on-surface text-dark-black"
+            >close</i
+          >
+        </button>
+      </div>
+      <div
+        class="widget-body filter-widget-body overflow-auto custom-scroll-wrapper"
+      >
+        <div
+          class="widgetmultiselectFilters py-4"
+          *ngIf="
+            widgetChartInfoGblObject.selectedStatus &&
+            widgetChartInfoGblObject.selectedStatus.length > 0 &&
+            widgetChartInfoGblObject.dataLoaded
+          "
+        >
+          <div
+            *ngFor="
+              let widgetStatus of widgetChartInfoGblObject.statusFiltersList;trackBy:trackByKey
+              let j = index
+            "
+            class="mb-4 position-relative" 
+          >
+            <div class="row">
+              <div class="col-md-10 pr-0">
+                <mat-label
+                  class="text-dark-black custom-label position-absolute z-9 f-10 text-capitalize ml-4"
+                  >{{ widgetStatus.key | translate }}</mat-label
+                >
+                <ng-multiselect-dropdown
+                  [ngClass]="{ noData: widgetStatus.options <= 0 }"
+                  name="financial"
+                  [placeholder]="widgetStatus.key | translate"
+                  [data]="widgetStatus.options"
+                  [settings]="widgetStatus.multiSelectSettingList"
+                  [(ngModel)]="
+                    widgetChartInfoGblObject.selectedFilterStatusData[j]
+                  "
+                  (onSelect)="
+                    onSelectedFilterStatus(false, j, widgetStatus.key, $event)
+                  "
+                  (onDeSelect)="
+                    onDeselectFilterStatus(j, widgetStatus.key, $event)
+                  "
+                  class="text-capitalize"
+                >               
+                </ng-multiselect-dropdown>
+              </div>
+              <div class="col-md-2 pl-0">
+                <button
+                  mat-icon-button
+                  color="warn"
+                  aria-label="icon button with a delete icon"
+                  class="mt-2"
+                  (click)="onStatusItemDeSelect(widgetStatus)"
+                >
+                  <mat-icon class="delIcon">delete</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="widgetmultiselectFilters py-4 position-relative" permission [disabled]="isFilterWidgetViewPermissionEnabled"  >
+          <mat-label
+            class="text-dark-black custom-label position-absolute z-9 f-9 text-capitalize"
+            style="top: 25px"
+            >{{ 'Add Filter' | translate }}</mat-label
+          >
+          <ng-multiselect-dropdown
+            name="financial"
+            [placeholder]="'Add Filter' | translate"
+            [data]="filterValidation(widgetChartInfoGblObject.statusList)"
+            [(ngModel)]="widgetChartInfoGblObject.selectedStatus"
+            [settings]="multiSelectSetting"
+            (onSelect)="onStatusItemSelect($event)"
+            (onDeSelect)="onStatusItemDeSelect($event)"
+            [disabled]="this.widgetChartInfoGblObject.disableMultiselectDD"
+            class="text-capitalize"
+          >                
+          </ng-multiselect-dropdown>
+        </div>
+      </div>
+    </div>
+    <div class="widget-btns widget-footer light-theme-bg-white">
+      <button
+        class="light-theme-btn bg-transparent secondary-btn f-14 gotham-medium p-3 mr-3"
+        (click)="canelWidgetSettings()"
+      >
+        {{ 'CANCEL' | translate }}
+      </button>
+
+      <button [disabled]="(isWidgetSettingViewPermissionEnabled || isFilterWidgetViewPermissionEnabled) "
+        class="light-theme-btn f-14 primary-btn gotham-medium p-3"
+        (click)="applyWidgetSettings(true)"
+      >
+        {{ 'SAVE' | translate }}
+      </button>
+    </div>
+  </div>
+  <!-- widget settings side panel ends -->
+
+  <!-- Chart panels starts  -->
+
+  <!-- Case status and no.of cases Chart panels starts -->
+
+  <!-- Case status and no.of cases Chart panels ends -->
+
+  <!-- Distribution and Indicative Chart panels starts -->
+
+  <!-- Distribution and Indicative Chart panels ends -->
+
+  <!-- Cumulative and completed Chart panels starts -->
+
+  <!-- Onboarding, FTP, quality Chart panels ends -->
+
+  <!-- Chart panels ends  -->
+</div>
+<!-- case mgt dashboard ends -->

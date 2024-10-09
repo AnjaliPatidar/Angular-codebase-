@@ -1,0 +1,14 @@
+<div *ngIf="showLoader" class="w-100 h-100 position-absolute loader-bg z-99">
+  <i class="fa fa-spinner txt-on-surface-06 no-data mnh-auto fa-pulse f-23"></i>
+</div>
+<bst-theme-builder *ngIf="themeName && stylesValue"
+  [themesNames]="themesNames"
+  [themeName]="themeName"
+  [stylesValue]="stylesValue"
+  (themeData)="handleThemeData($event)"
+></bst-theme-builder>
+
+<bst-theme-builder *ngIf="!themeName"
+  [themesNames]="themesNames"
+  (themeData)="handleThemeData($event)">
+</bst-theme-builder>

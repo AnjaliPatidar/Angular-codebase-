@@ -1,0 +1,135 @@
+<div class="ag-table-wrapper data-table-wrapper " style="flex:1;height: 100%;margin-top:0%">
+  <div style="height: 79px;"
+    class="radius-10 m-0 px-3 py-4 mb-3 d-flex align-items-center theme-light-black-bg light-theme-no-radius">
+    <span class="title-text-on-surface" style="margin: 0;font-size: large;">{{'Related Alerts' | translate}} ({{alertCount}})</span>
+    <button  [matMenuTriggerFor]="menu" class="text-uppercase mar-r15 bg-transparent f-14 export-button"
+      id="alertExport">
+      {{'Export Data' | translate}}
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="exportDataPdf()">
+        <span>{{'Export as PDF' | translate}}</span>
+      </button>
+      <button mat-menu-item (click)="exportDataCSV()">
+        <span>{{'Export as CSV' | translate}}</span>
+      </button>
+    </mat-menu>
+  </div>
+
+  <div style="padding: 10px;" class="text-dark-black text-on-surface">
+    <ng-container>
+      <form [formGroup]="filterForm">
+        <div class="mat-elevation-z8">
+          <mat-paginator class="tRow" [pageSizeOptions]="[10, 20, 50, 100, 200]" showFirstLastButtons="true">
+          </mat-paginator>
+
+          <div class="main-table">
+            <table mat-table [dataSource]="dataSource" matSort matSortActive="createdDate" matSortDirection="desc"
+            matSortDisableClear>
+
+            <!-- ID Column -->
+            <ng-container matColumnDef="alertId">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="headerTh txt-on-surface-87"> {{'Alert ID' | translate}} </th>
+              <td mat-cell *matCellDef="let row">
+                <a class="alertIdlink" permission
+                  [domainPermission]="permissionIdsList | getPermissionId : 'quick Info'"
+                  (click)="switchAlert(row.alertId)">{{row.alertId}} </a>
+              </td>
+            </ng-container>
+
+            <!-- ID 'filter' column -->
+            <ng-container matColumnDef="alertIdFilter">
+              <th mat-header-cell *matHeaderCellDef class="filterTh">
+                <input type="number" disabled="true" placeholder="Filter" disabled="true"
+                  formControlName="alertIdFilter" class="filter-coloumn" />
+              </th>
+            </ng-container>
+
+            <!-- Type Column -->
+            <ng-container matColumnDef="feed">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="headerTh txt-on-surface-87"> {{'Type' | translate}} </th>
+              <td mat-cell *matCellDef="let row"> {{row.feed}} </td>
+            </ng-container>
+
+            <!-- Type 'filter' column -->
+            <ng-container matColumnDef="feedFilter">
+              <th mat-header-cell *matHeaderCellDef class="filterTh">
+                <input type="text" disabled="true" placeholder="Filter" formControlName="typeFilter"
+                  class="filter-coloumn" />
+              </th>
+            </ng-container>
+
+            <!-- CreatedDate Column -->
+            <ng-container matColumnDef="createdDate">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="headerTh txt-on-surface-87"> {{'Created' | translate}} </th>
+              <td mat-cell *matCellDef="let row"> {{ getFormantDate(row.createdDate) }} </td>
+            </ng-container>
+
+            <!-- CreatedDate 'filter' column -->
+            <ng-container matColumnDef="createdDateFilter">
+              <th mat-header-cell *matHeaderCellDef class="filterTh">
+                <input type="text" disabled="true" placeholder="Filter" formControlName="createdDateFilter"
+                  class="filter-coloumn" />
+              </th>
+            </ng-container>
+
+            <!-- Status Column -->
+            <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="headerTh txt-on-surface-87"> {{'Status' | translate}} </th>
+              <td mat-cell *matCellDef="let row"> {{row.status | translate}} </td>
+            </ng-container>
+
+            <!-- Status 'filter' column -->
+            <ng-container matColumnDef="statusFilter">
+              <th mat-header-cell *matHeaderCellDef class="filterTh">
+                <input type="text" disabled="true" placeholder="Filter" formControlName="statusFilter"
+                  class="filter-coloumn" />
+            </ng-container>
+
+            <!-- Assignee Column -->
+            <ng-container matColumnDef="assignee">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="headerTh txt-on-surface-87"> {{'Assignee' | translate}} </th>
+              <td mat-cell *matCellDef="let row"> {{row.assignee | translate}} </td>
+            </ng-container>
+
+            <!-- Assignee 'filter' column -->
+            <ng-container matColumnDef="assigneeFilter">
+              <th mat-header-cell *matHeaderCellDef class="filterTh">
+                <input type="text" disabled="true" placeholder="Filter" formControlName="assigneeFilter"
+                  class="filter-coloumn" />
+              </th>
+            </ng-container>
+
+            <!-- Confidence Level Column -->
+            <ng-container matColumnDef="confidenceLevel">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header class="headerTh txt-on-surface-87"> {{'Confidence Level' | translate}} </th>
+              <td mat-cell *matCellDef="let row"> {{row.confidenceLevel}}% </td>
+            </ng-container>
+
+            <!-- Confidence Level 'filter' column -->
+            <ng-container matColumnDef="confidenceLevelFilter">
+              <th mat-header-cell *matHeaderCellDef class="filterTh">
+                <input type="number" disabled="true" placeholder="Filter" formControlName="confidenceLevelFilter"
+                  class="filter-coloumn" />
+              </th>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" class="header-background"></tr>
+            <tr mat-header-row *matHeaderRowDef="displayedColumnFilters; sticky: true" class="top-bar"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="tRow test123"></tr>
+
+            <!-- Row shown when there is no matching data. -->
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="4"> {{'No data found' | translate}} </td>
+            </tr>
+          </table>
+
+
+          </div>          
+          <div *ngIf="loading$ | async" class="mat-table-message">{{'Loading' | translate}}
+          </div>
+        </div>
+      </form>
+    </ng-container>
+  </div>
+</div>

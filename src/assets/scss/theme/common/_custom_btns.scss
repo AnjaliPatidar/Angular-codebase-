@@ -1,0 +1,106 @@
+/*==============================================================================
+***********************  Custom Btn Styles For The Site  ***********************
+==============================================================================*/
+
+/*--  Bordered Button Styles  --*/
+.bordered-button {
+    box-sizing: border-box;
+    height: 36px;
+    padding:0 1em !important;
+    border-radius:var(--smComponentCornerRadius)!important;
+    line-height: 36px;                    
+    border:  2px solid $primary-color!important; 
+    font-size: 1.4rem;
+    background: transparent!important;
+    background-color: transparent!important;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;    
+    letter-spacing: normal;
+    text-align: center;
+    color: $primary-color !important;
+    text-transform: capitalize!important;
+    &.grey-bordered{   
+        color: #fff!important;
+        border: 2px solid #fff !important;
+    }  
+    &:hover{
+        opacity: .9;
+      }
+    &.sm-btns{
+        padding: .4em .8em!important;
+        line-height: 14px;
+        vertical-align: middle;
+        height: auto;
+    }
+}
+/*--  Gradient Button Styles  --*/
+.grad-button {
+    box-sizing: border-box;
+    height: 36px;
+    line-height: 36px;
+    padding:0 1em !important;
+    border-radius:var(--smComponentCornerRadius)!important;
+    background: $primary-color;
+    border: 0!important; 
+    color:$text-on-primary !important; 
+    font-size: 1.4rem;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;               
+    text-align: center; 
+    text-transform: capitalize!important;
+    &.sm-btns{
+        padding: .4em .8em!important;
+        line-height: 14px;
+        vertical-align: middle; 
+        height: auto;  
+    }
+    &:hover{
+      opacity: .9;
+    }
+}
+/*--  Gradient Grey Button Styles  --*/
+.grad-grey-button {
+    border-radius: 1.4em!important;
+    box-sizing: border-box;
+    height: 2.5em;
+    line-height: 1.9em;
+    padding: .4em 1.8em .4em!important;
+    font-size: 1.4rem;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    background-color: rgba(251,251,251,0.38);
+    text-transform: capitalize;
+    border: 0!important;
+    color: rgba(256,256,256,.5)!important;
+    letter-spacing: normal;
+    text-align: center;
+    color: #fbfbfb !important;
+}
+
+.primary-btn {
+    background-color: $primary-color !important;
+    border-color:$primary-color !important;
+    color: $text-on-primary !important;
+    border-radius: $sm-comp-corner-radius !important;
+}
+.secondary-btn {
+    border-color:$primary-color !important;
+    color: $primary-color !important;
+    border-radius: $sm-comp-corner-radius !important;
+}
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+@media (min-width:$screen-lg) {}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {}
+
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {}

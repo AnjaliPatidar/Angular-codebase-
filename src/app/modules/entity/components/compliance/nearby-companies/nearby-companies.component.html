@@ -1,0 +1,35 @@
+<div class="pad-0 height-100 details-panel-wrapper panel custom-panel-wrapper bst_panel_wrapper  details-panel-wrapper mar-b0">
+    <div class="d-flex panel-heading ai-c">
+        <h3 class="mar-b0 roboto-light f-18 lh-1_2 text-unset text-cream">Nearby Companies</h3>
+        <i class="fa fa-sticky-note f-18 heading-icons mar-l5 c-pointer"></i>
+        <i class="fa fa-paperclip  heading-icons f-18 mar-l5 c-pointer"></i>
+        <!-- shravani:28-05-2020 no need of source link for demo -->
+        <!-- <button class="source-button-wrapper border-0 mar-autol mnw-80" placement="left" [ngbPopover]="companyInfoDetails" popoverTitle="Registered Company Information Sources" triggers="mouseenter:mouseleave" (click)="open(content)" container="body" popoverClass="custom-popover custom-scroll-wrapper"
+            placement="bottom-right">
+            <span class="text-dark-pastal-green mar-r5 " [style]="myStyle2"> -->
+        <!-- <i class="fa f-10 fa-link"></i>{{ceriSearchResultObject['bst:description'].primarySource.length || 0}} -->
+        <!-- <i class="fa f-10 fa-link float-right"></i>{{0}}
+            </span>
+            <span class="text-dark-cream mar-r5 c-pointer "> -->
+        <!-- <i class="fa f-10 fa-link"></i>{{ceriSearchResultObject['bst:description'].secondarySource.length || 0}} -->
+        <!-- <i class="fa f-10 fa-link"></i>{{0}}
+            </span>
+        </button>
+        <button style="background: transparent;border:transparent;">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+        </button> -->
+    </div>
+    <div class="mnh-235 panel-body panel-scroll p-rel details-panel-wrapper">
+        <div class="map-container" *ngIf="nearByCompanies">
+            <div class="map-frame">
+                <div id="map" class="top-15"></div>
+            </div>
+        </div>
+        <!-- <div *ngIf="nearByCompanies === null || nearByCompanies === undefined || nearByCompanies === ''">
+            <p style="text-align: center;width: 100%; margin-top: 140px;" class="text-center">No Data Found</p>
+        </div> -->
+        <div class="d-flex align-items-center justify-content-center h-100" *ngIf="nearByCompanies === null || nearByCompanies === undefined || nearByCompanies === ''">
+            <div class="text-center text-coral-red">Data Not Found</div>
+        </div>
+    </div>
+</div>

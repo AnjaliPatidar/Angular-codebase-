@@ -1,0 +1,103 @@
+<section class="roles-section">
+    <div class="quick-search position-absolute r-0 mt-2">
+        <mat-form-field floatLabel="never">
+            <input type="text" name="search" placeholder="{{'Search' | translate}}" aria-label="Number" matInput [(ngModel)]="searchGroup" class="f-16 text-on-surface text-dark-black gotham-regular">
+            <button mat-button matPrefix mat-icon-button class="search-prefix-icon bg-transparent border-0 text-on-surface text-dark-black gotham-regular mt-2">
+        <i class="material-icons">search</i>
+      </button>
+        </mat-form-field>
+    </div>
+    <div class="container-fluid  sec">
+        <div class="app-spinner" *ngIf="dashboardSpinner">
+            <mat-spinner></mat-spinner>
+        </div>
+        <div class="row">
+            <div *ngIf="(systemSettings && systemSettings['Allow to create manually-Groups'])" class="col-md-3 col-sm-6 col-xs-12 c-pointer outline-none" [routerLink]="['/element/user-management/manage/groups/settings/newgroup']">
+                <div class="create-role d-flex radius-10 h-229 align-items-center justify-content-center light-theme-bg-light light-theme-no-radius">
+                    <h5 class="d-flex align-items-center  text-dark-black mb-0">
+                        <i class="material-icons f-15">add</i>
+                        <span class="f-14 theme-text-capitalize theme-mar-t4"> {{'Create a new group' | translate}}</span>
+                    </h5>
+                </div>
+            </div>
+            <ng-container *ngFor="let tab of groupsData | textFilter:searchGroup; trackBy: trackByTabName">
+                <div class="col-md-3 col-sm-6 col-xs-12 mb-4">
+                    <!-- *ngIf="userGroups.indexOf(tab.id) != -1 " -->
+                    <div class="role light-theme-no-radius light-theme-bg-white">
+                        <div class="role-header d-flex align-items-center">
+                            <span class="p-2"><i class="material-icons"
+                  [ngStyle]="{'color':tab.color}">{{tab.icon ? tab.icon : "people"}}</i></span>
+                            <h5 class="p-2 text-capitalize f-20 c-pointer text-overflow" *ngIf="!tab.edit">
+                                <a [routerLink]="routeToGroup(tab.name)"
+                                    class="title-text-on-surface text-overflow w-100 text-dark-black op-87">{{tab.name}}</a>
+                  <!-- /element/user-management/manage/groups/settings/{{tab.name}} -->
+                            </h5>
+                            <ng-container *ngIf="tab.edit">
+                                <input type="text" #element  pattern="{{get_pattern(element)}}" #groupName ="ngModel" [(ngModel)]="tab.name"  (keyup)="updateGroupName($event,tab,groupName)" class="w-100 f-22  custom-input p-0">
+                                <span *ngIf="groupName.touched" class="d-block text-coral-red mt-2" [class.error-msg]="groupName.invalid">
+                                    <span *ngIf="groupName.hasError('pattern')" class="mb-2">{{ get_pattern_error('text') }} </span>
+                                </span>
+                            </ng-container>
+
+                            <span class="p-2"><i [matMenuTriggerFor]="menu" class="material-icons c-pointer text-dark-black">more_vert</i></span>
+                            <mat-menu #menu="matMenu">
+                                <button mat-menu-item (click)="tab.edit = true; tab.prevGroupName = tab.name" [disabled]="!groupUpdateEnable">
+                  <span> <i class="material-icons">edit</i></span> <span>{{'Rename' | translate}}</span>
+                </button>
+                                <button mat-menu-item [routerLink]="assignedUserRoute(tab.name)">
+                                    <!-- /element/user-management/manage/groups/assigned-users/{{tab.name}} -->
+                  <i class="material-icons">add_circle</i>{{'Assign Users' | translate}}</button>
+                                <button mat-menu-item routerLink="/element/user-management/manage/groups/settings/newgroup" [disabled]="!groupUpdateEnable" [queryParams]="{'groupName':tab.name}">
+                  <i class="material-icons">content_copy</i> {{'Duplicate' | translate}}
+                </button>
+                                <button mat-menu-item class="border-top"  (click)="deleteGroup(tab.name,tab.id);">
+                  <i class="material-icons">delete</i>{{'Delete' | translate}}
+                </button>
+                            </mat-menu>
+                        </div>
+                        <div class="role-content d-flex align-items-center justify-content-center">
+                            <ul class="pad-0">
+                                <li>
+                                    <span class="width-50 f-12 align-top role-item text-dark-black text-on-surface card-row-title">
+                                        {{'Active Users' | translate}}
+                                    </span>
+                                    <span class="f-12 text-on-surface text-dark-black card-row-value">
+                                        {{tab.activeUsers ? tab.activeUsers : 0 }}
+                                    </span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="width-50 f-12 role-item text-dark-black text-on-surface card-row-title">
+                                        {{'Source' | translate}}
+                                    </span>
+                                    <span class="mr-3 width-20"><i class="material-icons d-inline align-middle">link_off</i></span>
+                                    <span class="f-14 text-on-surface text-dark-black card-row-value" matTooltip="{{(tab.source | translate) || 'N/A'}}">
+                                        {{(tab.source | translate) || "N/A"}}
+                                    </span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="width-50 f-12 role-item text-dark-black text-on-surface card-row-title">
+                                        {{'Last Updated' | translate}}
+                                    </span>
+                                    <span class="f-14 text-on-surface text-dark-black card-row-value">
+                                        {{tab.modifiedDate | dateTranslated | async}}
+                                    </span>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <span class="width-50 f-12 role-item text-dark-black text-on-surface card-row-title">
+                                        {{'Group Code' | translate}}
+                                    </span>
+                                    <span *ngIf="tab.groupCode" class="f-14 text-on-surface text-dark-black card-row-value">
+                                        {{(tab.groupCode.length > 20) ? (tab.groupCode | slice:0:20) + '...' : (tab.groupCode)}}
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </ng-container>
+        </div>
+    </div>
+</section>

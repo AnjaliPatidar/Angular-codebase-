@@ -1,0 +1,13 @@
+/* Truncate text Mixins */
+
+@mixin truncateText($overflow: ellipsis){
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: $overflow;
+}
+
+/* Usage */
+//@include truncateText(ellipsis);
+
+
+

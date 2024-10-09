@@ -1,0 +1,17 @@
+<div class="modal-header d-none">
+    <button type="button" class="close text-cream" data-dismiss="modal" aria-hidden="true"><span>&#x2716;</span></button>
+    <h4 class="modal-title" id="mainTitle">{{'Disable Template' | translate}}</h4>
+ </div>
+ <div class="modal-body pad-x15">
+     <div class="row">
+         <div class="col-sm-12">
+             <p id="mainData" class="text-left text-cream mb-4 f-14">
+                {{'System will stop trigger future candidates via watch lists, do you wish to continue?' | translate}}
+             </p>
+         </div>
+         <div class="btn-group widtheight-100 text-right ml-auto">
+                 <button class="grad-button sm-btns mr-3" type="button" (click)="modal.close('update')">{{'Yes' | translate}}</button>
+                 <button class="bordered-button sm-btns" type="button" (click)="modal.close('cancel')">{{'No' | translate}}</button>
+         </div>	
+     </div>
+ </div>

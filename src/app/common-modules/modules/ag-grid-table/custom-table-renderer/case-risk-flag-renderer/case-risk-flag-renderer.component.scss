@@ -1,0 +1,34 @@
+@import "../../../../../../assets/scss/theme/common/variable";
+
+.risk-flag-expand {
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    color: $white;
+    border-radius: 2px;
+    height: 20px;
+    width: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba($white , 0.3);
+    &:hover{
+      cursor: pointer;
+    }
+}
+
+.rf-grid {
+    display: flex;
+    grid: auto / auto auto auto;
+    grid-gap: 10px;
+}
+
+.selected-flags{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  .hidden-tag{
+    margin: 4px;
+  }
+}

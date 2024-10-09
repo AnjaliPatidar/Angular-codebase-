@@ -1,0 +1,13 @@
+<span class="ag-header-select-all" role="presentation" ref="cbSelectAll" *ngIf="params && params.headerCheckboxSelection">
+  <button class="ag-checkbox-checked header-btn" role="presentation" *ngIf="isAllChecked && !isIndeterminateChecked" (click)="onAllUnSelectClicked()">
+    <span class="ag-icon ag-icon-checkbox-checked"></span>
+  </button>
+  <button class="ag-checkbox-unchecked header-btn" role="presentation" *ngIf="!isAllChecked && !isIndeterminateChecked" (click)="onAllSelectClicked()">
+    <span class="ag-icon ag-icon-checkbox-unchecked uncheked-icon"></span>
+  </button>
+  <button class="ag-checkbox-indeterminate header-btn" role="presentation" *ngIf="isIndeterminateChecked" (click)="onAllSelectClicked()">
+    <span class="ag-icon ag-icon-checkbox-indeterminate"></span>
+  </button>
+  <span class="ag-checkbox-label" role="presentation"></span>
+</span>
+<span class="header-label" [ngClass]="{'ml-8': params && params.tableName && params.tableName == 'Case list view'}">{{params?.label ? params?.label : ''}}</span>

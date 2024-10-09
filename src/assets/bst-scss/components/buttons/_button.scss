@@ -1,0 +1,180 @@
+/* Box Button Styling */
+
+$a-btn--bg-color        : $primary-color !default;
+$a-btn--color           : $white !default;
+$a-btn--outline-bg-color: $color-primary-08 !default;
+$a-btn--outline-color   : $primary-color !default;
+$a-btn--bg-disabled     : $color-white-12 !default;
+$a-btn--col-disabled    : $color-icon-disabled !default;
+
+$a-btn-light--bg-color        : $color-white-87 !default;
+$a-btn-light--color           : $primary-color !default;
+$a-btn-light--outline-bg-color: $color-primary-08 !default;
+$a-btn-light--outline-color   : $color-white !default;
+$a-btn-light--bg-disabled     : $color-white-12 !default;
+$a-btn-light--col-disabled    : $color-icon-disabled !default;
+
+@mixin a-box-button($bg-color, $color) {
+  background-color: $bg-color !important;
+  background      : $bg-color !important;
+  color           : $color !important;
+}
+
+.bst-mat-btn {
+  height       : 36px;
+  cursor       : pointer;
+  border-radius: $sm-comp-corner-radius !important;
+  align-items  : center;
+  display      : flex !important;
+  @extend .bst-button-typo;
+
+  &--primary {
+    @include a-box-button($a-btn--bg-color, $a-btn--color);
+    border    : 1px solid transparent;
+    box-shadow: $shadow-10;
+
+    &.disabled {
+      @include a-box-button($a-btn--bg-disabled, $a-btn--col-disabled);
+      box-shadow    : none;
+      pointer-events: none;
+    }
+  }
+
+  &--secondary {
+    @include a-box-button(transparent, $a-btn--outline-color);
+    border    : 1px solid $a-btn--outline-color !important;
+    box-shadow: none;
+
+    &:hover {
+      background-color: $a-btn--outline-bg-color;
+    }
+
+    &.disabled {
+      @include a-box-button(transparent, $color-icon-disabled);
+      border        : 1px solid $color-icon-disabled !important;
+      pointer-events: none;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+
+  &--normal {
+    @include a-box-button(transparent, $a-btn--outline-color);
+    border    : none;
+    box-shadow: none;
+
+    &:hover {
+      background-color: $a-btn--outline-bg-color;
+    }
+
+    &.disabled {
+      @include a-box-button(transparent, $color-icon-disabled);
+      pointer-events: none;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+
+  .mat-button-wrapper {
+    vertical-align: middle;
+  }
+}
+
+.bst-mat-btn-light-bg {
+  height: 36px;
+  cursor: pointer;
+  @extend .bst-button-typo;
+
+  &--primary {
+    @include a-box-button($a-btn-light--bg-color, $a-btn-light--color);
+    border    : 1px solid transparent;
+    box-shadow: $shadow-10;
+
+    &.disabled {
+      @include a-box-button($a-btn-light--bg-disabled, $a-btn-light--col-disabled);
+      box-shadow    : none;
+      pointer-events: none;
+    }
+  }
+
+  &--secondary {
+    @include a-box-button(transparent, $a-btn-light--outline-color);
+    border    : 1px solid $color-white-87 !important;
+    box-shadow: none;
+
+    &:hover {
+      background-color: $a-btn-light--outline-bg-color;
+    }
+
+    &.disabled {
+      @include a-box-button(transparent, $color-icon-disabled);
+      border        : 1px solid $color-icon-disabled !important;
+      pointer-events: none;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+
+  &--normal {
+    @include a-box-button(transparent, $a-btn-light--outline-color);
+    border    : none;
+    box-shadow: none;
+
+    &:hover {
+      background-color: $a-btn-light--outline-bg-color;
+    }
+
+    &.disabled {
+      @include a-box-button(transparent, $color-icon-disabled);
+      pointer-events: none;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.material-icons {
+  &.bst-mat-btn-icon {
+    font-size     : 18px;
+    margin-left   : -8px;
+    vertical-align: middle;
+    top           : 4px;
+    position      : relative;
+  }
+}
+
+.light-bg .material-icons {
+  &.bst-mat-btn-icon {
+    top: 3px !important;
+  }
+}
+
+.bst-mat-btn-mini {
+  height     : 32px !important;
+  min-width  : 32px !important;
+  line-height: 1 !important;
+  max-width  : 32px;
+  padding    : 0 !important;
+  cursor     : pointer;
+
+  &--primary {
+    background-color: $color-white-08;
+
+    &.disabled {
+      background-color: $color-white-08;
+      pointer-events  : none;
+    }
+  }
+}
+
+.bst-mat-icon {
+  color: $color-icon-enabled !important;
+}

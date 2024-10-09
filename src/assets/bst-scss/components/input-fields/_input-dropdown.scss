@@ -1,0 +1,103 @@
+/* Label Styling */
+
+$mat-ff-col: $color-white-60 !default;
+
+.mat-form-field {
+  //56px Dropdown
+  &.a-mat-input-lg {
+    width: 100%;
+
+    .mat-form-field-flex {
+      background-color: $color-white-12;
+      padding: 0.68rem 1.5rem 0 1.5rem;
+      height: 56px;
+      @include flex-d(row, null, null, center);
+    }
+
+    .mat-form-field-label-wrapper {
+
+      mat-label {
+        font-size: 1.6rem;
+        letter-spacing: 0.4px;
+        color: $color-white-60;
+        font-family: "Roboto Light";
+        font-style: normal;
+        font-stretch: normal;
+      }
+    }
+
+    .mat-form-field-underline {
+      display: block;
+      position: unset;
+      background-color: $mat-ff-col;
+
+      &::before {
+        height: 2px;
+        background-color: $mat-ff-col;
+      }
+    }
+
+    .mat-form-field-ripple {
+      background-color: $mat-ff-col;
+    }
+
+    .mat-form-field-infix {
+      padding: .25em 0 0 0;
+    }
+
+    .mat-select-arrow-wrapper {
+      transform: unset;
+    }
+
+    .mat-select-value-text {
+      font-size: 1.6rem;
+      margin-top: $gap-m-x;
+    }
+
+    .mat-input-element {
+      font-size: 1.6rem;
+      margin-top: 5px;
+      caret-color: $color-accent;
+    }
+
+    //40px Mini Input
+    &.a-mat-sm {
+      .mat-form-field-flex {
+        background-color: $color-white-12;
+        height: 40px;
+        padding: 0 1.5rem;
+      }
+
+      .mat-input-element {
+        font-size: 1.6rem;
+      }
+    }
+
+    &.l-f16 {
+      .mat-input-element {
+        font-size: 1.6rem;
+      }
+    }
+
+  }
+}
+
+.mat-select-panel-wrap {
+  .mat-option {
+    background: $surface;
+    color: $color-white-60 !important;
+    font-size: 1.4rem !important;
+  }
+}
+
+//Input Dropdown Icon Center
+.input-drop-icon {
+  font-size: 20px;
+  @include flex-d(row, null, flex-end, center);
+}
+
+
+//Mat Autocomplete Panel Scroll Color
+.mat-autocomplete-panel {
+  @include scroll-b-all(null, null, null);
+}

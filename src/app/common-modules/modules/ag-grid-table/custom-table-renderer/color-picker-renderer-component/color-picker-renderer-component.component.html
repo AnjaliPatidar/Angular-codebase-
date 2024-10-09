@@ -1,0 +1,14 @@
+<div>
+    <!--Second column starts -->
+    <div class="d-flex ai-c colorPicker">
+        <span style="width:20px;height: 20px;border-radius: 5px;" [selectedDomainName]="''" permission  [domainPermission]="permissionIdsList | getPermissionId :'color'" [style.backgroundColor]="'#'+rendererObject.codeForColor" class="colorPickerSpan c-pointer" popoverTitle="Pop title" container="body" popoverClass="select-table-color" [ngbPopover]="popContentForColorList"
+            [autoClose]="'outside'" [popoverTitle]="popTitleForColorList" placement="bottom-right"></span>
+    </div>
+    <!--Second column ends -->
+    <ng-template #popContentForColorList>
+        <div *ngFor="let item of rendererObject.colorListFromComponent; trackBy:trackByColorCode" class="mar-r5 custom_radio_wrapper color-checkbox-wrapper">
+            <input type="radio" (change)="changeColor($event,item.colorCode)" [(value)]="item.colorCode" [checked]="item.colorCode == rendererObject.codeForColor" name="radio">
+            <span class="checkmark" [style.backgroundColor]="'#'+item.colorCode"></span>
+        </div>
+    </ng-template>
+</div>

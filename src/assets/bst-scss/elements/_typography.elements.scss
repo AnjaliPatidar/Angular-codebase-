@@ -1,0 +1,106 @@
+@mixin typo($font-family, $font-size, $font-weight, $line-height, $letter-spacing) {
+    font-family   : $font-family !important;
+    font-size     : $font-size !important;
+    font-weight   : $font-weight !important;
+    line-height   : $line-height !important;
+    letter-spacing: $letter-spacing !important;
+}
+
+%commonTypo {
+    font-stretch: normal;
+    font-style  : normal;
+}
+
+.bst-headline1 {
+    @extend %commonTypo;
+    @include typo("Roboto", 96px, 300, normal, -1.5px);
+}
+
+.bst-headline2 {
+    @extend %commonTypo;
+    @include typo("Roboto", 60px, 300, normal, -0.5px);
+}
+
+.bst-headline3 {
+    @extend %commonTypo;
+    @include typo("Roboto", 48px, normal, normal, normal);
+}
+
+.bst-headline4 {
+    @extend %commonTypo;
+    @include typo("Roboto", 34px, normal, normal, 0.25px);
+}
+
+.bst-headline5 {
+    @extend %commonTypo;
+    @include typo("Roboto", 24px, normal, normal, normal);
+}
+
+.bst-headline6 {
+    @extend %commonTypo;
+    @include typo("Roboto", 20px, 500, normal, 0.15px);
+}
+
+.bst-body1 {
+    @extend %commonTypo;
+    @include typo("Roboto", 14px, normal, 2, 0.15px);
+}
+
+.bst-body2 {
+    @extend %commonTypo;
+    @include typo("Roboto", 12px, normal, 1.67, 0.15px);
+}
+
+.bst-subtitle1 {
+    @extend %commonTypo;
+    @include typo("Roboto", 16px, normal, 1.75, 0.15px);
+}
+
+.bst-subtitle2 {
+    @extend %commonTypo;
+    @include typo("Roboto", 14px, 500, 1.71, 0.1px);
+}
+
+.bst-button-typo {
+    @extend %commonTypo;
+    @include typo("Roboto", 14px, 500, 1.14px, 1.25px);
+    text-transform: uppercase !important;
+}
+
+.bst-caption-typo {
+    @extend %commonTypo;
+    @include typo("Roboto", 12px, normal, 1.33, 0.4px);
+}
+
+.bst-overline-typo {
+    @extend %commonTypo;
+    @include typo("Roboto", 10px, 500, 1.33, 1.5px);
+    text-transform: capitalize;
+}
+
+.bst-link-typo {
+    @extend %commonTypo;
+    @include typo("Roboto", 14px, normal, 2, -0.5px);
+    text-decoration: underline !important;
+    cursor         : pointer;
+}
+
+.bst-error-typo {
+    @extend %commonTypo;
+    @include typo("Roboto", 14px, normal, 2, -0.5px);
+}
+
+.bst-warning-typo {
+    @extend %commonTypo;
+    @include typo("Roboto", 14px, normal, 2, -0.5px);
+}
+
+.bst-success-typo {
+    @extend %commonTypo;
+    @include typo("Roboto", 14px, normal, 2, -0.5px);
+}
+
+html,
+body {
+    font-family: "Roboto", sans-serif;
+}

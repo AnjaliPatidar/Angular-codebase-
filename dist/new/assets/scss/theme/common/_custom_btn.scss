@@ -1,0 +1,498 @@
+/*==============================================================================
+***********************  Custom Btn Styles For The Site  ***********************
+==============================================================================*/
+/*--  Common Btn Styles  --*/
+.btn {
+    @include box-shadow(none);
+
+    &:hover,
+    &:focus {
+        @include box-shadow(none);
+    }
+}
+
+/*--  Common Btn Grey Styles  --*/
+.btn-grey {
+    @extend .text-uppercase;
+    @include padding(8px 12px);
+    @include border-radius(20px);
+    @include transition(all 0.3s ease-in-out);
+    background-color: #3b5059;
+    color: #4294d9;
+    border-color: #3b5059;
+    font-size: ($font-size-base - 3);
+    // font-family: $roboto-medium;
+    @include fontFamily($fonts) {
+		font-family: fonted(font-medium);
+	}
+
+    &:hover,
+    &:focus {
+        background-color: #3b5059;
+        color: #4294d9;
+        border-color: #3b5059;
+    }
+}
+
+.btn-grey-bordered {
+    @include padding(8px 12px);
+    @include box-shadow(none);
+    @include border-radius(0);
+    background-color: #3b5059;
+    color: $white;
+    border-color: $white;
+    min-width: 100px;
+
+    &:hover,
+    &:focus,
+    &:active:focus {
+        @include box-shadow(none);
+        background-color: #3b5059;
+        color: $white;
+        border-color: $white;
+    }
+}
+
+.btn-grey-circle {
+    @extend .text-center;
+    @include square(85px);
+    @include padding(14px 12px);
+    @include border-radius(50%);
+    @include transition(all 0.3s ease-in-out);
+    background-color: #324751;
+    color: #465d68;
+    border-color: #324751;
+    font-size: ($font-size-base * 3.5);
+    line-height: 85px;
+
+    &:hover,
+    &:focus {
+        background-color: #324751;
+        color: #465d68;
+        border-color: #324751;
+    }
+}
+
+/*--  Common Btn Blue Styles  --*/
+.btn-blue {
+    @include padding(8px 12px);
+    @include border-radius(0);
+    background-color: $nav-link-hover;
+    color: $pattens-blue;
+    border-color: $nav-link-hover;
+    // font-family: $roboto-regular;
+    @include fontFamily($fonts) {
+		font-family: fonted(font-regular);
+	}
+    font-size: 12px;
+    display: inline-block;
+
+    &:hover,
+    &:focus {
+        background-color: $nav-link-hover;
+        color: $pattens-blue;
+        border-color: $nav-link-hover;
+    }
+}
+
+.btn-blue-bordered {
+    @include padding(8px 12px);
+    @include box-shadow(none);
+    @include border-radius(0);
+    background-color: rgba(155, 101, 203, 0.8);
+    color: $white;
+    border-color: $white;
+    min-width: 100px;
+
+    &:hover,
+    &:focus,
+    &:active:focus {
+        @include box-shadow(none);
+        background-color: $bg-discover;
+        color: $white;
+        border-color: $white;
+    }
+}
+
+/*--  Common Btn Green Styles  --*/
+.btn-green {
+    @include padding(8px 12px);
+    @include box-shadow(none);
+    @include border-radius(0);
+    background-color: $light-green;
+    color: #fefefc;
+    border-color: $light-green;
+
+    &:hover,
+    &:active:focus,
+    &:focus {
+        @include box-shadow(none);
+        background-color: $light-green;
+        color: #fefefc;
+        border-color: $light-green;
+    }
+}
+
+.btn-green-bordered {
+    @include padding(8px 12px);
+    @include box-shadow(none);
+    @include border-radius(0);
+    background-color: rgba(34, 178, 155, 0.8);
+    border-color: $light-green;
+    min-width: 100px;
+
+    &:hover,
+    &:active:focus,
+    &:focus {
+        @include box-shadow(none);
+        background-color: $bg-manage;
+        border-color: $light-green;
+        min-width: 100px;
+    }
+}
+
+/*--  Common Btn Red Styles  --*/
+.btn-red {
+    @extend .text-center;
+    @include margin(0);
+    @include padding(8px 12px);
+    @include transition(all 0.3s ease-in-out);
+    @include border-radius(0);
+    text-transform: uppercase;
+    background-color: $light-red;
+    color: $white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    // font-family: $roboto-regular;
+    @include fontFamily($fonts) {
+		font-family: fonted(font-regular);
+	}
+    display: block;
+    position: relative;
+    border: 1px solid $light-red;
+
+    &:hover,
+    &:focus {
+        background-color: $white;
+        color: $light-red;
+        border: 1px solid $light-red;
+    }
+
+    i {
+        position: absolute;
+        font-size: $font-size-large;
+        position: absolute;
+        top: 50%;
+        @include translate(-50%, -50%);
+    }
+
+    &.icon-left {
+        @include padding(20px 20px 20px 30px);
+
+        i {
+            left: 30px;
+            right: auto;
+        }
+    }
+
+    &.icon-right {
+        @include padding(20px 30px 20px 20px);
+
+        i {
+            left: auto;
+            right: 10px;
+        }
+    }
+}
+
+.btn-red-bordered {
+    @include padding(8px 12px);
+    @include box-shadow(none);
+    @include border-radius(0);
+    background-color: $bg-enrich;
+    color: $white;
+    border-color: $white;
+    min-width: 100px;
+    border: 1px solid $white;
+
+    &:hover,
+    &:focus,
+    &:active:focus {
+        @include box-shadow(none);
+        background-color: $bg-enrich;
+        color: $white;
+        border-color: $white;
+    }
+}
+
+/*--  Common Btn Light Red Styles  --*/
+.btn-light-red {
+    @extend .text-center;
+    @include margin(0);
+    @include padding(8px 12px);
+    @include transition(all 0.3s ease-in-out);
+    @include border-radius(0);
+    text-transform: uppercase;
+    background-color: $light-red1;
+    color: $white;
+    font-weight: bold;
+    letter-spacing: 1px;
+    // font-family: $roboto-regular;
+    @include fontFamily($fonts) {
+		font-family: fonted(font-regular);
+	}
+    display: block;
+    position: relative;
+    border: 1px solid $light-red1;
+
+    &:hover,
+    &:focus {
+        background-color: $light-red1;
+        color: $white;
+        border: 1px solid $light-red1;
+    }
+
+    i {
+        position: absolute;
+        font-size: $font-size-large;
+        position: absolute;
+        top: 50%;
+        @include translate(-50%, -50%);
+    }
+
+    &.icon-left {
+        @include padding(20px 20px 20px 30px);
+
+        i {
+            left: 30px;
+            right: auto;
+        }
+    }
+
+    &.icon-right {
+        @include padding(20px 30px 20px 20px);
+
+        i {
+            left: auto;
+            right: 10px;
+        }
+    }
+}
+
+.btn-light-red-bordered {
+    @include padding(8px 12px);
+    @include box-shadow(none);
+    @include border-radius(0);
+    background-color: $bg-enrich;
+    color: $white;
+    border-color: $white;
+    min-width: 100px;
+
+    &:hover,
+    &:focus,
+    &:active:focus {
+        @include box-shadow(none);
+        background-color: $bg-enrich;
+        color: $white;
+        border-color: $white;
+    }
+}
+
+/*--  Common Btn Yellow Styles  --*/
+.btn-yellow {
+    @include padding(8px 12px);
+    @include box-shadow(none);
+    @include border-radius(0);
+    background-color: $bg-act;
+    color: $white;
+    border-color: $bg-act;
+
+    &:hover,
+    &:active:focus,
+    &:focus {
+        @include box-shadow(none);
+        background-color: $bg-act;
+        color: $white;
+        border-color: $bg-act;
+    }
+}
+
+.btn-yellow-bordered {
+    @include padding(8px 12px);
+    @include box-shadow(none);
+    @include border-radius(0);
+    background-color: rgba(179, 173, 53, 0.8);
+    color: $white;
+    border-color: $white;
+
+    &:hover,
+    &:focus,
+    &:active:focus {
+        @include box-shadow(none);
+        background-color: $bg-act;
+        color: $white;
+        border-color: $white;
+    }
+}
+
+/*--  Common for act and entity Badges Style Styles  --*/
+.warning-badge-class {
+    background-color: #f7c70b;
+    color: #745400;
+    border-radius: $sm-comp-corner-radius;
+    float: left;
+    margin: 1%;
+    padding: 2px !important;
+    font-size: 8px;
+}
+
+.primary-badge-class {
+    background-color: #c1b9f2;
+    color: #7368ad;
+    border-radius: $sm-comp-corner-radius;
+    padding: 2px !important;
+    font-size: 8px;
+    float: left;
+    margin: 1%;
+}
+
+.info-badge-class {
+    background-color: #97b9d2;
+    color: #7368ad;
+    border-radius: $sm-comp-corner-radius;
+    padding: 2px !important;
+    font-size: 8px;
+    float: left;
+    margin: 1%;
+}
+
+/*--  Common Btn Blue Link Styles  --*/
+.btn-blue-link {
+    @extend .text-uppercase;
+    @include padding(8px 12px);
+    @include border-radius(20px);
+    @include transition(all 0.3s ease-in-out);
+    color: #3f84c0;
+    font-size: ($font-size-base - 3);
+    // font-family: $roboto-medium;
+    @include fontFamily($fonts) {
+		font-family: fonted(font-medium);
+	}
+    background-color: transparent;
+
+    &:hover,
+    &:focus {
+        background-color: transparent;
+        color: #3f84c0;
+    }
+}
+.btn-dark-blue {
+    @extend .text-uppercase;
+    @include padding(4px 12px);
+    @include border-radius(0);
+    background-color: #3b74a2;
+    color: $pattens-blue;
+    border-color: $nav-link-hover;
+    // font-family: $roboto-regular;
+    @include fontFamily($fonts) {
+		font-family: fonted(font-regular);
+	}
+    font-size: 12px;
+    display: inline-block;
+    &:hover,
+    &:focus {
+        background-color: $nav-link-hover;
+        color: $pattens-blue;
+        border-color: $nav-link-hover;
+    }
+}
+
+.bordered-button {
+    box-sizing: border-box;
+    height: 2.5em;
+    padding:.4em 1.8em .4em!important;   
+    border-radius:1.4em!important;
+    line-height: 1.5em;                    
+    border: solid 2px $primary-color!important;
+    font-size: 1.4rem;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;  
+    background: transparent!important; 
+    letter-spacing: normal;
+    text-align: center; 
+    color: $primary-color !important;
+    text-transform: capitalize!important; 
+    &.grey-bordered{   
+        color: #fff!important;
+        border: 2px solid #fff;
+    } 
+    &:hover{
+        opacity: .9;
+      }
+    &.sm-btns{
+        padding: .4em .8em!important;
+        line-height: 14px;
+        vertical-align: middle;
+        height: auto;
+    }
+}
+.grad-button {
+    box-sizing: border-box;
+    padding:9px 18px !important;
+    line-height: 1.9rem;  
+    border-radius: $sm-comp-corner-radius; 
+    // background-image: linear-gradient(to bottom, #79c9ff, #009eff);
+    background: $primary-color;
+    font-size: 1.4rem;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    border: 0!important; 
+    letter-spacing: normal;
+    text-align: center;
+    text-transform: capitalize!important;
+    // color: #fbfbfb !important;
+    color :$text-on-primary !important;
+    &.sm-btns{
+        padding:.56em .8em!important;
+        line-height: 14px;
+        vertical-align: middle;
+        height: auto;
+    }
+}
+.grad-grey-button {
+    border-radius: 1.4em!important;
+    box-sizing: border-box;
+    height: 2.5em;
+    padding:.4em 1.8em .4em!important;
+    line-height: 1.9em; 
+    font-size: 1.4rem;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    background-color: rgba(251,251,251,0.38);
+    text-transform: capitalize;
+    border: 0!important;
+    color: rgba(256,256,256,.5)!important;
+    letter-spacing: normal;
+    text-align: center;
+    text-transform: capitalize!important;
+    color: #fbfbfb !important;
+}
+button[disabled] {
+cursor: not-allowed;
+}
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+@media (min-width:$screen-lg) {}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {}
+
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {}

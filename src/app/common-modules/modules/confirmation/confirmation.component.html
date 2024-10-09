@@ -1,0 +1,18 @@
+<!-- shravani:09-06-2020 : Confirmation popup on status approve for new alert -->
+<div class="modal-header d-block mb-4 pb-3 light-theme-border-bottom">
+    <h3 class="text-dark-black pull-left font-weight-bold">{{'Confirmation' | translate}}</h3>
+    <span class="c-pointer f-20 pull-right text-dark-black"  (click)="appoveConfirm('CANCEL')"><i
+            class="material-icons text-dark-black">close</i></span>
+</div>
+<div class="modal-body">
+    <p class="f-14">{{ statusComment| translate}}</p>
+</div>
+<div class="modal-footer">
+    <button class="btn light-theme-btn secondary-btn" (click)="appoveConfirm('OK')">
+        {{'OK' | translate}}
+    </button>
+
+    <button class="btn btn-primary light-theme-btn primary-btn" (click)="appoveConfirm('CANCEL')" permission>
+        {{'Cancel' | translate}}
+    </button>
+</div>

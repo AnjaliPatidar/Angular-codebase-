@@ -1,0 +1,66 @@
+<div class="hit-details-wrap left-content-wrap">
+    <div class="filter-box-wrap">
+      <ng-container *ngFor="let hit of radioArray; let i = index">
+        <span class="alert-hit-label">
+            Hit ({{ hit.hit_generated?.length || 0 }})
+        </span>
+      </ng-container>
+        <div class="bst-menu">
+            <button mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger"
+                class="filter_icon bst-mat-icon">
+                <i class="fa fa-filter" aria-hidden="true"></i>
+            </button>
+            <mat-menu #menu="matMenu" class="bst-popover filter-menu-wrap">
+                <app-alert-hits-filter-modal [menuTrigger]="menuTrigger" (click)="$event.stopPropagation()"
+                    (hitsEvent)="receiveHitsFilterValue($event)"></app-alert-hits-filter-modal>
+            </mat-menu>
+        </div>
+    </div>
+    <div class="accordion-wrap">
+        <div class="alert-details">
+            <!-- <div class="radio-container" *ngFor="let list of radioArray; let i =  index">
+              <mat-radio-group [(ngModel)]="selectedHit" (change)="onRadioChange()">
+                <mat-radio-button name="selectedWatchList" [value]="i" [disabled]="isHitFrozen && selectedHit !== i"> {{list.name}}
+                </mat-radio-button>
+              </mat-radio-group>
+                <div class="icons-wrapper">
+                    <img src="assets/images/icon/notification.svg" alt="Notification">
+                    <div class="flag-img">
+                        <span class="flag-icon flag-icon-squared flag-icon-{{'ca'}}"></span>
+                    </div>
+                    <span class="default-badge warning">{{(list.confidence * 100) | number:'1.1-1'}}%</span>
+                </div>
+            </div> -->
+            <mat-accordion>
+                <mat-expansion-panel *ngFor="let hitList of radioArray;"
+                    [expanded]="hitList.hit_producer_category == indexCategory">
+                    <mat-expansion-panel-header [@.disabled]="true">
+                        <mat-panel-title class="title-text-on-surface">
+                            <span class="bst-checkbox-select-all__section">
+                                {{hitList.hit_producer_category}} ({{hitList.hit_generated ?
+                                hitList.hit_generated.length : 0}})
+                            </span>
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <mat-radio-group [(ngModel)]="selectedHit">
+                        <div class="radio-container" *ngFor="let list of hitList.hit_generated; let i = index">
+                            <mat-radio-button name="selectedWatchList" [value]="list.hit_producer_category + i"
+                                [disabled]="isHitFrozen && selectedHit !== list.hit_producer_category + i"
+                                [checked]="selectedHit == list.hit_producer_category + i"
+                                (change)="onRadioChange(list)">
+                                {{list.name}}
+                            </mat-radio-button>
+                            <div class="icons-wrapper">
+<!--                                <img src="assets/images/icon/notification.svg" alt="Notification">-->
+<!--                                <div class="flag-img">-->
+<!--                                    <span class="flag-icon flag-icon-squared flag-icon-{{'ca'}}"></span>-->
+<!--                                </div>-->
+                                <span class="default-badge warning">{{(list.confidence * 100) | number:'1.1-1'}}%</span>
+                            </div>
+                        </div>
+                    </mat-radio-group>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </div>
+</div>

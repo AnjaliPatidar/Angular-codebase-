@@ -1,0 +1,46 @@
+<div class="d-flex fd-c case-list mt-4" *ngIf="isGridOptionsLoaded">
+    <ngb-alert *ngIf="showCaseMessage" type="success" [dismissible]="false"
+    class="mx-3 cases-generated text-dark f-17 align-items-center justify-content-between pr-4" (close)="closeCasesNotification()">
+    <p>
+      <span class="d-flex ai-c flex-wrap">
+        <span class="mar-r10 material-icons" style="color: rgba(251,251,251,0.5);">check_circle</span>
+        <ng-container *ngIf="caseMessage">
+          <span style="margin-left: 35px;">{{ caseMessage }}</span>
+        </ng-container>
+      </span>
+    </p>
+    <p class="float-right mt-5 mb-3">
+      <span class="mar-r15 c-pointer roboto-bold" style="letter-spacing: 1.5px;text-transform: uppercase;"
+        (click)="reloadContent(); showCaseMessage = false;" *ngIf="showRefreshLink">{{'Refresh' | translate}}</span>
+      <span class="mar-l15 c-pointer roboto-bold" (click)="closeCasesNotification()">{{'OK' | translate}}</span>
+    </p>
+  </ngb-alert>
+    <app-widgets-collapsed-container [pageName]="'case_management'" (onWidgetCollapsed)="listenWidgetVissibleChanges($event)">
+      <app-top-case-panel *ngIf="isShowWidget" [onSelectionSubject]="_caseService.chartSelectionSubject"></app-top-case-panel>
+    </app-widgets-collapsed-container>
+    <div class="no-data z-99 w-100 h-100 position-absolute" *ngIf="showAssignLoader" [class.loader-bg]="showAssignLoader">
+      <i class="fa fa-spinner txt-on-surface-06 fa-pulse position-absolute f-25 mnh-auto no-data"></i>
+    </div>
+    <div class="ag-table-wrapper data-table-wrapper none-ng-bst-table case-mgt-table" style="flex:1;height: 100vh;margin-top:0%"
+    [ngClass]="isShowWidget ? 'show-widget' : 'hide-widget'"
+    >
+
+        <button [matMenuTriggerFor]="menu" class="text-uppercase bg-transparent f-14 export-button" permission
+            [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'case Workbench'" id="alertExport">
+            <mat-icon class="bst-icon material-icons-round">download</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="exportDataPdf()">
+                <span>{{ 'Export as PDF' | translate }}</span>
+            </button>
+            <button mat-menu-item (click)="exportData()">
+                <span>{{ 'Export as CSV' | translate }}</span>
+            </button>
+        </mat-menu>
+        <ng-container *ngIf = "this.gridOptions.tableName">
+            <app-ag-grid-table [fromComponent]="componentName" class="caseList-table mar-t10"
+                [tableData]="gridOptions" [assigneeListSetter]="activeUsers$ | async"></app-ag-grid-table>
+        </ng-container>
+
+    </div>
+</div>

@@ -1,0 +1,44 @@
+/*Spacing Padding, Margin, Shadows and BreakPoints Variables*/
+
+
+// Spacing Padding Variables
+$gap-p-0:         0px !default;
+$gap-p-x:         5px !default;
+$gap-p-common:    8px !default;
+$gap-p-x-small:   12px !default;
+$gap-p-small:     16px !default;
+$gap-p-medium:    20px !default;
+$gap-p-x-medium:  25px !default;
+$gap-p-large:     32px !default;
+$gap-p-x-large:   35px !default;
+$gap-p-xx-large:  40px !default;
+$gap-p-xxx-large: 45px !default;
+
+
+// Spacing Margin Variables
+$gap-m-x:         5px !default;
+$gap-m-common:    8px !default;
+$gap-m-x-small:   10px !default;
+$gap-m-small:     15px !default;
+$gap-m-medium:    20px !default;
+$gap-m-x-medium:  25px !default;
+$gap-m-large:     30px !default;
+$gap-m-x-large:   35px !default;
+$gap-m-xx-large:  40px !default;
+$gap-m-xxx-large: 45px !default;
+
+
+// Box Shadows Variables
+$box-shadow--primary: 0 4px 8px 4px rgba(196, 196, 196, 0.5) !default;
+$box-shadow--hover: 0 0 4px 0 rgba(0, 0, 0, 0.6) !default;
+$box-shadow--selected: 0 2px 20px 0 rgba(198, 196, 196, 0.5) !default;
+
+// A map of breakpoints.
+$set-breakpoints: (
+  'x-small'    : 568px,   //Mobile
+  'small'      : 768px,
+  'medium'     : 769px,   //Tablet
+  'x-medium'   : 978px,
+  'large'      : 1024px,  //Laptop
+  'x-large'    : 1200px   //Desktop
+);

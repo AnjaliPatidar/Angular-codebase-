@@ -1,0 +1,29 @@
+<nav mat-tab-nav-bar class="custom-navbar my-3 light-theme-border-bottom">
+    <div *ngIf="currentRole == 'newrole' || cloneRole">
+        <h4 class="text-captlize role-type mb-0 f-20 text-nowrap text-dark-black title-text-on-surface">{{ 'New Role' | translate }}</h4>
+    </div>
+    <div *ngIf="currentRole != 'newrole'">
+        <h4 class=" role-type mb-0 f-20 d-flex align-items-center text-dark-black text-on-bg"><i class="material-icons" [ngStyle]="{'color':roleDetails.color}">{{roleDetails.icon ? roleDetails.icon : "people"}}</i>
+            <span class="ml-2 text-nowrap title-text-on-surface">{{roleDetails?.roleName}}</span> </h4>
+    </div>
+    <!-- <a mat-tab-link class="text-uppercase theme-text-capitalize" routerLink="/element/user-management/manage/roles/settings/{{currentRole}}" [queryParams]="{'roleName':cloneRole}" routerLinkActive #roles="routerLinkActive" [active]="roles.isActive">
+    {{ 'SETTINGS' | translate }}
+  </a>
+    <a mat-tab-link class="text-uppercase theme-text-capitalize" routerLink="/element/user-management/manage/roles/permissions/{{currentRole}}" [queryParams]="{'roleName':cloneRole}" routerLinkActive #groups="routerLinkActive" [active]="groups.isActive" [disabled]="currentRole == 'newrole' || cloneRole">
+    {{ 'PERMISSIONS' | translate }}
+  </a>
+    <a mat-tab-link class="text-uppercase theme-text-capitalize" routerLink="/element/user-management/manage/roles/assigned-users/{{currentRole}}" [queryParams]="{'roleName':cloneRole}" routerLinkActive #policies="routerLinkActive" [active]="policies.isActive" [disabled]="currentRole == 'newrole' || cloneRole"> -->
+    <a mat-tab-link class="text-uppercase theme-text-capitalize" [routerLink]="settingUrl()" [queryParams]="{'roleName':cloneRole}" routerLinkActive #roles="routerLinkActive" [active]="roles.isActive">
+    {{ 'SETTINGS' | translate }}
+  </a>
+  <!-- /element/user-management/manage/roles/settings/{{currentRole}} -->
+    <a mat-tab-link class="text-uppercase theme-text-capitalize" [routerLink]="permissionsUrl()" [queryParams]="{'roleName':cloneRole}" routerLinkActive #groups="routerLinkActive" [active]="groups.isActive" [disabled]="currentRole == 'newrole' || cloneRole">
+    {{ 'PERMISSIONS' | translate }}
+  </a>
+  <!-- /element/user-management/manage/roles/permissions/{{currentRole}} -->
+    <a mat-tab-link class="text-uppercase theme-text-capitalize" [routerLink]="assignedUsersUrl()" [queryParams]="{'roleName':cloneRole}" routerLinkActive #policies="routerLinkActive" [active]="policies.isActive" [disabled]="currentRole == 'newrole' || cloneRole">
+    {{ 'ASSIGNED USERS' | translate }} ({{assignUsersCount ? assignUsersCount : "0"}})
+  </a>
+  <!-- /element/user-management/manage/roles/assigned-users/{{currentRole}} -->
+</nav>
+<router-outlet></router-outlet>

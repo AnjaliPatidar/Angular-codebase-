@@ -1,0 +1,24 @@
+.control-icons{
+    margin-left: 1rem;
+}
+[hidden]{
+    display: flex!important;
+    opacity: 0;
+}
+::ng-deep .no-hover-effect:hover {
+     .mat-button-focus-overlay{
+        opacity: 0 !important;
+    }
+}
+
+.count {
+    line-height: 2.4;
+    width: 10px !important;
+  }
+.case-copied{
+    padding: 0px 20px 0px 0px;
+}
+
+:host .disabled-cursor{
+  cursor: not-allowed !important;
+}

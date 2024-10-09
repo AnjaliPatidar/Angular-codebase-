@@ -1,0 +1,90 @@
+@import "../../../../../../assets/theme-builder/theme_builder";
+::ng-deep {
+  .multi-select-dropdown {
+    position: relative;
+    padding-bottom: 60px;
+    min-width: 264px !important;
+    transform: none !important;
+
+    .custom-filter-button {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      // background-color: #424242;
+      background-color: $surface;
+      // width: 264px;
+    }
+  }
+}
+
+::ng-deep .user-managment-table {
+  .mat-form-field-infix {
+    // padding: 0.8rem 0 1rem 0;
+
+    .mat-form-field-label-wrapper {
+      // top: -0.9rem !important;
+    }
+  }
+
+  .mat-form-field-flex {
+    height: 35px;
+  }
+}
+
+
+.mulit-filter-search-wrapper{
+  padding: 16px;
+  position: relative;
+  input{
+    width: 100%;
+    height: 40px;
+    padding: 10px 35px 10px 35px;
+    font-size: 16px;
+    background: $input-color-bg;
+    border: none;
+    border-radius: 4px;
+  }
+
+  .input-search-icon{
+    position: absolute;
+    top: 51%;
+    transform: translateY(-50%);
+    left: 22px;
+    line-height: 0;
+    display: flex;
+    align-items: center;
+    opacity: 0.60;
+  }
+}
+
+.multi-select-options-wrapper{
+  padding: 0 0 16px 16px;
+  overflow: hidden;
+  .multi-select-all-options{
+    padding-right: 16px;
+
+    mat-option{
+      border-bottom: 1px solid $input-color-bg;
+    }
+  }
+
+  mat-option{
+    height: 48px;
+    background-color: transparent !important;
+    font-size: 14px !important;
+    font-weight: normal;
+    line-height: 2;
+    letter-spacing: -0.5px;
+    font-stretch: normal;
+    font-style: normal;
+    position: relative;
+    top: 1px;
+    padding: 0 !important;
+  }
+
+  .multi-select-other-options{
+    height: 170px;
+    overflow-y: auto;
+  }
+}

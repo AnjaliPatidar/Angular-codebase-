@@ -1,0 +1,94 @@
+<ul *ngIf="!isCaseInfo" class="d-block custom-list-wrapper mt-4 pad-l0">
+  <li class="text-center mx-3" permission [PemissionHide]="true"
+    [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'caseDashboard'">
+    <a [class.active]="(router.url === '/element/case-management/caseDashboard')" [routerLink]="['./caseDashboard']"> <i
+        class="material-icons-round">dashboard</i> </a>
+  </li>
+
+  <li class="text-center mx-3" permission [PemissionHide]="true"
+    [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'caseWorkbench'">
+    <a [class.active]="(router.url === '/element/case-management/caseList')" [routerLink]="['./caseList']"> <i
+        class="material-icons-round">work</i> </a>
+  </li>
+</ul>
+<ul *ngIf="isCaseInfo" class="d-block custom-list-wrapper mt-4 pad-l0 f-style" (mouseleave)="mouseHoverCloseLeftPanel()"
+  [class.active-panel]="openLeftPanel">
+  <li class="text-center mb-3 mx-3 overflow-hidden common-link-height" permission [PemissionHide]="true"
+    [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'home'">
+    <a class="link-wrapper justify-content-start common-link-height" [class.active]="(currentTab === 'home')"
+      (click)="changeCaseInfoTab('home')" (mouseover)="mouseHoverOpenLeftPanel('home')"> <i
+        class="material-icons-round">home</i>
+      <span [hidden]="!openLeftPanel">{{'Home' | translate}}</span>
+    </a>
+  </li>
+  <li class="text-center mb-3 mx-3 overflow-hidden common-link-height" permission [PemissionHide]="true"
+    [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'relatedEntities'">
+    <a class="link-wrapper justify-content-start common-link-height" [class.active]="(currentTab === 'relatedEntries')"
+      (click)="changeCaseInfoTab('relatedEntries')" (mouseover)="mouseHoverOpenLeftPanel('relatedEntries')"> <i
+      class="material-icons-round">people</i>
+       <span [hidden]="!openLeftPanel">{{'Related_Entities' | translate}} </span>
+    </a>
+  </li>
+  <li class="text-center mb-3 mx-3 overflow-hidden common-link-height" permission [ViewOnly]="true"
+  [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'Associated Records'">
+    <a class="link-wrapper justify-content-start common-link-height"
+      [class.active]="(currentTab === 'associatedRecord')" (click)="changeCaseInfoTab('associatedRecord')"
+      (mouseover)="mouseHoverOpenLeftPanel('associatedRecord')"> <i class="material-icons-round">warning</i>
+      <span [hidden]="!openLeftPanel">{{'Associated Records' | translate}}</span>
+    </a>
+  </li>
+  <li class="text-center mb-3 mx-3 overflow-hidden common-link-height" permission [PemissionHide]="true"
+  [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'case Attachments'">
+    <a class="link-wrapper justify-content-start common-link-height"
+      [class.active]="(currentTab === 'AttachmentView')" (click)="changeCaseInfoTab('AttachmentView')"
+      (mouseover)="mouseHoverOpenLeftPanel('AttachmentView')"> <i class="material-icons-round rotate-attachment">attachment</i>
+      <span [hidden]="!openLeftPanel">{{'Attachments' | translate}}</span>
+    </a>
+  </li>
+  <li class="text-center mb-3 mx-3 overflow-hidden common-link-height" permission [PemissionHide]="true"
+     [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'relatedEntities'">
+    <a class="link-wrapper justify-content-start common-link-height" [class.active]="(currentTab === 'relatedCases')"
+      (click)="changeCaseInfoTab('relatedCases')" (mouseover)="mouseHoverOpenLeftPanel('relatedCases')"> <i
+        class="material-icons-round">work</i>
+      <span [hidden]="!openLeftPanel">{{'Related Cases' | translate}}</span>
+    </a>
+  </li>
+  <li class="text-center mb-3 mx-3 overflow-hidden common-link-height" permission [PemissionHide]="true"
+      [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'relatedEntities'">
+    <a class="link-wrapper justify-content-start common-link-height" [class.active]="(currentTab === 'eventsLookup')"
+       (click)="changeCaseInfoTab('eventsLookup')" (mouseover)="mouseHoverOpenLeftPanel('eventsLookup')"> <i
+      class="material-icons-round">work</i>
+      <span [hidden]="!openLeftPanel">{{'Events Lookup' | translate}}</span>
+    </a>
+  </li>
+  <li class="text-center mb-3 mx-3 overflow-hidden common-link-height" *ngIf="isShowCaseContacts">
+    <a class="link-wrapper justify-content-start common-link-height" [class.active]="(currentTab === 'caseContacts')"
+      (click)="changeCaseInfoTab('caseContacts')" (mouseover)="mouseHoverOpenLeftPanel('caseContacts')"> <i
+        class="material-icons-round">call</i>
+      <span [hidden]="!openLeftPanel">{{'Case Contacts' | translate}}</span>
+    </a>
+  </li>
+  <!-- Commented due tabs funtionalities are not yet ready -->
+  <!-- <li class="text-center mb-3 mx-3 overflow-hidden common-link-height">
+    <a class="link-wrapper justify-content-start common-link-height">
+      <i class="material-icons-round color-gray c-ban">account_balance_wallet</i>
+      <span [hidden]="!openLeftPanel"></span>
+    </a>
+  </li>
+  <li class="text-center mb-3 mx-3 overflow-hidden common-link-height">
+    <a class="link-wrapper justify-content-start common-link-height">
+      <i class="material-icons-round color-gray c-ban">bubble_chart</i>
+      <span [hidden]="!openLeftPanel"></span>
+    </a>
+  </li>
+  <li class="text-center mb-3 mx-3 overflow-hidden common-link-height">
+    <a class="link-wrapper justify-content-start common-link-height">
+      <i class="material-icons-round color-gray c-ban">linear_scale</i>
+      <span [hidden]="!openLeftPanel"></span>
+    </a>
+  </li> -->
+</ul>
+
+<button (click)="toggleLeftPanel()" class="left-panel-toggle" *ngIf="isCaseInfo">
+  <span class="material-icons-round" [class.rotate-icon]="openLeftPanel">chevron_right</span>
+</button>

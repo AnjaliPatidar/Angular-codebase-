@@ -1,0 +1,114 @@
+
+  <div *ngIf="nodesSelected.length > 0" class="d-flex roles-permissions align-items-center justify-content-between px-5 mx-1">
+    <div class="text-white text-dark-black f-16">{{nodesSelected.length}} {{'selected' | translate}}</div> 
+    <div>
+    <button type="button" class="btn role-outline-btn mr-3 light-theme-btn secondary-btn gotham-medium fw-500" (click)="deSelectAll();">{{'DESELECT' | translate}}</button>
+    <button type="button" class="btn role-btn text-white mr-3 d-inline-flex align-items-center light-theme-btn primary-btn" (click)="setRoleValue('0')">
+      <i class="material-icons f-14 mr-3">
+        block
+        </i> <span class="gotham-medium fw-500">{{'NONE' | translate}}</span>  </button>
+    <button type="button" class="btn role-btn text-white mr-3 d-inline-flex align-items-center light-theme-btn primary-btn" (click)="setRoleValue('1')"><i class="material-icons f-14 mr-3">
+      visibility
+      </i> <span class="gotham-medium fw-500">{{'VIEW' | translate}}</span> </button>
+    <button type="button" class="btn role-btn text-white d-inline-flex align-items-center light-theme-btn primary-btn" (click)="setRoleValue('2')"><i class="material-icons f-14 mr-3">
+      create
+      </i> <span class="gotham-medium fw-500">{{'FULL ACCESS' | translate}}</span> </button>
+    </div>
+  </div>
+
+  <div class="permission-header W-100 d-flex align-items-center px-5 mx-1 mt-2">
+    <div class="permissions text-on-surface f-14 d-flex align-items-center text-dark-black">
+      <span>{{'Permission' | translate}}</span> 
+      <i class="material-icons f-14 ml-2 c-pointer" (click)="doSort()">
+        {{ sortValue == 'ASC' ? 'arrow_downward' : 'arrow_upward' }}
+      </i>
+    </div>
+    <div class="permissions text-on-surface f-14 text-dark-black">
+      {{'Permission Level' | translate}} 
+    </div>
+  </div>
+<div>
+  <div class="px-5 mx-1 mt-2 w-100 d-flex">
+    <div class="permissions">
+        <mat-form-field>
+            <input matInput placeholder=" {{'Search' | translate}} " (input)="filter($event.target.value)" class="text-dark-black gotham-regular">
+         </mat-form-field>
+    </div>
+    <div class="permissions">
+      <mat-form-field>
+          <input matInput placeholder=" {{'Search' | translate}} " (input)="filter($event.target.value)" class="text-dark-black gotham-regular">
+       </mat-form-field>
+  </div>
+</div>
+</div>
+<div class="w-100 d-flex justify-content-center mt-5 pt-5" *ngIf="!isTreeLoaded ">
+  <i class="fa fa-spinner txt-on-surface-06 fa-pulse mt-5"  style="font-size:4rem;"></i>
+</div>
+<div class="app-spinner" *ngIf="updateTree">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="tree-container mt-2">
+<mat-tree *ngIf="isTreeLoaded" [dataSource]="dataSource" [treeControl]="treeControl">
+
+  <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle class="tree-node bottom-border" [ngClass]="{'d-none' : !node.isVisible}">
+    <ng-container >
+      <li>
+      <div class="permissions d-flex text-dark-black" [ngStyle]="{'padding-left.px':40*node.level}">
+          <button mat-icon-button disabled class="border-0 bg-transparent btn-sm">
+            <mat-icon class="mat-icon-rtl-mirror"></mat-icon>
+          </button>
+          <mat-checkbox class="checklist-leaf-node" [(ngModel)]="node.isChecked"
+            [checked]="checklistSelection.isSelected(node)" (change)="todoLeafItemSelectionToggle(node)">
+            {{(originalDataCopy[node.item] && originalDataCopy[node.item]['itemName'] ) ? originalDataCopy[node.item]['itemName'] : null}}
+          </mat-checkbox>
+        </div>  
+      </li>
+
+    <div class="permissions pl-5 ml-5">
+      <mat-radio-group aria-label="Select an option" [(ngModel)]="node.roleValue"
+        (change)="radioChanged($event,node,node.item)">
+        <mat-radio-button value="0" class="text-dark-black gotham-regular">{{'None' | translate}}</mat-radio-button>
+        <mat-radio-button value="1" class="text-dark-black gotham-regular">{{'View' | translate}}</mat-radio-button>
+        <mat-radio-button value="2" class="text-dark-black gotham-regular">{{'Full' | translate}}</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </ng-container>
+  </mat-tree-node>
+
+
+
+  <mat-tree-node *matTreeNodeDef="let node; when: hasChild" class="tree-node bottom-border" [ngClass]="{'d-none' : !node.isVisible}">
+    <ng-container >
+      
+      <li class="mat-tree-line">
+      
+      <div class="permissions d-flex align-items-center text-dark-black" [ngStyle]="{'padding-left.px':40*node.level}">
+      <button mat-icon-button matTreeNodeToggle class="border-0 bg-transparent btn-sm border-button py-0"
+        [attr.aria-label]="'toggle ' + node.filename">
+        <mat-icon class="mat-icon-rtl-mirror light-theme-bg-transparent">
+          {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+        </mat-icon>
+      </button>
+
+      <mat-checkbox [checked]="descendantsAllSelected(node)" [(ngModel)]="node.isChecked"
+        [indeterminate]="descendantsPartiallySelected(node)" (change)="todoItemSelectionToggle(node)">
+        {{(originalDataCopy[node.item] && originalDataCopy[node.item]['itemName'] ) ? originalDataCopy[node.item]['itemName'] : null}}
+        
+      </mat-checkbox>
+    </div>
+    </li>
+
+    <div class="permissions pl-5 ml-5">
+      <mat-radio-group *ngIf="node.roleValue != 3" aria-label="Select an option" [(ngModel)]="node.roleValue"
+        (change)="radioChanged($event,node,node.item)">
+        <mat-radio-button value="0" class="text-dark-black gotham-regular">{{'None' | translate}}</mat-radio-button>
+        <mat-radio-button value="1" class="text-dark-black gotham-regular">{{'View' | translate}}</mat-radio-button>
+        <mat-radio-button value="2" class="text-dark-black gotham-regular">{{'Full' | translate}}</mat-radio-button>
+      </mat-radio-group>
+      <p *ngIf="node.roleValue == 3" class="text-dark-black txt-on-surface">{{'Multiple permissions levels' | translate}}</p>
+    </div>
+  </ng-container>
+  </mat-tree-node>
+
+</mat-tree>
+</div>

@@ -1,0 +1,41 @@
+<div class='risk_header' *ngIf="riskFactors">
+    <span class='risk_header_text'>{{"Risk Factor" | translate}}:</span>
+    <span class='f-15 fa mar-0 fa-times text-cream text-dark-black c-pointer' (click)="close()"></span>
+    <span class="fa fa-caret-up fa-4x faa"></span>
+</div >
+ <div class='risk_header_agr' *ngIf="riskFactors">{{"Aggregation Type" | translate}} : {{riskFactors?.RiskFactorsSummary && riskFactors?.RiskFactorsSummary.length && riskFactors?.RiskFactorsSummary[0]["Risk Aggregation Type"] ? riskFactors?.RiskFactorsSummary[0]["Risk Aggregation Type"] : "N/A"}}</div>
+ <div class='risk_body_new'>
+    <div class="scrollWrapper">
+        <ng-container *ngIf="riskFactors && riskFactors?.RiskCategories && riskFactors?.RiskCategories.length">
+          <div class='fullRiskWrapper' *ngFor="let riskCategory of riskFactors?.RiskCategories">
+            <div class="categoriesWrap">
+                <div class="categoriesHeaderWrap">
+                    <span class="categoriesHeader">{{riskCategory && riskCategory?.CategoryName | translate}}</span>
+                    <div class="categoriesValuesWrap">
+                        <span class="categoriesValue" [ngStyle]="{'color' : getColorCodeFromName(riskCategory && riskCategory?.CategoryLevel)}">{{"Risk Score" | translate}} :{{riskCategory && riskCategory?.CategoryScore}}</span>
+                        <span class="categoriesValue" [ngStyle]="{'color' : getColorCodeFromName(riskCategory && riskCategory?.CategoryLevel)}">Risk Level:{{riskCategory && riskCategory?.CategoryLevel ? riskCategory?.CategoryLevel :'N/A'}}
+                            <i class="fa fa-lg fa-angle-down accodienArrow"  (click)="hideAccordian(riskCategory)" *ngIf="riskCategory && !riskCategory?.showCategory" ></i>
+                            <i class="fa fa-lg fa-angle-up accodienArrow"  (click)="hideAccordian(riskCategory)" *ngIf="riskCategory && riskCategory?.showCategory" ></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div *ngIf="riskCategory && riskCategory?.showCategory">
+                    <div class="riskFactorWrap" *ngFor="let riskFactor of riskCategory?.RiskFactors">
+                        <div class="riskFactor-lable"> {{riskFactor && riskFactor["Risk name"]}}{{riskFactor && riskFactor["Risk Source"]}}
+                            <mat-icon class="bst-icon-tool-tip">
+                                <span class= "riskBadge" [hidden]="isRiskFlagEmpty(riskFactor)"  [ngStyle]="{'background-color' : getColorCodeFromName(riskCategory && riskCategory?.CategoryLevel)}">{{riskFactor && riskFactor["Risk Flag"]}}</span>
+                            </mat-icon>
+                        </div>
+                            <div class = "meter mar-t5">
+                                <div class="meter-background" [ngStyle]="{'background-color' : getColorCodeFromName(riskCategory && riskCategory?.CategoryLevel , true)}"></div>
+                                <div class="meter-filled" [ngStyle]="{'width': getRiskPrecentage(riskFactor)  + '%' ,'background-color' : getColorCodeFromName(riskCategory && riskCategory?.CategoryLevel)}" [ngClass]="{'p-0': isRiskValueZero(riskFactor)}"></div>
+                                <div class="lable-val">{{riskFactor && riskFactor["Risk value"]}}/{{riskFactor && riskFactor[["Risk Max Threshold"]]}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </ng-container>
+    </div>
+ </div>

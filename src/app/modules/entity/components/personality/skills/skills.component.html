@@ -1,0 +1,21 @@
+<div class="mx-3 skill-container panel-body  panel-scroll mnh-235 h-25r p-rel" malihu-scrollbar>
+    <div *ngFor="let skl of this.skillCollection; trackBy: trackBySkill" class="row">
+
+
+        <div class="col-md-3 text-dark-black">{{ skl.skill }}</div>
+        <div class="col-md-8">
+            <ngb-progressbar height="15px" [showValue]="false" value="{{skl.avgRating}}" [max]='100' [striped]="false" [animated]="false" data-container="body" placement="bottom" [ngbPopover]="popContent"  [autoClose]="true"  popoverTitle="{{skl.skillName}}">
+                <span class="progress-text text-dark-black">{{skl.avgRating}}</span>
+            </ngb-progressbar>
+        </div>
+        <div class="col-md-1 text-dark-black">{{skl.endorsedBy}}</div>
+
+        <ng-template #popContent>
+            <p class="pt-2 text-dark-black">Average Rating : {{skl.avgRating}}</p>
+            <p class="pt-2 pb-2 text-dark-black">People Voted   : {{skl.endorsedBy}}</p>
+        </ng-template>
+    </div>
+
+
+
+</div>

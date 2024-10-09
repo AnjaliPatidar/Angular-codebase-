@@ -1,0 +1,22 @@
+<div class="modal-header pad-b10 d-flex ai-c">
+    <h4 class="modal-title mar-autor text-overflow">
+        <span id="articleHeader">{{ "Report Footer" | translate }} </span>
+    </h4>
+    <button type="button" class="f-24 bg-transparent border-0 text-cream text-dark-black txt-on-surface-06" (click)="modal.dismiss()"
+        data-dismiss="modal">
+        &times;
+    </button>
+</div>
+<div class="modal-body height-100 pad-t15 quil-back-ground-color">
+    <quill-editor [(ngModel)]="selectedValue" [modules]="editorOptions" (onContentChanged)="textChanged($event)" [styles]="editorStyle" (onEditorCreated)="onEditorCreated($event)"></quill-editor><br/>       
+</div>
+<p *ngIf="textLength!=0" class="padding-quil-top"><i class="validation-error">{{remainingLength}} {{ "characters remaining" | translate }}</i></p>
+
+<div class="modal-body height-100 pad-t15">
+    <button class="grad-button sm-btns gotham-medium mr-2" (click)="saveReportFooter()">
+        {{ "Save" | translate }}
+    </button>
+    <button class="bordered-button sm-btns gotham-medium" (click)="closeFooterModal()">
+        {{ "Cancel" | translate }}
+    </button>
+</div>

@@ -1,0 +1,58 @@
+//@import "../../../../assets/scss/theme/path/_common_style";
+@import "../../../../assets/scss/theme/common/variable";
+
+::ng-deep .tooltip {
+  padding: 0 !important;
+  border-radius: $sm-comp-corner-radius;
+}
+
+// Custom Component Style
+.custom-list {
+  li {
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      height: 4.9rem;
+      width: 100%;
+      color: #fff;
+
+      i,
+      svg {
+        // background-image: linear-gradient(to bottom, #fbfbfb, #fbfbfb);
+        font-size: 2.6rem;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        // -webkit-background-clip: text;
+        // background-clip: text;
+        // -webkit-text-fill-color: transparent;
+        color:$text-on-surface;
+      }
+
+      &.active {
+        color: #fbfbfb;
+        background-color: rgba(#3087d8, 0.12);
+
+        i,
+        svg {
+          // background-image: linear-gradient(to bottom, #79c9ff, #009eff);
+          color: #3eb6ff;
+        }
+
+        // &:before {
+        //   content: "";
+        //   position: absolute;
+        //   width: .6rem;
+        //   height: 100%;
+        //   left: 0;
+        //   background-image: linear-gradient(to bottom, #79c9ff, #009eff);
+        // }
+      }
+    }
+  }
+}

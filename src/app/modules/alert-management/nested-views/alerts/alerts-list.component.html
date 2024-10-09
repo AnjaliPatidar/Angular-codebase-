@@ -1,0 +1,55 @@
+<div *ngIf="showEICard" style="display: none;">
+    <app-alert-comments [AutoOpen]="true" [params]="Rowparams" class="mr-3" (send)="sendNextRow($event)" (sendPrev)="sendPrevRow($event)"></app-alert-comments>
+</div>
+
+<div class="d-flex fd-c alert-list mt-4 alert-data-container">
+    <ngb-alert *ngIf="showAlertMessage" [type]="!screeningTimedOut ? 'success' : 'danger'" [dismissible]="false"
+        class="mx-3 alerts-generated text-dark f-17 align-items-center justify-content-between pr-4"
+        (close)="close(alert)">
+        <p>
+              <span class="d-flex ai-c flex-wrap">
+                  <span class="mar-r10 material-icons" style="color: rgba(251,251,251,0.5);">check_circle</span>    
+                <ng-container>
+                    <span>{{'Numberofnewalerts'| translate}} : {{newAlertsCount}}</span>
+                    <span *ngIf="screeningTimedOut">({{ 'Screening Timed Out' | translate }}) </span>
+                </ng-container>
+            </span>
+        </p>
+        <p class="float-right mt-5 mb-3">
+            <span  class="mar-r15 c-pointer roboto-bold" style="letter-spacing: 1.5px;text-transform: uppercase;"
+                (click)="reloadContent(); showAlertMessage = false;" *ngIf="showRefreshLink">{{'Refresh' | translate}}</span>
+            <span class="mar-l15 c-pointer roboto-bold" (click)="close(alert)">{{'OK' | translate}}</span>
+        </p>
+    </ngb-alert>    
+    <app-top-alert-panel *ngIf="showTable && alertStatus.length" [status]="alertStatus"></app-top-alert-panel>
+    <div class="ag-table-wrapper data-table-wrapper" style="flex:1;height: 100vh;margin-top:0%">
+
+    <div class="button-group">
+        <button  [matMenuTriggerFor]="menu" class="text-uppercase mar-r15 bg-transparent f-14 export-button" permission [domainPermission]="alertListPermssionIds | getPermissionId :'export Data'"  id="alertExport">
+            {{'ExportData' | translate}}
+        </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="exportDataPdf()" >
+              <span>{{'ExportAsPdf' | translate}}</span>
+            </button>
+            <button mat-menu-item  (click)="exportData()">
+              <span>{{'ExportAsCsv' | translate}}</span>
+            </button>
+          </mat-menu>
+        <button class="text-uppercase mar-r15 bg-transparent f-14 export-button bulkAssignment-button" (click)="openBulkAssignmentPopup()" permission [domainPermission]="alertListPermssionIds | getPermissionId :'assignAlertstoGroup'" [IsHideRemoveBothEnabled]='true'>
+            {{'BulkAssignment' | translate}}
+        </button>
+    </div>
+    <div permission [domainPermission]="alertListPermssionIds | getPermissionId :'View alerts in workbench'">
+        <ng-container *ngIf="showTable && isGridOptionsLoaded" >
+            <app-ag-grid-table [disabledAssignToMe]="true" [fromComponent]="componentName" class="alertList-table mar-t10" [tableData]="gridOptions" [assigneeListSetter]="activeUsers$ | async"></app-ag-grid-table>
+        </ng-container>
+    </div>
+    </div>
+    <app-right-panel class="z-i-10000" [ngStyle]="{'right': showPanel ? '0' : '-40rem' }"></app-right-panel>
+
+    <div class="screening-alert-card-init" *ngIf="alertCardInitLoader">
+        <i class="fa fa-spinner txt-on-surface-06 fa-pulse loader-icon"></i>
+    </div>
+</div>
+<!--  -->

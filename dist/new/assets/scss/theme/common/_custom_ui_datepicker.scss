@@ -1,0 +1,61 @@
+
+/*==============================================================================
+*****************  Custom UI Date-picker Styles For The Site  ******************
+==============================================================================*/
+.ui-widget-content {
+    @include box-shadow(0 6px 12px rgba(0,0,0,.175));
+    background: #2c3e47;   
+    color: #a4a7a9;
+    border: 1px solid #2c3e47;
+    .ui-state-focus, .ui-state-hover, .ui-widget-content .ui-state-focus, 
+    .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-focus, 
+    .ui-widget-header .ui-state-hover, .ui-state-default,.ui-datepicker-header,.ui-corner-all{    
+        @extend .btn-blue;
+        @extend .text-center;    
+        @include padding(5px);
+        background: $nav-link-hover;
+        display: block;    
+        border: 0;    
+    }  
+    .ui-datepicker-prev,
+    .ui-datepicker-next,  
+    .ui-datepicker-next-hover,
+    .ui-datepicker-prev-hover{
+        @extend .btn-blue;
+        @extend .text-center;    
+        @include padding(5px);
+        background: $nav-link-hover;
+        display: block;  
+        top: 6px;
+        border: 0;
+    }
+    .ui-corner-all{  
+        .ui-state-default{
+            background: #d6e2e7;
+        }
+    }
+    .ui-datepicker-buttonpane{
+        button{
+            @include padding(5px);
+        }
+    }
+}
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+@media (min-width:$screen-lg){
+
+}
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
+
+}
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {
+
+}

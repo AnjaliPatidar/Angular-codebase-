@@ -1,0 +1,46 @@
+mat-form-field {
+  background-color: rgba(var(--color), 0.2);
+}
+
+::ng-deep {
+  .mat-select-panel-fixed-height {
+    height: 130px;
+  }
+}
+
+.initial-name-wrapper {
+  // width: 2rem;
+  // height: 2rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(116, 116, 116, 0.8);
+  font-size: 10px;
+  margin-right: 5px;
+}
+
+.mat-option {
+  .active-icon {
+    display: contents;
+  }
+}
+
+::ng-deep .mat-option-text {
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  // width: -webkit-fill-available;
+}
+
+.pl-10{
+  padding-left: 10px !important;
+}
+
+.relatedcase_icon{
+  float:right;
+  position: relative;
+  top: 9px;
+}

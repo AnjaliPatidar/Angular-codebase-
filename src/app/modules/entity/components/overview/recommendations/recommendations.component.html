@@ -1,0 +1,56 @@
+
+    <div class="panel custom-panel-wrapper bst_panel_wrapper details-panel-wrapper height-100 light-theme-bg-white">
+      <div class="panel-heading  d-flex ai-c">
+          <h4 class="f-18 lh-1_2 top-details-heading mar-b0 text-dark-black"> {{this.selectedFilter}} Recommendations({{this.recommendationsCount}})</h4>
+
+          <div class="btn-group filter-tool-panel" >
+            <label [ngClass]="{active: selectedFilter==='Received'}" class="btn btn-primary btn-sm" (click)="this.filterRecommendations('Received')">Received</label>
+            <label [ngClass]="{active: selectedFilter=='Given'}" class="btn btn-primary btn-sm" (click)="this.filterRecommendations('Given')" >Given</label>
+          </div>
+      </div>
+      <div class="panel-body mnh-auto h-100 p-rel">
+        <ng-container *ngIf="!this.hasData">
+          <div class="not-found mnh-150">
+              <p class="error text-center">{{this.message}}</p>
+          </div>
+      </ng-container>
+
+      <ng-container *ngIf="this.hasData">
+          <div class="row mx-3 recommendation-container panel-body  panel-scroll mnh-235 h-25r p-rel" malihu-scrollbar style="padding-top:10px; padding-left: 0; padding-right: 0;">
+
+              <div class="col-md-6 recommendation-element" *ngFor="let item of recData;trackBy:trackByName">
+
+                  <div class="row">
+                      <div class="col-md-1">
+                          <img *ngIf="item.imageSrc!==undefined" src="{{item.imageSrc}}" class="profile-image float-left" alt="{{item.name}}">
+                          <div *ngIf="item.imageSrc===undefined" class="circle">
+                              <span class="initials">{{item.name.charAt(0).toUpperCase()}}</span>
+                          </div>
+                      </div>
+                      <div class="col-md-11 text-dark-black">
+                          <div class="row">
+                              <div class="col-md-12 recommendation-name">
+                                  <p style="font-size: 15px;">{{item.name}}</p>
+                              </div>
+                              <div class="col-md-12">
+                                  <p class="recommendation-job" style="font-size: 14px; font-family: 'Roboto Light' !important; color: #b3aeae !important;">{{item.position}}</p>
+                              </div>
+                              <div class="col-md-12">
+                                  <p class="recommendation-relation" style="font-size: 12px; font-family: 'Roboto Light' !important; color: #8a8888 !important;">{{item.note}}</p>
+                              </div>
+                              <div class="col-md-12">
+                                  <p class="recommendation-description" malihu-scrollbar style="font-size: 14px; font-family: 'Roboto Light' !important;">{{item.recommendation}}</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </ng-container>
+
+      </div>
+  </div>
+
+
+
+

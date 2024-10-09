@@ -1,0 +1,66 @@
+.toast-notification {
+    position        : relative;
+    display         : flex;
+    justify-content : space-around;
+    margin-bottom   : 20px;
+    padding         : 20px;
+    width           : 600px;
+    box-shadow      : 0 2px 4px rgba(0, 0, 0, 0.11);
+    color           : white;
+    display         : flex;
+    margin-bottom   : 5px;
+    flex-basis      : 350px;
+    font-size       : 1.5rem;
+    background-color: rgba(255, 255, 255, .30);
+    background-clip : padding-box;
+    border          : 1px solid rgba(0, 0, 0, .1);
+    box-shadow      : 0 0.25rem 0.75rem rgb(0 0 0 / 10%);
+    opacity         : 0;
+    border-radius   : .25rem;
+
+    span {
+        padding: 0 5px;
+    }
+
+    span:nth-child(even) {
+        flex       : 80%;
+    }
+}
+
+.toast-warning {
+    background-color: var(--warningAlert);
+}
+
+.toast-success {
+    background-color: var(--successAlert);
+}
+
+.toast-danger {
+    background-color: var(--errorAlert);
+}
+
+.toast-error {
+    background-color: var(--errorAlert);
+}
+
+.toast-info {
+    background-color: var(--informationAlert);
+}
+
+.close-icon {
+    font-size  : 12px;
+    padding-top: 5px;
+    cursor     : pointer;
+}
+
+.toast-notification-text-undo{
+    font-size       : 1.5rem;
+    font-weight: 600;
+    margin-left: 20px;
+    margin-top: 3px;
+    cursor: pointer;
+}
+
+.toast-notification-msg{
+    margin-top: 3px;
+}

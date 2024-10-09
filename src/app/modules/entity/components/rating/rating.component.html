@@ -1,0 +1,38 @@
+<!-- @uthor:shravani
+     Date:18-5-2020
+     Purpose: To show all the Ratings 
+-->
+<div class="rating-container col-12 mr-2" *ngIf="aggregateRating && aggregateRating !=null">
+    <div class="row flex-nowrap">
+        <rating [(ngModel)]="aggregateRating.ratingValue" [max]="5" [readonly]="true" [disabled]="false" [float]="true">
+        </rating>
+        <span class="rating mr-1 ml-2" [options]="myOptions" tooltip-class="tool-tip" [tooltip]="HtmlContent" content-type="template" (mouseover)="onMouseHover($event)" (mouseout)="onMouseOut($event)" [ngClass]="{'active' : openRating === true,'notactive':openRating === false}">{{aggregateRating?.ratingValue}}</span>
+        <a class="ml-1" [routerLink]="['rating']" [queryParams]="queryParams"><u>{{aggregateRating?.reviewCount}} reviews </u></a>
+
+    </div>
+</div>
+<ng-template #HtmlContent>
+    <div class="col-12 templateStyle">
+        <div class="row heading">
+            <div class="pop-heading">Overall Rating</div>
+            <!-- <div>Rated since 2008 with {{aggregateRating?.reviewCount}}</div> -->
+        </div>
+        <div class="row content" *ngFor="let item of rating_summary;let i = index">
+            <div class="col-3">{{item?.rating_group}} stars</div>
+            <div class="col-7">
+                <!-- <div class="progress position-relative">
+                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                    <small class="justify-content-center d-flex position-absolute w-100">60% complete</small>
+                </div> -->
+
+                <div class="progress position-relative">
+                    <div class="progress-bar" role="progressbar" [ngStyle]="{width:getPercentage(i) +'%'}">
+                        <small class="justify-content-center d-flex position-absolute w-100">{{getPercentage(i)}}</small>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-2">{{item?.ratings}}</div>
+        </div>
+    </div>
+</ng-template>

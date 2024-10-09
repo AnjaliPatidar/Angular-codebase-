@@ -1,0 +1,17 @@
+<mat-form-field *ngIf="selectedItem" [style.backgroundColor]="(gridCellDropDown.showIcon)? getBgColor((selectedItem && selectedItem.colorCode) ? selectedItem.colorCode : '') : ''">
+  <mat-select [(ngModel)]="value" (click)="valueChanged()" panelClass="mat-select-panel-fixed-height">
+      <mat-option *ngFor="let item of gridCellDropDown.dropDownList; trackBy:trackByValue" [(value)]="item.value" [disabled]="gridCellDropDown.disable "
+          class="w-100 text-overflow d-block">
+          <span *ngIf="gridCellDropDown.showIcon">
+              <i class="fa fa-{{item.icon}} mr-4" [style.color]="(item.colorCode) ? item.colorCode : ''"></i>
+          </span>
+          <span>{{ (item.text) ? item.text : ''}}</span>
+      </mat-option>
+      <mat-select-trigger>
+          <i *ngIf="gridCellDropDown.showIcon"
+              class="fa fa-{{selectedItem.icon}} selected-icon  mr-2 align-middle f-20"
+              [style.color]="(selectedItem.colorCode) ? selectedItem.colorCode : ''">
+          </i>{{ (selectedItem.text) ? selectedItem.text : '' }}
+      </mat-select-trigger>
+  </mat-select>
+</mat-form-field>

@@ -1,0 +1,140 @@
+
+/*
+================================================================================
+******************   Typography Styles For The Site      ***********************
+================================================================================
+*/
+
+/*--  Heading Styles  --*/
+h2,h3,h4,h5{
+
+    @include margin(0 0 15px);
+    //color: $text-default;
+    color: $text-on-surface;
+    // font-family: $roboto-bold;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-bold);
+      }
+    text-transform: uppercase;
+}
+h2{
+    font-size: ($font-size-large *1.5);
+    line-height: ($line-height-computed *1.05);
+}
+h3{
+    font-size: $font-size-base;
+    line-height: ($line-height-computed *.9);
+}
+h4{
+    font-size: ($font-size-base - 1);
+    line-height: ($line-height-computed *.9);
+}
+.title-arrow{
+    position: relative;
+    line-height: 18px;
+    padding: 0 0 0 20px;
+    .left{
+        display: inline-block;
+        font-size: 25px;
+        vertical-align: middle;
+        position: absolute;
+        left: 0;
+        top: 0;
+        line-height: 18px;
+        color: #337ab7;
+        &:hover,&:focus{
+            color: #23527c;
+        }
+    }
+}
+/*--  Paragraph Styles  --*/
+p{
+    @include margin(0 );
+    color: $text-default;
+    // font-family:  $roboto-regular;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-regular);
+      }
+}
+.error-message {
+    @include margin(0);
+    @include padding(5px 0);
+    color: $light-red;
+}
+.link{
+    &:hover,&:focus{
+        color: $link-hover;
+    }
+}
+.centered-text{
+    @include center-position();
+    text-align: center;
+    color: #6a8a99;
+    font-size: $font-size-small;
+    line-height: ($line-height-computed * .75);
+    width: 100%;
+    span{
+        display: block;
+    }
+}
+/*==============================================================================
+      **************************  Font- Family  *************************
+==============================================================================*/
+/*--  Raleway Fonts Styles  --*/
+.raleway-light{
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    font-family: raleway-light,"sans-seriff";
+}
+/*--  Roboto Light Fonts Styles  --*/
+
+.roboto-light {
+    font-family: $roboto-light !important;
+    font-style: normal;
+    font-stretch: normal;
+
+}
+
+/*--  Roboto Medium Fonts Styles  --*/
+.roboto-medium {
+    font-family: $roboto-medium !important;
+    font-style: normal;
+    font-stretch: normal;
+
+}
+/*--  Roboto Bold Fonts Styles  --*/
+.roboto-bold {
+    font-family: $roboto-bold !important;
+
+    font-style: normal;
+    font-stretch: normal;
+
+}
+/*--  Roboto Regular Fonts Styles  --*/
+.roboto-regular {
+    font-family: $roboto-regular !important;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+@media (min-width:$screen-lg){
+
+}
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
+
+}
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {
+
+}
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {
+
+}

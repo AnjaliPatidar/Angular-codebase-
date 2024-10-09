@@ -1,0 +1,84 @@
+<div class="customer-entity-dd">
+    <mat-form-field class="bst-form-field bst-form-field--select small" appearance="fill">
+        <mat-select [(ngModel)]="selectedEntityValue" class="bst-select-wrapper" panelClass="bst-select-panel">
+            <mat-option class="bst-select-wrapper__option bst-body1 f-16 font-light bst-color-ty" [value]="1">Beneficial owners ({{shareholderCount}})</mat-option>
+            <mat-option class="bst-select-wrapper__option bst-body1 f-16 font-light bst-color-ty" [value]="2">Key managers ({{officershipCount}})</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<div class="entity-info-st">
+    <div class="table-responsive custom-scroll-wrapper custom-table" tabindex="1">
+        <table *ngIf="selectedEntityValue === 1" class="table" aria-describedby="general-des">
+            <thead>
+                <tr>
+                    <th class="text-dark-black px-5">
+                        {{'Name' | translate}}
+                    </th>
+                    <th class="text-dark-black">
+                        {{'Country' | translate}}
+                    </th>
+                    <th class="text-dark-black">
+                        {{'Address' | translate}}
+                    </th>
+                    <th class="text-dark-black">
+                        {{'Relationship' | translate}}
+                    </th>
+                    <th class="text-dark-black">
+                        {{'Confidence' | translate}}
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody class="alternate-row-colors left-content-wrap">
+                <tr *ngFor="let value of shareholdersData">
+                    <td class="text-dark-black text-capitalize">
+                        {{ value.name | translate }}
+                    </td>
+                    <td class="text-dark-black hover_column">
+                        {{value.country | translate}}
+                    </td>
+                    <td class="text-dark-black hover_column">
+                        {{value.address | translate}}
+                    </td>
+                    <td class="text-dark-black hover_column">
+                        {{value.relationship | translate}}
+                    </td>
+                    <td class="text-dark-black hover_column">
+                        {{value.confidence | translate}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table *ngIf="selectedEntityValue === 2" class="table" aria-describedby="general-des">
+            <thead>
+                <tr>
+                    <th class="text-dark-black px-5">
+                        {{'Name' | translate}}
+                    </th>
+                    <th class="text-dark-black">
+                        {{'Address' | translate}}
+                    </th>
+                    <th class="text-dark-black">
+                        {{'Role' | translate}}
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody class="alternate-row-colors left-content-wrap">
+                <tr *ngFor="let value of officershipData">
+                    <td class="text-dark-black text-capitalize">
+                        {{ value.name | translate }}
+                    </td>
+                    <td class="text-dark-black hover_column">
+                        {{value.address | translate}}
+                    </td>
+                    <td class="text-dark-black hover_column">
+                        {{value.role | translate}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

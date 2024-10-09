@@ -1,0 +1,280 @@
+@import "../../../../../assets/scss/theme/common/variable";
+
+::ng-deep .color-picker-wrapper {
+  min-width: 300px !important;
+  background-color: var(--backGround) !important;
+
+  .mat-menu-content {
+    padding: 0 !important;
+
+    button {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.top-header {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+  padding: 12.7px 16px 16px;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.color-pickers {
+  display: flex;
+  align-items: center;
+  padding: 12.7px 16px 16px;
+
+  div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+.add-new,
+.colors {
+  height: 31px;
+  width: 31px;
+  border-radius: 100%;
+  border: none;
+  margin: 0.3rem;
+}
+
+.selected-color {
+  padding: 0 16px 16px;
+
+  .content {
+    width: 100%;
+    border-radius: $sm-comp-corner-radius;
+    display: flex;
+    align-items: center;
+
+    .tag-input {
+      padding: 0 !important;
+      width: 100%;
+
+      .input-colour {
+        left: 15px !important;
+      }
+    }
+
+    .single-color {
+      button {
+        height: 32px;
+        width: 32px;
+        border-radius: 100%;
+        border: none;
+      }
+    }
+
+    .single-color-code {
+      color: rgba(255, 255, 255, 0.87);
+      display: flex;
+      flex-direction: column;
+      margin-left: 0.8rem;
+
+      p {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}
+
+.button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+  padding: 1.5rem 0 1rem 16px;
+
+  button {
+    background-color: transparent;
+    border: none;
+    color: #42b7ff;
+    font-size: 14px;
+
+    &:nth-child(1) {
+      margin-right: 0.7rem;
+    }
+  }
+}
+
+::ng-deep .sub-mat-menu {
+  min-width: none !important;
+  max-width: none !important;
+  .mat-menu-content {
+    padding: 0 !important;
+    border: none !important;
+  }
+}
+::ng-deep .photoshop-body {
+  padding: 12.7px 16px 16px;
+  background-color: #383838;
+
+  .photoshop-body {
+    padding: 0 !important;
+    background-color: transparent;
+    border: none !important;
+  }
+}
+
+::ng-deep .color-picker-menu {
+  background-color: #383838;
+
+  .photoshop-picker {
+    width: fit-content !important;
+    box-shadow: none !important;
+    .photoshop-head,
+    .photoshop-controls {
+      display: none !important;
+      width: 0 !important;
+    }
+    .photoshop-body {
+      height: 200px;
+      padding: 0 !important;
+    }
+    .photoshop-hue {
+      border: none !important;
+      border-radius: 25px;
+      overflow: hidden;
+      width: 6px;
+      height: 100%;
+    }
+    .photoshop-saturation {
+      border: none !important;
+      width: 245px !important;
+      height: 100%;
+      border-radius: $sm-comp-corner-radius;
+    }
+  }
+  .wrapper {
+    padding-top: 0 !important;
+    padding: 12.7px 16px 16px;
+  }
+}
+
+::ng-deep .tag-input {
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+  position: relative;
+  height: 56px;
+  display: flex;
+  align-items: center;
+
+  .mat-form-field {
+    width: 100%;
+    height: 100%;
+    .mat-form-field-wrapper {
+      height: 100%;
+      background: rgb(255 255 255 / 10%);
+      border-radius: 7px 7px 0 0;
+      border-bottom: 2px solid rgb(255 255 255 / 43%);
+
+      .mat-form-field-flex {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 12px 0.75em 0 6rem !important;
+
+        .mat-form-field-infix {
+          padding: 0.5em 0 0 0 !important;
+        }
+      }
+      .mat-input-element {
+        font-size: 16px;
+        letter-spacing: 1.15px;
+      }
+    }
+  }
+
+  .input-colour {
+    position: absolute;
+    top: 45%;
+    left: 30px;
+    transform: translateY(-50%);
+  }
+}
+
+.pickr-action-wrapper {
+  padding: 16px;
+}
+
+.add-new {
+  color: #a2a2a2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.color-picker-btn {
+  pointer-events: none;
+  opacity: 0;
+}
+.input-action-column{
+  position: absolute;
+  top: 40%;
+  transform: translateY(-52%);
+  right: 5px;
+
+  button{
+    background-color: transparent;
+    border: none;
+  }
+  .action-icon{
+    opacity: 0.6;
+  }
+}
+
+.active-icon{
+  visibility: hidden;
+  height: 15px;
+  width: 15px;
+  color: rgba($white , 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.active-color{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .active-icon{
+    visibility: visible;
+  }
+}
+
+::ng-deep .light-dark-theme{
+  .tag-menu{
+    background-color: $white;
+    .menu-header{
+      background: rgba($black, .08);
+      color: $modal-header-text;
+      font-weight: 600;
+
+      i{
+          color: $modal-header-text;
+      }
+    }
+  }
+  .color-form-field{
+    background-color: rgba($black , .06);
+    border-radius: 5px 5px 0 0;
+
+    .mat-form-field-label{
+      color: rgba($modal-header-text , .6) !important;
+      font-weight: 600;
+    }
+  }
+  .color-picker-menu , .photoshop-body{
+    background-color: $white;
+  }
+  .action-icon{
+    color: $modal-header-text;
+  }
+}

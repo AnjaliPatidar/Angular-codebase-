@@ -1,0 +1,178 @@
+{
+	"internalId" : "ALL000001",
+	"clientName" : "Salumeria da Pino Puglisi GmbH",
+	"clientSince" : "2018-10-22",
+		"products":[
+			{
+			"productName": "Business content insurance",
+			"startDate" : "2019-10-22",
+			"expirationDate" : "2020-10-22",
+			"price" : "200€"
+			},
+			{
+			"productName" : "Legal Protection",
+			"startDate" : "2020-01-05",
+			"expirationDate" : "2021-01-05",
+			"price" : "50€"
+			},
+			{
+			"productName" : "Building Insurance",
+			"startDate" : "2019-10-22",
+			"expirationDate" : "2020-10-22",
+			"price" : "100€"
+			}
+			],
+	"potentialFurtherProducts" : ["Financial Loss Liability", "Cyber Insurance"],
+	"currentPremium" :"200€",
+	"additionalPremiumPotential" : "3000€",
+	"remainingContractTerm":"4 months",
+	"recentChanges":"opened a summer outdoor food stand with ice-cream and hot dogs",
+	"ownerPrivetelyInsured" : "Yes",
+	"numberOfClaims" : "3",
+	"Green Sustainability Score":"4/10",
+	
+	"existingSimilarCompanies":
+	[
+	{
+	"internalId" : "AL0000023",
+	"companyName" : "Le bon Gourmet GmbH",
+	"address" : "Uhlandstr. 78 10717 Berlin",
+	"products" : 
+	[
+		{
+		"productName" : "Building Insurance",
+		"startDate" : "2020-02-10",
+		"expirationDate" : "2021-02-10",
+		"price" : "200€"
+		},
+		{
+		"productName" : "Financial Loss Liability",
+		"startDate" : "2020-02-10",
+		"expirationDate" : "2021-02-10",
+		"price" : "200€"
+		}
+	]
+	},
+	{
+	"internalId" : "AL000090",
+	"companyName" : "Baguetteria M & M KG",
+	"address" : "Turmstr. 79 10551 Berlin",
+	"products": 
+	[
+		{
+		"productName" : "Building Insurance",
+		"startDate" : "2020-01-25",
+		"expirationDate": "2021-01-25",
+		"price" : "550€"
+		}
+	]
+	},
+	{
+	"internalId" : "ALL000231",
+	"companyName" : "GastroExpress GmbH",
+	"address" : "Sickingenstr. 20-28 10553 Berlin",
+	"products" : 
+	[
+		{
+		"productName" : "Building Insurance",
+		"startDate" : "2019-12-26",
+		"expirationDate" : "2020-12-26",
+		"price" : "520€"
+		},
+		{
+		"productName" : "Financial Loss Insurance",
+		"startDate" : "2019-12-26",
+		"expirationDate" : "2020-12-26",
+		"price" : "120€"
+		},
+		{
+		"productName" : "Business content insurance",
+		"startDate" : "2020-01-26",
+		"expirationDate" : "2021-01-26",
+		"price" : "220€"
+		}
+	]
+	},
+	{
+	"internalId" : "ALL000232",
+	"companyName" : "GastroExpress GmbH",
+	"address" : "Sickingenstr. 20-28 10553 Berlin",
+	"products":
+	[
+		{
+		"productName" : "Business content insurance",
+		"startDate" : "2019-12-26",
+		"expirationDate" : "2020-12-26",
+		"price" : "320€"
+		},
+		{
+		"productName" : "Business content insurance",
+		"startDate" : "2019-12-26",
+		"expirationDate" : "2020-12-26",
+		"price" : "120€"
+		}
+	]
+	},
+	{
+	"internalId" : "ALL008901",
+	"companyName" : "RISTON Griechische Produkte UG (haftungsbeschränkt)",
+	"address" : "Sickingenstr. 20-28 10825 Berlin",
+	"products" :
+	[
+		{
+		"productName" : "Building Insurance",
+		"startDate" : "2019-10-26",
+		"expirationDate" : "2020-10-26",
+		"price" : "530€"
+		}
+	]
+	},
+	{
+	"internalId" : "ALL008003",
+	"companyName" : "ARISTON Griechische Produkte UG (haftungsbeschränkt)",
+	"address" : "Meraner Str. 19 10825 Berlin",
+	"products":
+	[
+		{
+		"productName" : "Building Insurance",
+		"startDate" : "2019-10-26",
+		"expirationDate" : "2020-10-26",
+		"price" : "530€"
+		},
+		{
+		"productName" : "Financial Loss Insurance",
+		"startDate" : "2019-10-26",
+		"expirationDate" : "2020-10-26",
+		"price" : "130€"
+		},
+		{
+		"productName" : "Business content insurance",
+		"startDate" : "2019-10-26",
+		"expirationDate" : "2020-10-26",
+		"price" : "130€"
+		},
+		{
+		"productName" : "Legal Protection",
+		"startDate" : "2019-10-26",
+		"expirationDate" : "2020-10-26",
+		"price" : "30€"
+		}
+	]
+	},
+	{
+	"internalId" : "ALL001111",
+	"companyName" : "Yaren Food GmbH",
+	"address" : "Hauptstr. 113-115 10827 Berlin",
+	"products" :
+	[
+		{
+		"productName" : "Building Insurance",
+		"startDate" : "2019-10-26",
+		"expirationDate" : "2020-10-26",
+		"price" : "539€"
+		}
+	]
+	}
+]
+}	
+			

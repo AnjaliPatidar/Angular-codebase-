@@ -1,0 +1,88 @@
+<div class="entity-info-st">
+    <div class="table-responsive custom-scroll-wrapper custom-table" tabindex="1">
+        <table class="table" aria-describedby="general-des">
+            <thead>
+                <tr>
+                    <th class="text-dark-black px-5">
+                        {{'Attribute' | translate}}
+                    </th>
+                    <th class="text-dark-black">
+                        {{'Record Information' | translate}}
+                    </th>
+                    <th class="text-dark-black">
+                        {{'Match Information' | translate}}
+                    </th>
+                    <th class="text-dark-black" *ngIf="showMatchTypeColumn">
+                        {{'Match Type' | translate}}
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody class="alternate-row-colors left-content-wrap">
+                <tr *ngFor="let value of generalDetail">
+                    <td class="text-dark-black text-capitalize">
+                        {{ value.attributeName | translate }}
+                    </td>
+
+                    <td class="text-dark-black hover_column">
+
+                        <ng-template #title>
+                            <div class="d-flex w-100 justify-content-between align-items-center">
+                                <h3 class="f-20 gotham-medium mb-0  text-dark-black">
+                                    {{ value.attributeName | translate }}
+                                </h3>
+                                <i class="material-icons text-dark-black c-pointer" (click)="popover.close()">close</i>
+                            </div>
+                        </ng-template>
+
+                        <ng-template #body>
+                            <div class="text-dark-black mxh-300 custom-scroll-wrapper overflow-auto">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin adipiscing vel egestas
+                                tortor.
+                                <span class="fa fa-check-circle align-middle ml-3" style="color:green;"
+                                    aria-hidden="true">
+                                </span>
+                                <br>
+                                elementum massa ullamcorper viverra amet facilisis. Rhoncus quis nulla velit
+                                pellentesque sed ***
+                            </div>
+                        </ng-template>
+
+                        <!-- <div class="td-content">
+                            <div class="empty-space">
+                                <span [autoClose]="'outside'" [ngbPopover]="body"
+                                    popoverClass="alert-card-popover no-arrow light-theme light-theme-no-radius"
+                                    [popoverTitle]="title" #popover="ngbPopover" container="body"
+                                    class="d-inline-flex align-items-center ml-2 mr-2 c-pointer ">
+                                    <ng-container *ngIf="value.confidencePercentage != -1">
+                                        <i class="material-icons text-dark-black mr-1">link</i>
+                                        <span class="text-dark-black">2</span>
+                                    </ng-container>
+                                </span>
+                            </div>
+                            <p class="info-block">{{value.recordInfo}}</p>
+                        </div> -->
+                        {{value.recordInfo}}
+                    </td>
+
+                    <td class="text-dark-black text-capitalize">
+                        <div class="td-content">
+                            <div class="empty-space">
+                                <span class="matchbtn badge-danger"
+                                    [ngClass]="{'badge-success': value.confidencePercentage == 100, 'badge-warning': value.confidencePercentage >= 80 && value.confidencePercentage < 100}"
+                                    *ngIf="value.confidencePercentage != -1">{{value.confidencePercentage}}%</span>
+                            </div>
+                            <p class="v-align info-block">
+                                {{value.matchInfo}}
+                            </p>
+                        </div>
+                    </td>
+
+                    <td class="text-dark-black text-capitalize" *ngIf="showMatchTypeColumn">
+                        {{value.matchType}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

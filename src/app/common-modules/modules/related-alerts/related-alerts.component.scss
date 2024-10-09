@@ -1,0 +1,146 @@
+@import "../../../../assets/scss/theme/common/variable";
+@import "../../../../assets/themes/light-dark-theme/theme-utilities";
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,
+th {
+  width: 25%;
+  font-size: medium;
+}
+
+::ng-deep
+  .custom-modal-body.modal-open
+  .modal.bst_modal.entity-identification-modal.alert-card-modal
+  table
+  tbody
+  td.mat-cell,
+td.mat-footer-cell,
+th.mat-header-cell {
+  padding-left: 24px !important;
+}
+
+th.mat-header-cell {
+  padding: 0;
+  border-bottom-width: 0px !important; 
+  border-bottom-style: none !important;
+}
+
+.example-container {
+  height: 560px !important;
+  overflow: auto;
+}
+
+.export-button {
+  position: absolute;
+  right: 0;
+  z-index: 9;
+  border-color: $primary-color;
+  line-height: 1.14;
+  letter-spacing: 1.25px;
+  border-radius: $sm-comp-corner-radius;
+  padding: 7px 11px;
+  border-style: groove;
+  color: $primary-color;
+}
+
+.filterTh {
+  // color: white;
+  // position: sticky; 
+  // top: 0;
+  // z-index: 1;
+  // background: white;
+}
+
+.headerTh {
+  font-weight: bold;
+  // position: sticky;
+  // top: 0;
+  // z-index: 1;
+  // background: white;
+}
+
+::ng-deep .mat-sort-header-container {
+  border-right: 2px solid $theme-text-color !important;
+}
+
+.alertIdlink {
+  color: $primary-color !important;
+  text-decoration: underline !important;
+}
+
+.mat-table-message {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+}
+
+.header-background {
+  background: rgba(255,255,255,0.1);
+}
+.tRow {
+  color: var(--textOnSurface);
+  background-color: var(--surface) !important;
+}
+
+.filter-coloumn {
+  padding: 10px;
+  background-color: var(--inputGroup);
+  color: var(--textOnPrimary);
+  height: 33px;
+  vertical-align: middle;
+  line-height: 1.8;
+  border: 0 !important;
+}
+
+.top-bar {
+  background: rgba(255, 255, 255, 0.075);
+}
+
+.table-style {
+  background-color: $table-bg-color !important;
+}
+
+::ng-deep .mat-paginator-page-size-select {
+  line-height: 1.2;
+  background-color: var(--inputGroup);
+  padding: 0 10px 0 10px;
+  border-radius: $sm-comp-corner-radius;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.6rem;
+  max-width: 85px;
+  height: 40px;
+  margin-left: 5px;
+  margin-top: 0 !important;
+  min-width: 70px;
+}
+
+::ng-deep .mat-paginator-range-label {
+  line-height: 1.2;
+  background-color: var(--inputGroup);
+  padding: 10px;
+  border-radius: $sm-comp-corner-radius;
+  height: 40px;
+  margin-left: 5px;
+}
+
+.main-table {
+  // max-height:42vh;
+  overflow-y:scroll;
+  overflow-x:hidden;
+
+  max-height: calc(54vh - 155px); // or height: calc(100vh - 155px); depending on your need  change
+  //   overflow: auto;
+}
+
+
+
+
+
+

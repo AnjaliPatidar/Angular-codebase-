@@ -1,0 +1,31 @@
+    <div class="modal-header pad-b10 d-flex ai-c">
+        <h4 class="modal-title mar-autor  text-overflow">
+            <span id="articleHeader">{{'Company Logo' | translate}} </span>
+        </h4>
+        <button type="button" class="f-24 bg-transparent border-0 text-cream text-dark-black txt-on-surface-06"
+           (click)="modal.dismiss()" data-dismiss="modal">&times;</button>
+    </div>
+    <div class="modal-body height-100 pad-t15">
+        <div class="clearfix height-100 custom-upload-wrapper " id="imageDiv" ng2FileDrop [uploader]="uploader"
+         (onFileDrop)="onFileSelected($event )"
+            style="display: flex;justify-content: center;border: 1px dashed #545454;border-radius: 10px;padding: 15px 0;">
+            <div>
+                <div class="dropzone custom-cloud-wrapper" file-dropzone="[image/png, image/jpeg, image/svg]"
+                    file="image" file-name="imageFileName" readfile="uploadme.src" data-max-file-size="4"
+                    closemodal="closeUploadCustomerLogoModal()"
+                   >
+                    <i class="fa fa-cloud-upload text-cream f-40 text-dark-black d-flex justify-content-center txt-on-surface-87"></i>
+                    <h1 class="text-cream text-dark-black title-txt-on-surface">{{'Drag your Company Logo here' | translate}}</h1>
+                    <p class="text-center txt-on-surface-87">{{'Recommended to use PNG ,JPEG or SVG file formats with 70px X 320px resolution' | translate}}</p>
+                    <p class="my-3 text-center txt-on-surface-87"> ---- or ----</p>
+                </div>
+                <div class="custom-upload-button-wrapper text-white position-relative text-center">
+                    <button class="grad-button c-pointer">{{'Choose file' | translate}}</button>
+                    <input type="file" class="grad-button position-absolute op-0 c-pointer custom-upload-button" [(ngModel)] ="uploadme" ng2FileSelect
+                     [uploader]="uploader"  (change)="onFileSelected($event.target.files)">
+                </div>
+            </div>
+        </div>
+         
+    </div>
+    

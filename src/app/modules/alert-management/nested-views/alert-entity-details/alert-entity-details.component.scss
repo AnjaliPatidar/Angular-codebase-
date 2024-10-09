@@ -1,0 +1,26 @@
+@import "../../../../../assets/scss/theme/common/variable";
+
+.gap-45 {
+    gap: 45px;
+}
+
+.mat-expansion-panel {
+    border-radius: 10px !important;
+    background: $surface !important;
+}
+
+.mat-expansion-panel-header {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]).cdk-keyboard-focused,
+.mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]).cdk-program-focused,
+.mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]):hover {
+    background: $bg-company !important;
+}
+
+.bst-color-ty-link-emp-h {
+    color: $primary-color;
+}

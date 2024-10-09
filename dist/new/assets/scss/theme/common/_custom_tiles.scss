@@ -1,0 +1,163 @@
+/*==============================================================================
+********************  Tiles Wrapper Styles For The Site  ***********************
+==============================================================================*/
+
+.tiles-wrapper {
+    @include border-radius(5px);
+    overflow: hidden;
+    .tiles-header-wrapper {
+        @include box-shadow(0 2px 5px 0 rgba(0, 0, 0, .26));
+        @include padding(15px 50px);
+        h3 {
+            @extend .text-left;
+            @include margin(0);
+            @include padding(0 0 0 70px);
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            
+            font-size: $font-size-large;
+            line-height: 70px;
+            height: 70px;
+            font-weight: bold;
+            position: relative;
+            img {
+                @include center-position();
+                left: 20px;
+                &.selected {
+                    left: auto;
+                    right: -20px;
+                }
+            }
+        }
+        label {
+            @extend .text-left;
+            @include margin(0);
+            @include padding(0 0 0 70px);
+            line-height: 70px;
+            width: 100%;
+            height: 70px;
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-regular);
+              }
+            font-size: $font-size-large;
+            font-weight: bold;
+            position: relative;
+            cursor: pointer;
+            img {
+                @include center-position();
+                left: 20px;
+                &.selected {
+                    @include transition(all 0.3s ease-in-out);
+                    opacity: 0;
+                    left: auto;
+                    right: 0;
+                }
+            }
+            input[type="checkbox"] {
+                display: none;
+            }
+            input[type="checkbox"]:checked {
+                ~.selected {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    p {
+        @include margin(60px 0 20px);
+        // font-family: $roboto-regular;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-regular);
+          }
+        color: $dark-grey5;
+        font-size: $font-size-base;
+    }
+    .tile {
+        @include transition(all .2s ease-in-out);
+        padding: 20px 15px;
+        background-color: #314650;
+        cursor: pointer;
+        &:hover {
+            @include box-shadow(0 0 10px rgba(0, 0, 0, .4));
+            
+        }
+        h3 {
+            @extend .text-uppercase;
+            @include transition(all .2s ease-in-out);
+            font-size: $font-size-large;
+            color: #3e7aad;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        p {
+            @include margin(0);
+            font-size: ($font-size-small - 1);
+            color: #6c7c84;
+        }
+    }
+}
+
+.transaction-tile-wrapper {
+    h5 {
+        @include margin(0 0 5px);
+        font-size: $font-size-small;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    p {
+        @include margin(0 0 15px);
+        strong,
+        span {
+            color: #3472a8;
+            font-family: $francois-one-regular;
+            font-size: 21px;
+            line-height: 24px;
+            text-overflow: ellipsis;
+            white-space: normal;
+            overflow: hidden;
+            vertical-align: middle;
+        }
+        .btn-grey {
+            @include padding(5px);
+            @include border-radius(0);
+            background-color: #425761;
+            color: #a2bcc8;
+            &:hover,
+            &:focus {
+                background-color: #425761;
+                color: #a2bcc8;
+            }
+        }
+    }
+}
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+
+@media (min-width:$screen-lg) {}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {}
+
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {
+    .tiles-wrapper {
+        .tiles-header-wrapper {
+            label {
+                img {
+                    &.selected {
+                        right: -30px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {}

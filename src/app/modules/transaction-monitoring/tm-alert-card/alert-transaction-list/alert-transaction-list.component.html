@@ -1,0 +1,22 @@
+<div class="card custom-card sm-cards">
+
+    <div class="d-flex flex-column hit-list">
+        <div class="ag-table-wrapper data-table-wrapper" style="flex:1;height: 100vh;margin-top:0%">
+
+            <span class="f-14 lh-14 text-on-surface d-inline-flex align-items-center card-title" translate>{{ 'Hit Summary' | translate }}</span>
+
+            <div>
+                <ng-container>
+                    <app-ag-grid-table
+                      [fromComponent]="componentName"
+                      (updateClientSideRowModelTable)="getHitList()"
+                      class="hitList-table mar-t10"
+                      [tableData]="gridOptions"
+                      [gridShow]="gridShow"
+                    >
+                    </app-ag-grid-table>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

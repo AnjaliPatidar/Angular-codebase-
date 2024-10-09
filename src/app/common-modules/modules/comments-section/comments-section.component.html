@@ -1,0 +1,73 @@
+<section style="display: flex;flex-flow: column; height: calc(100vh - 510px);">
+    <div class="text-center text-on-surface vla-loader position-absolute d-flex align-items-center justify-content-center"
+        *ngIf="showFileSpinner">
+        <i class="fa fa-spinner txt-on-surface-06 fa-pulse font-size-4"></i>
+    </div>
+
+    <ul id="commentSection" #scrollMe class="list-unstyled mnw-420 mxh-490 custom-scroll-wrapper overflow-a user-details-wrapper" style="flex: 0 1 auto;">
+        <li class="media d-flex light-theme-border-bottom" *ngFor="let data of commentListItems; let i = index" style="border-bottom: 1px solid #c1c1c1;">
+            <!-- <div class="list-img"></div> -->
+            <div>
+                <ng-container *ngIf="data.commentedBy.userImage else imagePlaceholder">
+                    <img class="list-img image-placeholder" [src]="'data:image/gif;base64,' + data.commentedBy.userImage" alt="">
+                </ng-container>
+                <ng-template #imagePlaceholder>
+                    <span class="image-placeholder ml-1 f-10 text-white">
+                        {{ data?.commentedBy?.firstName ?  data.commentedBy.firstName.charAt(0).toUpperCase() : ''  }}{{ data?.commentedBy?.lastName ? data.commentedBy.lastName.charAt(0).toUpperCase() : '' }}</span>
+                </ng-template>
+
+            </div>
+
+            <div class=" media-body">
+                <h5 class="f-16 ai-c mar-l5 d-flex mb-3 px-2 justify-content-between font-weight-bold">
+                    <span class="text-dark-black text-on-surface">
+                        {{data.commentedBy.screenName}}
+                    </span>
+                    <div class="d-flex">
+                        <span
+                            class="time-list f-12 mar-l10 light-theme-light-color">{{data.createdDate | date:(dateFormat.ShortDateFormat+' '+dateFormat.ShortTimeFormat) }}</span>
+                        <!-- <span class="mar-l10 d-flex ai-c jc-c" (click)="deleteComment(i)">
+              <i class="fa fa-trash f-12 text-coral-red c-pointer"></i>
+            </span> -->
+                    </div>
+                </h5>
+                <div class="media mt-3 f-14">
+                    <p class="text-dark-black text-on-surface text-unset w-100 word-bw">{{data.comments}}</p>
+                </div>
+                <ul class="list-group f-14">
+                    <li class="list-group-item document light theme px-2 mr-2 f-14 d-flex" *ngFor="let attach of data.attachment;">
+                        <span class="c-pointer"><i class="fa fa-file" aria-hidden="true"></i></span> <span
+                            class="mar-l5 c-pointer dots-text" (click)="getDownload(attach)">
+                            {{attach.docName}}</span>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+    <div class="bst_input_group p-abs b-0 l-0 custom-input-in-card-body" style="flex: 0 1 auto;" [class.c-ban]="commentBoxPermissionView">
+        <form (ngSubmit)="commentMssgData(f.form.value)" #f="ngForm" autocomplete="off" permission [disabled]="commentBoxPermissionView">
+
+            <input type="text" #name="ngModel" placeholder="Type something" maxlength="3072"
+                name="commentMssgForValid" [(ngModel)]="commentMssg" (input)="filterItem(commentMssg)"
+                (click)="showList()" [(value)]="commentMssg"
+                class="custom-input input-text border-0 width-100 bg-transparent pt-3" required
+                autocomplete="off" />
+
+            <div (click)="fileAttach($event)">
+                <span id="filesUpload"
+                    class="fa fa-paperclip c-pointer papericon icon-right pull-right t-25 mt-2 pt-1">
+                </span></div>
+            <input type="file" id="fileAttachment" style="display:none;"
+                name="myFile" (change)="fileUpload($event)" multiple />
+            <button type="submit" style="display:none;"></button>
+        </form>
+    </div>
+    <div class="autocomplete-options custom-scroll-wrapper light-theme-bg-white"
+        *ngIf="filteredItems?.length && showListItems">
+        <ng-container *ngFor="let item of filteredItems;trackBy:trackByDisplayName">
+            <p class="c-pointer option w-100 text-dark-black text-on-surface" *ngIf="showListItems"
+                (click)="addItem(item.displayName)">{{item.code}}</p>
+        </ng-container>
+    </div>
+
+</section>

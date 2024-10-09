@@ -1,0 +1,40 @@
+<div class="upload-media-modal-wrapper">
+    <!-- <span ng-show="addMediaPreloader" class="custom-spinner case-dairy-spinner">
+        <i class="fa fa-spinner fa-spin fa-2x"></i>
+    </span> -->
+    <div class="modal-header pb-2 d-flex align-items-center bottom-border">
+        <h4 class="modal-title">{{'UploadDocument' | translate}} </h4>
+        <button type="button" class="close text-on-surface" aria-hidden="true"
+           (click)="modal.dismiss()"><span class="material-icons">close</span></button>
+    </div>
+    <!-- <div class="modal-body">
+        <div *ngIf="!uploadDocTypeList" class="text-dark-grey2">Supported File Types : Json</div><br>
+        <div *ngIf="uploadDocTypeList && uploadDocTypeList.length == 0  " class="text-dark-grey2">
+            {{  'Filescantbeuploaded'}}</div><br>
+        <span *ngIf="!maxFile_size" class="text-dark-grey2">{{   'FileSize'}}:
+            {{ 'Upto'}} 20MB</span>
+        <div *ngIf="uploadDocTypeList.length > 0" class="text-dark-grey2">Supported File Types : <span
+                *ngFor="let uploadFileType of uploadDocTypeList;let index = index">{{uploadFileType}}<span
+                    class="mar-r5">,</span></span></div><br>
+        <span *ngIf="maxFile_size" class="text-dark-grey2">{{ 'Upto'}}:
+            {{'FileSize'}} {{maxFile_size}}</span>
+    </div> -->
+
+    <div class="modal-body">
+        <p class="mb-3 f-13 text-on-surface">{{'Supported file types' | translate}} : zip</p>
+        <p class="f-13 text-on-surface">{{'FileSize' | translate}} : 20MB</p>
+    </div>
+
+    <div class="modal-footer mt-3">
+        <input type="file" class="btn btn-primary hidden-btn btn-update light-theme-btn  primary-btn"
+        ng2FileSelect  [uploader]="uploader" 
+            (change)="modal.close($event.target.files)">
+            <!-- <i class="fa fa-upload"></i><span>{{  'Upload'}}</span> -->
+            <button type="button" class="btn btn-primary btn-update light-theme-btn  primary-btn">
+				<i class="fa fa-upload"></i><span>{{'Upload' | translate}}</span>
+            </button>
+
+        <button type="button" class="btn btn-default btn-cancel light-theme-btn  secondary-btn bg-transparent"
+            (click)="modal.dismiss()">{{ 'Close' | translate}}</button>
+    </div>
+</div>

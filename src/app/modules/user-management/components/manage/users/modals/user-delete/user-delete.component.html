@@ -1,0 +1,19 @@
+<div>
+  <div class="modal-header d-none">
+
+  </div>
+  <div class="modal-body pad-x15">
+    <div class="row">
+      <div class="col-sm-12">
+        <p id="mainData" class="text-left text-dark-black txt-on-surface-87">
+         <span *ngIf="incomingdata.message">{{incomingdata.message}}</span> 
+         <span *ngIf="!incomingdata.message">{{'Are you sure you wish to delete?' | translate}}</span>
+        </p>
+      </div>
+      <div class="btn-group width-100  mt-5 d-flex justify-content-end">
+        <button class="grad-button mr-3 light-theme-btn primary-btn gotham-medium font-medium" type="button" (click)="close(true)">{{'Yes' | translate}}</button>
+        <button class="bordered-button light-theme-btn secondary-btn gotham-medium font-medium" type="button" (click)="close(false)">{{'No' | translate}}</button>
+      </div>
+    </div>
+  </div>
+</div>

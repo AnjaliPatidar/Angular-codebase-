@@ -1,0 +1,45 @@
+
+  <div class="dynamic-main-sliders media-popover">
+    <ng-template #rowPopOverContentForMedia>
+      <div class="width-100 pad-10px" style="width:365px !important">
+        <div class="pop-header font-bold f-18 text-cream d-flex ai-c" style="height: 3.5rem !important;border-bottom: 2px solid rgba(251, 251, 251, 0.3) !important;">
+            <h4 style="color:#fff;font-size: 18px;" class="mxw-150 text-capitalize pad-r10 text-overflow mar-b0 f-16 font-bold">{{popoverHeaderData.company_name}}</h4>
+            <p style="color:#fff;font-size: 18px;" class="font-light mar-l5 f-16 mar-b0 text-cream">| {{popoverHeaderData.field_name}}</p>
+            <span class="text-cream f-12 c-pointer font-regular mar-autol" (click)="resetMediaSource($event)">{{'ResetToDefault' | translate}}</span>
+        </div>
+        <div>
+            <div class="switch-wrapper width-50 pad-r15 d-if ai-c mar-t5">
+                <p class="font-regular text-cream f-14 mar-b0 width-85 text-overflow mar-r10">
+                  <i class="fa fa-files-o f-12 mar-r5"></i>{{'All' | translate}}</p>
+                  <div class="inner-switch-wrapper">
+                    <label class="switch pull-right custom-switch-wrapper bst-switch-wrapper d-flex ai-c">
+                      <input type="checkbox" [(ngModel)]="allSelected" class="custom-switch-checkbox" (change)="checkUncheckAll()">
+                      <span class="slider round" ></span>
+                    </label>
+                  </div>
+            </div>
+            <div class="switch-wrapper width-50 pad-r15 d-if ai-c mar-t5" *ngFor="let item of mediaListForHeader;trackBy:trackByMediaName">
+            <p class="font-regular text-cream f-14 mar-b0 width-85 text-overflow mar-r10">
+              <i class="fa fa-{{mapMediaHash[item.mediaName]}} f-12 mar-r5"></i>{{item.mediaName}}</p>
+              <div class="inner-switch-wrapper">
+                <label class="switch pull-right custom-switch-wrapper bst-switch-wrapper d-flex ai-c">
+                  <input type="checkbox" [(ngModel)]="item.isSelected" [(value)]="item.value" class="custom-switch-checkbox" (change)="isAllSelected()">
+                  <span class="slider round" ></span>
+                </label>
+              </div>
+            </div>
+        </div>
+        <div class="d-flex ai-c jc-fe">
+            <a class="btn bg-transparent text-uppercase text-dodger-blue border-0 f-14" (click)="resetMediaSource($event)">{{'Cancel' | translate}}</a>
+            <a class="btn bg-transparent text-uppercase text-dodger-blue border-0 pad-r0 f-14" (click)="saveMediaSource($event)">{{'Save' | translate}}</a>
+        </div>
+      </div>
+    </ng-template>
+
+    <div class="d-flex ai-c fd-r">
+      <span *ngFor="let icon of mediaListForHeader1;trackBy:trackByMediaName">
+        <i *ngIf="icon.isSelected" class="fa fa-{{mapMediaHash[icon.mediaName]}} mar-r5 f-10"></i>
+      </span>
+      <i class="fa fa-sliders f-16 text-dark-cream font-16 r-10 t-10 c-pointer" (click)="setInitialValues()" [ngbPopover]="rowPopOverContentForMedia" [autoClose]="false" popoverClass="bst_popover" placement="bottom" container="body" data-action-type="sliderpop"></i>
+    </div>
+  </div>

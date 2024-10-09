@@ -1,0 +1,17 @@
+{
+    "Source": "Source",
+    "Jurisdiction": "Jurisdiction",
+    "Industry": "Industry",
+    "Update": "Update",
+    "Cancel": "Cancel",
+    "PrioritizeInformation":"Prioritize information from a source for each category",
+    "Media" :"Media",
+    "Add": "Add",
+    "Save" : "Save",
+    "ResetToDefault":"Reset To Default",
+    "ExportData": "Export Data",
+    "Sources" : "Quellen",
+    "General" : "Allgemeines",
+    "News" : "Nachrichten",
+    "Index" : "Index"
+}

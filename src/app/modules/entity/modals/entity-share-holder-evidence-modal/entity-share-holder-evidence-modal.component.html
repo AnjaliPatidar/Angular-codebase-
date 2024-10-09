@@ -1,0 +1,109 @@
+<div class="modal-header pad-b10 mar-l0 d-flex ai-c">
+  <h4 class="modal-title mar-autor  text-overflow">
+    <span>Shareholder Evidence </span>
+  </h4>
+  <button type="button" class="f-24 bg-transparent border-0 text-cream" (click)="activemodal.dismiss()">×</button>
+</div>
+<div class="modal-body height-100 pad-t15">
+  <div class="clearfix height-100">
+    <div class="col-sm-3 right-panel height-100 pad-l0">
+      <ul class="list-group custom-list-group height-95 left-side-lists">
+        <li class="list-group-item evidence-list"
+          *ngFor="let companies of entityShareHolderListsData;let index = index "
+          [ngClass]="{'active': (index == defaultActiveIndex), 'pe-none' : (shareHOlderLoader)}"
+          (click)="getMultiSource(index,companies)">
+          <p class="mar-b0 font-light d-flex ai-t">{{companies.name}}</p>
+        </li>
+      </ul>
+    </div>
+    <div class="height-95 pad-x0 col-sm-9">
+      <div *ngIf="!shareHOlderLoader && multisourceDiscData.length == 0" class="no-data-wrapper text-center">
+        <p style="text-align:center;color:red">No Data Found</p>
+      </div>
+      <span class="custom-spinner height-200px" *ngIf="shareHOlderLoader">
+        <i class="fa fa-spinner txt-on-surface-06 fa-spin fa-2x"></i>
+      </span>
+      <div
+        class="panel-group overflow-a height-100 pad-r10 custom-scroll-wrapper bst_custom_accordian  evidence-accordian-wrapper"
+        id="accordion3" role="tablist" aria-multiselectable="true">
+        <div *ngIf="multisourceDiscData.length > 0 && !shareHOlderLoader" class="panel-group">
+
+
+          <ngb-accordion [closeOthers]="true" #acc="ngbAccordion" class="custom-acc-tab"
+            *ngFor="let value of multisourceDiscData;let index= index ">
+            <ngb-panel id="leftsideheader{{index}}">
+              <ng-template ngbPanelHeader class="panel-heading">
+                <button class="uib-header-wrapper p-0 w-100 d-flex bg-transparent border-0" ngbPanelToggle>
+                  <div class="uib-header-wrapper w-100 panel-heading p-0 bg-transparent d-flex">
+                    <div class="pad-l0 w-100">
+                      <div class="media">
+                        <div class="media-left c-pointer ">
+                          <div class="entity-company-image">
+                            <!-- <img class="img-responsive"
+                                                                ng-src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Walmart_logo.svg/2000px-Walmart_logo.svg.png"
+                                                                *ngIf="entitySearchResult.list.topHeaderObject.logo_url || entitySearchResult.comapnyLogo "
+                                                                alt="fetcher_logo"
+                                                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Walmart_logo.svg/2000px-Walmart_logo.svg.png"> -->
+                            <i class="fa fa-building-o "></i>
+                          </div>
+                        </div>
+                        <div class="media-body bg-transparent">
+                          <div class="media-header-wrapper d-flex justify-content-between">
+
+                            <h4 class="media-heading text-unset text-left" style="text-align:left;">
+                              {{value['overviewSrc']['vcard:organization-name']}}</h4>
+                            <p *ngIf="value.isScreenShot" class="width-40 mar-b0 word-ba text-unset"
+                              style="text-align:left;">{{value.screenShot_sourceName}}</p>
+                            <ul class="custom-list pad-l10 d-flex ai-c mar-autol">
+                              <li *ngIf="value.isScreenShot"><i class="icons f-16 mb-2 icon-cloud-download"
+                                  (click)="downloadEvidence(value,$event)"></i></li>
+                              <li *ngIf="value.isScreenShot && !value.addedtopage && !value.addtopageloader"
+                                class="mar-x5 square-20 mb-2"><img src="..\assets\img\file-plus-grey.svg"
+                                  (click)="addtoEvidencePage(value,$event)"></li>
+                              <li *ngIf="value.isScreenShot && value.addedtopage" class="mar-l5 mb-2">
+                                <i class="fa fa-check"></i></li>
+                              <li class="custom-spinner mar-l15 p-rel mb-2 t-10 l-0" *ngIf="value.addtopageloader "><i
+                                  class="fa f-16 fa-spinner fa-spin"></i></li>
+                              <li *ngIf="!value.loading && !value.isScreenShot" class="mar-x5 mb-2"
+                                (click)="openEditListShareHolder(value['overviewSrc'], value['select_entity'], $event)">
+                                <i class="fa f-16 fa-camera"></i>
+                              </li>
+                              <li class="custom-spinner mb-2 p-rel t-10 l-0" *ngIf="value.loading ">
+                                <i class="fa f-16 fa-spinner fa-spin"></i></li>
+                              <li id="link" class="pl-3"
+                                (click)="openWindowRegistryURI(value['overviewSrc']['bst:registryURI'], $event)">
+                                <a target="_blank" class="mar-r5" href="{{value['overviewSrc']['bst:registryURI']}}">
+                                  <span><i class="fa f-16 fa-external-link "></i></span>
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="d-flex width-100">
+                            <p class="font-light text-unset mar-b0">
+                              {{value['overviewSrc']['bst:registryURI'] }}</p>
+                          </div>
+                          <div class="d-flex width-100">
+                            <p class="font-light text-unset mar-b0">
+                              {{value['overviewSrc']['mdaas:RegisteredAddress'] ? (value['overviewSrc']['mdaas:RegisteredAddress'].fullAddress) : ''}}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <div>
+                  <div class="font-light" style="min-height:30px;">
+                    <p class="font-light mar-b0">
+                      {{value['overviewSrc']['bst:description'] ? value['overviewSrc']['bst:description'] : ''}}
+                    </p>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,32 @@
+<div class="w-100 d-flex">
+  <div class="tags-wrapper" [class.width-85]="pendingCount > 0">
+    <span *ngFor="let tag of displayedTags;trackBy:trackByContent" class="badge-success tag" [style.backgroundColor]="tag.color_code">
+      {{ tag && tag.content }}
+    </span>
+  </div>
+  <span *ngIf="pendingCount > 0" class="badge-success counter-number tag-bg count-tag" mat-button
+    [matMenuTriggerFor]="menu">
+    +{{pendingCount}}
+  </span>
+</div>
+
+<mat-menu #menu="matMenu" class="hidden-tag-menu">
+  <div class="menu-header">
+    <span>Tags</span>
+    <button type="button" class="header-close">
+      <i class="material-icons header-close-button">close</i>
+    </button>
+  </div>
+  <div class="hidden-tag-wrapper">
+    <div class="tag-input-wrapper">
+      <div class="selected-tag-wrapper">
+        <div class="selected-tags">
+          <span *ngFor="let tag of hiddenTagList;trackBy:trackByContent" class="badge-success hidden-tag"
+            [style.backgroundColor]="tag && tag.color_code">
+            {{ tag && tag.content }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-menu>

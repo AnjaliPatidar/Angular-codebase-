@@ -1,0 +1,18 @@
+<div class="pad-0 height-50 details-panel-wrapper panel custom-panel-wrapper bst_panel_wrapper  details-panel-wrapper">
+    <div class="d-flex panel-heading ai-c">
+        <h3 class="mar-b0 roboto-light f-18 lh-1_2 text-unset text-cream">Amenities</h3>
+    </div>
+    <div class="mnh-150 panel-body pt-4 panel-scroll p-rel details-panel-wrapper" malihu-scrollbar>
+        <div class="row" *ngIf="amenitiesList">
+            <div class="ai-c col-sm-6 amenities" *ngFor="let amenity of amenitiesList">
+                <p class="pb-1 pt-1 d-flex align-items-center">
+                    <i class="icon-space-text mar-l5 mar-r15 ai-c fa fa-check" *ngIf="amenity.value != 'No' && amenity.value != 'None'"></i>
+                    <i class="fa fa-times icon-space-text mar-l5 mar-r15 ai-c" aria-hidden="true" *ngIf="amenity.value === 'No' || amenity.value === 'None'"></i> {{amenity.amenities_type}}
+                </p>
+            </div>
+        </div>
+        <div *ngIf="amenitiesList ===undefined || amenitiesList === null || amenitiesList === '' || amenitiesList.length === 0" class="d-flex align-items-center justify-content-center h-100">
+            <div class="text-center text-coral-red">Data Not Found</div>
+        </div>
+    </div>
+</div>

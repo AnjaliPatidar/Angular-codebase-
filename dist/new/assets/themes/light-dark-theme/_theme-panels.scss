@@ -1,0 +1,100 @@
+
+      /* Top panel charts styles */
+      .chart-details-wrapper {
+        .custom-card {
+          background-color: $charts-bg-color;
+          border-radius: 0px;
+          margin-top: 1.6rem;
+  
+          &:nth-of-type(1) {
+            // margin-left: 2.4rem;
+          }
+  
+          &:nth-of-type(3) {
+            // margin-right: 2.4rem;
+          }
+  
+          p {
+            color: $theme-light-black !important;
+          }
+        }
+      }
+  
+  
+  /* Custom theme styles for the left panel */
+    app-left-panel {
+        // background-color: $left-panel-bg;
+        background-color: rgba(0,0,0,32%);
+        box-shadow: none;
+        ul {
+          li {
+            margin: 0px 8px !important;
+            a {
+              height: 40px;
+              &.active {
+                // background-color: transparent !important;
+                background-color: rgba($theme-yellow-color,20%);
+                i {
+                  // color: transparent;
+                  // background-image: linear-gradient(to bottom, $theme-yellow-color, $theme-yellow-color);
+                  color: $theme-yellow-color;
+                }
+  
+                // &:after {
+                //   content: '';
+                //   position: absolute;
+                //   width: 4px;
+                //   height: 20px;
+                //   background-color: $left-panel-active-border;
+                //   left: -10px;
+                // }
+              }
+            }
+          }
+        }
+      }
+  
+
+  
+
+  
+      /* Custom theme styles for the right panel */
+      app-right-panel {
+        background-color: $right-panel-bg;
+        top: 11.5rem;
+        .custom-card.panel-header{
+          h3{
+            font-size: 15px;
+            font-family: "gotham-medium", sans-serif !important;
+          }
+        }
+        .card-details{
+            background-color: rgba($right-panel-card,0.12) !important;;
+            p{
+              font-size: 22px;
+              color: $theme-text-color;
+              font-family: "gotham-medium" !important;
+            }
+        }
+        .custom-card:not(.panel-header){
+          .card-header{
+            h3{
+              font-size: 20px;
+              line-height: 1.2;
+              letter-spacing: 0.25px;
+              color: $theme-light-color !important;
+              text-transform: capitalize !important;
+            }
+          }
+          &.card-hover:hover{
+              background-color: rgba($right-panel-hover-bg,0.12) !important;
+          }
+          .date-wrapper{
+            font-size: 13px;
+            font-family: "gotham-medium";
+          }
+        }
+      }
+  .list-name {
+    background-color: $pagination-dropdown-color;
+  }

@@ -1,0 +1,23 @@
+<div class="no-data z-99" *ngIf="!eventsLookupLoaded">
+  <i class="fa fa-spinner txt-on-surface-06 fa-pulse position-absolute b-0 f-25"></i>
+</div>
+<div class="ag-table-wrapper data-table-wrapper attachments-table" *ngIf="eventsLookupLoaded && !showEventsLookupOverlay">
+  <app-ag-grid-table
+    class="alertList-table mar-t10"
+    [tableData]="eventLookupOptions"
+    [attachmentsCount]="eventsLookupAttachmentsCount"
+    #agGridTableComponentHelper
+  >
+  </app-ag-grid-table>
+</div>
+<div class="overl-wr" *ngIf="!eventsLookupLoaded || showEventsLookupOverlay">
+  <div class="overl-c">
+    <div class="overl-ic-wr">
+      <img class="overl-ic" src="assets/images/icon/icon_file_attachment_24px_2.svg" *ngIf="themeService.getLightTheme()">
+      <img class="overl-ic" src="assets/images/icon/icon_file_attachment_24px.svg" *ngIf="!themeService.getLightTheme()">
+    </div>
+    <div class="overl-t">
+      {{ 'There are no events lookup' | translate }}
+    </div>
+  </div>
+</div>

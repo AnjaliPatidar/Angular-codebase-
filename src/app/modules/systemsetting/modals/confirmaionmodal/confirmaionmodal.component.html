@@ -1,0 +1,22 @@
+<div class="modal-header" *ngIf="isShowHeader">
+    <h4 class="modal-title" id="mainTitle">{{(isShowHeader? deleteTitle : 'Delete Template') | translate}}</h4>
+    <span class="material-icons-round clr-p54 close-icon" (click)="sendResponse(false)">close</span>
+ </div>
+ <div class="modal-body pad-x15">
+     <div [ngClass]="isShowHeader? '' : 'row'">
+         <div class="col-sm-12 p-0" *ngIf="!typeOfmodal">
+             <p id="mainData" class="text-left" [ngClass]="isShowHeader ? 'delete-comment-title' : 'mb-2 f-14 txt-on-surface-87'">
+                {{title}}
+             </p>
+         </div>
+         <div class="col-sm-12 p-0" *ngIf="typeOfmodal == 'deleteTenant'">
+             <p id="mainData" class="text-left mb-2 f-14 txt-on-surface-87">
+               {{'Are you sure you wish to delete' | translate}} <span *ngIf="rowdata && rowdata.jurisdiction && rowdata.jurisdiction.displayName"> {{'mapping for jurisdiction:' | translate}}  <b>{{rowdata.jurisdiction.displayName}}</b></span>
+             </p>
+         </div>
+         <div class="btn-group widtheight-100 text-right pull-right ml-auto">
+                <button [ngClass]="isShowHeader ? 'bordered-button sm-btns' : 'grad-button sm-btns mr-3'" type="button" (click)="sendResponse(isShowHeader ? false : true)">{{(isShowHeader? 'CANCEL' : 'Yes') | translate}}</button>
+                <button [ngClass]="isShowHeader ? 'grad-button sm-btns' : 'bordered-button sm-btns'" type="button" (click)="sendResponse(isShowHeader ? true : false)">{{(isShowHeader? 'DELETE' : 'No') | translate}}</button>
+            </div>	
+     </div>
+ </div>

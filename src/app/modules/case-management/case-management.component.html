@@ -1,0 +1,12 @@
+<div class="case_management_dashboard dashboard_wrapper d-flex">
+  <app-left-case-panel></app-left-case-panel>
+  <div class="w-100">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="minimized-pop-over"  [ngStyle] ="{ 'right' : isNewWidgetOpen ? '325px' : '12px' }">
+    <app-case-batch-minimized></app-case-batch-minimized>
+  </div>
+</div>
+<div class="case-management-loader-full" *ngIf="showFullPageLoader">
+  <i class="fa fa-spinner fa-pulse loader-icon"></i>
+</div>

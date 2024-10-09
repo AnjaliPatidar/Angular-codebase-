@@ -1,0 +1,36 @@
+/* Main Solid Colors */
+$black: #2d2d2d;
+$greyish-brown: #545454;
+$warm-grey-two: #747474;
+$warm-grey: #919191;
+$white: #fbfbfb;
+$dodger-blue: #3eb6ff;
+$aquamarine: #00cab1;
+
+
+/*Main Gradients colors*/
+
+$accent-blue-gradient-r:linear-gradient(to right, #79c9ff, #009eff);
+$accent-blue-gradient-b:linear-gradient(to bottom, #79c9ff, #009eff);
+$bgr-grey-gradient-l:linear-gradient(to left, rgba(249, 249, 249, 0.2), rgba(250, 250, 250, 0.5));
+$bgr-grey-gradient-t:linear-gradient(to left, rgba(249, 249, 249, 0.2), rgba(250, 250, 250, 0.5));
+
+/* Additional Solid Colors */
+$coral: #ef5350;
+$light-orange: #f7a248;
+$light-gold: #fdd758;
+$dark-pastel-green: #5dab60;
+$tealish: #2db7c7;
+$deep-lilac: #8661c6;
+$dodger-blue-two: #488dfa;
+$barney: #9c27b0;
+
+/* Additional Gradient Colors */
+$coral-grad:linear-gradient(to top, #f44336, #e57373);;
+$light-orange-grad:  linear-gradient(to bottom, #ffb950, #ef6c00);
+$light-gold-grad:  linear-gradient(to bottom, #fff288, #fbc02d);
+$dark-pastel-green-grad: linear-gradient(to bottom, #81c784, #388e3c);
+$tealish-grad:  linear-gradient(to bottom, #5ad8e7, #0097a7);
+$deep-lilac-grad: linear-gradient(to bottom, #a78cd7, #673ab7);
+$dodger-blue-two-grad: linear-gradient(to bottom, #64b5f6, var(--clear-blue));;
+$barney-grad: linear-gradient(to top, var(--barney), #ba68c8);

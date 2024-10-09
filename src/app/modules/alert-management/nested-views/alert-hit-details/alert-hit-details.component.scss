@@ -1,0 +1,106 @@
+@import "../../../../../assets/scss/theme/common/variable";
+
+    .filter-box-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+
+    .filter_icon .fa-filter {
+        font-size: 16px;
+        color: $text-light-gray;
+    }
+
+    .icons-wrapper {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding-left: 24px;
+
+        .default-badge {
+            border-radius: 20px !important;
+            font-weight: 500;
+            font-size: 10px;
+            line-height: 12px;
+            padding: 0.5rem;
+        }
+
+        .warning {
+            background: $light-yellow3 !important;
+            color: $black !important;
+        }
+
+        .bg-danger {
+            background: $dark-red4 !important;
+            color: $white !important;
+        }
+    }
+
+    .radio-container {
+        border-bottom: 1px solid $light-black4;
+        padding: 10px 20px;
+        transition: all .3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $light-black4;
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    .flag-img {
+        width: 18px;
+
+        .flag-icon {
+            width: 100%;
+            background-size: cover;
+            border-radius: 2px;
+        }
+    }
+ 
+    .left-content-wrap {
+        overflow-y: scroll;
+        height: 715px;
+        padding-right: 25px;
+
+        &::-webkit-scrollbar {
+            width: 6px !important;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: $light-black-scroll !important;
+            border-radius: 10px !important;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: $light-black-track !important;
+        }
+    }
+
+    .alert-details {
+        .mat-expansion-panel-header {
+            padding: 13px 11px;
+            height: auto !important;
+        }
+
+        .mat-expansion-panel {
+            background: $bg-company;
+            color: $white;
+            box-shadow: inherit !important;
+            border-radius: 0;
+            border-bottom: 1px solid $light-black4;
+        }
+        .bst-checkbox-select-all__section {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 24px;
+            letter-spacing: 0.1px;
+            text-align: left;
+        }
+    }
+
+ 

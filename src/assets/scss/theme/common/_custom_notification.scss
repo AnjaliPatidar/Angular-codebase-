@@ -1,0 +1,166 @@
+/*
+================================================================================
+**********************  Notification Styles For The Site  **********************
+================================================================================
+*/
+.notification-wrapper{    
+    &.centered{    
+        @include margin(25px auto);
+        width: 650px;        
+    }     
+    .form{          
+        .form-title{  
+            @include margin(0 0 15px);
+            color: #7c919b;  
+        }
+        .form-group{
+            .control-label{
+                color: #7d94a5;
+                // font-family: "Roboto Regular",sans-serif;
+                @include fontFamily($fonts) {
+                    font-family: fonted(font-regular);
+                  }
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 16px;
+                text-align: left;
+            }
+            .custom-input-group{
+                @extend .custom-input-group;
+                .input-group-addon{
+                    color: #7d94a5;
+                    left: 25px;
+                    &:hover,&:focus{
+                        color: #7d94a5;
+                    }
+                }
+                input{
+                    color: #7d94a5;
+                    width: 100%;
+                    border-bottom: 1px solid #1f77b4;
+                    &:focus{                    
+                        background: transparent;
+                        color: #7d94a5;
+                        border: 0;
+                        border-bottom: 1px solid #1f77b4;
+                    }
+                    &::-webkit-input-placeholder{
+                        // font-family:  $roboto-regular;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-regular);
+                          }
+                        color: #4f6271;
+                        opacity: 1;
+                    }
+                    &:-moz-placeholder{
+                        // font-family:  $roboto-regular;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-regular);
+                          }
+                        color: #4f6271;
+                        opacity: 1;
+                    }
+                    &::-moz-placeholder{
+                        // font-family:  $roboto-regular;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-regular);
+                          }
+                        color: #4f6271;
+                        font-size: $font-size-base;
+                        opacity: 1;   
+                    }
+                    &::-ms-input-placeholder{
+                        // font-family:  $roboto-regular;
+                        @include fontFamily($fonts) {
+                            font-family: fonted(font-regular);
+                          }
+                        color: #4f6271;
+                        opacity: 1;
+                    }
+                }
+            }
+            .form-control{
+                @include size(100%,30px);
+                @include padding(9px 15px);
+                @include box-shadow(none);
+                @include border-radius(0);
+                background: transparent;
+                color: #7d94a5;
+                border: 0;
+                border-bottom: 1px solid #1f77b4;
+                &:focus{                    
+                    background: transparent;
+                    color: #7d94a5;
+                    border: 0;
+                    border-bottom: 1px solid #1f77b4;
+                }
+                &::-webkit-input-placeholder{
+                    // font-family:  $roboto-regular;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-regular);
+                      }
+                    color: #4f6271;
+                    opacity: 1;
+                }
+                &:-moz-placeholder{
+                    // font-family:  $roboto-regular;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-regular);
+                      }
+                    color: #4f6271;
+                    opacity: 1;
+                }
+                &::-moz-placeholder{
+                    // font-family:  $roboto-regular;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-regular);
+                      }
+                    color: #4f6271;
+                    font-size: $font-size-base;
+                    opacity: 1;   
+                }
+                &::-ms-input-placeholder{
+                    // font-family:  $roboto-regular;
+                    @include fontFamily($fonts) {
+                        font-family: fonted(font-regular);
+                      }
+                    color: #4f6271;
+                    opacity: 1;
+                }
+                &.error{
+                    border-color: $light-red ;
+                }
+            }
+            textarea{
+                &.form-control{                 
+                    background: transparent;
+                    color: #7d94a5;
+                    resize: none;
+                    height: auto;
+                    border: 1px solid #1f77b4;
+                    &:focus{                    
+                        background: transparent;
+                        color: #7d94a5;
+                        border: 1px solid #1f77b4;
+                    }
+                }
+            }
+            .btn{
+                text-transform: uppercase;
+            }
+        }
+    }      
+}   
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+
+@media (min-width:$screen-lg) {}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {}
+
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {}

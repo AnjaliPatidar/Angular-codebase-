@@ -1,0 +1,124 @@
+<mat-accordion class="bst-accordion" *ngFor="let item of audit_list">
+    <mat-expansion-panel class="bst-accordion__master" togglePosition="before" (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{item.month}}
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <mat-expansion-panel-body>
+            <div>
+                <mat-accordion class="bst-accordion__master--inner">
+                    <mat-expansion-panel togglePosition="before" (opened)="subPanelOpenState = true"
+                        (closed)="subPanelOpenState = false">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title class="flex">
+                                <div class="date bst-subtitle1 bst-color-ty">{{item.date}}</div>
+                                <div class="actions bst-body2 bst-color-ty">3 actions</div>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <mat-expansion-panel-body class="w-100">
+                            <div class="bst-record bst-body2 bst-color-ty">
+                                <div class="bst-record__top-bar">
+                                    <div class="bst-record__top-bar--avatar">
+                                        <span class="bst-avatar-icon material-icons-round">
+                                            person
+                                        </span>
+                                    </div>
+                                    <div class="bst-record__top-bar--description"> {{item.des01}}</div>
+                                    <div class="bst-record__top-bar--time">12:00 AM</div>
+                                </div>
+                            </div>
+                            <div class="bst-record bst-body2 bst-color-ty">
+                                <div class="bst-record__top-bar">
+                                    <div class="bst-record__top-bar--avatar">
+                                        <span class="material-icons-round">
+                                            block
+                                        </span>
+                                    </div>
+                                    <div class="bst-record__top-bar--description">{{item.des02}}</div>
+                                    <div class="bst-record__top-bar--time">12:00 AM</div>
+                                </div>
+                            </div>
+                            <div class="bst-record bst-body2 bst-color-ty">
+                                <div class="bst-record__top-bar">
+                                    <div class="bst-record__top-bar--avatar">
+                                        <img class="bst-avatar-icon bst-avatar-icon--user-uploaded"
+                                            src="assets/images/user-img-01.png" alt="">
+                                    </div>
+                                    <div class="bst-record__top-bar--description">{{item.des03}}
+                                    </div>
+                                    <div class="bst-record__top-bar--time">12:00 AM</div>
+                                </div>
+                                <div class="bst-record__details">
+                                    <span class="bst-record__details--left">
+                                        <span class="material-icons-round bst-mat-icon mat-icon-sm bst-color--orange-n">
+                                            warning
+                                        </span>
+                                        <span class="u-pl-4">On Hold</span>
+                                    </span>
+                                    <span class="bst-record__details--center">
+                                        <span class="material-icons-round bst-mat-icon mat-icon-sm">
+                                            chevron_right
+                                        </span>
+                                    </span>
+                                    <span class="bst-record__details--right">
+                                        <span class="material-icons-round bst-mat-icon mat-icon-sm bst-color--green-n">
+                                            play_circle
+                                        </span>
+                                        <span class="u-pl-4">In Progress</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="bst-record bst-body2 bst-color-ty">
+                                <div class="bst-record__top-bar">
+                                    <div class="bst-record__top-bar--avatar">
+                                        <span class="bst-avatar-icon material-icons-round">
+                                            person
+                                        </span>
+                                    </div>
+                                    <div class="bst-record__top-bar--description">{{item.des04}}</div>
+                                    <div class="bst-record__top-bar--time">11:00 AM</div>
+                                </div>
+                            </div>
+                            <div class="bst-record bst-body2 bst-color-ty">
+                                <div class="bst-record__top-bar">
+                                    <div class="bst-record__top-bar--avatar">
+                                        <img class="bst-avatar-icon bst-avatar-icon--user-uploaded"
+                                            src="assets/images/user-img-01.png" alt="">
+                                    </div>
+                                    <div class="bst-record__top-bar--description">{{item.des05}}
+                                    </div>
+                                    <div class="bst-record__top-bar--time">11:00 AM</div>
+                                </div>
+                            </div>
+                            <div class="bst-record bst-body2 bst-color-ty">
+                                <div class="bst-record__top-bar">
+                                    <div class="bst-record__top-bar--avatar">
+                                        <span class="material-icons-round">
+                                            block
+                                        </span>
+                                    </div>
+                                    <div class="bst-record__top-bar--description">{{item.des06}}
+                                    </div>
+                                    <div class="bst-record__top-bar--time">11:00 AM</div>
+                                </div>
+                            </div>
+                            <div class="bst-record bst-body2 bst-color-ty">
+                                <div class="bst-record__top-bar">
+                                    <div class="bst-record__top-bar--avatar">
+                                        <img class="bst-avatar-icon bst-avatar-icon--user-uploaded"
+                                            src="assets/images/user-img-01.png" alt="">
+                                    </div>
+                                    <div class="bst-record__top-bar--description">{{item.des07}}
+                                    </div>
+                                    <div class="bst-record__top-bar--time">12:00 AM</div>
+                                </div>
+                            </div>
+                        </mat-expansion-panel-body>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+        </mat-expansion-panel-body>
+    </mat-expansion-panel>
+</mat-accordion>  

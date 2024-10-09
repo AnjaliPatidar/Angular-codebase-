@@ -1,0 +1,183 @@
+/*==============================================================================
+************* Upload Document Dashboard Wrapper Styles For The Site  ***********
+==============================================================================*/
+
+.upload-document-dashboard {
+    height: 100%;
+    overflow: hidden;
+    .upload-risk-panel {
+        .progress {
+            margin: 8px 0 !important;
+            border-radius: $sm-comp-corner-radius;
+        }
+        .c100 {
+            font-size: 65px;
+            span {
+                font-size: .3em;
+                line-height: 1;
+                left: 25%;
+                top: 31%;
+                width: auto;
+                .help-block {
+                    margin: 0;
+                    font-size: .4em;
+                    color: inherit;
+                }
+            }
+            &:hover {
+                span {
+                    font-size: .4em;
+                    left: 16%;
+                    top: 20%;
+                }
+            }
+        }
+    }
+    p {
+        color: rgba(#fbfbfb ,.8);
+    }
+    .btn {
+        @extend .text-uppercase;
+        border-radius: 0;
+        min-width: 85px;
+        height: 30px;
+        padding: 4px 12px;
+        // font-family: "Roboto Bold", sans-serif;
+        @include fontFamily($fonts) {
+            font-family: fonted(font-bold);
+        }
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+        &.btn-cancel {
+            background-color: #384b59;
+            color: rgba(#fbfbfb,.8);
+            padding: 4px 2px;
+            border-color: #384b59;
+        }
+    }
+    .upload-content-wrapper {
+        height: 110px;
+        h4 {
+            font-size: 18px;
+            span {
+                font-size: 12px;
+            }
+        }
+    }
+    .upload-document-wrapper {
+        height: calc(100% - 120px);
+    }
+    .upload-panel-wrapper {
+        background-color: transparent;
+        height: auto;
+        border: 0;
+        border-top: 1px solid rgba(251,251,251,.8);
+        .panel-body {
+            height: 100%;
+        }
+        .upload-table-wrapper {
+            tr {
+                padding: 6px 0;
+                cursor: pointer;
+            }
+            tbody {
+                tr {
+                    &:nth-last-of-type(1) {
+                        @extend .mar-b15;
+                    }
+                }
+            }
+            td {
+                @extend .text-uppercase;
+                a {
+                    padding: 0 5px;
+                    @extend .text-gray-ta;
+                }
+                ul {
+                    margin-bottom: 0;
+                }
+                p {
+                    @extend .text-gray-ta;
+                    margin: 0;
+                    white-space: normal;
+                    span {
+                        font-size: 13px;
+                        margin-right: 7px;
+                    }
+                }
+                .progressbar-list {
+                    .left-col,
+                    .right-col,
+                    .progress {
+                        width: auto;
+                    }
+                    .progress {
+                        max-width: 60%
+                    }
+                }
+            }
+            th {
+                @extend .text-gray-ta;
+            }
+        }
+        .bottom-table-wrapper {
+            bottom: -10px;
+            position: absolute;
+            width: 98%;
+            left: 10px;
+            p {
+                @extend .text-uppercase;
+                @extend .text-gray-ta;
+            }
+        }
+    }
+    .custom-input-group {
+        margin-bottom: 0;
+        .input-group-addon {
+            @extend .text-gray-ta;
+            -webkit-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            transform: rotate(0deg);
+            right: -12px !important;
+            left: auto;
+            top: -3px;
+        }
+        input {
+            max-height: 25px;
+        }
+    }
+    .switch-list {
+        label {
+            width: 50px;
+            margin-right: 5px;
+            height: 20px;
+        }
+    }
+    .foo {
+        @extend .mar-x5;
+        @include square(12px);
+        border: 1px solid rgba(0, 0, 0, .2);
+    }
+    .green {
+        background: #86b34d;
+    }
+    .orange {
+        background: #cb3e4b;
+    }
+}
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+
+@media (min-width:$screen-lg) {}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {}
+
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {}

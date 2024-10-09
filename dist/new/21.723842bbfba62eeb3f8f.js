@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[21],{GTbM:function(n,o,e){"use strict";e.r(o),e.d(o,"TopPannelModule",(function(){return d}));var t=e("mrSG"),c=e("CcnG"),r=e("Ip0R"),u=e("VTdU"),d=function(){function n(){}return n=t.__decorate([Object(c.NgModule)({declarations:[u.a],imports:[r.CommonModule]})],n)}()}}]);

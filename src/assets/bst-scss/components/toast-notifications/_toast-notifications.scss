@@ -1,0 +1,80 @@
+.bst-info-icon {
+    color: $primary-color !important;
+}
+
+.bst-success-icon {
+    color: $color-green-20 !important;
+}
+
+.bst-warning-icon {
+    color: $color-warning !important;
+}
+
+.bst-error-icon {
+    color: $color-red-10 !important;
+}
+
+.bst-toast {
+    position     : relative;
+    top          : 40px;
+    right        : -15px;
+    opacity      : 0.9 !important;
+    padding      : 16px 24px !important;
+    box-shadow   : $shadow-90;
+    border-radius: $sm-comp-corner-radius;
+    min-width    : 100px !important;
+
+    &.bst-info {
+        background-color: $color-info;
+    }
+
+    &.bst-success {
+        background-color: $color-success;
+    }
+
+    &.bst-warning {
+        background-color: $color-warning;
+    }
+
+    &.bst-error {
+        background-color: $color-error;
+    }
+
+    .bst-toast-inner {
+        display   : flex;
+        min-height: 36px;
+        // position  : relative;
+
+        .bst-mat-icon {
+            &__icon-type {
+                padding-right: 16px;
+                margin-top   : 1px;
+            }
+
+            &__close {
+                padding-left: 16px;
+                margin-top  : 2px;
+                // position    : absolute;
+                // right       : 0;
+            }
+        }
+
+        .bst-mat-btn {
+            &--normal {
+                color      : $white !important;
+                margin-left: 16px;
+                min-width  : 91px;
+            }
+        }
+
+    }
+
+    &.colors-page {
+        top  : 0px !important;
+        right: 0px !important;
+    }
+}
+
+.word-break-all {
+    word-break: break-all;
+}

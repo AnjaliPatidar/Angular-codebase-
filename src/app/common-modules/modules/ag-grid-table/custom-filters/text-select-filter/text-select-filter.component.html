@@ -1,0 +1,35 @@
+<div class="user-managment-table text-select-wrapper">
+    <mat-form-field class="bst_mat_input" (click)="changeScroll()" floatLabel="never">
+      <mat-label>{{'Select' | translate}}</mat-label>
+      <input class="input-text-disabled text-dark-black" id="inputId" matInput type="number"  [(ngModel)]="displaySelectedValue"  disabled>
+      <mat-select #mySel  multiple  [formControl]="myFormControl"
+        panelClass="multi-select-dropdown overflow-x-hidden">
+          <mat-form-field class="filter-input bst_mat_input">
+            <input id="inputId" matInput type="number" [(ngModel)]="selectedValue" (keyup)="roundToInteger()" [placeholder]="placeholder">
+          </mat-form-field>
+        <ng-container>
+          <mat-option  *ngFor="let item of selectOptions; trackBy:trackByItem"  (click)="optionSelections(item)"
+            [value]="item"><img *ngIf="item.src" style="width:20px;height: 20px;margin-right: 2%;"
+              src="{{item.src}}" />  <span class="d-inline-block text-overflow">{{item | translate}}</span>
+            <i class="fa fa-check active-icon  text-overflow" style="float:right;position: relative;top: 12px;" aria-hidden="true"></i>
+          </mat-option>
+        </ng-container>
+
+
+        <div class="ag-theme-balham custom-filter-button light-theme-bg-white">
+          <div class="ag-filter">
+            <div class="ag-filter-apply-panel">
+              <div class="ag-filter-apply-panel" id="applyPanel">
+                <button (click)="cancelFilters()" type="button" class="light-theme-btn theme-f-12 secondary-btn gotham-medium theme-text-capitalize"
+                  id="clearButton">{{'Cancel' | translate}}</button>
+                <button (click)="applyFilters();mySel.close();" class=" light-theme-btn theme-f-12 primary-btn gotham-medium theme-text-capitalize" type="button"
+                  id="applyButton">{{'Apply' | translate}}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-select>
+
+
+    </mat-form-field>
+  </div>

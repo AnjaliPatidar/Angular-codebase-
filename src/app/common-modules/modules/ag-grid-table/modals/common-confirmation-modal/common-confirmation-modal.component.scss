@@ -1,0 +1,59 @@
+@import "../../../../../../assets/scss/theme/common/variable";
+
+.modal-wrapper{
+  padding: 0 32px 30px 32px;
+}
+
+.modal-title{
+  padding: 17px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid $form-field-bottom-border-color;
+
+  p{
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.15px;
+  }
+
+  i{
+    color: $text-light-gray;
+    font-size: 20px;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}
+
+.modal-body{
+  padding: 30px 0 46px 0;
+  font-size: 16px;
+  letter-spacing: 0.15px;
+}
+
+.modal-actions{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  button{
+    box-shadow: 0px 1px 1px rgba($black, 0.14), 0px 2px 1px rgba($black, 0.12), 0px 1px 3px rgba($black, 0.2);
+    border-radius: 4px !important;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+
+    &:nth-child(1){
+      background-color: transparent;
+    }
+
+    &:nth-child(2){
+      margin-left: 8px;
+    }
+  }
+}
+
+.content-clr {
+  color: $title-color;
+}

@@ -1,0 +1,326 @@
+/* The Custom Checkbox Wrapper */
+.custom_radio_wrapper {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 2.2rem;
+
+  /* Hide the browser's default radio button */
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 25px;
+    width: 25px;
+    left: 0;
+    top: 0;
+  }
+
+  /* Create a custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    z-index: -1;
+    background-color: #eee;
+    border-radius: 50%;
+
+    /* Style the indicator (dot/circle) */
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+      top: 9px;
+      left: 9px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+    }
+  }
+
+  /* On mouse-over, add a grey background color */
+  &:hover input~.checkmark {
+    background-color: #ccc;
+  }
+
+  /* When the radio button is checked, add a blue background */
+  input:checked~.checkmark {
+    background-color: #2196F3;
+
+    /* Show the indicator (dot/circle) when checked */
+    &:after {
+      display: block;
+    }
+  }
+
+  &.color-checkbox-wrapper {
+    /* Create a custom radio button */
+    margin-bottom: .5rem;
+    margin-top: .5rem;
+    padding-left: 0;
+    font-size: 0;
+
+    .checkmark {
+      width: 20px;
+      height: 20px;
+      border-radius: $sm-comp-corner-radius;
+
+      &:after {
+        top: 3px;
+        left: 6px;
+        font-family: "FontAwesome";
+        font-weight: 900;
+        content: "\f00c";
+        background: transparent;
+        font-size: 10px;
+        width: auto;
+        color: #fbfbfb;
+        height: auto;
+      }
+    }
+
+    input {
+      position: relative;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &.check-right {
+    font-size: 1.4rem;
+    color: #fbfbfb;
+    padding-right: 3.5rem;
+
+    .checkmark {
+      &:after {
+        font-family: "FontAwesome";
+        font-weight: 900;
+        content: "\f00c";
+        background: transparent;
+        font-size: 10px;
+        width: auto;
+        color: rgba(#fbfbfb, .8);
+        height: auto;
+        right: -15rem;
+      }
+    }
+
+    &.conflicts-checkbox {
+      input {
+        position: absolute;
+        width: 115px;
+      }
+
+      .checkmark {
+        &:before {
+          font-family: "FontAwesome";
+          font-weight: 900;
+          content: "\f071";
+          background: transparent;
+          font-size: 12px;
+          width: auto;
+          color: #fbfbfb;
+          height: auto;
+          position: absolute;
+          top: 3px;
+          left: 6px;
+        }
+
+        &:after {
+          left: 13.5rem;
+          top: .6rem;
+        }
+      }
+    }
+  }
+}
+/*--  Custom Radio Styles  --*/
+.custom-radio {
+  @include margin(0 0 5px);
+  cursor: pointer;
+
+  input[type="radio"] {
+    display: none !important;
+
+    &:checked+span {
+
+      svg,
+      i {
+        opacity: 1;
+        color: $primary-color;
+      }
+
+      &::before {
+        border: 2px solid $primary-color;
+      }
+    }
+
+    +span {
+      @extend .text-center;
+      @include padding(0 0 0 20px);
+      @include margin(0 10px 0 0);
+      font-size: $font-size-base;
+      vertical-align: middle;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      &:before {
+        @include square(15px);
+        @include border-radius(50%);
+        @include transition(all 0.3s ease-in-out);
+        background-color: transparent;
+        border: 2px solid $text-on-surface;
+        opacity: 0.6;
+        line-height: ($line-height-computed * 0.7);
+        cursor: pointer;
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 0;
+      }
+
+      svg,
+      i {
+        @include margin(0);
+        @include transition(all 0.3s ease-in-out);
+        color: $curious-blue8;
+        font-size: ($font-size-base - 6);
+        font-weight: 400;
+        display: block;
+        width: 10px;
+        opacity: 0;
+        overflow: visible;
+      }
+    }
+  }
+
+  .radio-inline {
+    @include padding(0);
+
+    input[type="radio"] {
+      display: none !important;
+
+      &:checked+span {
+        @include padding(3px);
+        @include border-radius(0);
+        @include transition(all 0.3s ease-in-out);
+        background-color: $white;
+        border: 1px solid $black;
+
+        svg,
+        i {
+          opacity: 1;
+        }
+      }
+
+      +span {
+        @extend .text-center;
+        @include square(18px);
+        @include margin(-1px 10px 0 0);
+        @include padding(3px);
+        @include margin(0 10px 0 0);
+        @include border-radius(0);
+        @include transition(all 0.3s ease-in-out);
+        background-color: $white;
+        border: 1px solid $silver2;
+        line-height: ($line-height-computed * 0.7);
+        cursor: pointer;
+        vertical-align: middle;
+        display: inline-block;
+        position: relative;
+
+        &:before {
+          display: none;
+        }
+
+        svg,
+        i {
+          @include margin(-4px auto);
+          @include transition(all 0.3s ease-in-out);
+          color: $black;
+          font-size: ($font-size-base - 4);
+          font-weight: 400;
+          display: block;
+          width: 10px;
+          position: relative;
+          top: 2px;
+          left: -1px;
+          opacity: 0;
+          overflow: visible;
+        }
+      }
+    }
+  }
+
+  &.white {
+    margin: 8px 0;
+    cursor: pointer;
+    line-height: 16px;
+
+    input[type="radio"] {
+      display: none;
+
+      &:checked+span {
+
+        svg,
+        i {
+          opacity: 1;
+        }
+      }
+
+      +span {
+        @include padding(0 0 0 25px);
+
+        &:before {
+          @include square(18px);
+          border: 2px solid $white;
+        }
+
+        svg,
+        i {
+          color: $white;
+          font-size: 8px;
+          top: .45rem;
+          left: 4.3px;
+        }
+      }
+    }
+
+    &.blue {
+      input[type="radio"] {
+        &:checked+span {
+          &:before {
+            border: 2px solid $primary-color;
+          }
+
+          svg,
+          i {
+            color: $primary-color;
+          }
+        }
+
+        +span {
+          &:before {
+            border: 2px solid rgba(251, 251, 251, .6);
+          }
+
+          svg,
+          i {
+            color: rgba(251, 251, 251, .6);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,875 @@
+/*==============================================================================
+************** Submenu Styles Wrapper Styles For The Site  ****************
+==============================================================================*/
+app-utilities-panel {
+  position: absolute;
+  height: 100vh;
+  top: rem;
+  z-index: 9999;
+
+  .submenu-wrapper {
+    flex-direction: column;
+    // width: 25.1rem;
+    width: 251px;
+    height: 100%;
+    display: inline-flex;
+  }
+
+  ngb-tabset {
+    display: flex;
+    height: 100%;
+    // max-width: 25.1rem;
+    // background: rgba(134, 97, 198, .8) !important;
+  }
+}
+
+app-utilities-panel {
+  .dashboard-title-wrapper {
+    background: transparent !important;
+    position: relative;
+    z-index: 2;
+    padding: 1rem;
+    color: #fbfbfb;
+    cursor: pointer;
+    min-width: 108px;
+    margin-left: 57px;
+
+    .dropdown-toggle {
+      img {
+        display: none;
+      }
+
+      span {
+        line-height: 4rem;
+        margin-left: 2rem !important;
+      }
+
+      i {
+        right: 2.6rem !important;
+      }
+
+      &:after {
+        border: 0;
+      }
+    }
+  }
+}
+
+/*--  Main Dashboard Bg Styles  --*/
+
+.bg-enrich {
+  background-color: rgba(241, 80, 52, 0.8) !important;
+  // background: $enrich !important;
+  // opacity: 0.8;
+}
+
+.bg-discover {
+  background-color: rgba(155, 101, 203, 0.8) !important;
+  // background: $discover !important;
+  // opacity: 0.8;
+}
+
+.bg-act {
+  background-color: rgba(179, 173, 53, 0.8) !important;
+  // background: $act !important;
+  // opacity: 0.8;
+}
+
+.bg-predict {
+  background-color: rgba(62, 110, 176, 0.8) !important;
+  // background: $predict !important;
+  // opacity: 0.8;
+}
+
+.bg-manage {
+  background-color: rgba(34, 178, 155, 0.8) !important;
+  // background: $predict !important;
+  // opacity: 0.8;
+}
+
+/*--  Discover Dashboard Bg Styles  --*/
+
+.bg-discover-light {
+  background-color: #ae7cda;
+}
+
+.bg-discover-medium {
+  background-color: #bb8ae6;
+}
+
+.bg-discover-dark {
+  background-color: #c797f1;
+}
+
+/*--  Enrich Dashboard Bg Styles  --*/
+
+.bg-enrich-light {
+  background-color: #f55538;
+}
+
+.bg-enrich-medium {
+  background-color: #fd6246;
+}
+
+.bg-enrich-dark {
+  background-color: #fd6246;
+}
+
+/*--  Act Dashboard Bg Styles  --*/
+
+.bg-act-light {
+  background-color: #d5c04a;
+}
+
+.bg-act-medium {
+  background-color: #ddc851;
+}
+
+.bg-act-dark {
+  background-color: #e6d261;
+}
+
+/*--  Manage Dashboard Bg Styles  --*/
+
+.bg-manage-light {
+  background-color: #2fbfa2;
+}
+
+.bg-manage-medium {
+  background-color: #3bcaad;
+}
+
+.bg-manage-dark {
+  background-color: #48d9bc;
+}
+
+.submenu-tab-wrapper {
+  height: 100%;
+  top: -6rem;
+  position: relative;
+  z-index: 1;
+  padding-top: 6rem;
+
+  .nav-fill {
+    position: relative;
+    top: -7rem;
+
+    li {
+      margin: 0vw;
+
+      &:nth-of-type(1) {
+        background-color: rgb(155, 101, 203);
+      }
+
+      &:nth-of-type(2) {
+        background-color: rgb(241, 80, 52);
+      }
+
+      &:nth-of-type(3) {
+        background-color: rgb(179, 173, 53);
+      }
+
+      &:nth-of-type(4) {
+        background-color: rgb(62, 110, 176);
+      }
+
+      &:nth-of-type(5) {
+        background-color: rgb(34, 178, 155);
+      }
+    }
+  }
+
+  .nav-link {
+    span.ng-inserted {
+      padding: 2rem 1.5rem;
+    }
+
+    i {
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      font-size: 21px;
+      line-height: 1.45;
+    }
+  }
+
+  /*--  Nav Tabs Styles  --*/
+  .nav-pills.nav-fill {
+    display: block;
+    @include padding(0);
+    width: 56px;
+    border: 0;
+    min-height: calc(100vh - 115px);
+
+    > li {
+      display: block;
+      float: none;
+
+      a {
+        svg,
+        i {
+          &.list-item-enrich {
+            background-color: $bg-enrich;
+          }
+
+          &.list-item-discover {
+            background-color: $bg-discover;
+          }
+
+          &.list-item-act {
+            background-color: $bg-act;
+          }
+
+          &.list-item-predict {
+            background-color: $bg-predict;
+          }
+
+          &.list-item-manage {
+            background-color: $bg-manage;
+          }
+        }
+      }
+
+      > a {
+        background-color: transparent;
+        @include padding(0);
+
+        svg,
+        i {
+          @extend .text-center;
+          width: 56px;
+          @include padding(2rem 15px);
+          @include border-radius(0);
+
+          color: #fbfbfb;
+
+          font-size: ($font-size-base * 1.5);
+          cursor: pointer;
+          border: 0;
+          font-weight: normal;
+
+          &:hover,
+          &:focus {
+            color: $white;
+          }
+        }
+
+        &.active {
+          > a {
+            background-color: transparent;
+            color: $white;
+            cursor: pointer;
+            border: 0;
+          }
+        }
+
+        &.disabled {
+          > a {
+            cursor: no-drop;
+            opacity: 0.6;
+
+            &:hover,
+            &:focus {
+              cursor: no-drop;
+              opacity: 0.6;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /*--  Tab Content Styles  --*/
+  .tab-content {
+    @include padding(0);
+    width: 300px !important;
+
+    .tab-pane {
+      @include padding(0);
+      min-height: calc(100vh - 115px);
+
+      h3 {
+        @include margin(0);
+        @include padding(0);
+        color: $ivory;
+        font-family: $francois-one-regular;
+        font-size: ($font-size-small * 2);
+        line-height: 28px;
+        font-weight: normal;
+        letter-spacing: 1px;
+
+        &.submenu-title {
+          @include padding(1rem);
+        }
+      }
+
+      .list-submenu {
+        @include margin(0);
+        @include padding(0);
+        display: flex;
+        flex-wrap: wrap;
+        list-style-type: none;
+
+        li {
+          @extend .text-center;
+          @include padding(0);
+          display: block;
+          width: 50%;
+
+          button {
+            border: 0;
+            @include padding(1rem 5px);
+            color: $ivory;
+            // font-family: $roboto-regular;
+            @include fontFamily($fonts) {
+              font-family: fonted(font-regular);
+            }
+            font-size: ($font-size-base - 4);
+            height: 95px;
+            min-height: 95px;
+            line-height: 15px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            white-space: normal;
+            flex-direction: column;
+            justify-content: end;
+
+            .icon {
+              @include margin(0 0 5px);
+              display: block;
+              font-size: ($font-size-base * 2);
+              font-weight: normal;
+            }
+          }
+
+          button[disabled] {
+            cursor: not-allowed;
+            // opacity: 1;
+            opacity: 0.5;
+          }
+
+          button {
+            &:focus {
+              box-shadow: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /*--  Discover Sub Menu Styles  --*/
+  &.bg-discover {
+    /*--  Discover List Submenu Styles  --*/
+    .list-submenu {
+      li {
+        // button {
+        //   background-color: $bg-discover-btn;
+
+        //   .icon {
+        //     color: #d6b2f6;
+        //   }
+
+        //   &:hover,
+        //   &:focus {
+        //     background-color: $bg-discover-btn-hover;
+        //   }
+
+        //   &.light {
+        //     background-color: #ae7cda;
+        //   }
+
+        //   &.medium {
+        //     background-color: #bb8ae6;
+        //   }
+
+        //   &.dark {
+        //     background-color: #c797f1;
+        //   }
+        // }
+        button {
+          background-color: #d09ffc;
+
+          .icon {
+            color: #d6b2f6 !important;
+          }
+        }
+
+        &:nth-last-child(1),
+        &:nth-last-child(4),
+        &:nth-last-child(7) {
+          button {
+            background-color: #ae7cda;
+          }
+        }
+
+        &:nth-last-child(3),
+        &:nth-last-child(6) {
+          button {
+            background-color: #c797f1;
+          }
+        }
+
+        &:nth-last-child(2),
+        &:nth-last-child(5) {
+          button {
+            background-color: #bb8ae6;
+          }
+        }
+      }
+
+      /*--  Tab Content Styles  --*/
+      // .tab-content {
+      //   .tab-pane {
+      //     &.bg-discover {
+      //       .list-submenu {
+      //         li {
+      //           button {
+      //             background-color: $bg-discover-btn;
+
+      //             .icon {
+      //               color: #d6b2f6 !important;
+      //             }
+      //           }
+
+      //           &:nth-last-child(1) {
+      //             button {
+      //               @extend .bg-discover-light;
+      //             }
+      //           }
+
+      //           &:nth-last-child(2) {
+      //             button {
+      //               @extend .bg-discover-medium;
+      //             }
+      //           }
+
+      //           &:nth-last-child(3) {
+      //             button {
+      //               @extend .bg-discover-dark;
+      //             }
+      //           }
+
+      //           &:nth-last-child(4) {
+      //             button {
+      //               @extend .bg-discover-light;
+      //             }
+      //           }
+
+      //           &:nth-last-child(5) {
+      //             button {
+      //               @extend .bg-discover-medium;
+      //             }
+      //           }
+
+      //           &:nth-last-child(6) {
+      //             button {
+      //               @extend .bg-discover-dark;
+      //             }
+      //           }
+
+      //           &:nth-last-child(7) {
+      //             button {
+      //               @extend .bg-discover-light;
+      //             }
+      //           }
+      //         }
+      //       }
+      //     }
+      //   }
+      // }
+    }
+  }
+
+  /*--  Enrich Sub Menu Styles  --*/
+  &.bg-enrich {
+    /*--  Enrich List Submenu Styles  --*/
+    .list-submenu {
+      li {
+        // button {
+        //   background-color: $bg-enrich-btn;
+
+        //   &:hover,
+        //   &:focus {
+        //     background-color: $bg-enrich-btn-hover;
+        //   }
+
+        //   .icon {
+        //     color: #fb8975 !important;
+        //   }
+
+        //   &.light {
+        //     background-color: #f55538;
+        //   }
+
+        //   &.medium {
+        //     background-color: #fd6246;
+        //   }
+
+        //   &.dark {
+        //     background-color: #fd6246;
+        //   }
+        // }
+        button {
+          .icon {
+            color: #fb8975 !important;
+          }
+        }
+
+        &:nth-last-child(1) {
+          button {
+            background-color: #f55538;
+          }
+        }
+
+        &:nth-last-child(2),
+        :nth-last-child(2) {
+          button {
+            background-color: #fd6246;
+          }
+        }
+      }
+    }
+
+    /*--  Tab Content Styles  --*/
+    // .tab-content {
+    //   .tab-pane {
+    //     &.bg-enrich {
+    //       .list-submenu {
+    //         li {
+    //           &:nth-last-child(1) {
+    //             button {
+    //               @extend .bg-enrich-light;
+    //             }
+    //           }
+
+    //           &:nth-last-child(2) {
+    //             button {
+    //               @extend .bg-enrich-medium;
+    //             }
+    //           }
+
+    //           &:nth-last-child(3) {
+    //             button {
+    //               @extend .bg-enrich-dark;
+    //             }
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+  }
+
+  /*--  Act Sub Menu Styles  --*/
+  &.bg-act {
+    /*--  Act List Submenu Styles  --*/
+    .list-submenu {
+      li {
+        // button {
+        //   background-color: $bg-act-btn;
+
+        //   .icon {
+        //     color: #f3eeae !important;
+        //   }
+
+        //   &:hover,
+        //   &:focus {
+        //     background-color: $bg-act-btn-hover;
+        //   }
+
+        //   &.light {
+        //     background-color: #d5c04a;
+        //   }
+
+        //   &.medium {
+        //     background-color: #ddc851;
+        //   }
+
+        //   &.dark {
+        //     background-color: #e6d261;
+        //   }
+        // }
+        button {
+          .icon {
+            color: #f3eeae;
+          }
+        }
+
+        &:nth-last-child(2),
+        &:nth-last-child(5) {
+          button {
+            background-color: #ddc851;
+          }
+        }
+
+        &:nth-last-child(1),
+        &:nth-last-child(4) {
+          button {
+            background-color: #d5c04a;
+          }
+        }
+
+        &:nth-last-child(3) {
+          button {
+            background-color: #e6d261;
+          }
+        }
+      }
+    }
+
+    /*--  Tab Content Styles  --*/
+    // .tab-content {
+    //   .tab-pane {
+    //     &.bg-act {
+    //       .list-submenu {
+    //         li {
+    //           &:nth-last-child(1) {
+    //             button {
+    //               @extend .bg-act-light;
+    //             }
+    //           }
+
+    //           &:nth-last-child(2) {
+    //             button {
+    //               @extend .bg-act-medium;
+    //             }
+    //           }
+
+    //           &:nth-last-child(3) {
+    //             button {
+    //               @extend .bg-act-dark;
+    //             }
+    //           }
+
+    //           &:nth-last-child(4) {
+    //             button {
+    //               @extend .bg-act-light;
+    //             }
+    //           }
+
+    //           &:nth-last-child(5) {
+    //             button {
+    //               @extend .bg-act-medium;
+    //             }
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+  }
+
+  /*--  Manage Sub Menu Styles  --*/
+  &.bg-manage {
+    /*--  Manage List Submenu Styles  --*/
+    .list-submenu {
+      li {
+        // button {
+        //   background-color: $bg-manage-btn;
+
+        //   .icon {
+        //     color: #9cf7e5 !important;
+        //   }
+
+        //   &:hover,
+        //   &:focus {
+        //     background-color: $bg-manage-btn-hover;
+        //   }
+
+        //   &.light {
+        //     background-color: #2fbfa2;
+        //   }
+
+        //   &.medium {
+        //     background-color: #3bcaad;
+        //   }
+
+        //   &.dark {
+        //     background-color: #48d9bc;
+        //   }
+        // }
+        button {
+          .icon {
+            color: #9cf7e5 !important;
+          }
+        }
+
+        &:nth-child(1),
+        &:nth-child(4),
+        &:nth-child(7),
+        &:nth-child(10),
+        &:nth-child(13) {
+          button {
+            //light
+            background-color: #2fbfa2;
+          }
+        }
+
+        &:nth-child(2),
+        &:nth-child(5),
+        &:nth-child(8),
+        &:nth-child(11) {
+          button {
+            //medium
+            background-color: #3bcaad;
+          }
+        }
+
+        &:nth-child(3),
+        &:nth-child(6),
+        &:nth-child(9),
+        &:nth-child(12) {
+          button {
+            //dark
+            background-color: #48d9bc;
+          }
+        }
+      }
+    }
+
+    /*--  Tab Content Styles  --*/
+    // .tab-content {
+    //   .tab-pane {
+    //     &.bg-manage {
+    //       .list-submenu {
+    //         li {
+    //           &:nth-last-child(1) {
+    //             button {
+    //               @extend .bg-manage-light;
+    //             }
+    //           }
+
+    //           &:nth-last-child(2) {
+    //             button {
+    //               @extend .bg-manage-medium;
+    //             }
+    //           }
+
+    //           &:nth-last-child(3) {
+    //             button {
+    //               @extend .bg-manage-dark;
+    //             }
+    //           }
+
+    //           &:nth-last-child(4) {
+    //             button {
+    //               @extend .bg-manage-light;
+    //             }
+    //           }
+
+    //           &:nth-last-child(5) {
+    //             button {
+    //               @extend .bg-manage-medium;
+    //             }
+    //           }
+
+    //           &:nth-last-child(6) {
+    //             button {
+    //               @extend .bg-manage-dark;
+    //             }
+    //           }
+
+    //           &:nth-last-child(7) {
+    //             button {
+    //               @extend .bg-manage-light;
+    //             }
+    //           }
+
+    //           &:nth-last-child(8) {
+    //             button {
+    //               @extend .bg-manage-medium;
+    //             }
+    //           }
+
+    //           &:nth-last-child(9) {
+    //             button {
+    //               @extend .bg-manage-dark;
+    //             }
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+  }
+
+  /*--  Predict Sub Menu Styles  --*/
+  &.bg-predict {
+    /*--  Predict List Submenu Styles  --*/
+    .list-submenu {
+      li {
+        // button {
+        //   background-color: $bg-predict-btn;
+
+        //   .icon {
+        //     color: #7da6da;
+        //   }
+
+        //   &:hover,
+        //   &:focus {
+        //     background-color: $bg-predict-btn-hover;
+        //   }
+
+        //   &.light {
+        //     background-color: $bg-enrich-btn;
+        //   }
+
+        //   &.medium {
+        //     background-color: $bg-enrich-btn;
+        //   }
+
+        //   &.dark {
+        //     background-color: $bg-enrich-btn;
+        //   }
+        // }
+        &:nth-last-child(1) {
+          button {
+            background-color: #4778bb;
+          }
+        }
+      }
+    }
+
+    /*--  Tab Content Styles  --*/
+    // .tab-content {
+    //   .tab-pane {
+    //     &.bg-predict {
+    //       .list-submenu {
+    //         li {
+    //           &:nth-last-child(1) {
+    //             button {
+    //               background-color: #4778bb;
+    //             }
+    //           }
+
+    //           &:nth-last-child(2) {
+    //             button {
+    //               background-color: #2a5085;
+    //             }
+    //           }
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+  }
+}
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+@media (min-width: $screen-lg) {
+}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {
+}
+
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {
+}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {
+}

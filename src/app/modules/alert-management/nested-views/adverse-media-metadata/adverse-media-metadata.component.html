@@ -1,0 +1,60 @@
+<div class="alert-adverse-wrap">
+    <span class="adverse-title">{{hitAdverseData.title}}</span>
+    <div class="card custom-card">
+        <h6 class="sm-title">Information</h6>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="information-block">
+                    <ul class="list-content-wrap">
+                        <li class="list txt-mute">Confidence Level:</li>
+                        <li class="list">{{hitAdverseData.confidenceLevel}}%</li>
+                    </ul>
+                    <ul class="list-content-wrap">
+                        <li class="list txt-mute">Classification:</li>
+                        <li class="list">
+                            {{hitAdverseData.classification.length > 0 ?
+                            hitAdverseData.classification[0]:hitAdverseData.classification}}
+                            <span class="popover-text" [autoClose]="'outside'" popoverClass="no-arrow"
+                                [ngbPopover]="showClassification">show
+                                reasons</span>
+                        </li>
+                        <ng-template #showClassification>
+                            <ul class="list-content-wrap">
+                                <li class="popover-list p-3" *ngFor="let item of hitAdverseData.classification">
+                                    {{ item }}</li>
+
+                            </ul>
+                        </ng-template>
+                    </ul>
+                    <ul class="list-content-wrap">
+                        <li class="list txt-mute">Date:</li>
+                        <li class="list">{{hitAdverseData.createdDate | date: 'M.d.y, hh:mm:ss a'}}</li>
+                    </ul>
+                    <ul class="list-content-wrap d-inline-flex">
+                        <li class="list txt-mute">Classification Verification:</li>
+                        <li class="list">
+                            <span class="icon-box">
+                                <i class="material-icons text-dark-black mr-1"
+                                    [ngClass]="{'success-bg': (showData && isSuccess == 'agree'),'disable-cursor':showData}"
+                                    (click)="classificationStatus('agree')">thumb_up</i>
+                                <i class="material-icons text-dark-black mr-1"
+                                    [ngClass]="{'danger-bg': (showData && isSuccess == 'disagree'),'disable-cursor':showData}"
+                                    (click)="classificationStatus('disagree')">thumb_down</i>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="information-block">
+                    <ul class="list-content-wrap d-inline-flex align-items-center">
+                        <li class="list txt-mute">Status:</li>
+                        <li>
+                            <app-bst-alert-status [alertData]="alertView"></app-bst-alert-status>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

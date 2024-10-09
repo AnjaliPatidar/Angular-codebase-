@@ -1,0 +1,14 @@
+<mat-form-field class="w-100 name-search-filter ag-input-text-wrapper text-dark-black" style="line-height: 15px">
+  <mat-select name="name" [(ngModel)]="selectedOption">
+    <ngx-mat-select-search
+      name="search"
+      [placeholderLabel]="placeholderLabel"
+      ngModel
+      (ngModelChange)="search($event)"
+    ></ngx-mat-select-search>
+    <mat-option (click)="selectOption('all')">all</mat-option>
+    <mat-option *ngFor="let option of options; trackBy: trackByKey" (click)="selectOption(option)" [value]="option.key">
+      {{ option.value }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

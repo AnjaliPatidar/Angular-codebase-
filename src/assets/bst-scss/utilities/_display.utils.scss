@@ -1,0 +1,46 @@
+.display-contents {
+    display: contents;
+}
+
+.display-block {
+    display: block !important;
+}
+
+.display-none {
+    display: none !important;
+}
+
+.display-grid {
+    display: grid !important;
+}
+
+.display-flex {
+    display: flex !important;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap !important;
+}
+
+.flow-root {
+    display: flow-root;
+}
+
+.white-space-pre-wrap {
+    white-space: pre-wrap;
+}
+
+.cursor-not-allowed {
+    cursor        : not-allowed !important;
+    pointer-events: none !important;
+}
+
+.display-original {
+    height   : fit-content;
+    width    : auto;
+    max-width: 600px;
+}

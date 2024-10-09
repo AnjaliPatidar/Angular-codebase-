@@ -1,0 +1,376 @@
+<div *ngIf="templateClass == 'source-status'" [ngClass]="{'text-center':value == 'success'}" permission [domainPermission]="permissionIdsList | getPermissionId : headerName">
+  <span *ngIf="value == 'success'" class="c-pointer" popoverTitle="Pop title" container="body" [autoClose]="'outside'"
+    [ngbPopover]="popContent" [popoverTitle]="popTitle" popoverClass="custom-popup align-popup light-theme has-bottom-arrow light-theme-no-radius"
+    #closePop="ngbPopover" (click)="showPopover($event)"><i class="material-icons align-middle"
+      style="color: #388e3b;font-size: 28px;">check_circle_outline</i>
+    <ng-template #popTitle>
+      <div class="f-14 w-100 d-flex align-items-center justify-content-between">
+        <div>
+          <span class="f-17 mr-4">
+            <i class="material-icons align-bottom" style="color: #388e3b">check_circle_outline</i>
+          </span>
+          <span class="f-20 mb-0 card-title font-medium mr-4 pr-3 text-capitalize text-dark-black">{{'Success' | translate}}</span>
+        </div>
+        <i class="material-icons c-pointer color-gray text-dark-black" (click)="closePop.close()">close</i>
+        <!-- <span class="c-pointer" (click)="closePop.close()"><i class="fa fa-times"></i></span> -->
+      </div>
+    </ng-template>
+    <ng-template #popContent>
+      <div
+        class="card-body error-popover overflow-auto custom-scroll-wrapper d-flex pad-x0 height-100 pad-t0 pad-b30 p-rel">
+        <ul class="list-unstyled text-on-surface pl-3" *ngIf="currentRow">
+
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span class="text-overflow text-dark-black">{{'SourceName' | translate}}</span> {{currentRow.Source}}
+          </li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Category' | translate}}</span> {{currentRow.Category}}</li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Jurisdictions' | translate}}</span>
+            <div class="d-inline mr-1 custom-scroll-wrapper overflow-auto pb-2 ws-nowrap">
+              <ng-container *ngIf="currentRow">
+                <img *ngFor="let src of currentRow.Jurisdiction; trackBy: trackByLabel" class="mr-2" style="width:20px;" src="{{src.label}}" />
+              </ng-container>
+            </div>
+          </li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black" permission [domainPermission]="permissionIdsList | getPermissionId : 'source Url'"><span>{{'URL' | translate}}</span><a href="{{currentRow.urlForPopover}}"
+              target="_blank">{{currentRow.urlText}}</a></li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Section' | translate}}</span>{{currentRow.Section}}</li>
+          <li class="mb-2 d-flex text-capitalize"><span class="text-dark-black">{{'Status' | translate}}</span><span
+              style="color: #388e3b">{{currentRow.Status}}</span></li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'LastUpdated' | translate}}</span>{{currentRow['Last Update']}}</li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'ExecutionDateTime' | translate}}
+            </span>{{currentRow['Executione date time']}}</li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'ResponseTime' | translate}}</span>{{currentRow['Response Time']}}</li>
+          <li class="mb-2 d-flex text-capitalize"  permission [domainPermission]="permissionIdsList | getPermissionId : 'source Detailed Information'"><span class="text-dark-black">{{'DetailedInformation' | translate}}</span>
+            <span class="c-pointer" style="color: #337ab7" popoverTitle="Pop title" container="body"
+              [autoClose]="'outside'" [ngbPopover]="innerPopContent" [popoverTitle]="innerPopTitle"
+              popoverClass="custom-popup pt-4 has-right-arrow light-theme sub-popup-wrapper light-theme-no-radius" #closePop="ngbPopover" placement="right"
+              (click)="showPopover($event)">
+
+              {{'ShowPage' | translate}}
+              <ng-template #innerPopContent>
+                <div
+                  class="card-body error-popover overflow-auto custom-scroll-wrapper d-flex pad-x0 height-100 pad-t0 pad-b30 p-rel">
+                  <ul class="list-unstyled text-on-surface pl-3" *ngIf="currentRow">
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'SourceId' | translate}}</span>{{currentRow['sourceId']}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span class="text-overflow text-dark-black">{{'SourceName' | translate}} </span>
+                      {{currentRow.Source}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Category' | translate}}</span> {{currentRow.Category}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'SourceProject' | translate}}</span>{{currentRow['Source Project']}}
+                    </li>
+                    <li class="mb-2 d-flex text-capitalize"><span>{{'Jurisdictions' | translate}}</span>
+                      <div class="d-inline mr-1 custom-scroll-wrapper overflow-auto pb-2 ws-nowrap">
+                        <ng-container *ngIf="currentRow">
+                          <img *ngFor="let src of currentRow.Jurisdiction;trackBy: trackByLabel" class="mr-2" style="width:20px;" src="{{src.label}}" />
+                        </ng-container>
+                      </div>
+                    </li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Domain' | translate}}</span>{{currentRow['Domain']}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Industry' | translate}}</span>{{currentRow['Industry']}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black" permission [domainPermission]="permissionIdsList | getPermissionId : 'source Url'"><span>{{'URL' | translate}}</span><a href="{{currentRow.urlForPopover}}"
+                        target="_blank">{{currentRow.urlText}}</a></li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Section' | translate}}</span>{{currentRow.Section}}</li>
+                    <li class="mb-2 d-flex text-capitalize"><span class="text-dark-black">{{'Status' | translate}}</span><span
+                        style="color: #388e3b">{{currentRow.Status}}</span></li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'LastUpdated' | translate}}</span>{{currentRow['Last Update']}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'ExecutionDateTime' | translate}}
+                      </span>{{currentRow['Executione date time']}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'ResponseTime' | translate}}</span>{{currentRow['Response Time']}}
+                    </li>
+                  </ul>
+                </div>
+              </ng-template>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </ng-template>
+  </span>
+  <span *ngIf="value == 'error'" class="c-pointer" popoverTitle="Pop title" container="body" [autoClose]="'outside'"
+    [ngbPopover]="popContent" [popoverTitle]="popTitle" popoverClass="custom-popup light-theme align-popup has-bottom-arrow light-theme-no-radius"
+    #closePop="ngbPopover" placement="bottom" (click)="showPopover($event)">
+    <i class="material-icons align-middle" style="color: #ef5754;font-size: 28px;">error_outline</i>
+    <ng-template #popTitle>
+      <div class="f-14 d-flex align-items-center justify-content-between w-100">
+        <div>
+          <span class="f-17 mr-4"><i class="material-icons align-bottom" style="color: #ef5754">error_outline</i></span>
+          <span class="f-20 mb-0 card-title font-medium mr-4 pr-3 text-capitalize text-dark-black">{{'InternalServerError' | translate}}</span>
+        </div>
+        <i class="material-icons c-pointer color-gray text-dark-black" (click)="closePop.close()">close</i>
+        <!-- <span class="c-pointer" (click)="closePop.close()"><i class="fa fa-times"></i></span> -->
+      </div>
+    </ng-template>
+    <ng-template #popContent>
+      <div class="card-body error-popover custom-scroll-wrapper d-flex pad-x0 height-100 pad-t0 pad-b30 p-rel">
+        <ul class="list-unstyled text-on-surface pl-4" *ngIf="currentRow">
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span class="text-overflow text-dark-black">{{'SourceName' | translate}}</span> {{currentRow.Source}}
+          </li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Category' | translate}}</span> {{currentRow.Category}}</li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Jurisdiction' | translate}}</span>
+            <div class="d-inline mr-1 custom-scroll-wrapper overflow-auto pb-2 ws-nowrap">
+              <ng-container *ngIf="currentRow">
+                <img *ngFor="let src of currentRow.Jurisdiction;trackBy: trackByLabel" class="mr-2" style="width:20px;" src="{{src.label}}" />
+              </ng-container>
+            </div>
+          </li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black" permission [domainPermission]="permissionIdsList | getPermissionId : 'source Url'"><span>{{'URL' | translate}}</span><a href="{{currentRow.urlForPopover}}"
+              target="_blank">{{currentRow.urlText}}</a></li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Section' | translate}}</span>{{currentRow.Section}}</li>
+          <li class="mb-2 d-flex text-capitalize"><span class="text-dark-black">{{'Status' | translate}}</span><span
+              style="color: #ef5754">{{currentRow.Status}}</span></li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'LastUpdated' | translate}}</span>{{currentRow['Last Update']}}</li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'ExecutionDateTime' | translate}}
+            </span>{{currentRow['Executione date time']}}</li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'ResponseTime' | translate}}</span>{{currentRow['Response Time']}}</li>
+          <li class="mb-2 d-flex text-capitalize" permission [domainPermission]="permissionIdsList | getPermissionId : 'source Detailed Information'"><span class="text-dark-black">{{'DetailedInformation' | translate}}</span>
+            <span class="c-pointer" style="color: #337ab7" popoverTitle="Pop title" container="body"
+              [autoClose]="'outside'" [ngbPopover]="innerPopContent1" [popoverTitle]="innerPopTitle1"
+              popoverClass="custom-popup pt-4 has-right-arrow light-theme light-theme-no-radius" #closePop="ngbPopover" placement="right"
+              (click)="showPopover($event)">
+              {{'ShowPage' | translate}}
+              <ng-template #innerPopContent1>
+                <div
+                  class="card-body error-popover overflow-auto custom-scroll-wrapper d-flex pad-x0 height-100 pad-t0 pad-b30 p-rel">
+                  <ul class="list-unstyled text-on-surface pl-3" *ngIf="currentRow">
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'SourceId' | translate}}</span>{{currentRow['sourceId']}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span class="text-overflow">{{'SourceName' | translate}} </span>
+                      {{currentRow.Source}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Category' | translate}}</span> {{currentRow.Category}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'SourceProject' | translate}}</span>{{currentRow['Source Project']}}
+                    </li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Jurisdiction' | translate}}</span>
+                      <div class="d-inline mr-1 custom-scroll-wrapper overflow-auto pb-2 ws-nowrap">
+                        <ng-container *ngIf="currentRow">
+                          <img *ngFor="let src of currentRow.Jurisdiction;trackBy: trackByLabel" class="mr-2" style="width:20px;" src="{{src.label}}" />
+                        </ng-container>
+                      </div>
+                    </li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Domain' | translate}}</span>{{currentRow['Domain']}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Industry' | translate}}</span>{{currentRow['Industry']}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black" permission [domainPermission]="permissionIdsList | getPermissionId : 'source Url'"><span>{{'URL' | translate}}</span><a href="{{currentRow.urlForPopover}}"
+                        target="_blank">{{currentRow.urlText}}</a></li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Section' | translate}}</span>{{currentRow.Section}}</li>
+                    <li class="mb-2 d-flex text-capitalize"><span class="text-dark-black">{{'Status' | translate}}</span><span
+                        style="color: #ef5754">{{currentRow.Status}}</span></li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'LastUpdated' | translate}}</span>{{currentRow['Last Update']}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'ExecutionDateTime' | translate}}
+                      </span>{{currentRow['Executione date time']}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'ResponseTime' | translate}}</span>{{currentRow['Response Time']}}
+                    </li>
+                  </ul>
+                </div>
+              </ng-template>
+            </span>
+          </li>
+        </ul>
+
+      </div>
+    </ng-template>
+  </span>
+</div>
+<div *ngIf="templateClass == 'source-flags'" class="w-100 custom-scroll-wrapper" malihu-scrollbar
+  [scrollbarOptions]="scrollbarOptions">
+  <ng-container *ngFor="let img of value;trackBy: trackByLabel">
+    <img class="mr-3" style="width:20px;" *ngIf="img.label != 'ANY'" [src]="img.label" />
+    <span *ngIf="img.label == 'ANY'">{{'Any' | translate}}</span>
+  </ng-container>
+</div>
+
+<div *ngIf="templateClass == 'source-responce-time'"   permission [domainPermission]="permissionIdsList | getPermissionId : headerName">
+  <span *ngIf="value != 'Error'" class="c-pointer" container="body" [autoClose]="'outside'" [ngbPopover]="popContent2"
+    [popoverTitle]="popTitle2" popoverClass="custom-popup light-theme miw-800 has-top-arrow light-theme-no-radius" #closePop="ngbPopover"
+     (click)="showPopover($event)">
+    <i class="material-icons align-middle text-dark-black">trending_up</i> {{value}}
+
+    <ng-template #popTitle2>
+      <div class="f-14 d-flex w-100 align-items-center justify-content-between">
+        <div>
+          <span class="f-17 mr-4">
+            <i class="material-icons align-bottom" style="color: #388e3b">check_circle_outline</i>
+          </span>
+          <span class="f-20 mb-0 card-title font-medium mr-4 pr-3 text-capitalize text-dark-black">{{'Success' | translate}}</span>
+        </div>
+        <i class="material-icons c-pointer color-gray text-dark-black" (click)="closePop.close()">close</i>
+        <!-- <span class="c-pointer" (click)="closePop.close()"><i class="fa fa-times"></i></span> -->
+      </div>
+    </ng-template>
+    <ng-template #popContent2>
+      <div class="card-body error-popover custom-scroll-wrapper d-flex pad-x0 height-100 pad-t0 pad-b30 p-rel">
+        <ul class="list-unstyled text-on-surface pl-4" *ngIf="currentRow">
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'SourceName' | translate}} </span> {{currentRow.Source}}</li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Category' | translate}}</span> {{currentRow.Category}}</li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Jurisdictions' | translate}}</span>
+            <div class="d-inline mr-1 custom-scroll-wrapper overflow-auto pb-2 ws-nowrap">
+              <ng-container *ngIf="currentRow">
+                <img *ngFor="let src of currentRow.Jurisdiction" class="mr-2" style="width:20px;" src="{{src.label}}" />
+              </ng-container>
+            </div>
+          </li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black" permission [domainPermission]="permissionIdsList | getPermissionId : 'source Url'"><span>{{'URL' | translate}}</span><a href="{{currentRow.urlForPopover}}"
+              target="_blank">{{currentRow.urlText}}</a></li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Section' | translate}}</span>{{currentRow.Section}}</li>
+          <li class="mb-2 d-flex text-capitalize"><span class="text-dark-black">{{'Status' | translate}}</span><span
+              style="color: #388e3b">{{currentRow.Status}}</span></li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'LastUpdated' | translate}}</span>{{currentRow['Last Update']}}</li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'ExecutionDateTime' | translate}}
+            </span>{{currentRow['Executione date time']}}</li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'ResponseTime' | translate}}</span>{{currentRow['Response Time']}}</li>
+          <li class="mb-2 d-flex text-capitalize"  permission [domainPermission]="permissionIdsList | getPermissionId : 'source Detailed Information'"><span class="text-dark-black">{{'DetailedInformation' | translate}}</span>
+            <span class="c-pointer" style="color: #337ab7" popoverTitle="Pop title" container="body"
+              [autoClose]="'outside'" [ngbPopover]="innerPopContent2" [popoverTitle]="innerPopTitle2"
+              popoverClass="custom-popup pt-4 light-theme has-right-arrow light-theme-no-radius" #closePop="ngbPopover" placement="right"
+              (click)="showPopover($event)">
+              {{'ShowPage' | translate}}
+              <ng-template #innerPopContent2>
+                <div
+                  class="card-body error-popover overflow-auto custom-scroll-wrapper d-flex pad-x0 height-100 pad-t0 pad-b30 p-rel">
+                  <ul class="list-unstyled text-on-surface pl-3" *ngIf="currentRow">
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'SourceId' | translate}}</span>{{currentRow['sourceId']}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span class="text-overflow">{{'SourceName' | translate}} </span>
+                      {{currentRow.Source}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Category' | translate}}</span> {{currentRow.Category}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'SourceProject' | translate}}</span>{{currentRow['Source Project']}}
+                    </li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Jurisdictions' | translate}}</span>
+                      <div class="d-inline mr-1 custom-scroll-wrapper overflow-auto pb-2 ws-nowrap">
+                        <ng-container *ngIf="currentRow">
+                          <img *ngFor="let src of currentRow.Jurisdiction" class="mr-2" style="width:20px;" src="{{src.label}}" />
+                        </ng-container>
+                      </div>
+                    </li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Domain' | translate}}</span>{{currentRow['Domain']}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Industry' | translate}}</span>{{currentRow['Industry']}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black" permission [domainPermission]="permissionIdsList | getPermissionId : 'source Url'"><span>{{'URL' | translate}}</span><a href="{{currentRow.urlForPopover}}"
+                        target="_blank">{{currentRow.urlText}}</a></li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Section' | translate}}</span>{{currentRow.Section}}</li>
+                    <li class="mb-2 d-flex text-capitalize"><span class="text-dark-black">{{'Status' | translate}}</span><span
+                        style="color: #388e3b">{{currentRow.Status}}</span></li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'LastUpdated' | translate}}</span>{{currentRow['Last Update']}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'ExecutionDateTime' | translate}}
+                      </span>{{currentRow['Executione date time']}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'ResponseTime' | translate}}</span>{{currentRow['Response Time']}}
+                    </li>
+                  </ul>
+                </div>
+              </ng-template>
+            </span>
+          </li>
+        </ul>
+        <div class="chart-content w-100">
+          <div class="chart-header d-flex justify-content-between align-items-center"  permission [domainPermission]="permissionIdsList | getPermissionId : 'source Activity Trend'">
+            <p class="text-capitalize f-14 text-dark-black">{{'SourceActivityTrend' | translate}}</p>
+            <div class="date-filter-container">
+              <app-date-renderer [inputdataFromSourceMonotoring]="'sourceMonitoring'"
+                (outputDataFromSourceMonotoring)="outputDataFromSourceMonotoring($event)"></app-date-renderer>
+            </div>
+          </div>
+          <div class="card-body" id="errorLineChart">
+          </div>
+          <div class=""
+            *ngIf="lineChartLoader">
+            <div class="text-center position-relative t-0 text-on-surface custom-dropdown-menu source-management-loader loader-response-wrapper">
+              <i class="fa fa-spinner txt-on-surface-06 fa-pulse text-dark-black" style="font-size:4rem;"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </span>
+  <span *ngIf="value == 'Error'" style="color: #ef5754" class="c-pointer" container="body" [autoClose]="'outside'"
+    [ngbPopover]="popContent1" [popoverTitle]="popTitle1" popoverClass="custom-popup miw-800 light-theme has-top-arrow"
+    #closePop="ngbPopover" placement="left" (click)="showPopover($event)">
+    <i class="material-icons align-middle">error_outline</i> {{'Error' | translate}}
+    <ng-template #popTitle1>
+      <div class="f-14 d-flex align-items-center w-100 justify-content-between">
+        <div>
+          <span class="f-17 mr-4"><i class="material-icons align-bottom" style="color: #ef5754">error_outline</i></span>
+          <span class="f-20 mb-0 card-title font-medium mr-4 pr-3 text-capitalize text-dark-black">{{'InternalServerError' | translate}}</span>
+        </div>
+        <i class="material-icons c-pointer color-gray text-dark-black" (click)="closePop.close()">close</i>
+        <!-- <span class="c-pointer" (click)="closePop.close()"><i class="fa fa-times"></i></span> -->
+      </div>
+    </ng-template>
+    <ng-template #popContent1>
+      <div class="card-body error-popover custom-scroll-wrapper d-flex pad-x0 height-100 pad-t0 pad-b30 p-rel">
+        <ul class="list-unstyled text-on-surface pl-4" *ngIf="currentRow">
+
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span class="text-overflow text-dark-black">{{'SourceName' | translate}}  </span>{{currentRow.Source}}
+          </li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Category' | translate}}</span>{{currentRow.Category}}</li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Jurisdictions' | translate}}</span>
+            <div class="d-inline mr-1 custom-scroll-wrapper overflow-auto pb-2 ws-nowrap">
+              <ng-container *ngIf="currentRow">
+                <img *ngFor="let src of currentRow.Jurisdiction" class="mr-2" style="width:20px;" src="{{src.label}}" />
+              </ng-container>
+            </div>
+          </li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"   permission [domainPermission]="permissionIdsList | getPermissionId : 'source Url'"><span>{{'URL' | translate}}</span><a href="{{currentRow.urlForPopover}}"
+              target="_blank">{{currentRow.urlText}}</a></li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Section' | translate}}</span>{{currentRow.Section}}</li>
+          <li class="mb-2 d-flex text-capitalize "><span class="text-dark-black">Status</span><span
+              style="color: #ef5754">{{currentRow.Status}}</span></li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'LastUpdated' | translate}}</span>{{currentRow['Last Update']}}</li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'ExecutionDateTime' | translate}}
+            </span>{{currentRow['Executione date time']}}</li>
+          <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'ResponseTime' | translate}}</span>{{currentRow['Response Time']}}</li>
+          <li class="mb-2 d-flex text-capitalize"  permission [domainPermission]="permissionIdsList | getPermissionId : 'source Detailed Information'"><span class="text-dark-black">{{'DetailedInformation' | translate}}</span>
+            <span class="c-pointer" style="color: #337ab7" popoverTitle="Pop title" container="body"
+              [autoClose]="'outside'" [ngbPopover]="innerPopContent3" [popoverTitle]="innerPopTitle3"
+              popoverClass="custom-popup light-theme pt-4 has-right-arrow light-theme-no-radius" #closePop="ngbPopover" placement="right"
+              (click)="showPopover($event)">
+              {{'ShowPage' | translate}}
+              <ng-template #innerPopContent3>
+                <div
+                  class="card-body error-popover overflow-auto custom-scroll-wrapper d-flex pad-x0 height-100 pad-t0 pad-b30 p-rel">
+                  <ul class="list-unstyled text-on-surface pl-3" *ngIf="currentRow">
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'SourceId' | translate}}</span>{{currentRow['sourceId']}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span class="text-overflow text-dark-black">{{'SourceName' | translate}} </span>
+                      {{currentRow.Source}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Category' | translate}}</span> {{currentRow.Category}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'SourceProject' | translate}}</span>{{currentRow['Source Project']}}
+                    </li>
+                    <li class="mb-2 d-flex text-capitalize"><span>{{'Jurisdictions' | translate}}</span>
+                      <div class="d-inline mr-1 custom-scroll-wrapper overflow-auto pb-2 ws-nowrap">
+                        <ng-container *ngIf="currentRow">
+                          <img *ngFor="let src of currentRow.Jurisdiction" class="mr-2" style="width:20px;" src="{{src.label}}" />
+                        </ng-container>
+                      </div>
+                    </li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Domain' | translate }}</span>{{currentRow['Domain']}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Industry' | translate}}</span>{{currentRow['Industry']}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black" permission [domainPermission]="permissionIdsList | getPermissionId : 'source Url'"><span>{{'URL' | translate}}</span><a href="{{currentRow.urlForPopover}}"
+                        target="_blank">{{currentRow.urlText}}</a></li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'Section' | translate}}</span>{{currentRow.Section}}</li>
+                    <li class="mb-2 d-flex text-capitalize"><span class="text-dark-black">Status</span><span
+                        style="color: #ef5754">{{currentRow.Status}}</span></li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'LastUpdated' | translate}}</span>{{currentRow['Last Update']}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'ExecutionDateTime' | translate}}
+                      </span>{{currentRow['Executione date time']}}</li>
+                    <li class="mb-2 d-flex text-capitalize text-dark-black"><span>{{'ResponseTime' | translate}}</span>{{currentRow['Response Time']}}
+                    </li>
+                  </ul>
+                </div>
+              </ng-template>
+            </span>
+          </li>
+        </ul>
+        <div class="chart-content w-100">
+          <div class="chart-header d-flex justify-content-between align-items-center" permission [domainPermission]="permissionIdsList | getPermissionId : 'source Activity Trend'">
+            <p class="text-capitalize f-14 text-dark-black">{{'SourceActivityTrend' | translate}}</p>
+            <div class="date-filter-container">
+              <app-date-renderer [inputdataFromSourceMonotoring]="'sourceMonitoring'"
+                (outputDataFromSourceMonotoring)="outputDataFromSourceMonotoring($event)"></app-date-renderer>
+            </div>
+          </div>
+          <div class="card-body" id="errorLineChart">
+            <div class="d-flex align-items-center justify-content-center"
+              *ngIf="lineChartLoader">
+              <div class="text-center text-on-surface custom-dropdown-menu source-management-loader failed-loader-wrapper">
+                <i class="fa fa-spinner txt-on-surface-06 fa-pulse text-dark-black" style="font-size:4rem;"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </ng-template>
+  </span>
+</div>

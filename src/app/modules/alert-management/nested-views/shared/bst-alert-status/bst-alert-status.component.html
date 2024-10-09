@@ -1,0 +1,7 @@
+<mat-form-field appearance="fill" *ngIf="AllowedStatusList && AllowedStatusList.length > 0">
+  <mat-select [(value)]="currentStatusCode">
+    <mat-option *ngFor="let item of AllowedStatusList" [value]="item.key" (click)="setTransition(item.key)">
+      {{item.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

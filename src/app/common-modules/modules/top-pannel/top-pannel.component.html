@@ -1,0 +1,296 @@
+<header class="header-wrapper">
+    <nav class="navbar navbar-expand-lg py-0 px-2">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse navbar-header pad-0" id="navbarTogglerDemo01">
+            <ul class="navbar-nav nav mr-auto mt-2 mt-lg-0 w-100">
+                <li class="nav-item">
+                    <a class="navbar-brand element-navbar-logo p-0" (click)="this.navigatePath('#/domain');">
+                        <img class="d-ib img-fluid w-100" src="{{companyLogo}}" style=" height:40px"/>
+                    </a>
+                </li>
+                <li class="nav-item mar-autol text-cream">
+                    <a class="btn">
+                        <i class="fa fa-search nav-link-icon"></i>
+                    </a>
+                </li>
+
+
+
+                <li class="nav-item text-cream">
+                    <a (click)="openAboutModal()" class="btn">
+                        <i class="fa fa-info-circle nav-link-icon"></i>
+                    </a>
+                </li>
+
+                <li id="event-calendar-dropdown" class="text-cream">
+                    <a class="btn" id="event-calendar-menu">
+                        <i class="fa fa-calendar nav-link-icon"></i>
+                    </a>
+                </li>
+                <li (click)="toggleTopPannelItems('clipboard')" [ngbPopover]="popContent" popoverClass="bst_popover" placement="bottom">
+                    <a class="btn my-clipboard-nav">
+                        <i class="fa fa-bookmark nav-link-icon"></i>
+                    </a>
+                </li>
+                <li (click)="toggleTopPannelItems('notification')" class="text-cream">
+                    <a class="btn notification-menu">
+                        <i class="fa fa-bell nav-link-icon"></i>
+                    </a>
+                </li>
+                <li class="dropdown dropdown-profile pad-l10">
+                    <a class="pad-0 d-flex ai-c text-on-surface" style="padding-top:5px!important;" (click)="toggleTopPannelItems('useProfile')"
+                        data-toggle="dropdown" href="javascript:void(0);">
+                        <div class="pull-left d-flex fd-c" *ngIf="userDetails">
+                            <span class="log-username as-fe text-uppercase f-18 font-medium">{{userDetails.fullName || userDetails.email}}</span>
+                            <span class="text-uppercase f-12 gotham-regular">{{LastLoginLabel}}: {{userDetails.lastLoginDate}}</span>
+                        </div>
+                        <div class="pull-left d-flex fd-c" *ngIf="!userDetails">
+                            <span class="log-username as-fe text-uppercase f-18 font-medium">Michael Ouliel</span>
+                            <span class="text-uppercase f-12 gotham-regular">{{LastLoginLabel}}: Feb 24, 2019, 08:03:00 PM</span>
+                        </div>
+                        <div class="pull-right pad-l5">
+                            <span *ngIf="!profileImage" class="img-responsive user-image text-center pad-t5"  style="width:40px; height:40px;" >{{userName}}</span>
+
+                            <img *ngIf="profileImage" class="img-responsive user-image " style="width:40px; height:40px;" [src]="profileImage" alt="userImg" />
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu profile-dropdown-menu light-theme-bg-white light-theme-no-radius admin-dropdown-model" role="menu">
+                        <!-- <li>
+                            <a href="javascript:void(0);" class="text-dark-black light-theme-border-bottom">
+                                <i class="fa fa-user"></i>{{ProfileLabel}}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="text-dark-black light-theme-border-bottom">
+                                <i class="fa fa-cog"></i>{{SettingsLabel}}
+                            </a>
+                        </li> -->
+                        <li>
+                            <a href="javascript:void(0);" (click)="openPreferencesModal()" class="text-dark-black light-theme-border-bottom">
+                                <i class="fa fa-gittip"></i> {{MyPreferencessLabel}}
+                            </a>
+                        </li>
+                        <!-- <li>
+                            <a href="javascript:void(0);" (click)="this.navigatePath('#/manage')" class="text-dark-black light-theme-border-bottom">
+                                <i class="fa fa-server"></i>{{ManageLabel}}
+                            </a>
+                        </li> -->
+
+
+                        <li>
+                            <a (click)="logout()" class="text-dark-black">
+                                <i class="fa fa-sign-out"></i> {{LogOutLabel}}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <ng-template #popContent>
+        <!--  Clipboard Dropdown Starts  -->
+    <div class="dropdown-menu-wrapper pad-x0 clipboard-dropdown-menu-wrapper light-theme-bg-transparent bg-transparent" *ngIf="showHideTopPannelItems.showHideClipBoard">
+        <div class="row search-clip-holder">
+            <div class="col-sm-7 search-clip-item">
+                <h4 class="text-dark-black">{{MyClipboardLabel}}</h4>
+                <p class="text-dark-black"><span>23 {{NotesLabel}},</span><span> 6 {{FilesLabel}}</span></p>
+            </div>
+            <div class="col-sm-5 text-right search-clip-item pad-l0">
+                <a class="mar-autol text-dark-black" (click)="toggleSticky()">
+                    <span class="fa fa-plus"></span>{{NoteLabel}}</a>
+                <a class="text-dark-black">
+                    <span class="fa fa-cloud-upload"></span>{{UploadLabel}}</a>
+            </div>
+        </div>
+        <hr class="mar-0 ">
+        <div class="row context-menu pad-t10">
+            <div class="col-sm-6 context-menu-item">
+                <div class="input-group height-100 bst_input_group ai-c d-flex pull-left light-theme-border-bottom pl-2 light-theme-bg-light">
+                    <span class="input-group-prepend t-10">
+                        <i class="fa fa-search text-cream text-dark-black"></i>
+                    </span>
+                    <input type="text" class="custom-input border-0 pad-b5 bg-transparent text-dark-black width-100 pad-y10 pad-l30" placeholder="{{SearchLabel}}"
+                        ng-keyup="fullTextSearch($event, $index)">
+                        <span class="label text-dark-black pl-2">{{SearchLabel}}</span>
+                </div>
+            </div>
+            <div class="col-sm-3 text-right pad-l0 pad-r0 context-menu-item">
+                <div class="select-group pad-l10 bst_input_group ai-c d-flex height-100 light-theme-bg-light pad-y0">
+                    <span class="filter-key text-uppercase f-10 text-cream text-dark-black">{{SortbyLablel}}</span>
+                    <select id="displayByOrder" class="filter-value text-dark-black f-10 text-uppercase text-cream pad-0" ng-model="checkedValueListBy"
+                        ng-change="changeListByDropDown(checkedValue)">
+                        <option value="desc">{{AscendingLabel}}</option>
+                        <option value="asc" selected>{{DecendingLabel}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-3 text-right context-menu-item">
+                <div class="select-group pad-l10 height-100 bst_input_group ai-c d-flex text-cream light-theme-bg-light pad-y0">
+                    <span class="filter-key text-uppercase text-cream f-10 text-dark-black">{{DisplayLabel}} :</span>
+                    <select id="displayByIconOrTable" class="filter-value text-dark-black text-uppercase f-10 text-cream pad-0" ng-model="checkedValueDisplay"
+                        ng-change="changeDropDown(checkedValue)">
+                        <option value="icon" selected="selected">{{IconsLabel}}</option>
+                        <option value="table">{{TableLabel}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ngb-tabset #t="ngbTabset" class="bst-uib-tab-wrapper">
+        <div class="bst-uib-tab-wrapper">
+            <ngb-tab id="tab-selectbyid1" title="{{SharedStickyNoteLabel}}">
+            <ng-template ngbTabContent>
+                <div class="folder-list-wrapper pad-t5 pad-l10">
+                    <ul class="list-inline clipboard-items-list top-pop  d-if">
+                        <li class="clipboard-list-item pad-r20" *ngFor="let sticky of stickies">
+                            <img src="assets/img/clipBoardIcon/sticky.webp"/>
+                            <span class="clipboard-item-name d-flex pad-l10 text-cream">{{sticky}}</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </ng-template>
+            </ngb-tab>
+            <ngb-tab id="tab-selectbyid2" title="{{MyStickyNotesLabel}}">
+            <!-- <ng-template ngbTabTitle>My sticky notes</ng-template> -->
+            <ng-template ngbTabContent>
+                <div class="folder-list-wrapper pad-t5 pad-l10">
+                    <ul class="list-inline clipboard-items-list top-pop  d-if">
+                        <li class="clipboard-list-item pad-r20">
+                            <img src="assets/img/clipBoardIcon/sticky.webp"/>
+                            <span class="clipboard-item-name d-flex pad-l10 text-cream">{{SixthLabel}}</span>
+                        </li>
+                        <li class="clipboard-list-item pad-r20">
+                            <img src="assets/img/clipBoardIcon/sticky.webp"/>
+                            <span class="clipboard-item-name d-flex pad-l10 text-cream">{{SeventhLabel}}</span>
+                        </li>
+                        <li class="clipboard-list-item pad-r20">
+                            <img src="assets/img/clipBoardIcon/sticky.webp"/>
+                            <span class="clipboard-item-name d-flex pad-l10 text-cream">{{EighthLabel}}</span>
+                        </li>
+                        <li class="clipboard-list-item pad-r20">
+                            <img src="assets/img/clipBoardIcon/sticky.webp"/>
+                            <span class="clipboard-item-name d-flex pad-l10 text-cream">{{NinthLabel}}</span>
+                        </li>
+                        <li class="clipboard-list-item pad-r20">
+                            <img src="assets/img/clipBoardIcon/sticky.webp"/>
+                            <span class="clipboard-item-name d-flex pad-l10 text-cream">{{TenthLabel}}</span>
+                        </li>
+                    </ul>
+                </div>
+            </ng-template>
+            </ngb-tab>
+        </div>
+    </ngb-tabset>
+
+    <ngb-tabset #t="ngbTabset" class="bst-uib-tab-wrapper">
+            <div class="bst-uib-tab-wrapper">
+                <ngb-tab id="tab-selectbyid1" title="{{SharedDocumentsLabel}}">
+                <ng-template ngbTabContent>
+                    <div class="folder-list-wrapper pad-t5 pad-l10">
+                        <ul class="list-inline clipboard-items-list top-pop  d-if">
+                            <li class="clipboard-list-item pad-r20">
+                                <img src="assets/img/clipBoardIcon/txt.webp"/>
+                                <span class="clipboard-item-name d-flex pad-l10 text-cream">{{TextLabel}}</span>
+                            </li>
+                            <li class="clipboard-list-item pad-r20">
+                                <img src="assets/img/clipBoardIcon/pdf.webp"/>
+                                <span class="clipboard-item-name d-flex pad-l10 text-cream">{{PdfLabel}}</span>
+                            </li>
+                            <li class="clipboard-list-item pad-r20">
+                                <img src="assets/img/clipBoardIcon/png.webp"/>
+                                <span class="clipboard-item-name d-flex pad-l10 text-cream">{{ImageLabel}}</span>
+                            </li>
+                            <li class="clipboard-list-item pad-r20">
+                                <img src="assets/img/clipBoardIcon/txt.webp"/>
+                                <span class="clipboard-item-name d-flex pad-l10 text-cream">{{TextLabel}}</span>
+                            </li>
+                            <li class="clipboard-list-item pad-r20">
+                                <img src="assets/img/clipBoardIcon/pdf.webp"/>
+                                <span class="clipboard-item-name d-flex pad-l10 text-cream">{{PdfLabel}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </ng-template>
+                </ngb-tab>
+                <ngb-tab id="tab-selectbyid2" title="{{MyDocumentsLabel}}">
+                <!-- <ng-template ngbTabTitle>My sticky notes</ng-template> -->
+                <ng-template ngbTabContent>
+                    <div class="folder-list-wrapper pad-t5 pad-l10">
+                        <ul class="list-inline clipboard-items-list top-pop  d-if">
+                            <li class="clipboard-list-item pad-r20">
+                                <img src="assets/img/clipBoardIcon/txt.webp"/>
+                                <span class="clipboard-item-name d-flex pad-l10 text-cream">{{TextLabel}}</span>
+                            </li>
+                            <li class="clipboard-list-item pad-r20">
+                                <img src="assets/img/clipBoardIcon/pdf.webp"/>
+                                <span class="clipboard-item-name d-flex pad-l10 text-cream">{{PdfLabel}}</span>
+                            </li>
+                            <li class="clipboard-list-item pad-r20">
+                                <img src="assets/img/clipBoardIcon/png.webp"/>
+                                <span class="clipboard-item-name d-flex pad-l10 text-cream">{{ImageLabel}}</span>
+                            </li>
+                            <li class="clipboard-list-item pad-r20">
+                                <img src="assets/img/clipBoardIcon/txt.webp"/>
+                                <span class="clipboard-item-name d-flex pad-l10 text-cream">{{TextLabel}}</span>
+                            </li>
+                            <li class="clipboard-list-item pad-r20">
+                                <img src="assets/img/clipBoardIcon/pdf.webp"/>
+                                <span class="clipboard-item-name d-flex pad-l10 text-cream">{{PdfLabel}}</span>
+                            </li>
+                            <li class="clipboard-list-item pad-r20">
+                                <img src="assets/img/clipBoardIcon/txt.webp"/>
+                                <span class="clipboard-item-name d-flex pad-l10 text-cream">{{TextLabel}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </ng-template>
+                </ngb-tab>
+            </div>
+        </ngb-tabset>
+<!--  Clipboard Dropdown Ends  -->
+    </ng-template>
+
+    <!--  Sticky Notes Starts  -->
+    <!-- <div class="panel custom-panel-wrapper sticky-panel-wrapper  panel-info " id="stickyNotes" *ngIf="showHideTopPannelItems.showSitcky">
+        <div class="panel-heading pad-b0">
+            <div class="custom-input-group d-flex">
+                <input type="text" class="width-100 pad-l10 " id="documentTitle">
+                <ul class="top-icon-list input-group-addon pull-right pad-0 pad-t5 d-flex">
+                    <li class="pad-t5">
+                        <a>
+                            <i class="fa fa-cog text-cream" ng-click="closeSticky()"></i>
+                        </a>
+                    </li>
+                    <li class="pad-t5 pad-r5">
+                        <a>
+                            <i class="fa fa-times text-cream" ng-click="closeSticky()"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel-body">
+            <textarea ng-if="permissionDocument == 'Read Only'" id="documentText" rows="9" class="textarea-scrollbar scrollbar-outer" ng-keyup="stickyAutoSave($event, $index)" readonly>
+            </textarea>
+        </div>
+    </div> -->
+<!--  Sticky Notes Ends  -->
+
+    <!-- <div cdkDrag style="padding: 20px;
+    border: 1px solid white;
+    width: 8%;
+    margin-top: 9%;">Drag</div> -->
+    <!--  Notification Dropdown Starts -->
+    <div class="dropdown-menu-wrapper notifications-dropdown-menu-wrapper"
+        *ngIf="showHideTopPannelItems.showHideNotifications" style="height:300px;">
+
+    </div>
+    <!--  Notification Dropdown End  -->
+</header>
+

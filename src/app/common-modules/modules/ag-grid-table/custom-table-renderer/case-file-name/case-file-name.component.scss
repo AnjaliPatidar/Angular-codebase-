@@ -1,0 +1,15 @@
+@import "../../../../../../assets/scss/theme/common/variable";
+
+::ng-deep .ag-table-wrapper .ag-theme-balham #file-name .case-title-cell {
+  display: flex;
+  align-items: center;
+
+  .title-icon {
+    margin-right: 5px;
+  }
+  .title {
+    line-height: 0;
+    margin-top: -1px;
+    color: rgba($white, 0.87);
+  }
+}

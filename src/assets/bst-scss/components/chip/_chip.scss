@@ -1,0 +1,32 @@
+/* Chip Button Styling */
+
+$a-chip--bg-color: $color-success !default;
+$a-chip--color   : $color-white !default;
+$a-chip--height  : 32px !default;
+
+
+@mixin a-chip-box($background-color, $color: $a-chip--color) {
+  background-color: $background-color;
+  color           : $color;
+}
+
+
+.bst-chip-btn {
+  @include flex-d(null, null, center, center);
+  width        : fit-content;
+  padding      : 0px 8px;
+  font-size    : 12px;
+  border-radius: 4px;
+
+  &--sm {
+    @include a-chip-box($a-chip--bg-color, $a-chip--color);
+    height: 20px;
+  }
+
+  &--md {
+    @include a-chip-box($a-chip--bg-color, $a-chip--color);
+    @include flex-d(null, null, null, center);
+    height : 56px;
+    padding: 16px 24px;
+  }
+}

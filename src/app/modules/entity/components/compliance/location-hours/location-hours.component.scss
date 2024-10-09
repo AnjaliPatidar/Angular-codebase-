@@ -1,0 +1,54 @@
+@import "~leaflet/dist/leaflet.css";
+.map-container1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 30px;
+}
+
+.map-frame1 {
+    // border: 2px solid black;
+    height: 167%;
+    width: 100%;
+}
+
+.top-15 {
+    top: -15px;
+}
+
+#map1 {
+    height: 60%;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    pointer-events: none;
+}
+
+.map-footer {
+    margin-top: -15px;
+    background-color: #383838;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    padding: 15px;
+    .address-header {
+        color: gray;
+    }
+    .direction {
+        span {
+            padding-left: 150px;
+            color: #aba8a8;
+            // cursor: pointer;
+        }
+    }
+}
+
+.row {
+    height: 100%;
+    width: 100%;
+}
+
+.open-hours {
+    color: white;
+    padding: 10px
+}

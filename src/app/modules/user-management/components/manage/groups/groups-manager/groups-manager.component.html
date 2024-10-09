@@ -1,0 +1,27 @@
+<nav mat-tab-nav-bar class="custom-navbar my-3 light-theme-border-bottom">
+    <div *ngIf="currentGroup == 'newgroup' || cloneRole">
+        <h4 class="text-captlize role-type mb-0 f-20 d-flex align-items-center text-overflow text-dark-black txt-on-surface"><i class="material-icons mr-3">
+        folder
+      </i><span class="title-text-on-surface">{{'New Group' | translate}}</span></h4>
+    </div>
+    <div *ngIf="currentGroup != 'newgroup'">
+        <h4 class=" role-type mb-0 f-20 d-flex align-items-center text-dark-black txt-on-surface">
+            <i class="material-icons mr-3" [ngStyle]="{'color':groupDetails.color}">
+        {{groupDetails.icon ? groupDetails.icon : "people"}}
+      </i>
+            <span class="text-overflow title-text-on-surface">{{groupDetails?.groupName}}</span></h4>
+    </div>
+    <!-- <a mat-tab-link class="text-uppercase theme-text-capitalize" routerLink="/element/user-management/manage/groups/settings/{{currentGroup}}" [queryParams]="{'groupName':cloneGroup}" routerLinkActive #roles="routerLinkActive" [active]="roles.isActive">
+    {{ 'SETTINGS' | translate }}
+  </a>
+    <a mat-tab-link class="text-uppercase theme-text-capitalize" routerLink="/element/user-management/manage/groups/assigned-users/{{currentGroup}}" [queryParams]="{'groupName':cloneGroup}" routerLinkActive #policies="routerLinkActive" [active]="policies.isActive" [disabled]="currentGroup == 'newgroup' || cloneGroup"> -->
+    <a mat-tab-link class="text-uppercase theme-text-capitalize" [routerLink]="settingUrl()" [queryParams]="{'groupName':cloneGroup}" routerLinkActive #roles="routerLinkActive" [active]="roles.isActive">
+    {{ 'SETTINGS' | translate }}
+  </a>
+  <!-- /element/user-management/manage/groups/settings/{{currentGroup}} -->
+    <a mat-tab-link class="text-uppercase theme-text-capitalize" [routerLink]="assignedUsersUrl()" [queryParams]="{'groupName':cloneGroup}" routerLinkActive #policies="routerLinkActive" [active]="policies.isActive" [disabled]="currentGroup == 'newgroup' || cloneGroup">
+    {{ 'ASSIGNED USERS' | translate }} ({{assignUsersCount ? assignUsersCount : "0"}})
+  </a>
+  <!-- /element/user-management/manage/groups/assigned-users/{{currentGroup}} -->
+</nav>
+<router-outlet></router-outlet>

@@ -1,0 +1,87 @@
+<div class="select-sentiment-wrapper height-100 border-b0" id="screen_shot">
+  <div class="bst_input_group bst_input_group_r  height-a">
+    <input class="custom-input pad-r10 pad-l15 pad-t15 lh-18 height-a mar-r10" autocomplete="off" placeholder="source">
+    <span class="label f-12 text-dark-cream">Source</span>
+    <span class="error" *ngIf="false">Source is not in the directory</span></div>
+  <div class="d-flex ai-c pad-5">
+    <p class="mar-b0 text-cream"><span>{{getMultiScreenShotSelected?.length}}</span> Entities Selected</p>
+    <div class="mar-autol d-flex ai-c">
+      <button class="grad-button d-flex ai-c sm-btns mar-3" (click)="multipleAddToPage()" *ngIf="isFromAddToPage"><img
+          class="mar-r5" src="..\assets\img\file-plus-white.svg" />Add To Page</button>
+      <span class="c-pointer pad-l5"><i class="fa fa-times"></i></span>
+    </div>
+  </div>
+  <div class="custom-data-table-wrapper">
+    <table
+      class="table custom-table table-scroll border-0 scroll-table table-striped-z three-col-source-selection full-width">
+      <thead>
+        <tr>
+          <th class="text-unset">Sources</th>
+          <th class="text-unset">Source Screenshot</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="table-scroll-evidence height-400 custom-scroll-wrapper">
+        <tr *ngFor="let value of sourceWithBSTRegistry;let i = index;trackBy:trackBySourceName" [ngClass]="{'c-ban':value.disable}">
+          <td class="bst-checkbox-wrapper" [ngClass]="{'pe-none':value.disable}">
+            <div class="mar-l5 checkbox-inline" *ngIf="!value.row_spinner">
+              <input type="checkbox" class="mar-l0 d-block z-99 c-pointer op-0 " [checked]="value.checked"
+                (click)="setMultiCheckScreenshot(value,i)">
+              <span class=" mar-r0" [ngClass]="{'bg-blue-checkbox': value.checked}">
+                <i class="fa fa-check" *ngIf="value.checked"></i>
+              </span>
+            </div>
+            <div class="mar-l5 checkbox-inline" *ngIf="value.row_spinner">
+              <input type="checkbox" class="mar-l0 d-block z-99 c-pointer op-0 pe-none ">
+              <span class="fa fa-spinner fa-spin fa-2x mar-r0">
+
+              </span>
+
+            </div>
+            <span class="mar-l10 mar-t5 c-arrow">{{value.sourceName}}</span>
+          </td>
+          <td [ngClass]="{'pe-none':value.disable}" *ngIf="value.uploadedFileName">{{value.uploadedFileName}}
+          </td>
+          <td [ngClass]="{'pe-none':value.disable}" *ngIf="!value.uploadedFileName">
+            {{value.splitSourceScreenshot || '' }}</td>
+          <td>
+            <ul class="custom-list pad-l0 mt-2 d-flex ai-c">
+              <li class="mr-2"><span>
+                  <i class="material-icons" *ngIf="value.showUploadIcon" (click)="sourceLinkdUploadFile(value,i)">
+                    cloud_upload
+                  </i>
+
+                </span></li>
+              <li class="mr-2">
+                <span><i class="fa fa-camera"
+                 (click)="callScreenShotAPI(value,i,value.uploadedFileName)"
+                    *ngIf="value.showHideScreenIcon"></i></span></li>
+              <li class="mr-2">
+                <span [ngClass]="{'c-ban':value.disable}">
+                  <i class="material-icons" (click)="downloadEvidenceSourceScreenshot(value,$event)">
+                    cloud_download
+                  </i>
+
+                </span></li>
+              <li class="mr-2">
+                <span [ngClass]="{'c-ban':value.disable}">
+                <img src="..\assets\img\file-plus-grey.svg"
+                *ngIf="!value.showHideAddtoPage && !value.addtopageloader"
+                 (click)="addToPage(value,i)" [ngClass]="{'pe-none':value.disable}"></span>
+              </li>
+              <li *ngIf="value.showHideAddtoPage" class="mr-2"><i class="fa fa-check"></i></li>
+              <li class="custom-spinner mar-l15 p-rel t-10 l-0" *ngIf="value.addtopageloader">
+                <i class="fa f-16 fa-spinner fa-spin"></i></li>
+              <li class="mr-2"><span>
+                  <a href="{{value.SourceValue['bst:registryURI']}}" target="_blank"   (click)="$event.stopPropagation();"
+                  [ngClass]="{'c-ban':value.disable,'pe-none': (value?.disable && !value?.SourceValue['bst:registryURI'])}"><i
+                      class="fa fa-external-link"></i></a></span>
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p *ngIf="!sourceWithBSTRegistry.length">Nothing here!</p>
+</div>

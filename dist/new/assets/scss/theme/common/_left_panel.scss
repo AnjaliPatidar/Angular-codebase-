@@ -1,0 +1,11 @@
+app-left-panel{
+    width: 72px;
+    position: fixed;
+    left: 0;
+    top:118px;
+    bottom: 0;
+    background: $surface;
+    z-index: 1000  !important;
+    box-shadow: 0 1.1rem 1.5rem -0.7rem rgba(0, 0, 0, 0.2), 0 0.9rem 4.6rem 0.8rem rgba(0, 0, 0, 0.12), 0 2.4rem 3.8rem 0.3rem rgba(0, 0, 0, 0.14);
+}
+

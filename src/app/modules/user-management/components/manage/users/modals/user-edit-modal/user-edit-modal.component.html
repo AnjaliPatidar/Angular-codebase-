@@ -1,0 +1,42 @@
+<h1 mat-dialog-title class="d-flex align-items-center justify-content-between pb-4 mb-5 title  text-dark-black gotham-medium light-theme-border-bottom">{{'Profile Picture Upload' | translate}}<i class="material-icons c-pointer f-16" (click)="dialogRef.close()" >close</i></h1>
+
+  <div mat-dialog-content class="custom-scroll-wrapper">
+    
+      
+      <ly-img-cropper id="lyCropper" [withClass]="classes.cropping" #cropping
+      [config]="myConfig"
+      [(scale)]="scale"
+      (cropped)="onCropped($event)"
+      
+      (error)="onerror($event)"> 
+      <!-- (loaded)="onloaded($event)" -->
+        <span class="text-dark-black txt-on-surface">{{'Drag and drop image' | translate}}</span>
+      </ly-img-cropper>
+      <div class="mat-slide">
+      <span class="text-dark-black txt-on-surface">{{'Drag the picture to center it' | translate}}</span>
+      <!-- <div *ngIf="cropping.isLoaded" [className]="classes.range"> -->
+        <!-- <ly-slider
+          [thumbVisible]="true"
+          [min]="cropping.minScale"
+          [max]="1"
+          [(ngModel)]="scale"
+
+          (input)="scale = $event.value"
+          step="0.000001"></ly-slider>  -->
+          <div style="margin-left: 315px;">
+                <span class="text-dark-black mr-2 txt-on-surface">{{'Zoom' | translate}}</span>
+                <mat-slider  [displayWith]="formatLabel" [(ngModel)]="scale" tickInterval="1" [min]="cropping.minScale" [max]="1"
+              step="0.000001"    (input)="scale = $event.value" class="custom-mat-slider"></mat-slider>
+          </div>
+          <!-- </div> -->
+        </div>
+          <div mat-dialog-actions class="action-btn">
+            <button class="cancel-button light-theme-btn secondary-btn gotham-medium font-medium fw-500 "  (click)="dialogRef.close()">{{'Cancel' | translate}}</button>
+            <button class="upload-button light-theme-btn secondary-btn gotham-medium font-medium fw-500"  bg="primary" (click)="dialogRef.close('changeImage')">{{'UPLOAD ANOTHER PICTURE' | translate}}</button>
+            <button class="profile-set light-theme-btn primary-btn gotham-medium font-medium fw-500" (click)="uploadFile()"  cdkFocusInitial>{{'SET AS PROFILE PICTURE' | translate}}</button>
+      </div>
+      
+      <!-- <div><img *ngIf="cropping.isCropped" [src]="croppedImage"></div> -->
+      <input #_fileInput type="file" (change)="cropping.selectInputEvent($event)" accept="image/*" hidden>
+            </div>
+         

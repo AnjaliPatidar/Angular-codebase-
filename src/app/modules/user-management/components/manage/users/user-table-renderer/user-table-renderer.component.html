@@ -1,0 +1,34 @@
+<div *ngIf="className == 'fullName' " class=" d-flex align-items-center text-overflow">
+  <span *ngIf="!imagePath" class="initial-name-wrapper ">{{profileIcon}}</span>
+  <img *ngIf="imagePath" src="{{imagePath}}" class="initial-name-wrapper" height="50px;">
+  <span class="text-overflow"> {{fullName}}</span>
+</div>
+<div *ngIf="className == 'status' " class="text-overflow status-icons">
+  <span class="fa f-22 fa-{{statusObj?.icon}} mx-2 align-sub" [ngStyle]="{'color':statusObj?.colorCode}"></span>
+  <!-- <i class="f-22 material-icons mx-2 align-middle {{statusObj?.icon}}">
+    {{statusObj?.icon}}
+  </i> -->
+  {{ (statusObj?.displayName | translate) || "N/A" }}
+</div>
+<div *ngIf="roles && className == 'roles' ">
+  <!-- <span *ngIf="roles && roles.length > 2" matTooltip="{{roles.join(',')}}" class="text-overflow w-100">
+    {{ roles[0] }} , {{ roles[1] }}
+  </span>
+  <span *ngIf="roles && roles.length <= 2" matTooltip="{{roles.join(',')}}" class="text-overflow w-100">
+    {{ roles.join(',') }}
+  </span> -->
+  <span  matTooltip="{{roles.join(', ')}}" class="text-overflow w-100">
+    {{ (roles.length > 0 ) ? roles.join(', ') : 'N/A' }}
+  </span>
+</div>
+<div *ngIf="groups && className == 'groups' " >
+  <!-- <span *ngIf="groups && groups.length > 2" class="text-overflow w-100">
+    {{ groups[0]}} , {{groups[1] }}
+  </span>
+  <span *ngIf=" groups && groups.length <= 2" matTooltip="{{groups.join(',')}}" class="text-overflow w-100">
+    {{ groups.join(',') }}
+  </span> -->
+  <span  matTooltip="{{groups.join(', ')}}" class="text-overflow w-100">
+    {{ (groups.length > 0) ?  groups.join(', ') : 'N/A' }}
+  </span>
+</div>

@@ -1,0 +1,37 @@
+<div class="modal-header border-0 pad-b0" *ngIf="purpose === 'graphchange'">
+  <h3 class="modal-title f-14 text-cream" id="modal-title">{{ 'Changing the source will populate the Screening Results from new source information, do you wish to continue?' | translate }}</h3>
+</div>
+
+<div class="modal-header border-0 pad-b0" *ngIf="purpose === 'delterConfirmation'">
+  <h3 *ngIf="!confirmexitData.removeCustomView" class="modal-title f-14 text-cream" id="modal-title">{{ 'Deleting the entity may remove related entities as well from Screening Results, do you wish to continue?' | translate }}</h3>
+  <h3 *ngIf="confirmexitData.removeCustomView" class="modal-title f-14 text-cream" id="modal-title">{{ 'Removing the customized view, will remove all related entities from Screening Results, do you wish to continue?' | translate }}</h3>
+</div>
+<div class="modal-header border-0 pad-b0" *ngIf="purpose === 'complexStruture'">
+  <span *ngIf="complexOwnershipToggle" class="modal-title f-14 text-cream">{{ 'Complex Structure requires to get existence evidence for each Intermediate / Ultimate Legal Parents by showing search results for each entity, would you like to continue?' | translate }}</span>
+  <span *ngIf="!complexOwnershipToggle">{{ 'Successfully marked as Non-Complex Structure' | translate }}</span>
+</div>
+<div *ngIf="purpose === 'deleteConfirmation'">
+  <div class="modal-header d-none">
+    <button type="button" class="close text-cream" (click)="ngbActiveModal.close('')" data-dismiss="modal"
+      aria-hidden="true"><span>&#x2716;</span></button>
+    <h4 class="modal-title" id="mainTitle">{{ 'Delete' | translate }}</h4>
+  </div>
+  <div class="modal-body pad-x15">
+    <div class="row">
+      <div class="col-sm-12">
+        <p id="mainData" class="text-left text-cream">
+          {{ 'Are you sure you wish to delete?' | translate }}
+        </p>
+      </div>
+      <div class="btn-group width-100 text-right">
+        <button class="grad-button mr-3" type="button" (click)="ngbActiveModal.close(confirmexitData)">{{ 'Yes' | translate }}</button>
+        <button class="bordered-button" type="button" (click)="ngbActiveModal.close('')">{{ 'No' | translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer border-0 pad-b0" *ngIf="purpose !== 'deleteConfirmation'">
+  <button class="bordered-button lh-18 f-14 height-a" type="button" (click)="ngbActiveModal.close('')">{{ 'Cancel' | translate }}</button>
+  <button class="grad-button mar-l10 f-14 lh-20 height-a" type="button"
+    (click)="ngbActiveModal.close(confirmexitData)">{{ 'OK' | translate }}</button>
+</div>

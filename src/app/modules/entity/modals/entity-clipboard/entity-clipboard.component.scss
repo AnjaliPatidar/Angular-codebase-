@@ -1,0 +1,30 @@
+// @import '../../../../../assets/css/entity/entity-report-styles.css';
+
+.position-none {
+  position: unset !important;
+}
+
+.hr-line {
+  border-bottom: 1px solid white !important;
+}
+
+::ng-deep {
+  .sticky-link-popover {
+    max-width: 20% !important;
+  }
+
+  .upload-media-modal .modal-dialog {
+    max-width: 600px;
+  }
+
+  .stick-popover {
+    position: relative !important;
+    right: 0;
+  }
+
+  // .paper-pin-popup{
+  //   position: absolute;
+  //   right: 0;
+  //   top: 0;
+  // }
+}

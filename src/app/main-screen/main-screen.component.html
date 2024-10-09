@@ -1,0 +1,8 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="main-container" [class.no-padding]="!showSubmenu" *ngIf="getBasicData">
+    <app-top-pannel></app-top-pannel>
+    <app-sub-menu *ngIf="showSubmenu"></app-sub-menu>
+    <app-sticky-notes *ngIf="showSticky"></app-sticky-notes>
+    <ng-flash-message></ng-flash-message>
+    <router-outlet></router-outlet>
+</div>

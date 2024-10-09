@@ -1,0 +1,71 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~leaflet/dist/leaflet.css";
+.map-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0px;
+}
+
+.map-frame {
+    // border: 2px solid black;
+    height: 100%;
+}
+
+.top-15 {
+    top: -15px;
+}
+
+#map {
+    height: 100%;
+}
+
+::ng-deep .leaflet-container img.leaflet-image-layer {
+    max-width: none !important;
+}
+
+.leaflet-popup-content-wrapper {
+    height: 165px !important;
+}
+
+.legend {
+    width: 260px;
+    margin-bottom: unset;
+}
+
+.primaryLink {
+    color: #057266;
+}
+
+.legend .panel {
+    border: none !important;
+}
+
+.legend .panel-heading {
+    background-color: #474747 !important;
+    border-color: #474747 !important;
+}
+
+.legend .panel-body {
+    background-color: #383838 !important;
+    padding: 10px !important;
+}
+
+.legend .panel-body .row {
+    height: 15px;
+}
+
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0;
+    border-top: 1px solid #9a939375;
+    box-shadow: 0px 0px 6px 0px #2b2929ad;
+}
+
+.leaflet-popup-content p {
+    margin: 10px 1px 0px 1px !important;
+}

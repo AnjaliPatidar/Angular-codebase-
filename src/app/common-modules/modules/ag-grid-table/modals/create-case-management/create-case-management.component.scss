@@ -1,0 +1,382 @@
+@import "../../../../../../assets/scss/theme/common/variable";
+
+::ng-deep {
+  .mat-form-field-appearance-legacy .mat-hint{
+    color: $text-on-surface;
+  }
+
+  .mat-tab-header{
+    .mat-tab-label {
+      &:not(.mat-tab-label-active) {
+        border-bottom: 2px solid $text-on-surface;
+      }
+    }
+  }
+
+  .custom-user-input {
+    .mat-form-field {
+      max-width: 100%;
+      width: 100%;
+
+      .mat-form-field-wrapper {
+        padding-bottom: 0 !important;
+
+        .mat-form-field-flex {
+          background-color: $input-color-bg;
+          border-radius: $sm-comp-corner-radius;
+          height: 5.6rem !important;
+          padding: 0 1.5rem;
+          align-items: center;
+          border-bottom: 2px solid rgba(255, 255, 255, 0.12);
+
+          .mat-form-field-infix {
+            width: auto;
+        
+            .mat-input-element {
+              font-size: 14px;
+              margin-top: 5px;
+            }
+
+            mat-select-trigger {
+              display: flex;
+              font-size: 14px;
+            }
+
+            .mat-form-field-label-wrapper {
+              top: -0.7rem;
+
+              label {
+                color: $text-on-surface;
+                top: 22px;
+              }
+            }
+            .mat-select {
+              .mat-select-value {     
+              }
+            }
+          }
+        }
+      }
+    }
+    &.infix-pad-b0 {
+      .mat-form-field-infix {
+        padding-bottom: 0px;
+      }
+    }
+  }
+
+  .create-case-multiselect {
+    .multiselect-dropdown {
+      background: $input-group;
+      border-radius: $sm-comp-corner-radius;
+      height: 5.6rem !important;
+      padding: 0 1.5rem;
+      align-items: center;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      width: 100%;
+      & > div {
+        width: 100%;
+        .dropdown-btn {
+          border: 0 !important;
+          color: $text-on-surface;
+          display: flex !important;
+          padding: 0 !important;
+          justify-content: space-between;
+          span {
+            display: flex;
+            align-items: center;
+            color: rgba(255,255,255,.6);
+            &:hover {
+              box-shadow: none !important;
+            }
+            .dropdown-down {
+              border-top: 6px solid rgba(255,255,255,.6) !important;
+              border-left: 6px solid transparent !important;
+              border-right: 6px solid transparent !important;
+            }
+          }        
+        }
+      }
+      .dropdown-list {
+        background-color: var(--surface);
+        border: 1px solid rgba(255, 255, 254, 0.3);
+        box-shadow: none;
+        border-radius: 0;
+        li {
+          div {
+            color: var(--textOnSurface) !important;
+          }
+        }
+
+        .multiselect-item-checkbox input[type=checkbox]+div{
+          &::before {
+            border: 2px solid $text-on-surface;
+          }
+
+          &::after {
+            border-color: $surface;
+          }
+        }
+
+        .multiselect-item-checkbox input[type=checkbox]:checked+div:before {
+          background: $primary-color;
+          border    : 2px solid $primary-color;
+        }
+      }
+
+      .dropdown-btn {
+        .selected-item {
+          border: 1px solid $primary-color;
+          background: $primary-color;
+          color: $text-on-primary;
+        }
+      }
+    }
+  }
+}
+
+.chip-group-sec{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.attachement-item {
+ // background-color: rgba(#42b7ff, 0.12);
+  padding: 3px;
+  margin-right: 10px;
+  height: 24px;
+  min-height: 24px;
+  padding: 5px !important;
+  border-radius: 4px !important;
+  background-color: $primary-color !important;
+  border: 1px solid $primary-color !important;
+  font-size: 14px;
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 110px;
+  max-width: 110px;
+}
+.file-icon {
+  color: #42b7ff;
+}
+.secondary-btn {
+  border-color: #3eb6ff;
+  border-radius: $sm-comp-corner-radius;
+  line-height: 1.43;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1.25px;
+  height: 36px;
+  border-style: solid;
+  border-width: 2px;
+}
+.primary-btn {
+  width: 100px;
+  background-color: #3eb6ff;
+  border-radius: $sm-comp-corner-radius;
+  line-height: 1.43;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1.25px;
+  height: 36px;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.rounded-circle {
+  width: 8px;
+  height: 8px;
+  border: 1px solid $primary-color;
+  &.circle-filled {
+    background-color: $primary-color;
+  }
+}
+
+.textarea-field {
+  background: $input-group;
+  &::placeholder{
+    color: $text-on-surface;
+  }
+  border-bottom: 2px solid $input-group;
+  border-color: $input-group;
+  border-radius: $sm-comp-corner-radius;
+}
+
+/* styles for country input field in step1 */
+.autocomplete-input {
+  span {
+    top: 42%;
+    transform: translateY(-50%);
+    left: 10px;
+  }
+  input {
+    &::placeholder{
+      color: $text-on-surface;
+    }
+    background-color: $input-color-bg;
+    border-radius: $sm-comp-corner-radius;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 56px !important;
+    padding: 0 1.5rem;
+    align-items: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.12);
+    &:focus-within{
+      border-bottom: 2px solid $primary-color;
+    }    
+  }
+  .mat-select-arrow{
+    color: rgba(255,255,255,.6) !important;      
+   }
+}
+
+/* styles for upload file section in step2 */
+.file-upload-box {
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  border: 2px dashed $text-on-surface !important;
+  border-radius: $lg-comp-corner-radius !important;
+  position: relative;
+  .file-drag-drop {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 80%;
+    font-size: 30px;
+    p {
+      margin: 10px 0px 12px;
+    }
+    i {
+      font-size: 60px;
+      color: $text-on-surface;
+    }
+  }
+  ::-webkit-file-upload-button {
+    width: 132px;
+    height: 36px;
+    border-radius: $sm-comp-corner-radius;
+    background-color: $primary-color;
+    border: none;
+    color: $text-on-primary;
+    font-family: Roboto;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.14;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  ::-webkit-file-upload-button:focus {
+    outline: 0;
+  }
+  input[type="file"] {
+    width: 132px;
+    height: 43px;
+  }
+}
+
+/* styles for create case table */
+.results-table {
+  max-height: 250px;
+  overflow: auto;
+
+  .table-responsive {
+/*    max-height: 250px;
+    overflow: auto;*/
+    border-radius: $sm-comp-corner-radius;
+    .table {
+      table-layout: fixed;
+      background-color: $surface;
+      color: $text-on-surface;
+      thead {
+        th {
+          border: 0;
+          position: sticky;
+          top: 0;
+          z-index: 10;
+          background-color: rgba(255, 255, 255, 0.24);
+          padding: 11px 0px;
+          font-weight: 400;
+          &:last-of-type {
+            border-top-right-radius: 10px;
+          }
+        }
+      }
+      tbody {
+        td {
+          border: 0;
+          padding-left: 0;
+          font-size: 14px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+          height: 43px;
+        }
+      }
+    }
+  }
+}
+.custom-placeholder-size::-webkit-input-placeholder {
+  font-size: 12px;
+}
+.text-captlize {
+  text-transform: capitalize !important;
+}
+
+.custom-radio-icon {
+  padding: 0rem 0.5rem 0.3rem 0rem !important;
+}
+
+.custom-radio-span {
+  left: 0.01em;
+  top: -0.01em;
+}
+
+.case-exists-wrapper {
+  background-color: $modal-bg-blue;
+  border-radius: $sm-comp-corner-radius;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.user-input-arrow {
+  color: #FFFFFF;
+  position: absolute;
+  top: 15px;
+  right: 12px;
+  cursor: pointer;
+}
+
+.user-input-label-blue {
+  position: relative;
+}
+
+::ng-deep .user-input-label-blue {
+  .mat-focused {
+    .mat-form-field-wrapper .mat-form-field-flex {
+      border-bottom: 2px solid #42b7ff!important;
+    }
+    .mat-form-field-wrapper .mat-form-field-flex .mat-form-field-infix .mat-form-field-label-wrapper label {
+      color: #3eb6ff!important;
+    }
+  }
+}
+
+.autocomplete-input.countryList{
+  position: relative;
+  .mat-select-arrow-wrapper{
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translate(0px,calc(-50% - 8px));
+  }
+}

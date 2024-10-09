@@ -1,0 +1,158 @@
+/* Major Colors Variables */
+
+/*$color-bst-primary : #42B7FF !default;*/
+
+$color-background : #383838 !default;
+
+// Color White Variables
+$color-bst-white : #fff !default;
+$color-white     : #ffffff !default;
+$color-white-04  : rgba($color-white, 0.04) !default;
+$color-white-08  : rgba($color-white, 0.08) !default;
+$color-white-12  : rgba($color-white, 0.12) !default;
+$color-white-10  : rgba($color-white, 0.10) !default;
+$color-white-20  : rgba($color-white, 0.20) !default;
+$color-white-24  : rgba($color-white, 0.24) !default;
+$color-white-30  : rgba($color-white, 0.30) !default;
+$color-white-32  : rgba($color-white, 0.32) !default;
+$color-white-36  : rgba($color-white, 0.36) !default;
+$color-white-40  : rgba($color-white, 0.40) !default;
+$color-white-50  : rgba($color-white, 0.50) !default;
+$color-white-60  : rgba($color-white, 0.60) !default;
+$color-white-87  : rgba($color-white, 0.87) !default;
+
+// RGBA Other Color Variables
+$color-accent-08      : rgba($primary-color, 0.08) !default;
+$color-accent-24      : rgba($primary-color, 0.24) !default;
+$color-accent-32      : rgba($primary-color, 0.32) !default;
+$color-accent-54      : rgba($primary-color, 0.54) !default;
+
+// Icon Color Variables
+$color-icon-disabled : $color-white-32 !default;
+$color-icon-enabled  : $color-white-60 !default;
+$color-icon-hover    : $color-white-87 !default;
+
+// Color Black Variables
+$color-bst-black          : #000 !default;
+$color-black-surface      : #2d2d2d !default;
+$color-black-60 : rgba($color-bst-black, 0.6) !default;
+$color-black-surface-light: rgba(0, 0, 0, 0.1) !default;
+$color-black-87: rgba(0, 0, 0, 0.87) !default;
+
+// Color Gray Variables
+$color-gray             : #383838 !default;
+$color-gray-10          : #979797 !default;
+$color-gray-20          : #5f5f5f !default;
+$color-gray-30          : #2d2d2d !default;
+$color-gray-40          : #3d3d3d !default;
+$color-gray-50          : #717070 !default;
+$color-gray-60          : #9f9f9f !default;
+$color-gray-70          : #EAEAEA !default;
+$color-gray-80          : #A0A0A0 !default;
+$color-gray-90          : #A0A0A1 !default;
+$color-gray-100         : #ffffff1F !default;
+$color-gray-110         : #3d3d3d !default;
+$color-gray-120         : #9e9e9e !default;
+$color-gray-130         : #acacac !default;
+$color-gray-disabled    : rgba(255, 255, 255, 0.38) !default;
+$color-gray-disabled-20 : rgba(0, 0, 0, 0.3) !default;
+$color-gray-disabled-30 : rgba(255, 255, 255, 0.6) !default;
+
+
+// Color Green Variables
+$color-green    : #00796B !default;
+$color-green-10 : #84da93 !default;
+$color-green-20 : #00ca98 !default;
+$color-green-30 : #25b6c6 !default;
+$color-green-40 : #0097a7 !default;
+
+$color-teal-700: #00796b !default;
+
+// Color Blue Variables
+$color-blue     : #42B7FF !default;
+$color-blue-10  : #007bff !default;
+$color-blue-20  : #3eb6ff !default;
+$color-blue-30  : rgba(66, 183, 255, 0.16) !default;
+$color-blue-40  : #074163 !default;
+$color-blue-50  : #4c7cff !default;
+$color-blue-60  : #007ad9 !default;
+$color-blue-70  : #448aff !default;
+$color-blue-80  : #226be4 !default;
+$color-blue-90  : #00578d !default;
+$color-blue-100 : #42b7ff8A !default;
+
+// Color Sky Blue Variables
+$color-skyblue-10 : #60aff0 !default;
+$color-skyblue-20 : #156999 !default;
+
+// Color Red Variables
+$color-red    : #EF5350 !default;
+$color-red-10 : #fc5c66 !default;
+$color-red-20 : #fc5c66 !default;
+$color-red-30 : #cb323c !default;
+$color-red-400: #ef5350 !default;
+
+// Color Yellow Variables
+$color-yellow    : #ffcc33 !default;
+$color-yellow-10 : rgba(254, 163, 23, 0.12) !default;
+$color-yellow-20 : #fbc02d !default;
+$color-yellow-30 : #fbcf4d !default;
+$color-yellow-40 : #bd8d00 !default;
+
+// Color purple Variables
+$color-purple    : #8661c6 !default;
+$color-purple-10 : #925aff !default;
+$color-purple-20 : #742cff !default;
+$color-purple-30 : #c521ff !default;
+$color-purple-40 : #a211d6 !default;
+
+// Color Orange Variables
+$color-orange    : #ff822b !default;
+$color-orange-10 : #ff9b56 !default;
+$color-orange-20 : #c45200 !default;
+
+// Color Cyan Variables
+$color-cyan-10 : #25b6c6 !default;
+$color-cyan-20 : #00777e !default;
+
+// Color Deep Purple Variables
+$color-deeppurple-10 : #b087ff !default;
+$color-deeppurple-20 : #742cff !default;
+
+$color-info        : #007ad9;
+$color-success     : #00796b;
+$color-warning     : #f26c0e;
+$color-error       : #cb323c;
+$color-info-10     : rgba($color-info, 0.2);
+$color-success-10  : rgba($color-success, 0.2);
+$color-warning-10  : rgba($color-warning, 0.2);
+$color-error-10    : rgba($color-error, 0.2);
+
+
+//RGBA Colors
+$color-rgba-10 : rgba(255, 255, 255, 0.54) !default;
+$color-rgba-20 : rgba(255, 255, 255, 0.12) !default;
+$color-rgba-30 : rgba(255, 255, 255, 0.87) !default;
+$color-rgba-40 : rgba(255, 255, 255, 0.16) !default;
+$color-rgba-50 : rgba(255, 255, 255, 0.24) !default;
+$color-rgba-60 : rgba(255, 255, 255, 0.08) !default;
+$color-rgba-70 : rgba(255, 255, 255, 0.32) !default;
+$color-rgba-80 : rgba(66, 183, 255, 0.16) !default;
+$color-rgba-90 : rgba(66, 183, 255, 0.24) !default;
+$color-rgba-100: rgba(66, 183, 255, 0.08) !default;
+$color-rgba-110: rgba(66, 183, 255, 0.32) !default;
+$color-rgba-120: rgba(255, 255, 255, 0.87) !default;
+$color-icon-enabled : $color-white-60 !default;
+
+
+//Box Shadow
+$shadow-10     : 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 2px 1px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.14);
+$shadow-20     : 0 1px 5px 0 rgba(0, 0, 0, 0.2), 0 3px 1px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.14);
+$shadow-30     : 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 3px 0 rgba(0, 0, 0, 0.12), 0 3px 4px 0 rgba(0, 0, 0, 0.14);
+$shadow-40     : 0 3px 5px 0 rgba(0, 0, 0, 0.2), 0 1px 18px 0 rgba(0, 0, 0, 0.12), 0 6px 10px 0 rgba(0, 0, 0, 0.14);
+$shadow-50     : 0 5px 6px 0 rgba(0, 0, 0, 0.2), 0 3px 16px 0 rgba(0, 0, 0, 0.12), 0 9px 12px 0 rgba(0, 0, 0, 0.14);
+$shadow-60     : 0 7px 8px 0 rgba(0, 0, 0, 0.2), 0 5px 22px 0 rgba(0, 0, 0, 0.12), 0 12px 17px 0 rgba(0, 0, 0, 0.14);
+$shadow-70     : 0 8px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 30px 0 rgba(0, 0, 0, 0.12), 0 16px 24px 0 rgba(0, 0, 0, 0.14);
+$shadow-80     : 0 11px 15px 0 rgba(0, 0, 0, 0.2), 0 9px 46px 0 rgba(0, 0, 0, 0.12), 0 24px 38px 0 rgba(0, 0, 0, 0.14);
+$shadow-90     : 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 4px 5px 0 rgba(0, 0, 0, 0.14);
+$shadow-100    : 0 5px 5px 0 rgb(0 0 0 / 20%), 0 3px 14px 0 rgb(0 0 0 / 12%), 0 8px 10px 0 rgb(0 0 0 / 14%);

@@ -1,0 +1,403 @@
+@import "../../../../assets/scss/theme/common/variable";
+
+::ng-deep .comments-dialog-container {
+  width: 392px;
+  height: 402px;
+  overflow: unset;
+  box-shadow: 0 8px 10px 0 rgba($black, 0.2), 0 6px 30px 0 rgba($black, 0.12),
+    0 16px 24px 0 rgba($black, 0.14);
+
+  .mat-dialog-container {
+    padding: 0;
+    overflow: unset !important;
+    border-bottom-left-radius: $lg-comp-corner-radius;
+    border-bottom-right-radius: $lg-comp-corner-radius;
+  }
+}
+.d-flex-center-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.clr-p87 {
+  color: rgba($white, 0.87);
+}
+.clr-p54 {
+  color: rgba($white, 0.54);
+}
+.clr-red {
+  color: $error-state;
+}
+.comment-header {
+  background-color: $surface;
+  width: 100%;
+  padding: 16px;
+  border-radius: 4px 4px 0 0;
+  position: relative;
+
+  .title {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.15px;
+    color: $text-on-surface;
+  }
+  .close-icon {
+    font-size: 24px;
+    font-weight: 500;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .top-arrow {
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      height: 0;
+      width: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid $lighyt-black-bg;
+      top: -10px;
+      right: 25px;
+    }
+  }
+
+  .bottom-arrow {
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      height: 0;
+      width: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 10px solid $lighyt-black-bg;
+      top: -10px;
+      right: 25px;
+    }
+  }
+}
+
+.comment-section {
+  padding: 16px;
+}
+
+::ng-deep .new-comment-input {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  flex-direction: column;
+  position: absolute;
+  width: calc(100% - 32px);
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  z-index: 2;
+  overflow-y: auto;
+  //padding-right: 10px;
+
+  .comment-mat-filed {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.12);
+    width: 100%;
+    height: auto;
+
+    .mat-form-field-wrapper {
+      height: 100% !important;
+    }
+    .mat-form-field-flex {
+      height: 100% !important;
+      padding: 0 6px 6px 16px !important;
+    }
+    .mat-form-field-infix {
+      height: 100% !important;
+      display: flex;
+      align-items: flex-start;
+      position: relative;
+      padding-top: 6px;
+
+      textarea {
+       // font-size: 16px;
+        min-height: 40px;
+        padding: 0 40px 0 0;
+        line-height: 1.7;
+
+        &::-webkit-scrollbar {
+          width: 4px;
+          height: 6px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background-color: rgba(255, 255, 255, 0.12);
+        }
+
+        &:hover::-webkit-scrollbar-track {
+          background-color: rgba(255, 255, 255, 0.12);
+        }
+
+        &::-webkit-scrollbar-thumb {
+          border-radius: 3px;
+          background-color: rgba(255, 255, 255, 0.12);
+        }
+
+        &:hover::-webkit-scrollbar-thumb {
+          background: rgba($white, 0.12);
+        }
+      }
+    }
+    .mat-form-field-label-wrapper {
+      padding-top: 0;
+    }
+  }
+
+  .mat-focused {
+    border-color: rgba(255, 255, 255, 0.12);
+    input {
+     // caret-color: $sky-blue !important;
+    }
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 4px !important;
+    background: rgba($white, 0.12) !important;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background: rgba($white, 0.12) !important;
+  }
+}
+
+.comment-list {
+  height: 228px;
+  overflow-y: auto;
+  margin-bottom: 16px;
+  padding-right: 10px;
+  transition: all 0.3s ease;
+
+  &::-webkit-scrollbar-thumb {
+    width: 4px !important;
+    background: rgba($white, 0.12) !important;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background: rgba($white, 0.12) !important;
+  }
+}
+
+.no-comments {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  p {
+    font-size: 14px;
+    line-height: 2;
+    letter-spacing: -0.5px;
+    color: rgba($white, 0.6);
+    span {
+      display: block;
+    }
+  }
+}
+
+.action-button-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  margin-top: 16px;
+  align-items: center;
+}
+.comment-action-btn {
+  padding: 10px 16px;
+  border-radius: $sm-comp-corner-radius;
+  border: 1px solid;
+  text-transform: uppercase;
+  font-size: 14px;
+  background-color: transparent;
+  color: $sky-blue;
+}
+
+.cancel-btn {
+  border-color: transparent;
+}
+.send-btn {
+  border-color: $sky-blue;
+}
+.comment-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.comment-edit {
+  height: 152px;
+}
+.comment-content-height {
+  height: 188px;
+}
+
+.comment-list-wrapper {
+  width: 100%;
+  height: auto;
+}
+
+.attachment-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba($white, 0.2);
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner-attachment {
+  width: 864px;
+  height: 80vh;
+  background: $bg-header-new;
+  border-radius: 7px;
+  padding: 16px 25px;
+
+  .label-wrapper {
+    cursor: pointer;
+    width: 100%;
+    height: calc(100% - 60px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed rgba($white, 0.2);
+    border-radius: $sm-comp-corner-radius;
+
+    label {
+      padding: 10px 16px;
+      background-color: $sky-blue;
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 14px;
+      line-height: 1.14;
+      letter-spacing: 1.25px;
+      color: $white;
+      margin-bottom: 0;
+      border-radius: $sm-comp-corner-radius;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.attachment-header {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba($white, 0.2);
+
+  .close-icon {
+    font-size: 24px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+#upload-attachment {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.icon-attach-hover {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.loading-comments {
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba($surface, 0.5);
+  position: absolute;
+}
+
+.downloading-comments {
+  background-color: rgba($black, 0.5);
+  width: 100%;
+  position: fixed;
+  height: 100vh;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.file-attachment {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  background-color: rgba($sky-blue, 0.25);
+  height: 32px;
+  padding: 0 10px;
+  border-radius: $sm-comp-corner-radius;
+  max-width: 100%;
+  .icon {
+    color: $sky-blue;
+    font-size: 18px;
+  }
+  .doc-name {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba($white, 0.87);
+  }
+
+  &:not(:first-child) {
+    margin-top: 2px;
+  }
+}
+
+.close-btn {
+  display: flex;
+  margin-left: 10px;
+  background: rgba($white, 0.6);
+  border-radius: 100%;
+  padding: 3px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+
+  .close-icon {
+    font-size: 16px;
+    color: rgba($black, 0.5);
+  }
+}
+
+.file-ul {
+  width: calc(100% - 24px);
+  padding: 0 0 10px 16px;
+}

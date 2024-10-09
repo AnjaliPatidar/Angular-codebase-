@@ -1,0 +1,228 @@
+<div class="screening-batch-main position-relative p-0"  [ngClass]="showSecondSection || showThirdSection ? 'screening-batch-main-validation' : 'screening-batch-main-upload-file'">
+  <div class="screening-batch-header light-theme-border-bottom border-thin-dark-cream-b">
+    <h2 class="upload-file case-batch-header text-dark-black font-medium text-on-surface"
+      *ngIf="incomingdata.operation == 'case batch upload' else popUpheader">
+      {{ 'Case Batch Creation' | translate }}
+    </h2>
+
+    <ng-template #popUpheader>
+      <h2 class="upload-file case-batch-header text-dark-black font-medium text-on-surface">
+        {{ incomingdata.operation}}
+      </h2>
+    </ng-template>
+
+      <a *ngIf="showThirdSection && validationProgressStatus !== 'Finished'; else close" [ngClass]="{'pe-none': isBatchFileDeleted}">
+        <i  class="material-icons c-pointer color-image text-dark-black text-dark-black txt-on-surface" (click)="closeFromTop(true)">remove</i>
+      </a>
+
+    <ng-template #close>
+      <i class="material-icons c-pointer color-image text-dark-black txt-on-surface" (click)="closeFromTop()" [ngClass]="{'pe-none': isBatchFileDeleted}">close</i>
+    </ng-template>
+  </div>
+
+  <div class="alert-card" *ngIf="(isUploadErrorFileSize || isUploadErrorFileType || isUploadError || isFileCountValidationError) && !closeUploadError">
+    <div class="alert alert-error alert-danger" role="alert">
+      <span class="material-icons alert-error-icon">cancel</span>
+      <span class="alert-text-upload-error file-name-alert-upload-error" *ngIf="isUploadErrorFileSize">{{'Wrong File Size Error' | translate }} {{" "}} {{'Allowed File Size Is' | translate}} {{allowedFileSize}}{{"."}}</span>
+      <span class="alert-text-upload-error file-name-alert-upload-error" *ngIf="isUploadErrorFileType">{{'The file type you tried to upload is not allowed. Please select a ' | translate }} {{allowedFileType}} {{'file and try again.' | translate }} </span>
+      <span class="alert-text-upload-error file-name-alert-upload-error" *ngIf="isFileCountValidationError">{{'File Count Not Allowed Error' | translate }}</span>
+      <span class="alert-text-upload-error file-name-alert-upload-error" *ngIf="isUploadError">{{'File Upload Error' | translate }}</span>
+      <i class="material-icons c-pointer color-image text-dark-black upload-error-close-button txt-on-surface-06" (click)="closeUploadErrorMessage()">close</i>
+    </div>
+  </div>
+  <div class="screening-batch-section-one" *ngIf="showFirstSection">
+    <div class="file-upload-main" [ngClass]="{'mt-0': (isUploadErrorFileSize || isUploadErrorFileType || isUploadError || isFileCountValidationError) && !closeUploadError}">
+      <div class="file-upload-box" [ngClass]="isValidating || isUploadErrorFileSize || isUploadErrorFileType || isUploadError || isFileCountValidationError ? 'file-upload-box-progress' : 'file-upload-box-no-file' " >
+        <div ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}" (fileOver)="onFileOver($event)"
+          [uploader]="uploader" class="file-drag-drop" (onFileDrop)="onFileSelected($event)">
+          <p><i class="material-icons upload-icon light-theme-light-black">cloud_upload</i></p>
+          <p class="f-24 text-dark-black title-text-on-surface" *ngIf="!isValidating">{{'DragAndDropFileHere' | translate}}</p>
+          <p class="f-24 text-dark-black text-on-surface" *ngIf="isValidating">{{'File Is Uploading' | translate}}</p>
+          <p class="f-14 color-image text-dark-black text-on-surface" *ngIf="!isValidating">{{'Or' | translate}}</p>
+          <label *ngIf="!isValidating">
+            <input type="file" style="display:none" #filesupload class="file-upload-btn"
+              (onFileSelected)="onFileSelected($event)" multiple ng2FileSelect [uploader]="uploader" />
+            <span #filesupload
+              class="f-14 file-upload-btn  mat-raised-button light-theme-btn primary-btn">{{'choose_files' | translate}}</span>
+            </label>
+          <div>
+            <div class="attachements-list mt-4 pt-2">
+
+              <!-- <div
+                class="py-2 rounded lh-normal d-inline-block attachement-item f-12 mt-3 mr-3"
+                *ngFor="let item of uploader.queue; trackBy: trackByFileName">
+                <i class="material-icons mr-2 f-14 uploaded-file-icon-success blue-text">insert_drive_file</i>
+                <span class="text-dark-black dots-text mxw-150 align-top txt-on-surface">{{item?._file?.name }}</span>
+                <i class="text-dark-black material-icons ml-2 f-14 align-top c-pointer txt-on-surface"
+                  (click)="removeUploadedDoc(item)">close</i>
+              </div> -->
+
+              <mat-chip-list class="bst-chip-list">
+                <mat-chip *ngFor="let item of uploader.queue; trackBy: trackByFileName" class="attachement-item">
+                  <mat-icon matChipAvatar class="bst-mat-icon uploaded-file-icon-success blue-text">insert_drive_file</mat-icon>
+                  <span class="text-dark-black dots-text mxw-150 bst-body2 bst-color-ty">{{item?._file?.name }}</span>
+                  <button matChipRemove>
+                    <mat-icon class="ml-3 text-dark-black" (click)="removeUploadedDoc(item)">cancel</mat-icon>
+                  </button>
+                </mat-chip>
+              </mat-chip-list>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex mt-2 jc-fe bottom-left-align">
+        <button  (click)="closeDialog()"
+          class="light-theme-btn pr-3 secondary-btn validate-case-cancel-button bst-mat-btn bst-mat-btn--secondary">
+          <span>{{'Cancel' | translate | uppercase}}</span>
+        </button>
+        <button mat-raised-button (click)="validateUploadedFile('case_batch_upload')"
+          class="ml-3 bst-mat-btn bst-mat-btn--primary light-theme-btn" [disabled]="!enableUploadButton || isValidating || isUploadErrorFileSize || isUploadErrorFileType || isUploadError"
+          [ngClass]="{'c-ban ':!enableUploadButton || isValidating || isUploadErrorFileSize || isUploadErrorFileType || isUploadError}"
+          matTooltipPosition="above" [matTooltip]="isValidating?'Validation is in progress':''"
+          [ngClass]="{'c-ban': !enableUploadButton}"
+          *ngIf="incomingdata.operation == 'case batch upload'">
+            <span>{{'Validate' | translate | uppercase}}</span>
+          </button>
+      </div>
+    </div>
+
+    <div [ngClass]="isValidating || isUploadErrorFileSize || isUploadErrorFileType || isUploadError || isFileCountValidationError ? 'download-sample-file-progress' : 'download-sample-file' ">
+      <p class="color-image text-on-surface file-limits-text">{{'Maximum File Size' | translate}}
+        {{allowedFileSize}}. <span *ngIf="incomingdata.operation === 'case batch upload'">
+          {{ 'File Types Allowed' | translate }}: .csv </span></p>
+      <a href="assets/sample_files/caseBatchUpload/Sample.csv" download class="c-pointer download-file-text"
+        *ngIf="incomingdata.operation == 'case batch upload'">{{'Download File Sample' | translate}}.csv</a>
+    </div>
+  </div>
+  <div class="screening-batch-section-second" *ngIf="showSecondSection">
+    <div *ngIf="incomingdata.operation == 'case batch upload'">
+      <div class="csv-validation-progress-bar">
+           <div class="mb-3 mt-5" *ngIf="isValidating">
+             <div>
+              <span class="text-dark-black progress-count txt-on-surface"> {{'Validating Files' | translate}} </span>
+               <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+             </div>
+           </div>
+        <div class="mb-3 mt-5" *ngIf="!isValidating">
+          <div>
+            <span class="text-dark-black progress-count txt-on-surface"> {{'Validating Files' | translate}}: 100%</span>
+            <mat-progress-bar mode="determinate" value="100"></mat-progress-bar>
+          </div>
+        </div>
+
+        <div class="progress-bar-results">
+          <div class="success">
+            <i class="material-icons">
+              check_circle
+            </i>
+            <span class="text-dark-black txt-on-surface">{{'Valid' | translate}} : <span
+                class="font-medium text-dark-black txt-on-surface">{{ casesValidCount }}</span></span>
+          </div>
+          <div class="warning">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span class="text-dark-black text-nowrap txt-on-surface">{{'Warnings' | translate}} : <span
+                class="warning-days font-medium text-dark-black txt-on-surface">{{ casesWarningCount }}</span></span>
+          </div>
+          <div class="error">
+            <i class="material-icons">cancel</i>
+            <span class="text-dark-black txt-on-surface">{{'Errors' | translate}} : <span
+                class="font-medium pr-3 text-dark-black txt-on-surface">{{ casesErrorsCount }}</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="!isValidating && validationSuccess" class="validation-status screening-validation">
+        <div class="alert alert-primary" role="alert">
+          <span class="material-icons alert-primary-icon">check_circle</span>
+          <span class="result-text text-format">{{'Validation Completed Successfully' | translate}}</span>
+          <span class="download-report mt-2" (click)="checkValidationReport()">{{'Check Report' | translate}}</span>
+        </div>
+      </div>
+      <div *ngIf="!isNofiticationClosed && !isValidating && validationErrors && !validationSuccess" class="validation-status screening-validation">
+        <div class="alert alert-error alert-danger" role="alert">
+          <span class="material-icons alert-error-icon">cancel</span>
+          <span class="result-text-error" style="line-height: 16px">
+            {{'The file contains errors and you can not proceed to create cases.' | translate}}<br>
+            {{'Please check the detailed information in the report. You can continue uploading another file.' | translate}}
+          </span>
+          <i (click)="closeNotification()" class="material-icons c-pointer color-image text-dark-black txt-on-surface-06 ml-4 right">close</i>
+          <span class="download-report mt-2 mr-2" (click)="checkValidationReport()">{{'Check Report' | translate}}</span>
+        </div>
+      </div>
+      <div *ngIf="!isNofiticationClosed && !isValidating && !validationErrors && validationWarnings && !isUploadError && !validationSuccess" class="validation-status screening-validation">
+        <div class="alert alert-warning" role="alert">
+          <span class="material-icons alert-warning-icon">warning</span>
+          <span class="result-text text-format">{{'Validation Completed Warnings' | translate}}</span>
+          <i (click)="closeNotification()" class="material-icons c-pointer color-image text-dark-black ml-4 right  txt-on-surface-06">close</i>
+          <span class="download-report mt-2 mr-2" (click)="checkValidationReport()">{{'Check Report' | translate}}</span>
+        </div>
+      </div>
+
+      <div class="screening-batch-section-two-buttons">
+        <div class="buttons-main d-flex position-absolute b-0 r-0">
+          <button mat-raised-button [disabled]="isUploadStart" (click)="closeDialog()"
+            class="text-dark-black light light-theme-btn secondary-btn mr-3">{{'Cancel' | translate | uppercase}}</button>
+          <button mat-raised-button [disabled]="isUploadStart" (click)="uploadAnotherFile()"
+            class="text-dark-black light-theme-btn mr-3 secondary-btn">{{'Upload Another File' | translate | uppercase}}</button>
+          <button mat-raised-button [disabled]="isUploadStart || validationErrors || isUploadError || (!validationSuccess && !validationWarnings)" (click)="runProceess('case_batch_upload')" class="light-theme-btn primary-btn mr-3"
+            [ngClass]="{'c-ban': isUploadStart || validationErrors || isUploadError || (!validationSuccess && !validationWarnings) }" matTooltipPosition="above"
+            [matTooltip]="validationErrors?'Files with errors can\'t be run':''"
+            *ngIf="incomingdata.operation == 'case batch upload'">{{'Run' | translate | uppercase}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="screening-batch-section-third" *ngIf="showThirdSection">
+
+    <div class="mb-3 mt-5">
+      <div class="text-dark-black txt-on-surface" *ngIf="!iscasesFinished; else completed">{{'Case creation in progress. You can minimize this screen.' | translate}}</div>
+      <ng-template #completed>
+        <div>{{'Case creation completed. You can check the status report.' | translate}}</div>
+      </ng-template>
+
+      <div (click)="downloadBatchFile()" class="uploaded-file-success">
+        <span class="uploaded-file-success-icon-background">
+          <i class="material-icons uploaded-file-icon-success">insert_drive_file</i>
+          <span class="uploaded-file-name text-format">{{ fileName }}</span>
+        </span>
+      </div>
+      <div>
+        <div class="d-flex align-items-center justify-content-between progress-info">
+          <div class="cases-valid-count ">{{'Cases Created' | translate}} :  {{casesFinished}}</div>
+          <span class="text-dark-black progress-count case-creation-success-rate text-format txt-on-surface">{{'Case Batch Processing' | translate}}: {{progress ? progress : 0 }} %</span>
+        </div>
+
+        <mat-progress-bar mode="indeterminate" *ngIf="casesFinished == 0 && validationProgressStatus !== 'Finished' && this.progress == 0"></mat-progress-bar>
+        <mat-progress-bar mode="determinate" *ngIf="casesFinished !== 0 || this.progress !== 0" value="{{progress}}"></mat-progress-bar>
+      </div>
+    </div>
+
+    <div class="validation-status screening-validation">
+      <div class="alert alert-primary" role="alert" *ngIf="!isNofiticationClosed && casesWarningCount == 0 && validationProgressStatus === 'Finished'">
+        <span class="material-icons alert-primary-icon">check_circle</span>
+        <span class="result-text text-format"> {{'Case Creation Completed Successfully.' | translate}}</span>
+        <i (click)="closeNotification()" class="material-icons c-pointer color-image text-dark-black ml-4 right txt-on-surface-06">close</i>
+        <span class="download-report mt-2 uppercase" (click)="checkReport()">{{'Check Report' | translate}}</span>
+      </div>
+      <div class="alert alert-warning" role="alert" *ngIf="!isNofiticationClosed && casesWarningCount > 0 && validationProgressStatus === 'Finished'" >
+        <span class="material-icons alert-warning-icon">warning</span>
+        <span class="ml-3 result-text text-format">{{'Case Creation Completed Warning' | translate}}</span>
+        <i (click)="closeNotification()" class="material-icons c-pointer color-image text-dark-black ml-4 right txt-on-surface-06">close</i>
+        <span class="download-report mt-2 uppercase" (click)="checkReport()">{{'Check Report' | translate}}</span>
+      </div>
+    </div>
+
+
+    <div class="screening-batch-section-one-buttons">
+      <div class="buttons-main d-flex position-absolute r-0 b-0">
+        <button mat-raised-button (click)="uploadAnotherFile()" [disabled]="validationProgressStatus !== 'Finished' || isBatchFileDeleted"
+          class="text-dark-black light-theme-btn secondary-btn mr-3">{{'Upload Another File' | translate | uppercase}}</button>
+        <button mat-raised-button  [ngClass]="{'c-ban': validationProgressStatus !== 'Finished'}"
+          class="screening-batch-section-one-run done-button text-dark-black light-theme-btn primary-btn"
+          (click)="closeScreeningPopup()" [disabled]="validationProgressStatus !== 'Finished' || isBatchFileDeleted">{{'done' | translate | uppercase}}</button>
+      </div>
+    </div>
+  </div>
+</div>

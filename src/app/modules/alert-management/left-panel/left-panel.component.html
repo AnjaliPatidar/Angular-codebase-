@@ -1,0 +1,8 @@
+<ul class="d-block custom-list-wrapper mt-4 pad-l0 list-unstyled">
+  <li class="text-center">
+    <a [class.active]="(router.url=='/element/alert-management/alertsList')||(router.url=='/element/alert-management/accordianList')" (click)="RightPanelIntial()" [routerLink]="['./alertsList']"><i class="fa fa-exclamation-triangle"></i></a>
+  </li>
+  <li class="text-center" permission [domainPermission]="alertListPermssionIds['feedList']" [PemissionHide]="true">
+    <a routerLinkActive="active" (click)="RightPanelIntial()" [routerLink]="['./feedList']"><i class="fa fa-list-ul"></i></a>
+  </li>
+</ul>

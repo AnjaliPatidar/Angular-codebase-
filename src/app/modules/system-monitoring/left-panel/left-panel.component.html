@@ -1,0 +1,35 @@
+<ul class="d-block custom-list mt-4 pad-l0">
+  <li class="text-center width-70 float-none mx-3 disabled-p" placement="right" container="body"
+    popoverClass="bg-transparent ws-nowrap" ngbTooltip="{{'pageNotFound' | translate}}">
+    <a [class.active]="(router.url=='/element/source-monitoring/home')" [routerLink]="['./home']"><i
+        class="material-icons">home</i></a>
+  </li>
+  <li class="text-center width-70 float-none mx-3">
+    <a routerLinkActive="active" [routerLink]="['./sources']"><i class="material-icons">link</i></a>
+  </li>
+  <li class="text-center width-70 float-none mx-3 disabled-p" placement="right" container="body"
+    popoverClass="bg-transparent ws-nowrap" ngbTooltip="{{'pageNotFound' | translate}}">
+    <a [class.active]="(router.url=='/element/source-monitoring/processes')" [routerLink]="['./processes']"><i
+        class="material-icons">timeline</i></a>
+  </li>
+  <li class="text-center width-70 float-none mx-3 disabled-p" placement="right" container="body"
+    popoverClass="bg-transparent ws-nowrap" ngbTooltip="{{'pageNotFound' | translate}}">
+    <a [class.active]="(router.url=='/element/source-monitoring/services')" [routerLink]="['./services']"><i
+        class="material-icons">widgets</i></a>
+  </li>
+  <li class="text-center width-70 float-none mx-3 disabled-p" placement="right" container="body"
+    popoverClass="bg-transparent ws-nowrap" ngbTooltip="{{'pageNotFound' | translate}}">
+    <a [class.active]="(router.url=='/element/source-monitoring/resources')" [routerLink]="['./resources']"><i
+        class="material-icons">speed</i></a>
+  </li>
+  <li class="text-center width-70 float-none mx-3 disabled-p" placement="right" container="body"
+    popoverClass="bg-transparent ws-nowrap" ngbTooltip="{{'pageNotFound' | translate}}">
+    <a [class.active]="(router.url=='/element/source-monitoring/logs')" [routerLink]="['./logs']"><i
+        class="material-icons">insert_drive_file</i></a>
+  </li>
+  <li class="text-center width-70 float-none mx-3 disabled-p" placement="right" container="body"
+    popoverClass="bg-transparent ws-nowrap" ngbTooltip="{{'pageNotFound' | translate}}">
+    <a [class.active]="(router.url=='/element/source-monitoring/integrations')" [routerLink]="['./integrations']"><i
+        class="material-icons">call_merge</i></a>
+  </li>
+</ul>

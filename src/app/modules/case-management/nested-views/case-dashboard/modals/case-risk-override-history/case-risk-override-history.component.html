@@ -1,0 +1,130 @@
+<div *ngIf="!caseOverrideData.fistOnly" class="dialog-header d-flex justify-content-between mb-4 align-items-center">
+    <p class="txt-on-surface-87 text-dark-black f-20">{{ "Reasons for Status Change" | translate }}</p>
+    <i class="material-icons txt-on-surface-87 text-dark-black c-pointer" (click)="close()">close</i>
+</div>
+
+
+<div class="position-risk">
+    <div class="loading-comments z-99 txt-on-surface-87" *ngIf="isLoading">
+        <i class="fa fa-spinner txt-on-surface-06 fa-pulse f-25"></i>
+    </div>
+    <ng-container *ngIf="!caseOverrideData.fistOnly">
+        <div class="dialog-body">
+            <section class="main-section">
+                <ul id="commentSection" #scrollMe
+                    class="list-unstyled mxh-490 custom-scroll-wrapper pr-3 overflow-a user-details-wrapper main-list">
+                    <li class="media d-flex light-theme-border-bottom pt-4"
+                        *ngFor="let data of historyList; first as isFirst;trackBy:trackByCaseRiskId">
+                        <div>
+                            <ng-container *ngIf="data.userImage else imagePlaceholder">
+                                <img class="list-img image-placeholder"
+                                    [src]="'data:image/gif;base64,' + data.commentedBy.user_image" alt="">
+                            </ng-container>
+                            <ng-template #imagePlaceholder>
+                                <span class="profile-image ml-1 f-10 text-white content-style pt-2px content-style">
+                                    {{ data.commentedBy?.first_name ?
+                                    data.commentedBy.first_name.charAt(0).toUpperCase() : '' }}{{
+                                    data.commentedBy?.last_name ? data.commentedBy.last_name.charAt(0).toUpperCase()
+                                    : '' }}</span>
+                            </ng-template>
+                        </div>
+                        <div class="media-body">
+                            <div
+                                class="f-12 ai-c mar-l5 d-flex mb-0 px-2 text-dark-black justify-content-between head-panel">
+                                <span class="text-dark-black content-style">
+                                    {{data.updatedUser}}
+                                </span>
+                                <div *ngIf="caseOverrideData.editStatus" class="controll-panel">
+                                    <mat-icon class="close-icon txt-on-surface-87 f-20 light-theme-light-black "
+                                        (click)="data.isEdit = true;">
+                                        mode_edit_outline </mat-icon>
+                                    <mat-icon *ngIf="isFirst"
+                                        class="close-icon close-icon-index f-20 light-theme-light-black text-coral-red ml-8px"
+                                        (click)="deleteRiskOverride(data)">
+                                        delete </mat-icon>
+                                </div>
+                                <div class="d-flex" [class.date-panel]="caseOverrideData.editStatus">
+                                    <span
+                                        class="time-list f-12 mar-l10 light-theme-light-color content-style content-style">{{getFormatedDate(data.createdDate)}}</span>
+                                </div>
+                            </div>
+                            <div class="order mar-l5 px-2">
+                                <ng-container>
+                                    <span class="text-dark-black f-14 content-style">{{data.oldRisk ? data.oldRisk :
+                                        'None' | translate}}</span>
+                                    <mat-icon
+                                        class="mat-icon-rtl-mirror text-dark-black light-theme-bg-transparent content-style">
+                                        chevron_right
+                                    </mat-icon>
+                                    <span class="text-dark-black f-14 content-style">{{data.newRisk}}</span>
+                                </ng-container>
+                            </div>
+
+                            <ul class="list-group reason f-14">
+                                <li class="document bg-transparent px-2 mr-2 f-14 d-flex pr-0 mr-0 w-100">
+                                    <div class="custom-scroll-wrapper overflow-a document light theme px-2  mb-4 mr-2 f-14 d-flex"
+                                        *ngIf="!data.isEdit">
+                                        <div class="description f-12 content-style">
+                                            {{'Reason' | translate}}: {{ data.reason }}
+                                        </div>
+                                    </div>
+                                    <ng-container *ngIf="data.isEdit">
+                                        <div class="reason-dialog-history w-100">
+                                            <mat-form-field
+                                                class="reason-field mb-3 width-100 reason-history-background">
+                                                <div class="edit-panel">
+                                                    <mat-icon class="close-icon txt-on-surface-87 f-20 light-theme-light-black"
+                                                        (click)="saveEdit(data)">check
+                                                    </mat-icon>
+                                                    <mat-icon class="close-icon txt-on-surface-87 f-20 light-theme-light-black"
+                                                        (click)="data.isEdit = false; data.updatedReason = data.reason;">
+                                                        close
+                                                    </mat-icon>
+
+                                                </div>
+                                                <mat-label>{{'Reason' | translate}}</mat-label>
+                                                <textarea matInput
+                                                    class="custom-scroll-wrapper custom-input reason-input input-text border-0 pb-0 width-100 bg-transparent pt-3"
+                                                    type="text" maxlength="{{MAX_TEXT_LENGTH}}" name="reason"
+                                                    [(ngModel)]="data.updatedReason" required autocomplete="off"
+                                                    #reason="ngModel"></textarea>
+                                            </mat-form-field>
+                                        </div>
+                                    </ng-container>
+                                </li>
+                            </ul>
+                            <ul class="list-group f-14">
+                                <li class="list-group-item file-attachment light theme px-2 mr-2 f-14 d-flex"
+                                    *ngFor="let attach of data.attachment;trackBy:trackByDocName">
+                                    <span class="c-pointer"><i class="fa fa-file icon" aria-hidden="true"></i></span>
+                                    <span class="mar-l5 c-pointer dots-text doc-name"
+                                        (click)="getDownload(attach)">{{attach.doc_name}}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="caseOverrideData.fistOnly && history">
+        <div class="order mb-2">
+            <ng-container>
+                <span class="text-dark-black f-14 content-style">{{history.oldRisk | translate}}</span>
+                <mat-icon class="mat-icon-rtl-mirror text-dark-black light-theme-bg-transparent content-style">
+                    chevron_right
+                </mat-icon>
+                <span class="text-dark-black f-14 content-style">{{history.newRisk | translate}}</span>
+            </ng-container>
+        </div>
+        <div class="description f-12 content-style content-detail">
+            {{'Reason' | translate}}: {{ history.reason }}
+        </div>
+        <div class="description f-12  content-style content-detail">
+            {{'Date' | translate}}: {{ getFormatedDate(history.createdDate) }}
+        </div>
+        <div class="description f-12  content-style content-detail">
+            {{'Changed by' | translate}}: {{ history.updatedUser }}
+        </div>
+    </ng-container>
+</div>

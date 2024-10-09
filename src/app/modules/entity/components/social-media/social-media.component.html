@@ -1,0 +1,341 @@
+<div class="entity-results-wrapper pad-0 col-sm-9">
+<div class="entity-contents-wrapper">
+    <div class="social-media-tab-wrapper">
+<div class="row pad-0 custom-row bst_row_wrapper">
+  <!--  twitter-counter Info Starts  -->
+  <div class="col-md-12 span-3 entity-item twitter-counter-wrapper ">
+      <div class="entity-item-submmenu">
+          <div class="item-submmenu-list-wrapper">
+              <ul class="item-submmenu-list list-inline d-flex custom-scroll-wrapper overflow-a">
+                  <li>
+                      <div class="submmenu-list">
+                          <h5 class="text-uppercase">
+                              <i class="fa fa-twitter"></i>
+                              Twitter Followers
+                              <strong>{{entitySearchResult.list['followers_numberic']}}</strong>
+                          </h5>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="submmenu-list">
+                          <h5 class="text-uppercase">
+                              <i class="fa fa-twitter"></i>
+                              Twitter Retweets
+                              <strong>{{entitySearchResult['twitter_retweets_count']}}</strong>
+                          </h5>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="submmenu-list">
+                          <h5 class="text-uppercase">
+                              <i class="fa fa-instagram"></i>
+                              Instagram Followers
+                              <strong>
+                                 <span *ngIf="entitySearchResult.list?.entityInstagramList.length === 0">0</span>
+                              <span *ngIf="entitySearchResult.list?.entityInstagramList.length > 0">{{entitySearchResult.list?.entityInstagramList[0]['followersCountNumberic']||'0'}}</span>
+                              </strong>
+                          </h5>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="submmenu-list">
+                          <h5 class="text-uppercase">
+                              <i class="fa fa-instagram"></i>
+                              Instagram Connections
+                              <strong>
+                                <span *ngIf="entitySearchResult.list.entityInstagramList.length === 0">0</span>
+                                <span *ngIf="entitySearchResult.list.entityInstagramList.length > 0">{{entitySearchResult.list?.entityInstagramList[0]['connectionNumberic']||
+                                    '0'}}</span>
+                              </strong>
+                          </h5>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="submmenu-list">
+                          <h5 class="text-uppercase">
+                              <i class="fa fa-google-plus"></i>
+                              Google Plus Connections
+                              <strong>{{entitySearchResult.list?.entityGooglePlusList.length}}</strong>
+                          </h5>
+                      </div>
+                  </li>
+                  <li>
+                      <div class="submmenu-list">
+                          <h5 class="text-uppercase">
+                              <i class="fa fa-facebook-square"></i>
+                              Facebook Followers
+                              <strong>{{entitySearchResult.list['fan_counts_numbric']}}</strong>
+                          </h5>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+
+     <!--  activity-feed Info Starts  -->
+     <div class="col-md-12 span-3 entity-item activity-feed-wrapper ">
+        <h3 class="f-18 roboto-light text-unset text-cream lh-1">
+            Activity Feed
+
+            <ul class="custom-activity-feed list-inline">
+                <li>
+                    <a class="heart pe-none" href="javascript.void()">Facebook</a>
+                </li>
+                <li>
+                    <a class="refresh pe-none" href="javascript.void()">Twitter</a>
+                </li>
+                <li>
+                    <a class="linkedIn-time-line pe-none" href="javascript.void()">Linkedin</a>
+                </li>
+            </ul>
+        </h3>
+        <div class="activityFeedChart-wrapper" id="activityFeedTimeline">
+
+        </div>
+    </div>
+        <!--  activity-feed Info Ends  -->
+
+        <!--  Tweets section Info Starts  -->
+        <div class="col-md-12 pad-x0 span-3 mar-b8 twitter-feed-wrapper ">
+            <div class="container-fluid pad-x0">
+                <div class="row  mar-x0 d-flex jc-sb">
+                    <div class="col-sm-4 entity-item">
+                        <div class="recent-tweets-wrapper tweets-recent">
+                            <h3 class="f-18 roboto-light text-unset text-cream lh-1">Recent Tweets</h3>
+                            <div class="entity-result-item overflow-auto custom-scroll-wrapper" *ngIf="entitySearchResult.list.entityTwitterList.length > 0">
+                                <ul class="media-list">
+                                    <li class="media" *ngFor= "let twitterData of entitySearchResult.list.entityTwitterList">
+                                        <div class="recent-tweet">
+                                            <div class="tweet-bio">
+                                                <div class="tweet-bio-dp">
+                                                    <img class="image-object" [src]="twitterData.image|| '../assets/images/entity/trans_twiiter_pic.png'" />
+                                                </div>
+                                                <div class="tweet-bio-details">
+                                                    <h5>{{twitterData.title}}</h5>
+                                                    <p>@{{twitterData.title}}</p>
+                                                </div>
+                                            </div>
+                                            <div class="tweet-content">
+                                                <p>{{twitterData.text}}</p>
+                                            </div>
+                                            <div class="tweet-count">
+                                                <ul class="list-inline">
+                                                    <li>
+                                                        <span class="heart" href>
+                                                            <i class="fa fa-heart"></i>{{twitterData.retweetCount}}</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="refresh" href>
+                                                            <i class="fa fa-retweet"></i>{{twitterData.retweetCount||
+                                                            0}}
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- <a href="" (click)="onViewClick('twitterFollowingFollowers')" class="read-more">Read
+                                More</a> -->
+                            <div class="entity-result-item custom-result-item alert-message-wrapper" *ngIf="entitySearchResult.list.entityTwitterList.length == 0">
+                                <div class="alert-message loading-message" *ngIf="entitySearchResult.is_data_not_found.is_recentTweets">Loading...</div>
+                                <div class="alert-message alert-message-wrapper" *ngIf="!entitySearchResult.is_data_not_found.is_recentTweets">Data
+                                    Not Found </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 entity-item">
+                        <div class="recent-tweets-wrapper">
+                            <h3 class="f-18 roboto-light text-unset text-cream lh-1">Instagram Posts</h3>
+                            <div class="entity-result-item  recent-linkedin latest-social-news overflow-auto custom-scroll-wrapper" *ngIf="entitySearchResult.list.entityInstagramList.length > 0">
+                                <ul class="media-list instagram-posts">
+                                    <li class="media"  *ngFor ="let instagramData of entitySearchResult.list.entityInstagramList">
+                                        <div class="recent-linkedin">
+                                            <div class="linkedin-content-left">
+                                                <span class="img-section-wrapper" href="javascript:void(0);">
+                                                    <img class="image-object" [src]="instagramData.image||'../assets/images/menu_icons/icon_profile_settings.webp'" />
+                                                </span>
+                                            </div>
+                                            <div class="linkedin-content">
+                                                <p>
+                                                    <span class="insta-title">
+                                                        {{instagramData.name}}
+                                                    </span>
+                                                </p>
+                                                <p class="post">
+                                                    <small class="icon">Following</small>
+                                                    <span class="badge count">{{instagramData.followingCount}}</span>
+                                                    <small class="icon">Followers</small>
+                                                    <span class="badge count">{{instagramData.followersCount}}</span>
+                                                </p>
+                                                <p>{{instagramData.caption}}</p>
+                                                <p class="posted-img">
+                                                    <img class="img-responsive" [src]="instagramData.thumbnail||'../assets/images/menu_icons/icon_profile_settings.webp'"
+                                                    />
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="entity-result-item custom-result-item alert-message-wrapper" *ngIf="entitySearchResult.list.entityInstagramList.length == 0">
+                                <div class="alert-message loading-message" *ngIf="entitySearchResult.is_data_not_found.is_instagramlist">Loading...</div>
+                                <div class="alert-message alert-message-wrapper" *ngIf="!entitySearchResult.is_data_not_found.is_instagramlist">Data
+                                    Not Found</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 entity-item mar-r0">
+                        <div class="recent-tweets-wrapper">
+                            <h3 class="f-18 roboto-light text-unset text-cream lh-1">Facebook Social Feeds</h3>
+                            <div class="entity-result-item recent-linkedin latest-social-news overflow-auto custom-scroll-wrapper" *ngIf="entitySearchResult.list.entityFacebookList.length > 0">
+                                <ul class="media-list facebook-social">
+                                    <li class="media" *ngFor = "let facebookData of entitySearchResult.list.entityFacebookList">
+                                        <div class="recent-linkedin">
+                                            <div class="linkedin-content-left">
+                                                <span class="img-section-wrapper">
+                                                    <img class="image-object" src="../assets/images/menu_icons/icon_profile_settings.webp" />
+                                                </span>
+                                            </div>
+                                            <div class="linkedin-content">
+                                                <p class="media-heading">
+                                                    <span>
+                                                        {{facebookData.text}}
+                                                    </span>
+                                                </p>
+                                                <p>
+                                                    <small class="date">Posted
+                                                        on {{facebookData.created_time|
+                                                        date : 'dd/MM/yyyy'}}</small>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="entity-result-item custom-result-item alert-message-wrapper">
+                                <div class="alert-message loading-message" *ngIf="entitySearchResult.is_data_not_found.is_facebook_list">Loading...</div>
+                                <div class="alert-message alert-message-wrapper" *ngIf="!entitySearchResult.is_data_not_found.is_facebook_list">Data
+                                    Not Found</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  Tweets section Info Ends  -->
+
+
+
+
+
+                <!--  Tweets section Info Starts  -->
+                <div class="col-md-12 span-3 pad-x0 pad-l15 linkedin-feed-wrapper">
+                    <div class="container-fluid pad-x0">
+                        <div class="row mar-x0 d-flex jc-sb">
+                            <div class="col-sm-4 mar-b0 entity-item">
+                                <div class="recent-linkedin-wrapper">
+                                    <h3 class="f-18 roboto-light text-unset text-cream lh-1">Recent Linkedin Post</h3>
+                                    <div class="entity-result-item overflow-auto custom-scroll-wrapper" *ngIf="entitySearchResult.list.entityLinkedinList.length > 0">
+                                        <ul class="media-list">
+                                            <li class="media" *ngFor="let linkedinData  of entitySearchResult.list.entityLinkedinList">
+                                                <div class="recent-linkedin">
+                                                    <div class="linkedin-content">
+                                                        <p>{{linkedinData.text}}</p>
+                                                        <span> {{linkedinData.postedOn}}
+                                                            ago</span>
+                                                    </div>
+                                                    <div class="linkedin-count">
+                                                        <ul class="list-inline">
+                                                            <li>
+                                                                <span class="heart" href>
+                                                                    <i class="fa fa-comment"></i>{{linkedinData.commentsCount}}</span>
+                                                            </li>
+                                                            <li>
+                                                                <span class="refresh" href>
+                                                                    <i class="fa fa-heart"></i>{{linkedinData.likesCount}}</span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="entity-result-item custom-result-item alert-message-wrapper">
+                                        <div class="alert-message loading-message" *ngIf="entitySearchResult.is_data_not_found.is_linkedin_post">Loading...</div>
+                                        <div class="alert-message alert-message-wrapper" *ngIf="!entitySearchResult.is_data_not_found.is_linkedin_post">Data
+                                            Not Found </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 mar-b0 entity-item">
+                                <div class="recent-linkedin-wrapper google-plus-post">
+                                    <h3 class="f-18 roboto-light text-unset text-cream lh-1">Google Plus Post</h3>
+                                    <div class="entity-result-item overflow-auto custom-scroll-wrapper" *ngIf="entitySearchResult.list.entityGooglePlusList.length > 0">
+                                        <ul class="media-list">
+                                            <li class="media" *ngFor = "let googlePlusData  of entitySearchResult.list.entityGooglePlusList">
+                                                <div class="media-left">
+                                                    <a href="{{googlePlusData.url}}" target="_blank">
+                                                        <img class="image-object" [src]="googlePlusData.coverPhoto||'../assets/images/menu_icons/icon_profile_settings.webp'"/>
+                                                    </a>
+                                                </div>
+                                                <div class="media-body">
+                                                    <p class="media-heading text-capitalize">
+                                                        {{googlePlusData.name}}
+                                                    </p>
+                                                    <p class="progress-text">
+                                                        <span class="date">
+                                                            <a href="javascript:void(0);">Published
+                                                                on</a> {{googlePlusData.publishedDate|
+                                                            date : 'dd/MM/yyyy'}}</span>
+                                                        <span class="date">
+                                                            <a href="javascript:void(0);">Last
+                                                                Updated on</a> {{googlePlusData.lastUpdatedDate|
+                                                            date : 'dd/MM/yyyy'}}</span>
+                                                    </p>
+                                                    <p class="description">
+                                                        {{googlePlusData.title}}
+                                                    </p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="entity-result-item custom-result-item alert-message-wrapper">
+                                        <div class="alert-message loading-message" *ngIf="entitySearchResult.is_data_not_found.is_googlepost">Loading...</div>
+                                        <div class="alert-message alert-message-wrapper" *ngIf="!entitySearchResult.is_data_not_found.is_googlepost">Data
+                                            Not Found</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 mar-b0 entity-item mar-r0">
+                                <div class="social-network-wrapper">
+                                    <h3 class="f-18 roboto-light text-unset text-cream lh-1">Live Feed</h3>
+                                    <div class="">
+                                        <div class="social-network-chart-wrapper">
+                                            <div id="twitter-socket-network-chart"></div>
+                                        </div>
+                                    </div>
+                                    <div class="custom-result-item alert-message-wrapper dittoBlurChart-wrapper vla-chart-ditto" *ngIf="entitySearchResult.list['twitter_socket_network_chart']">
+                                        <div class="alert-message loading-message">Loading...</div>
+                                    </div>
+                                </div>
+                                <!-- <div class="text-right">
+                                    <a class="btn btn-more-reviews btn-live-feed right-10" (click)="onClickLoadLiveFeed()">
+                                        <i class="fa fa-feed"></i>Live Feed</a>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--  Tweets section Info Ends  -->
+
+
+</div>
+</div>
+</div>
+</div>
+<div class="pull-right col-sm-3">
+    <app-socialmedia-rightpanel></app-socialmedia-rightpanel>
+</div>

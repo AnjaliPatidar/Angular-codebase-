@@ -1,0 +1,21 @@
+<div class="d-flex feed-list" permission [domainPermission]="alertListPermssionIds['feedList']" [PemissionHide]="true">
+    <div class="ag-table-wrapper no-filters-wrapper data-table-wrapper" style="width:100%;margin-top:0%">
+        <!-- <app-ag-grid-table></app-ag-grid-table> -->
+        <button class="text-uppercase mar-r15 bg-transparent f-14 export-button" [selectedDomainName]="''" permission [domainPermission]="feedListPermssionIds | getPermissionId :'export Data'" (click)="exportData()">
+      <!-- <i class="fa fa-download"></i> -->
+      {{'ExportData' | translate}}
+      </button>
+        <app-ag-grid-table *ngIf="showGridTable" [fromComponent]="componentName" class="feedList-table mar-t10" [tableData]="gridOptions"></app-ag-grid-table>
+    </div>
+    <app-right-panel  [fromComponent]="componentName" [ngStyle]="{'right': showRightPanel ? '0' : '-40rem' }"></app-right-panel>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-body">
+        <p class="text-dark-black f-16 text-on-surface">{{'Areyousuredeleteentity' | translate}}</p>
+    </div>
+    <div class="modal-footer border-t0">
+        <button type="button" class="btn btn grad-button sm-btns sm-btns light-theme-btn primary-btn box-shadow-none" (click)="ModalClose(modal,1)">{{'Yes' | translate}}</button>
+        <button type="button" class="btn bordered-button sm-btns light-theme-btn secondary-btn" (click)="modal.close('Save click')">{{'No' | translate}}</button>
+    </div>
+</ng-template>

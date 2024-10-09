@@ -1,0 +1,121 @@
+<ng-container *ngIf="customTemplateClass != 'assigneeColumn' && customTemplateClass != 'priorityColumn' && customTemplateClass != 'priorityColumn_ViewMode' && className != 'typeOfRelations'&& tableName != 'Case related entity' && customTemplateClass != 'priorityColumn_RC'">
+
+<mat-form-field [style.backgroundColor]="className === 'status' ? getBgColor(selectedIconColor) : ''"  >
+    <mat-select  [(ngModel)]="selectedItem" #select_1 (openedChange)="onOpenedChange($event, 'select_1', this)"  (click)="getCommentRelatedData($event,this)" [disabled]="selectDisable"
+    panelClass="mat-select-panel-fixed-height">
+      <mat-option *ngFor="let item of selectOptionsList; trackBy:trackByLabel" [(value)]="item.label"
+      [ngClass]="{'disable c-ban' : (item.disable != 'undefined' && item.disable ) }"
+      [disabled]="item.disable != 'undefined' && item.disable "
+      class="w-100 text-overflow d-block"
+      (click)="(item.disable != 'undefined' && item.disable ) ? '' : getSelectedItem($event,this,item)">
+        <span class= "initial-name-wrapper" *ngIf="className != 'status' && className != 'RiskIndicators'">
+          {{ getInitialNameAbbr(item) | translate }}
+        </span>
+        <span *ngIf="className == 'status' || className == 'RiskIndicators'">
+          <i class="fa fa-{{item.values.icon}} mr-4" style="font-size: 19px;" [ngStyle]="{'color':getColor(item.values.colorCode)}"></i>
+        </span>
+        <span>{{item.label}}</span>
+        <div style="width: 29%;">
+          <i *ngIf="item.label == selectedItem" class="fa fa-check active-icon" style="float:right;position: relative; display: inline-flex;" aria-hidden="true"></i>
+        </div>
+      </mat-option>
+      <mat-select-trigger>
+       <i class="fa fa-{{selectedIcon}} selected-icon f-20 mr-2 align-middle"  [ngStyle]="{'color':getColor(selectedIconColor)}" *ngIf="className == 'status' || className == 'RiskIndicators'">
+            </i>{{selectedItem}}
+      </mat-select-trigger>
+    </mat-select>
+</mat-form-field>
+
+</ng-container>
+
+
+  <ng-container *ngIf="customTemplateClass == 'assigneeColumn'">
+  <mat-form-field>
+    <!-- <mat-label> {{actualSelectOptions.length}}</mat-label> -->
+    <mat-select [disabled]="selectCellDisable || selectDisable" [(ngModel)]="selectedValue">
+      <ngx-mat-select-search *ngIf="actualSelectOptions.length > 5" [placeholderLabel]="placeholderLabel" ngModel
+        (ngModelChange)="filterMyOptions($event)" [clearSearchInput]="clearSearchInput"></ngx-mat-select-search>
+        <!-- <mat-option *ngIf="selectedValue == '' || selectedValue == null" value="">
+            UnAssigned
+        </mat-option> -->
+      <mat-option *ngFor="let item of selectOptionsList; trackBy:trackByLabel" [value]="item.screenName" (click)="selectItem($event,this,item)">
+        <span class="w-100 text-overflow d-block text-capitalize">{{item.label | translate}}</span>
+        <i class="fa fa-check active-icon" style="float:right;position: relative;top: 9px;" aria-hidden="true"></i>
+      </mat-option>
+
+      <mat-option *ngIf='!selectOptionsList.length' disabled>
+        <span>{{ 'no results found' | translate }}</span>
+      </mat-option>
+
+    </mat-select>
+  </mat-form-field>
+</ng-container>
+
+<ng-container *ngIf="customTemplateClass == 'priorityColumn'">
+
+  <mat-form-field [style.backgroundColor]="className === 'status' ? getBgColor(selectedIconColor) : ''"  >
+      <mat-select  [(ngModel)]="selectedItem"  (click)="getCommentRelatedData($event,this)" [disabled]="selectDisable || priorityDisable">
+        <mat-option *ngFor="let item of selectOptionsList; trackBy:trackByLabel" [(value)]="item.label"
+        [ngClass]="{'disable c-ban' : (item.disable != 'undefined' && item.disable ) }"
+        [disabled]="item.disable != 'undefined' && item.disable "
+        class="w-100 text-overflow d-block"
+        (click)="(item.disable != 'undefined' && item.disable ) ? '' : getSelectedItem($event,this,item)">
+          <span class= "initial-name-wrapper" *ngIf="className != 'status' && className != 'priority'">
+            {{ getInitialNameAbbr(item) | translate }}
+          </span>
+          <span *ngIf="className == 'status' || className == 'priority'">
+            <i class="fa fa-{{item.values.icon}} mr-4" style="font-size: 19px;" [ngStyle]="{'color':getColor(item.values.colorCode)}"></i>
+          </span>
+            {{item.label | translate}}
+          <i class="fa fa-check active-icon" style="float:right;position: relative;top: 13px;" aria-hidden="true"></i>
+        </mat-option>
+        <mat-select-trigger>
+         <i class="fa fa-{{selectedIcon}} selected-icon f-20 mr-2 align-middle"  [ngStyle]="{'color':getColor(selectedIconColor)}" *ngIf="className == 'status' || className == 'priority'">
+              </i>{{selectedItem | translate}}
+        </mat-select-trigger>
+      </mat-select>
+    </mat-form-field>
+  </ng-container>
+
+ <ng-container *ngIf="customTemplateClass == 'priorityColumn_RC'">
+  <div>
+    <mat-form-field *ngIf="selectedItem" [style.backgroundColor]="hexToRGB(selectedIconColor, 0.3)">
+      <mat-select [(ngModel)]="selectedItem" [disabled]="true" class="rc-priority">
+        <mat-option *ngFor="let item of selectOptionsList; trackBy:trackByLabel" [(value)]="item.value"
+          [ngClass]="{'disable c-ban' : (item.disable != 'undefined' && item.disable ) }"
+          [disabled]="item.disable != 'undefined' && item.disable" class="w-100 text-overflow d-block">
+          <span class="initial-name-wrapper" *ngIf="className != 'status' && className != 'priority'">
+            {{ getInitialNameAbbr(item) | translate }}
+          </span>
+          {{item.label | translate}}
+        </mat-option>
+
+        <mat-select-trigger>
+          <i class="fa fa-{{selectedIcon}} selected-icon f-20 mr-2 align-middle"  [ngStyle]="{'color':hexToRGB(selectedIconColor)}">
+          </i>{{selectedItem | translate}}
+        </mat-select-trigger>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</ng-container>
+
+  <ng-container *ngIf="customTemplateClass == 'priorityColumn_ViewMode'">
+    <i class="fa fa-{{selectedIcon}} selected-icon f-20 mr-2 align-middle"  [ngStyle]="{'color':getColor(selectedIconColor)}" *ngIf="className == 'status' || className == 'priority'">
+           </i>{{selectedItem | translate}}
+  </ng-container>
+
+  <ng-container *ngIf="className == 'typeOfRelations' && this.mainEntityId">
+    <mat-form-field *ngIf = "!showMainEntity" permission [PemissionHide]="true"
+    [domainPermission]="caseWorkBenchPermissionJSON | getPermissionId :'relatedEntities'">
+      <mat-select [(ngModel)]="selectedItem"  class="pl-10">
+        <mat-option *ngFor="let item of selectOptionsList; trackBy:trackByLabel" [value]="item.value" (click)="getSelectedItem($event,this,item)">
+          <span class="w-100 text-overflow d-block text-capitalize" >{{item.label | translate}}</span>
+          <i class="fa fa-check active-icon relatedcase_icon" aria-hidden="true" *ngIf="item.value == selectedItem"></i>
+        </mat-option>
+        <mat-option *ngIf='!selectOptionsList.length' disabled>
+          <span>{{ 'no results found' | translate }}</span>
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <ng-container *ngIf="showMainEntity"><app-case-related-entity [msgName]= "'Main Entity'"></app-case-related-entity></ng-container>
+  </ng-container>

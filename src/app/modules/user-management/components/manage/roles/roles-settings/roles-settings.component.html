@@ -1,0 +1,111 @@
+<section class="settings-tab">
+    <div class="container-fluid">
+        <div class="row mr-0">
+            <div class="col-md-8" [class.col-md-12]="(currentRole == 'newrole')">
+                <div class="fields-tab dark-black-panels pad-25 light-theme-bg-white light-theme-no-radius mb-4">
+                    <div class="app-spinner" *ngIf="addRoleSpinner">
+                        <mat-spinner></mat-spinner>
+                    </div>
+                    <h4 class="text-capitalize f-24 text-dark-black title-text-on-surface">{{'Role Settings' | translate}}</h4>
+                    <div class="card-body pl-0">
+                        <form #roleForm='ngForm' class="roles-settings-form" autocomplete="off">
+                            <div class="mb-5 gotham-regular">
+                                <mat-form-field class="rounded-top">
+                                    <input type="text" #element  pattern="{{get_pattern(element)}}" matInput required maxlength="60" placeholder="{{'Role Name' | translate}}"  name="roleName" autocomplete="off" #roleName="ngModel" [(ngModel)]="roleDetails.roleName" [disabled]="(currentRole != 'newrole' && !roleUpdateEnable) || !roleDetails['isModifiable']" class="text-dark-black gotham-regular">
+                                </mat-form-field>
+                                <span *ngIf="roleName.touched" class="d-block text-coral-red mt-2 gotham-regular">
+                                <span *ngIf="roleName.hasError('required')"> This field is required</span>
+                                <span *ngIf="roleName.hasError('maxlength')"> maximum allowed characters is 60</span>
+                                <span *ngIf="roleName.hasError('pattern')"> {{ get_pattern_error('text') }} </span>
+                                </span>
+                            </div>
+
+
+                            <div class="mb-5 gotham-regular">
+                                <mat-form-field class="rounded-top">
+                                    <input type="text" #element  pattern="{{get_pattern(element)}}" matInput maxlength="512" placeholder="{{'Description' | translate}}" name="description" autocomplete="off" #description="ngModel" [(ngModel)]="roleDetails.description" [disabled]="currentRole != 'newrole' && !roleUpdateEnable" class="text-dark-black gotham-regular">
+                                </mat-form-field>
+                                <span *ngIf="description.touched" class="d-block text-coral-red mt-2 gotham-regular">
+                                <span *ngIf="description.hasError('maxlength')"> maximum allowed characters is 512</span>
+                                <span *ngIf="description.hasError('pattern')"> {{ get_pattern_error('text') }} </span>
+                                </span>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="icon-feild rounded-top gotham-regular">
+                                        <mat-select placeholder="{{'Select Icon' | translate}}" name="icon" #icon="ngModel" [(ngModel)]="roleDetails.icon" [disabled]="currentRole != 'newrole' && !roleUpdateEnable" class="text-dark-black">
+                                            <ngx-mat-select-search name="search" placeholderLabel="Search" ngModel (ngModelChange)="iconsFilter($event)" [clearSearchInput]="true">
+                                            </ngx-mat-select-search>
+                                            <mat-select-trigger>
+                                                <mat-icon> {{roleDetails?.icon}}</mat-icon>&nbsp;{{roleDetails?.icon?.replace("_"," ")}}
+                                            </mat-select-trigger>
+                                            <mat-option value=""></mat-option>
+                                            <ng-container *ngFor="let icon of icons">
+                                                <mat-option *ngIf="icon.length > 0" [value]="icon">
+                                                    <mat-icon> {{icon}}</mat-icon> {{icon.replace("_"," ")}}
+                                                </mat-option>
+                                            </ng-container>
+
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6 custom-input-wrapper">
+                                    <mat-form-field class="gotham-regular">
+                                        <input matInput type="color" placeholder="{{'Select Color' | translate}}"  name="color" autocomplete="off" class="custom-input-color rounded-circle c-pointer " #color="ngModel" [(ngModel)]="roleDetails.color" [disabled]="currentRole != 'newrole' && !roleUpdateEnable">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </form>
+                        <div *ngIf="currentRole != 'newrole' " class="button-section d-flex">
+                            <button class="btn btn-outline-primary d-flex align-items-center gotham-medium font-medium fw-500" [routerLink]="assignUsersRoute(roleDetails['roleName'])">
+                                <i class="material-icons f-14 mr-3">assignment_ind</i>
+                                <!-- /element/user-management/manage/roles/assigned-users/{{roleDetails['roleName']}} -->
+                                <span>{{'Assign Users' | translate}} </span>
+                            </button>
+                            <button class="btn btn-outline-primary d-flex align-items-center gotham-medium font-medium fw-500" routerLink="/element/user-management/manage/roles/settings/newrole" [queryParams]="{'roleName' : roleDetails['roleName']}">
+                                <!-- <i class="material-icons f-14 mr-3">file_copy</i> -->
+                                <span>{{'Duplicate Role' | translate}}</span>
+                            </button>
+                            <button class="btn btn-outline-primary d-flex align-items-center gotham-medium font-medium fw-500" [disabled]="!roleDetails['isModifiable']" (click)="deleteRole(roleForm)">
+                                <i class="material-icons f-14 mr-3"> delete</i><span> {{'Delete this Role' | translate}}</span>
+                            </button>
+                            <button class="btn btn-outline-primary d-flex align-items-center gotham-medium font-medium fw-500" [disabled]="(roleForm.invalid || !roleUpdateEnable ||  !roleForm.dirty)" (click)="updateRole()" [ngClass]="{'c-ban':roleForm.invalid}">
+                                <!-- <mat-icon></mat-icon> --> <span>{{'UPDATE ROLE' | translate}}</span>
+                            </button>
+                        </div>
+                        <div *ngIf="currentRole == 'newrole' " class="button-section d-flex">
+                            <button class="btn btn-outline-primary" [disabled]="roleForm.invalid" (click)="addRole()" [ngClass]="{'c-ban':roleForm.invalid}">
+                                        <!-- <mat-icon></mat-icon> -->
+
+                                         <span>{{'ADD ROLE' | translate}}</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" *ngIf="(currentRole != 'newrole')">
+                <div class="dark-black-panels Users-Activity pad-25 light-theme-bg-white light-theme-no-radius">
+                    <h5 class="text-capitalize text-dark-black f-16 pad-15px title-text-on-surface">{{'Users Activity' | translate}}</h5>
+                    <div class="row pad-15px pad-t0">
+                    <div class="col-sm-4 p-0">
+                        <div id="userStatus"></div>
+                    </div>
+                    <div class="col-sm-8 pr-0 pl-5">
+                        <ul class="status-icons p-0 mt-4">
+                            <ng-container *ngFor="let status of userStatus; trackBy: trackByKey">
+                                <li class="d-flex align-items-center" *ngIf="status.value != 0">
+
+                                    <span class="fa f-24 p-2 fa-{{status?.icon}} mx-2 align-sub"></span>
+                                    <p class="p-2 text-dark-black fw-500 text-on-surface">{{status?.key | translate}}</p>
+                                    <span class="p-2 f-12 theme-light-color fw-500 f-12 font-medium text-on-surface">{{status?.value}}</span>
+                                </li>
+                            </ng-container>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

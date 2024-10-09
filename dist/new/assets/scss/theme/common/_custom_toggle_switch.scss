@@ -1,0 +1,170 @@
+/*==============================================================================
+*****************  Custom Toggle Switch Styles For The Site  *******************
+==============================================================================*/
+.custom-switch {
+    &.btn-switch {  
+        position: relative;
+        display: block;
+        width: 50px;
+        height: 25px;
+        cursor: pointer;
+        background-color: #3b5059;
+        border: 2px solid #3b5059;
+        border-radius: 40px;
+        .btn-switch-circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            height: 20px;
+            width: 20px;
+            background-color: rgba(255,255,255,0.6);
+            border-radius: 40px;
+        }
+    }
+    &.btn-switch--on {
+        background-color: #325c80;
+        border: 2px solid #325c80;
+        .btn-switch-circle--on {
+            left: auto;
+            right: 0;
+        }
+    }
+}
+
+
+/* Custom-Switch-Styles */
+.custom-switch-wrapper {
+    display: inline-block;
+    height: 14px;
+    position: relative;
+    width: 22px;
+    margin: 0;
+  
+    input {
+      display: none;
+  
+      &:checked {
+        &+.slider {
+          background-color: #374c59;
+  
+          &:before {
+            transform: translateX(8px);
+          }
+        }
+      }
+    }
+  
+    .slider {
+      background-color: #374c59;
+      bottom: 0;
+      cursor: pointer;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: 0.4s;
+  
+      &:before {
+        background-color: #121d27;
+        bottom: 2px;
+        content: "";
+        height: 10px;
+        left: 2px;
+        position: absolute;
+        transition: 0.4s;
+        width: 10px;
+      }
+  
+      &.round {
+        border-radius: 10px;
+  
+        &:before {
+          border-radius: 50%;
+        }
+      }
+    }
+  
+    &.bst-switch-wrapper {
+      width: 35px;
+      height: 15px;
+  
+      input {
+        &:checked {
+          &+.slider {
+            background-color: $primary-color;
+  
+            &:before {
+              background: $text-on-primary important;
+              transform: translateX(20px);
+              left: 4px;
+              bottom: 0;
+            }
+          }
+        }
+      }
+  
+      .slider {
+        background-color:$input-group;
+  
+        &:before {
+          background: $text-on-primary;
+          bottom: 0;
+          height: 14px;
+          left: 1px;
+          width: 14px;
+        }
+  
+        &.round {
+          border-radius: 15px;
+  
+          &:before {
+            border-radius: 50%;
+          }
+        }
+      }
+  
+      &.filters-switch-wrapper {
+        height: 18px;
+  
+        input {
+          &:checked {
+            &+.slider {
+              &:before {
+                left: 5px;
+                bottom: 1px;
+                transform: translateX(15px);
+              }
+            }
+          }
+        }
+  
+        .slider {
+          background: $input-group;
+          box-shadow: 0 0.5px 1px 0 rgba(0, 0, 0, .63);
+  
+          &:before {
+            background: #2d2d2d !important;
+            bottom: 0px !important;
+            height: 18px !important;
+            left: 1px !important;
+            width: 18px !important;
+          }
+        }
+      }
+    }
+  }
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+
+@media (min-width:$screen-lg) {}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {}
+
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {}

@@ -1,0 +1,52 @@
+<div *ngIf="batchList?.length>0" class="screening-batch-main position-relative p-0" [class.closed]="isClosed" >
+  <div *ngIf="batchList.length !== completedBatch; else closeMinimizedPopup" class="screening-batch-header light-theme-border-bottom border-thin-dark-cream-b" (click)="toggleAccordion()">
+    <h2 class="upload-file case-batch-header text-dark-black font-medium text-on-surface">{{'Case creation in Progress' | translate}}</h2>
+      <a>
+        <i  class="material-icons c-pointer color-image text-dark-black">expand_more</i>
+      </a>
+  </div>
+
+  <ng-template #closeMinimizedPopup>
+    <div class="screening-batch-header no-cursor light-theme-border-bottom border-thin-dark-cream-b">
+      <h2 class="upload-file case-batch-header text-dark-black font-medium text-on-surface">{{'Case creation completed' | translate}}</h2>
+        <a [ngClass]="{'pe-none': isBatchFileDeleted}">
+          <i  class="material-icons c-pointer color-image text-dark-black txt-on-surface" (click)="removeAllBatch()">close</i>
+        </a>
+    </div>
+  </ng-template>
+
+
+
+  <div class="screening-batch-section-third case-creation-list">
+
+    <ng-container *ngFor="let batch of batchList;trackBy:trackByBatchId">
+      <div class="pt-4 case-creation-item" *ngIf="batch && batch?.documents;else batch_doc_loader">
+        <div class="d-flex align-items-center">
+          <div>
+            <i class="material-icons uploaded-file-icon-success" [ngClass]="{'pe-none': isBatchFileDeleted}" [class.c-success]="batch.progress===100">{{batch.progress===100? 'check_circle' :'insert_drive_file'}}</i>
+          </div>
+          <div class="width-100 ml-4">
+            <div *ngIf="batch?.documents" class="d-flex align-items-start mb-4 file-name-wrapper">
+              <div class="cases-valid-count text-dark-black txt-on-surface">{{batch?.documents[0]?.fileName}}</div>
+              <i *ngIf="batch.progress===100" class="material-icons c-pointer color-image text-dark-black txt-on-surface" [ngClass]="{'pe-none': isBatchFileDeleted}" (click)="removeBatchById(batch)">close</i>
+            </div>
+              <mat-progress-bar [mode]="batch.progress==0?'indeterminate':'determinate'" [value]="batch.progress"></mat-progress-bar>
+          </div>
+        </div>
+        <div class="actions d-flex align-items-center justify-content-end">
+          <button class="btn mt-2 mb-2 text-dark-black txt-on-surface" *ngIf="batch.progress===100" (click)="downloadReport(batch)" [disabled]="isBatchFileDeleted">{{'Check Report' | translate}}</button>
+          <button class="btn mt-2 mb-2 text-uppercase text-dark-black txt-on-surface" (click)="openDetails(batch)" [disabled]="isBatchFileDeleted">{{'View Details' | translate}}</button>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-template #batch_doc_loader>
+      <div class="py-4 d-flex justify-content-center">
+        <div class="spinner-border txt-on-surface" role="status">
+          <span class="sr-only txt-on-surface">Loading...</span>
+        </div>
+      </div>
+    </ng-template>
+
+  </div>
+</div>

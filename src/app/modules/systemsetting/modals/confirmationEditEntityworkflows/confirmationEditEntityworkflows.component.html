@@ -1,0 +1,18 @@
+<div class="modal-header" *ngIf="isShowHeader">
+    <h4 class="modal-title font-light" id="mainTitle">{{(isShowHeader? editTitle : 'Delete Template') | translate}}</h4>
+    <span class="material-icons-round clr-p54 close-icon" (click)="sendResponse(false)">close</span>
+ </div>
+ <div class="modal-body">
+     <div [ngClass]="isShowHeader? '' : 'row'">
+         <div class="col-sm-12 p-0" *ngIf="!typeOfmodal">
+             <p id="mainData" class="f-12 font-light" [ngClass]="isShowHeader ? 'delete-comment-title' : 'mb-2 f-14 txt-on-surface-87'">
+                {{msg}}
+             </p>
+         </div>      
+     </div>
+     
+     <div class="btn-group d-flex jc-fe w-100 pt-3">
+        <button  [ngClass]="isShowHeader ? 'bordered-button  mr-3' : 'grad-button sm-btns mr-3'" type="button" (click)="sendResponse(isShowHeader ? false : true)">{{(isShowHeader? 'CANCEL' : 'Yes') | translate}}</button>
+        <button [ngClass]="isShowHeader ? 'grad-button' : 'bordered-button sm-btns'" type="button" (click)="sendResponse(isShowHeader ? true : false)">{{(isShowHeader? 'CONFIRM' : 'No') | translate}}</button>
+    </div>	
+ </div>

@@ -1,0 +1,29 @@
+<div>
+    <input type="text" 
+      ngxDaterangepickerMd 
+      (click)="addDateClassToTableHeader($event)"
+      class="date-picker date-pick-input-wrapper" 
+      [locale]="{
+        format: 'MM/DD/YYYY',
+        direction: 'ltr',
+        weekLabel: 'W',
+        separator: ' To ',
+        cancelLabel: 'Cancel',
+        applyLabel: 'Apply',
+        clearLabel: 'Cancel',
+        customRangeLabel: 'Custom range',
+        firstDay: 0    
+      }" 
+      (rangeClicked)="clickedValue($event)"
+      [alwaysShowCalendars]="true" 
+      [showRangeLabelOnInput]="true" 
+      [(ngModel)]="selected" 
+      [ranges]="ranges"
+      opens="left" 
+      [linkedCalendars]="true" 
+      [isInvalidDate]="isInvalidDate" 
+      [showClearButton]="true"
+      readonly
+    />
+  </div>
+  

@@ -1,0 +1,36 @@
+<ng-container *ngIf="!this.hasData">
+    <div class="not-found mnh-150">
+        <p class="error text-center">{{this.message}}</p>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="this.hasData">
+    <div class="row mx-3 interest-container panel-body  panel-scroll mnh-235 h-25r p-rel" malihu-scrollbar>
+
+        <div class="col-md-4 interest-element" *ngFor="let item of this.interests; trackBy:trackByName">
+
+            <div class="row ">
+                <div class="col-md-2">
+                    <div *ngIf="item.imageSrc!==undefined" class="circle">
+                        <img src="{{item.imageSrc}}" class="profile-image float-left" alt="{{item.name}}"
+                            (error)="item.imageSrc=undefined">
+                    </div>
+                    <div *ngIf="item.imageSrc===undefined" class="circle">
+                        <span class="material-icons initials">loyalty</span>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-12 interest-name text-dark-black">
+                            <p>{{item.name}}</p>
+                        </div>
+                        <div class="col-md-12">
+                            <p class="interest-job">
+                                {{item.description}} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

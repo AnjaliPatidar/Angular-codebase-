@@ -1,0 +1,206 @@
+<div class="position-relative">
+    <div class="pb-4 d-flex justify-content-between align-items-center border-bottom mb-3">
+        <h3 class="mb-0 text-capitalize f-20 text-dark-black roboto-medium">{{'Search' | translate}}</h3>
+        <i class="material-icons c-pointer text-dark-black" (click)="dialogRef.close()">close</i>
+    </div>
+    <div class="loader-bg z-999 w-100 h-100 b-0 position-absolute" *ngIf="!initialLoaded">
+        <i class="fa fa-spinner txt-on-surface-06 fa-pulse no-data f-25 mnh-auto"></i>
+    </div>
+    <form #alertdemand='ngForm' class="no-pink-form search-popover position-relative" autocomplete="off">
+        <div class="loader" *ngIf="ondemandSearchSpinner">
+            <i class="fa fa-spinner txt-on-surface-06"></i>
+        </div>
+
+        <div class="d-flex flex-column custom-scroll-wrapper" cdkScrollable style="overflow-x: hidden; overflow-y: auto; max-height: 550px;">
+
+            <div class="d-flex align-items-center mt-5">
+                <span class="text-dark-black f-16 mr-4">
+                    {{'Confidence' | translate}}
+                    <span class="ml-2">
+                        {{AlertFormFiels.confidence}}%
+                    </span>
+                    <span class="ml-2">
+                        <mat-slider [max]="100" [min]="0" [step]="1" [value]="0" [thumbLabel]='true' name="confSlider" class="mxw-150 w-100" [(ngModel)]="AlertFormFiels.confidence">
+                        </mat-slider>
+                    </span>
+                </span>
+            </div>
+
+
+            <mat-form-field appearance="fill" class="mb-3">
+                <mat-label class="text-dark-black">{{'EntityType' | translate}}</mat-label>
+                <mat-select required name="entityType" class="text-dark-black" (selectionChange)="entityTypeChange($event)" [(ngModel)]="AlertFormFiels.entityType" #entityType="ngModel">
+                    <mat-option value="person" class="text-dark-black">{{'Person' | translate}}</mat-option>
+                    <mat-option value="organization" class="text-dark-black">{{'Organisation' | translate}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+            <app-chips-autocomplete [dropdownType]="'classificationtype'" [watchlistsData]="[]"  (valueChange)="updateClassifications($event)"></app-chips-autocomplete>
+
+            <app-chips-autocomplete [dropdownType]="''" [feedData]="selectedFeedsforWl" [watchlistsData]="allWatchlist" (valueChange)="updateWatchlist($event)" component="alertDemand"
+            (watchlistChange)="updateWatchlist($event)"></app-chips-autocomplete>
+
+
+            <span *ngIf="entityType.hasError('required')" class="mb-2">{{ 'this field is mandatory' | translate }}</span>
+
+            <mat-form-field appearance="fill" class="mb-3">
+                <mat-label class="text-dark-black">{{'Tenant' | translate}}</mat-label>
+                <div class="d-flex">
+                    <input type="text" placeholder="{{'Search' | translate}}" matInput
+                        class="text-dark-black placeholder-transparent gotham-regular mb-3" [matAutocomplete]="tenantFilter"
+                        [(ngModel)]="AlertFormFiels.tenant" autocomplete="off"
+                        (ngModelChange)="filterTenants(AlertFormFiels.tenant)" name="tenantCode" #tenantCode="ngModel">
+                </div>
+                <mat-autocomplete #tenantFilter="matAutocomplete" class="custom-scroll-wrapper popover" required>
+                    <mat-option *ngFor="let value of filterTenant; trackBy: trackByDisplayName" class="text-dark-black" [value]="value.displayName"
+                        (click)="selectedTenant(value)">
+                        <span class="text-dark-black">{{value.displayName}}</span>
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="mb-3">
+                <mat-label class="text-dark-black">{{'EntityId' | translate}}</mat-label>
+                <input type="text" #element  pattern="{{get_pattern(element)}}"  matInput class="text-dark-black placeholder-transparent" maxlength="100" autocomplete="off" placeholder="{{'EntityId' | translate}}" name="enityId" [(ngModel)]="AlertFormFiels.entityID" #enityId="ngModel">
+            </mat-form-field>
+            <span *ngIf="enityId.touched" class="d-block text-coral-red" [class.error-msg]="enityId.hasError('required') || enityId.hasError('maxlength') ">
+                    <span *ngIf="enityId.hasError('required')" class="mb-2">{{ 'this field is mandatory' | translate }}</span>
+                    <span *ngIf="enityId.hasError('maxlength')" class="mb-2">Max allowed charaters are 100</span>
+                    <span *ngIf="enityId.hasError('pattern')" class="mb-2"> {{get_pattern_error('text')}} </span>
+            </span>
+
+            <mat-form-field appearance="fill" class="mb-3">
+                <mat-label  class="text-dark-black">{{'EntityName' | translate}}</mat-label>
+                <input type="text" #element  pattern="{{get_pattern(element)}}"  required maxlength="500" matInput class="text-dark-black placeholder-transparent" required maxlength="500" autocomplete="off" placeholder="{{'EntityName' | translate}}" name="enityname" [(ngModel)]="AlertFormFiels.entityName" #enityname="ngModel">
+            </mat-form-field>
+            <span *ngIf="enityname.touched" class="d-block text-coral-red" [class.error-msg]="enityname.hasError('required') || enityname.hasError('maxlength') ">
+                    <span *ngIf="enityname.hasError('required')" class="mb-2 b-10 position-relative">{{ 'this field is mandatory' | translate }}</span>
+                    <span *ngIf="enityname.hasError('maxlength')" class="mb-2">{{ 'Max allowed number of characters is' }} 100</span>
+                    <span *ngIf="enityname.hasError('pattern')" class="mb-2"> {{get_pattern_error('text')}} </span>
+            </span>
+
+            <mat-form-field appearance="fill" class="mb-3">
+                <mat-label *ngIf="AlertFormFiels.entityType === 'person'" class="text-dark-black">{{'BirthPlace' | translate}}</mat-label>
+                <mat-label *ngIf="AlertFormFiels.entityType === 'organization'" class="text-dark-black">{{'CountryOfRegistration' | translate}}*</mat-label>
+                <!-- <mat-select name="birth" required [(ngModel)]="AlertFormFiels.country" #birth="ngModel">
+                    <mat-option value="option">Option</mat-option>
+                </mat-select> -->
+                <!-- <input matInput  required class="text-dark-black" autocomplete="off" placeholder="Entity Name" name="birth"
+                [(ngModel)]="AlertFormFiels.country" #birth="ngModel"> -->
+                <div class="d-flex">
+                    <span *ngIf="AlertFormFiels.jurisdiction !=='' && AlertFormFiels.selcountry  && AlertFormFiels.selcountry.jurisdictionName" class="mb-4 mar-r5 flag-icon flag-icon-squared placeholder-icon  flag-icon-{{AlertFormFiels.selcountry.jurisdictionName.toLowerCase()}}"></span>
+                <input type="text"   placeholder="{{'Search' | translate}}" [required]="AlertFormFiels.entityType === 'organization' ? true : false" matInput class="text-dark-black placeholder-transparent gotham-regular mb-3" placeholder="{{'CountryOfRegistration' | translate}}"
+                    [matAutocomplete]="birthplace" [(ngModel)]="AlertFormFiels.jurisdiction" autocomplete="off"
+                    (ngModelChange)="filterStates(AlertFormFiels.jurisdiction)" name="countryOrigin"
+                    #countryOrigin="ngModel">
+                </div>
+
+            <mat-autocomplete #birthplace="matAutocomplete" class="custom-scroll-wrapper popover" required>
+            <mat-option *ngFor="let state of filteredStates; trackBy:trackByJurisdictionOriginalName" class="text-dark-black" [value]="state.jurisdictionOriginalName" (click)="selectedCountry(state)">
+                <!-- <img class="example-option-img" aria-hidden [src]="state.jurisdictioName" > -->
+                <span class="mar-r5 flag-icon flag-icon-squared placeholder-icon  flag-icon-{{state.jurisdictionName.toLowerCase()}}"></span>
+                <span class="text-dark-black">{{state.jurisdictionOriginalName}}</span>
+            </mat-option>
+            </mat-autocomplete>
+
+            </mat-form-field>
+            <span *ngIf="countryOrigin.touched && !countryOrigin.value" class="d-block text-coral-red">
+                    <span class="mb-2 b-10 position-relative">
+                    <span *ngIf="AlertFormFiels.entityType === 'organization'">{{ 'this field is mandatory' | translate }}</span>
+                    </span>
+            </span>
+
+            <!-- <mat-form-field appearance="fill" class="mb-3">
+
+                <mat-label *ngIf="AlertFormFiels.entityType === 'Organisation'">Date Of Registration*</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker ></mat-datepicker>
+            </mat-form-field> -->
+            <mat-form-field appearance="fill" class="mb-4">
+                <mat-label *ngIf="AlertFormFiels.entityType === 'organization'"  class="text-dark-black">{{'DateOfRegistration' | translate}}</mat-label>
+                <mat-label  *ngIf="AlertFormFiels.entityType === 'person'"  class="text-dark-black">{{'BirthDate' | translate}}</mat-label>
+                <input matInput [matDatepicker]="picker" name="birth"  autocomplete="off"
+                (click)="picker.open()" (focus)="picker.open()"   class="text-dark-black gotham-regular placeholder-transparent mb-3"
+                [(ngModel)]="AlertFormFiels.date" placeholder="{{'DateOfRegistration' | translate}}"  readonly>
+                <mat-datepicker-toggle id="datePick" matSuffix [for]="picker" class="text-dark-black date-picker-align"></mat-datepicker-toggle>
+                <mat-datepicker #picker panelClass="user-datepicker" class="text-dark-black"></mat-datepicker>
+            </mat-form-field>
+
+
+            <!--  extra fields to display when entity type is person start-->
+            <mat-card *ngIf="AlertFormFiels.entityType === 'person'" class="mat-elevation-z8 card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field appearance="fill" class="mb-3 width-100">
+                            <mat-label class="text-dark-black">{{'Gender' | translate}}</mat-label>
+                            <mat-select  name="gender" class="text-dark-black" [(ngModel)]="AlertFormFiels.gender" #gender="ngModel">
+                                <mat-option value="male" class="text-dark-black">{{'male' | translate}}</mat-option>
+                                <mat-option value="female" class="text-dark-black">{{'female' | translate}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <!-- <div class="col-md-6">
+                        <mat-form-field appearance="fill" class="mb-3 width-100">
+                            <mat-label class="text-dark-black">ID</mat-label>
+                            <input matInput class="text-dark-black placeholder-transparent"   autocomplete="off"
+                                placeholder="ID" name="id" [(ngModel)]="AlertFormFiels.id" #id="ngModel">
+                        </mat-form-field>
+                    </div> -->
+                    <div class="col-md-6">
+                        <mat-form-field appearance="fill" class="mb-3 width-100">
+                            <mat-label  class="text-dark-black">{{'Nationality' | translate}}</mat-label>
+                            <mat-select name="nationality" [(ngModel)]="AlertFormFiels.nationality" #nationality="ngModel">
+                                <mat-select-trigger>
+                                    <span class="mb-4 mar-r5 flag-icon flag-icon-{{nationalityFlag}}"> </span>{{AlertFormFiels.nationality}}
+                                </mat-select-trigger>
+                                <mat-option>
+                                        <ngx-mat-select-search ngModel name="search"  (ngModelChange)="filterNationalities($event)" placeholderLabel="{{'Search' | translate}}"></ngx-mat-select-search>
+                                </mat-option>
+                                <mat-option *ngFor="let state of nationalities;trackBy:trackByJurisdictionOriginalName" class="text-dark-black" [value]="state.jurisdictionOriginalName" (click)="nationalityFlag = state.jurisdictionName.toLowerCase() ">
+                                    <span class="mar-r5 flag-icon flag-icon-squared placeholder-icon  flag-icon-{{state.jurisdictionName.toLowerCase()}}"></span>
+                                    <span class="text-dark-black">{{state.jurisdictionOriginalName}}</span>
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field appearance="fill" class="mb-3 width-100">
+                            <mat-label class="text-dark-black">{{'JobTitle' | translate}}</mat-label>
+                            <input matInput class="text-dark-black placeholder-transparent"   autocomplete="off"
+                                placeholder="{{'JobTitle' | translate}}" name="jobTitle" [(ngModel)]="AlertFormFiels.jobTitle" #jobTitle="ngModel">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field appearance="fill" class="mb-3 width-100">
+                            <mat-label class="text-dark-black">{{'Address' | translate}}</mat-label>
+                            <input class="text-dark-black placeholder-transparent"  name="address" [(ngModel)]="AlertFormFiels.address" #address="ngModel" matInput placeholder="Address">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </mat-card>
+            <!--  extra fields to display when entity type is person end -->
+
+            <!--  extra fields to display when entity type is organization start-->
+            <mat-card *ngIf="AlertFormFiels.entityType === 'organization'" class="container mat-elevation-z8 card-body">
+                <!-- <mat-form-field appearance="fill" class="mb-3 width-100">
+                    <mat-label class="text-dark-black">ID</mat-label>
+                    <input matInput class="text-dark-black placeholder-transparent"   autocomplete="off"
+                        placeholder="ID" name="id" [(ngModel)]="AlertFormFiels.id" #id="ngModel">
+                </mat-form-field> -->
+                <mat-form-field appearance="fill" class="mb-3 width-100">
+                    <mat-label class="text-dark-black">{{'Address' | translate}}</mat-label>
+                    <input class="text-dark-black placeholder-transparent" name="address" [(ngModel)]="AlertFormFiels.address" #address="ngModel" matInput placeholder="{{'Address' | translate}}">
+                </mat-form-field>
+            </mat-card>
+            <!--  extra fields to display when entity type is organization end -->
+        </div>
+        <div class="d-flex justify-content-end mt-3">
+            <button type="button" class="btn gotham-medium light-theme-btn secondary-btn btn-primary mr-3 px-4 bg-transparent" (click)="dialogRef.close()">{{'Cancel' | translate}}</button>
+            <button type="button" class="btn gotham-medium light-theme-btn primary-btn btn-primary px-4"
+            [ngClass]="{'c-ban btn-disable': (alertdemand.invalid || Watchlist.length === 0) }"
+            (click)="searchAlert(alertdemand)" [disabled]="alertdemand.invalid || Watchlist.length === 0">{{'Search' | translate}}</button>
+        </div>
+    </form>
+</div>

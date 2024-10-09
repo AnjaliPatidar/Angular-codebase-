@@ -1,0 +1,13 @@
+<section id="file-name">
+  <div class="case-title-cell">
+    <i class="material-icons-round c-pointer title-icon"
+        [style.color]="(iconDetail?.colorCode) ? iconDetail?.colorCode : ''"
+        [class.text-on-surface]="(!iconDetail?.colorCode)">
+        {{iconDetail?.icon}}
+    </i>
+    <a *ngIf="title" class="title c-pointer text-on-surface opct-87">
+        {{ title }}
+    </a>
+    <a *ngIf="!title" class="title c-pointer clr-p38">{{ title }}</a>
+  </div>
+</section>

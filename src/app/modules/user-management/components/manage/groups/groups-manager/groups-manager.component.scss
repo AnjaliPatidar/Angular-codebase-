@@ -1,0 +1,44 @@
+@import "../../../../../../../assets/theme-builder/theme_builder";
+.custom-navbar {
+  padding-left: 2.4rem;
+  .role-type {
+    margin-right: 10.3rem;
+    font-weight: 500;
+    text-transform: uppercase !important;
+    // font-family: 'Roboto Medium', sans-serif;
+    @include fontFamily($fonts) {
+      font-family: fonted(font-medium);
+    }
+    max-width: 300px;
+  }
+
+  ::ng-deep {
+    .mat-tab-links {
+      align-items: center;
+      .mat-tab-link {
+        color: $text-on-surface;
+        opacity: 0.87;
+        opacity: 1;
+        min-width: 97px;
+        line-height: 1.14;
+        // font-family: 'Roboto Medium',
+        //   sans-serif;
+        &.mat-tab-disabled {
+          opacity: 0.6;
+        }
+
+        @include fontFamily($fonts) {
+          font-family: fonted(font-medium);
+        }
+
+        &.mat-tab-label-active {
+          color: $primary-color;
+        }
+      }
+    }
+
+    .mat-ink-bar {
+      background-color: $primary-color;
+    }
+  }
+}

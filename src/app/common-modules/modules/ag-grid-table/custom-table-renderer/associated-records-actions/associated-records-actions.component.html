@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <i #caseComments class="material-icons-round bst-icon-tool-tip color-gray c-pointer comment-icon"
+    (click)="openCommentsPopup()" [matTooltip]="'Comments' | translate" matTooltipPosition="above">
+    comment
+    <div class="bst-icon-tool-tip__block tt-top-center">
+      <span class="bst-icon-tool-tip__text">{{'Comments' | translate}}</span>
+    </div>
+    </i>
+  <i [matTooltip]="'Audit History' | translate" matTooltipPosition="above" class="bst-icon-tool-tip material-icons-round color-gray c-pointer" (click)="openCaseAudit()">
+    <div class="bst-icon-tool-tip__block tt-top-center">
+      <span class="bst-icon-tool-tip__text">{{'Audit History' | translate}}</span>
+    </div>
+    restore </i>
+</div>

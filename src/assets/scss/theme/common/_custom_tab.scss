@@ -1,0 +1,80 @@
+
+/*==============================================================================
+**************************  Updated-Uib-Tab-Wrapper  *************************
+==============================================================================*/
+.custom-ngb-tabset ul.nav.nav-pills.nav-fill{
+    border-bottom: 2px solid rgba(250,250,250,.5);
+    margin: 0px 15px;
+    margin-bottom: 10px;
+  }
+  .custom-ngb-tabset ul.nav.nav-pills.nav-fill .nav-item
+  {
+    flex: unset;
+    .nav-link.active
+    {
+      color: #3eb6ff !important;
+      background-color: transparent !important;
+      border-bottom: 4px solid #3eb6ff !important; 
+    }
+  } 
+  .custom-ngb-tabset ul.nav.nav-pills.nav-fill .nav-item .nav-link{
+    padding: 15px 20px;
+    color: #fbfbfb;
+    background-color: transparent;
+    // font-family: "Roboto Regular",sans-serif;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-regular);
+      }
+    position: relative;
+    border: 0;
+    z-index: 1;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    border-radius: 0;
+    font-stretch: normal;
+    line-height: 1.38;
+    letter-spacing: -.3px;
+    text-align: center;
+    padding-bottom: 6px;
+  }
+
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+
+@media (min-width: $screen-lg) {}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {}
+
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {
+
+    /*--  Tab Wrapper Styles  --*/
+    .tab-wrapper {
+        .nav-justified {
+            li {
+                @include padding(15px 0 0 0);
+            }
+        }
+
+        /*--  Tab Content Styles  --*/
+        .tab-content {
+            .tab-pane {
+                .pane-header-wrapper {
+                    @include padding(15px);
+                }
+
+                .pane-body-wrapper {
+                    .tiles-wrapper {
+                        @include padding(15px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {}

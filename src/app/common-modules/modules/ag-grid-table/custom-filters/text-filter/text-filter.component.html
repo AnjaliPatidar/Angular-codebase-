@@ -1,0 +1,17 @@
+<input [placeholder]="placeholder" class="input-filter" [(ngModel)]="currentValue" (ngModelChange)="filterInput()" #search_input />
+<button
+  [disableRipple]="true"
+  *ngIf="search_input.value"
+  matSuffix
+  mat-icon-button
+  aria-label="Clear"
+  (click)="search_input.value = ''; onRemoveFilter()"
+  class="btn-reset-filter input-wrapper__input-close-icon material-icons-round pointer"
+>
+  <mat-icon class="bst-icon-tool-tip">
+    close
+    <div class="bst-icon-tool-tip__block tt-top-center">
+      <span class="bst-icon-tool-tip__text">{{ 'Reset Filter' | translate }}</span>
+    </div>
+  </mat-icon>
+</button>

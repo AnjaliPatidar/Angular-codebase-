@@ -1,0 +1,40 @@
+<div id="DateFilterCalendar">
+  <input
+    type="text"
+    ngxDaterangepickerMd
+    (rangeClicked)="rangeClicked($event)"
+    (click)="addDateClassToTableHeader($event)"
+    class="date-picker"
+    [locale]="languageJson"
+    (change)="choseDate($event)"
+    (keyup)="onKey($event)"
+    [alwaysShowCalendars]="isNotFutureOptions && selected"
+    [keepCalendarOpeningWithRange]="isNotFutureOptions && selected"
+    [showRangeLabelOnInput]="true"
+    [(ngModel)]="selected"
+    [ranges]="ranges"
+    [opens]="opensProperty"
+    [drops]="getDropsFuntions()"
+    [linkedCalendars]="true"
+    [showClearButton]="true"
+    [showCustomRangeLabel]="!isNotFutureOptions"
+    readonly
+    id="dateInput"
+  />
+  <button
+    [disableRipple]="true"
+    *ngIf="selected?.startDate"
+    matSuffix
+    mat-icon-button
+    aria-label="Clear"
+    (click)="onRemoveFilter()"
+    class="btn-reset-filter input-wrapper__input-close-icon material-icons-round pointer"
+  >
+    <mat-icon class="bst-icon-tool-tip">
+      close
+      <div class="bst-icon-tool-tip__block tt-top-center">
+        <span class="bst-icon-tool-tip__text">{{ 'Reset Filter' | translate }}</span>
+      </div>
+    </mat-icon>
+  </button>
+</div>

@@ -1,0 +1,45 @@
+<div class="top-panel-charts-wrapper">
+    <div class="chart-details-wrapper d-flex">
+        <div class="card custom-card sm-cards">
+            <div class="card-header border-0 mb-3">
+                <p class="f-16 lh-14 text-on-surface">{{'MyAlerts' | translate}}</p>
+            </div>
+            <div class="chart-content">
+                <div class="chart-status custom-scroll-wrapper mxw-50-percent position-absolute w-100">
+                    <ul class="list-unstyled ">
+                        <li class="f-14 text-on-surface mb-3 pb-1 d-flex align-items-center justify-content-between" *ngFor="let status of pieData; let i = index;trackBy:trackByKey">
+                            <span class="font-light mxw-80-percent data-content">
+                <i class="fa fa-{{status.statusObj.icon}}" style="font-size: 20px;margin-right: 10px;"
+                  [ngStyle]="{'color':getColor(status.statusObj.colorCode)}"></i>
+                <span class="text-dark-black"> {{status.key}}</span>
+                            </span>
+                            <span class="f-20 float-right font-medium text-dark-black">{{status.count}}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mxw-50-percent chart-container" id="myAlertPie">
+                </div>
+                <span class="data-not-found" *ngIf="pieData.length == 0">{{'DataNotFound' | translate}}</span>
+
+            </div>
+        </div>
+        <div class="card custom-card sm-cards fg-1 pb-0">
+            <div class="card-header border-0 mb-3">
+                <p class="f-16 lh-14 text-on-surface">{{'AssociatedAlerts' | translate}}</p>
+            </div>
+            <div class="" id="groupBarChart">
+            </div>
+            <span class="data-not-found" *ngIf="transactionAggregator.length == 0">{{'DataNotFound' | translate}}</span>
+        </div>
+      <div class="card custom-card sm-cards fg-1 pb-0">
+        <div class="card-header border-0 mb-3">
+          <p class="f-16 lh-14 text-on-surface">{{'AgingOverview' | translate}}</p>
+        </div>
+        <div class="" id="heatMapChart"  [ngClass]="(NoDataFound.heatMapDataNotFound)?'invisible':''"></div>
+        <span class="data-not-found" *ngIf="NoDataFound.heatMapDataNotFound">{{'DataNotFound' | translate}}</span>
+        <div class="no-data text-white" *ngIf="loader.heatMapLoader">
+          <i class="fa fa-spinner txt-on-surface-06 fa-pulse f-22"></i>
+        </div>
+      </div>
+    </div>
+</div>

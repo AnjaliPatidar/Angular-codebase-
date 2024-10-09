@@ -1,0 +1,75 @@
+.bst-notification {
+    min-height   : 28px;
+    padding      : 16px;
+    border-radius: 4px;
+
+    &--info {
+        background-color: $color-info-10;
+    }
+
+    &--success {
+        background-color: $color-success-10;
+    }
+
+    &--warning {
+        background-color: $color-warning-10;
+    }
+
+    &--error {
+        background-color: $color-error-10;
+    }
+
+    &__inner {
+        display   : flex;
+        min-height: 36px;
+        position  : relative;
+
+        .bst-info-icon {
+            color: $primary-color !important;
+        }
+
+        .bst-success-icon {
+            color: $color-green-20 !important;
+        }
+
+        .bst-warning-icon {
+            color: $color-warning !important;
+        }
+
+        .bst-error-icon {
+            color: $color-red-10 !important;
+        }
+
+        .bst-mat-icon {
+
+            &__icon-type {
+                margin-right: 16px;
+                margin-top  : 1px;
+                padding-top : 5px !important;
+            }
+
+            &__close {
+                padding-left: 16px;
+                margin-top  : 2px;
+                padding-top : 5px !important;
+                right       : 0;
+                position    : absolute;
+            }
+        }
+
+        .message {
+            margin-right: 16px;
+            padding-top : 5px !important;
+            word-break  : break-all;
+        }
+
+        .bst-mat-btn {
+            color: $color-white !important;
+        }
+    }
+}
+
+.bst-mat-expansion-panel {
+    background: $surface;
+    border    : 1px solid $color-white-12;
+}

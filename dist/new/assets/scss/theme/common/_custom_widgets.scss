@@ -1,0 +1,241 @@
+/*==============================================================================
+*********************  Custom Widgets Styles For The Site  *********************
+==============================================================================*/
+
+
+/*--  Gridster Styles  --*/
+
+.gridster {
+    ul {
+        li {
+            overflow: hidden;
+            &.gridster-item {
+                background-color: $cello1;
+                color: $westar;
+                &:hover,
+                &:focus {
+                    border: 0;
+                }
+            }
+        }
+    }
+}
+
+
+/*--  Widget Header Styles  --*/
+
+.widget-header {
+    @include size(100%, 30px);
+    @include padding(8px 10px 8px 28px);
+    background-color: $dark-grey1;
+    color: $dark-grey8;
+    // font-family: $roboto-bold;
+    @include fontFamily($fonts) {
+        font-family: fonted(font-bold);
+      }
+    line-height: ($line-height-computed * .7);
+    cursor: move;
+    position: relative;
+    border-bottom: 1px solid $fiord1;
+    .icon-widget {
+        @include translateY(-50%);
+        position: absolute;
+        left: 10px;
+        top: 50%;
+    }
+    .dropdown-toggle {
+        @extend .text-center;
+        @include padding(6px 15px);
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 9;
+        .ellipsis {
+            font-size: $font-size-large;
+            color: $light-grey1;
+        }
+    }
+    .filter-menu {
+        @include margin(0);
+        @include padding(0);
+        @include border-radius(0);
+        background-color: $tangaroa;
+        cursor: pointer;
+        position: absolute;
+        top: 30px;
+        right: 0;
+        left: auto;
+        min-width: auto;
+        border: 0;
+        li {
+            display: inline-block;
+            a {
+                @include padding(3px 8px);
+                @include margin(0);
+                color: #337ab7;
+                font-size: ($font-size-base - 1);
+                border-right: 1px solid $black;
+                &:hover,
+                &:focus {
+                    background-color: transparent;
+                    color: $white;
+                }
+            }
+            &:last-child {
+                a {
+                    border-right: 0;
+                }
+            }
+        }
+    }
+}
+
+
+/*--  Widget Content Styles  --*/
+
+.widget-content {
+    color: $white;
+    font-size: $font-size-small;
+    height: 90%;
+    position: relative;
+    overflow: hidden;
+    &:hover {
+        color: $white;
+    }
+    &.widget-top-location {
+        height: 100%;
+    }
+    h4 {
+        color: $pumpkin;
+    }
+    h4 {
+        color: $lochmara;
+    }
+    .custom-media-object {
+        width: 130px;
+        .avatar {
+            @extend .text-center;
+            @include square(35px);
+            @include margin(0 auto);
+            @include padding(5px);
+            @include border-radius(50%);
+            display: inline-block;
+            vertical-align: middle;
+            border: 4px solid $dark-grey3;
+            .img-avatar {
+                @include border-radius(50%);
+                display: inline-block;
+                vertical-align: middle;
+                min-height: 18px;
+                i {
+                    vertical-align: middle;
+                    line-height: 30px;
+                }
+            }
+        }
+        p {
+            @extend .text-left;
+            @include margin(0);
+            @include padding(0 0 0 10px);
+            color: $westar;
+            // font-family: $roboto-medium;
+            @include fontFamily($fonts) {
+                font-family: fonted(font-medium);
+              }
+            line-height: ($font-size-base - 4);
+            font-size: ($font-size-base - 4);
+            vertical-align: middle;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            display: inline-block;
+            width: 80px;
+        }
+    }
+    .icon-eye {
+        color: $fiord;
+        font-size: ($font-size-base + 2);
+    }
+    /*--  Scroll Tools Styles  --*/
+    .mCSB_scrollTools {
+        .mCSB_dragger {
+            z-index: 999;
+        }
+    }
+    .no-data {
+        @extend .text-uppercase;
+        @include padding(15px);
+        @include center-position();
+        color: $light-red;
+    }
+    .table-responsive {
+        overflow-x: hidden;
+    }
+}
+
+.gridster-loaded {
+    .gridster-item {
+        .dataTables_filter {
+            label {
+                color: $bali-hai10;
+                font-weight: normal;
+            }
+        }
+    }
+}
+
+.custom-widget-content {
+    height: 100%;
+    overflow: hidden !important;
+}
+
+.custom-enrich-add {
+    display: block;
+    position: relative;
+    .fa-plus-circle {
+        @include translateY(-50%);
+        position: absolute;
+        right: 0;
+        top: 50%;
+    }
+}
+
+
+/*--  Custom Widget Styles  --*/
+
+.custom-widget { 
+    @include margin(0 0 15px);
+    .widget-header {
+        background-color: #3e545e;
+        color: #a2b5be;
+        padding: 11px 15px;
+        min-height: 38px;
+        text-transform: uppercase;
+        cursor: default;
+        .custom-table-filter-wrapper {
+            @include margin(-11px 0 0 0);
+        }
+    }
+    .widget-content {
+        @include padding(15px);
+        background-color: #2e434d;
+        height: auto;
+        max-height: 100%;
+        overflow: visible;
+    }
+}
+
+
+/*==============================================================================
+**************************  Media Styles For The Site  *************************
+==============================================================================*/
+
+@media (min-width:$screen-lg) {}
+
+@media (min-width: $screen-md) and (max-width: $screen-md-max) {}
+
+@media (min-width: $screen-sm) and (max-width: $screen-sm-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs-max) {}
+
+@media (min-width: $screen-xxs) and (max-width: $screen-xs) {}
